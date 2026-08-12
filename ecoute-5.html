@@ -111,6 +111,69 @@
 
 
     /* =====================================================
+       TEST DES VOIX
+       ===================================================== */
+
+    .voice-test-card {
+      padding: 20px;
+
+      margin-bottom: 20px;
+
+      background: var(--white);
+
+      border-radius: var(--radius-large);
+
+      box-shadow: var(--shadow);
+
+      border-left: 5px solid var(--gold);
+    }
+
+
+    .voice-test-card h2 {
+      margin-top: 0;
+    }
+
+
+    .voice-test-grid {
+      display: grid;
+
+      grid-template-columns: 1fr;
+
+      gap: 10px;
+
+      margin-top: 15px;
+    }
+
+
+    .voice-test-button {
+      width: 100%;
+
+      background: var(--soft-beige);
+
+      color: var(--navy);
+
+      font-weight: bold;
+    }
+
+
+    .voice-info {
+      padding: 13px;
+
+      margin-top: 15px;
+
+      background: #FBFAF6;
+
+      border-radius: var(--radius-medium);
+
+      color: var(--text-light);
+
+      font-size: 13px;
+
+      line-height: 1.7;
+    }
+
+
+    /* =====================================================
        CARTES D'ÉCOUTE
        ===================================================== */
 
@@ -380,6 +443,70 @@
     </p>
 
   </header>
+
+
+
+  <!-- =====================================================
+       TEST TEMPORAIRE DES VOIX
+       ===================================================== -->
+
+  <section class="voice-test-card">
+
+    <h2>
+      🧪 Test des voix sur iPhone
+    </h2>
+
+
+    <p>
+      Ce bloc est temporaire.
+
+      <br><br>
+
+      Il va nous permettre de vérifier
+      si Hana, Min-su et Ji-eun ont bien
+      des voix suffisamment différentes sur ton iPhone.
+    </p>
+
+
+    <div class="voice-test-grid">
+
+      <button
+        class="voice-test-button"
+        type="button"
+        onclick="testCharacterVoice('hana')"
+      >
+        🌸 Tester Hana
+      </button>
+
+
+      <button
+        class="voice-test-button"
+        type="button"
+        onclick="testCharacterVoice('minsu')"
+      >
+        💙 Tester Min-su
+      </button>
+
+
+      <button
+        class="voice-test-button"
+        type="button"
+        onclick="testCharacterVoice('jieun')"
+      >
+        💚 Tester Ji-eun
+      </button>
+
+    </div>
+
+
+    <div
+      class="voice-info"
+      id="voiceInfo"
+    >
+      Recherche des voix coréennes disponibles…
+    </div>
+
+  </section>
 
 
 
@@ -1201,21 +1328,366 @@
 <script>
 
   /* =====================================================
-     TROUVER UNE VOIX CORÉENNE
+     PARAMÈTRES AUDIO
      ===================================================== */
 
-  function getKoreanVoice() {
+  const AUDIO_SETTINGS = {
 
-    const voices =
+    normalRate: 0.82,
+
+    slowRate: 0.40
+
+  };
+
+
+
+  /* =====================================================
+     VOIX DISPONIBLES
+     ===================================================== */
+
+  let koreanVoices =
+    [];
+
+
+  function loadKoreanVoices() {
+
+    if (
+      !("speechSynthesis" in window)
+    ) {
+      return;
+    }
+
+
+    const allVoices =
       window.speechSynthesis.getVoices();
 
 
-    return voices.find(
-      voice =>
-        voice.lang &&
-        voice.lang
-          .toLowerCase()
-          .startsWith("ko")
+    koreanVoices =
+      allVoices.filter(
+        voice =>
+          voice.lang &&
+          voice.lang
+            .toLowerCase()
+            .startsWith("ko")
+      );
+
+
+    updateVoiceInfo();
+
+  }
+
+
+
+  /* =====================================================
+     INFORMATIONS DE TEST
+     ===================================================== */
+
+  function updateVoiceInfo() {
+
+    const info =
+      document.getElementById(
+        "voiceInfo"
+      );
+
+
+    if (!info) {
+      return;
+    }
+
+
+    if (
+      koreanVoices.length === 0
+    ) {
+
+      info.innerHTML =
+        "Aucune voix coréenne distincte n'est encore remontée par le navigateur. " +
+        "Le système peut néanmoins utiliser sa voix coréenne par défaut.";
+
+      return;
+
+    }
+
+
+    let html =
+      "<strong>Voix coréennes détectées : " +
+      koreanVoices.length +
+      "</strong><br><br>";
+
+
+    koreanVoices.forEach(
+      (voice, index) => {
+
+        html +=
+          (index + 1) +
+          ". " +
+          voice.name +
+          " — " +
+          voice.lang +
+          "<br>";
+
+      }
+    );
+
+
+    info.innerHTML =
+      html;
+
+  }
+
+
+
+  /* =====================================================
+     CHOISIR UNE VOIX SELON LE PERSONNAGE
+     ===================================================== */
+
+  function getCharacterVoice(
+    character
+  ) {
+
+    if (
+      koreanVoices.length === 0
+    ) {
+
+      loadKoreanVoices();
+
+    }
+
+
+    if (
+      koreanVoices.length === 0
+    ) {
+
+      return null;
+
+    }
+
+
+
+    /* HANA */
+
+    if (
+      character === "hana"
+    ) {
+
+      return koreanVoices[0];
+
+    }
+
+
+
+    /* MIN-SU */
+
+    if (
+      character === "minsu"
+    ) {
+
+      if (
+        koreanVoices.length >= 2
+      ) {
+
+        return koreanVoices[1];
+
+      }
+
+
+      return koreanVoices[0];
+
+    }
+
+
+
+    /* JI-EUN */
+
+    if (
+      character === "jieun"
+    ) {
+
+      if (
+        koreanVoices.length >= 3
+      ) {
+
+        return koreanVoices[2];
+
+      }
+
+
+      if (
+        koreanVoices.length >= 2
+      ) {
+
+        return koreanVoices[0];
+
+      }
+
+
+      return koreanVoices[0];
+
+    }
+
+
+    return koreanVoices[0];
+
+  }
+
+
+
+  /* =====================================================
+     PARAMÈTRES SELON LE PERSONNAGE
+     ===================================================== */
+
+  function getCharacterSettings(
+    character,
+    slow = false
+  ) {
+
+    const baseRate =
+      slow
+        ? AUDIO_SETTINGS.slowRate
+        : AUDIO_SETTINGS.normalRate;
+
+
+
+    /* HANA */
+
+    if (
+      character === "hana"
+    ) {
+
+      return {
+
+        rate:
+          baseRate,
+
+        pitch:
+          1.08
+
+      };
+
+    }
+
+
+
+    /* MIN-SU */
+
+    if (
+      character === "minsu"
+    ) {
+
+      return {
+
+        rate:
+          slow
+            ? baseRate
+            : 0.78,
+
+        pitch:
+          0.82
+
+      };
+
+    }
+
+
+
+    /* JI-EUN */
+
+    if (
+      character === "jieun"
+    ) {
+
+      return {
+
+        rate:
+          slow
+            ? baseRate
+            : 0.86,
+
+        pitch:
+          1.18
+
+      };
+
+    }
+
+
+
+    /* VOIX NEUTRE */
+
+    return {
+
+      rate:
+        baseRate,
+
+      pitch:
+        1
+
+    };
+
+  }
+
+
+
+  /* =====================================================
+     SYNTHÈSE VOCALE GÉNÉRALE
+     ===================================================== */
+
+  function speakWithCharacter(
+    text,
+    character = "hana",
+    slow = false
+  ) {
+
+    if (
+      !("speechSynthesis" in window)
+    ) {
+      return;
+    }
+
+
+    window.speechSynthesis.cancel();
+
+
+    const speech =
+      new SpeechSynthesisUtterance(
+        text
+      );
+
+
+    speech.lang =
+      "ko-KR";
+
+
+    const settings =
+      getCharacterSettings(
+        character,
+        slow
+      );
+
+
+    speech.rate =
+      settings.rate;
+
+
+    speech.pitch =
+      settings.pitch;
+
+
+    const voice =
+      getCharacterVoice(
+        character
+      );
+
+
+    if (voice) {
+
+      speech.voice =
+        voice;
+
+    }
+
+
+    window.speechSynthesis.speak(
+      speech
     );
 
   }
@@ -1223,53 +1695,15 @@
 
 
   /* =====================================================
-     AUDIO NORMAL
+     AUDIO NORMAL DES EXERCICES
      ===================================================== */
 
   function speakKorean(text) {
 
-    if (
-      !("speechSynthesis" in window)
-    ) {
-      return;
-    }
-
-
-    window.speechSynthesis.cancel();
-
-
-    const speech =
-      new SpeechSynthesisUtterance(
-        text
-      );
-
-
-    speech.lang =
-      "ko-KR";
-
-
-    speech.rate =
-      0.84;
-
-
-    speech.pitch =
-      1;
-
-
-    const voice =
-      getKoreanVoice();
-
-
-    if (voice) {
-
-      speech.voice =
-        voice;
-
-    }
-
-
-    window.speechSynthesis.speak(
-      speech
+    speakWithCharacter(
+      text,
+      "hana",
+      false
     );
 
   }
@@ -1277,53 +1711,15 @@
 
 
   /* =====================================================
-     AUDIO LENT
+     AUDIO LENT DES EXERCICES
      ===================================================== */
 
   function speakKoreanSlow(text) {
 
-    if (
-      !("speechSynthesis" in window)
-    ) {
-      return;
-    }
-
-
-    window.speechSynthesis.cancel();
-
-
-    const speech =
-      new SpeechSynthesisUtterance(
-        text
-      );
-
-
-    speech.lang =
-      "ko-KR";
-
-
-    speech.rate =
-      0.58;
-
-
-    speech.pitch =
-      1;
-
-
-    const voice =
-      getKoreanVoice();
-
-
-    if (voice) {
-
-      speech.voice =
-        voice;
-
-    }
-
-
-    window.speechSynthesis.speak(
-      speech
+    speakWithCharacter(
+      text,
+      "hana",
+      true
     );
 
   }
@@ -1331,12 +1727,91 @@
 
 
   /* =====================================================
-     LIRE UNE PHRASE ET ATTENDRE
+     TEST DES TROIS PERSONNAGES
      ===================================================== */
 
-  function speakAndWait(
+  function testCharacterVoice(
+    character
+  ) {
+
+    if (
+      character === "hana"
+    ) {
+
+      speakWithCharacter(
+        "안녕하세요. 저는 하나예요.",
+        "hana",
+        false
+      );
+
+
+      return;
+
+    }
+
+
+    if (
+      character === "minsu"
+    ) {
+
+      speakWithCharacter(
+        "안녕하세요. 저는 민수예요.",
+        "minsu",
+        false
+      );
+
+
+      return;
+
+    }
+
+
+    if (
+      character === "jieun"
+    ) {
+
+      speakWithCharacter(
+        "안녕하세요. 저는 지은이에요.",
+        "jieun",
+        false
+      );
+
+    }
+
+  }
+
+
+
+  /* =====================================================
+     PETITE PAUSE
+     ===================================================== */
+
+  function pauseBetweenLines(
+    milliseconds
+  ) {
+
+    return new Promise(
+      resolve => {
+
+        setTimeout(
+          resolve,
+          milliseconds
+        );
+
+      }
+    );
+
+  }
+
+
+
+  /* =====================================================
+     LIRE UNE PHRASE AVEC PERSONNAGE
+     ===================================================== */
+
+  function speakCharacterAndWait(
     text,
-    rate = 0.82
+    character
   ) {
 
     return new Promise(
@@ -1363,16 +1838,25 @@
           "ko-KR";
 
 
+        const settings =
+          getCharacterSettings(
+            character,
+            false
+          );
+
+
         speech.rate =
-          rate;
+          settings.rate;
 
 
         speech.pitch =
-          1;
+          settings.pitch;
 
 
         const voice =
-          getKoreanVoice();
+          getCharacterVoice(
+            character
+          );
 
 
         if (voice) {
@@ -1393,29 +1877,6 @@
 
         window.speechSynthesis.speak(
           speech
-        );
-
-      }
-    );
-
-  }
-
-
-
-  /* =====================================================
-     PETITE PAUSE
-     ===================================================== */
-
-  function pauseBetweenLines(
-    milliseconds
-  ) {
-
-    return new Promise(
-      resolve => {
-
-        setTimeout(
-          resolve,
-          milliseconds
         );
 
       }
@@ -1454,13 +1915,14 @@
       const question of questions
     ) {
 
-      await speakAndWait(
-        question
+      await speakCharacterAndWait(
+        question,
+        "hana"
       );
 
 
       await pauseBetweenLines(
-        600
+        650
       );
 
     }
@@ -1485,18 +1947,20 @@
     window.speechSynthesis.cancel();
 
 
-    await speakAndWait(
-      "커피예요."
+    await speakCharacterAndWait(
+      "커피예요.",
+      "hana"
     );
 
 
     await pauseBetweenLines(
-      800
+      900
     );
 
 
-    await speakAndWait(
-      "커피예요?"
+    await speakCharacterAndWait(
+      "커피예요?",
+      "hana"
     );
 
   }
@@ -1504,7 +1968,7 @@
 
 
   /* =====================================================
-     DIALOGUE COMPLET
+     DIALOGUE COMPLET AVEC PERSONNAGES
      ===================================================== */
 
   async function playMainDialogue() {
@@ -1521,40 +1985,111 @@
 
     const dialogue = [
 
-      "민수 씨, 뭐예요?",
+      {
+        character:
+          "hana",
 
-      "커피예요.",
+        text:
+          "민수 씨, 뭐예요?"
+      },
 
-      "커피를 좋아해요?",
 
-      "네, 정말 좋아해요.",
+      {
+        character:
+          "minsu",
 
-      "안녕하세요!",
+        text:
+          "커피예요."
+      },
 
-      "지은 씨, 안녕하세요!",
 
-      "하나 씨, 지금 어디에 가요?",
+      {
+        character:
+          "hana",
 
-      "호텔에 가요.",
+        text:
+          "커피를 좋아해요?"
+      },
 
-      "민수 씨는 어디에 가요?",
 
-      "저는 집에 가요."
+      {
+        character:
+          "minsu",
+
+        text:
+          "네, 정말 좋아해요."
+      },
+
+
+      {
+        character:
+          "jieun",
+
+        text:
+          "안녕하세요!"
+      },
+
+
+      {
+        character:
+          "hana",
+
+        text:
+          "지은 씨, 안녕하세요!"
+      },
+
+
+      {
+        character:
+          "minsu",
+
+        text:
+          "하나 씨, 지금 어디에 가요?"
+      },
+
+
+      {
+        character:
+          "hana",
+
+        text:
+          "호텔에 가요."
+      },
+
+
+      {
+        character:
+          "hana",
+
+        text:
+          "민수 씨는 어디에 가요?"
+      },
+
+
+      {
+        character:
+          "minsu",
+
+        text:
+          "저는 집에 가요."
+      }
 
     ];
+
 
 
     for (
       const line of dialogue
     ) {
 
-      await speakAndWait(
-        line
+      await speakCharacterAndWait(
+        line.text,
+        line.character
       );
 
 
       await pauseBetweenLines(
-        380
+        450
       );
 
     }
@@ -1567,6 +2102,9 @@
      CHARGEMENT DES VOIX
      ===================================================== */
 
+  loadKoreanVoices();
+
+
   if (
     "speechSynthesis" in window
   ) {
@@ -1574,11 +2112,28 @@
     window.speechSynthesis.onvoiceschanged =
       function() {
 
-        window.speechSynthesis.getVoices();
+        loadKoreanVoices();
 
       };
 
   }
+
+
+
+  /* =====================================================
+     DEUXIÈME TENTATIVE APRÈS CHARGEMENT IOS
+     ===================================================== */
+
+  setTimeout(
+    loadKoreanVoices,
+    700
+  );
+
+
+  setTimeout(
+    loadKoreanVoices,
+    1800
+  );
 
 </script>
 
