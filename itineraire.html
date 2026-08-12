@@ -1,0 +1,1429 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="theme-color"
+    content="#F7F4ED"
+  >
+
+  <title>Mon itinéraire — Le coréen de Hana</title>
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
+
+  <style>
+
+    /* =====================================================
+       EN-TÊTE
+       ===================================================== */
+
+    .route-header {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+
+    .route-header h1 {
+      margin-bottom: 8px;
+    }
+
+
+    /* =====================================================
+       PROGRESSION
+       ===================================================== */
+
+    .progress-card {
+      padding: 20px;
+      margin-bottom: 25px;
+    }
+
+
+    .progress-top {
+      display: flex;
+      justify-content: space-between;
+
+      gap: 15px;
+
+      margin-bottom: 10px;
+
+      color: var(--text-light);
+
+      font-size: 14px;
+    }
+
+
+    .progress-bar {
+      width: 100%;
+      height: 10px;
+
+      background: var(--soft-beige);
+
+      border-radius: 20px;
+
+      overflow: hidden;
+    }
+
+
+    .progress-fill {
+      width: 0%;
+      height: 100%;
+
+      background: var(--jade);
+
+      border-radius: 20px;
+
+      transition: width 0.4s ease;
+    }
+
+
+    .progress-text {
+      margin-top: 10px;
+
+      color: var(--text-light);
+
+      font-size: 13px;
+
+      text-align: center;
+    }
+
+
+    /* =====================================================
+       MODULE
+       ===================================================== */
+
+    .module {
+      padding: 20px;
+      margin-bottom: 25px;
+    }
+
+
+    .module-header {
+      margin-bottom: 18px;
+    }
+
+
+    .module-number {
+      margin-bottom: 4px;
+
+      color: var(--jade-dark);
+
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+
+    .module-title {
+      margin: 0;
+
+      color: var(--navy);
+
+      font-size: 22px;
+    }
+
+
+    .module-description {
+      margin-top: 6px;
+
+      color: var(--text-light);
+
+      font-size: 14px;
+
+      line-height: 1.6;
+    }
+
+
+    /* =====================================================
+       LISTE DES CHAPITRES
+       ===================================================== */
+
+    .chapter-list {
+      display: flex;
+      flex-direction: column;
+
+      gap: 11px;
+    }
+
+
+    .chapter {
+      position: relative;
+
+      display: flex;
+      align-items: center;
+
+      gap: 13px;
+
+      min-height: 76px;
+
+      padding: 14px;
+
+      background: #FBFAF6;
+
+      border-radius: var(--radius-medium);
+
+      text-decoration: none;
+
+      transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+
+    /* =====================================================
+       DISPONIBLE
+       ===================================================== */
+
+    .chapter.unlocked {
+      cursor: pointer;
+    }
+
+
+    .chapter.unlocked:hover {
+      background: var(--soft-green);
+
+      transform: translateY(-1px);
+
+      box-shadow: var(--shadow-hover);
+    }
+
+
+    /* =====================================================
+       VERROUILLÉ
+       ===================================================== */
+
+    .chapter.locked {
+      opacity: 0.55;
+
+      cursor: not-allowed;
+    }
+
+
+    /* =====================================================
+       TERMINÉ
+       ===================================================== */
+
+    .chapter.completed {
+      background: var(--success-light);
+
+      border: 1px solid rgba(95, 146, 112, 0.20);
+    }
+
+
+    /* =====================================================
+       NUMÉRO
+       ===================================================== */
+
+    .chapter-number {
+      width: 42px;
+      height: 42px;
+
+      flex-shrink: 0;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background: var(--soft-beige);
+
+      border-radius: 50%;
+
+      color: var(--navy);
+
+      font-weight: bold;
+    }
+
+
+    .chapter.completed .chapter-number {
+      background: var(--success-light);
+
+      color: var(--success);
+    }
+
+
+    .chapter.unlocked:not(.completed) .chapter-number {
+      background: var(--soft-green);
+
+      color: var(--jade-dark);
+    }
+
+
+    /* =====================================================
+       TEXTE
+       ===================================================== */
+
+    .chapter-content {
+      flex: 1;
+    }
+
+
+    .chapter-title {
+      color: var(--navy);
+
+      font-weight: bold;
+    }
+
+
+    .chapter-status {
+      margin-top: 4px;
+
+      color: var(--text-light);
+
+      font-size: 12px;
+    }
+
+
+    .chapter.completed .chapter-status {
+      color: var(--success);
+
+      font-weight: 600;
+    }
+
+
+    .chapter.available .chapter-status {
+      color: var(--jade-dark);
+
+      font-weight: 600;
+    }
+
+
+    /* =====================================================
+       ICÔNES
+       ===================================================== */
+
+    .chapter-arrow {
+      flex-shrink: 0;
+
+      color: var(--jade-dark);
+
+      font-size: 19px;
+      font-weight: bold;
+    }
+
+
+    .lock-icon {
+      flex-shrink: 0;
+
+      font-size: 17px;
+    }
+
+
+    /* =====================================================
+       MODULE 2
+       ===================================================== */
+
+    .locked-module {
+      opacity: 0.6;
+    }
+
+
+    .locked-module-message {
+      padding: 15px;
+
+      background: var(--soft-beige);
+
+      border-radius: var(--radius-medium);
+
+      color: var(--text-light);
+
+      text-align: center;
+
+      line-height: 1.6;
+    }
+
+
+    /* =====================================================
+       MOBILE
+       ===================================================== */
+
+    @media (max-width: 480px) {
+
+      .chapter {
+        min-height: 72px;
+      }
+
+
+      .chapter-number {
+        width: 39px;
+        height: 39px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+<main class="app">
+
+
+  <!-- =====================================================
+       RETOUR
+       ===================================================== -->
+
+  <a
+    class="back-link"
+    href="index.html"
+  >
+    ← Accueil
+  </a>
+
+
+
+  <!-- =====================================================
+       EN-TÊTE
+       ===================================================== -->
+
+  <header class="route-header">
+
+    <p class="korean">
+      나의 여행 🌿
+    </p>
+
+
+    <h1>
+      Ton itinéraire vers le coréen
+    </h1>
+
+
+    <p>
+      Avance chapitre après chapitre et utilise progressivement
+      le coréen dans des situations réelles.
+    </p>
+
+  </header>
+
+
+
+  <!-- =====================================================
+       PROGRESSION DU MODULE
+       ===================================================== -->
+
+  <section class="progress-card">
+
+    <div class="progress-top">
+
+      <span>
+        Module 1 · Premiers pas
+      </span>
+
+
+      <strong id="progressText">
+        0 / 10
+      </strong>
+
+    </div>
+
+
+    <div class="progress-bar">
+
+      <div
+        class="progress-fill"
+        id="courseProgress"
+      ></div>
+
+    </div>
+
+
+    <div
+      class="progress-text"
+      id="percentageText"
+    >
+      0 % du module terminé
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       MODULE 1
+       ===================================================== -->
+
+  <section class="module">
+
+    <div class="module-header">
+
+      <div class="module-number">
+        MODULE 1
+      </div>
+
+
+      <h2 class="module-title">
+        Premiers pas 🌱
+      </h2>
+
+
+      <p class="module-description">
+        Les bases pour commencer à comprendre et utiliser
+        tes premières phrases en coréen.
+      </p>
+
+    </div>
+
+
+
+    <div class="chapter-list">
+
+
+      <!-- =================================================
+           CHAPITRE 1
+           ================================================= -->
+
+      <a
+        class="chapter unlocked"
+        id="chapter1Card"
+        href="chapitre-1.html"
+      >
+
+        <div class="chapter-number">
+          1
+        </div>
+
+
+        <div class="chapter-content">
+
+          <div class="chapter-title">
+            👋 Bonjour !
+          </div>
+
+
+          <div
+            class="chapter-status"
+            id="chapter1Status"
+          >
+            En cours
+          </div>
+
+        </div>
+
+
+        <div class="chapter-arrow">
+          →
+        </div>
+
+      </a>
+
+
+
+      <!-- =================================================
+           CHAPITRE 2
+           ================================================= -->
+
+      <div
+        class="chapter locked"
+        id="chapter2Card"
+      >
+
+        <div class="chapter-number">
+          2
+        </div>
+
+
+        <div class="chapter-content">
+
+          <div class="chapter-title">
+            😊 Se présenter
+          </div>
+
+
+          <div
+            class="chapter-status"
+            id="chapter2Status"
+          >
+            Termine le chapitre 1
+          </div>
+
+        </div>
+
+
+        <div
+          class="lock-icon"
+          id="chapter2Icon"
+        >
+          🔒
+        </div>
+
+      </div>
+
+
+
+      <!-- =================================================
+           CHAPITRE 3
+           ================================================= -->
+
+      <div
+        class="chapter locked"
+        id="chapter3Card"
+      >
+
+        <div class="chapter-number">
+          3
+        </div>
+
+
+        <div class="chapter-content">
+
+          <div class="chapter-title">
+            📍 Où suis-je ?
+          </div>
+
+
+          <div
+            class="chapter-status"
+            id="chapter3Status"
+          >
+            Termine le chapitre 2
+          </div>
+
+        </div>
+
+
+        <div
+          class="lock-icon"
+          id="chapter3Icon"
+        >
+          🔒
+        </div>
+
+      </div>
+
+
+
+      <!-- =================================================
+           CHAPITRE 4
+           ================================================= -->
+
+      <div
+        class="chapter locked"
+        id="chapter4Card"
+      >
+
+        <div class="chapter-number">
+          4
+        </div>
+
+
+        <div class="chapter-content">
+
+          <div class="chapter-title">
+            🍓 J'aime…
+          </div>
+
+
+          <div
+            class="chapter-status"
+            id="chapter4Status"
+          >
+            Termine le chapitre 3
+          </div>
+
+        </div>
+
+
+        <div
+          class="lock-icon"
+          id="chapter4Icon"
+        >
+          🔒
+        </div>
+
+      </div>
+
+
+
+      <!-- =================================================
+           CHAPITRE 5
+           ================================================= -->
+
+      <div
+        class="chapter locked"
+        id="chapter5Card"
+      >
+
+        <div class="chapter-number">
+          5
+        </div>
+
+
+        <div class="chapter-content">
+
+          <div class="chapter-title">
+            ❓ Poser des questions
+          </div>
+
+
+          <div
+            class="chapter-status"
+            id="chapter5Status"
+          >
+            Termine le chapitre 4
+          </div>
+
+        </div>
+
+
+        <div
+          class="lock-icon"
+          id="chapter5Icon"
+        >
+          🔒
+        </div>
+
+      </div>
+
+
+
+      <!-- =================================================
+           CHAPITRE 6
+           ================================================= -->
+
+      <div
+        class="chapter locked"
+        id="chapter6Card"
+      >
+
+        <div class="chapter-number">
+          6
+        </div>
+
+
+        <div class="chapter-content">
+
+          <div class="chapter-title">
+            👨‍👩‍👧 Ma famille
+          </div>
+
+
+          <div
+            class="chapter-status"
+            id="chapter6Status"
+          >
+            Termine le chapitre 5
+          </div>
+
+        </div>
+
+
+        <div
+          class="lock-icon"
+          id="chapter6Icon"
+        >
+          🔒
+        </div>
+
+      </div>
+
+
+
+      <!-- =================================================
+           CHAPITRE 7
+           ================================================= -->
+
+      <div class="chapter locked">
+
+        <div class="chapter-number">
+          7
+        </div>
+
+
+        <div class="chapter-content">
+
+          <div class="chapter-title">
+            ☀️ Ma journée
+          </div>
+
+
+          <div class="chapter-status">
+            Verrouillé
+          </div>
+
+        </div>
+
+
+        <div class="lock-icon">
+          🔒
+        </div>
+
+      </div>
+
+
+
+      <!-- =================================================
+           CHAPITRE 8
+           ================================================= -->
+
+      <div class="chapter locked">
+
+        <div class="chapter-number">
+          8
+        </div>
+
+
+        <div class="chapter-content">
+
+          <div class="chapter-title">
+            🕒 Quelle heure est-il ?
+          </div>
+
+
+          <div class="chapter-status">
+            Verrouillé
+          </div>
+
+        </div>
+
+
+        <div class="lock-icon">
+          🔒
+        </div>
+
+      </div>
+
+
+
+      <!-- =================================================
+           CHAPITRE 9
+           ================================================= -->
+
+      <div class="chapter locked">
+
+        <div class="chapter-number">
+          9
+        </div>
+
+
+        <div class="chapter-content">
+
+          <div class="chapter-title">
+            🚇 Se déplacer
+          </div>
+
+
+          <div class="chapter-status">
+            Verrouillé
+          </div>
+
+        </div>
+
+
+        <div class="lock-icon">
+          🔒
+        </div>
+
+      </div>
+
+
+
+      <!-- =================================================
+           CHAPITRE 10
+           ================================================= -->
+
+      <div class="chapter locked">
+
+        <div class="chapter-number">
+          10
+        </div>
+
+
+        <div class="chapter-content">
+
+          <div class="chapter-title">
+            🍜 Au restaurant
+          </div>
+
+
+          <div class="chapter-status">
+            Verrouillé
+          </div>
+
+        </div>
+
+
+        <div class="lock-icon">
+          🔒
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       MODULE 2
+       ===================================================== -->
+
+  <section class="module locked-module">
+
+    <div class="module-header">
+
+      <div class="module-number">
+        MODULE 2
+      </div>
+
+
+      <h2 class="module-title">
+        La vie quotidienne ☕
+      </h2>
+
+    </div>
+
+
+    <div class="locked-module-message">
+
+      🔒 Termine le module 1 pour poursuivre ton voyage.
+
+    </div>
+
+  </section>
+
+
+</main>
+
+
+
+<script>
+
+  /* =====================================================
+     ÉTAPES DU CHAPITRE 1
+     ===================================================== */
+
+  const chapter1Steps = [
+
+    "hanaKorean_chapter1_understanding",
+    "hanaKorean_chapter1_listening",
+    "hanaKorean_chapter1_speaking",
+    "hanaKorean_chapter1_writing",
+    "hanaKorean_chapter1_review",
+    "hanaKorean_chapter1_mission"
+
+  ];
+
+
+
+  /* =====================================================
+     ÉTAPES DU CHAPITRE 2
+     ===================================================== */
+
+  const chapter2Steps = [
+
+    "hanaKorean_chapter2_understanding",
+    "hanaKorean_chapter2_listening",
+    "hanaKorean_chapter2_speaking",
+    "hanaKorean_chapter2_writing",
+    "hanaKorean_chapter2_review",
+    "hanaKorean_chapter2_mission"
+
+  ];
+
+
+
+  /* =====================================================
+     ÉTAPES DU CHAPITRE 3
+     ===================================================== */
+
+  const chapter3Steps = [
+
+    "hanaKorean_chapter3_understanding",
+    "hanaKorean_chapter3_listening",
+    "hanaKorean_chapter3_speaking",
+    "hanaKorean_chapter3_writing",
+    "hanaKorean_chapter3_review",
+    "hanaKorean_chapter3_mission"
+
+  ];
+
+
+
+  /* =====================================================
+     ÉTAPES DU CHAPITRE 4
+     ===================================================== */
+
+  const chapter4Steps = [
+
+    "hanaKorean_chapter4_understanding",
+    "hanaKorean_chapter4_listening",
+    "hanaKorean_chapter4_speaking",
+    "hanaKorean_chapter4_writing",
+    "hanaKorean_chapter4_review",
+    "hanaKorean_chapter4_mission"
+
+  ];
+
+
+
+  /* =====================================================
+     ÉTAPES DU CHAPITRE 5
+     ===================================================== */
+
+  const chapter5Steps = [
+
+    "hanaKorean_chapter5_understanding",
+    "hanaKorean_chapter5_listening",
+    "hanaKorean_chapter5_speaking",
+    "hanaKorean_chapter5_writing",
+    "hanaKorean_chapter5_review",
+    "hanaKorean_chapter5_mission"
+
+  ];
+
+
+
+  /* =====================================================
+     VÉRIFIER UN CHAPITRE
+     ===================================================== */
+
+  function checkChapterCompletion(
+    chapterNumber,
+    steps
+  ) {
+
+    const finalKey =
+      "hanaKorean_chapter" +
+      chapterNumber +
+      "_completed";
+
+
+    if (
+      localStorage.getItem(
+        finalKey
+      ) === "completed"
+    ) {
+
+      return true;
+
+    }
+
+
+    const allStepsCompleted =
+      steps.every(
+        key =>
+          localStorage.getItem(
+            key
+          ) === "completed"
+      );
+
+
+    if (allStepsCompleted) {
+
+      localStorage.setItem(
+        finalKey,
+        "completed"
+      );
+
+
+      return true;
+
+    }
+
+
+    return false;
+
+  }
+
+
+
+  /* =====================================================
+     DÉVERROUILLER UN CHAPITRE
+     ===================================================== */
+
+  function unlockChapter(
+    cardId,
+    statusId,
+    iconId,
+    url
+  ) {
+
+    const card =
+      document.getElementById(
+        cardId
+      );
+
+
+    const status =
+      document.getElementById(
+        statusId
+      );
+
+
+    const icon =
+      document.getElementById(
+        iconId
+      );
+
+
+    if (
+      !card ||
+      !status ||
+      !icon
+    ) {
+      return;
+    }
+
+
+    card.classList.remove(
+      "locked"
+    );
+
+
+    card.classList.add(
+      "unlocked",
+      "available"
+    );
+
+
+    status.textContent =
+      "Disponible 🌿";
+
+
+    icon.textContent =
+      "→";
+
+
+    icon.className =
+      "chapter-arrow";
+
+
+    card.setAttribute(
+      "role",
+      "link"
+    );
+
+
+    card.setAttribute(
+      "tabindex",
+      "0"
+    );
+
+
+    card.onclick =
+      function() {
+
+        window.location.href =
+          url;
+
+      };
+
+
+    card.onkeydown =
+      function(event) {
+
+        if (
+          event.key === "Enter" ||
+          event.key === " "
+        ) {
+
+          event.preventDefault();
+
+
+          window.location.href =
+            url;
+
+        }
+
+      };
+
+  }
+
+
+
+  /* =====================================================
+     MARQUER UN CHAPITRE TERMINÉ
+     ===================================================== */
+
+  function markChapterCompleted(
+    cardId,
+    statusId
+  ) {
+
+    const card =
+      document.getElementById(
+        cardId
+      );
+
+
+    const status =
+      document.getElementById(
+        statusId
+      );
+
+
+    if (
+      !card ||
+      !status
+    ) {
+      return;
+    }
+
+
+    card.classList.add(
+      "completed"
+    );
+
+
+    status.textContent =
+      "Terminé ✓";
+
+  }
+
+
+
+  /* =====================================================
+     ACTUALISER L'ITINÉRAIRE
+     ===================================================== */
+
+  function updateRoute() {
+
+    const chapter1Complete =
+      checkChapterCompletion(
+        1,
+        chapter1Steps
+      );
+
+
+    const chapter2Complete =
+      checkChapterCompletion(
+        2,
+        chapter2Steps
+      );
+
+
+    const chapter3Complete =
+      checkChapterCompletion(
+        3,
+        chapter3Steps
+      );
+
+
+    const chapter4Complete =
+      checkChapterCompletion(
+        4,
+        chapter4Steps
+      );
+
+
+    const chapter5Complete =
+      checkChapterCompletion(
+        5,
+        chapter5Steps
+      );
+
+
+    let completedChapters =
+      0;
+
+
+
+    /* ===================================================
+       CHAPITRE 1
+       =================================================== */
+
+    if (
+      chapter1Complete
+    ) {
+
+      completedChapters++;
+
+
+      markChapterCompleted(
+        "chapter1Card",
+        "chapter1Status"
+      );
+
+
+      unlockChapter(
+        "chapter2Card",
+        "chapter2Status",
+        "chapter2Icon",
+        "chapitre-2.html"
+      );
+
+    }
+
+
+
+    /* ===================================================
+       CHAPITRE 2
+       =================================================== */
+
+    if (
+      chapter1Complete &&
+      chapter2Complete
+    ) {
+
+      completedChapters++;
+
+
+      markChapterCompleted(
+        "chapter2Card",
+        "chapter2Status"
+      );
+
+
+      unlockChapter(
+        "chapter3Card",
+        "chapter3Status",
+        "chapter3Icon",
+        "chapitre-3.html"
+      );
+
+    }
+
+
+
+    /* ===================================================
+       CHAPITRE 3
+       =================================================== */
+
+    if (
+      chapter1Complete &&
+      chapter2Complete &&
+      chapter3Complete
+    ) {
+
+      completedChapters++;
+
+
+      markChapterCompleted(
+        "chapter3Card",
+        "chapter3Status"
+      );
+
+
+      unlockChapter(
+        "chapter4Card",
+        "chapter4Status",
+        "chapter4Icon",
+        "chapitre-4.html"
+      );
+
+    }
+
+
+
+    /* ===================================================
+       CHAPITRE 4
+       =================================================== */
+
+    if (
+      chapter1Complete &&
+      chapter2Complete &&
+      chapter3Complete &&
+      chapter4Complete
+    ) {
+
+      completedChapters++;
+
+
+      markChapterCompleted(
+        "chapter4Card",
+        "chapter4Status"
+      );
+
+
+      unlockChapter(
+        "chapter5Card",
+        "chapter5Status",
+        "chapter5Icon",
+        "chapitre-5.html"
+      );
+
+    }
+
+
+
+    /* ===================================================
+       CHAPITRE 5
+       =================================================== */
+
+    if (
+      chapter1Complete &&
+      chapter2Complete &&
+      chapter3Complete &&
+      chapter4Complete &&
+      chapter5Complete
+    ) {
+
+      completedChapters++;
+
+
+      markChapterCompleted(
+        "chapter5Card",
+        "chapter5Status"
+      );
+
+
+      unlockChapter(
+        "chapter6Card",
+        "chapter6Status",
+        "chapter6Icon",
+        "chapitre-6.html"
+      );
+
+    }
+
+
+
+    /* ===================================================
+       PROGRESSION DU MODULE
+       =================================================== */
+
+    const percentage =
+      completedChapters * 10;
+
+
+    document.getElementById(
+      "progressText"
+    ).textContent =
+      completedChapters +
+      " / 10";
+
+
+    document.getElementById(
+      "courseProgress"
+    ).style.width =
+      percentage +
+      "%";
+
+
+    document.getElementById(
+      "percentageText"
+    ).textContent =
+      percentage +
+      " % du module terminé";
+
+  }
+
+
+
+  /* =====================================================
+     DÉMARRAGE
+     ===================================================== */
+
+  updateRoute();
+
+</script>
+
+
+</body>
+
+</html>

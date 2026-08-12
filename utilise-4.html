@@ -1,0 +1,2263 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="theme-color"
+    content="#F7F4ED"
+  >
+
+  <title>Je l'utilise — Chapitre 4</title>
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
+
+  <style>
+
+    /* =====================================================
+       EN-TÊTE
+       ===================================================== */
+
+    .mission-header {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+
+    .chapter-badge {
+      display: inline-block;
+
+      padding: 7px 14px;
+
+      margin-bottom: 10px;
+
+      border-radius: 20px;
+
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+
+    /* =====================================================
+       INTRO
+       ===================================================== */
+
+    .mission-intro {
+      padding: 20px;
+
+      margin-bottom: 20px;
+
+      background: var(--white);
+
+      border-radius: var(--radius-large);
+
+      box-shadow: var(--shadow);
+    }
+
+
+    .mission-title {
+      color: var(--navy);
+
+      font-size: 21px;
+      font-weight: bold;
+
+      margin-bottom: 10px;
+    }
+
+
+    .mission-objectives {
+      padding: 15px;
+
+      margin-top: 15px;
+
+      background: var(--soft-beige);
+
+      border-radius: var(--radius-medium);
+
+      line-height: 1.8;
+    }
+
+
+    /* =====================================================
+       PROGRESSION
+       ===================================================== */
+
+    .mission-progress {
+      margin-bottom: 20px;
+    }
+
+
+    .progress-info {
+      display: flex;
+      justify-content: space-between;
+
+      margin-bottom: 8px;
+
+      color: var(--text-light);
+
+      font-size: 13px;
+    }
+
+
+    .progress-bar {
+      width: 100%;
+      height: 10px;
+
+      background: var(--soft-beige);
+
+      border-radius: 20px;
+
+      overflow: hidden;
+    }
+
+
+    .progress-fill {
+      width: 20%;
+      height: 100%;
+
+      background: var(--jade);
+
+      border-radius: 20px;
+
+      transition: width 0.35s ease;
+    }
+
+
+    /* =====================================================
+       SCÈNE
+       ===================================================== */
+
+    .scene-card {
+      padding: 20px;
+
+      background: var(--white);
+
+      border-radius: var(--radius-large);
+
+      box-shadow: var(--shadow);
+    }
+
+
+    /* =====================================================
+       PERSONNAGE
+       ===================================================== */
+
+    .character-area {
+      text-align: center;
+
+      margin-bottom: 18px;
+    }
+
+
+    .character-placeholder {
+      width: 110px;
+      height: 110px;
+
+      margin: 0 auto 10px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background: var(--soft-blue);
+
+      border-radius: 50%;
+
+      font-size: 52px;
+    }
+
+
+    .character-placeholder.jieun {
+      background: var(--soft-green);
+    }
+
+
+    .character-name {
+      color: var(--jade-dark);
+
+      font-weight: bold;
+    }
+
+
+    /* =====================================================
+       BULLE
+       ===================================================== */
+
+    .npc-bubble {
+      padding: 17px;
+
+      background: var(--soft-blue);
+
+      border-radius: 18px 18px 18px 5px;
+
+      color: var(--navy);
+
+      line-height: 1.6;
+    }
+
+
+    .npc-bubble.jieun {
+      background: var(--soft-green);
+    }
+
+
+    .npc-korean {
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+
+    /* =====================================================
+       AUDIO
+       ===================================================== */
+
+    .listen-button {
+      width: 100%;
+
+      margin-top: 12px;
+
+      background: var(--soft-blue);
+
+      color: var(--navy);
+
+      font-weight: bold;
+    }
+
+
+    /* =====================================================
+       À TOI
+       ===================================================== */
+
+    .your-turn {
+      padding: 16px;
+
+      margin-top: 20px;
+
+      background: #FBFAF6;
+
+      border-radius: var(--radius-medium);
+    }
+
+
+    .your-turn-label {
+      margin-bottom: 7px;
+
+      color: var(--jade-dark);
+
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+
+    .your-turn-text {
+      color: var(--navy);
+
+      line-height: 1.6;
+    }
+
+
+    /* =====================================================
+       MICRO
+       ===================================================== */
+
+    .micro-button {
+      width: 100%;
+
+      margin-top: 14px;
+
+      padding: 17px;
+
+      background: var(--jade);
+
+      color: white;
+
+      font-size: 17px;
+      font-weight: bold;
+    }
+
+
+    .micro-button:hover {
+      background: var(--jade-dark);
+    }
+
+
+    .micro-button.listening {
+      background: var(--error);
+
+      animation: pulse 1.15s infinite;
+    }
+
+
+    @keyframes pulse {
+
+      0% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.02);
+      }
+
+      100% {
+        transform: scale(1);
+      }
+
+    }
+
+
+    /* =====================================================
+       INDICE
+       ===================================================== */
+
+    .hint-button {
+      width: 100%;
+
+      margin-top: 10px;
+
+      background: var(--soft-beige);
+
+      color: var(--navy);
+    }
+
+
+    .hint-box {
+      display: none;
+
+      padding: 14px;
+
+      margin-top: 12px;
+
+      background: var(--warning-light);
+
+      border-radius: var(--radius-medium);
+
+      line-height: 1.6;
+    }
+
+
+    /* =====================================================
+       TRANSCRIPTION
+       ===================================================== */
+
+    .heard-box {
+      display: none;
+
+      padding: 14px;
+
+      margin-top: 15px;
+
+      background: var(--soft-beige);
+
+      border-radius: var(--radius-medium);
+    }
+
+
+    .heard-label {
+      color: var(--text-light);
+
+      font-size: 13px;
+    }
+
+
+    .heard-text {
+      margin-top: 5px;
+
+      color: var(--navy);
+
+      font-size: 19px;
+      font-weight: bold;
+    }
+
+
+    /* =====================================================
+       FEEDBACK
+       ===================================================== */
+
+    .feedback {
+      display: none;
+
+      padding: 15px;
+
+      margin-top: 14px;
+
+      border-radius: var(--radius-medium);
+
+      line-height: 1.6;
+    }
+
+
+    .feedback.correct {
+      display: block;
+
+      background: var(--success-light);
+
+      border-left: 4px solid var(--success);
+    }
+
+
+    .feedback.wrong {
+      display: block;
+
+      background: var(--warning-light);
+
+      border-left: 4px solid var(--warning);
+    }
+
+
+    .transition-message {
+      display: none;
+
+      margin-top: 15px;
+
+      color: var(--jade-dark);
+
+      text-align: center;
+
+      font-weight: bold;
+    }
+
+
+    /* =====================================================
+       RÉPONSE DU PERSONNAGE
+       ===================================================== */
+
+    .npc-reply {
+      display: none;
+
+      padding: 16px;
+
+      margin-top: 15px;
+
+      background: var(--soft-blue);
+
+      border-radius: var(--radius-medium);
+
+      color: var(--navy);
+
+      line-height: 1.6;
+    }
+
+
+    .npc-reply-korean {
+      margin-top: 5px;
+
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+
+    /* =====================================================
+       COMPATIBILITÉ
+       ===================================================== */
+
+    .compatibility-message {
+      display: none;
+
+      padding: 16px;
+
+      margin-bottom: 20px;
+
+      background: var(--warning-light);
+
+      border-left: 4px solid var(--warning);
+
+      border-radius: var(--radius-medium);
+
+      line-height: 1.6;
+    }
+
+
+    /* =====================================================
+       RÉSULTAT
+       ===================================================== */
+
+    .result-card {
+      display: none;
+
+      padding: 25px;
+
+      background: var(--white);
+
+      border-radius: var(--radius-large);
+
+      box-shadow: var(--shadow);
+
+      text-align: center;
+    }
+
+
+    .result-icon {
+      font-size: 60px;
+    }
+
+
+    .result-score {
+      color: var(--jade-dark);
+
+      font-size: 21px;
+      font-weight: bold;
+    }
+
+
+    .result-summary {
+      padding: 16px;
+
+      margin-top: 18px;
+
+      background: #FBFAF6;
+
+      border-radius: var(--radius-medium);
+
+      text-align: left;
+
+      line-height: 1.6;
+    }
+
+
+    .objective-result {
+      padding: 11px 0;
+
+      border-bottom: 1px solid var(--border);
+    }
+
+
+    .objective-result:last-child {
+      border-bottom: none;
+    }
+
+
+    .autonomy-box {
+      padding: 16px;
+
+      margin-top: 18px;
+
+      background: var(--soft-green);
+
+      border-radius: var(--radius-medium);
+
+      color: var(--navy);
+
+      line-height: 1.6;
+    }
+
+
+    .garden-info {
+      padding: 14px;
+
+      margin-top: 18px;
+
+      background: var(--soft-blue);
+
+      border-radius: var(--radius-medium);
+
+      color: var(--navy);
+
+      line-height: 1.6;
+    }
+
+
+    .finish-button {
+      width: 100%;
+
+      margin-top: 18px;
+
+      font-weight: bold;
+    }
+
+
+    .route-button {
+      width: 100%;
+
+      margin-top: 10px;
+
+      background: var(--soft-beige);
+
+      color: var(--navy);
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+<main class="app">
+
+
+  <!-- =====================================================
+       RETOUR
+       ===================================================== -->
+
+  <a
+    class="back-link"
+    href="chapitre-4.html"
+  >
+    ← Chapitre 4
+  </a>
+
+
+
+  <!-- =====================================================
+       EN-TÊTE
+       ===================================================== -->
+
+  <header class="mission-header">
+
+    <span class="chapter-badge">
+      Chapitre 4 · Mission finale
+    </span>
+
+
+    <p class="korean">
+      직접 해 봐요 🎯
+    </p>
+
+
+    <h1>
+      Je l'utilise
+    </h1>
+
+
+    <p>
+      Parle de tes goûts dans une vraie petite conversation
+      avec Min-su et Ji-eun.
+    </p>
+
+  </header>
+
+
+
+  <!-- =====================================================
+       INTRO
+       ===================================================== -->
+
+  <section
+    class="mission-intro"
+    id="missionIntro"
+  >
+
+    <div class="mission-title">
+      🎯 Mission : Une pause au café
+    </div>
+
+
+    <p>
+      Tu retrouves Min-su au café.
+      Vous commencez à parler de ce que vous aimez.
+    </p>
+
+
+    <p>
+      Puis Ji-eun vient vous rejoindre. 💚
+    </p>
+
+
+    <div class="mission-objectives">
+
+      <strong>
+        Pour réussir :
+      </strong>
+
+      <br>
+
+      ❤️ Dire ce que tu aimes
+
+      <br>
+
+      ✨ Utiliser 정말
+
+      <br>
+
+      ➕ Utiliser 도
+
+      <br>
+
+      💬 Relancer Min-su
+
+      <br>
+
+      💚 Répondre naturellement à Ji-eun
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       COMPATIBILITÉ
+       ===================================================== -->
+
+  <div
+    class="compatibility-message"
+    id="compatibilityMessage"
+  >
+
+    🎤 Le microphone n'est pas disponible
+    dans ce navigateur ou cet environnement.
+
+    <br><br>
+
+    Nous testerons cette mission plus tard
+    hors du RDS.
+  </div>
+
+
+
+  <!-- =====================================================
+       PROGRESSION
+       ===================================================== -->
+
+  <div class="mission-progress">
+
+    <div class="progress-info">
+
+      <span>
+        🎯 Mission
+      </span>
+
+
+      <span id="progressLabel">
+        1 / 5
+      </span>
+
+    </div>
+
+
+    <div class="progress-bar">
+
+      <div
+        class="progress-fill"
+        id="progressFill"
+      ></div>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- =====================================================
+       SCÈNE
+       ===================================================== -->
+
+  <section
+    class="scene-card"
+    id="sceneCard"
+  >
+
+
+    <div class="character-area">
+
+      <div
+        class="character-placeholder"
+        id="characterPlaceholder"
+      >
+        💙
+      </div>
+
+
+      <div
+        class="character-name"
+        id="characterName"
+      >
+        Min-su
+      </div>
+
+    </div>
+
+
+
+    <div
+      class="npc-bubble"
+      id="npcBubble"
+    >
+
+      <div
+        class="npc-korean"
+        id="npcKorean"
+      ></div>
+
+    </div>
+
+
+
+    <button
+      class="listen-button"
+      type="button"
+      onclick="playNpcLine()"
+    >
+      🔊 Réécouter
+    </button>
+
+
+
+    <div class="your-turn">
+
+      <div class="your-turn-label">
+        🗣️ À toi
+      </div>
+
+
+      <div
+        class="your-turn-text"
+        id="yourTurnText"
+      ></div>
+
+    </div>
+
+
+
+    <button
+      class="micro-button"
+      id="microButton"
+      type="button"
+      onclick="startRecognition()"
+    >
+      🎤 Répondre
+    </button>
+
+
+
+    <button
+      class="hint-button"
+      type="button"
+      onclick="showHint()"
+    >
+      💡 Besoin d'un indice ?
+    </button>
+
+
+
+    <div
+      class="hint-box"
+      id="hintBox"
+    ></div>
+
+
+
+    <div
+      class="heard-box"
+      id="heardBox"
+    >
+
+      <div class="heard-label">
+        L'application a entendu :
+      </div>
+
+
+      <div
+        class="heard-text"
+        id="heardText"
+      ></div>
+
+    </div>
+
+
+
+    <div
+      class="feedback"
+      id="feedback"
+    ></div>
+
+
+
+    <div
+      class="npc-reply"
+      id="npcReply"
+    >
+
+      <strong id="npcReplySpeaker">
+        💙 Min-su :
+      </strong>
+
+
+      <div
+        class="npc-reply-korean"
+        id="npcReplyKorean"
+      ></div>
+
+    </div>
+
+
+
+    <div
+      class="transition-message"
+      id="transitionMessage"
+    >
+      La conversation continue… 💬
+    </div>
+
+
+  </section>
+
+
+
+  <!-- =====================================================
+       RÉSULTAT
+       ===================================================== -->
+
+  <section
+    class="result-card"
+    id="resultCard"
+  >
+
+    <div class="result-icon">
+      🎯🍓
+    </div>
+
+
+    <h2>
+      미션 성공!
+    </h2>
+
+
+    <p>
+      Mission réussie !
+    </p>
+
+
+    <p class="result-score">
+      Conversation terminée ✅
+    </p>
+
+
+
+    <div class="result-summary">
+
+      <strong>
+        🎯 Objectifs accomplis
+      </strong>
+
+
+      <div class="objective-result">
+        ✅ Dire ce que tu aimes
+      </div>
+
+
+      <div class="objective-result">
+        ✅ Utiliser 정말
+      </div>
+
+
+      <div class="objective-result">
+        ✅ Utiliser 도
+      </div>
+
+
+      <div class="objective-result">
+        ✅ Relancer Min-su avec 민수 씨는요?
+      </div>
+
+
+      <div class="objective-result">
+        ✅ Parler avec Ji-eun
+      </div>
+
+    </div>
+
+
+
+    <div
+      class="autonomy-box"
+      id="autonomyBox"
+    ></div>
+
+
+
+    <div class="garden-info">
+
+      💧 Chapitre 4 pratiqué en situation !
+
+      <br><br>
+
+      Tu sais maintenant utiliser
+      <strong>좋아해요 · 정말 · 도 · 민수 씨는요?</strong>
+      dans une petite conversation.
+    </div>
+
+
+
+    <button
+      class="finish-button"
+      type="button"
+      onclick="window.location.href='chapitre-4.html'"
+    >
+      ✅ Terminer le chapitre 4
+    </button>
+
+
+    <button
+      class="route-button"
+      type="button"
+      onclick="window.location.href='itineraire.html'"
+    >
+      🗺️ Retour à mon itinéraire
+    </button>
+
+  </section>
+
+
+</main>
+
+
+
+<script>
+
+  /* =====================================================
+     ÉTAPES DE LA MISSION
+     ===================================================== */
+
+  const missionSteps = [
+
+    {
+
+      character:
+        "minsu",
+
+      npc:
+        "딸기를 좋아해요?",
+
+      prompt:
+        "Réponds que oui, tu les aimes vraiment.",
+
+      hint:
+        "Utilise 정말 + 좋아해요.",
+
+      accepted: [
+
+        "네 정말 좋아해요",
+        "정말 좋아해요",
+        "네 좋아해요",
+        "좋아해요",
+        "네 딸기를 정말 좋아해요",
+        "딸기를 정말 좋아해요"
+
+      ]
+
+    },
+
+
+    {
+
+      character:
+        "minsu",
+
+      npc:
+        "커피도 좋아해요?",
+
+      prompt:
+        "Dis que tu aimes aussi le café.",
+
+      hint:
+        "Utilise 커피 + 도 + 좋아해요.",
+
+      accepted: [
+
+        "네 커피도 좋아해요",
+        "커피도 좋아해요",
+        "저는 커피도 좋아해요",
+        "네 저는 커피도 좋아해요"
+
+      ]
+
+    },
+
+
+    {
+
+      character:
+        "minsu",
+
+      npc:
+        "고양이도 좋아해요?",
+
+      prompt:
+        "Réponds que oui, tu aimes vraiment les chats.",
+
+      hint:
+        "Tu peux utiliser 정말 좋아해요.",
+
+      accepted: [
+
+        "네 정말 좋아해요",
+        "정말 좋아해요",
+        "고양이를 정말 좋아해요",
+        "저는 고양이를 정말 좋아해요",
+        "고양이도 좋아해요",
+        "네 고양이도 좋아해요"
+
+      ]
+
+    },
+
+
+    {
+
+      character:
+        "minsu",
+
+      npc:
+        "케이크를 좋아해요?",
+
+      prompt:
+        "Réponds que oui, puis renvoie la question à Min-su.",
+
+      hint:
+        "Réponds avec 좋아해요 puis termine par 민수 씨는요?",
+
+      accepted: [
+
+        "네 좋아해요 민수 씨는요",
+        "좋아해요 민수 씨는요",
+        "네 정말 좋아해요 민수 씨는요",
+        "정말 좋아해요 민수 씨는요",
+        "네 케이크를 좋아해요 민수 씨는요",
+        "케이크를 좋아해요 민수 씨는요",
+        "네 케이크 좋아해요 민수 씨는요",
+        "케이크 좋아해요 민수 씨는요"
+
+      ],
+
+      reply:
+        "네, 저도 좋아해요!"
+
+    },
+
+
+    {
+
+      character:
+        "jieun",
+
+      npc:
+        "안녕하세요! 저는 지은이에요. 딸기 케이크를 좋아해요?",
+
+      prompt:
+        "Ji-eun vient de se présenter et te demande si tu aimes le gâteau à la fraise. Réponds-lui naturellement.",
+
+      hint:
+        "Tu peux répondre 네, 정말 좋아해요!",
+
+      accepted: [
+
+        "네 정말 좋아해요",
+        "정말 좋아해요",
+        "네 좋아해요",
+        "좋아해요",
+        "네 딸기 케이크를 좋아해요",
+        "딸기 케이크를 좋아해요",
+        "딸기케이크를 좋아해요"
+
+      ],
+
+      reply:
+        "저도 좋아해요! 반가워요!"
+
+    }
+
+  ];
+
+
+
+  /* =====================================================
+     VARIABLES
+     ===================================================== */
+
+  let currentStep =
+    0;
+
+
+  let incorrectAttempts =
+    0;
+
+
+  let hintsUsed =
+    0;
+
+
+  let currentRecognition =
+    null;
+
+
+
+  const SpeechRecognition =
+    window.SpeechRecognition ||
+    window.webkitSpeechRecognition;
+
+
+
+  /* =====================================================
+     NORMALISER
+     ===================================================== */
+
+  function normalizeKorean(text) {
+
+    return text
+      .trim()
+      .replace(/[.!?。！？,，]/g, "")
+      .replace(/\s+/g, "");
+
+  }
+
+
+
+  /* =====================================================
+     VOIX
+     ===================================================== */
+
+  function getKoreanVoice() {
+
+    const voices =
+      window.speechSynthesis.getVoices();
+
+
+    return voices.find(
+      voice =>
+        voice.lang &&
+        voice.lang
+          .toLowerCase()
+          .startsWith("ko")
+    );
+
+  }
+
+
+
+  function speakKorean(text) {
+
+    if (
+      !("speechSynthesis" in window)
+    ) {
+      return;
+    }
+
+
+    window.speechSynthesis.cancel();
+
+
+    const speech =
+      new SpeechSynthesisUtterance(
+        text
+      );
+
+
+    speech.lang =
+      "ko-KR";
+
+
+    speech.rate =
+      0.82;
+
+
+    speech.pitch =
+      1;
+
+
+    const voice =
+      getKoreanVoice();
+
+
+    if (voice) {
+
+      speech.voice =
+        voice;
+
+    }
+
+
+    window.speechSynthesis.speak(
+      speech
+    );
+
+  }
+
+
+
+  /* =====================================================
+     AUDIO
+     ===================================================== */
+
+  function playNpcLine() {
+
+    speakKorean(
+      missionSteps[
+        currentStep
+      ].npc
+    );
+
+  }
+
+
+
+  /* =====================================================
+     AFFICHER LE PERSONNAGE
+     ===================================================== */
+
+  function updateCharacter(
+    character
+  ) {
+
+    const placeholder =
+      document.getElementById(
+        "characterPlaceholder"
+      );
+
+
+    const name =
+      document.getElementById(
+        "characterName"
+      );
+
+
+    const bubble =
+      document.getElementById(
+        "npcBubble"
+      );
+
+
+    if (
+      character ===
+      "jieun"
+    ) {
+
+      placeholder.textContent =
+        "💚";
+
+
+      placeholder.classList.add(
+        "jieun"
+      );
+
+
+      name.textContent =
+        "Ji-eun";
+
+
+      bubble.classList.add(
+        "jieun"
+      );
+
+
+      return;
+
+    }
+
+
+    placeholder.textContent =
+      "💙";
+
+
+    placeholder.classList.remove(
+      "jieun"
+    );
+
+
+    name.textContent =
+      "Min-su";
+
+
+    bubble.classList.remove(
+      "jieun"
+    );
+
+  }
+
+
+
+  /* =====================================================
+     AFFICHAGE DE L'ÉTAPE
+     ===================================================== */
+
+  function renderMissionStep() {
+
+    const step =
+      missionSteps[
+        currentStep
+      ];
+
+
+    updateCharacter(
+      step.character
+    );
+
+
+    document.getElementById(
+      "npcKorean"
+    ).textContent =
+      step.npc;
+
+
+    document.getElementById(
+      "yourTurnText"
+    ).textContent =
+      step.prompt;
+
+
+    document.getElementById(
+      "hintBox"
+    ).style.display =
+      "none";
+
+
+    document.getElementById(
+      "heardBox"
+    ).style.display =
+      "none";
+
+
+    document.getElementById(
+      "npcReply"
+    ).style.display =
+      "none";
+
+
+    const feedback =
+      document.getElementById(
+        "feedback"
+      );
+
+
+    feedback.className =
+      "feedback";
+
+
+    feedback.innerHTML =
+      "";
+
+
+    document.getElementById(
+      "transitionMessage"
+    ).style.display =
+      "none";
+
+
+    const micro =
+      document.getElementById(
+        "microButton"
+      );
+
+
+    micro.disabled =
+      false;
+
+
+    micro.classList.remove(
+      "listening"
+    );
+
+
+    micro.textContent =
+      currentStep === 3
+        ? "🎤 Répondre et relancer"
+        : "🎤 Répondre";
+
+
+    const number =
+      currentStep + 1;
+
+
+    document.getElementById(
+      "progressLabel"
+    ).textContent =
+      number +
+      " / 5";
+
+
+    document.getElementById(
+      "progressFill"
+    ).style.width =
+      (number * 20) +
+      "%";
+
+
+    setTimeout(
+      playNpcLine,
+      350
+    );
+
+  }
+
+
+
+  /* =====================================================
+     INDICE
+     ===================================================== */
+
+  function showHint() {
+
+    hintsUsed++;
+
+
+    const box =
+      document.getElementById(
+        "hintBox"
+      );
+
+
+    box.textContent =
+      missionSteps[
+        currentStep
+      ].hint;
+
+
+    box.style.display =
+      "block";
+
+  }
+
+
+
+  /* =====================================================
+     MICRO
+     ===================================================== */
+
+  function startRecognition() {
+
+    if (!SpeechRecognition) {
+
+      document.getElementById(
+        "compatibilityMessage"
+      ).style.display =
+        "block";
+
+
+      return;
+
+    }
+
+
+    if (
+      currentRecognition
+    ) {
+
+      try {
+
+        currentRecognition.abort();
+
+      }
+
+      catch (error) {
+      }
+
+    }
+
+
+    const recognition =
+      new SpeechRecognition();
+
+
+    currentRecognition =
+      recognition;
+
+
+    recognition.lang =
+      "ko-KR";
+
+
+    recognition.continuous =
+      false;
+
+
+    recognition.interimResults =
+      false;
+
+
+    recognition.maxAlternatives =
+      5;
+
+
+
+    const micro =
+      document.getElementById(
+        "microButton"
+      );
+
+
+    micro.classList.add(
+      "listening"
+    );
+
+
+    micro.textContent =
+      "🔴 J'écoute...";
+
+
+
+    recognition.onresult =
+      function(event) {
+
+        const alternatives =
+          [];
+
+
+        const result =
+          event.results[0];
+
+
+        for (
+          let i = 0;
+          i < result.length;
+          i++
+        ) {
+
+          alternatives.push(
+            result[i].transcript
+          );
+
+        }
+
+
+        analyseAnswer(
+          alternatives
+        );
+
+      };
+
+
+
+    recognition.onerror =
+      function(event) {
+
+        micro.classList.remove(
+          "listening"
+        );
+
+
+        micro.textContent =
+          "🎤 Réessayer";
+
+
+        const feedback =
+          document.getElementById(
+            "feedback"
+          );
+
+
+        feedback.className =
+          "feedback wrong";
+
+
+        if (
+          event.error ===
+          "not-allowed"
+        ) {
+
+          feedback.innerHTML =
+            "🎤 <strong>L'accès au microphone est bloqué.</strong>" +
+            "<br><br>" +
+            "Nous testerons cette mission plus tard hors du RDS.";
+
+        }
+
+        else if (
+          event.error ===
+          "no-speech"
+        ) {
+
+          feedback.innerHTML =
+            "👂 <strong>Je n'ai rien entendu.</strong>" +
+            "<br><br>" +
+            "Parle un peu plus près du microphone puis réessaie.";
+
+        }
+
+        else {
+
+          feedback.innerHTML =
+            "⚠️ <strong>La reconnaissance vocale n'a pas fonctionné.</strong>" +
+            "<br><br>" +
+            "Tu peux réessayer.";
+
+        }
+
+      };
+
+
+
+    recognition.onend =
+      function() {
+
+        micro.classList.remove(
+          "listening"
+        );
+
+
+        if (
+          !micro.disabled &&
+          micro.textContent ===
+          "🔴 J'écoute..."
+        ) {
+
+          micro.textContent =
+            "🎤 Réessayer";
+
+        }
+
+      };
+
+
+    try {
+
+      recognition.start();
+
+    }
+
+    catch (error) {
+
+      micro.classList.remove(
+        "listening"
+      );
+
+
+      micro.textContent =
+        "🎤 Réessayer";
+
+    }
+
+  }
+
+
+
+  /* =====================================================
+     ANALYSER LA RÉPONSE
+     ===================================================== */
+
+  function analyseAnswer(
+    alternatives
+  ) {
+
+    const heard =
+      alternatives[0] || "";
+
+
+    document.getElementById(
+      "heardBox"
+    ).style.display =
+      "block";
+
+
+    document.getElementById(
+      "heardText"
+    ).textContent =
+      heard;
+
+
+    const correct =
+      alternatives.some(
+        alternative =>
+          isAcceptedAnswer(
+            alternative
+          )
+      );
+
+
+    if (correct) {
+
+      handleCorrect();
+
+    }
+
+    else {
+
+      handleWrong();
+
+    }
+
+  }
+
+
+
+  /* =====================================================
+     RÉPONSES ACCEPTÉES
+     ===================================================== */
+
+  function isAcceptedAnswer(
+    transcript
+  ) {
+
+    const normalized =
+      normalizeKorean(
+        transcript
+      );
+
+
+    const step =
+      missionSteps[
+        currentStep
+      ];
+
+
+    return step.accepted.some(
+      answer => {
+
+        const accepted =
+          normalizeKorean(
+            answer
+          );
+
+
+        return (
+          normalized === accepted ||
+          normalized.includes(
+            accepted
+          )
+        );
+
+      }
+    );
+
+  }
+
+
+
+  /* =====================================================
+     BONNE RÉPONSE
+     ===================================================== */
+
+  function handleCorrect() {
+
+    const step =
+      missionSteps[
+        currentStep
+      ];
+
+
+    const feedback =
+      document.getElementById(
+        "feedback"
+      );
+
+
+    feedback.className =
+      "feedback correct";
+
+
+    if (
+      currentStep === 3
+    ) {
+
+      feedback.innerHTML =
+        "✅ <strong>Très bien !</strong>" +
+        "<br><br>" +
+        "Tu as répondu puis relancé naturellement Min-su.";
+
+    }
+
+    else if (
+      currentStep === 4
+    ) {
+
+      feedback.innerHTML =
+        "✅ <strong>Parfait !</strong>" +
+        "<br><br>" +
+        "Tu as compris Ji-eun et tu lui as répondu naturellement.";
+
+    }
+
+    else {
+
+      feedback.innerHTML =
+        "✅ <strong>Très bien !</strong>" +
+        "<br><br>" +
+        "Ta réponse convient à la situation.";
+
+    }
+
+
+
+    const micro =
+      document.getElementById(
+        "microButton"
+      );
+
+
+    micro.disabled =
+      true;
+
+
+    micro.textContent =
+      "✅ Validé";
+
+
+
+    /* ===================================================
+       RÉPONSE DU PERSONNAGE
+       =================================================== */
+
+    if (
+      step.reply
+    ) {
+
+      const replySpeaker =
+        document.getElementById(
+          "npcReplySpeaker"
+        );
+
+
+      if (
+        step.character ===
+        "jieun"
+      ) {
+
+        replySpeaker.textContent =
+          "💚 Ji-eun :";
+
+      }
+
+      else {
+
+        replySpeaker.textContent =
+          "💙 Min-su :";
+
+      }
+
+
+      document.getElementById(
+        "npcReplyKorean"
+      ).textContent =
+        step.reply;
+
+
+      document.getElementById(
+        "npcReply"
+      ).style.display =
+        "block";
+
+
+      setTimeout(
+        () => {
+
+          speakKorean(
+            step.reply
+          );
+
+        },
+        450
+      );
+
+    }
+
+
+
+    document.getElementById(
+      "transitionMessage"
+    ).style.display =
+      "block";
+
+
+    setTimeout(
+      advanceMission,
+      step.reply
+        ? 1900
+        : 1200
+    );
+
+  }
+
+
+
+  /* =====================================================
+     MAUVAISE RÉPONSE
+     ===================================================== */
+
+  function handleWrong() {
+
+    incorrectAttempts++;
+
+
+    const feedback =
+      document.getElementById(
+        "feedback"
+      );
+
+
+    feedback.className =
+      "feedback wrong";
+
+
+    if (
+      currentStep === 0
+    ) {
+
+      feedback.innerHTML =
+        "❌ <strong>Min-su te demande si tu aimes les fraises.</strong>" +
+        "<br><br>" +
+        "💡 Essaie d'utiliser <strong>좋아해요</strong>. Pour « vraiment », pense à <strong>정말</strong>.";
+
+    }
+
+
+    if (
+      currentStep === 1
+    ) {
+
+      feedback.innerHTML =
+        "❌ <strong>Min-su demande si tu aimes aussi le café.</strong>" +
+        "<br><br>" +
+        "💡 Le mot important est <strong>도</strong>.";
+
+    }
+
+
+    if (
+      currentStep === 2
+    ) {
+
+      feedback.innerHTML =
+        "❌ <strong>Min-su parle maintenant des chats.</strong>" +
+        "<br><br>" +
+        "💡 Tu peux répondre avec <strong>정말 좋아해요</strong>.";
+
+    }
+
+
+    if (
+      currentStep === 3
+    ) {
+
+      feedback.innerHTML =
+        "❌ <strong>Tu dois faire deux choses.</strong>" +
+        "<br><br>" +
+        "1️⃣ Répondre à la question" +
+        "<br>" +
+        "2️⃣ Relancer Min-su avec <strong>민수 씨는요?</strong>";
+
+    }
+
+
+    if (
+      currentStep === 4
+    ) {
+
+      feedback.innerHTML =
+        "❌ <strong>Ji-eun te demande si tu aimes le gâteau à la fraise.</strong>" +
+        "<br><br>" +
+        "💡 Une réponse avec <strong>좋아해요</strong> convient.";
+
+    }
+
+
+    document.getElementById(
+      "microButton"
+    ).textContent =
+      "🎤 Réessayer";
+
+  }
+
+
+
+  /* =====================================================
+     ÉTAPE SUIVANTE
+     ===================================================== */
+
+  function advanceMission() {
+
+    if (
+      currentStep <
+      missionSteps.length - 1
+    ) {
+
+      currentStep++;
+
+
+      renderMissionStep();
+
+
+      window.scrollTo({
+
+        top: 0,
+        behavior: "smooth"
+
+      });
+
+
+      return;
+
+    }
+
+
+    finishMission();
+
+  }
+
+
+
+  /* =====================================================
+     FIN DE LA MISSION
+     ===================================================== */
+
+  function finishMission() {
+
+    document.getElementById(
+      "sceneCard"
+    ).style.display =
+      "none";
+
+
+    document.getElementById(
+      "missionIntro"
+    ).style.display =
+      "none";
+
+
+    document.getElementById(
+      "progressLabel"
+    ).textContent =
+      "5 / 5";
+
+
+    document.getElementById(
+      "progressFill"
+    ).style.width =
+      "100%";
+
+
+    document.getElementById(
+      "resultCard"
+    ).style.display =
+      "block";
+
+
+
+    let message =
+      "";
+
+
+    if (
+      incorrectAttempts === 0 &&
+      hintsUsed === 0
+    ) {
+
+      message =
+        "🌟 Excellente autonomie : mission réussie du premier coup et sans indice.";
+
+    }
+
+    else if (
+      hintsUsed === 0
+    ) {
+
+      message =
+        "🌿 Très bonne autonomie : aucun indice utilisé. Quelques tentatives ont simplement été nécessaires.";
+
+    }
+
+    else if (
+      hintsUsed <= 2
+    ) {
+
+      message =
+        "🌱 Mission réussie avec seulement " +
+        hintsUsed +
+        " indice(s). Les structures deviennent progressivement naturelles.";
+
+    }
+
+    else {
+
+      message =
+        "🌱 Mission réussie. Certaines structures ont encore besoin d'entraînement et pourront revenir plus tard.";
+
+    }
+
+
+    document.getElementById(
+      "autonomyBox"
+    ).textContent =
+      message;
+
+
+
+    /* ===================================================
+       VALIDATION DE 🎯 JE L'UTILISE
+       =================================================== */
+
+    localStorage.setItem(
+      "hanaKorean_chapter4_mission",
+      "completed"
+    );
+
+
+    localStorage.setItem(
+      "hanaKorean_chapter4_missionMistakes",
+      incorrectAttempts
+    );
+
+
+    localStorage.setItem(
+      "hanaKorean_chapter4_missionHints",
+      hintsUsed
+    );
+
+
+    window.scrollTo({
+
+      top: 0,
+      behavior: "smooth"
+
+    });
+
+  }
+
+
+
+  /* =====================================================
+     CHARGEMENT DES VOIX
+     ===================================================== */
+
+  if (
+    "speechSynthesis" in window
+  ) {
+
+    window.speechSynthesis.onvoiceschanged =
+      function() {
+
+        window.speechSynthesis.getVoices();
+
+      };
+
+  }
+
+
+
+  /* =====================================================
+     COMPATIBILITÉ
+     ===================================================== */
+
+  if (!SpeechRecognition) {
+
+    document.getElementById(
+      "compatibilityMessage"
+    ).style.display =
+      "block";
+
+  }
+
+
+
+  /* =====================================================
+     DÉMARRAGE
+     ===================================================== */
+
+  renderMissionStep();
+
+</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="theme-color"
+    content="#F7F4ED"
+  >
+
+  <title>Le coréen de Hana</title>
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+</head>
+
+
+<body>
+
+  <main class="app">
+
+
+    <!-- =========================
+         EN-TÊTE
+    ========================== -->
+
+    <header>
+
+      <p class="korean">
+        안녕하세요 🌿
+      </p>
+
+      <h1>
+        Le coréen de Hana
+      </h1>
+
+      <p>
+        Ton voyage vers le coréen commence ici 🇰🇷
+      </p>
+
+    </header>
+
+
+
+    <!-- =========================
+         CONTINUER MON VOYAGE
+    ========================== -->
+
+    <section class="continue-card">
+
+      <p>
+        Continuer mon voyage
+      </p>
+
+      <h2>
+        Module 1
+      </h2>
+
+      <p>
+        Premiers pas en coréen
+      </p>
+
+      <button
+        id="continueButton"
+        type="button"
+        onclick="window.location.href='itineraire.html'"
+      >
+        Continuer
+      </button>
+
+    </section>
+
+
+
+    <!-- =========================
+         PARCOURS D'APPRENTISSAGE
+    ========================== -->
+
+    <section class="learning-menu">
+
+      <button
+        type="button"
+        onclick="window.location.href='chapitre-1.html'"
+      >
+        📖 Je comprends
+      </button>
+
+
+      <button
+        type="button"
+        onclick="window.location.href='ecoute-1.html'"
+      >
+        🎧 J'écoute
+      </button>
+
+
+      <button
+        type="button"
+        id="speakHomeButton"
+      >
+        🗣️ Je parle
+      </button>
+
+
+      <button
+        type="button"
+        onclick="window.location.href='ecriture-1.html'"
+      >
+        ✍️ J'écris
+      </button>
+
+
+      <button
+        type="button"
+        onclick="window.location.href='revision-1.html'"
+      >
+        🧠 Je révise
+      </button>
+
+
+      <button
+        type="button"
+        id="useHomeButton"
+      >
+        🎯 Je l'utilise
+      </button>
+
+    </section>
+
+
+
+    <!-- =========================
+         JARDIN DE HANA
+    ========================== -->
+
+    <section class="garden">
+
+      <h2>
+        🌱 Le jardin de Hana
+      </h2>
+
+      <div
+        class="plant"
+        id="plant"
+        aria-label="Plante du jardin de Hana"
+      >
+        🌱
+      </div>
+
+      <p>
+        Fais une activité aujourd'hui pour arroser ton jardin.
+      </p>
+
+      <button
+        id="waterButton"
+        type="button"
+      >
+        💧 Arroser
+      </button>
+
+    </section>
+
+
+  </main>
+
+
+  <script src="app.js"></script>
+
+</body>
+
+</html>

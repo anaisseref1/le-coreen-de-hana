@@ -1,0 +1,1404 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="theme-color"
+    content="#F7F4ED"
+  >
+
+  <title>Je révise — Chapitre 1</title>
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
+
+  <style>
+
+    /* =====================================================
+       EN-TÊTE
+       ===================================================== */
+
+    .review-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+
+    .chapter-badge {
+      display: inline-block;
+
+      padding: 7px 14px;
+
+      border-radius: 20px;
+
+      font-size: 14px;
+      font-weight: bold;
+
+      margin-bottom: 10px;
+    }
+
+
+    /* =====================================================
+       PROGRESSION
+       ===================================================== */
+
+    .review-progress {
+      margin-bottom: 22px;
+    }
+
+
+    .review-progress-info {
+      display: flex;
+      justify-content: space-between;
+
+      margin-bottom: 8px;
+
+      color: var(--text-light);
+
+      font-size: 13px;
+    }
+
+
+    .review-progress-bar {
+      width: 100%;
+      height: 10px;
+
+      background: var(--soft-beige);
+
+      border-radius: 20px;
+
+      overflow: hidden;
+    }
+
+
+    .review-progress-fill {
+      width: 25%;
+      height: 100%;
+
+      background: var(--jade);
+
+      border-radius: 20px;
+
+      transition: width 0.3s ease;
+    }
+
+
+    /* =====================================================
+       CARTES
+       ===================================================== */
+
+    .review-card {
+      padding: 20px;
+
+      margin-bottom: 18px;
+    }
+
+
+    .review-card h2 {
+      margin-top: 0;
+    }
+
+
+    /* =====================================================
+       RÉVISIONS PERSONNALISÉES
+       ===================================================== */
+
+    .personal-card {
+      border-left: 5px solid var(--jade);
+    }
+
+
+    .personal-intro {
+      line-height: 1.6;
+    }
+
+
+    .notion-tags {
+      display: flex;
+      flex-wrap: wrap;
+
+      gap: 8px;
+
+      margin-top: 14px;
+    }
+
+
+    .notion-tag {
+      display: inline-block;
+
+      padding: 8px 12px;
+
+      border-radius: 20px;
+
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+
+    /* =====================================================
+       QUESTIONS
+       ===================================================== */
+
+    .question-number {
+      margin-top: 0;
+
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+
+    .question {
+      color: var(--navy);
+
+      font-size: 18px;
+
+      line-height: 1.6;
+    }
+
+
+    .korean-question {
+      padding: 16px;
+
+      margin: 15px 0;
+
+      background: #FBFAF6;
+
+      border-radius: var(--radius-medium);
+
+      color: var(--navy);
+
+      font-size: 22px;
+      font-weight: 600;
+
+      text-align: center;
+    }
+
+
+    /* =====================================================
+       RÉPONSES
+       ===================================================== */
+
+    .answers {
+      display: flex;
+      flex-direction: column;
+
+      gap: 10px;
+
+      margin-top: 15px;
+    }
+
+
+    .answer-button {
+      width: 100%;
+
+      padding: 15px;
+
+      border: 2px solid transparent;
+
+      text-align: left;
+    }
+
+
+    /* =====================================================
+       FEEDBACK
+       ===================================================== */
+
+    .feedback {
+      display: none;
+
+      margin-top: 15px;
+
+      padding: 16px;
+
+      border-radius: var(--radius-medium);
+
+      line-height: 1.6;
+    }
+
+
+    .feedback.correct,
+    .feedback.wrong {
+      display: block;
+    }
+
+
+    /* =====================================================
+       BOUTON SUIVANT
+       ===================================================== */
+
+    .next-button {
+      display: none;
+
+      width: 100%;
+
+      margin-top: 15px;
+
+      font-weight: bold;
+    }
+
+
+    /* =====================================================
+       ÉLÉMENTS MASQUÉS
+       ===================================================== */
+
+    .hidden {
+      display: none;
+    }
+
+
+    /* =====================================================
+       RÉSULTAT
+       ===================================================== */
+
+    .result-card {
+      display: none;
+
+      padding: 25px;
+
+      text-align: center;
+    }
+
+
+    .result-icon {
+      font-size: 60px;
+
+      margin-bottom: 8px;
+    }
+
+
+    .result-score {
+      font-size: 21px;
+      font-weight: bold;
+    }
+
+
+    .summary {
+      padding: 16px;
+
+      margin-top: 18px;
+
+      border-radius: var(--radius-medium);
+
+      text-align: left;
+
+      line-height: 1.6;
+    }
+
+
+    .mastery-box {
+      padding: 16px;
+
+      margin-top: 18px;
+
+      background: var(--soft-green);
+
+      border-radius: var(--radius-medium);
+
+      color: var(--navy);
+
+      text-align: left;
+
+      line-height: 1.6;
+    }
+
+
+    .garden-info {
+      padding: 14px;
+
+      margin-top: 18px;
+
+      background: var(--soft-blue);
+
+      border-radius: var(--radius-medium);
+
+      color: var(--navy);
+
+      line-height: 1.6;
+    }
+
+
+    .finish-button {
+      width: 100%;
+
+      margin-top: 18px;
+
+      font-weight: bold;
+    }
+
+
+    .chapter-button {
+      width: 100%;
+
+      margin-top: 10px;
+
+      background: var(--soft-beige);
+
+      color: var(--navy);
+    }
+
+
+    /* =====================================================
+       MOBILE
+       ===================================================== */
+
+    @media (max-width: 480px) {
+
+      .question {
+        font-size: 17px;
+      }
+
+
+      .korean-question {
+        font-size: 20px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+<main class="app">
+
+
+  <!-- =========================
+       RETOUR
+  ========================== -->
+
+  <a
+    class="back-link"
+    href="chapitre-1.html"
+  >
+    ← Chapitre 1
+  </a>
+
+
+
+  <!-- =========================
+       EN-TÊTE
+  ========================== -->
+
+  <header class="review-header">
+
+    <span class="chapter-badge">
+      Chapitre 1 · Révisions
+    </span>
+
+    <p class="korean">
+      복습해요 🧠
+    </p>
+
+    <h1>
+      Je révise
+    </h1>
+
+    <p>
+      Revois les notions du chapitre et renforce celles qui t'ont posé problème.
+    </p>
+
+  </header>
+
+
+
+  <!-- =========================
+       RÉVISIONS PERSONNALISÉES
+  ========================== -->
+
+  <section class="review-card personal-card">
+
+    <h2>
+      🧠 Tes révisions
+    </h2>
+
+    <p
+      class="personal-intro"
+      id="reviewIntro"
+    >
+      Analyse de tes exercices...
+    </p>
+
+    <div
+      class="notion-tags"
+      id="notionTags"
+    ></div>
+
+  </section>
+
+
+
+  <!-- =========================
+       PROGRESSION
+  ========================== -->
+
+  <div class="review-progress">
+
+    <div class="review-progress-info">
+
+      <span>
+        Révision du chapitre
+      </span>
+
+      <span id="progressLabel">
+        1 / 4
+      </span>
+
+    </div>
+
+
+    <div class="review-progress-bar">
+
+      <div
+        class="review-progress-fill"
+        id="progressFill"
+      ></div>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- =====================================================
+       QUESTION 1
+       ===================================================== -->
+
+  <section
+    class="review-card review-question"
+    id="question1"
+  >
+
+    <p class="question-number">
+      Révision 1 / 4
+    </p>
+
+    <h2>
+      은 ou 는 ?
+    </h2>
+
+    <p class="question">
+      Complète correctement :
+    </p>
+
+    <div class="korean-question">
+      저 + ___ → 저는
+    </div>
+
+
+    <div class="answers">
+
+      <button
+        class="answer-button"
+        type="button"
+        onclick="checkAnswer(1, this, false)"
+      >
+        은
+      </button>
+
+
+      <button
+        class="answer-button"
+        type="button"
+        onclick="checkAnswer(1, this, true)"
+      >
+        는
+      </button>
+
+    </div>
+
+
+    <div
+      class="feedback"
+      id="feedback1"
+    ></div>
+
+
+    <button
+      class="next-button"
+      id="next1"
+      type="button"
+      onclick="showQuestion(2)"
+    >
+      Continuer →
+    </button>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       QUESTION 2
+       ===================================================== -->
+
+  <section
+    class="review-card review-question hidden"
+    id="question2"
+  >
+
+    <p class="question-number">
+      Révision 2 / 4
+    </p>
+
+    <h2>
+      이에요 ou 예요 ?
+    </h2>
+
+    <p class="question">
+      Quelle forme est correcte avec <strong>학생</strong> ?
+    </p>
+
+
+    <div class="answers">
+
+      <button
+        class="answer-button"
+        type="button"
+        onclick="checkAnswer(2, this, true)"
+      >
+        학생이에요
+      </button>
+
+
+      <button
+        class="answer-button"
+        type="button"
+        onclick="checkAnswer(2, this, false)"
+      >
+        학생예요
+      </button>
+
+    </div>
+
+
+    <div
+      class="feedback"
+      id="feedback2"
+    ></div>
+
+
+    <button
+      class="next-button"
+      id="next2"
+      type="button"
+      onclick="showQuestion(3)"
+    >
+      Continuer →
+    </button>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       QUESTION 3
+       ===================================================== -->
+
+  <section
+    class="review-card review-question hidden"
+    id="question3"
+  >
+
+    <p class="question-number">
+      Révision 3 / 4
+    </p>
+
+    <h2>
+      Comprends la phrase
+    </h2>
+
+
+    <div class="korean-question">
+      저는 프랑스 사람이에요.
+    </div>
+
+
+    <p class="question">
+      Que signifie cette phrase ?
+    </p>
+
+
+    <div class="answers">
+
+      <button
+        class="answer-button"
+        type="button"
+        onclick="checkAnswer(3, this, false)"
+      >
+        Je suis étudiante.
+      </button>
+
+
+      <button
+        class="answer-button"
+        type="button"
+        onclick="checkAnswer(3, this, true)"
+      >
+        Je suis française.
+      </button>
+
+
+      <button
+        class="answer-button"
+        type="button"
+        onclick="checkAnswer(3, this, false)"
+      >
+        Je suis Hana.
+      </button>
+
+    </div>
+
+
+    <div
+      class="feedback"
+      id="feedback3"
+    ></div>
+
+
+    <button
+      class="next-button"
+      id="next3"
+      type="button"
+      onclick="showQuestion(4)"
+    >
+      Dernière révision →
+    </button>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       QUESTION 4
+       ===================================================== -->
+
+  <section
+    class="review-card review-question hidden"
+    id="question4"
+  >
+
+    <p class="question-number">
+      Révision 4 / 4
+    </p>
+
+    <h2>
+      🔎 Repère la phrase correcte
+    </h2>
+
+
+    <div class="answers">
+
+      <button
+        class="answer-button"
+        type="button"
+        onclick="checkAnswer(4, this, false)"
+      >
+        저은 하나예요.
+      </button>
+
+
+      <button
+        class="answer-button"
+        type="button"
+        onclick="checkAnswer(4, this, true)"
+      >
+        저는 하나예요.
+      </button>
+
+
+      <button
+        class="answer-button"
+        type="button"
+        onclick="checkAnswer(4, this, false)"
+      >
+        저는 하나이에요.
+      </button>
+
+    </div>
+
+
+    <div
+      class="feedback"
+      id="feedback4"
+    ></div>
+
+
+    <button
+      class="next-button"
+      id="next4"
+      type="button"
+      onclick="finishReview()"
+    >
+      Voir mon résultat 🌿
+    </button>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       RÉSULTAT
+       ===================================================== -->
+
+  <section
+    class="result-card"
+    id="resultCard"
+  >
+
+    <div class="result-icon">
+      🧠🌿
+    </div>
+
+
+    <h2>
+      복습 완료!
+    </h2>
+
+
+    <p>
+      Révision terminée !
+    </p>
+
+
+    <p
+      class="result-score"
+      id="scoreText"
+    >
+      4 notions validées ✅
+    </p>
+
+
+    <div class="summary">
+
+      <strong>
+        📊 Ta séance
+      </strong>
+
+      <p id="resultMessage"></p>
+
+    </div>
+
+
+    <div
+      class="mastery-box"
+      id="masteryBox"
+    >
+
+      <strong>
+        🌱 Ce que tu consolides
+      </strong>
+
+      <p id="masteryText"></p>
+
+    </div>
+
+
+    <div class="garden-info">
+
+      💧 Activité terminée !
+
+      <br>
+
+      Cette révision pourra compter pour arroser
+      ton jardin de Hana.
+
+    </div>
+
+
+    <button
+      class="finish-button"
+      type="button"
+      onclick="window.location.href='chapitre-1.html'"
+    >
+      🌿 Retour au chapitre
+    </button>
+
+
+    <button
+      class="chapter-button"
+      type="button"
+      onclick="window.location.href='itineraire.html'"
+    >
+      🗺️ Voir mon itinéraire
+    </button>
+
+  </section>
+
+
+</main>
+
+
+
+<script>
+
+  /* =====================================================
+     VARIABLES
+     ===================================================== */
+
+  let incorrectAttempts = 0;
+
+
+  const mistakesDuringReview =
+    new Set();
+
+
+  const completed = {
+    1: false,
+    2: false,
+    3: false,
+    4: false
+  };
+
+
+
+  /* =====================================================
+     CHARGER LES NOTIONS À REVOIR
+     ===================================================== */
+
+  function loadPersonalReview() {
+
+    const saved =
+      localStorage.getItem(
+        "hanaKorean_chapter1_revisionNotions"
+      );
+
+
+    let notions = [];
+
+
+    if (saved) {
+
+      try {
+
+        notions =
+          JSON.parse(saved);
+
+      }
+
+      catch (error) {
+
+        notions = [];
+
+      }
+
+    }
+
+
+    const intro =
+      document.getElementById(
+        "reviewIntro"
+      );
+
+
+    const tags =
+      document.getElementById(
+        "notionTags"
+      );
+
+
+    if (
+      notions.length === 0
+    ) {
+
+      intro.textContent =
+        "Aucune difficulté particulière n'a été enregistrée. Voici une révision générale du chapitre.";
+
+
+      const defaultNotions = [
+        "은 / 는",
+        "이에요 / 예요",
+        "Présentation"
+      ];
+
+
+      tags.innerHTML =
+        defaultNotions
+          .map(
+            notion =>
+              "<span class='notion-tag'>" +
+              notion +
+              "</span>"
+          )
+          .join("");
+
+
+      return;
+    }
+
+
+    intro.textContent =
+      "Pendant tes exercices, l'application a repéré ces notions à renforcer :";
+
+
+    tags.innerHTML =
+      notions
+        .map(
+          notion =>
+            "<span class='notion-tag'>" +
+            notion +
+            "</span>"
+        )
+        .join("");
+
+  }
+
+
+
+  /* =====================================================
+     VÉRIFIER UNE RÉPONSE
+     ===================================================== */
+
+  function checkAnswer(
+    number,
+    button,
+    isCorrect
+  ) {
+
+    if (completed[number]) {
+      return;
+    }
+
+
+    const feedback =
+      document.getElementById(
+        "feedback" + number
+      );
+
+
+
+    /* -------------------------
+       BONNE RÉPONSE
+       ------------------------- */
+
+    if (isCorrect) {
+
+      completed[number] = true;
+
+
+      button.classList.add(
+        "correct"
+      );
+
+
+      feedback.className =
+        "feedback correct";
+
+
+      if (number === 1) {
+
+        feedback.innerHTML =
+          "✅ <strong>Exact !</strong>" +
+          "<br><br>" +
+          "<strong>저</strong> se termine par une voyelle." +
+          "<br>" +
+          "Après une voyelle → <strong>는</strong>." +
+          "<br><br>" +
+          "저 + 는 → <strong>저는</strong>";
+
+      }
+
+
+      if (number === 2) {
+
+        feedback.innerHTML =
+          "✅ <strong>Très bien !</strong>" +
+          "<br><br>" +
+          "<strong>학생</strong> se termine par ㄱ, une consonne." +
+          "<br>" +
+          "Après une consonne → <strong>이에요</strong>." +
+          "<br><br>" +
+          "학생 + 이에요 → <strong>학생이에요</strong>";
+
+      }
+
+
+      if (number === 3) {
+
+        feedback.innerHTML =
+          "✅ <strong>Exact !</strong>" +
+          "<br><br>" +
+          "프랑스 = France" +
+          "<br>" +
+          "사람 = personne" +
+          "<br><br>" +
+          "<strong>프랑스 사람</strong> = personne française.";
+
+      }
+
+
+      if (number === 4) {
+
+        feedback.innerHTML =
+          "✅ <strong>Parfait !</strong>" +
+          "<br><br>" +
+          "<strong>저는 하나예요.</strong>" +
+          "<br><br>" +
+          "저 → 는" +
+          "<br>" +
+          "하나 → 예요";
+
+      }
+
+
+      document
+        .querySelectorAll(
+          "#question" +
+          number +
+          " .answer-button"
+        )
+        .forEach(
+          answer => {
+
+            answer.disabled = true;
+
+          }
+        );
+
+
+      document.getElementById(
+        "next" + number
+      ).style.display =
+        "block";
+
+
+      return;
+    }
+
+
+
+    /* -------------------------
+       MAUVAISE RÉPONSE
+       ------------------------- */
+
+    incorrectAttempts++;
+
+
+    button.classList.add(
+      "wrong"
+    );
+
+
+    feedback.className =
+      "feedback wrong";
+
+
+    if (number === 1) {
+
+      mistakesDuringReview.add(
+        "은 / 는"
+      );
+
+
+      feedback.innerHTML =
+        "❌ <strong>Regarde la fin de 저.</strong>" +
+        "<br><br>" +
+        "💡 저 se termine par une voyelle." +
+        "<br>" +
+        "Quelle particule de thème utilise-t-on après une voyelle ?";
+
+    }
+
+
+    if (number === 2) {
+
+      mistakesDuringReview.add(
+        "이에요 / 예요"
+      );
+
+
+      feedback.innerHTML =
+        "❌ <strong>Pas cette forme.</strong>" +
+        "<br><br>" +
+        "💡 La dernière syllabe de 학생 est <strong>생</strong>." +
+        "<br>" +
+        "Elle possède la consonne finale ㄱ.";
+
+    }
+
+
+    if (number === 3) {
+
+      mistakesDuringReview.add(
+        "프랑스 사람"
+      );
+
+
+      feedback.innerHTML =
+        "❌ <strong>Réessaie.</strong>" +
+        "<br><br>" +
+        "💡 Tu connais déjà <strong>프랑스</strong> = France." +
+        "<br>" +
+        "Et <strong>사람</strong> signifie personne.";
+
+    }
+
+
+    if (number === 4) {
+
+      mistakesDuringReview.add(
+        "은 / 는"
+      );
+
+      mistakesDuringReview.add(
+        "이에요 / 예요"
+      );
+
+
+      feedback.innerHTML =
+        "❌ <strong>Il y a une petite erreur grammaticale.</strong>" +
+        "<br><br>" +
+        "💡 Vérifie la particule après <strong>저</strong>" +
+        " et la terminaison après <strong>하나</strong>.";
+
+    }
+
+
+    setTimeout(
+      () => {
+
+        button.classList.remove(
+          "wrong"
+        );
+
+      },
+      800
+    );
+
+  }
+
+
+
+  /* =====================================================
+     QUESTION SUIVANTE
+     ===================================================== */
+
+  function showQuestion(number) {
+
+    document
+      .querySelectorAll(
+        ".review-question"
+      )
+      .forEach(
+        card => {
+
+          card.classList.add(
+            "hidden"
+          );
+
+        }
+      );
+
+
+    document.getElementById(
+      "question" + number
+    ).classList.remove(
+      "hidden"
+    );
+
+
+    const percentages = {
+      1: 25,
+      2: 50,
+      3: 75,
+      4: 100
+    };
+
+
+    document.getElementById(
+      "progressFill"
+    ).style.width =
+      percentages[number] + "%";
+
+
+    document.getElementById(
+      "progressLabel"
+    ).textContent =
+      number + " / 4";
+
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+
+  }
+
+
+
+  /* =====================================================
+     FIN DES RÉVISIONS
+     ===================================================== */
+
+  function finishReview() {
+
+    document
+      .querySelectorAll(
+        ".review-question"
+      )
+      .forEach(
+        card => {
+
+          card.classList.add(
+            "hidden"
+          );
+
+        }
+      );
+
+
+    document.getElementById(
+      "progressFill"
+    ).style.width =
+      "100%";
+
+
+    document.getElementById(
+      "progressLabel"
+    ).textContent =
+      "4 / 4";
+
+
+    document.getElementById(
+      "resultCard"
+    ).style.display =
+      "block";
+
+
+
+    /* -------------------------
+       RÉSULTAT
+       ------------------------- */
+
+    let resultMessage = "";
+
+
+    if (
+      incorrectAttempts === 0
+    ) {
+
+      resultMessage =
+        "🌟 Toutes les réponses ont été trouvées du premier coup.";
+
+    }
+
+    else if (
+      incorrectAttempts === 1
+    ) {
+
+      resultMessage =
+        "💡 1 tentative incorrecte pendant la révision. Tu as ensuite validé toutes les notions.";
+
+    }
+
+    else {
+
+      resultMessage =
+        "💡 " +
+        incorrectAttempts +
+        " tentatives incorrectes pendant la révision. Tu as tout de même terminé les 4 exercices.";
+
+    }
+
+
+    document.getElementById(
+      "resultMessage"
+    ).textContent =
+      resultMessage;
+
+
+
+    /* -------------------------
+       NOTIONS À CONSOLIDER
+       ------------------------- */
+
+    const currentReviewMistakes =
+      Array.from(
+        mistakesDuringReview
+      );
+
+
+    if (
+      currentReviewMistakes.length === 0
+    ) {
+
+      document.getElementById(
+        "masteryText"
+      ).textContent =
+        "Les notions principales de ce chapitre semblent bien maîtrisées. 🌿";
+
+    }
+
+    else {
+
+      document.getElementById(
+        "masteryText"
+      ).innerHTML =
+        "Ces notions pourront revenir lors de tes prochaines révisions :" +
+        "<br><br>" +
+        currentReviewMistakes
+          .map(
+            notion =>
+              "• " + notion
+          )
+          .join("<br>");
+
+    }
+
+
+
+    /* -------------------------
+       SAUVEGARDE
+       ------------------------- */
+
+    localStorage.setItem(
+      "hanaKorean_chapter1_review",
+      "completed"
+    );
+
+
+    localStorage.setItem(
+      "hanaKorean_chapter1_reviewMistakes",
+      incorrectAttempts
+    );
+
+
+    localStorage.setItem(
+      "hanaKorean_chapter1_reviewWeakNotions",
+      JSON.stringify(
+        currentReviewMistakes
+      )
+    );
+
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+
+  }
+
+
+
+  /* =====================================================
+     DÉMARRAGE
+     ===================================================== */
+
+  loadPersonalReview();
+
+</script>
+
+
+</body>
+
+</html>

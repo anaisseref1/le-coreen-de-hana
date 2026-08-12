@@ -1,0 +1,1830 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="theme-color"
+    content="#F7F4ED"
+  >
+
+  <title>Chapitre 4 — J'aime…</title>
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
+
+  <style>
+
+    /* =====================================================
+       EN-TÊTE
+       ===================================================== */
+
+    .chapter-header {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+
+    .chapter-badge {
+      display: inline-block;
+      padding: 7px 14px;
+      margin-bottom: 10px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+
+    /* =====================================================
+       PARCOURS
+       ===================================================== */
+
+    .chapter-path {
+      margin-bottom: 25px;
+    }
+
+
+    .chapter-path-title {
+      margin-bottom: 12px;
+      color: var(--navy);
+      font-weight: bold;
+    }
+
+
+    .learning-path {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 9px;
+    }
+
+
+    .learning-step {
+      position: relative;
+
+      min-height: 72px;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      padding: 10px 5px;
+
+      border-radius: var(--radius-medium);
+
+      text-decoration: none;
+      text-align: center;
+
+      font-size: 13px;
+
+      transition: 0.2s;
+    }
+
+
+    .learning-step:hover {
+      transform: translateY(-1px);
+    }
+
+
+    .learning-step.completed {
+      background: var(--success-light) !important;
+      color: var(--navy) !important;
+      border-color: var(--success) !important;
+    }
+
+
+    .step-icon {
+      margin-bottom: 4px;
+      font-size: 21px;
+    }
+
+
+    .step-check {
+      display: none;
+
+      position: absolute;
+
+      top: 5px;
+      right: 7px;
+
+      color: var(--success);
+
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+
+    .learning-step.completed .step-check {
+      display: block;
+    }
+
+
+    /* =====================================================
+       PROGRESSION
+       ===================================================== */
+
+    .chapter-progress-card {
+      padding: 17px;
+      margin-bottom: 22px;
+
+      background: var(--white);
+
+      border-radius: var(--radius-large);
+
+      box-shadow: var(--shadow);
+    }
+
+
+    .chapter-progress-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+
+      margin-bottom: 9px;
+
+      color: var(--text-light);
+
+      font-size: 13px;
+    }
+
+
+    .chapter-progress-bar {
+      height: 9px;
+
+      background: var(--soft-beige);
+
+      border-radius: 20px;
+
+      overflow: hidden;
+    }
+
+
+    .chapter-progress-fill {
+      width: 0%;
+      height: 100%;
+
+      background: var(--jade);
+
+      border-radius: 20px;
+
+      transition: width 0.35s ease;
+    }
+
+
+    /* =====================================================
+       CARTES
+       ===================================================== */
+
+    .lesson-card {
+      padding: 20px;
+      margin-bottom: 18px;
+    }
+
+
+    .lesson-card h2 {
+      margin-top: 0;
+    }
+
+
+    .objectives ul {
+      padding-left: 20px;
+      line-height: 1.8;
+    }
+
+
+    /* =====================================================
+       VOCABULAIRE
+       ===================================================== */
+
+    .vocab-item {
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+
+    .vocab-item:last-child {
+      border-bottom: none;
+    }
+
+
+    .vocab-korean {
+      color: var(--navy);
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+
+    .vocab-french {
+      margin-top: 3px;
+      color: var(--text-light);
+    }
+
+
+    /* =====================================================
+       STRUCTURES / EXEMPLES
+       ===================================================== */
+
+    .structure-box {
+      padding: 17px;
+      margin: 15px 0;
+
+      background: var(--soft-beige);
+
+      border-radius: var(--radius-medium);
+
+      color: var(--navy);
+
+      text-align: center;
+
+      font-size: 19px;
+      font-weight: bold;
+
+      line-height: 1.8;
+    }
+
+
+    .example {
+      padding: 15px;
+      margin-top: 12px;
+
+      border-radius: var(--radius-medium);
+
+      line-height: 1.8;
+    }
+
+
+    .example-korean {
+      color: var(--navy);
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+
+    /* =====================================================
+       INFO
+       ===================================================== */
+
+    .info-box {
+      padding: 16px;
+      margin-top: 15px;
+
+      border-left: 4px solid;
+
+      border-radius: var(--radius-medium);
+
+      background: #FBFAF6;
+
+      line-height: 1.7;
+    }
+
+
+    /* =====================================================
+       COMPARAISON
+       ===================================================== */
+
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+
+    .comparison-item {
+      padding: 15px;
+
+      background: #FBFAF6;
+
+      border-radius: var(--radius-medium);
+
+      text-align: center;
+    }
+
+
+    .comparison-korean {
+      color: var(--navy);
+      font-size: 19px;
+      font-weight: bold;
+    }
+
+
+    .comparison-french {
+      margin-top: 6px;
+      color: var(--text-light);
+      font-size: 14px;
+    }
+
+
+    /* =====================================================
+       DIALOGUE
+       ===================================================== */
+
+    .dialogue-line {
+      padding: 14px;
+      margin-bottom: 10px;
+
+      border-radius: var(--radius-medium);
+
+      line-height: 1.7;
+    }
+
+
+    .speaker {
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+
+    /* =====================================================
+       NOUVEAU PERSONNAGE
+       ===================================================== */
+
+    .character-card {
+      padding: 17px;
+      margin-top: 18px;
+
+      background: var(--soft-green);
+
+      border-radius: var(--radius-medium);
+
+      line-height: 1.7;
+    }
+
+
+    .character-title {
+      color: var(--navy);
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+
+    /* =====================================================
+       CARNET
+       ===================================================== */
+
+    .mission-line {
+      padding: 11px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+
+    .mission-line:last-child {
+      border-bottom: none;
+    }
+
+
+    /* =====================================================
+       BOUTON
+       ===================================================== */
+
+    .continue-button {
+      width: 100%;
+      margin-top: 5px;
+      font-weight: bold;
+    }
+
+
+    @media (max-width: 480px) {
+
+      .learning-path {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+
+      .comparison-grid {
+        grid-template-columns: 1fr;
+      }
+
+
+      .example-korean {
+        font-size: 19px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+<main class="app">
+
+
+  <!-- =====================================================
+       RETOUR
+       ===================================================== -->
+
+  <a
+    class="back-link"
+    href="itineraire.html"
+  >
+    ← Mon itinéraire
+  </a>
+
+
+
+  <!-- =====================================================
+       EN-TÊTE
+       ===================================================== -->
+
+  <header class="chapter-header">
+
+    <span class="chapter-badge">
+      Module 1 · Chapitre 4
+    </span>
+
+
+    <p class="korean">
+      좋아해요! 🍓
+    </p>
+
+
+    <h1>
+      J'aime…
+    </h1>
+
+
+    <p>
+      Apprends à parler de tes goûts
+      et à demander ce que l'autre personne aime.
+    </p>
+
+  </header>
+
+
+
+  <!-- =====================================================
+       PARCOURS
+       ===================================================== -->
+
+  <section class="chapter-path">
+
+    <div class="chapter-path-title">
+      🌿 Ton parcours dans ce chapitre
+    </div>
+
+
+    <div class="learning-path">
+
+
+      <a
+        class="learning-step active"
+        id="stepUnderstanding"
+        href="chapitre-4.html"
+      >
+
+        <span class="step-check">
+          ✓
+        </span>
+
+        <span class="step-icon">
+          📖
+        </span>
+
+        Je comprends
+
+      </a>
+
+
+      <a
+        class="learning-step"
+        id="stepListening"
+        href="ecoute-4.html"
+      >
+
+        <span class="step-check">
+          ✓
+        </span>
+
+        <span class="step-icon">
+          🎧
+        </span>
+
+        J'écoute
+
+      </a>
+
+
+      <a
+        class="learning-step"
+        id="stepSpeaking"
+        href="parle-4.html"
+      >
+
+        <span class="step-check">
+          ✓
+        </span>
+
+        <span class="step-icon">
+          🗣️
+        </span>
+
+        Je parle
+
+      </a>
+
+
+      <a
+        class="learning-step"
+        id="stepWriting"
+        href="ecriture-4.html"
+      >
+
+        <span class="step-check">
+          ✓
+        </span>
+
+        <span class="step-icon">
+          ✍️
+        </span>
+
+        J'écris
+
+      </a>
+
+
+      <a
+        class="learning-step"
+        id="stepReview"
+        href="revision-4.html"
+      >
+
+        <span class="step-check">
+          ✓
+        </span>
+
+        <span class="step-icon">
+          🧠
+        </span>
+
+        Je révise
+
+      </a>
+
+
+      <a
+        class="learning-step"
+        id="stepMission"
+        href="utilise-4.html"
+      >
+
+        <span class="step-check">
+          ✓
+        </span>
+
+        <span class="step-icon">
+          🎯
+        </span>
+
+        Je l'utilise
+
+      </a>
+
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       PROGRESSION
+       ===================================================== -->
+
+  <section class="chapter-progress-card">
+
+    <div class="chapter-progress-top">
+
+      <span>
+        Progression du chapitre
+      </span>
+
+      <strong id="chapterProgressText">
+        0 / 6
+      </strong>
+
+    </div>
+
+
+    <div class="chapter-progress-bar">
+
+      <div
+        class="chapter-progress-fill"
+        id="chapterProgressFill"
+      ></div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       OBJECTIFS
+       ===================================================== -->
+
+  <section class="lesson-card objectives">
+
+    <h2>
+      🎯 Objectifs
+    </h2>
+
+
+    <ul>
+
+      <li>
+        Dire ce que tu aimes.
+      </li>
+
+      <li>
+        Dire ce que tu n'aimes pas.
+      </li>
+
+      <li>
+        Demander à quelqu'un ce qu'il aime.
+      </li>
+
+      <li>
+        Utiliser <strong>을 / 를</strong>.
+      </li>
+
+      <li>
+        Utiliser <strong>도</strong> pour dire « aussi ».
+      </li>
+
+      <li>
+        Rendre une réponse plus naturelle avec <strong>정말</strong>.
+      </li>
+
+    </ul>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       VOCABULAIRE
+       ===================================================== -->
+
+  <section class="lesson-card vocabulary">
+
+    <h2>
+      🌱 Vocabulaire
+    </h2>
+
+
+    <div class="vocab-item">
+
+      <div class="vocab-korean">
+        좋아하다
+      </div>
+
+      <div class="vocab-french">
+        Aimer
+      </div>
+
+    </div>
+
+
+    <div class="vocab-item">
+
+      <div class="vocab-korean">
+        좋아해요
+      </div>
+
+      <div class="vocab-french">
+        J'aime / vous aimez
+      </div>
+
+    </div>
+
+
+    <div class="vocab-item">
+
+      <div class="vocab-korean">
+        싫어하다
+      </div>
+
+      <div class="vocab-french">
+        Ne pas aimer / détester
+      </div>
+
+    </div>
+
+
+    <div class="vocab-item">
+
+      <div class="vocab-korean">
+        싫어해요
+      </div>
+
+      <div class="vocab-french">
+        Je n'aime pas / je déteste
+      </div>
+
+    </div>
+
+
+    <div class="vocab-item">
+
+      <div class="vocab-korean">
+        딸기
+      </div>
+
+      <div class="vocab-french">
+        Fraise
+      </div>
+
+    </div>
+
+
+    <div class="vocab-item">
+
+      <div class="vocab-korean">
+        커피
+      </div>
+
+      <div class="vocab-french">
+        Café
+      </div>
+
+    </div>
+
+
+    <div class="vocab-item">
+
+      <div class="vocab-korean">
+        고양이
+      </div>
+
+      <div class="vocab-french">
+        Chat
+      </div>
+
+    </div>
+
+
+    <div class="vocab-item">
+
+      <div class="vocab-korean">
+        케이크
+      </div>
+
+      <div class="vocab-french">
+        Gâteau
+      </div>
+
+    </div>
+
+
+    <div class="vocab-item">
+
+      <div class="vocab-korean">
+        정말
+      </div>
+
+      <div class="vocab-french">
+        Vraiment
+      </div>
+
+    </div>
+
+
+    <div class="vocab-item">
+
+      <div class="vocab-korean">
+        도
+      </div>
+
+      <div class="vocab-french">
+        Aussi
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       좋아하다
+       ===================================================== -->
+
+  <section class="lesson-card grammar">
+
+    <h2>
+      ❤️ Dire ce que l'on aime
+    </h2>
+
+
+    <p>
+      Le verbe :
+    </p>
+
+
+    <div class="structure-box">
+
+      좋아하다 → 좋아해요
+
+    </div>
+
+
+    <p>
+      permet de dire que l'on aime quelque chose.
+    </p>
+
+
+    <div class="structure-box">
+
+      저는 + chose + 을 / 를 + 좋아해요
+
+    </div>
+
+
+    <div class="example">
+
+      <div class="example-korean">
+        저는 딸기를 좋아해요.
+      </div>
+
+      <span class="translation">
+        J'aime les fraises.
+      </span>
+
+    </div>
+
+
+    <div class="example">
+
+      <div class="example-korean">
+        저는 커피를 좋아해요.
+      </div>
+
+      <span class="translation">
+        J'aime le café.
+      </span>
+
+    </div>
+
+
+    <div class="example">
+
+      <div class="example-korean">
+        저는 고양이를 좋아해요.
+      </div>
+
+      <span class="translation">
+        J'aime les chats.
+      </span>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       을 / 를
+       ===================================================== -->
+
+  <section class="lesson-card grammar">
+
+    <h2>
+      🧩 La particule 을 / 를
+    </h2>
+
+
+    <p>
+      <strong>을 / 를</strong> indique ici
+      ce que tu aimes.
+    </p>
+
+
+    <div class="comparison-grid">
+
+
+      <div class="comparison-item">
+
+        <div class="comparison-korean">
+          을
+        </div>
+
+        <div class="comparison-french">
+          après une consonne
+        </div>
+
+      </div>
+
+
+      <div class="comparison-item">
+
+        <div class="comparison-korean">
+          를
+        </div>
+
+        <div class="comparison-french">
+          après une voyelle
+        </div>
+
+      </div>
+
+
+    </div>
+
+
+    <div class="example">
+
+      <div class="example-korean">
+        딸기 + 를
+        <br>
+        → 딸기를
+      </div>
+
+    </div>
+
+
+    <div class="example">
+
+      <div class="example-korean">
+        커피 + 를
+        <br>
+        → 커피를
+      </div>
+
+    </div>
+
+
+    <div class="example">
+
+      <div class="example-korean">
+        고양이 + 를
+        <br>
+        → 고양이를
+      </div>
+
+    </div>
+
+
+    <div class="info-box why">
+
+      <strong>
+        💡 Pourquoi 를 ?
+      </strong>
+
+      <br><br>
+
+      딸기, 커피 et 고양이
+      se terminent tous par une voyelle.
+
+      <br><br>
+
+      On utilise donc ici <strong>를</strong>.
+
+      <br><br>
+
+      Plus tard, tu rencontreras aussi
+      des mots qui se terminent par une consonne :
+      on utilisera alors <strong>을</strong>.
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       QUESTION
+       ===================================================== -->
+
+  <section class="lesson-card grammar">
+
+    <h2>
+      ❓ Demander ce que quelqu'un aime
+    </h2>
+
+
+    <p>
+      Une phrase affirmative peut devenir
+      une question grâce à l'intonation :
+    </p>
+
+
+    <div class="example">
+
+      <div class="example-korean">
+        딸기를 좋아해요.
+      </div>
+
+      <span class="translation">
+        Vous aimez les fraises.
+      </span>
+
+    </div>
+
+
+    <div class="example">
+
+      <div class="example-korean">
+        딸기를 좋아해요?
+      </div>
+
+      <span class="translation">
+        Vous aimez les fraises ?
+      </span>
+
+    </div>
+
+
+    <div class="example">
+
+      <div class="example-korean">
+        커피를 좋아해요?
+      </div>
+
+      <span class="translation">
+        Vous aimez le café ?
+      </span>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       정말
+       ===================================================== -->
+
+  <section class="lesson-card grammar">
+
+    <h2>
+      ✨ 정말
+    </h2>
+
+
+    <p>
+      <strong>정말</strong> signifie « vraiment ».
+    </p>
+
+
+    <div class="example">
+
+      <div class="example-korean">
+        네, 정말 좋아해요!
+      </div>
+
+      <span class="translation">
+        Oui, j'aime vraiment ça !
+      </span>
+
+    </div>
+
+
+    <p>
+      C'est une façon simple de rendre
+      ta réponse plus expressive et naturelle.
+    </p>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       도
+       ===================================================== -->
+
+  <section class="lesson-card grammar">
+
+    <h2>
+      ➕ 도 = aussi
+    </h2>
+
+
+    <p>
+      <strong>도</strong> permet d'ajouter une autre chose
+      avec le sens de « aussi ».
+    </p>
+
+
+    <div class="example">
+
+      <div class="example-korean">
+        커피도 좋아해요.
+      </div>
+
+      <span class="translation">
+        J'aime aussi le café.
+      </span>
+
+    </div>
+
+
+    <div class="example">
+
+      <div class="example-korean">
+        고양이도 좋아해요.
+      </div>
+
+      <span class="translation">
+        J'aime aussi les chats.
+      </span>
+
+    </div>
+
+
+    <div class="info-box why">
+
+      <strong>
+        💡 Observe
+      </strong>
+
+      <br><br>
+
+      딸기를 좋아해요.
+
+      <br>
+      → J'aime les fraises.
+
+      <br><br>
+
+      커피<strong>도</strong> 좋아해요.
+
+      <br>
+      → J'aime <strong>aussi</strong> le café.
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       싫어하다
+       ===================================================== -->
+
+  <section class="lesson-card grammar">
+
+    <h2>
+      💭 Dire ce que l'on n'aime pas
+    </h2>
+
+
+    <div class="structure-box">
+
+      싫어하다 → 싫어해요
+
+    </div>
+
+
+    <div class="example">
+
+      <div class="example-korean">
+        저는 커피를 싫어해요.
+      </div>
+
+      <span class="translation">
+        Je n'aime pas le café.
+      </span>
+
+    </div>
+
+
+    <div class="info-box culture">
+
+      <strong>
+        🌿 Petite nuance
+      </strong>
+
+      <br><br>
+
+      <strong>싫어해요</strong> peut être plus fort
+      que le simple français « je n'aime pas ».
+
+      <br><br>
+
+      Selon le contexte, il peut se rapprocher
+      de « je déteste / je n'apprécie pas ».
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       RENVOYER LA QUESTION
+       ===================================================== -->
+
+  <section class="lesson-card grammar">
+
+    <h2>
+      💬 Et toi ?
+    </h2>
+
+
+    <p>
+      Pour éviter une conversation
+      qui ressemble à un interrogatoire,
+      tu peux renvoyer simplement la question.
+    </p>
+
+
+    <div class="example">
+
+      <div class="example-korean">
+        민수 씨는요?
+      </div>
+
+      <span class="translation">
+        Et vous, Min-su ? / Et toi, Min-su ?
+      </span>
+
+    </div>
+
+
+    <div class="info-box why">
+
+      <strong>
+        💡 Très utile en conversation
+      </strong>
+
+      <br><br>
+
+      Tu n'as pas besoin de répéter toute la question.
+
+      <br><br>
+
+      Min-su :
+      <strong>딸기를 좋아해요?</strong>
+
+      <br><br>
+
+      Hana :
+      <strong>네, 정말 좋아해요! 민수 씨는요?</strong>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       DIALOGUE
+       ===================================================== -->
+
+  <section class="lesson-card">
+
+    <h2>
+      💬 Au café avec Min-su
+    </h2>
+
+
+    <div class="dialogue-line">
+
+      <div class="speaker">
+        💙 Min-su
+      </div>
+
+      딸기를 좋아해요?
+
+      <br>
+
+      <span class="translation">
+        Tu aimes les fraises ?
+      </span>
+
+    </div>
+
+
+    <div class="dialogue-line">
+
+      <div class="speaker">
+        🌸 Hana
+      </div>
+
+      네, 정말 좋아해요! 민수 씨는요?
+
+      <br>
+
+      <span class="translation">
+        Oui, j'aime vraiment ça ! Et toi, Min-su ?
+      </span>
+
+    </div>
+
+
+    <div class="dialogue-line">
+
+      <div class="speaker">
+        💙 Min-su
+      </div>
+
+      네, 저도 좋아해요. 커피도 좋아해요?
+
+      <br>
+
+      <span class="translation">
+        Oui, moi aussi. Tu aimes aussi le café ?
+      </span>
+
+    </div>
+
+
+    <div class="dialogue-line">
+
+      <div class="speaker">
+        🌸 Hana
+      </div>
+
+      네, 커피도 좋아해요.
+
+      <br>
+
+      <span class="translation">
+        Oui, j'aime aussi le café.
+      </span>
+
+    </div>
+
+
+    <div class="dialogue-line">
+
+      <div class="speaker">
+        💙 Min-su
+      </div>
+
+      고양이도 좋아해요?
+
+      <br>
+
+      <span class="translation">
+        Tu aimes aussi les chats ?
+      </span>
+
+    </div>
+
+
+    <div class="dialogue-line">
+
+      <div class="speaker">
+        🌸 Hana
+      </div>
+
+      네! 정말 좋아해요!
+
+      <br>
+
+      <span class="translation">
+        Oui ! J'aime vraiment beaucoup !
+      </span>
+
+    </div>
+
+
+
+    <!-- JI-EUN ARRIVE -->
+
+    <div class="dialogue-line">
+
+      <div class="speaker">
+        💚 Ji-eun
+      </div>
+
+      안녕하세요! 주문하시겠어요?
+
+      <br>
+
+      <span class="translation">
+        Bonjour ! Vous souhaitez commander ?
+      </span>
+
+    </div>
+
+
+    <div class="dialogue-line">
+
+      <div class="speaker">
+        💙 Min-su
+      </div>
+
+      딸기 케이크 하나 주세요.
+
+      <br>
+
+      <span class="translation">
+        Un gâteau à la fraise, s'il vous plaît.
+      </span>
+
+    </div>
+
+
+    <div class="dialogue-line">
+
+      <div class="speaker">
+        💙 Min-su
+      </div>
+
+      제 친구 지은 씨예요.
+
+      <br>
+
+      <span class="translation">
+        C'est mon amie Ji-eun.
+      </span>
+
+    </div>
+
+
+    <div class="dialogue-line">
+
+      <div class="speaker">
+        💙 Min-su
+      </div>
+
+      이쪽은 하나 씨예요.
+
+      <br>
+
+      <span class="translation">
+        Et voici Hana.
+      </span>
+
+    </div>
+
+
+    <div class="dialogue-line">
+
+      <div class="speaker">
+        💚 Ji-eun
+      </div>
+
+      안녕하세요. 저는 지은이에요. 반가워요!
+
+      <br>
+
+      <span class="translation">
+        Bonjour. Je suis Ji-eun. Ravie de te rencontrer !
+      </span>
+
+    </div>
+
+
+    <div class="dialogue-line">
+
+      <div class="speaker">
+        🌸 Hana
+      </div>
+
+      안녕하세요. 저는 하나예요. 저도 반가워요!
+
+      <br>
+
+      <span class="translation">
+        Bonjour. Je suis Hana. Moi aussi, ravie de te rencontrer !
+      </span>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       JI-EUN
+       ===================================================== -->
+
+  <section class="lesson-card culture">
+
+    <h2>
+      💚 Nouvelle rencontre : Ji-eun
+    </h2>
+
+
+    <div class="character-card">
+
+      <div class="character-title">
+        Ji-eun
+      </div>
+
+      <br>
+
+      Ji-eun travaille au café
+      et connaît déjà Min-su.
+
+      <br><br>
+
+      Tu la retrouveras plus tard
+      dans plusieurs situations du quotidien :
+      café, commandes et petites conversations.
+
+    </div>
+
+
+    <p>
+      Pour l'instant, retiens simplement son prénom
+      et la façon dont Min-su vous présente l'une à l'autre.
+    </p>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       CARNET
+       ===================================================== -->
+
+  <section class="lesson-card mission">
+
+    <h2>
+      📓 Dans ton carnet de voyage
+    </h2>
+
+
+    <p>
+      À la fin du chapitre,
+      tu dois pouvoir utiliser :
+    </p>
+
+
+    <div class="mission-line">
+
+      🍓
+      <strong>
+        저는 딸기를 좋아해요.
+      </strong>
+
+      <br>
+
+      <span class="translation">
+        J'aime les fraises.
+      </span>
+
+    </div>
+
+
+    <div class="mission-line">
+
+      ☕
+      <strong>
+        커피도 좋아해요.
+      </strong>
+
+      <br>
+
+      <span class="translation">
+        J'aime aussi le café.
+      </span>
+
+    </div>
+
+
+    <div class="mission-line">
+
+      ❤️
+      <strong>
+        네, 정말 좋아해요!
+      </strong>
+
+      <br>
+
+      <span class="translation">
+        Oui, j'aime vraiment ça !
+      </span>
+
+    </div>
+
+
+    <div class="mission-line">
+
+      ❓
+      <strong>
+        민수 씨는요?
+      </strong>
+
+      <br>
+
+      <span class="translation">
+        Et toi, Min-su ?
+      </span>
+
+    </div>
+
+
+    <div class="mission-line">
+
+      💭
+      <strong>
+        저는 커피를 싫어해요.
+      </strong>
+
+      <br>
+
+      <span class="translation">
+        Je n'aime pas le café.
+      </span>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       CONTINUER
+       ===================================================== -->
+
+  <button
+    class="continue-button"
+    type="button"
+    onclick="completeUnderstanding()"
+  >
+    🎧 J'ai compris · Passer à « J'écoute »
+  </button>
+
+
+</main>
+
+
+
+<script>
+
+  /* =====================================================
+     PROGRESSION DU CHAPITRE 4
+     ===================================================== */
+
+  const chapterSteps = [
+
+    {
+      id: "stepUnderstanding",
+      key: "hanaKorean_chapter4_understanding"
+    },
+
+    {
+      id: "stepListening",
+      key: "hanaKorean_chapter4_listening"
+    },
+
+    {
+      id: "stepSpeaking",
+      key: "hanaKorean_chapter4_speaking"
+    },
+
+    {
+      id: "stepWriting",
+      key: "hanaKorean_chapter4_writing"
+    },
+
+    {
+      id: "stepReview",
+      key: "hanaKorean_chapter4_review"
+    },
+
+    {
+      id: "stepMission",
+      key: "hanaKorean_chapter4_mission"
+    }
+
+  ];
+
+
+
+  /* =====================================================
+     JE COMPRENDS
+     ===================================================== */
+
+  function completeUnderstanding() {
+
+    localStorage.setItem(
+      "hanaKorean_chapter4_understanding",
+      "completed"
+    );
+
+
+    updateChapterProgress();
+
+
+    window.location.href =
+      "ecoute-4.html";
+
+  }
+
+
+
+  /* =====================================================
+     ACTUALISER LA PROGRESSION
+     ===================================================== */
+
+  function updateChapterProgress() {
+
+    let completedCount = 0;
+
+
+    chapterSteps.forEach(
+      step => {
+
+        const element =
+          document.getElementById(
+            step.id
+          );
+
+
+        const completed =
+          localStorage.getItem(
+            step.key
+          ) === "completed";
+
+
+        if (completed) {
+
+          completedCount++;
+
+
+          element.classList.add(
+            "completed"
+          );
+
+        }
+
+        else {
+
+          element.classList.remove(
+            "completed"
+          );
+
+        }
+
+      }
+    );
+
+
+    const percentage =
+      Math.round(
+        completedCount /
+        chapterSteps.length *
+        100
+      );
+
+
+    document.getElementById(
+      "chapterProgressText"
+    ).textContent =
+      completedCount +
+      " / 6";
+
+
+    document.getElementById(
+      "chapterProgressFill"
+    ).style.width =
+      percentage +
+      "%";
+
+
+    if (
+      completedCount ===
+      chapterSteps.length
+    ) {
+
+      localStorage.setItem(
+        "hanaKorean_chapter4_completed",
+        "completed"
+      );
+
+    }
+
+    else {
+
+      localStorage.removeItem(
+        "hanaKorean_chapter4_completed"
+      );
+
+    }
+
+  }
+
+
+
+  /* =====================================================
+     DÉMARRAGE
+     ===================================================== */
+
+  updateChapterProgress();
+
+</script>
+
+
+</body>
+
+</html>

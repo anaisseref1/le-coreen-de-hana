@@ -1,0 +1,806 @@
+/* =========================================================
+   LE CORÉEN DE HANA
+   STYLE GLOBAL
+   ========================================================= */
+
+:root {
+
+  /* COULEURS PRINCIPALES */
+
+  --jade: #6F9F92;
+  --jade-dark: #557E73;
+
+  --navy: #26364A;
+
+  --ivory: #F7F4ED;
+  --gold: #D7B978;
+
+
+  /* COULEURS D'ACCOMPAGNEMENT */
+
+  --soft-green: #EAF3EF;
+  --soft-blue: #EAF1F6;
+  --soft-beige: #F2EBDD;
+
+  --white: #FFFFFF;
+
+  --text: #252A30;
+  --text-light: #6F7478;
+
+  --success: #5F9270;
+  --success-light: #EAF3EF;
+
+  --error: #C86B69;
+  --error-light: #FBEDEC;
+
+  --warning: #C69856;
+  --warning-light: #F8F0E2;
+
+  --border: #E7E2D9;
+
+
+  /* OMBRES */
+
+  --shadow:
+    0 5px 20px rgba(38, 54, 74, 0.07);
+
+  --shadow-hover:
+    0 8px 24px rgba(38, 54, 74, 0.11);
+
+
+  /* ARRONDIS */
+
+  --radius-large: 20px;
+  --radius-medium: 14px;
+  --radius-small: 10px;
+}
+
+
+/* =========================================================
+   BASE
+   ========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+body {
+  margin: 0;
+
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    "Apple SD Gothic Neo",
+    "Noto Sans KR",
+    Arial,
+    sans-serif;
+
+  background: var(--ivory);
+
+  color: var(--text);
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   APPLICATION
+   ========================================================= */
+
+.app {
+  width: 100%;
+  max-width: 500px;
+
+  margin: 0 auto;
+
+  padding: 24px 20px 40px;
+}
+
+
+/* =========================================================
+   TYPOGRAPHIE
+   ========================================================= */
+
+h1,
+h2,
+h3 {
+  color: var(--navy);
+}
+
+
+h1 {
+  margin-top: 0;
+  line-height: 1.2;
+}
+
+
+h2 {
+  line-height: 1.3;
+}
+
+
+p {
+  line-height: 1.6;
+}
+
+
+.korean {
+  font-size: 22px;
+
+  color: var(--jade-dark) !important;
+
+  font-weight: 500;
+}
+
+
+.korean-large {
+  color: var(--navy);
+}
+
+
+/* =========================================================
+   LIENS
+   ========================================================= */
+
+a {
+  color: var(--jade-dark);
+}
+
+
+.back-link {
+  display: inline-block;
+
+  margin-bottom: 20px;
+
+  color: var(--jade-dark) !important;
+
+  text-decoration: none;
+
+  font-weight: 600;
+
+  transition: 0.2s;
+}
+
+
+.back-link:hover {
+  color: var(--navy) !important;
+}
+
+
+/* =========================================================
+   BOUTONS - BASE
+   ========================================================= */
+
+button {
+  border: none;
+
+  border-radius: var(--radius-medium);
+
+  padding: 14px;
+
+  font-family: inherit;
+  font-size: 16px;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+button:not(:disabled):active {
+  transform: scale(0.98);
+}
+
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+
+/* =========================================================
+   CARTES GENERALES
+   ========================================================= */
+
+.continue-card,
+.garden,
+.lesson-card,
+.listen-card,
+.exercise-card,
+.review-card,
+.progress-card,
+.module,
+.result-card {
+  background: var(--white);
+
+  border-radius: var(--radius-large);
+
+  box-shadow: var(--shadow);
+}
+
+
+/* =========================================================
+   ACCUEIL
+   ========================================================= */
+
+header {
+  text-align: center;
+
+  margin-bottom: 30px;
+}
+
+
+.continue-card {
+  padding: 20px;
+
+  margin-bottom: 24px;
+}
+
+
+/* BOUTON CONTINUER */
+
+.continue-card button {
+  width: 100%;
+
+  background: var(--jade) !important;
+
+  color: white !important;
+
+  /*
+    Espace entre "Continuer"
+    et les boutons d'apprentissage
+  */
+  margin-bottom: 20px;
+}
+
+
+.continue-card button:hover {
+  background: var(--jade-dark) !important;
+}
+
+
+/* =========================================================
+   MENU D'APPRENTISSAGE
+   ========================================================= */
+
+.learning-menu {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 12px;
+
+  margin-bottom: 24px;
+}
+
+
+/*
+   Les 6 boutons sont volontairement blancs.
+   Le jade devient une couleur d'accent.
+*/
+
+.learning-menu button {
+  min-height: 75px;
+
+  background: var(--white) !important;
+
+  color: var(--navy) !important;
+
+  border: 1px solid var(--border);
+
+  box-shadow: var(--shadow);
+}
+
+
+.learning-menu button:hover {
+  background: var(--soft-green) !important;
+
+  border-color: var(--jade);
+
+  box-shadow: var(--shadow-hover);
+
+  transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   JARDIN
+   ========================================================= */
+
+.garden {
+  padding: 20px;
+
+  margin-bottom: 24px;
+
+  text-align: center;
+}
+
+
+.garden h2 {
+  color: var(--navy);
+}
+
+
+.plant {
+  font-size: 70px;
+
+  margin: 20px;
+}
+
+
+#waterButton {
+  background: var(--soft-blue);
+
+  color: var(--navy);
+}
+
+
+#waterButton:hover {
+  background: #DCE9F0;
+}
+
+
+/* =========================================================
+   BOUTONS PRINCIPAUX DES AUTRES PAGES
+   ========================================================= */
+
+.continue-button,
+.next-button,
+.check-button,
+.finish-button {
+  background: var(--jade) !important;
+
+  color: white !important;
+}
+
+
+.continue-button:hover,
+.next-button:hover,
+.check-button:hover,
+.finish-button:hover {
+  background: var(--jade-dark) !important;
+}
+
+
+/* =========================================================
+   BADGES
+   ========================================================= */
+
+.chapter-badge {
+  background: var(--soft-green) !important;
+
+  color: var(--jade-dark) !important;
+
+  border: 1px solid rgba(111, 159, 146, 0.18);
+}
+
+
+/* =========================================================
+   ITINERAIRE
+   ========================================================= */
+
+.module-number {
+  color: var(--jade-dark) !important;
+}
+
+
+.chapter {
+  background: #FBFAF6 !important;
+}
+
+
+.chapter.unlocked:hover {
+  background: var(--soft-green) !important;
+}
+
+
+.chapter.completed {
+  background: var(--success-light) !important;
+}
+
+
+.chapter-arrow {
+  color: var(--jade-dark) !important;
+}
+
+
+.chapter-status {
+  color: var(--text-light) !important;
+}
+
+
+/* =========================================================
+   BARRES DE PROGRESSION
+   ========================================================= */
+
+.progress-bar {
+  background: var(--soft-beige) !important;
+}
+
+
+.progress-fill {
+  background: var(--jade) !important;
+}
+
+
+.progress-text {
+  color: var(--text-light) !important;
+}
+
+
+/* =========================================================
+   PARCOURS DU CHAPITRE
+   ========================================================= */
+
+.learning-step {
+  background: var(--white);
+
+  color: var(--navy);
+
+  border: 1px solid var(--border);
+}
+
+
+.learning-step.active {
+  background: var(--jade) !important;
+
+  color: white !important;
+
+  border-color: var(--jade);
+}
+
+
+.learning-step.locked {
+  opacity: 0.45;
+}
+
+
+/* =========================================================
+   EXEMPLES / BLOCS PEDAGOGIQUES
+   ========================================================= */
+
+.example,
+.sentence-box {
+  background: #FBFAF6 !important;
+}
+
+
+/* VOCABULAIRE */
+
+.vocabulary {
+  border-left-color: var(--success) !important;
+}
+
+
+/* GRAMMAIRE */
+
+.grammar {
+  border-left-color: var(--navy) !important;
+}
+
+
+/* PRONONCIATION */
+
+.pronunciation {
+  border-left-color: #7999A8 !important;
+}
+
+
+/* POURQUOI */
+
+.why {
+  border-left-color: var(--gold) !important;
+}
+
+
+/* CULTURE */
+
+.culture {
+  border-left-color: #9B8260 !important;
+}
+
+
+/* MISSION */
+
+.mission {
+  border-left-color: var(--jade) !important;
+}
+
+
+/* =========================================================
+   DIALOGUES
+   ========================================================= */
+
+.dialogue-line {
+  background: #FBFAF6 !important;
+}
+
+
+.speaker {
+  color: var(--navy);
+}
+
+
+/* =========================================================
+   AUDIO
+   ========================================================= */
+
+.audio-button,
+.audio-main {
+  background: var(--soft-blue) !important;
+
+  color: var(--navy) !important;
+}
+
+
+.audio-button:hover,
+.audio-main:hover {
+  background: #DCE9F0 !important;
+}
+
+
+.slow-button {
+  background: var(--soft-beige) !important;
+
+  color: var(--navy) !important;
+}
+
+
+.slow-button:hover {
+  background: #E8DFCF !important;
+}
+
+
+/* =========================================================
+   CHAMPS DE TEXTE
+   ========================================================= */
+
+.korean-input {
+  background: var(--white) !important;
+
+  color: var(--text);
+
+  border-color: var(--border) !important;
+}
+
+
+.korean-input:focus {
+  border-color: var(--jade) !important;
+
+  box-shadow:
+    0 0 0 3px rgba(111, 159, 146, 0.12);
+}
+
+
+.korean-input::placeholder {
+  color: #9A9A94;
+}
+
+
+/* =========================================================
+   REPONSES / QUIZ
+   ========================================================= */
+
+.answer,
+.answer-button,
+.choice-button {
+  background: #FBFAF6 !important;
+
+  color: var(--text);
+
+  border: 2px solid transparent;
+}
+
+
+.answer:hover,
+.answer-button:hover,
+.choice-button:hover {
+  background: var(--soft-green) !important;
+}
+
+
+/* BONNE REPONSE */
+
+.answer.correct,
+.answer-button.correct,
+.choice-button.correct-choice {
+  background: var(--success-light) !important;
+
+  border-color: var(--success) !important;
+}
+
+
+/* MAUVAISE REPONSE */
+
+.answer.wrong,
+.answer-button.wrong,
+.choice-button.wrong-choice {
+  background: var(--error-light) !important;
+
+  border-color: var(--error) !important;
+}
+
+
+/* =========================================================
+   FEEDBACK
+   ========================================================= */
+
+.feedback.correct {
+  background: var(--success-light) !important;
+
+  border-left: 4px solid var(--success);
+}
+
+
+.feedback.wrong {
+  background: var(--warning-light) !important;
+
+  border-left: 4px solid var(--warning);
+}
+
+
+/* =========================================================
+   CONSTRUCTION DE PHRASES
+   ========================================================= */
+
+.word-bank {
+  background: var(--soft-beige) !important;
+}
+
+
+.sentence-builder {
+  background: #FBFAF6 !important;
+
+  border-color: var(--border) !important;
+}
+
+
+.word-chip {
+  background: var(--white) !important;
+
+  color: var(--navy);
+
+  border: 1px solid var(--border);
+}
+
+
+.word-chip:hover {
+  background: var(--soft-green) !important;
+
+  border-color: var(--jade);
+}
+
+
+.reset-button {
+  background: var(--soft-beige) !important;
+
+  color: var(--navy);
+}
+
+
+.reset-button:hover {
+  background: #E8DFCF !important;
+}
+
+
+/* =========================================================
+   REVISION
+   ========================================================= */
+
+.personal-card {
+  border-left-color: var(--jade) !important;
+}
+
+
+.notion-tag {
+  background: var(--soft-green) !important;
+
+  color: var(--jade-dark) !important;
+}
+
+
+.question-number {
+  color: var(--jade-dark) !important;
+}
+
+
+/* =========================================================
+   RESULTATS
+   ========================================================= */
+
+.result-score {
+  color: var(--jade-dark) !important;
+}
+
+
+.summary-box,
+.summary,
+.mistake-summary {
+  background: #FBFAF6 !important;
+}
+
+
+/* =========================================================
+   PETITS TEXTES
+   ========================================================= */
+
+.translation,
+.small-note,
+.hint {
+  color: var(--text-light) !important;
+}
+
+
+/* =========================================================
+   SELECTION DE TEXTE
+   ========================================================= */
+
+::selection {
+  background: var(--soft-green);
+
+  color: var(--navy);
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+  .app {
+    padding: 20px 15px 35px;
+  }
+
+
+  h1 {
+    font-size: 30px;
+  }
+
+
+  h2 {
+    font-size: 22px;
+  }
+
+
+  .learning-menu {
+    gap: 12px;
+  }
+
+
+  .learning-menu button {
+    min-height: 74px;
+
+    padding: 12px 8px;
+
+    font-size: 15px;
+  }
+
+
+  .continue-card button {
+    margin-bottom: 20px;
+  }
+
+
+  .lesson-card,
+  .listen-card,
+  .exercise-card,
+  .review-card,
+  .progress-card,
+  .module,
+  .continue-card,
+  .garden {
+    padding: 18px;
+  }
+
+}

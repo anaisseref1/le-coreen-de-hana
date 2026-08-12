@@ -1,0 +1,2068 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="theme-color"
+    content="#F7F4ED"
+  >
+
+  <title>Je l'utilise — Chapitre 3</title>
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
+
+  <style>
+
+    /* =====================================================
+       EN-TÊTE
+       ===================================================== */
+
+    .mission-header {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+
+    .chapter-badge {
+      display: inline-block;
+
+      padding: 7px 14px;
+
+      margin-bottom: 10px;
+
+      border-radius: 20px;
+
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+
+    /* =====================================================
+       INTRO
+       ===================================================== */
+
+    .mission-intro {
+      padding: 20px;
+
+      margin-bottom: 20px;
+
+      background: var(--white);
+
+      border-radius: var(--radius-large);
+
+      box-shadow: var(--shadow);
+    }
+
+
+    .mission-title {
+      color: var(--navy);
+
+      font-size: 21px;
+      font-weight: bold;
+
+      margin-bottom: 10px;
+    }
+
+
+    .mission-objectives {
+      padding: 15px;
+
+      margin-top: 15px;
+
+      background: var(--soft-beige);
+
+      border-radius: var(--radius-medium);
+
+      line-height: 1.8;
+    }
+
+
+    /* =====================================================
+       PROGRESSION
+       ===================================================== */
+
+    .mission-progress {
+      margin-bottom: 20px;
+    }
+
+
+    .progress-info {
+      display: flex;
+      justify-content: space-between;
+
+      margin-bottom: 8px;
+
+      color: var(--text-light);
+
+      font-size: 13px;
+    }
+
+
+    .progress-bar {
+      width: 100%;
+      height: 10px;
+
+      background: var(--soft-beige);
+
+      border-radius: 20px;
+
+      overflow: hidden;
+    }
+
+
+    .progress-fill {
+      width: 20%;
+      height: 100%;
+
+      background: var(--jade);
+
+      border-radius: 20px;
+
+      transition: width 0.35s ease;
+    }
+
+
+    /* =====================================================
+       SCÈNE
+       ===================================================== */
+
+    .scene-card {
+      padding: 20px;
+
+      background: var(--white);
+
+      border-radius: var(--radius-large);
+
+      box-shadow: var(--shadow);
+    }
+
+
+    .character-area {
+      text-align: center;
+
+      margin-bottom: 18px;
+    }
+
+
+    .character-placeholder {
+      width: 110px;
+      height: 110px;
+
+      margin: 0 auto 10px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background: var(--soft-blue);
+
+      border-radius: 50%;
+
+      font-size: 52px;
+    }
+
+
+    .character-name {
+      color: var(--jade-dark);
+
+      font-weight: bold;
+    }
+
+
+    /* =====================================================
+       MIN-SU
+       ===================================================== */
+
+    .npc-bubble {
+      padding: 17px;
+
+      background: var(--soft-blue);
+
+      border-radius: 18px 18px 18px 5px;
+
+      color: var(--navy);
+
+      line-height: 1.6;
+    }
+
+
+    .npc-korean {
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+
+    .listen-button {
+      width: 100%;
+
+      margin-top: 12px;
+
+      background: var(--soft-blue);
+
+      color: var(--navy);
+
+      font-weight: bold;
+    }
+
+
+    /* =====================================================
+       À TOI
+       ===================================================== */
+
+    .your-turn {
+      padding: 16px;
+
+      margin-top: 20px;
+
+      background: #FBFAF6;
+
+      border-radius: var(--radius-medium);
+    }
+
+
+    .your-turn-label {
+      margin-bottom: 7px;
+
+      color: var(--jade-dark);
+
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+
+    .your-turn-text {
+      color: var(--navy);
+
+      line-height: 1.6;
+    }
+
+
+    /* =====================================================
+       MICRO
+       ===================================================== */
+
+    .micro-button {
+      width: 100%;
+
+      margin-top: 14px;
+
+      padding: 17px;
+
+      background: var(--jade);
+
+      color: white;
+
+      font-size: 17px;
+      font-weight: bold;
+    }
+
+
+    .micro-button:hover {
+      background: var(--jade-dark);
+    }
+
+
+    .micro-button.listening {
+      background: var(--error);
+
+      animation: pulse 1.15s infinite;
+    }
+
+
+    @keyframes pulse {
+
+      0% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.02);
+      }
+
+      100% {
+        transform: scale(1);
+      }
+
+    }
+
+
+    /* =====================================================
+       INDICE
+       ===================================================== */
+
+    .hint-button {
+      width: 100%;
+
+      margin-top: 10px;
+
+      background: var(--soft-beige);
+
+      color: var(--navy);
+    }
+
+
+    .hint-box {
+      display: none;
+
+      padding: 14px;
+
+      margin-top: 12px;
+
+      background: var(--warning-light);
+
+      border-radius: var(--radius-medium);
+
+      line-height: 1.6;
+    }
+
+
+    /* =====================================================
+       TRANSCRIPTION
+       ===================================================== */
+
+    .heard-box {
+      display: none;
+
+      padding: 14px;
+
+      margin-top: 15px;
+
+      background: var(--soft-beige);
+
+      border-radius: var(--radius-medium);
+    }
+
+
+    .heard-label {
+      color: var(--text-light);
+
+      font-size: 13px;
+    }
+
+
+    .heard-text {
+      margin-top: 5px;
+
+      color: var(--navy);
+
+      font-size: 19px;
+      font-weight: bold;
+    }
+
+
+    /* =====================================================
+       FEEDBACK
+       ===================================================== */
+
+    .feedback {
+      display: none;
+
+      padding: 15px;
+
+      margin-top: 14px;
+
+      border-radius: var(--radius-medium);
+
+      line-height: 1.6;
+    }
+
+
+    .feedback.correct {
+      display: block;
+
+      background: var(--success-light);
+
+      border-left: 4px solid var(--success);
+    }
+
+
+    .feedback.wrong {
+      display: block;
+
+      background: var(--warning-light);
+
+      border-left: 4px solid var(--warning);
+    }
+
+
+    .transition-message {
+      display: none;
+
+      margin-top: 15px;
+
+      color: var(--jade-dark);
+
+      text-align: center;
+
+      font-weight: bold;
+    }
+
+
+    /* =====================================================
+       RÉPONSE DE MIN-SU
+       ===================================================== */
+
+    .minsu-reply {
+      display: none;
+
+      padding: 16px;
+
+      margin-top: 15px;
+
+      background: var(--soft-blue);
+
+      border-radius: var(--radius-medium);
+
+      color: var(--navy);
+
+      line-height: 1.6;
+    }
+
+
+    .minsu-reply-korean {
+      margin-top: 5px;
+
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+
+    /* =====================================================
+       COMPATIBILITÉ
+       ===================================================== */
+
+    .compatibility-message {
+      display: none;
+
+      padding: 16px;
+
+      margin-bottom: 20px;
+
+      background: var(--warning-light);
+
+      border-left: 4px solid var(--warning);
+
+      border-radius: var(--radius-medium);
+
+      line-height: 1.6;
+    }
+
+
+    /* =====================================================
+       RÉSULTAT
+       ===================================================== */
+
+    .result-card {
+      display: none;
+
+      padding: 25px;
+
+      background: var(--white);
+
+      border-radius: var(--radius-large);
+
+      box-shadow: var(--shadow);
+
+      text-align: center;
+    }
+
+
+    .result-icon {
+      font-size: 60px;
+    }
+
+
+    .result-score {
+      color: var(--jade-dark);
+
+      font-size: 21px;
+      font-weight: bold;
+    }
+
+
+    .result-summary {
+      padding: 16px;
+
+      margin-top: 18px;
+
+      background: #FBFAF6;
+
+      border-radius: var(--radius-medium);
+
+      text-align: left;
+
+      line-height: 1.6;
+    }
+
+
+    .objective-result {
+      padding: 11px 0;
+
+      border-bottom: 1px solid var(--border);
+    }
+
+
+    .objective-result:last-child {
+      border-bottom: none;
+    }
+
+
+    .autonomy-box {
+      padding: 16px;
+
+      margin-top: 18px;
+
+      background: var(--soft-green);
+
+      border-radius: var(--radius-medium);
+
+      color: var(--navy);
+
+      line-height: 1.6;
+    }
+
+
+    .garden-info {
+      padding: 14px;
+
+      margin-top: 18px;
+
+      background: var(--soft-blue);
+
+      border-radius: var(--radius-medium);
+
+      color: var(--navy);
+
+      line-height: 1.6;
+    }
+
+
+    .finish-button {
+      width: 100%;
+
+      margin-top: 18px;
+
+      font-weight: bold;
+    }
+
+
+    .route-button {
+      width: 100%;
+
+      margin-top: 10px;
+
+      background: var(--soft-beige);
+
+      color: var(--navy);
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+<main class="app">
+
+
+  <!-- RETOUR -->
+
+  <a
+    class="back-link"
+    href="chapitre-3.html"
+  >
+    ← Chapitre 3
+  </a>
+
+
+
+  <!-- =====================================================
+       EN-TÊTE
+       ===================================================== -->
+
+  <header class="mission-header">
+
+    <span class="chapter-badge">
+      Chapitre 3 · Mission finale
+    </span>
+
+
+    <p class="korean">
+      직접 해 봐요 🎯
+    </p>
+
+
+    <h1>
+      Je l'utilise
+    </h1>
+
+
+    <p>
+      Utilise maintenant le chapitre
+      dans une petite situation avec Min-su.
+    </p>
+
+  </header>
+
+
+
+  <!-- =====================================================
+       INTRO
+       ===================================================== -->
+
+  <section
+    class="mission-intro"
+    id="missionIntro"
+  >
+
+    <div class="mission-title">
+      🎯 Mission : Retrouve Min-su au café
+    </div>
+
+
+    <p>
+      Min-su t'attend à Séoul.
+    </p>
+
+
+    <p>
+      Il veut savoir où tu es,
+      où tu vas et où tu habites.
+    </p>
+
+
+    <div class="mission-objectives">
+
+      <strong>
+        Pour réussir :
+      </strong>
+
+      <br>
+
+      📍 Dire où tu es
+
+      <br>
+
+      🚶 Dire où tu vas
+
+      <br>
+
+      🏠 Dire où tu habites
+
+      <br>
+
+      ❓ Poser une question à Min-su
+
+      <br>
+
+      🤝 Terminer naturellement l'échange
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       COMPATIBILITÉ
+       ===================================================== -->
+
+  <div
+    class="compatibility-message"
+    id="compatibilityMessage"
+  >
+
+    🎤 Le microphone n'est pas disponible
+    dans ce navigateur ou cet environnement.
+
+    <br><br>
+
+    Nous testerons cette mission plus tard
+    hors du RDS.
+
+  </div>
+
+
+
+  <!-- =====================================================
+       PROGRESSION
+       ===================================================== -->
+
+  <div class="mission-progress">
+
+    <div class="progress-info">
+
+      <span>
+        🎯 Mission
+      </span>
+
+
+      <span id="progressLabel">
+        1 / 5
+      </span>
+
+    </div>
+
+
+    <div class="progress-bar">
+
+      <div
+        class="progress-fill"
+        id="progressFill"
+      ></div>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- =====================================================
+       SCÈNE
+       ===================================================== -->
+
+  <section
+    class="scene-card"
+    id="sceneCard"
+  >
+
+
+    <div class="character-area">
+
+      <div class="character-placeholder">
+        💙
+      </div>
+
+
+      <div class="character-name">
+        Min-su
+      </div>
+
+    </div>
+
+
+
+    <div class="npc-bubble">
+
+      <div
+        class="npc-korean"
+        id="npcKorean"
+      ></div>
+
+    </div>
+
+
+    <button
+      class="listen-button"
+      type="button"
+      onclick="playNpcLine()"
+    >
+      🔊 Réécouter Min-su
+    </button>
+
+
+
+    <div class="your-turn">
+
+      <div class="your-turn-label">
+        🗣️ À toi
+      </div>
+
+
+      <div
+        class="your-turn-text"
+        id="yourTurnText"
+      ></div>
+
+    </div>
+
+
+
+    <button
+      class="micro-button"
+      id="microButton"
+      type="button"
+      onclick="startRecognition()"
+    >
+      🎤 Répondre
+    </button>
+
+
+
+    <button
+      class="hint-button"
+      type="button"
+      onclick="showHint()"
+    >
+      💡 Besoin d'un indice ?
+    </button>
+
+
+
+    <div
+      class="hint-box"
+      id="hintBox"
+    ></div>
+
+
+
+    <div
+      class="heard-box"
+      id="heardBox"
+    >
+
+      <div class="heard-label">
+        L'application a entendu :
+      </div>
+
+
+      <div
+        class="heard-text"
+        id="heardText"
+      ></div>
+
+    </div>
+
+
+
+    <div
+      class="feedback"
+      id="feedback"
+    ></div>
+
+
+
+    <div
+      class="minsu-reply"
+      id="minsuReply"
+    >
+
+      <strong>
+        💙 Min-su :
+      </strong>
+
+
+      <div
+        class="minsu-reply-korean"
+        id="minsuReplyKorean"
+      ></div>
+
+    </div>
+
+
+
+    <div
+      class="transition-message"
+      id="transitionMessage"
+    >
+      Min-su poursuit la conversation… 💬
+    </div>
+
+
+  </section>
+
+
+
+  <!-- =====================================================
+       RÉSULTAT
+       ===================================================== -->
+
+  <section
+    class="result-card"
+    id="resultCard"
+  >
+
+    <div class="result-icon">
+      🎯📍
+    </div>
+
+
+    <h2>
+      미션 성공!
+    </h2>
+
+
+    <p>
+      Mission réussie !
+    </p>
+
+
+    <p class="result-score">
+      Situation terminée ✅
+    </p>
+
+
+
+    <div class="result-summary">
+
+      <strong>
+        🎯 Objectifs accomplis
+      </strong>
+
+
+      <div class="objective-result">
+        ✅ Dire où tu te trouves
+      </div>
+
+
+      <div class="objective-result">
+        ✅ Dire où tu vas
+      </div>
+
+
+      <div class="objective-result">
+        ✅ Dire où tu habites
+      </div>
+
+
+      <div class="objective-result">
+        ✅ Demander où Min-su habite
+      </div>
+
+
+      <div class="objective-result">
+        ✅ Terminer la conversation
+      </div>
+
+    </div>
+
+
+
+    <div
+      class="autonomy-box"
+      id="autonomyBox"
+    ></div>
+
+
+
+    <div class="garden-info">
+
+      💧 Chapitre 3 pratiqué en situation !
+
+      <br><br>
+
+      Tu sais maintenant utiliser
+      <strong>에 · 있어요 · 가요 · 살아요</strong>
+      dans un échange.
+    </div>
+
+
+
+    <button
+      class="finish-button"
+      type="button"
+      onclick="window.location.href='chapitre-3.html'"
+    >
+      ✅ Terminer le chapitre 3
+    </button>
+
+
+    <button
+      class="route-button"
+      type="button"
+      onclick="window.location.href='itineraire.html'"
+    >
+      🗺️ Retour à mon itinéraire
+    </button>
+
+  </section>
+
+
+</main>
+
+
+
+<script>
+
+  /* =====================================================
+     ÉTAPES DE LA MISSION
+     ===================================================== */
+
+  const missionSteps = [
+
+    {
+
+      npc:
+        "하나 씨, 어디에 있어요?",
+
+      prompt:
+        "Réponds à Min-su en disant que tu es à l'hôtel.",
+
+      hint:
+        "Utilise 호텔 + 에 + 있어요.",
+
+      accepted: [
+        "저는 호텔에 있어요",
+        "호텔에 있어요"
+      ]
+
+    },
+
+
+    {
+
+      npc:
+        "지금 어디에 가요?",
+
+      prompt:
+        "Dis que tu vas au café.",
+
+      hint:
+        "Le verbe « aller » est 가요.",
+
+      accepted: [
+        "저는 카페에 가요",
+        "카페에 가요",
+        "저는 지금 카페에 가요",
+        "지금 카페에 가요"
+      ]
+
+    },
+
+
+    {
+
+      npc:
+        "어디에 살아요?",
+
+      prompt:
+        "Dis que tu habites en France.",
+
+      hint:
+        "Utilise 프랑스 + 에 + 살아요.",
+
+      accepted: [
+        "저는 프랑스에 살아요",
+        "프랑스에 살아요"
+      ]
+
+    },
+
+
+    {
+
+      npc:
+        "네, 좋아요!",
+
+      prompt:
+        "À ton tour : demande à Min-su où il habite.",
+
+      hint:
+        "La question utilise 어디 + 에 + 살아요.",
+
+      accepted: [
+        "어디에 살아요",
+        "민수 씨는 어디에 살아요",
+        "민수씨는 어디에 살아요",
+        "어디에 사세요",
+        "어디 사세요"
+      ],
+
+      reply:
+        "저는 서울에 살아요."
+
+    },
+
+
+    {
+
+      npc:
+        "카페에서 봐요!",
+
+      prompt:
+        "Min-su te dit qu'il te verra au café. Termine simplement l'échange.",
+
+      hint:
+        "Tu peux répondre 네! ou 좋아요!",
+
+      accepted: [
+        "네",
+        "네 좋아요",
+        "좋아요",
+        "알겠어요",
+        "네 알겠어요"
+      ]
+
+    }
+
+  ];
+
+
+
+  /* =====================================================
+     VARIABLES
+     ===================================================== */
+
+  let currentStep =
+    0;
+
+
+  let incorrectAttempts =
+    0;
+
+
+  let hintsUsed =
+    0;
+
+
+  let currentRecognition =
+    null;
+
+
+
+  const SpeechRecognition =
+    window.SpeechRecognition ||
+    window.webkitSpeechRecognition;
+
+
+
+  /* =====================================================
+     NORMALISER
+     ===================================================== */
+
+  function normalizeKorean(text) {
+
+    return text
+      .trim()
+      .replace(/[.!?。！？,，]/g, "")
+      .replace(/\s+/g, "");
+
+  }
+
+
+
+  /* =====================================================
+     VOIX
+     ===================================================== */
+
+  function getKoreanVoice() {
+
+    const voices =
+      window.speechSynthesis.getVoices();
+
+
+    return voices.find(
+      voice =>
+        voice.lang &&
+        voice.lang
+          .toLowerCase()
+          .startsWith("ko")
+    );
+
+  }
+
+
+
+  function speakKorean(text) {
+
+    if (
+      !("speechSynthesis" in window)
+    ) {
+      return;
+    }
+
+
+    window.speechSynthesis.cancel();
+
+
+    const speech =
+      new SpeechSynthesisUtterance(
+        text
+      );
+
+
+    speech.lang =
+      "ko-KR";
+
+
+    speech.rate =
+      0.82;
+
+
+    const voice =
+      getKoreanVoice();
+
+
+    if (voice) {
+
+      speech.voice =
+        voice;
+
+    }
+
+
+    window.speechSynthesis.speak(
+      speech
+    );
+
+  }
+
+
+
+  function playNpcLine() {
+
+    speakKorean(
+      missionSteps[
+        currentStep
+      ].npc
+    );
+
+  }
+
+
+
+  /* =====================================================
+     AFFICHAGE
+     ===================================================== */
+
+  function renderMissionStep() {
+
+    const step =
+      missionSteps[
+        currentStep
+      ];
+
+
+    document.getElementById(
+      "npcKorean"
+    ).textContent =
+      step.npc;
+
+
+    document.getElementById(
+      "yourTurnText"
+    ).textContent =
+      step.prompt;
+
+
+    document.getElementById(
+      "hintBox"
+    ).style.display =
+      "none";
+
+
+    document.getElementById(
+      "heardBox"
+    ).style.display =
+      "none";
+
+
+    document.getElementById(
+      "minsuReply"
+    ).style.display =
+      "none";
+
+
+    const feedback =
+      document.getElementById(
+        "feedback"
+      );
+
+
+    feedback.className =
+      "feedback";
+
+
+    feedback.innerHTML =
+      "";
+
+
+    document.getElementById(
+      "transitionMessage"
+    ).style.display =
+      "none";
+
+
+    const micro =
+      document.getElementById(
+        "microButton"
+      );
+
+
+    micro.disabled =
+      false;
+
+
+    micro.classList.remove(
+      "listening"
+    );
+
+
+    micro.textContent =
+      currentStep === 3
+        ? "🎤 Poser la question"
+        : "🎤 Répondre";
+
+
+    const number =
+      currentStep + 1;
+
+
+    document.getElementById(
+      "progressLabel"
+    ).textContent =
+      number +
+      " / 5";
+
+
+    document.getElementById(
+      "progressFill"
+    ).style.width =
+      (number * 20) +
+      "%";
+
+
+    setTimeout(
+      playNpcLine,
+      350
+    );
+
+  }
+
+
+
+  /* =====================================================
+     INDICE
+     ===================================================== */
+
+  function showHint() {
+
+    hintsUsed++;
+
+
+    const box =
+      document.getElementById(
+        "hintBox"
+      );
+
+
+    box.textContent =
+      missionSteps[
+        currentStep
+      ].hint;
+
+
+    box.style.display =
+      "block";
+
+  }
+
+
+
+  /* =====================================================
+     MICRO
+     ===================================================== */
+
+  function startRecognition() {
+
+    if (!SpeechRecognition) {
+
+      document.getElementById(
+        "compatibilityMessage"
+      ).style.display =
+        "block";
+
+
+      return;
+
+    }
+
+
+    if (
+      currentRecognition
+    ) {
+
+      try {
+
+        currentRecognition.abort();
+
+      }
+
+      catch (error) {
+      }
+
+    }
+
+
+    const recognition =
+      new SpeechRecognition();
+
+
+    currentRecognition =
+      recognition;
+
+
+    recognition.lang =
+      "ko-KR";
+
+
+    recognition.continuous =
+      false;
+
+
+    recognition.interimResults =
+      false;
+
+
+    recognition.maxAlternatives =
+      5;
+
+
+    const micro =
+      document.getElementById(
+        "microButton"
+      );
+
+
+    micro.classList.add(
+      "listening"
+    );
+
+
+    micro.textContent =
+      "🔴 J'écoute...";
+
+
+
+    recognition.onresult =
+      function(event) {
+
+        const alternatives =
+          [];
+
+
+        const result =
+          event.results[0];
+
+
+        for (
+          let i = 0;
+          i < result.length;
+          i++
+        ) {
+
+          alternatives.push(
+            result[i].transcript
+          );
+
+        }
+
+
+        analyseAnswer(
+          alternatives
+        );
+
+      };
+
+
+
+    recognition.onerror =
+      function(event) {
+
+        micro.classList.remove(
+          "listening"
+        );
+
+
+        micro.textContent =
+          "🎤 Réessayer";
+
+
+        const feedback =
+          document.getElementById(
+            "feedback"
+          );
+
+
+        feedback.className =
+          "feedback wrong";
+
+
+        if (
+          event.error ===
+          "not-allowed"
+        ) {
+
+          feedback.innerHTML =
+            "🎤 <strong>L'accès au microphone est bloqué.</strong>" +
+            "<br><br>" +
+            "Nous testerons cette mission plus tard hors du RDS.";
+
+        }
+
+        else if (
+          event.error ===
+          "no-speech"
+        ) {
+
+          feedback.innerHTML =
+            "👂 <strong>Je n'ai rien entendu.</strong>" +
+            "<br><br>" +
+            "Essaie de parler un peu plus près du microphone.";
+
+        }
+
+        else {
+
+          feedback.innerHTML =
+            "⚠️ <strong>La reconnaissance vocale n'a pas fonctionné.</strong>" +
+            "<br><br>" +
+            "Tu peux réessayer.";
+
+        }
+
+      };
+
+
+
+    recognition.onend =
+      function() {
+
+        micro.classList.remove(
+          "listening"
+        );
+
+
+        if (
+          !micro.disabled &&
+          micro.textContent ===
+          "🔴 J'écoute..."
+        ) {
+
+          micro.textContent =
+            "🎤 Réessayer";
+
+        }
+
+      };
+
+
+    try {
+
+      recognition.start();
+
+    }
+
+    catch (error) {
+
+      micro.classList.remove(
+        "listening"
+      );
+
+
+      micro.textContent =
+        "🎤 Réessayer";
+
+    }
+
+  }
+
+
+
+  /* =====================================================
+     ANALYSE
+     ===================================================== */
+
+  function analyseAnswer(
+    alternatives
+  ) {
+
+    const heard =
+      alternatives[0] || "";
+
+
+    document.getElementById(
+      "heardBox"
+    ).style.display =
+      "block";
+
+
+    document.getElementById(
+      "heardText"
+    ).textContent =
+      heard;
+
+
+    const correct =
+      alternatives.some(
+        alternative =>
+          isAcceptedAnswer(
+            alternative
+          )
+      );
+
+
+    if (correct) {
+
+      handleCorrect();
+
+    }
+
+    else {
+
+      handleWrong();
+
+    }
+
+  }
+
+
+
+  /* =====================================================
+     ACCEPTATION
+     ===================================================== */
+
+  function isAcceptedAnswer(
+    transcript
+  ) {
+
+    const normalized =
+      normalizeKorean(
+        transcript
+      );
+
+
+    const step =
+      missionSteps[
+        currentStep
+      ];
+
+
+    return step.accepted.some(
+      answer => {
+
+        const accepted =
+          normalizeKorean(
+            answer
+          );
+
+
+        return (
+          normalized === accepted ||
+          normalized.includes(
+            accepted
+          )
+        );
+
+      }
+    );
+
+  }
+
+
+
+  /* =====================================================
+     SUCCÈS
+     ===================================================== */
+
+  function handleCorrect() {
+
+    const step =
+      missionSteps[
+        currentStep
+      ];
+
+
+    const feedback =
+      document.getElementById(
+        "feedback"
+      );
+
+
+    feedback.className =
+      "feedback correct";
+
+
+    if (
+      currentStep === 3
+    ) {
+
+      feedback.innerHTML =
+        "✅ <strong>Très bien !</strong>" +
+        "<br><br>" +
+        "Tu as pris l'initiative de demander à Min-su où il habite.";
+
+    }
+
+    else if (
+      currentStep === 4
+    ) {
+
+      feedback.innerHTML =
+        "✅ <strong>Parfait !</strong>" +
+        "<br><br>" +
+        "La conversation se termine naturellement.";
+
+    }
+
+    else {
+
+      feedback.innerHTML =
+        "✅ <strong>Compris !</strong>" +
+        "<br><br>" +
+        "Min-su a compris ta réponse.";
+
+    }
+
+
+
+    const micro =
+      document.getElementById(
+        "microButton"
+      );
+
+
+    micro.disabled =
+      true;
+
+
+    micro.textContent =
+      "✅ Validé";
+
+
+
+    if (
+      step.reply
+    ) {
+
+      document.getElementById(
+        "minsuReplyKorean"
+      ).textContent =
+        step.reply;
+
+
+      document.getElementById(
+        "minsuReply"
+      ).style.display =
+        "block";
+
+
+      setTimeout(
+        () => {
+
+          speakKorean(
+            step.reply
+          );
+
+        },
+        450
+      );
+
+    }
+
+
+
+    document.getElementById(
+      "transitionMessage"
+    ).style.display =
+      "block";
+
+
+    setTimeout(
+      advanceMission,
+      step.reply
+        ? 1900
+        : 1200
+    );
+
+  }
+
+
+
+  /* =====================================================
+     ERREUR
+     ===================================================== */
+
+  function handleWrong() {
+
+    incorrectAttempts++;
+
+
+    const feedback =
+      document.getElementById(
+        "feedback"
+      );
+
+
+    feedback.className =
+      "feedback wrong";
+
+
+    if (
+      currentStep === 0
+    ) {
+
+      feedback.innerHTML =
+        "❌ <strong>Min-su demande où tu te trouves.</strong>" +
+        "<br><br>" +
+        "💡 Le verbe attendu est <strong>있어요</strong>.";
+
+    }
+
+
+    if (
+      currentStep === 1
+    ) {
+
+      feedback.innerHTML =
+        "❌ <strong>Min-su demande où tu vas.</strong>" +
+        "<br><br>" +
+        "💡 Utilise le verbe <strong>가요</strong>.";
+
+    }
+
+
+    if (
+      currentStep === 2
+    ) {
+
+      feedback.innerHTML =
+        "❌ <strong>Min-su parle de ton lieu de résidence.</strong>" +
+        "<br><br>" +
+        "💡 Le verbe attendu est <strong>살아요</strong>.";
+
+    }
+
+
+    if (
+      currentStep === 3
+    ) {
+
+      feedback.innerHTML =
+        "❌ <strong>Cette fois, c'est toi qui dois poser une question.</strong>" +
+        "<br><br>" +
+        "💡 Demande où Min-su habite.";
+
+    }
+
+
+    if (
+      currentStep === 4
+    ) {
+
+      feedback.innerHTML =
+        "❌ <strong>Il suffit maintenant de répondre naturellement à Min-su.</strong>" +
+        "<br><br>" +
+        "💡 Une réponse courte comme <strong>네!</strong> convient.";
+
+    }
+
+
+    document.getElementById(
+      "microButton"
+    ).textContent =
+      "🎤 Réessayer";
+
+  }
+
+
+
+  /* =====================================================
+     SUIVANT
+     ===================================================== */
+
+  function advanceMission() {
+
+    if (
+      currentStep <
+      missionSteps.length - 1
+    ) {
+
+      currentStep++;
+
+
+      renderMissionStep();
+
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+
+
+      return;
+
+    }
+
+
+    finishMission();
+
+  }
+
+
+
+  /* =====================================================
+     FIN
+     ===================================================== */
+
+  function finishMission() {
+
+    document.getElementById(
+      "sceneCard"
+    ).style.display =
+      "none";
+
+
+    document.getElementById(
+      "missionIntro"
+    ).style.display =
+      "none";
+
+
+    document.getElementById(
+      "progressLabel"
+    ).textContent =
+      "5 / 5";
+
+
+    document.getElementById(
+      "progressFill"
+    ).style.width =
+      "100%";
+
+
+    document.getElementById(
+      "resultCard"
+    ).style.display =
+      "block";
+
+
+
+    let message =
+      "";
+
+
+    if (
+      incorrectAttempts === 0 &&
+      hintsUsed === 0
+    ) {
+
+      message =
+        "🌟 Excellente autonomie : mission réussie du premier coup et sans indice.";
+
+    }
+
+    else if (
+      hintsUsed === 0
+    ) {
+
+      message =
+        "🌿 Très bonne autonomie : aucun indice utilisé. Quelques tentatives ont simplement été nécessaires.";
+
+    }
+
+    else if (
+      hintsUsed <= 2
+    ) {
+
+      message =
+        "🌱 Mission réussie avec seulement " +
+        hintsUsed +
+        " indice(s). Les structures deviennent progressivement naturelles.";
+
+    }
+
+    else {
+
+      message =
+        "🌱 Mission réussie. Certaines structures ont encore besoin d'entraînement et pourront revenir plus tard.";
+
+    }
+
+
+    document.getElementById(
+      "autonomyBox"
+    ).textContent =
+      message;
+
+
+
+    /* VALIDATION DE 🎯 JE L'UTILISE */
+
+    localStorage.setItem(
+      "hanaKorean_chapter3_mission",
+      "completed"
+    );
+
+
+    localStorage.setItem(
+      "hanaKorean_chapter3_missionMistakes",
+      incorrectAttempts
+    );
+
+
+    localStorage.setItem(
+      "hanaKorean_chapter3_missionHints",
+      hintsUsed
+    );
+
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+
+  }
+
+
+
+  /* =====================================================
+     VOIX
+     ===================================================== */
+
+  if (
+    "speechSynthesis" in window
+  ) {
+
+    window.speechSynthesis.onvoiceschanged =
+      function() {
+
+        window.speechSynthesis.getVoices();
+
+      };
+
+  }
+
+
+
+  /* =====================================================
+     COMPATIBILITÉ
+     ===================================================== */
+
+  if (!SpeechRecognition) {
+
+    document.getElementById(
+      "compatibilityMessage"
+    ).style.display =
+      "block";
+
+  }
+
+
+
+  /* =====================================================
+     DÉMARRAGE
+     ===================================================== */
+
+  renderMissionStep();
+
+</script>
+
+
+</body>
+
+</html>

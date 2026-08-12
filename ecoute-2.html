@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="theme-color"
+    content="#F7F4ED"
+  >
+
+  <title>J'écoute — Chapitre 2</title>
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
+
+  <style>
+
+    /* =====================================================
+       EN-TÊTE
+       ===================================================== */
+
+    .listen-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+
+    .chapter-badge {
+      display: inline-block;
+
+      padding: 7px 14px;
+
+      margin-bottom: 10px;
+
+      border-radius: 20px;
+
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+
+    /* =====================================================
+       PROGRESSION INTERNE
+       ===================================================== */
+
+    .listen-progress {
+      margin-bottom: 22px;
+    }
+
+
+    .progress-info {
+      display: flex;
+      justify-content: space-between;
+
+      margin-bottom: 8px;
+
+      color: var(--text-light);
+
+      font-size: 13px;
+    }
+
+
+    .progress-bar {
+      width: 100%;
+      height: 9px;
+
+      background: var(--soft-beige);
+
+      border-radius: 20px;
+
+      overflow: hidden;
+    }
+
+
+    .progress-fill {
+      width: 100%;
+      height: 100%;
+
+      background: var(--jade);
+
+      border-radius: 20px;
+    }
+
+
+    /* =====================================================
+       CARTES
+       ===================================================== */
+
+    .listen-card {
+      padding: 20px;
+
+      margin-bottom: 18px;
+    }
+
+
+    .listen-card h2 {
+      margin-top: 0;
+    }
+
+
+    .section-intro {
+      color: var(--text-light);
+
+      line-height: 1.6;
+    }
+
+
+    /* =====================================================
+       CORÉEN
+       ===================================================== */
+
+    .korean-text {
+      color: var(--navy);
+
+      font-size: 24px;
+      font-weight: bold;
+
+      margin-top: 12px;
+      margin-bottom: 5px;
+    }
+
+
+    .translation {
+      margin-top: 5px;
+    }
+
+
+    .structure-note {
+      margin-top: 10px;
+
+      color: var(--text-light);
+
+      font-size: 13px;
+
+      line-height: 1.6;
+    }
+
+
+    /* =====================================================
+       AUDIO
+       ===================================================== */
+
+    .audio-button {
+      width: 100%;
+
+      margin-top: 15px;
+
+      font-weight: bold;
+    }
+
+
+    .slow-button {
+      width: 100%;
+
+      margin-top: 8px;
+    }
+
+
+    /* =====================================================
+       MOT CLÉ
+       ===================================================== */
+
+    .keyword-row {
+      display: flex;
+      flex-wrap: wrap;
+
+      gap: 8px;
+
+      margin-top: 13px;
+    }
+
+
+    .keyword {
+      padding: 7px 11px;
+
+      background: var(--soft-green);
+
+      border-radius: 20px;
+
+      color: var(--jade-dark);
+
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+
+    /* =====================================================
+       DIALOGUE
+       ===================================================== */
+
+    .dialogue-line {
+      padding: 15px;
+
+      border-radius: var(--radius-medium);
+
+      margin-bottom: 12px;
+
+      line-height: 1.7;
+    }
+
+
+    .speaker {
+      margin-bottom: 7px;
+
+      color: var(--navy);
+
+      font-weight: bold;
+    }
+
+
+    .dialogue-korean {
+      color: var(--navy);
+
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+
+    .dialogue-translation {
+      margin-top: 5px;
+
+      color: var(--text-light);
+
+      font-size: 14px;
+    }
+
+
+    /* =====================================================
+       CONSEIL
+       ===================================================== */
+
+    .listen-tip {
+      padding: 14px;
+
+      margin-top: 15px;
+
+      background: var(--soft-beige);
+
+      border-radius: var(--radius-medium);
+
+      color: var(--navy);
+
+      font-size: 14px;
+
+      line-height: 1.6;
+    }
+
+
+    /* =====================================================
+       MINI DÉFI
+       ===================================================== */
+
+    .challenge-card {
+      border-left: 4px solid var(--jade);
+    }
+
+
+    .challenge-list {
+      margin: 15px 0 0;
+
+      padding-left: 20px;
+
+      line-height: 1.8;
+    }
+
+
+    .next-button {
+      width: 100%;
+
+      margin-top: 16px;
+
+      font-weight: bold;
+    }
+
+
+    /* =====================================================
+       MOBILE
+       ===================================================== */
+
+    @media (max-width: 480px) {
+
+      .korean-text {
+        font-size: 22px;
+      }
+
+
+      .dialogue-korean {
+        font-size: 17px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+<main class="app">
+
+
+  <!-- =====================================================
+       RETOUR
+       ===================================================== -->
+
+  <a
+    class="back-link"
+    href="chapitre-2.html"
+  >
+    ← Chapitre 2
+  </a>
+
+
+
+  <!-- =====================================================
+       EN-TÊTE
+       ===================================================== -->
+
+  <header class="listen-header">
+
+    <span class="chapter-badge">
+      Chapitre 2 · Étape 2
+    </span>
+
+
+    <p class="korean">
+      들어 봐요 🎧
+    </p>
+
+
+    <h1>
+      J'écoute
+    </h1>
+
+
+    <p>
+      Apprends à reconnaître les questions
+      que l'on peut te poser lors d'une première présentation.
+    </p>
+
+  </header>
+
+
+
+  <!-- =====================================================
+       PROGRESSION
+       ===================================================== -->
+
+  <div class="listen-progress">
+
+    <div class="progress-info">
+
+      <span>
+        Compréhension orale
+      </span>
+
+      <span>
+        Chapitre 2
+      </span>
+
+    </div>
+
+
+    <div class="progress-bar">
+
+      <div class="progress-fill"></div>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- =====================================================
+       INTRO
+       ===================================================== -->
+
+  <section class="listen-card">
+
+    <h2>
+      👂 Cette fois, écoute les questions
+    </h2>
+
+
+    <p class="section-intro">
+
+      Dans le chapitre 1, tu as surtout appris
+      à reconnaître et produire tes premières phrases.
+
+      <br><br>
+
+      Ici, le but est aussi de comprendre
+      <strong>ce que l'autre personne te demande</strong>.
+
+    </p>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       QUESTION 1
+       ===================================================== -->
+
+  <section class="listen-card">
+
+    <h2>
+      1 · Le prénom
+    </h2>
+
+
+    <div class="korean-text">
+      이름이 뭐예요?
+    </div>
+
+
+    <p class="translation">
+      Comment vous appelez-vous ?
+    </p>
+
+
+    <div class="keyword-row">
+
+      <span class="keyword">
+        이름 · nom
+      </span>
+
+      <span class="keyword">
+        뭐예요? · c'est quoi ?
+      </span>
+
+    </div>
+
+
+    <button
+      class="audio-button"
+      type="button"
+      onclick="speakKorean('이름이 뭐예요?')"
+    >
+      🔊 Écouter
+    </button>
+
+
+    <button
+      class="slow-button"
+      type="button"
+      onclick="speakKoreanSlow('이름이 뭐예요?')"
+    >
+      🐢 Écouter lentement
+    </button>
+
+
+    <p class="structure-note">
+
+      💡 Essaie surtout de repérer
+      <strong>이름</strong> et <strong>뭐예요?</strong>.
+
+    </p>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       QUESTION 2
+       ===================================================== -->
+
+  <section class="listen-card">
+
+    <h2>
+      2 · Le pays
+    </h2>
+
+
+    <div class="korean-text">
+      어느 나라 사람이에요?
+    </div>
+
+
+    <p class="translation">
+      De quel pays êtes-vous ?
+    </p>
+
+
+    <div class="keyword-row">
+
+      <span class="keyword">
+        어느 나라 · quel pays
+      </span>
+
+      <span class="keyword">
+        사람 · personne
+      </span>
+
+    </div>
+
+
+    <button
+      class="audio-button"
+      type="button"
+      onclick="speakKorean('어느 나라 사람이에요?')"
+    >
+      🔊 Écouter
+    </button>
+
+
+    <button
+      class="slow-button"
+      type="button"
+      onclick="speakKoreanSlow('어느 나라 사람이에요?')"
+    >
+      🐢 Écouter lentement
+    </button>
+
+
+    <p class="structure-note">
+
+      💡 À l'écoute, essaie d'entendre les groupes :
+
+      <br>
+
+      <strong>어느 나라 · 사람 · 이에요?</strong>
+
+    </p>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       QUESTION 3
+       ===================================================== -->
+
+  <section class="listen-card">
+
+    <h2>
+      3 · Le métier
+    </h2>
+
+
+    <div class="korean-text">
+      직업이 뭐예요?
+    </div>
+
+
+    <p class="translation">
+      Quel est votre métier ?
+    </p>
+
+
+    <div class="keyword-row">
+
+      <span class="keyword">
+        직업 · profession
+      </span>
+
+      <span class="keyword">
+        뭐예요? · quel est ?
+      </span>
+
+    </div>
+
+
+    <button
+      class="audio-button"
+      type="button"
+      onclick="speakKorean('직업이 뭐예요?')"
+    >
+      🔊 Écouter
+    </button>
+
+
+    <button
+      class="slow-button"
+      type="button"
+      onclick="speakKoreanSlow('직업이 뭐예요?')"
+    >
+      🐢 Écouter lentement
+    </button>
+
+
+    <p class="structure-note">
+
+      💡 Compare avec :
+
+      <br>
+
+      이름이 <strong>뭐예요?</strong>
+
+      <br>
+
+      직업이 <strong>뭐예요?</strong>
+
+    </p>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       RÉPONSE 1
+       ===================================================== -->
+
+  <section class="listen-card">
+
+    <h2>
+      🌍 Une réponse sur la nationalité
+    </h2>
+
+
+    <div class="korean-text">
+      저는 프랑스 사람이에요.
+    </div>
+
+
+    <p class="translation">
+      Je suis française.
+    </p>
+
+
+    <button
+      class="audio-button"
+      type="button"
+      onclick="speakKorean('저는 프랑스 사람이에요.')"
+    >
+      🔊 Écouter
+    </button>
+
+
+    <button
+      class="slow-button"
+      type="button"
+      onclick="speakKoreanSlow('저는 프랑스 사람이에요.')"
+    >
+      🐢 Écouter lentement
+    </button>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       RÉPONSE 2
+       ===================================================== -->
+
+  <section class="listen-card">
+
+    <h2>
+      💼 Une réponse sur le métier
+    </h2>
+
+
+    <div class="korean-text">
+      저는 회사원이에요.
+    </div>
+
+
+    <p class="translation">
+      Je suis employée de bureau.
+    </p>
+
+
+    <button
+      class="audio-button"
+      type="button"
+      onclick="speakKorean('저는 회사원이에요.')"
+    >
+      🔊 Écouter
+    </button>
+
+
+    <button
+      class="slow-button"
+      type="button"
+      onclick="speakKoreanSlow('저는 회사원이에요.')"
+    >
+      🐢 Écouter lentement
+    </button>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       DIALOGUE
+       ===================================================== -->
+
+  <section class="listen-card">
+
+    <h2>
+      💬 Écoute la présentation complète
+    </h2>
+
+
+    <div class="dialogue-line">
+
+      <div class="speaker">
+        💙 Min-su
+      </div>
+
+      <div class="dialogue-korean">
+        안녕하세요. 이름이 뭐예요?
+      </div>
+
+      <div class="dialogue-translation">
+        Bonjour. Comment vous appelez-vous ?
+      </div>
+
+    </div>
+
+
+    <div class="dialogue-line">
+
+      <div class="speaker">
+        🌸 Hana
+      </div>
+
+      <div class="dialogue-korean">
+        저는 하나예요.
+      </div>
+
+      <div class="dialogue-translation">
+        Je suis Hana.
+      </div>
+
+    </div>
+
+
+    <div class="dialogue-line">
+
+      <div class="speaker">
+        💙 Min-su
+      </div>
+
+      <div class="dialogue-korean">
+        어느 나라 사람이에요?
+      </div>
+
+      <div class="dialogue-translation">
+        De quel pays êtes-vous ?
+      </div>
+
+    </div>
+
+
+    <div class="dialogue-line">
+
+      <div class="speaker">
+        🌸 Hana
+      </div>
+
+      <div class="dialogue-korean">
+        저는 프랑스 사람이에요.
+      </div>
+
+      <div class="dialogue-translation">
+        Je suis française.
+      </div>
+
+    </div>
+
+
+    <div class="dialogue-line">
+
+      <div class="speaker">
+        💙 Min-su
+      </div>
+
+      <div class="dialogue-korean">
+        직업이 뭐예요?
+      </div>
+
+      <div class="dialogue-translation">
+        Quel est votre métier ?
+      </div>
+
+    </div>
+
+
+    <div class="dialogue-line">
+
+      <div class="speaker">
+        🌸 Hana
+      </div>
+
+      <div class="dialogue-korean">
+        저는 회사원이에요.
+      </div>
+
+      <div class="dialogue-translation">
+        Je suis employée de bureau.
+      </div>
+
+    </div>
+
+
+    <div class="dialogue-line">
+
+      <div class="speaker">
+        💙 Min-su
+      </div>
+
+      <div class="dialogue-korean">
+        반가워요!
+      </div>
+
+      <div class="dialogue-translation">
+        Ravi de vous rencontrer !
+      </div>
+
+    </div>
+
+
+    <button
+      class="audio-button"
+      type="button"
+      onclick="playDialogue()"
+    >
+      🎧 Écouter tout le dialogue
+    </button>
+
+
+    <div class="listen-tip">
+
+      💡 Premier passage : essaie seulement de reconnaître
+      <strong>이름</strong>, <strong>나라</strong> et
+      <strong>직업</strong>.
+
+      <br><br>
+
+      Deuxième passage : essaie d'identifier
+      la question posée avant de lire la traduction.
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       PETIT OBJECTIF
+       ===================================================== -->
+
+  <section class="listen-card challenge-card">
+
+    <h2>
+      🧠 Avant le mini défi…
+    </h2>
+
+
+    <p>
+      Tu dois commencer à distinguer à l'oreille :
+    </p>
+
+
+    <ul class="challenge-list">
+
+      <li>
+        <strong>이름</strong> → on parle du prénom
+      </li>
+
+      <li>
+        <strong>어느 나라</strong> → on parle du pays
+      </li>
+
+      <li>
+        <strong>직업</strong> → on parle du métier
+      </li>
+
+    </ul>
+
+
+    <button
+      class="next-button"
+      type="button"
+      onclick="window.location.href='exercice-ecoute-2.html'"
+    >
+      🎧 Faire le mini défi d'écoute
+    </button>
+
+  </section>
+
+
+</main>
+
+
+
+<script>
+
+  /* =====================================================
+     VOIX CORÉENNE
+     ===================================================== */
+
+  function getKoreanVoice() {
+
+    const voices =
+      window.speechSynthesis.getVoices();
+
+
+    return voices.find(
+      voice =>
+        voice.lang &&
+        voice.lang
+          .toLowerCase()
+          .startsWith("ko")
+    );
+
+  }
+
+
+
+  /* =====================================================
+     AUDIO NORMAL
+     ===================================================== */
+
+  function speakKorean(text) {
+
+    if (
+      !("speechSynthesis" in window)
+    ) {
+      return;
+    }
+
+
+    window.speechSynthesis.cancel();
+
+
+    const speech =
+      new SpeechSynthesisUtterance(
+        text
+      );
+
+
+    speech.lang =
+      "ko-KR";
+
+
+    speech.rate =
+      0.84;
+
+
+    speech.pitch =
+      1;
+
+
+    const koreanVoice =
+      getKoreanVoice();
+
+
+    if (koreanVoice) {
+
+      speech.voice =
+        koreanVoice;
+
+    }
+
+
+    window.speechSynthesis.speak(
+      speech
+    );
+
+  }
+
+
+
+  /* =====================================================
+     AUDIO LENT
+     ===================================================== */
+
+  function speakKoreanSlow(text) {
+
+    if (
+      !("speechSynthesis" in window)
+    ) {
+      return;
+    }
+
+
+    window.speechSynthesis.cancel();
+
+
+    const speech =
+      new SpeechSynthesisUtterance(
+        text
+      );
+
+
+    speech.lang =
+      "ko-KR";
+
+
+    speech.rate =
+      0.58;
+
+
+    speech.pitch =
+      1;
+
+
+    const koreanVoice =
+      getKoreanVoice();
+
+
+    if (koreanVoice) {
+
+      speech.voice =
+        koreanVoice;
+
+    }
+
+
+    window.speechSynthesis.speak(
+      speech
+    );
+
+  }
+
+
+
+  /* =====================================================
+     DIALOGUE COMPLET
+     ===================================================== */
+
+  async function playDialogue() {
+
+    window.speechSynthesis.cancel();
+
+
+    const dialogue = [
+
+      "안녕하세요. 이름이 뭐예요?",
+
+      "저는 하나예요.",
+
+      "어느 나라 사람이에요?",
+
+      "저는 프랑스 사람이에요.",
+
+      "직업이 뭐예요?",
+
+      "저는 회사원이에요.",
+
+      "반가워요!"
+
+    ];
+
+
+    for (
+      const line of dialogue
+    ) {
+
+      await speakAndWait(
+        line
+      );
+
+
+      await pauseBetweenLines(
+        350
+      );
+
+    }
+
+  }
+
+
+
+  function speakAndWait(text) {
+
+    return new Promise(
+      resolve => {
+
+        const speech =
+          new SpeechSynthesisUtterance(
+            text
+          );
+
+
+        speech.lang =
+          "ko-KR";
+
+
+        speech.rate =
+          0.82;
+
+
+        speech.pitch =
+          1;
+
+
+        const koreanVoice =
+          getKoreanVoice();
+
+
+        if (koreanVoice) {
+
+          speech.voice =
+            koreanVoice;
+
+        }
+
+
+        speech.onend =
+          resolve;
+
+
+        speech.onerror =
+          resolve;
+
+
+        window.speechSynthesis.speak(
+          speech
+        );
+
+      }
+    );
+
+  }
+
+
+
+  function pauseBetweenLines(
+    milliseconds
+  ) {
+
+    return new Promise(
+      resolve => {
+
+        setTimeout(
+          resolve,
+          milliseconds
+        );
+
+      }
+    );
+
+  }
+
+
+
+  /* =====================================================
+     CHARGEMENT DES VOIX
+     ===================================================== */
+
+  if (
+    "speechSynthesis" in window
+  ) {
+
+    window.speechSynthesis.onvoiceschanged =
+      function() {
+
+        window.speechSynthesis.getVoices();
+
+      };
+
+  }
+
+</script>
+
+
+</body>
+
+</html>
