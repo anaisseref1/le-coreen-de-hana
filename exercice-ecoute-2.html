@@ -89,8 +89,14 @@
 
     .audio-main {
       width: 100%;
-      margin: 15px 0;
+      margin: 15px 0 0;
       font-weight: bold;
+    }
+
+    .slow-button {
+      width: 100%;
+      margin-top: 8px;
+      margin-bottom: 15px;
     }
 
     .answers {
@@ -271,6 +277,14 @@
       🔊 Écouter
     </button>
 
+    <button
+      class="slow-button"
+      type="button"
+      onclick="speakKorean('이름이 뭐예요?', true)"
+    >
+      🐢 Écouter lentement
+    </button>
+
     <p class="question-text">
       Qu'est-ce que Min-su veut savoir ?
     </p>
@@ -343,6 +357,14 @@
       🔊 Écouter
     </button>
 
+    <button
+      class="slow-button"
+      type="button"
+      onclick="speakKorean('어느 나라 사람이에요?', true)"
+    >
+      🐢 Écouter lentement
+    </button>
+
     <p class="question-text">
       Quelle information te demande Min-su ?
     </p>
@@ -413,6 +435,14 @@
       onclick="speakKorean('직업이 뭐예요?')"
     >
       🔊 Écouter
+    </button>
+
+    <button
+      class="slow-button"
+      type="button"
+      onclick="speakKorean('직업이 뭐예요?', true)"
+    >
+      🐢 Écouter lentement
     </button>
 
     <p class="question-text">
@@ -556,7 +586,10 @@
   }
 
 
-  function speakKorean(text) {
+  function speakKorean(
+    text,
+    slow = false
+  ) {
 
     if (
       !("speechSynthesis" in window)
@@ -573,7 +606,9 @@
       "ko-KR";
 
     speech.rate =
-      0.82;
+      slow
+        ? 0.25
+        : 0.82;
 
     speech.pitch =
       1;
@@ -747,6 +782,12 @@
 
   function showQuestion(number) {
 
+    if (
+      "speechSynthesis" in window
+    ) {
+      window.speechSynthesis.cancel();
+    }
+
     document
       .querySelectorAll(
         ".exercise-card"
@@ -797,6 +838,12 @@
 
 
   function finishExercise() {
+
+    if (
+      "speechSynthesis" in window
+    ) {
+      window.speechSynthesis.cancel();
+    }
 
     document
       .querySelectorAll(

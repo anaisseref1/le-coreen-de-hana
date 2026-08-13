@@ -132,9 +132,17 @@
     .audio-main {
       width: 100%;
 
-      margin: 15px 0;
+      margin: 15px 0 0;
 
       font-weight: bold;
+    }
+
+
+    .slow-button {
+      width: 100%;
+
+      margin-top: 8px;
+      margin-bottom: 15px;
     }
 
 
@@ -421,6 +429,15 @@
     </button>
 
 
+    <button
+      class="slow-button"
+      type="button"
+      onclick="speakKorean('저는 호텔에 있어요.', true)"
+    >
+      🐢 Écouter lentement
+    </button>
+
+
     <p class="question-text">
       Que fait la personne ?
     </p>
@@ -501,6 +518,15 @@
       onclick="speakKorean('저는 카페에 가요.')"
     >
       🔊 Écouter la phrase
+    </button>
+
+
+    <button
+      class="slow-button"
+      type="button"
+      onclick="speakKorean('저는 카페에 가요.', true)"
+    >
+      🐢 Écouter lentement
     </button>
 
 
@@ -587,6 +613,15 @@
     </button>
 
 
+    <button
+      class="slow-button"
+      type="button"
+      onclick="speakKorean('저는 프랑스에 살아요.', true)"
+    >
+      🐢 Écouter lentement
+    </button>
+
+
     <p class="question-text">
       Que dit cette personne ?
     </p>
@@ -667,6 +702,15 @@
       onclick="speakKorean('어디에 있어요?')"
     >
       🔊 Écouter Min-su
+    </button>
+
+
+    <button
+      class="slow-button"
+      type="button"
+      onclick="speakKorean('어디에 있어요?', true)"
+    >
+      🐢 Écouter lentement
     </button>
 
 
@@ -869,7 +913,10 @@
 
 
 
-  function speakKorean(text) {
+  function speakKorean(
+    text,
+    slow = false
+  ) {
 
     if (
       !("speechSynthesis" in window)
@@ -892,7 +939,9 @@
 
 
     speech.rate =
-      0.82;
+      slow
+        ? 0.25
+        : 0.82;
 
 
     speech.pitch =
@@ -1115,6 +1164,12 @@
 
   function showQuestion(number) {
 
+    if (
+      "speechSynthesis" in window
+    ) {
+      window.speechSynthesis.cancel();
+    }
+
     document
       .querySelectorAll(
         ".exercise-card"
@@ -1173,6 +1228,12 @@
      ===================================================== */
 
   function finishExercise() {
+
+    if (
+      "speechSynthesis" in window
+    ) {
+      window.speechSynthesis.cancel();
+    }
 
     document
       .querySelectorAll(

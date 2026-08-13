@@ -132,9 +132,17 @@
     .audio-main {
       width: 100%;
 
-      margin: 15px 0;
+      margin: 15px 0 0;
 
       font-weight: bold;
+    }
+
+
+    .slow-button {
+      width: 100%;
+
+      margin-top: 8px;
+      margin-bottom: 15px;
     }
 
 
@@ -421,6 +429,15 @@
     </button>
 
 
+    <button
+      class="slow-button"
+      type="button"
+      onclick="speakKorean('저는 딸기를 좋아해요.', true)"
+    >
+      🐢 Écouter lentement
+    </button>
+
+
     <p class="question-text">
       Que dit la personne ?
     </p>
@@ -501,6 +518,15 @@
       onclick="speakKorean('저는 커피를 싫어해요.')"
     >
       🔊 Écouter la phrase
+    </button>
+
+
+    <button
+      class="slow-button"
+      type="button"
+      onclick="speakKorean('저는 커피를 싫어해요.', true)"
+    >
+      🐢 Écouter lentement
     </button>
 
 
@@ -587,6 +613,15 @@
     </button>
 
 
+    <button
+      class="slow-button"
+      type="button"
+      onclick="speakKorean('커피도 좋아해요.', true)"
+    >
+      🐢 Écouter lentement
+    </button>
+
+
     <p class="question-text">
       Quel mot important est exprimé ?
     </p>
@@ -670,6 +705,15 @@
     </button>
 
 
+    <button
+      class="slow-button"
+      type="button"
+      onclick="speakKorean('네, 정말 좋아해요!', true)"
+    >
+      🐢 Écouter lentement
+    </button>
+
+
     <p class="question-text">
       Que veut ajouter la personne ?
     </p>
@@ -750,6 +794,15 @@
       onclick="speakKorean('민수 씨는요?')"
     >
       🔊 Écouter Hana
+    </button>
+
+
+    <button
+      class="slow-button"
+      type="button"
+      onclick="speakKorean('민수 씨는요?', true)"
+    >
+      🐢 Écouter lentement
     </button>
 
 
@@ -957,7 +1010,10 @@
 
 
 
-  function speakKorean(text) {
+  function speakKorean(
+    text,
+    slow = false
+  ) {
 
     if (
       !("speechSynthesis" in window)
@@ -980,7 +1036,9 @@
 
 
     speech.rate =
-      0.82;
+      slow
+        ? 0.25
+        : 0.82;
 
 
     speech.pitch =
@@ -1219,6 +1277,12 @@
 
   function showQuestion(number) {
 
+    if (
+      "speechSynthesis" in window
+    ) {
+      window.speechSynthesis.cancel();
+    }
+
     document
       .querySelectorAll(
         ".exercise-card"
@@ -1278,6 +1342,12 @@
      ===================================================== */
 
   function finishExercise() {
+
+    if (
+      "speechSynthesis" in window
+    ) {
+      window.speechSynthesis.cancel();
+    }
 
     document
       .querySelectorAll(

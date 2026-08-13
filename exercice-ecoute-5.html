@@ -1207,7 +1207,7 @@
 
 
     speech.rate =
-      0.84;
+      0.82;
 
 
     speech.pitch =
@@ -1261,7 +1261,7 @@
 
 
     speech.rate =
-      0.58;
+      0.25;
 
 
     speech.pitch =
@@ -1544,6 +1544,12 @@
 
   function showQuestion(number) {
 
+    if (
+      "speechSynthesis" in window
+    ) {
+      window.speechSynthesis.cancel();
+    }
+
     document
       .querySelectorAll(
         ".exercise-card"
@@ -1607,6 +1613,12 @@
      ===================================================== */
 
   function finishExercise() {
+
+    if (
+      "speechSynthesis" in window
+    ) {
+      window.speechSynthesis.cancel();
+    }
 
     document
       .querySelectorAll(
