@@ -2,6 +2,7 @@
 <html lang="fr">
 
 <head>
+
   <meta charset="UTF-8">
 
   <meta
@@ -21,6 +22,7 @@
     href="style.css"
   >
 
+
   <style>
 
     /* =====================================================
@@ -35,14 +37,10 @@
 
     .chapter-badge {
       display: inline-block;
-
       padding: 7px 14px;
-
       border-radius: 20px;
-
       font-size: 14px;
       font-weight: bold;
-
       margin-bottom: 10px;
     }
 
@@ -53,7 +51,6 @@
 
     .listen-card {
       padding: 20px;
-
       margin-bottom: 18px;
     }
 
@@ -69,10 +66,8 @@
 
     .korean-text {
       color: var(--navy);
-
       font-size: 25px;
       font-weight: bold;
-
       margin-bottom: 5px;
     }
 
@@ -88,17 +83,28 @@
 
     .audio-button {
       width: 100%;
-
       margin-top: 15px;
-
       font-weight: bold;
     }
 
 
     .slow-button {
       width: 100%;
-
       margin-top: 8px;
+    }
+
+
+    .dialogue-audio-button {
+      width: 100%;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+
+    .dialogue-audio-button.playing {
+      background: var(--error-light) !important;
+      color: var(--error) !important;
+      border: 1px solid var(--error);
     }
 
 
@@ -108,18 +114,14 @@
 
     .dialogue-line {
       padding: 15px;
-
       border-radius: var(--radius-medium);
-
       margin-bottom: 12px;
-
       line-height: 1.7;
     }
 
 
     .speaker {
       margin-bottom: 7px;
-
       font-weight: bold;
     }
 
@@ -130,9 +132,7 @@
 
     .next-button {
       width: 100%;
-
       margin-top: 15px;
-
       font-weight: bold;
     }
 
@@ -143,17 +143,11 @@
 
     .listen-tip {
       background: var(--soft-beige);
-
       color: var(--navy);
-
       padding: 14px;
-
       border-radius: var(--radius-medium);
-
       margin-top: 15px;
-
       font-size: 14px;
-
       line-height: 1.6;
     }
 
@@ -163,6 +157,7 @@
 
 
 <body>
+
 
 <main class="app">
 
@@ -190,13 +185,16 @@
       Chapitre 1 · Étape 2
     </span>
 
+
     <p class="korean">
       들어 봐요 🎧
     </p>
 
+
     <h1>
       J'écoute
     </h1>
+
 
     <p>
       Écoute les mots et les phrases avant de les prononcer toi-même.
@@ -216,9 +214,11 @@
       안녕하세요
     </div>
 
+
     <p class="translation">
       Bonjour
     </p>
+
 
     <button
       class="audio-button"
@@ -227,6 +227,7 @@
     >
       🔊 Écouter
     </button>
+
 
     <button
       class="slow-button"
@@ -250,9 +251,11 @@
       감사합니다
     </div>
 
+
     <p class="translation">
       Merci
     </p>
+
 
     <button
       class="audio-button"
@@ -261,6 +264,7 @@
     >
       🔊 Écouter
     </button>
+
 
     <button
       class="slow-button"
@@ -284,9 +288,11 @@
       반가워요
     </div>
 
+
     <p class="translation">
       Ravi(e) de vous rencontrer
     </p>
+
 
     <button
       class="audio-button"
@@ -295,6 +301,7 @@
     >
       🔊 Écouter
     </button>
+
 
     <button
       class="slow-button"
@@ -318,9 +325,11 @@
       저는 하나예요.
     </div>
 
+
     <p class="translation">
       Je suis Hana.
     </p>
+
 
     <button
       class="audio-button"
@@ -329,6 +338,7 @@
     >
       🔊 Écouter
     </button>
+
 
     <button
       class="slow-button"
@@ -352,9 +362,11 @@
       저는 프랑스 사람이에요.
     </div>
 
+
     <p class="translation">
       Je suis française.
     </p>
+
 
     <button
       class="audio-button"
@@ -363,6 +375,7 @@
     >
       🔊 Écouter
     </button>
+
 
     <button
       class="slow-button"
@@ -440,9 +453,10 @@
 
 
     <button
-      class="audio-button"
+      id="dialogueButton"
+      class="dialogue-audio-button audio-button"
       type="button"
-      onclick="playDialogue()"
+      onclick="toggleDialogue()"
     >
       🎧 Écouter le dialogue
     </button>
@@ -469,9 +483,11 @@
       🧠 Petit défi d'écoute
     </h2>
 
+
     <p>
       Maintenant, vérifie ce que tu arrives déjà à reconnaître à l'oreille.
     </p>
+
 
     <button
       class="next-button"
@@ -491,18 +507,202 @@
 <script>
 
   /* =====================================================
-     TROUVER UNE VOIX CORÉENNE
+     PARAMÈTRES AUDIO
      ===================================================== */
 
-  function getKoreanVoice() {
+  const AUDIO_SETTINGS = {
+
+    normalRate: 0.82,
+
+    slowRate: 0.25
+
+  };
+
+
+
+  /* =====================================================
+     ÉTAT DU DIALOGUE
+     ===================================================== */
+
+  let isDialoguePlaying = false;
+
+  let dialogueSessionId = 0;
+
+
+
+  /* =====================================================
+     VOIX CORÉENNE DISPONIBLE
+     ===================================================== */
+
+  let koreanVoice = null;
+
+
+  function loadKoreanVoice() {
+
+    if (
+      !("speechSynthesis" in window)
+    ) {
+      return;
+    }
+
 
     const voices =
       window.speechSynthesis.getVoices();
 
-    return voices.find(
-      voice =>
-        voice.lang &&
-        voice.lang.toLowerCase().startsWith("ko")
+
+    const koreanVoices =
+      voices.filter(
+        voice =>
+          voice.lang &&
+          voice.lang
+            .toLowerCase()
+            .startsWith("ko")
+      );
+
+
+    if (
+      koreanVoices.length > 0
+    ) {
+
+      koreanVoice =
+        koreanVoices[0];
+
+    }
+
+  }
+
+
+
+  /* =====================================================
+     IDENTITÉ AUDIO DES PERSONNAGES
+     =====================================================
+
+     Hana et Min-su sont déjà séparés dans le code.
+
+     Pour l'instant, le navigateur utilise la même
+     voix coréenne disponible.
+
+     Plus tard nous pourrons connecter :
+
+     - Hana → voix dédiée
+     - Min-su → voix masculine dédiée
+
+     sans reconstruire le dialogue.
+     ===================================================== */
+
+  function getCharacterSettings(
+    character,
+    slow = false
+  ) {
+
+    const rate =
+      slow
+        ? AUDIO_SETTINGS.slowRate
+        : AUDIO_SETTINGS.normalRate;
+
+
+    if (
+      character === "hana"
+    ) {
+
+      return {
+
+        rate: rate,
+
+        pitch: 1
+
+      };
+
+    }
+
+
+    if (
+      character === "minsu"
+    ) {
+
+      return {
+
+        rate: rate,
+
+        pitch: 1
+
+      };
+
+    }
+
+
+    return {
+
+      rate: rate,
+
+      pitch: 1
+
+    };
+
+  }
+
+
+
+  /* =====================================================
+     SYNTHÈSE VOCALE SIMPLE
+     ===================================================== */
+
+  function speakWithCharacter(
+    text,
+    character = "hana",
+    slow = false
+  ) {
+
+    if (
+      !("speechSynthesis" in window)
+    ) {
+      return;
+    }
+
+
+    stopDialogue();
+
+
+    window.speechSynthesis.cancel();
+
+
+    const speech =
+      new SpeechSynthesisUtterance(
+        text
+      );
+
+
+    speech.lang =
+      "ko-KR";
+
+
+    const settings =
+      getCharacterSettings(
+        character,
+        slow
+      );
+
+
+    speech.rate =
+      settings.rate;
+
+
+    speech.pitch =
+      settings.pitch;
+
+
+    if (
+      koreanVoice
+    ) {
+
+      speech.voice =
+        koreanVoice;
+
+    }
+
+
+    window.speechSynthesis.speak(
+      speech
     );
 
   }
@@ -510,70 +710,248 @@
 
 
   /* =====================================================
-     LECTURE NORMALE
+     AUDIO NORMAL
      ===================================================== */
 
   function speakKorean(text) {
 
-    window.speechSynthesis.cancel();
-
-
-    const speech =
-      new SpeechSynthesisUtterance(text);
-
-
-    speech.lang = "ko-KR";
-
-    speech.rate = 0.85;
-
-    speech.pitch = 1;
-
-
-    const koreanVoice =
-      getKoreanVoice();
-
-
-    if (koreanVoice) {
-      speech.voice = koreanVoice;
-    }
-
-
-    window.speechSynthesis.speak(speech);
+    speakWithCharacter(
+      text,
+      "hana",
+      false
+    );
 
   }
 
 
 
   /* =====================================================
-     LECTURE LENTE
+     AUDIO LENT
      ===================================================== */
 
   function speakKoreanSlow(text) {
 
-    window.speechSynthesis.cancel();
+    speakWithCharacter(
+      text,
+      "hana",
+      true
+    );
+
+  }
 
 
-    const speech =
-      new SpeechSynthesisUtterance(text);
+
+  /* =====================================================
+     PAUSE ENTRE LES RÉPLIQUES
+     ===================================================== */
+
+  function pauseBetweenLines(
+    milliseconds
+  ) {
+
+    return new Promise(
+      resolve => {
+
+        setTimeout(
+          resolve,
+          milliseconds
+        );
+
+      }
+    );
+
+  }
 
 
-    speech.lang = "ko-KR";
 
-    speech.rate = 0.60;
+  /* =====================================================
+     LIRE UNE RÉPLIQUE ET ATTENDRE
+     ===================================================== */
 
-    speech.pitch = 1;
+  function speakCharacterAndWait(
+    text,
+    character,
+    sessionId
+  ) {
+
+    return new Promise(
+      resolve => {
+
+        if (
+          !("speechSynthesis" in window)
+        ) {
+
+          resolve();
+
+          return;
+
+        }
 
 
-    const koreanVoice =
-      getKoreanVoice();
+        if (
+          sessionId !== dialogueSessionId
+        ) {
+
+          resolve();
+
+          return;
+
+        }
 
 
-    if (koreanVoice) {
-      speech.voice = koreanVoice;
+        const speech =
+          new SpeechSynthesisUtterance(
+            text
+          );
+
+
+        speech.lang =
+          "ko-KR";
+
+
+        const settings =
+          getCharacterSettings(
+            character,
+            false
+          );
+
+
+        speech.rate =
+          settings.rate;
+
+
+        speech.pitch =
+          settings.pitch;
+
+
+        if (
+          koreanVoice
+        ) {
+
+          speech.voice =
+            koreanVoice;
+
+        }
+
+
+        speech.onend =
+          function() {
+
+            resolve();
+
+          };
+
+
+        speech.onerror =
+          function() {
+
+            resolve();
+
+          };
+
+
+        window.speechSynthesis.speak(
+          speech
+        );
+
+      }
+    );
+
+  }
+
+
+
+  /* =====================================================
+     METTRE À JOUR LE BOUTON
+     ===================================================== */
+
+  function updateDialogueButton() {
+
+    const button =
+      document.getElementById(
+        "dialogueButton"
+      );
+
+
+    if (!button) {
+      return;
     }
 
 
-    window.speechSynthesis.speak(speech);
+    if (
+      isDialoguePlaying
+    ) {
+
+      button.textContent =
+        "⏹️ Stopper le dialogue";
+
+
+      button.classList.add(
+        "playing"
+      );
+
+    } else {
+
+      button.textContent =
+        "🎧 Écouter le dialogue";
+
+
+      button.classList.remove(
+        "playing"
+      );
+
+    }
+
+  }
+
+
+
+  /* =====================================================
+     STOPPER LE DIALOGUE
+     ===================================================== */
+
+  function stopDialogue() {
+
+    dialogueSessionId++;
+
+
+    if (
+      "speechSynthesis" in window
+    ) {
+
+      window.speechSynthesis.cancel();
+
+    }
+
+
+    isDialoguePlaying =
+      false;
+
+
+    updateDialogueButton();
+
+  }
+
+
+
+  /* =====================================================
+     LANCER / STOPPER LE DIALOGUE
+     ===================================================== */
+
+  function toggleDialogue() {
+
+    if (
+      isDialoguePlaying
+    ) {
+
+      stopDialogue();
+
+      return;
+
+    }
+
+
+    playDialogue();
 
   }
 
@@ -585,27 +963,109 @@
 
   async function playDialogue() {
 
+    if (
+      !("speechSynthesis" in window)
+    ) {
+      return;
+    }
+
+
     window.speechSynthesis.cancel();
+
+
+    dialogueSessionId++;
+
+
+    const currentSession =
+      dialogueSessionId;
+
+
+    isDialoguePlaying =
+      true;
+
+
+    updateDialogueButton();
 
 
     const dialogue = [
 
-      "안녕하세요.",
+      {
+        character: "hana",
+        text: "안녕하세요."
+      },
 
-      "안녕하세요. 저는 민수예요.",
+      {
+        character: "minsu",
+        text: "안녕하세요. 저는 민수예요."
+      },
 
-      "저는 하나예요.",
+      {
+        character: "hana",
+        text: "저는 하나예요."
+      },
 
-      "반가워요."
+      {
+        character: "minsu",
+        text: "반가워요."
+      }
 
     ];
 
 
-    for (const line of dialogue) {
+    for (
+      const line of dialogue
+    ) {
 
-      await speakAndWait(line);
+      if (
+        currentSession !== dialogueSessionId
+      ) {
 
-      await pauseBetweenLines(350);
+        return;
+
+      }
+
+
+      await speakCharacterAndWait(
+        line.text,
+        line.character,
+        currentSession
+      );
+
+
+      if (
+        currentSession !== dialogueSessionId
+      ) {
+
+        return;
+
+      }
+
+
+      await pauseBetweenLines(
+        350
+      );
+
+
+      if (
+        currentSession !== dialogueSessionId
+      ) {
+
+        return;
+
+      }
+
+    }
+
+
+    if (
+      currentSession === dialogueSessionId
+    ) {
+
+      isDialoguePlaying =
+        false;
+
+
+      updateDialogueButton();
 
     }
 
@@ -613,62 +1073,12 @@
 
 
 
-  function speakAndWait(text) {
+  /* =====================================================
+     CHARGEMENT DES VOIX
+     ===================================================== */
 
-    return new Promise(resolve => {
+  loadKoreanVoice();
 
-      const speech =
-        new SpeechSynthesisUtterance(text);
-
-
-      speech.lang = "ko-KR";
-
-      speech.rate = 0.82;
-
-      speech.pitch = 1;
-
-
-      const koreanVoice =
-        getKoreanVoice();
-
-
-      if (koreanVoice) {
-        speech.voice = koreanVoice;
-      }
-
-
-      speech.onend = resolve;
-
-      speech.onerror = resolve;
-
-
-      window.speechSynthesis.speak(speech);
-
-    });
-
-  }
-
-
-
-  function pauseBetweenLines(milliseconds) {
-
-    return new Promise(resolve => {
-
-      setTimeout(
-        resolve,
-        milliseconds
-      );
-
-    });
-
-  }
-
-
-
-  /*
-    Certains navigateurs chargent leurs voix
-    quelques instants après l'ouverture de la page.
-  */
 
   if (
     "speechSynthesis" in window
@@ -677,11 +1087,23 @@
     window.speechSynthesis.onvoiceschanged =
       function() {
 
-        window.speechSynthesis.getVoices();
+        loadKoreanVoice();
 
       };
 
   }
+
+
+  setTimeout(
+    loadKoreanVoice,
+    700
+  );
+
+
+  setTimeout(
+    loadKoreanVoice,
+    1800
+  );
 
 </script>
 
