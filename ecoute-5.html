@@ -94,6 +94,74 @@
 
 
     /* =====================================================
+       TEST DES VOIX
+       ===================================================== */
+
+    .voice-test-card {
+      padding: 20px;
+      margin-bottom: 20px;
+      background: var(--white);
+      border-radius: var(--radius-large);
+      box-shadow: var(--shadow);
+      border-left: 5px solid var(--gold);
+    }
+
+
+    .voice-test-card h2 {
+      margin-top: 0;
+    }
+
+
+    .voice-test-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+
+    .voice-test-button {
+      width: 100%;
+      background: var(--soft-beige);
+      color: var(--navy);
+      font-weight: bold;
+    }
+
+
+    .voice-status {
+      padding: 14px;
+      margin-top: 15px;
+      background: var(--soft-green);
+      border-radius: var(--radius-medium);
+      line-height: 1.7;
+    }
+
+
+    .voice-list {
+      padding: 14px;
+      margin-top: 12px;
+      background: #FBFAF6;
+      border-radius: var(--radius-medium);
+      color: var(--text-light);
+      font-size: 13px;
+      line-height: 1.7;
+      word-break: break-word;
+    }
+
+
+    .voice-found {
+      color: var(--success);
+      font-weight: bold;
+    }
+
+
+    .voice-missing {
+      color: var(--error);
+      font-weight: bold;
+    }
+
+
+    /* =====================================================
        CARTES D'ÉCOUTE
        ===================================================== */
 
@@ -300,10 +368,6 @@
 <main class="app">
 
 
-  <!-- =====================================================
-       RETOUR
-       ===================================================== -->
-
   <a
     class="back-link"
     href="chapitre-5.html"
@@ -312,10 +376,6 @@
   </a>
 
 
-
-  <!-- =====================================================
-       EN-TÊTE
-       ===================================================== -->
 
   <header class="listen-header">
 
@@ -344,8 +404,73 @@
 
 
   <!-- =====================================================
-       INTRO
+       LABORATOIRE TEMPORAIRE
        ===================================================== -->
+
+  <section class="voice-test-card">
+
+    <h2>
+      🧪 Test direct des voix Apple
+    </h2>
+
+
+    <p>
+      Cette fois, l'application cherche directement
+      les noms <strong>Sora</strong>,
+      <strong>Minsu</strong> et
+      <strong>Yuna</strong>.
+    </p>
+
+
+    <div
+      class="voice-status"
+      id="voiceStatus"
+    >
+      Recherche des voix…
+    </div>
+
+
+    <div class="voice-test-grid">
+
+      <button
+        class="voice-test-button"
+        type="button"
+        onclick="testNamedVoice('sora')"
+      >
+        🌸 Tester Sora — Hana
+      </button>
+
+
+      <button
+        class="voice-test-button"
+        type="button"
+        onclick="testNamedVoice('minsu')"
+      >
+        💙 Tester Minsu — Min-su
+      </button>
+
+
+      <button
+        class="voice-test-button"
+        type="button"
+        onclick="testNamedVoice('yuna')"
+      >
+        💚 Tester Yuna — Ji-eun
+      </button>
+
+    </div>
+
+
+    <div
+      class="voice-list"
+      id="allVoiceList"
+    >
+      Chargement de la liste complète…
+    </div>
+
+  </section>
+
+
 
   <section class="intro-card">
 
@@ -411,10 +536,6 @@
 
 
 
-  <!-- =====================================================
-       뭐
-       ===================================================== -->
-
   <section class="listen-card">
 
     <h2>
@@ -464,17 +585,14 @@
 
       Quand tu entends <strong>뭐</strong>,
       la personne demande généralement
-      <strong>quoi</strong> ou <strong>ce que c'est</strong>.
+      <strong>quoi</strong> ou
+      <strong>ce que c'est</strong>.
 
     </div>
 
   </section>
 
 
-
-  <!-- =====================================================
-       누구
-       ===================================================== -->
 
   <section class="listen-card">
 
@@ -532,10 +650,6 @@
 
 
 
-  <!-- =====================================================
-       어디
-       ===================================================== -->
-
   <section class="listen-card">
 
     <h2>
@@ -590,10 +704,6 @@
   </section>
 
 
-
-  <!-- =====================================================
-       MÊME MOT, VERBE DIFFÉRENT
-       ===================================================== -->
 
   <section class="listen-card">
 
@@ -687,10 +797,6 @@
 
 
 
-  <!-- =====================================================
-       QUESTION SANS MOT INTERROGATIF
-       ===================================================== -->
-
   <section class="listen-card">
 
     <h2>
@@ -765,10 +871,6 @@
 
 
 
-  <!-- =====================================================
-       QUESTION OU AFFIRMATION
-       ===================================================== -->
-
   <section class="listen-card">
 
     <h2>
@@ -837,10 +939,6 @@
   </section>
 
 
-
-  <!-- =====================================================
-       DIALOGUE PRINCIPAL
-       ===================================================== -->
 
   <section class="listen-card">
 
@@ -1060,10 +1158,6 @@
 
 
 
-  <!-- =====================================================
-       STRATÉGIE
-       ===================================================== -->
-
   <section class="listen-card">
 
     <h2>
@@ -1095,10 +1189,6 @@
   </section>
 
 
-
-  <!-- =====================================================
-       MINI DÉFI
-       ===================================================== -->
 
   <section class="listen-card challenge-card">
 
@@ -1162,7 +1252,7 @@
 <script>
 
   /* =====================================================
-     PARAMÈTRES AUDIO
+     AUDIO
      ===================================================== */
 
   const AUDIO_SETTINGS = {
@@ -1174,10 +1264,18 @@
   };
 
 
+  let allVoices = [];
 
-  /* =====================================================
-     ÉTAT DU DIALOGUE
-     ===================================================== */
+  let namedVoices = {
+
+    sora: null,
+
+    minsu: null,
+
+    yuna: null
+
+  };
+
 
   let isMainDialoguePlaying = false;
 
@@ -1186,13 +1284,61 @@
 
 
   /* =====================================================
-     VOIX CORÉENNE DISPONIBLE
+     NORMALISER LES NOMS
      ===================================================== */
 
-  let koreanVoice = null;
+  function normalizeVoiceName(name) {
+
+    return String(name || "")
+      .toLowerCase()
+      .replace(/\s+/g, "")
+      .replace(/[-_]/g, "");
+
+  }
 
 
-  function loadKoreanVoice() {
+
+  /* =====================================================
+     CHERCHER UNE VOIX PAR NOM
+     ===================================================== */
+
+  function findVoiceByName(targetName) {
+
+    const wanted =
+      normalizeVoiceName(
+        targetName
+      );
+
+
+    return (
+      allVoices.find(
+        voice =>
+          normalizeVoiceName(
+            voice.name
+          ) === wanted
+      )
+      ||
+      allVoices.find(
+        voice =>
+          normalizeVoiceName(
+            voice.name
+          ).includes(
+            wanted
+          )
+      )
+      ||
+      null
+    );
+
+  }
+
+
+
+  /* =====================================================
+     CHARGER TOUTES LES VOIX
+     ===================================================== */
+
+  function loadAllVoices() {
 
     if (
       !("speechSynthesis" in window)
@@ -1201,12 +1347,161 @@
     }
 
 
-    const voices =
+    allVoices =
       window.speechSynthesis.getVoices();
 
 
-    const koreanVoices =
-      voices.filter(
+    namedVoices.sora =
+      findVoiceByName(
+        "Sora"
+      );
+
+
+    namedVoices.minsu =
+      findVoiceByName(
+        "Minsu"
+      );
+
+
+    namedVoices.yuna =
+      findVoiceByName(
+        "Yuna"
+      );
+
+
+    updateVoiceTestDisplay();
+
+  }
+
+
+
+  /* =====================================================
+     AFFICHER LE RÉSULTAT
+     ===================================================== */
+
+  function updateVoiceTestDisplay() {
+
+    const status =
+      document.getElementById(
+        "voiceStatus"
+      );
+
+
+    const list =
+      document.getElementById(
+        "allVoiceList"
+      );
+
+
+    if (
+      !status ||
+      !list
+    ) {
+      return;
+    }
+
+
+    const soraStatus =
+      namedVoices.sora
+        ? `<span class="voice-found">✅ Sora trouvée : ${namedVoices.sora.name}</span>`
+        : `<span class="voice-missing">❌ Sora non accessible</span>`;
+
+
+    const minsuStatus =
+      namedVoices.minsu
+        ? `<span class="voice-found">✅ Minsu trouvée : ${namedVoices.minsu.name}</span>`
+        : `<span class="voice-missing">❌ Minsu non accessible</span>`;
+
+
+    const yunaStatus =
+      namedVoices.yuna
+        ? `<span class="voice-found">✅ Yuna trouvée : ${namedVoices.yuna.name}</span>`
+        : `<span class="voice-missing">❌ Yuna non accessible</span>`;
+
+
+    status.innerHTML =
+
+      soraStatus +
+
+      "<br>" +
+
+      minsuStatus +
+
+      "<br>" +
+
+      yunaStatus;
+
+
+    if (
+      allVoices.length === 0
+    ) {
+
+      list.innerHTML =
+        "Safari ne nous a encore retourné aucune voix.";
+
+      return;
+
+    }
+
+
+    let html =
+      `<strong>${allVoices.length} voix au total exposées par Safari :</strong><br><br>`;
+
+
+    allVoices.forEach(
+      (voice, index) => {
+
+        html +=
+
+          `${index + 1}. ` +
+
+          `<strong>${voice.name}</strong>` +
+
+          ` — ${voice.lang}`;
+
+
+        if (
+          voice.default
+        ) {
+
+          html +=
+            " — défaut";
+
+        }
+
+
+        if (
+          voice.localService
+        ) {
+
+          html +=
+            " — locale";
+
+        }
+
+
+        html +=
+          "<br>";
+
+      }
+    );
+
+
+    list.innerHTML =
+      html;
+
+  }
+
+
+
+  /* =====================================================
+     VOIX DE SECOURS
+     ===================================================== */
+
+  function getFallbackKoreanVoice() {
+
+    const koreanVoice =
+      allVoices.find(
         voice =>
           voice.lang &&
           voice.lang
@@ -1215,34 +1510,61 @@
       );
 
 
-    if (
-      koreanVoices.length > 0
-    ) {
-
-      koreanVoice =
-        koreanVoices[0];
-
-    }
+    return (
+      koreanVoice ||
+      null
+    );
 
   }
 
 
 
   /* =====================================================
-     IDENTITÉ AUDIO DES PERSONNAGES
-     =====================================================
+     VOIX DU PERSONNAGE
+     ===================================================== */
 
-     Pour l'instant, Safari / Chrome peuvent ne fournir
-     qu'une seule voix coréenne.
+  function getCharacterVoice(
+    character
+  ) {
 
-     Nous gardons malgré tout les personnages séparés
-     dans le code afin de pouvoir connecter plus tard :
+    if (
+      character === "hana" &&
+      namedVoices.sora
+    ) {
 
-     - Hana → voix dédiée
-     - Min-su → voix masculine dédiée
-     - Ji-eun → voix dédiée
+      return namedVoices.sora;
 
-     sans devoir reconstruire les dialogues.
+    }
+
+
+    if (
+      character === "minsu" &&
+      namedVoices.minsu
+    ) {
+
+      return namedVoices.minsu;
+
+    }
+
+
+    if (
+      character === "jieun" &&
+      namedVoices.yuna
+    ) {
+
+      return namedVoices.yuna;
+
+    }
+
+
+    return getFallbackKoreanVoice();
+
+  }
+
+
+
+  /* =====================================================
+     PARAMÈTRES DU PERSONNAGE
      ===================================================== */
 
   function getCharacterSettings(
@@ -1250,60 +1572,12 @@
     slow = false
   ) {
 
-    const rate =
-      slow
-        ? AUDIO_SETTINGS.slowRate
-        : AUDIO_SETTINGS.normalRate;
-
-
-    if (
-      character === "hana"
-    ) {
-
-      return {
-
-        rate: rate,
-
-        pitch: 1
-
-      };
-
-    }
-
-
-    if (
-      character === "minsu"
-    ) {
-
-      return {
-
-        rate: rate,
-
-        pitch: 1
-
-      };
-
-    }
-
-
-    if (
-      character === "jieun"
-    ) {
-
-      return {
-
-        rate: rate,
-
-        pitch: 1
-
-      };
-
-    }
-
-
     return {
 
-      rate: rate,
+      rate:
+        slow
+          ? AUDIO_SETTINGS.slowRate
+          : AUDIO_SETTINGS.normalRate,
 
       pitch: 1
 
@@ -1314,7 +1588,110 @@
 
 
   /* =====================================================
-     SYNTHÈSE VOCALE SIMPLE
+     TEST D'UNE VOIX NOMMÉE
+     ===================================================== */
+
+  function testNamedVoice(
+    voiceName
+  ) {
+
+    if (
+      !("speechSynthesis" in window)
+    ) {
+      return;
+    }
+
+
+    window.speechSynthesis.cancel();
+
+
+    let voice =
+      namedVoices[
+        voiceName
+      ];
+
+
+    const speech =
+      new SpeechSynthesisUtterance();
+
+
+    speech.lang =
+      "ko-KR";
+
+
+    speech.rate =
+      0.82;
+
+
+    speech.pitch =
+      1;
+
+
+    if (
+      voiceName === "sora"
+    ) {
+
+      speech.text =
+        "안녕하세요. 저는 하나예요.";
+
+    }
+
+
+    if (
+      voiceName === "minsu"
+    ) {
+
+      speech.text =
+        "안녕하세요. 저는 민수예요.";
+
+    }
+
+
+    if (
+      voiceName === "yuna"
+    ) {
+
+      speech.text =
+        "안녕하세요. 저는 지은이에요.";
+
+    }
+
+
+    if (
+      voice
+    ) {
+
+      speech.voice =
+        voice;
+
+    } else {
+
+      const fallback =
+        getFallbackKoreanVoice();
+
+
+      if (
+        fallback
+      ) {
+
+        speech.voice =
+          fallback;
+
+      }
+
+    }
+
+
+    window.speechSynthesis.speak(
+      speech
+    );
+
+  }
+
+
+
+  /* =====================================================
+     LECTURE SIMPLE
      ===================================================== */
 
   function speakWithCharacter(
@@ -1361,12 +1738,18 @@
       settings.pitch;
 
 
+    const voice =
+      getCharacterVoice(
+        character
+      );
+
+
     if (
-      koreanVoice
+      voice
     ) {
 
       speech.voice =
-        koreanVoice;
+        voice;
 
     }
 
@@ -1379,10 +1762,6 @@
 
 
 
-  /* =====================================================
-     AUDIO NORMAL
-     ===================================================== */
-
   function speakKorean(text) {
 
     speakWithCharacter(
@@ -1394,10 +1773,6 @@
   }
 
 
-
-  /* =====================================================
-     AUDIO LENT
-     ===================================================== */
 
   function speakKoreanSlow(text) {
 
@@ -1412,7 +1787,7 @@
 
 
   /* =====================================================
-     PAUSE ENTRE LES PHRASES
+     PAUSE
      ===================================================== */
 
   function pauseBetweenLines(
@@ -1435,7 +1810,7 @@
 
 
   /* =====================================================
-     LIRE UNE PHRASE ET ATTENDRE SA FIN
+     LIRE ET ATTENDRE
      ===================================================== */
 
   function speakCharacterAndWait(
@@ -1495,30 +1870,28 @@
           settings.pitch;
 
 
+        const voice =
+          getCharacterVoice(
+            character
+          );
+
+
         if (
-          koreanVoice
+          voice
         ) {
 
           speech.voice =
-            koreanVoice;
+            voice;
 
         }
 
 
         speech.onend =
-          function() {
-
-            resolve();
-
-          };
+          resolve;
 
 
         speech.onerror =
-          function() {
-
-            resolve();
-
-          };
+          resolve;
 
 
         window.speechSynthesis.speak(
@@ -1533,17 +1906,10 @@
 
 
   /* =====================================================
-     LES 3 QUESTIONS AVEC 어디
+     OÙ
      ===================================================== */
 
   async function playWhereQuestions() {
-
-    if (
-      !("speechSynthesis" in window)
-    ) {
-      return;
-    }
-
 
     stopMainDialogue();
 
@@ -1554,7 +1920,9 @@
     const questions = [
 
       "어디에 있어요?",
+
       "어디에 가요?",
+
       "어디에 살아요?"
 
     ];
@@ -1581,17 +1949,10 @@
 
 
   /* =====================================================
-     QUESTION / AFFIRMATION
+     INTONATION
      ===================================================== */
 
   async function playIntonationComparison() {
-
-    if (
-      !("speechSynthesis" in window)
-    ) {
-      return;
-    }
-
 
     stopMainDialogue();
 
@@ -1620,7 +1981,7 @@
 
 
   /* =====================================================
-     METTRE À JOUR LE BOUTON DU DIALOGUE
+     BOUTON DIALOGUE
      ===================================================== */
 
   function updateDialogueButton() {
@@ -1631,7 +1992,9 @@
       );
 
 
-    if (!button) {
+    if (
+      !button
+    ) {
       return;
     }
 
@@ -1664,10 +2027,6 @@
 
 
 
-  /* =====================================================
-     STOPPER LE DIALOGUE
-     ===================================================== */
-
   function stopMainDialogue() {
 
     dialogueSessionId++;
@@ -1692,10 +2051,6 @@
 
 
 
-  /* =====================================================
-     LANCER / STOPPER LE DIALOGUE
-     ===================================================== */
-
   function toggleMainDialogue() {
 
     if (
@@ -1716,7 +2071,7 @@
 
 
   /* =====================================================
-     DIALOGUE COMPLET
+     DIALOGUE
      ===================================================== */
 
   async function playMainDialogue() {
@@ -1865,7 +2220,7 @@
      CHARGEMENT DES VOIX
      ===================================================== */
 
-  loadKoreanVoice();
+  loadAllVoices();
 
 
   if (
@@ -1875,7 +2230,7 @@
     window.speechSynthesis.onvoiceschanged =
       function() {
 
-        loadKoreanVoice();
+        loadAllVoices();
 
       };
 
@@ -1883,14 +2238,20 @@
 
 
   setTimeout(
-    loadKoreanVoice,
-    700
+    loadAllVoices,
+    500
   );
 
 
   setTimeout(
-    loadKoreanVoice,
-    1800
+    loadAllVoices,
+    1500
+  );
+
+
+  setTimeout(
+    loadAllVoices,
+    3000
   );
 
 </script>
