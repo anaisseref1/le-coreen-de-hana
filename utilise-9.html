@@ -1,0 +1,1382 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="theme-color"
+    content="#F7F4ED"
+  >
+
+  <title>Je l'utilise — Chapitre 9</title>
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
+  <style>
+    .mission-header {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .chapter-badge {
+      display: inline-block;
+      padding: 7px 14px;
+      margin-bottom: 10px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .mission-header p {
+      line-height: 1.7;
+    }
+
+    .mission-intro {
+      padding: 18px;
+      margin-bottom: 20px;
+      background: var(--soft-green);
+      border-radius: var(--radius-medium);
+      color: var(--navy);
+      line-height: 1.7;
+    }
+
+    .mission-progress {
+      margin-bottom: 22px;
+    }
+
+    .progress-info {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      color: var(--text-light);
+      font-size: 13px;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 9px;
+      background: var(--soft-beige);
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      width: 25%;
+      height: 100%;
+      background: var(--jade);
+      border-radius: 20px;
+      transition: width 0.3s ease;
+    }
+
+    .mission-card {
+      padding: 20px;
+      margin-bottom: 18px;
+      background: var(--white);
+      border-radius: var(--radius-large);
+      box-shadow: var(--shadow);
+    }
+
+    .step-number {
+      margin-top: 0;
+      color: var(--jade-dark);
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .mission-card h2 {
+      margin-top: 8px;
+      color: var(--navy);
+    }
+
+    .scene-box {
+      padding: 16px;
+      margin-top: 14px;
+      background: #FBFAF6;
+      border-radius: var(--radius-medium);
+      line-height: 1.7;
+    }
+
+    .minsu-box {
+      padding: 16px;
+      margin-top: 15px;
+      background: var(--soft-blue);
+      border-radius: var(--radius-medium);
+      color: var(--navy);
+      line-height: 1.7;
+    }
+
+    .minsu-name {
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    .minsu-korean {
+      font-size: 21px;
+      font-weight: bold;
+    }
+
+    .minsu-french {
+      margin-top: 5px;
+      color: var(--text-light);
+    }
+
+    .listen-button {
+      width: 100%;
+      margin-top: 10px;
+      background: var(--soft-blue);
+      color: var(--navy);
+      font-weight: bold;
+    }
+
+    .slow-button {
+      width: 100%;
+      margin-top: 8px;
+      background: var(--soft-beige);
+      color: var(--navy);
+    }
+
+    .your-turn {
+      padding: 16px;
+      margin-top: 16px;
+      background: var(--soft-green);
+      border-radius: var(--radius-medium);
+      line-height: 1.7;
+    }
+
+    .answer-input {
+      width: 100%;
+      margin-top: 14px;
+      padding: 15px;
+      box-sizing: border-box;
+      border: 2px solid var(--border);
+      border-radius: var(--radius-medium);
+      background: white;
+      color: var(--navy);
+      font-size: 20px;
+    }
+
+    .answer-input:focus {
+      outline: none;
+      border-color: var(--jade);
+    }
+
+    .validate-button {
+      width: 100%;
+      margin-top: 10px;
+      background: var(--jade);
+      color: white;
+      font-weight: bold;
+    }
+
+    .help-button {
+      width: 100%;
+      margin-top: 8px;
+      background: var(--soft-beige);
+      color: var(--navy);
+    }
+
+    .help-box {
+      display: none;
+      padding: 14px;
+      margin-top: 10px;
+      background: #FBFAF6;
+      border-radius: var(--radius-medium);
+      line-height: 1.7;
+    }
+
+    .help-answer {
+      margin-top: 6px;
+      color: var(--navy);
+      font-size: 19px;
+      font-weight: bold;
+    }
+
+    .feedback {
+      display: none;
+      padding: 15px;
+      margin-top: 14px;
+      border-radius: var(--radius-medium);
+      line-height: 1.7;
+    }
+
+    .feedback.correct {
+      display: block;
+      background: var(--success-light);
+      border-left: 4px solid var(--success);
+    }
+
+    .feedback.wrong {
+      display: block;
+      background: var(--warning-light);
+      border-left: 4px solid var(--warning);
+    }
+
+    .next-step {
+      display: none;
+      width: 100%;
+      margin-top: 12px;
+      background: var(--navy);
+      color: white;
+      font-weight: bold;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .result-card {
+      display: none;
+      padding: 25px;
+      background: var(--white);
+      border-radius: var(--radius-large);
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+
+    .result-icon {
+      font-size: 60px;
+    }
+
+    .result-score {
+      color: var(--jade-dark);
+      font-size: 21px;
+      font-weight: bold;
+    }
+
+    .result-summary {
+      padding: 16px;
+      margin-top: 18px;
+      background: #FBFAF6;
+      border-radius: var(--radius-medium);
+      text-align: left;
+      line-height: 1.6;
+    }
+
+    .mission-success {
+      padding: 16px;
+      margin-top: 18px;
+      background: var(--soft-green);
+      border-radius: var(--radius-medium);
+      color: var(--navy);
+      text-align: left;
+      line-height: 1.7;
+    }
+
+    .chapter-button {
+      width: 100%;
+      margin-top: 18px;
+      background: var(--jade);
+      color: white;
+      font-weight: bold;
+    }
+
+    .route-button {
+      width: 100%;
+      margin-top: 10px;
+      background: var(--soft-beige);
+      color: var(--navy);
+    }
+  </style>
+</head>
+
+<body>
+
+<main class="app">
+
+  <a
+    class="back-link"
+    href="chapitre-9.html"
+  >
+    ← Chapitre 9
+  </a>
+
+
+  <header class="mission-header">
+
+    <span class="chapter-badge">
+      Chapitre 9 · Mission finale
+    </span>
+
+    <p class="korean">
+      실제로 써 봐요 🎯
+    </p>
+
+    <h1>
+      Je l'utilise
+    </h1>
+
+    <p>
+      Utilise maintenant les expressions du chapitre
+      pour organiser un trajet simple avec Min-su.
+    </p>
+
+  </header>
+
+
+  <section class="mission-intro">
+
+    <strong>🎯 Mission</strong>
+
+    <br><br>
+
+    Tu veux aller à la gare de Séoul.
+    Min-su t'aide à organiser ton trajet.
+    Réponds en coréen en utilisant
+    les transports et les verbes du chapitre.
+
+  </section>
+
+
+  <div class="mission-progress">
+
+    <div class="progress-info">
+      <span>Mission finale</span>
+      <span id="progressLabel">1 / 4</span>
+    </div>
+
+    <div class="progress-bar">
+      <div
+        class="progress-fill"
+        id="progressFill"
+      ></div>
+    </div>
+
+  </div>
+
+
+  <!-- ÉTAPE 1 -->
+
+  <section
+    class="mission-card"
+    id="step1"
+  >
+
+    <p class="step-number">
+      Étape 1 / 4
+    </p>
+
+    <h2>
+      📍 Dire où tu vas
+    </h2>
+
+    <div class="minsu-box">
+
+      <div class="minsu-name">
+        💙 Min-su
+      </div>
+
+      <div class="minsu-korean">
+        어디에 가요?
+      </div>
+
+      <div class="minsu-french">
+        Où est-ce que tu vas ?
+      </div>
+
+    </div>
+
+    <button
+      class="listen-button"
+      type="button"
+      onclick="speakKorean('어디에 가요?', false)"
+    >
+      🔊 Écouter Min-su
+    </button>
+
+    <button
+      class="slow-button"
+      type="button"
+      onclick="speakKorean('어디에 가요?', true)"
+    >
+      🐢 Écouter lentement
+    </button>
+
+    <div class="your-turn">
+      <strong>🌸 À toi :</strong>
+      réponds que tu vas à la gare de Séoul.
+    </div>
+
+    <input
+      class="answer-input"
+      id="answer1"
+      type="text"
+      lang="ko"
+      autocomplete="off"
+      autocapitalize="off"
+      spellcheck="false"
+      placeholder="Écris en coréen"
+    >
+
+    <button
+      class="validate-button"
+      type="button"
+      onclick="checkStep(1)"
+    >
+      Valider ma réponse
+    </button>
+
+    <button
+      class="help-button"
+      type="button"
+      onclick="toggleHelp(1)"
+    >
+      💡 J'ai besoin d'aide
+    </button>
+
+    <div
+      class="help-box"
+      id="help1"
+    >
+      Tu peux dire :
+
+      <div class="help-answer">
+        서울역에 가요.
+      </div>
+    </div>
+
+    <div
+      class="feedback"
+      id="feedback1"
+    ></div>
+
+    <button
+      class="next-step"
+      id="next1"
+      type="button"
+      onclick="showStep(2)"
+    >
+      Continuer →
+    </button>
+
+  </section>
+
+
+  <!-- ÉTAPE 2 -->
+
+  <section
+    class="mission-card hidden"
+    id="step2"
+  >
+
+    <p class="step-number">
+      Étape 2 / 4
+    </p>
+
+    <h2>
+      🚇 Choisir le transport
+    </h2>
+
+    <div class="minsu-box">
+
+      <div class="minsu-name">
+        💙 Min-su
+      </div>
+
+      <div class="minsu-korean">
+        어떻게 가요?
+      </div>
+
+      <div class="minsu-french">
+        Comment tu y vas ?
+      </div>
+
+    </div>
+
+    <button
+      class="listen-button"
+      type="button"
+      onclick="speakKorean('어떻게 가요?', false)"
+    >
+      🔊 Écouter Min-su
+    </button>
+
+    <button
+      class="slow-button"
+      type="button"
+      onclick="speakKorean('어떻게 가요?', true)"
+    >
+      🐢 Écouter lentement
+    </button>
+
+    <div class="your-turn">
+      <strong>🌸 À toi :</strong>
+      réponds que tu y vas en métro.
+    </div>
+
+    <input
+      class="answer-input"
+      id="answer2"
+      type="text"
+      lang="ko"
+      autocomplete="off"
+      autocapitalize="off"
+      spellcheck="false"
+      placeholder="Écris en coréen"
+    >
+
+    <button
+      class="validate-button"
+      type="button"
+      onclick="checkStep(2)"
+    >
+      Valider ma réponse
+    </button>
+
+    <button
+      class="help-button"
+      type="button"
+      onclick="toggleHelp(2)"
+    >
+      💡 J'ai besoin d'aide
+    </button>
+
+    <div
+      class="help-box"
+      id="help2"
+    >
+      Tu peux dire :
+
+      <div class="help-answer">
+        지하철로 가요.
+      </div>
+    </div>
+
+    <div
+      class="feedback"
+      id="feedback2"
+    ></div>
+
+    <button
+      class="next-step"
+      id="next2"
+      type="button"
+      onclick="showStep(3)"
+    >
+      Continuer →
+    </button>
+
+  </section>
+
+
+  <!-- ÉTAPE 3 -->
+
+  <section
+    class="mission-card hidden"
+    id="step3"
+  >
+
+    <p class="step-number">
+      Étape 3 / 4
+    </p>
+
+    <h2>
+      🚉 Prendre le métro
+    </h2>
+
+    <div class="minsu-box">
+
+      <div class="minsu-name">
+        💙 Min-su
+      </div>
+
+      <div class="minsu-korean">
+        지하철을 타요?
+      </div>
+
+      <div class="minsu-french">
+        Tu prends le métro ?
+      </div>
+
+    </div>
+
+    <button
+      class="listen-button"
+      type="button"
+      onclick="speakKorean('지하철을 타요?', false)"
+    >
+      🔊 Écouter Min-su
+    </button>
+
+    <button
+      class="slow-button"
+      type="button"
+      onclick="speakKorean('지하철을 타요?', true)"
+    >
+      🐢 Écouter lentement
+    </button>
+
+    <div class="your-turn">
+      <strong>🌸 À toi :</strong>
+      réponds oui, tu prends le métro.
+    </div>
+
+    <input
+      class="answer-input"
+      id="answer3"
+      type="text"
+      lang="ko"
+      autocomplete="off"
+      autocapitalize="off"
+      spellcheck="false"
+      placeholder="Écris en coréen"
+    >
+
+    <button
+      class="validate-button"
+      type="button"
+      onclick="checkStep(3)"
+    >
+      Valider ma réponse
+    </button>
+
+    <button
+      class="help-button"
+      type="button"
+      onclick="toggleHelp(3)"
+    >
+      💡 J'ai besoin d'aide
+    </button>
+
+    <div
+      class="help-box"
+      id="help3"
+    >
+      Tu peux dire :
+
+      <div class="help-answer">
+        네, 지하철을 타요.
+      </div>
+    </div>
+
+    <div
+      class="feedback"
+      id="feedback3"
+    ></div>
+
+    <button
+      class="next-step"
+      id="next3"
+      type="button"
+      onclick="showStep(4)"
+    >
+      Dernière étape →
+    </button>
+
+  </section>
+
+
+  <!-- ÉTAPE 4 -->
+
+  <section
+    class="mission-card hidden"
+    id="step4"
+  >
+
+    <p class="step-number">
+      Étape 4 / 4
+    </p>
+
+    <h2>
+      📍 Descendre au bon endroit
+    </h2>
+
+    <div class="scene-box">
+      Tu es maintenant dans le métro.
+      Min-su vérifie où tu vas descendre.
+    </div>
+
+    <div class="minsu-box">
+
+      <div class="minsu-name">
+        💙 Min-su
+      </div>
+
+      <div class="minsu-korean">
+        어디에서 내려요?
+      </div>
+
+      <div class="minsu-french">
+        Où est-ce que tu descends ?
+      </div>
+
+    </div>
+
+    <button
+      class="listen-button"
+      type="button"
+      onclick="speakKorean('어디에서 내려요?', false)"
+    >
+      🔊 Écouter Min-su
+    </button>
+
+    <button
+      class="slow-button"
+      type="button"
+      onclick="speakKorean('어디에서 내려요?', true)"
+    >
+      🐢 Écouter lentement
+    </button>
+
+    <div class="your-turn">
+      <strong>🌸 À toi :</strong>
+      réponds que tu descends à la gare de Séoul.
+    </div>
+
+    <input
+      class="answer-input"
+      id="answer4"
+      type="text"
+      lang="ko"
+      autocomplete="off"
+      autocapitalize="off"
+      spellcheck="false"
+      placeholder="Écris en coréen"
+    >
+
+    <button
+      class="validate-button"
+      type="button"
+      onclick="checkStep(4)"
+    >
+      Valider ma réponse
+    </button>
+
+    <button
+      class="help-button"
+      type="button"
+      onclick="toggleHelp(4)"
+    >
+      💡 J'ai besoin d'aide
+    </button>
+
+    <div
+      class="help-box"
+      id="help4"
+    >
+      Tu peux dire :
+
+      <div class="help-answer">
+        서울역에서 내려요.
+      </div>
+    </div>
+
+    <div
+      class="feedback"
+      id="feedback4"
+    ></div>
+
+    <button
+      class="next-step"
+      id="next4"
+      type="button"
+      onclick="finishMission()"
+    >
+      Terminer la mission 🎯
+    </button>
+
+  </section>
+
+
+  <!-- RÉSULTAT -->
+
+  <section
+    class="result-card"
+    id="resultCard"
+  >
+
+    <div class="result-icon">
+      🎯🚇
+    </div>
+
+    <h2>
+      미션 성공!
+    </h2>
+
+    <p>
+      Mission réussie !
+    </p>
+
+    <p class="result-score">
+      Chapitre 9 terminé ✅
+    </p>
+
+
+    <div class="result-summary">
+
+      <strong>
+        📊 Ta mission
+      </strong>
+
+      <p id="sessionSummary"></p>
+
+    </div>
+
+
+    <div class="mission-success">
+
+      <strong>
+        🌿 Ce que tu sais maintenant faire
+      </strong>
+
+      <br><br>
+
+      Tu peux dire où tu vas,
+      demander comment aller quelque part,
+      indiquer un moyen de transport,
+      dire que tu prends le métro
+      et préciser où tu descends.
+
+    </div>
+
+
+    <button
+      class="chapter-button"
+      type="button"
+      onclick="window.location.href='chapitre-9.html'"
+    >
+      🚇 Retour au chapitre 9
+    </button>
+
+
+    <button
+      class="route-button"
+      type="button"
+      onclick="window.location.href='itineraire.html'"
+    >
+      🌿 Retour à l'itinéraire
+    </button>
+
+  </section>
+
+</main>
+
+
+<script>
+  const missionAnswers = {
+
+    1: [
+      "서울역에 가요",
+      "저는 서울역에 가요"
+    ],
+
+    2: [
+      "지하철로 가요",
+      "저는 지하철로 가요"
+    ],
+
+    3: [
+      "네 지하철을 타요",
+      "네, 지하철을 타요",
+      "지하철을 타요",
+      "저는 지하철을 타요",
+      "네 저는 지하철을 타요",
+      "네, 저는 지하철을 타요"
+    ],
+
+    4: [
+      "서울역에서 내려요",
+      "저는 서울역에서 내려요"
+    ]
+
+  };
+
+
+  const completedSteps = {
+    1: false,
+    2: false,
+    3: false,
+    4: false
+  };
+
+
+  let incorrectAttempts = 0;
+  let helpUses = 0;
+
+
+  function normalizeKorean(text) {
+
+    return text
+      .trim()
+      .replace(/[.!?。！？,，]/g, "")
+      .replace(/\s+/g, "");
+
+  }
+
+
+  function getKoreanVoice() {
+
+    const voices =
+      window.speechSynthesis.getVoices();
+
+
+    return voices.find(
+      voice =>
+        voice.lang &&
+        voice.lang
+          .toLowerCase()
+          .startsWith("ko")
+    );
+
+  }
+
+
+  function speakKorean(
+    text,
+    slow = false
+  ) {
+
+    if (
+      !("speechSynthesis" in window)
+    ) {
+      return;
+    }
+
+
+    window.speechSynthesis.cancel();
+
+
+    const speech =
+      new SpeechSynthesisUtterance(
+        text
+      );
+
+
+    speech.lang =
+      "ko-KR";
+
+
+    speech.rate =
+      slow
+        ? 0.25
+        : 0.82;
+
+
+    speech.pitch =
+      1;
+
+
+    const voice =
+      getKoreanVoice();
+
+
+    if (voice) {
+
+      speech.voice =
+        voice;
+
+    }
+
+
+    window.speechSynthesis.speak(
+      speech
+    );
+
+  }
+
+
+  function toggleHelp(number) {
+
+    const box =
+      document.getElementById(
+        "help" + number
+      );
+
+
+    if (
+      box.style.display ===
+      "block"
+    ) {
+
+      box.style.display =
+        "none";
+
+      return;
+
+    }
+
+
+    helpUses++;
+
+
+    box.style.display =
+      "block";
+
+  }
+
+
+  function checkStep(number) {
+
+    if (
+      completedSteps[number]
+    ) {
+      return;
+    }
+
+
+    const input =
+      document.getElementById(
+        "answer" + number
+      );
+
+
+    const feedback =
+      document.getElementById(
+        "feedback" + number
+      );
+
+
+    const value =
+      normalizeKorean(
+        input.value
+      );
+
+
+    const accepted =
+      missionAnswers[number].some(
+        answer =>
+          normalizeKorean(
+            answer
+          ) === value
+      );
+
+
+    if (accepted) {
+
+      completedSteps[number] =
+        true;
+
+
+      feedback.className =
+        "feedback correct";
+
+
+      if (number === 1) {
+
+        feedback.innerHTML =
+          "✅ <strong>Très bien !</strong>" +
+          "<br><br>" +
+          "Tu as bien indiqué ta destination avec <strong>서울역에 가요.</strong>";
+
+      }
+
+
+      if (number === 2) {
+
+        feedback.innerHTML =
+          "✅ <strong>Exact !</strong>" +
+          "<br><br>" +
+          "Tu as correctement indiqué le moyen de transport avec <strong>지하철로 가요.</strong>";
+
+      }
+
+
+      if (number === 3) {
+
+        feedback.innerHTML =
+          "✅ <strong>Très bien !</strong>" +
+          "<br><br>" +
+          "<strong>지하철을 타요.</strong> signifie bien que tu prends le métro.";
+
+      }
+
+
+      if (number === 4) {
+
+        feedback.innerHTML =
+          "✅ <strong>Parfait !</strong>" +
+          "<br><br>" +
+          "Tu as correctement indiqué où tu descends avec <strong>서울역에서 내려요.</strong>";
+
+      }
+
+
+      input.disabled =
+        true;
+
+
+      document.getElementById(
+        "next" + number
+      ).style.display =
+        "block";
+
+
+      return;
+
+    }
+
+
+    incorrectAttempts++;
+
+
+    feedback.className =
+      "feedback wrong";
+
+
+    if (number === 1) {
+
+      feedback.innerHTML =
+        "❌ <strong>Min-su te demande où tu vas.</strong>" +
+        "<br><br>" +
+        "💡 Essaie <strong>서울역에 가요.</strong>";
+
+    }
+
+
+    if (number === 2) {
+
+      feedback.innerHTML =
+        "❌ <strong>Min-su te demande comment tu y vas.</strong>" +
+        "<br><br>" +
+        "💡 Essaie <strong>지하철로 가요.</strong>";
+
+    }
+
+
+    if (number === 3) {
+
+      feedback.innerHTML =
+        "❌ <strong>Min-su te demande si tu prends le métro.</strong>" +
+        "<br><br>" +
+        "💡 Essaie <strong>네, 지하철을 타요.</strong>";
+
+    }
+
+
+    if (number === 4) {
+
+      feedback.innerHTML =
+        "❌ <strong>Min-su te demande où tu descends.</strong>" +
+        "<br><br>" +
+        "💡 Essaie <strong>서울역에서 내려요.</strong>";
+
+    }
+
+  }
+
+
+  function showStep(number) {
+
+    if (
+      "speechSynthesis" in window
+    ) {
+      window.speechSynthesis.cancel();
+    }
+
+
+    document
+      .querySelectorAll(
+        ".mission-card"
+      )
+      .forEach(
+        card => {
+
+          card.classList.add(
+            "hidden"
+          );
+
+        }
+      );
+
+
+    document.getElementById(
+      "step" + number
+    ).classList.remove(
+      "hidden"
+    );
+
+
+    document.getElementById(
+      "progressFill"
+    ).style.width =
+      (number * 25) +
+      "%";
+
+
+    document.getElementById(
+      "progressLabel"
+    ).textContent =
+      number +
+      " / 4";
+
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+
+  }
+
+
+  function finishMission() {
+
+    if (
+      "speechSynthesis" in window
+    ) {
+      window.speechSynthesis.cancel();
+    }
+
+
+    document
+      .querySelectorAll(
+        ".mission-card"
+      )
+      .forEach(
+        card => {
+
+          card.classList.add(
+            "hidden"
+          );
+
+        }
+      );
+
+
+    document.getElementById(
+      "progressFill"
+    ).style.width =
+      "100%";
+
+
+    document.getElementById(
+      "progressLabel"
+    ).textContent =
+      "4 / 4";
+
+
+    document.getElementById(
+      "resultCard"
+    ).style.display =
+      "block";
+
+
+    let summary = "";
+
+
+    if (
+      incorrectAttempts === 0 &&
+      helpUses === 0
+    ) {
+
+      summary =
+        "🌟 Mission réussie du premier coup et sans aide.";
+
+    }
+
+    else if (
+      helpUses === 0
+    ) {
+
+      summary =
+        "🌿 Mission réussie sans aide, avec " +
+        incorrectAttempts +
+        " tentative(s) incorrecte(s).";
+
+    }
+
+    else {
+
+      summary =
+        "Mission réussie avec " +
+        incorrectAttempts +
+        " tentative(s) incorrecte(s) et " +
+        helpUses +
+        " aide(s) utilisée(s).";
+
+    }
+
+
+    document.getElementById(
+      "sessionSummary"
+    ).textContent =
+      summary;
+
+
+    localStorage.setItem(
+      "hanaKorean_chapter9_mission",
+      "completed"
+    );
+
+
+    localStorage.setItem(
+      "hanaKorean_chapter9_missionMistakes",
+      incorrectAttempts
+    );
+
+
+    localStorage.setItem(
+      "hanaKorean_chapter9_missionHints",
+      helpUses
+    );
+
+
+    localStorage.setItem(
+      "hanaKorean_chapter9_completed",
+      "completed"
+    );
+
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+
+  }
+
+
+  document
+    .querySelectorAll(
+      ".answer-input"
+    )
+    .forEach(
+      (input, index) => {
+
+        input.addEventListener(
+          "keydown",
+          function(event) {
+
+            if (
+              event.key ===
+              "Enter"
+            ) {
+
+              event.preventDefault();
+
+              checkStep(
+                index + 1
+              );
+
+            }
+
+          }
+        );
+
+      }
+    );
+
+
+  if (
+    "speechSynthesis" in window
+  ) {
+
+    window.speechSynthesis.onvoiceschanged =
+      function() {
+
+        window.speechSynthesis.getVoices();
+
+      };
+
+  }
+</script>
+
+</body>
+
+</html>

@@ -735,7 +735,10 @@
            CHAPITRE 7
            ================================================= -->
 
-      <div class="chapter locked">
+      <div
+        class="chapter locked"
+        id="chapter7Card"
+      >
 
         <div class="chapter-number">
           7
@@ -749,26 +752,34 @@
           </div>
 
 
-          <div class="chapter-status">
-            Verrouillé
+          <div
+            class="chapter-status"
+            id="chapter7Status"
+          >
+            Termine le chapitre 6
           </div>
 
         </div>
 
 
-        <div class="lock-icon">
+        <div
+          class="lock-icon"
+          id="chapter7Icon"
+        >
           🔒
         </div>
 
       </div>
 
 
-
       <!-- =================================================
            CHAPITRE 8
            ================================================= -->
 
-      <div class="chapter locked">
+      <div
+        class="chapter locked"
+        id="chapter8Card"
+      >
 
         <div class="chapter-number">
           8
@@ -782,26 +793,34 @@
           </div>
 
 
-          <div class="chapter-status">
-            Verrouillé
+          <div
+            class="chapter-status"
+            id="chapter8Status"
+          >
+            Termine le chapitre 7
           </div>
 
         </div>
 
 
-        <div class="lock-icon">
+        <div
+          class="lock-icon"
+          id="chapter8Icon"
+        >
           🔒
         </div>
 
       </div>
 
 
-
       <!-- =================================================
            CHAPITRE 9
            ================================================= -->
 
-      <div class="chapter locked">
+      <div
+        class="chapter locked"
+        id="chapter9Card"
+      >
 
         <div class="chapter-number">
           9
@@ -815,26 +834,34 @@
           </div>
 
 
-          <div class="chapter-status">
-            Verrouillé
+          <div
+            class="chapter-status"
+            id="chapter9Status"
+          >
+            Termine le chapitre 8
           </div>
 
         </div>
 
 
-        <div class="lock-icon">
+        <div
+          class="lock-icon"
+          id="chapter9Icon"
+        >
           🔒
         </div>
 
       </div>
 
 
-
       <!-- =================================================
            CHAPITRE 10
            ================================================= -->
 
-      <div class="chapter locked">
+      <div
+        class="chapter locked"
+        id="chapter10Card"
+      >
 
         <div class="chapter-number">
           10
@@ -848,19 +875,24 @@
           </div>
 
 
-          <div class="chapter-status">
-            Verrouillé
+          <div
+            class="chapter-status"
+            id="chapter10Status"
+          >
+            Termine le chapitre 9
           </div>
 
         </div>
 
 
-        <div class="lock-icon">
+        <div
+          class="lock-icon"
+          id="chapter10Icon"
+        >
           🔒
         </div>
 
       </div>
-
 
     </div>
 
@@ -872,7 +904,7 @@
        MODULE 2
        ===================================================== -->
 
-  <section class="module locked-module">
+  <section class="module locked-module" id="module2Card">
 
     <div class="module-header">
 
@@ -888,7 +920,7 @@
     </div>
 
 
-    <div class="locked-module-message">
+    <div class="locked-module-message" id="module2Message">
 
       🔒 Termine le module 1 pour poursuivre ton voyage.
 
@@ -904,87 +936,102 @@
 <script>
 
   /* =====================================================
-     ÉTAPES DU CHAPITRE 1
+     ÉTAPES DES CHAPITRES
      ===================================================== */
 
-  const chapter1Steps = [
+  const chapterSteps = {
 
-    "hanaKorean_chapter1_understanding",
-    "hanaKorean_chapter1_listening",
-    "hanaKorean_chapter1_speaking",
-    "hanaKorean_chapter1_writing",
-    "hanaKorean_chapter1_review",
-    "hanaKorean_chapter1_mission"
+    1: [
+      "hanaKorean_chapter1_understanding",
+      "hanaKorean_chapter1_listening",
+      "hanaKorean_chapter1_speaking",
+      "hanaKorean_chapter1_writing",
+      "hanaKorean_chapter1_review",
+      "hanaKorean_chapter1_mission"
+    ],
 
-  ];
+    2: [
+      "hanaKorean_chapter2_understanding",
+      "hanaKorean_chapter2_listening",
+      "hanaKorean_chapter2_speaking",
+      "hanaKorean_chapter2_writing",
+      "hanaKorean_chapter2_review",
+      "hanaKorean_chapter2_mission"
+    ],
 
+    3: [
+      "hanaKorean_chapter3_understanding",
+      "hanaKorean_chapter3_listening",
+      "hanaKorean_chapter3_speaking",
+      "hanaKorean_chapter3_writing",
+      "hanaKorean_chapter3_review",
+      "hanaKorean_chapter3_mission"
+    ],
 
+    4: [
+      "hanaKorean_chapter4_understanding",
+      "hanaKorean_chapter4_listening",
+      "hanaKorean_chapter4_speaking",
+      "hanaKorean_chapter4_writing",
+      "hanaKorean_chapter4_review",
+      "hanaKorean_chapter4_mission"
+    ],
 
-  /* =====================================================
-     ÉTAPES DU CHAPITRE 2
-     ===================================================== */
+    5: [
+      "hanaKorean_chapter5_understanding",
+      "hanaKorean_chapter5_listening",
+      "hanaKorean_chapter5_speaking",
+      "hanaKorean_chapter5_writing",
+      "hanaKorean_chapter5_review",
+      "hanaKorean_chapter5_mission"
+    ],
 
-  const chapter2Steps = [
+    6: [
+      "hanaKorean_chapter6_understanding",
+      "hanaKorean_chapter6_listening",
+      "hanaKorean_chapter6_speaking",
+      "hanaKorean_chapter6_writing",
+      "hanaKorean_chapter6_review",
+      "hanaKorean_chapter6_mission"
+    ],
 
-    "hanaKorean_chapter2_understanding",
-    "hanaKorean_chapter2_listening",
-    "hanaKorean_chapter2_speaking",
-    "hanaKorean_chapter2_writing",
-    "hanaKorean_chapter2_review",
-    "hanaKorean_chapter2_mission"
+    7: [
+      "hanaKorean_chapter7_understanding",
+      "hanaKorean_chapter7_listening",
+      "hanaKorean_chapter7_speaking",
+      "hanaKorean_chapter7_writing",
+      "hanaKorean_chapter7_review",
+      "hanaKorean_chapter7_mission"
+    ],
 
-  ];
+    8: [
+      "hanaKorean_chapter8_understanding",
+      "hanaKorean_chapter8_listening",
+      "hanaKorean_chapter8_speaking",
+      "hanaKorean_chapter8_writing",
+      "hanaKorean_chapter8_review",
+      "hanaKorean_chapter8_mission"
+    ],
 
+    9: [
+      "hanaKorean_chapter9_understanding",
+      "hanaKorean_chapter9_listening",
+      "hanaKorean_chapter9_speaking",
+      "hanaKorean_chapter9_writing",
+      "hanaKorean_chapter9_review",
+      "hanaKorean_chapter9_mission"
+    ],
 
+    10: [
+      "hanaKorean_chapter10_understanding",
+      "hanaKorean_chapter10_listening",
+      "hanaKorean_chapter10_speaking",
+      "hanaKorean_chapter10_writing",
+      "hanaKorean_chapter10_review",
+      "hanaKorean_chapter10_mission"
+    ]
 
-  /* =====================================================
-     ÉTAPES DU CHAPITRE 3
-     ===================================================== */
-
-  const chapter3Steps = [
-
-    "hanaKorean_chapter3_understanding",
-    "hanaKorean_chapter3_listening",
-    "hanaKorean_chapter3_speaking",
-    "hanaKorean_chapter3_writing",
-    "hanaKorean_chapter3_review",
-    "hanaKorean_chapter3_mission"
-
-  ];
-
-
-
-  /* =====================================================
-     ÉTAPES DU CHAPITRE 4
-     ===================================================== */
-
-  const chapter4Steps = [
-
-    "hanaKorean_chapter4_understanding",
-    "hanaKorean_chapter4_listening",
-    "hanaKorean_chapter4_speaking",
-    "hanaKorean_chapter4_writing",
-    "hanaKorean_chapter4_review",
-    "hanaKorean_chapter4_mission"
-
-  ];
-
-
-
-  /* =====================================================
-     ÉTAPES DU CHAPITRE 5
-     ===================================================== */
-
-  const chapter5Steps = [
-
-    "hanaKorean_chapter5_understanding",
-    "hanaKorean_chapter5_listening",
-    "hanaKorean_chapter5_speaking",
-    "hanaKorean_chapter5_writing",
-    "hanaKorean_chapter5_review",
-    "hanaKorean_chapter5_mission"
-
-  ];
+  };
 
 
 
@@ -1047,27 +1094,30 @@
      ===================================================== */
 
   function unlockChapter(
-    cardId,
-    statusId,
-    iconId,
-    url
+    chapterNumber
   ) {
 
     const card =
       document.getElementById(
-        cardId
+        "chapter" +
+        chapterNumber +
+        "Card"
       );
 
 
     const status =
       document.getElementById(
-        statusId
+        "chapter" +
+        chapterNumber +
+        "Status"
       );
 
 
     const icon =
       document.getElementById(
-        iconId
+        "chapter" +
+        chapterNumber +
+        "Icon"
       );
 
 
@@ -1115,6 +1165,12 @@
     );
 
 
+    const url =
+      "chapitre-" +
+      chapterNumber +
+      ".html";
+
+
     card.onclick =
       function() {
 
@@ -1151,19 +1207,22 @@
      ===================================================== */
 
   function markChapterCompleted(
-    cardId,
-    statusId
+    chapterNumber
   ) {
 
     const card =
       document.getElementById(
-        cardId
+        "chapter" +
+        chapterNumber +
+        "Card"
       );
 
 
     const status =
       document.getElementById(
-        statusId
+        "chapter" +
+        chapterNumber +
+        "Status"
       );
 
 
@@ -1188,199 +1247,142 @@
 
 
   /* =====================================================
+     MODULE 1 TERMINÉ
+     ===================================================== */
+
+  function completeModuleOne() {
+
+    const module2Card =
+      document.getElementById(
+        "module2Card"
+      );
+
+
+    const module2Message =
+      document.getElementById(
+        "module2Message"
+      );
+
+
+    if (module2Card) {
+
+      module2Card.classList.remove(
+        "locked-module"
+      );
+
+    }
+
+
+    if (module2Message) {
+
+      module2Message.innerHTML =
+        "🌸 <strong>Module 1 terminé !</strong>" +
+        "<br><br>" +
+        "Le Module 2 · La vie quotidienne sera la prochaine étape du voyage.";
+
+    }
+
+  }
+
+
+
+  /* =====================================================
      ACTUALISER L'ITINÉRAIRE
      ===================================================== */
 
   function updateRoute() {
 
-    const chapter1Complete =
-      checkChapterCompletion(
-        1,
-        chapter1Steps
-      );
+    const completed = {};
 
 
-    const chapter2Complete =
-      checkChapterCompletion(
-        2,
-        chapter2Steps
-      );
+    for (
+      let chapterNumber = 1;
+      chapterNumber <= 10;
+      chapterNumber++
+    ) {
 
+      completed[chapterNumber] =
+        checkChapterCompletion(
+          chapterNumber,
+          chapterSteps[
+            chapterNumber
+          ]
+        );
 
-    const chapter3Complete =
-      checkChapterCompletion(
-        3,
-        chapter3Steps
-      );
-
-
-    const chapter4Complete =
-      checkChapterCompletion(
-        4,
-        chapter4Steps
-      );
-
-
-    const chapter5Complete =
-      checkChapterCompletion(
-        5,
-        chapter5Steps
-      );
+    }
 
 
     let completedChapters =
       0;
 
 
+    /*
+      Le chapitre 1 est toujours disponible.
+      Chaque chapitre suivant se débloque
+      uniquement lorsque le précédent est terminé.
+    */
 
-    /* ===================================================
-       CHAPITRE 1
-       =================================================== */
-
-    if (
-      chapter1Complete
+    for (
+      let chapterNumber = 1;
+      chapterNumber <= 10;
+      chapterNumber++
     ) {
 
-      completedChapters++;
+      const previousChaptersComplete =
+        chapterNumber === 1 ||
+        Array
+          .from(
+            {
+              length:
+                chapterNumber - 1
+            },
+            (_, index) =>
+              index + 1
+          )
+          .every(
+            previousChapter =>
+              completed[
+                previousChapter
+              ]
+          );
 
 
-      markChapterCompleted(
-        "chapter1Card",
-        "chapter1Status"
-      );
+      if (
+        previousChaptersComplete &&
+        completed[
+          chapterNumber
+        ]
+      ) {
+
+        completedChapters++;
 
 
-      unlockChapter(
-        "chapter2Card",
-        "chapter2Status",
-        "chapter2Icon",
-        "chapitre-2.html"
-      );
+        markChapterCompleted(
+          chapterNumber
+        );
 
-    }
+      }
 
 
-
-    /* ===================================================
-       CHAPITRE 2
-       =================================================== */
-
-    if (
-      chapter1Complete &&
-      chapter2Complete
-    ) {
-
-      completedChapters++;
+      const nextChapter =
+        chapterNumber + 1;
 
 
-      markChapterCompleted(
-        "chapter2Card",
-        "chapter2Status"
-      );
+      if (
+        nextChapter <= 10 &&
+        previousChaptersComplete &&
+        completed[
+          chapterNumber
+        ]
+      ) {
 
+        unlockChapter(
+          nextChapter
+        );
 
-      unlockChapter(
-        "chapter3Card",
-        "chapter3Status",
-        "chapter3Icon",
-        "chapitre-3.html"
-      );
-
-    }
-
-
-
-    /* ===================================================
-       CHAPITRE 3
-       =================================================== */
-
-    if (
-      chapter1Complete &&
-      chapter2Complete &&
-      chapter3Complete
-    ) {
-
-      completedChapters++;
-
-
-      markChapterCompleted(
-        "chapter3Card",
-        "chapter3Status"
-      );
-
-
-      unlockChapter(
-        "chapter4Card",
-        "chapter4Status",
-        "chapter4Icon",
-        "chapitre-4.html"
-      );
+      }
 
     }
-
-
-
-    /* ===================================================
-       CHAPITRE 4
-       =================================================== */
-
-    if (
-      chapter1Complete &&
-      chapter2Complete &&
-      chapter3Complete &&
-      chapter4Complete
-    ) {
-
-      completedChapters++;
-
-
-      markChapterCompleted(
-        "chapter4Card",
-        "chapter4Status"
-      );
-
-
-      unlockChapter(
-        "chapter5Card",
-        "chapter5Status",
-        "chapter5Icon",
-        "chapitre-5.html"
-      );
-
-    }
-
-
-
-    /* ===================================================
-       CHAPITRE 5
-       =================================================== */
-
-    if (
-      chapter1Complete &&
-      chapter2Complete &&
-      chapter3Complete &&
-      chapter4Complete &&
-      chapter5Complete
-    ) {
-
-      completedChapters++;
-
-
-      markChapterCompleted(
-        "chapter5Card",
-        "chapter5Status"
-      );
-
-
-      unlockChapter(
-        "chapter6Card",
-        "chapter6Status",
-        "chapter6Icon",
-        "chapitre-6.html"
-      );
-
-    }
-
 
 
     /* ===================================================
@@ -1408,8 +1410,19 @@
     document.getElementById(
       "percentageText"
     ).textContent =
-      percentage +
-      " % du module terminé";
+      percentage === 100
+        ? "100 % du module terminé 🎉"
+        : percentage +
+          " % du module terminé";
+
+
+    if (
+      completedChapters === 10
+    ) {
+
+      completeModuleOne();
+
+    }
 
   }
 

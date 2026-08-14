@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#F7F4ED">
+  <title>Chapitre 6 — Ma famille</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .chapter-header {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .chapter-badge {
+      display: inline-block;
+      padding: 7px 14px;
+      margin-bottom: 10px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .chapter-subtitle {
+      color: var(--text-light);
+      line-height: 1.7;
+    }
+
+    .objective-card {
+      padding: 18px;
+      margin-bottom: 20px;
+      background: var(--soft-green);
+      border-radius: var(--radius-medium);
+      color: var(--navy);
+      line-height: 1.7;
+    }
+
+    .objective-card strong {
+      color: var(--jade-dark);
+    }
+
+    .lesson-card {
+      padding: 20px;
+      margin-bottom: 18px;
+      background: var(--white);
+      border-radius: var(--radius-large);
+      box-shadow: var(--shadow);
+    }
+
+    .lesson-card h2 {
+      margin-top: 0;
+      color: var(--navy);
+    }
+
+    .lesson-card p {
+      line-height: 1.7;
+    }
+
+    .vocab-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .vocab-item {
+      padding: 14px;
+      background: #FBFAF6;
+      border-radius: var(--radius-medium);
+    }
+
+    .vocab-korean {
+      color: var(--navy);
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .vocab-french {
+      margin-top: 4px;
+      color: var(--text-light);
+    }
+
+    .grammar-box {
+      padding: 16px;
+      margin-top: 14px;
+      background: var(--soft-blue);
+      border-radius: var(--radius-medium);
+      line-height: 1.7;
+    }
+
+    .grammar-example {
+      padding: 11px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .grammar-example:last-child {
+      border-bottom: none;
+    }
+
+    .dialogue {
+      margin-top: 15px;
+    }
+
+    .dialogue-line {
+      padding: 15px;
+      margin-bottom: 10px;
+      border-radius: var(--radius-medium);
+      line-height: 1.7;
+    }
+
+    .dialogue-line.minsu {
+      background: var(--soft-blue);
+    }
+
+    .dialogue-line.hana {
+      background: var(--soft-green);
+    }
+
+    .speaker {
+      font-weight: bold;
+      margin-bottom: 4px;
+    }
+
+    .dialogue-korean {
+      color: var(--navy);
+      font-size: 19px;
+      font-weight: bold;
+    }
+
+    .dialogue-french {
+      margin-top: 5px;
+      color: var(--text-light);
+    }
+
+    .culture-note {
+      padding: 16px;
+      margin-top: 16px;
+      margin-bottom: 18px;
+      background: var(--soft-beige);
+      border-radius: var(--radius-medium);
+      color: var(--navy);
+      line-height: 1.7;
+    }
+
+    .recap-line {
+      padding: 11px 0;
+      border-bottom: 1px solid var(--border);
+      line-height: 1.6;
+    }
+
+    .recap-line:last-child {
+      border-bottom: none;
+    }
+
+    .complete-button {
+      width: 100%;
+      margin-top: 18px;
+      background: var(--jade);
+      color: white;
+      font-weight: bold;
+    }
+
+    .complete-button.done {
+      background: var(--success);
+    }
+
+    .next-button {
+      display: none;
+      width: 100%;
+      margin-top: 10px;
+      background: var(--navy);
+      color: white;
+      font-weight: bold;
+    }
+
+    .back-home-button {
+      width: 100%;
+      margin-top: 10px;
+      background: var(--soft-beige);
+      color: var(--navy);
+    }
+
+    @media (min-width: 620px) {
+      .vocab-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+<main class="app">
+
+  <a class="back-link" href="itineraire.html">
+    ← Itinéraire
+  </a>
+
+  <header class="chapter-header">
+    <span class="chapter-badge">
+      Chapitre 6 · 👨‍👩‍👧 Ma famille
+    </span>
+
+    <p class="korean">
+      가족을 소개해 봐요 🌿
+    </p>
+
+    <h1>Ma famille</h1>
+
+    <p class="chapter-subtitle">
+      Apprends à présenter les membres de ta famille,
+      à dire « mon / ma » avec <strong>제</strong>
+      et à réutiliser naturellement les questions
+      du chapitre précédent.
+    </p>
+  </header>
+
+  <section class="objective-card">
+    <strong>🎯 Objectif du chapitre</strong>
+    <br><br>
+    À la fin de ce chapitre, tu pourras présenter quelques membres de ta famille,
+    comprendre une petite conversation autour d'une photo
+    et demander qui est une personne.
+  </section>
+
+  <section class="lesson-card">
+    <h2>🌱 1. Le vocabulaire de la famille</h2>
+
+    <p>
+      Commence par les mots les plus utiles.
+      Certains sont très quotidiens,
+      d'autres sont plus polis ou plus formels.
+    </p>
+
+    <div class="vocab-grid">
+      <div class="vocab-item">
+        <div class="vocab-korean">가족</div>
+        <div class="vocab-french">famille</div>
+      </div>
+
+      <div class="vocab-item">
+        <div class="vocab-korean">엄마</div>
+        <div class="vocab-french">maman</div>
+      </div>
+
+      <div class="vocab-item">
+        <div class="vocab-korean">아빠</div>
+        <div class="vocab-french">papa</div>
+      </div>
+
+      <div class="vocab-item">
+        <div class="vocab-korean">어머니</div>
+        <div class="vocab-french">mère · forme plus polie</div>
+      </div>
+
+      <div class="vocab-item">
+        <div class="vocab-korean">아버지</div>
+        <div class="vocab-french">père · forme plus polie</div>
+      </div>
+
+      <div class="vocab-item">
+        <div class="vocab-korean">언니</div>
+        <div class="vocab-french">grande sœur · quand une femme parle</div>
+      </div>
+
+      <div class="vocab-item">
+        <div class="vocab-korean">오빠</div>
+        <div class="vocab-french">grand frère · quand une femme parle</div>
+      </div>
+
+      <div class="vocab-item">
+        <div class="vocab-korean">동생</div>
+        <div class="vocab-french">petit frère / petite sœur</div>
+      </div>
+
+      <div class="vocab-item">
+        <div class="vocab-korean">부모님</div>
+        <div class="vocab-french">parents</div>
+      </div>
+
+      <div class="vocab-item">
+        <div class="vocab-korean">친구</div>
+        <div class="vocab-french">ami(e)</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="lesson-card">
+    <h2>🌿 2. Dire « mon / ma / mes » avec 제</h2>
+
+    <p>
+      En coréen, <strong>저의</strong> signifie « mon / ma / mes »
+      dans un registre poli.
+      Dans la langue courante, on contracte très souvent
+      <strong>저의</strong> en <strong>제</strong>.
+    </p>
+
+    <div class="grammar-box">
+      <div class="grammar-example">
+        <strong>제 엄마</strong><br>
+        ma mère / ma maman
+      </div>
+
+      <div class="grammar-example">
+        <strong>제 아빠</strong><br>
+        mon père / mon papa
+      </div>
+
+      <div class="grammar-example">
+        <strong>제 가족</strong><br>
+        ma famille
+      </div>
+
+      <div class="grammar-example">
+        <strong>제 친구</strong><br>
+        mon ami(e)
+      </div>
+    </div>
+  </section>
+
+  <section class="lesson-card">
+    <h2>💬 3. Présenter quelqu'un</h2>
+
+    <p>
+      Tu connais déjà <strong>이에요 / 예요</strong>.
+      On peut donc immédiatement les réutiliser
+      pour parler de sa famille.
+    </p>
+
+    <div class="grammar-box">
+      <div class="grammar-example">
+        <strong>제 엄마예요.</strong><br>
+        C'est ma mère.
+      </div>
+
+      <div class="grammar-example">
+        <strong>제 아빠예요.</strong><br>
+        C'est mon père.
+      </div>
+
+      <div class="grammar-example">
+        <strong>제 가족이에요.</strong><br>
+        C'est ma famille.
+      </div>
+
+      <div class="grammar-example">
+        <strong>제 친구예요.</strong><br>
+        C'est mon ami(e).
+      </div>
+    </div>
+  </section>
+
+  <section class="lesson-card">
+    <h2>📖 4. Dialogue — Une photo de famille</h2>
+
+    <p>
+      Min-su regarde une photo avec Hana.
+      Observe comment les questions du chapitre 5
+      sont réutilisées.
+    </p>
+
+    <div class="dialogue">
+      <div class="dialogue-line minsu">
+        <div class="speaker">💙 Min-su</div>
+        <div class="dialogue-korean">이 사진은 뭐예요?</div>
+        <div class="dialogue-french">Cette photo, qu'est-ce que c'est ?</div>
+      </div>
+
+      <div class="dialogue-line hana">
+        <div class="speaker">🌸 Hana</div>
+        <div class="dialogue-korean">제 가족 사진이에요.</div>
+        <div class="dialogue-french">C'est une photo de ma famille.</div>
+      </div>
+
+      <div class="dialogue-line minsu">
+        <div class="speaker">💙 Min-su</div>
+        <div class="dialogue-korean">이 사람은 누구예요?</div>
+        <div class="dialogue-french">Cette personne, qui est-ce ?</div>
+      </div>
+
+      <div class="dialogue-line hana">
+        <div class="speaker">🌸 Hana</div>
+        <div class="dialogue-korean">제 엄마예요.</div>
+        <div class="dialogue-french">C'est ma mère.</div>
+      </div>
+
+      <div class="dialogue-line minsu">
+        <div class="speaker">💙 Min-su</div>
+        <div class="dialogue-korean">그리고 이 사람은요?</div>
+        <div class="dialogue-french">Et cette personne ?</div>
+      </div>
+
+      <div class="dialogue-line hana">
+        <div class="speaker">🌸 Hana</div>
+        <div class="dialogue-korean">제 아빠예요.</div>
+        <div class="dialogue-french">C'est mon père.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="lesson-card">
+    <h2>🧠 5. À retenir</h2>
+
+    <div class="recap-line">
+      🌿 <strong>제</strong> → mon / ma / mes
+    </div>
+
+    <div class="recap-line">
+      👩 <strong>제 엄마예요.</strong> → C'est ma mère.
+    </div>
+
+    <div class="recap-line">
+      👨 <strong>제 아빠예요.</strong> → C'est mon père.
+    </div>
+
+    <div class="recap-line">
+      👨‍👩‍👧 <strong>제 가족이에요.</strong> → C'est ma famille.
+    </div>
+
+    <div class="recap-line">
+      👤 <strong>누구예요?</strong> → Qui est-ce ?
+    </div>
+
+    <div class="recap-line">
+      🧐 <strong>뭐예요?</strong> → Qu'est-ce que c'est ?
+    </div>
+  </section>
+
+  <section class="culture-note">
+    <strong>🇰🇷 Petite note culturelle</strong>
+    <br><br>
+    En coréen, tu entendras très souvent
+    <strong>우리 엄마</strong> ou <strong>우리 아빠</strong>,
+    littéralement « notre maman » ou « notre papa »,
+    même quand une personne parle de sa propre mère
+    ou de son propre père.
+    <br><br>
+    Pour l'instant, retiens simplement que cette façon de parler est très naturelle.
+    Nous reviendrons plus tard sur <strong>우리</strong>.
+  </section>
+
+  <button
+    class="complete-button"
+    id="completeButton"
+    type="button"
+    onclick="completeUnderstanding()"
+  >
+    ✅ J'ai compris
+  </button>
+
+  <button
+    class="next-button"
+    id="nextButton"
+    type="button"
+    onclick="window.location.href='ecoute-6.html'"
+  >
+    🎧 Passer à « J'écoute »
+  </button>
+
+  <button
+    class="back-home-button"
+    type="button"
+    onclick="window.location.href='itineraire.html'"
+  >
+    Retour à l'itinéraire
+  </button>
+
+</main>
+
+<script>
+  function completeUnderstanding() {
+    localStorage.setItem(
+      "hanaKorean_chapter6_understanding",
+      "completed"
+    );
+
+    const completeButton =
+      document.getElementById("completeButton");
+
+    completeButton.textContent =
+      "✅ Compréhension validée";
+
+    completeButton.classList.add("done");
+    completeButton.disabled = true;
+
+    document.getElementById(
+      "nextButton"
+    ).style.display = "block";
+
+    window.scrollTo({
+      top: document.body.scrollHeight,
+      behavior: "smooth"
+    });
+  }
+
+  const understandingCompleted =
+    localStorage.getItem(
+      "hanaKorean_chapter6_understanding"
+    ) === "completed";
+
+  if (understandingCompleted) {
+    const completeButton =
+      document.getElementById("completeButton");
+
+    completeButton.textContent =
+      "✅ Compréhension validée";
+
+    completeButton.classList.add("done");
+    completeButton.disabled = true;
+
+    document.getElementById(
+      "nextButton"
+    ).style.display = "block";
+  }
+</script>
+
+</body>
+</html>

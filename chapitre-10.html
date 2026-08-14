@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="theme-color"
+    content="#F7F4ED"
+  >
+
+  <title>Chapitre 10 — Au restaurant</title>
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
+  <style>
+    .chapter-header {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .chapter-badge {
+      display: inline-block;
+      padding: 7px 14px;
+      margin-bottom: 10px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .chapter-subtitle {
+      color: var(--text-light);
+      line-height: 1.7;
+    }
+
+    .objective-card {
+      padding: 18px;
+      margin-bottom: 20px;
+      background: var(--soft-green);
+      border-radius: var(--radius-medium);
+      color: var(--navy);
+      line-height: 1.7;
+    }
+
+    .objective-card strong {
+      color: var(--jade-dark);
+    }
+
+    .lesson-card {
+      padding: 20px;
+      margin-bottom: 18px;
+      background: var(--white);
+      border-radius: var(--radius-large);
+      box-shadow: var(--shadow);
+    }
+
+    .lesson-card h2 {
+      margin-top: 0;
+      color: var(--navy);
+    }
+
+    .lesson-card p {
+      line-height: 1.7;
+    }
+
+    .vocab-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .vocab-item {
+      padding: 14px;
+      background: #FBFAF6;
+      border-radius: var(--radius-medium);
+    }
+
+    .vocab-korean {
+      color: var(--navy);
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .vocab-french {
+      margin-top: 4px;
+      color: var(--text-light);
+    }
+
+    .grammar-box {
+      padding: 16px;
+      margin-top: 14px;
+      background: var(--soft-blue);
+      border-radius: var(--radius-medium);
+      line-height: 1.7;
+    }
+
+    .grammar-example {
+      padding: 11px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .grammar-example:last-child {
+      border-bottom: none;
+    }
+
+    .dialogue {
+      margin-top: 15px;
+    }
+
+    .dialogue-line {
+      padding: 15px;
+      margin-bottom: 10px;
+      border-radius: var(--radius-medium);
+      line-height: 1.7;
+    }
+
+    .dialogue-line.jieun {
+      background: var(--soft-blue);
+    }
+
+    .dialogue-line.hana {
+      background: var(--soft-green);
+    }
+
+    .speaker {
+      font-weight: bold;
+      margin-bottom: 4px;
+    }
+
+    .dialogue-korean {
+      color: var(--navy);
+      font-size: 19px;
+      font-weight: bold;
+    }
+
+    .dialogue-french {
+      margin-top: 5px;
+      color: var(--text-light);
+    }
+
+    .note-card {
+      padding: 16px;
+      margin-top: 16px;
+      margin-bottom: 18px;
+      background: var(--soft-beige);
+      border-radius: var(--radius-medium);
+      color: var(--navy);
+      line-height: 1.7;
+    }
+
+    .recap-line {
+      padding: 11px 0;
+      border-bottom: 1px solid var(--border);
+      line-height: 1.6;
+    }
+
+    .recap-line:last-child {
+      border-bottom: none;
+    }
+
+    .complete-button {
+      width: 100%;
+      margin-top: 18px;
+      background: var(--jade);
+      color: white;
+      font-weight: bold;
+    }
+
+    .complete-button.done {
+      background: var(--success);
+    }
+
+    .next-button {
+      display: none;
+      width: 100%;
+      margin-top: 10px;
+      background: var(--navy);
+      color: white;
+      font-weight: bold;
+    }
+
+    .back-home-button {
+      width: 100%;
+      margin-top: 10px;
+      background: var(--soft-beige);
+      color: var(--navy);
+    }
+
+    @media (min-width: 620px) {
+      .vocab-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<main class="app">
+
+  <a
+    class="back-link"
+    href="itineraire.html"
+  >
+    ← Itinéraire
+  </a>
+
+
+  <header class="chapter-header">
+
+    <span class="chapter-badge">
+      Chapitre 10 · 🍜 Au restaurant
+    </span>
+
+    <p class="korean">
+      주문할게요! 🍽️
+    </p>
+
+    <h1>
+      Au restaurant
+    </h1>
+
+    <p class="chapter-subtitle">
+      Apprends à commander simplement,
+      demander de l'eau,
+      réagir à ton repas
+      et demander l'addition.
+    </p>
+
+  </header>
+
+
+  <section class="objective-card">
+
+    <strong>🎯 Objectif du chapitre</strong>
+
+    <br><br>
+
+    À la fin de ce chapitre,
+    tu pourras comprendre une question simple au restaurant,
+    commander un plat,
+    ajouter une boisson,
+    dire que c'est bon
+    et demander l'addition.
+
+  </section>
+
+
+  <section class="lesson-card">
+
+    <h2>
+      🍚 1. Quelques mots utiles
+    </h2>
+
+    <div class="vocab-grid">
+
+      <div class="vocab-item">
+        <div class="vocab-korean">메뉴</div>
+        <div class="vocab-french">menu</div>
+      </div>
+
+      <div class="vocab-item">
+        <div class="vocab-korean">음식</div>
+        <div class="vocab-french">nourriture / plat</div>
+      </div>
+
+      <div class="vocab-item">
+        <div class="vocab-korean">물</div>
+        <div class="vocab-french">eau</div>
+      </div>
+
+      <div class="vocab-item">
+        <div class="vocab-korean">비빔밥</div>
+        <div class="vocab-french">bibimbap</div>
+      </div>
+
+      <div class="vocab-item">
+        <div class="vocab-korean">불고기</div>
+        <div class="vocab-french">bulgogi</div>
+      </div>
+
+      <div class="vocab-item">
+        <div class="vocab-korean">김치</div>
+        <div class="vocab-french">kimchi</div>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="lesson-card">
+
+    <h2>
+      🙏 2. Commander avec 주세요
+    </h2>
+
+    <p>
+      Tu as déjà rencontré <strong>주세요</strong>.
+      C'est une expression extrêmement utile
+      pour demander quelque chose poliment.
+    </p>
+
+    <div class="grammar-box">
+
+      <div class="grammar-example">
+        <strong>비빔밥 주세요.</strong>
+        <br>
+        Un bibimbap, s'il vous plaît.
+      </div>
+
+      <div class="grammar-example">
+        <strong>물 주세요.</strong>
+        <br>
+        De l'eau, s'il vous plaît.
+      </div>
+
+    </div>
+
+    <p>
+      Dans un restaurant,
+      cette structure simple suffit déjà
+      dans beaucoup de situations.
+    </p>
+
+  </section>
+
+
+  <section class="lesson-card">
+
+    <h2>
+      1️⃣ 3. Commander « un » plat
+    </h2>
+
+    <p>
+      Tu connais déjà la phrase
+      <strong>딸기 케이크 하나 주세요.</strong>
+      vue avec Ji-eun.
+    </p>
+
+    <p>
+      On peut utiliser <strong>하나</strong>
+      pour dire « un / une » dans une commande simple.
+    </p>
+
+    <div class="grammar-box">
+
+      <div class="grammar-example">
+        <strong>비빔밥 하나 주세요.</strong>
+        <br>
+        Un bibimbap, s'il vous plaît.
+      </div>
+
+      <div class="grammar-example">
+        <strong>불고기 하나 주세요.</strong>
+        <br>
+        Un bulgogi, s'il vous plaît.
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="lesson-card">
+
+    <h2>
+      ➕ 4. Ajouter quelque chose avec 도
+    </h2>
+
+    <p>
+      Tu connais déjà <strong>도</strong> = « aussi ».
+      Au restaurant,
+      il permet d'ajouter facilement une autre demande.
+    </p>
+
+    <div class="grammar-box">
+
+      <div class="grammar-example">
+        <strong>물도 주세요.</strong>
+        <br>
+        De l'eau aussi, s'il vous plaît.
+      </div>
+
+      <div class="grammar-example">
+        <strong>김치도 주세요.</strong>
+        <br>
+        Du kimchi aussi, s'il vous plaît.
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="lesson-card">
+
+    <h2>
+      😋 5. Dire que c'est bon
+    </h2>
+
+    <p>
+      Une expression très fréquente :
+    </p>
+
+    <div class="grammar-box">
+
+      <div class="grammar-example">
+        <strong>맛있어요.</strong>
+        <br>
+        C'est bon / C'est délicieux.
+      </div>
+
+      <div class="grammar-example">
+        <strong>정말 맛있어요!</strong>
+        <br>
+        C'est vraiment délicieux !
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="lesson-card">
+
+    <h2>
+      💳 6. Demander l'addition
+    </h2>
+
+    <p>
+      À la fin du repas,
+      une expression pratique est :
+    </p>
+
+    <div class="grammar-box">
+
+      <div class="grammar-example">
+        <strong>계산해 주세요.</strong>
+        <br>
+        L'addition, s'il vous plaît. / Je voudrais payer.
+      </div>
+
+    </div>
+
+    <p>
+      Pour l'instant,
+      retiens cette phrase comme une expression complète.
+    </p>
+
+  </section>
+
+
+  <section class="lesson-card">
+
+    <h2>
+      💬 7. Dialogue — Avec Ji-eun
+    </h2>
+
+    <p>
+      Ji-eun retrouve Hana,
+      cette fois dans un petit restaurant.
+    </p>
+
+    <div class="dialogue">
+
+      <div class="dialogue-line jieun">
+        <div class="speaker">
+          💛 Ji-eun
+        </div>
+
+        <div class="dialogue-korean">
+          안녕하세요! 주문하시겠어요?
+        </div>
+
+        <div class="dialogue-french">
+          Bonjour ! Vous souhaitez commander ?
+        </div>
+      </div>
+
+
+      <div class="dialogue-line hana">
+        <div class="speaker">
+          🌸 Hana
+        </div>
+
+        <div class="dialogue-korean">
+          네, 비빔밥 하나 주세요.
+        </div>
+
+        <div class="dialogue-french">
+          Oui, un bibimbap s'il vous plaît.
+        </div>
+      </div>
+
+
+      <div class="dialogue-line jieun">
+        <div class="speaker">
+          💛 Ji-eun
+        </div>
+
+        <div class="dialogue-korean">
+          네. 또 뭐 드릴까요?
+        </div>
+
+        <div class="dialogue-french">
+          D'accord. Autre chose ?
+        </div>
+      </div>
+
+
+      <div class="dialogue-line hana">
+        <div class="speaker">
+          🌸 Hana
+        </div>
+
+        <div class="dialogue-korean">
+          물도 주세요.
+        </div>
+
+        <div class="dialogue-french">
+          De l'eau aussi, s'il vous plaît.
+        </div>
+      </div>
+
+
+      <div class="dialogue-line jieun">
+        <div class="speaker">
+          💛 Ji-eun
+        </div>
+
+        <div class="dialogue-korean">
+          네, 알겠습니다.
+        </div>
+
+        <div class="dialogue-french">
+          Très bien.
+        </div>
+      </div>
+
+
+      <div class="dialogue-line hana">
+        <div class="speaker">
+          🌸 Hana
+        </div>
+
+        <div class="dialogue-korean">
+          정말 맛있어요!
+        </div>
+
+        <div class="dialogue-french">
+          C'est vraiment délicieux !
+        </div>
+      </div>
+
+
+      <div class="dialogue-line hana">
+        <div class="speaker">
+          🌸 Hana
+        </div>
+
+        <div class="dialogue-korean">
+          계산해 주세요.
+        </div>
+
+        <div class="dialogue-french">
+          L'addition, s'il vous plaît.
+        </div>
+      </div>
+
+
+      <div class="dialogue-line jieun">
+        <div class="speaker">
+          💛 Ji-eun
+        </div>
+
+        <div class="dialogue-korean">
+          네!
+        </div>
+
+        <div class="dialogue-french">
+          Bien sûr !
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="note-card">
+
+    <strong>🌿 Important</strong>
+
+    <br><br>
+
+    Dans le dialogue,
+    Ji-eun utilise quelques formes polies
+    comme <strong>주문하시겠어요?</strong>
+    et <strong>뭐 드릴까요?</strong>.
+
+    <br><br>
+
+    Tu n'as pas besoin de savoir les construire maintenant.
+    Pour ce chapitre,
+    l'objectif est surtout de les <strong>reconnaître</strong>
+    et de savoir y répondre simplement.
+
+  </section>
+
+
+  <section class="lesson-card">
+
+    <h2>
+      🧠 8. À retenir
+    </h2>
+
+    <div class="recap-line">
+      🍽️ <strong>비빔밥 하나 주세요.</strong> → Un bibimbap, s'il vous plaît.
+    </div>
+
+    <div class="recap-line">
+      💧 <strong>물도 주세요.</strong> → De l'eau aussi, s'il vous plaît.
+    </div>
+
+    <div class="recap-line">
+      😋 <strong>맛있어요.</strong> → C'est bon / délicieux.
+    </div>
+
+    <div class="recap-line">
+      ✨ <strong>정말 맛있어요!</strong> → C'est vraiment délicieux !
+    </div>
+
+    <div class="recap-line">
+      💳 <strong>계산해 주세요.</strong> → L'addition, s'il vous plaît.
+    </div>
+
+  </section>
+
+
+  <button
+    class="complete-button"
+    id="completeButton"
+    type="button"
+    onclick="completeUnderstanding()"
+  >
+    ✅ J'ai compris
+  </button>
+
+
+  <button
+    class="next-button"
+    id="nextButton"
+    type="button"
+    onclick="window.location.href='ecoute-10.html'"
+  >
+    🎧 Passer à « J'écoute »
+  </button>
+
+
+  <button
+    class="back-home-button"
+    type="button"
+    onclick="window.location.href='itineraire.html'"
+  >
+    Retour à l'itinéraire
+  </button>
+
+</main>
+
+
+<script>
+  function completeUnderstanding() {
+
+    localStorage.setItem(
+      "hanaKorean_chapter10_understanding",
+      "completed"
+    );
+
+
+    const completeButton =
+      document.getElementById(
+        "completeButton"
+      );
+
+
+    completeButton.textContent =
+      "✅ Compréhension validée";
+
+
+    completeButton.classList.add(
+      "done"
+    );
+
+
+    completeButton.disabled =
+      true;
+
+
+    document.getElementById(
+      "nextButton"
+    ).style.display =
+      "block";
+
+
+    window.scrollTo({
+      top: document.body.scrollHeight,
+      behavior: "smooth"
+    });
+
+  }
+
+
+  const understandingCompleted =
+    localStorage.getItem(
+      "hanaKorean_chapter10_understanding"
+    ) ===
+    "completed";
+
+
+  if (understandingCompleted) {
+
+    const completeButton =
+      document.getElementById(
+        "completeButton"
+      );
+
+
+    completeButton.textContent =
+      "✅ Compréhension validée";
+
+
+    completeButton.classList.add(
+      "done"
+    );
+
+
+    completeButton.disabled =
+      true;
+
+
+    document.getElementById(
+      "nextButton"
+    ).style.display =
+      "block";
+
+  }
+</script>
+
+</body>
+
+</html>

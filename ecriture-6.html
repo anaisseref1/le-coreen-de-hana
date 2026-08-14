@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="theme-color"
+    content="#F7F4ED"
+  >
+
+  <title>J'écris — Chapitre 6</title>
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
+  <style>
+    /* =====================================================
+       EN-TÊTE
+       ===================================================== */
+
+    .writing-header {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .chapter-badge {
+      display: inline-block;
+      padding: 7px 14px;
+      margin-bottom: 10px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .writing-header p {
+      line-height: 1.7;
+    }
+
+    /* =====================================================
+       PROGRESSION
+       ===================================================== */
+
+    .writing-progress {
+      margin-bottom: 22px;
+    }
+
+    .progress-info {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      color: var(--text-light);
+      font-size: 13px;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 9px;
+      background: var(--soft-beige);
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      width: 20%;
+      height: 100%;
+      background: var(--jade);
+      border-radius: 20px;
+      transition: width 0.3s ease;
+    }
+
+    /* =====================================================
+       CARTE
+       ===================================================== */
+
+    .writing-card {
+      padding: 20px;
+      margin-bottom: 18px;
+      background: var(--white);
+      border-radius: var(--radius-large);
+      box-shadow: var(--shadow);
+    }
+
+    .question-number {
+      margin-top: 0;
+      color: var(--jade-dark);
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .writing-card h2 {
+      margin-top: 8px;
+      color: var(--navy);
+    }
+
+    .prompt {
+      line-height: 1.7;
+    }
+
+    /* =====================================================
+       CHAMP
+       ===================================================== */
+
+    .answer-input {
+      width: 100%;
+      margin-top: 14px;
+      padding: 15px;
+      box-sizing: border-box;
+      border: 2px solid var(--border);
+      border-radius: var(--radius-medium);
+      background: #FBFAF6;
+      color: var(--navy);
+      font-size: 20px;
+    }
+
+    .answer-input:focus {
+      outline: none;
+      border-color: var(--jade);
+    }
+
+    .validate-button {
+      width: 100%;
+      margin-top: 10px;
+      background: var(--jade);
+      color: white;
+      font-weight: bold;
+    }
+
+    /* =====================================================
+       FEEDBACK
+       ===================================================== */
+
+    .feedback {
+      display: none;
+      padding: 15px;
+      margin-top: 14px;
+      border-radius: var(--radius-medium);
+      line-height: 1.7;
+    }
+
+    .feedback.correct {
+      display: block;
+      background: var(--success-light);
+      border-left: 4px solid var(--success);
+    }
+
+    .feedback.wrong {
+      display: block;
+      background: var(--warning-light);
+      border-left: 4px solid var(--warning);
+    }
+
+    .hint-box {
+      margin-top: 10px;
+      padding: 12px;
+      background: rgba(255, 255, 255, 0.65);
+      border-radius: var(--radius-small);
+    }
+
+    /* =====================================================
+       SUIVANT
+       ===================================================== */
+
+    .next-question {
+      display: none;
+      width: 100%;
+      margin-top: 12px;
+      background: var(--navy);
+      color: white;
+      font-weight: bold;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    /* =====================================================
+       RÉSULTAT
+       ===================================================== */
+
+    .result-card {
+      display: none;
+      padding: 25px;
+      background: var(--white);
+      border-radius: var(--radius-large);
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+
+    .result-icon {
+      font-size: 60px;
+    }
+
+    .result-score {
+      color: var(--jade-dark);
+      font-size: 21px;
+      font-weight: bold;
+    }
+
+    .result-summary {
+      padding: 16px;
+      margin-top: 18px;
+      background: #FBFAF6;
+      border-radius: var(--radius-medium);
+      text-align: left;
+      line-height: 1.6;
+    }
+
+    .notion-summary {
+      margin-top: 18px;
+      text-align: left;
+    }
+
+    .notion-line {
+      padding: 11px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .notion-line:last-child {
+      border-bottom: none;
+    }
+
+    .next-step-button {
+      width: 100%;
+      margin-top: 18px;
+      background: var(--jade);
+      color: white;
+      font-weight: bold;
+    }
+
+    .chapter-button {
+      width: 100%;
+      margin-top: 10px;
+      background: var(--soft-beige);
+      color: var(--navy);
+    }
+  </style>
+</head>
+
+<body>
+
+<main class="app">
+
+  <a
+    class="back-link"
+    href="chapitre-6.html"
+  >
+    ← Chapitre 6
+  </a>
+
+
+  <header class="writing-header">
+
+    <span class="chapter-badge">
+      Chapitre 6 · Expression écrite
+    </span>
+
+    <p class="korean">
+      써 봐요 ✍️
+    </p>
+
+    <h1>
+      J'écris
+    </h1>
+
+    <p>
+      Écris les mots et les phrases du chapitre
+      avec ton clavier coréen.
+    </p>
+
+  </header>
+
+
+  <div class="writing-progress">
+
+    <div class="progress-info">
+
+      <span>
+        Expression écrite
+      </span>
+
+      <span id="progressLabel">
+        1 / 5
+      </span>
+
+    </div>
+
+    <div class="progress-bar">
+
+      <div
+        class="progress-fill"
+        id="progressFill"
+      ></div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       QUESTION 1
+       ===================================================== -->
+
+  <section
+    class="writing-card"
+    id="question1"
+  >
+
+    <p class="question-number">
+      Question 1 / 5
+    </p>
+
+    <h2>
+      🌿 Écris « ma famille »
+    </h2>
+
+    <p class="prompt">
+      Utilise <strong>제</strong>.
+    </p>
+
+    <input
+      class="answer-input"
+      id="answer1"
+      type="text"
+      lang="ko"
+      autocomplete="off"
+      autocapitalize="off"
+      spellcheck="false"
+      placeholder="Écris en coréen"
+    >
+
+    <button
+      class="validate-button"
+      type="button"
+      onclick="checkWriting(1)"
+    >
+      Vérifier
+    </button>
+
+    <div
+      class="feedback"
+      id="feedback1"
+    ></div>
+
+    <button
+      class="next-question"
+      id="next1"
+      type="button"
+      onclick="showQuestion(2)"
+    >
+      Question suivante →
+    </button>
+
+  </section>
+
+
+  <!-- =====================================================
+       QUESTION 2
+       ===================================================== -->
+
+  <section
+    class="writing-card hidden"
+    id="question2"
+  >
+
+    <p class="question-number">
+      Question 2 / 5
+    </p>
+
+    <h2>
+      👩 Écris « C'est ma mère. »
+    </h2>
+
+    <p class="prompt">
+      Pense à <strong>제 + 엄마 + 예요</strong>.
+    </p>
+
+    <input
+      class="answer-input"
+      id="answer2"
+      type="text"
+      lang="ko"
+      autocomplete="off"
+      autocapitalize="off"
+      spellcheck="false"
+      placeholder="Écris en coréen"
+    >
+
+    <button
+      class="validate-button"
+      type="button"
+      onclick="checkWriting(2)"
+    >
+      Vérifier
+    </button>
+
+    <div
+      class="feedback"
+      id="feedback2"
+    ></div>
+
+    <button
+      class="next-question"
+      id="next2"
+      type="button"
+      onclick="showQuestion(3)"
+    >
+      Question suivante →
+    </button>
+
+  </section>
+
+
+  <!-- =====================================================
+       QUESTION 3
+       ===================================================== -->
+
+  <section
+    class="writing-card hidden"
+    id="question3"
+  >
+
+    <p class="question-number">
+      Question 3 / 5
+    </p>
+
+    <h2>
+      👨 Écris « C'est mon père. »
+    </h2>
+
+    <p class="prompt">
+      Utilise <strong>아빠</strong>.
+    </p>
+
+    <input
+      class="answer-input"
+      id="answer3"
+      type="text"
+      lang="ko"
+      autocomplete="off"
+      autocapitalize="off"
+      spellcheck="false"
+      placeholder="Écris en coréen"
+    >
+
+    <button
+      class="validate-button"
+      type="button"
+      onclick="checkWriting(3)"
+    >
+      Vérifier
+    </button>
+
+    <div
+      class="feedback"
+      id="feedback3"
+    ></div>
+
+    <button
+      class="next-question"
+      id="next3"
+      type="button"
+      onclick="showQuestion(4)"
+    >
+      Question suivante →
+    </button>
+
+  </section>
+
+
+  <!-- =====================================================
+       QUESTION 4
+       ===================================================== -->
+
+  <section
+    class="writing-card hidden"
+    id="question4"
+  >
+
+    <p class="question-number">
+      Question 4 / 5
+    </p>
+
+    <h2>
+      👤 Écris « Qui est-ce ? »
+    </h2>
+
+    <p class="prompt">
+      Réutilise la question du chapitre précédent.
+    </p>
+
+    <input
+      class="answer-input"
+      id="answer4"
+      type="text"
+      lang="ko"
+      autocomplete="off"
+      autocapitalize="off"
+      spellcheck="false"
+      placeholder="Écris en coréen"
+    >
+
+    <button
+      class="validate-button"
+      type="button"
+      onclick="checkWriting(4)"
+    >
+      Vérifier
+    </button>
+
+    <div
+      class="feedback"
+      id="feedback4"
+    ></div>
+
+    <button
+      class="next-question"
+      id="next4"
+      type="button"
+      onclick="showQuestion(5)"
+    >
+      Dernière question →
+    </button>
+
+  </section>
+
+
+  <!-- =====================================================
+       QUESTION 5
+       ===================================================== -->
+
+  <section
+    class="writing-card hidden"
+    id="question5"
+  >
+
+    <p class="question-number">
+      Question 5 / 5
+    </p>
+
+    <h2>
+      📷 Écris « C'est une photo de ma famille. »
+    </h2>
+
+    <p class="prompt">
+      Utilise <strong>제 가족 사진이에요.</strong>
+    </p>
+
+    <input
+      class="answer-input"
+      id="answer5"
+      type="text"
+      lang="ko"
+      autocomplete="off"
+      autocapitalize="off"
+      spellcheck="false"
+      placeholder="Écris en coréen"
+    >
+
+    <button
+      class="validate-button"
+      type="button"
+      onclick="checkWriting(5)"
+    >
+      Vérifier
+    </button>
+
+    <div
+      class="feedback"
+      id="feedback5"
+    ></div>
+
+    <button
+      class="next-question"
+      id="next5"
+      type="button"
+      onclick="finishWriting()"
+    >
+      Voir mon résultat 🌿
+    </button>
+
+  </section>
+
+
+  <!-- =====================================================
+       RÉSULTAT
+       ===================================================== -->
+
+  <section
+    class="result-card"
+    id="resultCard"
+  >
+
+    <div class="result-icon">
+      ✍️👨‍👩‍👧
+    </div>
+
+    <h2>
+      잘했어요!
+    </h2>
+
+    <p>
+      Tu as terminé l'expression écrite du chapitre 6.
+    </p>
+
+    <p class="result-score">
+      5 réponses validées ✅
+    </p>
+
+
+    <div class="result-summary">
+
+      <strong>
+        📊 Ta séance
+      </strong>
+
+      <p id="sessionSummary"></p>
+
+    </div>
+
+
+    <div class="notion-summary">
+
+      <div class="notion-line">
+        🌿 <strong>제 가족</strong> → ma famille
+      </div>
+
+      <div class="notion-line">
+        👩 <strong>제 엄마예요.</strong> → C'est ma mère.
+      </div>
+
+      <div class="notion-line">
+        👨 <strong>제 아빠예요.</strong> → C'est mon père.
+      </div>
+
+      <div class="notion-line">
+        👤 <strong>누구예요?</strong> → Qui est-ce ?
+      </div>
+
+      <div class="notion-line">
+        📷 <strong>제 가족 사진이에요.</strong> → C'est une photo de ma famille.
+      </div>
+
+    </div>
+
+
+    <button
+      class="next-step-button"
+      type="button"
+      onclick="window.location.href='revision-6.html'"
+    >
+      🧠 Passer à « Je révise »
+    </button>
+
+
+    <button
+      class="chapter-button"
+      type="button"
+      onclick="window.location.href='chapitre-6.html'"
+    >
+      Retour au chapitre
+    </button>
+
+  </section>
+
+</main>
+
+
+<script>
+  /* =====================================================
+     DONNÉES
+     ===================================================== */
+
+  const answers = {
+
+    1: [
+      "제 가족",
+      "저의 가족"
+    ],
+
+    2: [
+      "제 엄마예요",
+      "저의 엄마예요",
+      "엄마예요"
+    ],
+
+    3: [
+      "제 아빠예요",
+      "저의 아빠예요",
+      "아빠예요"
+    ],
+
+    4: [
+      "누구예요",
+      "누구에요"
+    ],
+
+    5: [
+      "제 가족 사진이에요",
+      "저의 가족 사진이에요",
+      "가족 사진이에요"
+    ]
+
+  };
+
+
+  const completedQuestions = {
+    1: false,
+    2: false,
+    3: false,
+    4: false,
+    5: false
+  };
+
+
+  let incorrectAttempts = 0;
+
+
+  const weakNotions = new Set();
+
+
+  /* =====================================================
+     NORMALISER
+     ===================================================== */
+
+  function normalizeKorean(text) {
+
+    return text
+      .trim()
+      .replace(/[.!?。！？,，]/g, "")
+      .replace(/\s+/g, "");
+
+  }
+
+
+  /* =====================================================
+     VÉRIFICATION
+     ===================================================== */
+
+  function checkWriting(number) {
+
+    if (
+      completedQuestions[number]
+    ) {
+      return;
+    }
+
+
+    const input =
+      document.getElementById(
+        "answer" + number
+      );
+
+
+    const feedback =
+      document.getElementById(
+        "feedback" + number
+      );
+
+
+    const value =
+      normalizeKorean(
+        input.value
+      );
+
+
+    const accepted =
+      answers[number].some(
+        answer =>
+          normalizeKorean(
+            answer
+          ) === value
+      );
+
+
+    if (accepted) {
+
+      completedQuestions[number] =
+        true;
+
+
+      feedback.className =
+        "feedback correct";
+
+
+      if (number === 1) {
+
+        feedback.innerHTML =
+          "✅ <strong>Très bien !</strong>" +
+          "<br><br>" +
+          "<strong>제 가족</strong> signifie bien « ma famille ».";
+
+      }
+
+
+      if (number === 2) {
+
+        feedback.innerHTML =
+          "✅ <strong>Exact !</strong>" +
+          "<br><br>" +
+          "<strong>제 엄마예요.</strong> = C'est ma mère.";
+
+      }
+
+
+      if (number === 3) {
+
+        feedback.innerHTML =
+          "✅ <strong>Très bien !</strong>" +
+          "<br><br>" +
+          "<strong>제 아빠예요.</strong> = C'est mon père.";
+
+      }
+
+
+      if (number === 4) {
+
+        feedback.innerHTML =
+          "✅ <strong>Exact !</strong>" +
+          "<br><br>" +
+          "<strong>누구예요?</strong> permet de demander « Qui est-ce ? ».";
+
+      }
+
+
+      if (number === 5) {
+
+        feedback.innerHTML =
+          "✅ <strong>Parfait !</strong>" +
+          "<br><br>" +
+          "<strong>제 가족 사진이에요.</strong> = C'est une photo de ma famille.";
+
+      }
+
+
+      input.disabled =
+        true;
+
+
+      document.getElementById(
+        "next" + number
+      ).style.display =
+        "block";
+
+
+      return;
+
+    }
+
+
+    incorrectAttempts++;
+
+
+    feedback.className =
+      "feedback wrong";
+
+
+    if (number === 1) {
+
+      weakNotions.add(
+        "제"
+      );
+
+
+      feedback.innerHTML =
+        "❌ <strong>Pas encore.</strong>" +
+        "<div class='hint-box'>" +
+        "💡 Commence par <strong>제</strong>, puis ajoute <strong>가족</strong>." +
+        "</div>";
+
+    }
+
+
+    if (number === 2) {
+
+      weakNotions.add(
+        "엄마"
+      );
+
+
+      feedback.innerHTML =
+        "❌ <strong>Regarde la structure.</strong>" +
+        "<div class='hint-box'>" +
+        "💡 <strong>제 + 엄마 + 예요</strong>" +
+        "</div>";
+
+    }
+
+
+    if (number === 3) {
+
+      weakNotions.add(
+        "아빠"
+      );
+
+
+      feedback.innerHTML =
+        "❌ <strong>Essaie encore.</strong>" +
+        "<div class='hint-box'>" +
+        "💡 <strong>제 + 아빠 + 예요</strong>" +
+        "</div>";
+
+    }
+
+
+    if (number === 4) {
+
+      weakNotions.add(
+        "누구"
+      );
+
+
+      feedback.innerHTML =
+        "❌ <strong>Réutilise le mot « qui ».</strong>" +
+        "<div class='hint-box'>" +
+        "💡 Le mot interrogatif est <strong>누구</strong>." +
+        "</div>";
+
+    }
+
+
+    if (number === 5) {
+
+      weakNotions.add(
+        "가족 사진"
+      );
+
+
+      feedback.innerHTML =
+        "❌ <strong>Construis la phrase morceau par morceau.</strong>" +
+        "<div class='hint-box'>" +
+        "💡 <strong>제 + 가족 + 사진 + 이에요</strong>" +
+        "</div>";
+
+    }
+
+  }
+
+
+  /* =====================================================
+     QUESTION SUIVANTE
+     ===================================================== */
+
+  function showQuestion(number) {
+
+    document
+      .querySelectorAll(
+        ".writing-card"
+      )
+      .forEach(
+        card => {
+
+          card.classList.add(
+            "hidden"
+          );
+
+        }
+      );
+
+
+    document.getElementById(
+      "question" + number
+    ).classList.remove(
+      "hidden"
+    );
+
+
+    const percentages = {
+      1: 20,
+      2: 40,
+      3: 60,
+      4: 80,
+      5: 100
+    };
+
+
+    document.getElementById(
+      "progressFill"
+    ).style.width =
+      percentages[number] +
+      "%";
+
+
+    document.getElementById(
+      "progressLabel"
+    ).textContent =
+      number +
+      " / 5";
+
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+
+
+    setTimeout(
+      () => {
+
+        document.getElementById(
+          "answer" + number
+        ).focus();
+
+      },
+      350
+    );
+
+  }
+
+
+  /* =====================================================
+     FIN
+     ===================================================== */
+
+  function finishWriting() {
+
+    document
+      .querySelectorAll(
+        ".writing-card"
+      )
+      .forEach(
+        card => {
+
+          card.classList.add(
+            "hidden"
+          );
+
+        }
+      );
+
+
+    document.getElementById(
+      "progressFill"
+    ).style.width =
+      "100%";
+
+
+    document.getElementById(
+      "progressLabel"
+    ).textContent =
+      "5 / 5";
+
+
+    document.getElementById(
+      "resultCard"
+    ).style.display =
+      "block";
+
+
+    let summary = "";
+
+
+    if (
+      incorrectAttempts === 0
+    ) {
+
+      summary =
+        "🌟 Les 5 réponses ont été écrites correctement du premier coup.";
+
+    }
+
+    else if (
+      incorrectAttempts === 1
+    ) {
+
+      summary =
+        "🌿 Une seule tentative incorrecte : très bonne maîtrise de l'écriture.";
+
+    }
+
+    else {
+
+      summary =
+        "Tu as validé les 5 réponses avec " +
+        incorrectAttempts +
+        " tentative(s) incorrecte(s).";
+
+    }
+
+
+    document.getElementById(
+      "sessionSummary"
+    ).textContent =
+      summary;
+
+
+    localStorage.setItem(
+      "hanaKorean_chapter6_writing",
+      "completed"
+    );
+
+
+    localStorage.setItem(
+      "hanaKorean_chapter6_writingMistakes",
+      incorrectAttempts
+    );
+
+
+    localStorage.setItem(
+      "hanaKorean_chapter6_revisionNotions",
+      JSON.stringify(
+        Array.from(
+          weakNotions
+        )
+      )
+    );
+
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+
+  }
+
+
+  /* =====================================================
+     ENTRÉE
+     ===================================================== */
+
+  document
+    .querySelectorAll(
+      ".answer-input"
+    )
+    .forEach(
+      (input, index) => {
+
+        input.addEventListener(
+          "keydown",
+          function(event) {
+
+            if (
+              event.key ===
+              "Enter"
+            ) {
+
+              event.preventDefault();
+
+              checkWriting(
+                index + 1
+              );
+
+            }
+
+          }
+        );
+
+      }
+    );
+</script>
+
+</body>
+
+</html>

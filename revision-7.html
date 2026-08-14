@@ -1,0 +1,1445 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="theme-color"
+    content="#F7F4ED"
+  >
+
+  <title>Je révise — Chapitre 7</title>
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
+  <style>
+    .review-header {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .chapter-badge {
+      display: inline-block;
+      padding: 7px 14px;
+      margin-bottom: 10px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .review-header p {
+      line-height: 1.7;
+    }
+
+    .review-progress {
+      margin-bottom: 22px;
+    }
+
+    .progress-info {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      color: var(--text-light);
+      font-size: 13px;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 9px;
+      background: var(--soft-beige);
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      width: 16.67%;
+      height: 100%;
+      background: var(--jade);
+      border-radius: 20px;
+      transition: width 0.3s ease;
+    }
+
+    .review-card {
+      padding: 20px;
+      margin-bottom: 18px;
+      background: var(--white);
+      border-radius: var(--radius-large);
+      box-shadow: var(--shadow);
+    }
+
+    .question-number {
+      margin-top: 0;
+      color: var(--jade-dark);
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .review-card h2 {
+      margin-top: 8px;
+      color: var(--navy);
+    }
+
+    .prompt {
+      line-height: 1.7;
+    }
+
+    .answers {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    .answer {
+      width: 100%;
+      padding: 15px;
+      text-align: left;
+      border: 2px solid transparent;
+    }
+
+    .answer-input {
+      width: 100%;
+      margin-top: 14px;
+      padding: 15px;
+      box-sizing: border-box;
+      border: 2px solid var(--border);
+      border-radius: var(--radius-medium);
+      background: #FBFAF6;
+      color: var(--navy);
+      font-size: 20px;
+    }
+
+    .answer-input:focus {
+      outline: none;
+      border-color: var(--jade);
+    }
+
+    .validate-button {
+      width: 100%;
+      margin-top: 10px;
+      background: var(--jade);
+      color: white;
+      font-weight: bold;
+    }
+
+    .audio-button {
+      width: 100%;
+      margin-top: 12px;
+      background: var(--soft-blue);
+      color: var(--navy);
+      font-weight: bold;
+    }
+
+    .slow-button {
+      width: 100%;
+      margin-top: 8px;
+      background: var(--soft-beige);
+      color: var(--navy);
+    }
+
+    .feedback {
+      display: none;
+      padding: 15px;
+      margin-top: 14px;
+      border-radius: var(--radius-medium);
+      line-height: 1.7;
+    }
+
+    .feedback.correct {
+      display: block;
+      background: var(--success-light);
+      border-left: 4px solid var(--success);
+    }
+
+    .feedback.wrong {
+      display: block;
+      background: var(--warning-light);
+      border-left: 4px solid var(--warning);
+    }
+
+    .hint-box {
+      margin-top: 10px;
+      padding: 12px;
+      background: rgba(255, 255, 255, 0.65);
+      border-radius: var(--radius-small);
+    }
+
+    .next-question {
+      display: none;
+      width: 100%;
+      margin-top: 12px;
+      background: var(--navy);
+      color: white;
+      font-weight: bold;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .result-card {
+      display: none;
+      padding: 25px;
+      background: var(--white);
+      border-radius: var(--radius-large);
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+
+    .result-icon {
+      font-size: 60px;
+    }
+
+    .result-score {
+      color: var(--jade-dark);
+      font-size: 21px;
+      font-weight: bold;
+    }
+
+    .result-summary {
+      padding: 16px;
+      margin-top: 18px;
+      background: #FBFAF6;
+      border-radius: var(--radius-medium);
+      text-align: left;
+      line-height: 1.6;
+    }
+
+    .weak-box {
+      padding: 16px;
+      margin-top: 18px;
+      background: var(--soft-green);
+      border-radius: var(--radius-medium);
+      color: var(--navy);
+      text-align: left;
+      line-height: 1.7;
+    }
+
+    .skills-summary {
+      margin-top: 18px;
+      text-align: left;
+    }
+
+    .skill-line {
+      padding: 11px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .skill-line:last-child {
+      border-bottom: none;
+    }
+
+    .next-step-button {
+      width: 100%;
+      margin-top: 18px;
+      background: var(--jade);
+      color: white;
+      font-weight: bold;
+    }
+
+    .chapter-button {
+      width: 100%;
+      margin-top: 10px;
+      background: var(--soft-beige);
+      color: var(--navy);
+    }
+  </style>
+</head>
+
+<body>
+
+<main class="app">
+
+  <a
+    class="back-link"
+    href="chapitre-7.html"
+  >
+    ← Chapitre 7
+  </a>
+
+
+  <header class="review-header">
+
+    <span class="chapter-badge">
+      Chapitre 7 · Révision
+    </span>
+
+    <p class="korean">
+      복습해 봐요 🧠
+    </p>
+
+    <h1>
+      Je révise
+    </h1>
+
+    <p>
+      Mélange les notions du chapitre 7
+      avec ce que tu connais déjà.
+    </p>
+
+  </header>
+
+
+  <div class="review-progress">
+
+    <div class="progress-info">
+
+      <span>
+        Révision
+      </span>
+
+      <span id="progressLabel">
+        1 / 6
+      </span>
+
+    </div>
+
+    <div class="progress-bar">
+
+      <div
+        class="progress-fill"
+        id="progressFill"
+      ></div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       QUESTION 1
+       ===================================================== -->
+
+  <section
+    class="review-card"
+    id="question1"
+  >
+
+    <p class="question-number">
+      Question 1 / 6
+    </p>
+
+    <h2>
+      ☀️ Que signifie 아침 ?
+    </h2>
+
+    <div class="answers">
+
+      <button
+        class="answer"
+        type="button"
+        onclick="checkChoice(1, this, true, '아침')"
+      >
+        matin
+      </button>
+
+      <button
+        class="answer"
+        type="button"
+        onclick="checkChoice(1, this, false, '아침')"
+      >
+        soir
+      </button>
+
+      <button
+        class="answer"
+        type="button"
+        onclick="checkChoice(1, this, false, '아침')"
+      >
+        aujourd'hui
+      </button>
+
+    </div>
+
+    <div
+      class="feedback"
+      id="feedback1"
+    ></div>
+
+    <button
+      class="next-question"
+      id="next1"
+      type="button"
+      onclick="showQuestion(2)"
+    >
+      Question suivante →
+    </button>
+
+  </section>
+
+
+  <!-- =====================================================
+       QUESTION 2
+       ===================================================== -->
+
+  <section
+    class="review-card hidden"
+    id="question2"
+  >
+
+    <p class="question-number">
+      Question 2 / 6
+    </p>
+
+    <h2>
+      ☕ Écris « Je bois du café. »
+    </h2>
+
+    <input
+      class="answer-input"
+      id="answer2"
+      type="text"
+      lang="ko"
+      autocomplete="off"
+      autocapitalize="off"
+      spellcheck="false"
+      placeholder="Écris en coréen"
+    >
+
+    <button
+      class="validate-button"
+      type="button"
+      onclick="checkText(2, ['커피를 마셔요', '저는 커피를 마셔요', '아침에 커피를 마셔요'], '마셔요')"
+    >
+      Vérifier
+    </button>
+
+    <div
+      class="feedback"
+      id="feedback2"
+    ></div>
+
+    <button
+      class="next-question"
+      id="next2"
+      type="button"
+      onclick="showQuestion(3)"
+    >
+      Question suivante →
+    </button>
+
+  </section>
+
+
+  <!-- =====================================================
+       QUESTION 3
+       ===================================================== -->
+
+  <section
+    class="review-card hidden"
+    id="question3"
+  >
+
+    <p class="question-number">
+      Question 3 / 6
+    </p>
+
+    <h2>
+      ❓ Quelle phrase signifie « Qu'est-ce que tu fais le soir ? »
+    </h2>
+
+    <div class="answers">
+
+      <button
+        class="answer"
+        type="button"
+        onclick="checkChoice(3, this, false, '뭐 해요')"
+      >
+        어디에 가요?
+      </button>
+
+      <button
+        class="answer"
+        type="button"
+        onclick="checkChoice(3, this, true, '뭐 해요')"
+      >
+        저녁에 뭐 해요?
+      </button>
+
+      <button
+        class="answer"
+        type="button"
+        onclick="checkChoice(3, this, false, '뭐 해요')"
+      >
+        누구예요?
+      </button>
+
+    </div>
+
+    <div
+      class="feedback"
+      id="feedback3"
+    ></div>
+
+    <button
+      class="next-question"
+      id="next3"
+      type="button"
+      onclick="showQuestion(4)"
+    >
+      Question suivante →
+    </button>
+
+  </section>
+
+
+  <!-- =====================================================
+       QUESTION 4
+       ===================================================== -->
+
+  <section
+    class="review-card hidden"
+    id="question4"
+  >
+
+    <p class="question-number">
+      Question 4 / 6
+    </p>
+
+    <h2>
+      🎧 Qu'entends-tu ?
+    </h2>
+
+    <p class="prompt">
+      Écoute la phrase puis choisis la bonne traduction.
+    </p>
+
+    <button
+      class="audio-button"
+      type="button"
+      onclick="speakKorean('회사에 가요.', false)"
+    >
+      🔊 Écouter
+    </button>
+
+    <button
+      class="slow-button"
+      type="button"
+      onclick="speakKorean('회사에 가요.', true)"
+    >
+      🐢 Écouter lentement
+    </button>
+
+    <div class="answers">
+
+      <button
+        class="answer"
+        type="button"
+        onclick="checkChoice(4, this, true, '회사에 가요')"
+      >
+        Je vais au travail.
+      </button>
+
+      <button
+        class="answer"
+        type="button"
+        onclick="checkChoice(4, this, false, '회사에 가요')"
+      >
+        Je rentre à la maison.
+      </button>
+
+      <button
+        class="answer"
+        type="button"
+        onclick="checkChoice(4, this, false, '회사에 가요')"
+      >
+        J'étudie le soir.
+      </button>
+
+    </div>
+
+    <div
+      class="feedback"
+      id="feedback4"
+    ></div>
+
+    <button
+      class="next-question"
+      id="next4"
+      type="button"
+      onclick="showQuestion(5)"
+    >
+      Question suivante →
+    </button>
+
+  </section>
+
+
+  <!-- =====================================================
+       QUESTION 5
+       ===================================================== -->
+
+  <section
+    class="review-card hidden"
+    id="question5"
+  >
+
+    <p class="question-number">
+      Question 5 / 6
+    </p>
+
+    <h2>
+      ➕ Quel mot signifie « et / puis » ?
+    </h2>
+
+    <div class="answers">
+
+      <button
+        class="answer"
+        type="button"
+        onclick="checkChoice(5, this, false, '그리고')"
+      >
+        정말
+      </button>
+
+      <button
+        class="answer"
+        type="button"
+        onclick="checkChoice(5, this, true, '그리고')"
+      >
+        그리고
+      </button>
+
+      <button
+        class="answer"
+        type="button"
+        onclick="checkChoice(5, this, false, '그리고')"
+      >
+        매일
+      </button>
+
+    </div>
+
+    <div
+      class="feedback"
+      id="feedback5"
+    ></div>
+
+    <button
+      class="next-question"
+      id="next5"
+      type="button"
+      onclick="showQuestion(6)"
+    >
+      Dernière question →
+    </button>
+
+  </section>
+
+
+  <!-- =====================================================
+       QUESTION 6
+       ===================================================== -->
+
+  <section
+    class="review-card hidden"
+    id="question6"
+  >
+
+    <p class="question-number">
+      Question 6 / 6
+    </p>
+
+    <h2>
+      🌙 Écris « J'étudie tous les jours. »
+    </h2>
+
+    <p class="prompt">
+      Commence par <strong>매일</strong>.
+    </p>
+
+    <input
+      class="answer-input"
+      id="answer6"
+      type="text"
+      lang="ko"
+      autocomplete="off"
+      autocapitalize="off"
+      spellcheck="false"
+      placeholder="Écris en coréen"
+    >
+
+    <button
+      class="validate-button"
+      type="button"
+      onclick="checkText(6, ['매일 공부해요', '저는 매일 공부해요'], '매일')"
+    >
+      Vérifier
+    </button>
+
+    <div
+      class="feedback"
+      id="feedback6"
+    ></div>
+
+    <button
+      class="next-question"
+      id="next6"
+      type="button"
+      onclick="finishReview()"
+    >
+      Voir mon résultat 🌿
+    </button>
+
+  </section>
+
+
+  <!-- =====================================================
+       RÉSULTAT
+       ===================================================== -->
+
+  <section
+    class="result-card"
+    id="resultCard"
+  >
+
+    <div class="result-icon">
+      🧠☀️
+    </div>
+
+    <h2>
+      잘했어요!
+    </h2>
+
+    <p>
+      Tu as terminé la révision du chapitre 7.
+    </p>
+
+    <p class="result-score">
+      6 notions validées ✅
+    </p>
+
+
+    <div class="result-summary">
+
+      <strong>
+        📊 Ta séance
+      </strong>
+
+      <p id="sessionSummary"></p>
+
+    </div>
+
+
+    <div
+      class="weak-box"
+      id="weakBox"
+    ></div>
+
+
+    <div class="skills-summary">
+
+      <div class="skill-line">
+        ☀️ <strong>아침</strong> → matin
+      </div>
+
+      <div class="skill-line">
+        ☕ <strong>커피를 마셔요.</strong>
+      </div>
+
+      <div class="skill-line">
+        ❓ <strong>저녁에 뭐 해요?</strong>
+      </div>
+
+      <div class="skill-line">
+        🏢 <strong>회사에 가요.</strong>
+      </div>
+
+      <div class="skill-line">
+        ➕ <strong>그리고</strong> → et / puis
+      </div>
+
+      <div class="skill-line">
+        🔁 <strong>매일 공부해요.</strong>
+      </div>
+
+    </div>
+
+
+    <button
+      class="next-step-button"
+      type="button"
+      onclick="window.location.href='utilise-7.html'"
+    >
+      🎯 Passer à « Je l'utilise »
+    </button>
+
+
+    <button
+      class="chapter-button"
+      type="button"
+      onclick="window.location.href='chapitre-7.html'"
+    >
+      Retour au chapitre
+    </button>
+
+  </section>
+
+</main>
+
+
+<script>
+  const completedQuestions = {
+    1: false,
+    2: false,
+    3: false,
+    4: false,
+    5: false,
+    6: false
+  };
+
+
+  let incorrectAttempts = 0;
+
+
+  const weakNotions = new Set();
+
+
+  function normalizeKorean(text) {
+
+    return text
+      .trim()
+      .replace(/[.!?。！？,，]/g, "")
+      .replace(/\s+/g, "");
+
+  }
+
+
+  function getKoreanVoice() {
+
+    const voices =
+      window.speechSynthesis.getVoices();
+
+
+    return voices.find(
+      voice =>
+        voice.lang &&
+        voice.lang
+          .toLowerCase()
+          .startsWith("ko")
+    );
+
+  }
+
+
+  function speakKorean(
+    text,
+    slow = false
+  ) {
+
+    if (
+      !("speechSynthesis" in window)
+    ) {
+      return;
+    }
+
+
+    window.speechSynthesis.cancel();
+
+
+    const speech =
+      new SpeechSynthesisUtterance(
+        text
+      );
+
+
+    speech.lang =
+      "ko-KR";
+
+
+    speech.rate =
+      slow
+        ? 0.25
+        : 0.82;
+
+
+    speech.pitch =
+      1;
+
+
+    const voice =
+      getKoreanVoice();
+
+
+    if (voice) {
+
+      speech.voice =
+        voice;
+
+    }
+
+
+    window.speechSynthesis.speak(
+      speech
+    );
+
+  }
+
+
+  function checkChoice(
+    number,
+    button,
+    isCorrect,
+    notion
+  ) {
+
+    if (
+      completedQuestions[number]
+    ) {
+      return;
+    }
+
+
+    const feedback =
+      document.getElementById(
+        "feedback" + number
+      );
+
+
+    const question =
+      document.getElementById(
+        "question" + number
+      );
+
+
+    if (isCorrect) {
+
+      completedQuestions[number] =
+        true;
+
+
+      button.classList.add(
+        "correct"
+      );
+
+
+      question
+        .querySelectorAll(
+          ".answer"
+        )
+        .forEach(
+          answer => {
+
+            answer.disabled =
+              true;
+
+          }
+        );
+
+
+      feedback.className =
+        "feedback correct";
+
+
+      if (number === 1) {
+
+        feedback.innerHTML =
+          "✅ <strong>Exact !</strong>" +
+          "<br><br>" +
+          "<strong>아침</strong> signifie « matin ».";
+
+      }
+
+
+      if (number === 3) {
+
+        feedback.innerHTML =
+          "✅ <strong>Très bien !</strong>" +
+          "<br><br>" +
+          "<strong>저녁에 뭐 해요?</strong> = Qu'est-ce que tu fais le soir ?";
+
+      }
+
+
+      if (number === 4) {
+
+        feedback.innerHTML =
+          "✅ <strong>Exact !</strong>" +
+          "<br><br>" +
+          "<strong>회사에 가요.</strong> signifie « Je vais au travail. »";
+
+      }
+
+
+      if (number === 5) {
+
+        feedback.innerHTML =
+          "✅ <strong>Très bien !</strong>" +
+          "<br><br>" +
+          "<strong>그리고</strong> signifie « et / puis ».";
+
+      }
+
+
+      document.getElementById(
+        "next" + number
+      ).style.display =
+        "block";
+
+
+      return;
+
+    }
+
+
+    incorrectAttempts++;
+
+
+    weakNotions.add(
+      notion
+    );
+
+
+    button.classList.add(
+      "wrong"
+    );
+
+
+    feedback.className =
+      "feedback wrong";
+
+
+    feedback.innerHTML =
+      "❌ <strong>Essaie encore.</strong>" +
+      "<div class='hint-box'>" +
+      "💡 Reprends la notion et regarde le mot-clé de la phrase." +
+      "</div>";
+
+
+    setTimeout(
+      () => {
+
+        button.classList.remove(
+          "wrong"
+        );
+
+      },
+      800
+    );
+
+  }
+
+
+  function checkText(
+    number,
+    acceptedAnswers,
+    notion
+  ) {
+
+    if (
+      completedQuestions[number]
+    ) {
+      return;
+    }
+
+
+    const input =
+      document.getElementById(
+        "answer" + number
+      );
+
+
+    const feedback =
+      document.getElementById(
+        "feedback" + number
+      );
+
+
+    const value =
+      normalizeKorean(
+        input.value
+      );
+
+
+    const accepted =
+      acceptedAnswers.some(
+        answer =>
+          normalizeKorean(
+            answer
+          ) === value
+      );
+
+
+    if (accepted) {
+
+      completedQuestions[number] =
+        true;
+
+
+      feedback.className =
+        "feedback correct";
+
+
+      if (number === 2) {
+
+        feedback.innerHTML =
+          "✅ <strong>Exact !</strong>" +
+          "<br><br>" +
+          "<strong>커피를 마셔요.</strong> est bien la phrase attendue.";
+
+      }
+
+
+      if (number === 6) {
+
+        feedback.innerHTML =
+          "✅ <strong>Très bien !</strong>" +
+          "<br><br>" +
+          "<strong>매일 공부해요.</strong> = J'étudie tous les jours.";
+
+      }
+
+
+      input.disabled =
+        true;
+
+
+      document.getElementById(
+        "next" + number
+      ).style.display =
+        "block";
+
+
+      return;
+
+    }
+
+
+    incorrectAttempts++;
+
+
+    weakNotions.add(
+      notion
+    );
+
+
+    feedback.className =
+      "feedback wrong";
+
+
+    if (number === 2) {
+
+      feedback.innerHTML =
+        "❌ <strong>Construis la phrase avec le verbe « boire ».</strong>" +
+        "<div class='hint-box'>" +
+        "💡 <strong>커피 + 를 + 마셔요</strong>" +
+        "</div>";
+
+    }
+
+
+    if (number === 6) {
+
+      feedback.innerHTML =
+        "❌ <strong>Pense à « tous les jours ».</strong>" +
+        "<div class='hint-box'>" +
+        "💡 <strong>매일 + 공부해요</strong>" +
+        "</div>";
+
+    }
+
+  }
+
+
+  function showQuestion(number) {
+
+    if (
+      "speechSynthesis" in window
+    ) {
+      window.speechSynthesis.cancel();
+    }
+
+
+    document
+      .querySelectorAll(
+        ".review-card"
+      )
+      .forEach(
+        card => {
+
+          card.classList.add(
+            "hidden"
+          );
+
+        }
+      );
+
+
+    document.getElementById(
+      "question" + number
+    ).classList.remove(
+      "hidden"
+    );
+
+
+    const percentage =
+      (number / 6) * 100;
+
+
+    document.getElementById(
+      "progressFill"
+    ).style.width =
+      percentage +
+      "%";
+
+
+    document.getElementById(
+      "progressLabel"
+    ).textContent =
+      number +
+      " / 6";
+
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+
+  }
+
+
+  function finishReview() {
+
+    if (
+      "speechSynthesis" in window
+    ) {
+      window.speechSynthesis.cancel();
+    }
+
+
+    document
+      .querySelectorAll(
+        ".review-card"
+      )
+      .forEach(
+        card => {
+
+          card.classList.add(
+            "hidden"
+          );
+
+        }
+      );
+
+
+    document.getElementById(
+      "progressFill"
+    ).style.width =
+      "100%";
+
+
+    document.getElementById(
+      "progressLabel"
+    ).textContent =
+      "6 / 6";
+
+
+    document.getElementById(
+      "resultCard"
+    ).style.display =
+      "block";
+
+
+    let summary = "";
+
+
+    if (
+      incorrectAttempts === 0
+    ) {
+
+      summary =
+        "🌟 Les 6 notions ont été validées du premier coup.";
+
+    }
+
+    else if (
+      incorrectAttempts === 1
+    ) {
+
+      summary =
+        "🌿 Une seule erreur sur toute la révision.";
+
+    }
+
+    else {
+
+      summary =
+        "Tu as terminé la révision avec " +
+        incorrectAttempts +
+        " tentative(s) incorrecte(s).";
+
+    }
+
+
+    document.getElementById(
+      "sessionSummary"
+    ).textContent =
+      summary;
+
+
+    const savedWritingNotions =
+      JSON.parse(
+        localStorage.getItem(
+          "hanaKorean_chapter7_revisionNotions"
+        ) || "[]"
+      );
+
+
+    savedWritingNotions.forEach(
+      notion =>
+        weakNotions.add(
+          notion
+        )
+    );
+
+
+    const weakArray =
+      Array.from(
+        weakNotions
+      );
+
+
+    const weakBox =
+      document.getElementById(
+        "weakBox"
+      );
+
+
+    if (
+      weakArray.length === 0
+    ) {
+
+      weakBox.innerHTML =
+        "<strong>🌟 Aucune notion fragile détectée.</strong>" +
+        "<br><br>" +
+        "Tu peux passer à la mission finale.";
+
+    }
+
+    else {
+
+      weakBox.innerHTML =
+        "<strong>🌱 À revoir encore un peu :</strong>" +
+        "<br><br>" +
+        weakArray.join(" · ");
+
+    }
+
+
+    localStorage.setItem(
+      "hanaKorean_chapter7_review",
+      "completed"
+    );
+
+
+    localStorage.setItem(
+      "hanaKorean_chapter7_reviewMistakes",
+      incorrectAttempts
+    );
+
+
+    localStorage.setItem(
+      "hanaKorean_chapter7_reviewWeakNotions",
+      JSON.stringify(
+        weakArray
+      )
+    );
+
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+
+  }
+
+
+  document
+    .querySelectorAll(
+      ".answer-input"
+    )
+    .forEach(
+      input => {
+
+        input.addEventListener(
+          "keydown",
+          function(event) {
+
+            if (
+              event.key !==
+              "Enter"
+            ) {
+              return;
+            }
+
+
+            event.preventDefault();
+
+
+            if (
+              input.id ===
+              "answer2"
+            ) {
+
+              checkText(
+                2,
+                [
+                  "커피를 마셔요",
+                  "저는 커피를 마셔요",
+                  "아침에 커피를 마셔요"
+                ],
+                "마셔요"
+              );
+
+            }
+
+
+            if (
+              input.id ===
+              "answer6"
+            ) {
+
+              checkText(
+                6,
+                [
+                  "매일 공부해요",
+                  "저는 매일 공부해요"
+                ],
+                "매일"
+              );
+
+            }
+
+          }
+        );
+
+      }
+    );
+
+
+  if (
+    "speechSynthesis" in window
+  ) {
+
+    window.speechSynthesis.onvoiceschanged =
+      function() {
+
+        window.speechSynthesis.getVoices();
+
+      };
+
+  }
+</script>
+
+</body>
+
+</html>

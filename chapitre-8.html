@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="theme-color"
+    content="#F7F4ED"
+  >
+
+  <title>Chapitre 8 — Quelle heure est-il ?</title>
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
+  <style>
+    .chapter-header {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .chapter-badge {
+      display: inline-block;
+      padding: 7px 14px;
+      margin-bottom: 10px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .chapter-subtitle {
+      color: var(--text-light);
+      line-height: 1.7;
+    }
+
+    .objective-card {
+      padding: 18px;
+      margin-bottom: 20px;
+      background: var(--soft-green);
+      border-radius: var(--radius-medium);
+      color: var(--navy);
+      line-height: 1.7;
+    }
+
+    .objective-card strong {
+      color: var(--jade-dark);
+    }
+
+    .lesson-card {
+      padding: 20px;
+      margin-bottom: 18px;
+      background: var(--white);
+      border-radius: var(--radius-large);
+      box-shadow: var(--shadow);
+    }
+
+    .lesson-card h2 {
+      margin-top: 0;
+      color: var(--navy);
+    }
+
+    .lesson-card p {
+      line-height: 1.7;
+    }
+
+    .vocab-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .vocab-item {
+      padding: 14px;
+      background: #FBFAF6;
+      border-radius: var(--radius-medium);
+    }
+
+    .vocab-korean {
+      color: var(--navy);
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .vocab-french {
+      margin-top: 4px;
+      color: var(--text-light);
+    }
+
+    .grammar-box {
+      padding: 16px;
+      margin-top: 14px;
+      background: var(--soft-blue);
+      border-radius: var(--radius-medium);
+      line-height: 1.7;
+    }
+
+    .grammar-example {
+      padding: 11px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .grammar-example:last-child {
+      border-bottom: none;
+    }
+
+    .number-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .number-item {
+      padding: 14px;
+      background: #FBFAF6;
+      border-radius: var(--radius-medium);
+      text-align: center;
+    }
+
+    .number-korean {
+      color: var(--navy);
+      font-size: 19px;
+      font-weight: bold;
+    }
+
+    .number-french {
+      margin-top: 4px;
+      color: var(--text-light);
+      font-size: 14px;
+    }
+
+    .dialogue {
+      margin-top: 15px;
+    }
+
+    .dialogue-line {
+      padding: 15px;
+      margin-bottom: 10px;
+      border-radius: var(--radius-medium);
+      line-height: 1.7;
+    }
+
+    .dialogue-line.minsu {
+      background: var(--soft-blue);
+    }
+
+    .dialogue-line.hana {
+      background: var(--soft-green);
+    }
+
+    .speaker {
+      font-weight: bold;
+      margin-bottom: 4px;
+    }
+
+    .dialogue-korean {
+      color: var(--navy);
+      font-size: 19px;
+      font-weight: bold;
+    }
+
+    .dialogue-french {
+      margin-top: 5px;
+      color: var(--text-light);
+    }
+
+    .note-card {
+      padding: 16px;
+      margin-top: 16px;
+      margin-bottom: 18px;
+      background: var(--soft-beige);
+      border-radius: var(--radius-medium);
+      color: var(--navy);
+      line-height: 1.7;
+    }
+
+    .recap-line {
+      padding: 11px 0;
+      border-bottom: 1px solid var(--border);
+      line-height: 1.6;
+    }
+
+    .recap-line:last-child {
+      border-bottom: none;
+    }
+
+    .complete-button {
+      width: 100%;
+      margin-top: 18px;
+      background: var(--jade);
+      color: white;
+      font-weight: bold;
+    }
+
+    .complete-button.done {
+      background: var(--success);
+    }
+
+    .next-button {
+      display: none;
+      width: 100%;
+      margin-top: 10px;
+      background: var(--navy);
+      color: white;
+      font-weight: bold;
+    }
+
+    .back-home-button {
+      width: 100%;
+      margin-top: 10px;
+      background: var(--soft-beige);
+      color: var(--navy);
+    }
+
+    @media (min-width: 620px) {
+      .vocab-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .number-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<main class="app">
+
+  <a
+    class="back-link"
+    href="itineraire.html"
+  >
+    ← Itinéraire
+  </a>
+
+
+  <header class="chapter-header">
+
+    <span class="chapter-badge">
+      Chapitre 8 · 🕒 Quelle heure est-il ?
+    </span>
+
+    <p class="korean">
+      몇 시예요? ⏰
+    </p>
+
+    <h1>
+      Quelle heure est-il ?
+    </h1>
+
+    <p class="chapter-subtitle">
+      Apprends à demander l'heure,
+      à dire quelques heures simples
+      et à préciser à quelle heure tu fais une activité.
+    </p>
+
+  </header>
+
+
+  <section class="objective-card">
+
+    <strong>🎯 Objectif du chapitre</strong>
+
+    <br><br>
+
+    À la fin de ce chapitre,
+    tu pourras demander l'heure,
+    comprendre et donner une heure simple,
+    dire « et demie »
+    et parler de l'heure d'une activité quotidienne.
+
+  </section>
+
+
+  <section class="lesson-card">
+
+    <h2>
+      🕒 1. Demander l'heure
+    </h2>
+
+    <p>
+      Pour demander « Quelle heure est-il ? »,
+      on utilise :
+    </p>
+
+    <div class="grammar-box">
+
+      <div class="grammar-example">
+        <strong>몇 시예요?</strong>
+        <br>
+        Quelle heure est-il ?
+      </div>
+
+    </div>
+
+    <p>
+      <strong>몇</strong> signifie ici « combien / quelle »
+      et <strong>시</strong> signifie « heure ».
+    </p>
+
+  </section>
+
+
+  <section class="lesson-card">
+
+    <h2>
+      🔢 2. Les nombres utilisés pour les heures
+    </h2>
+
+    <p>
+      Pour dire l'heure,
+      le coréen utilise les nombres coréens natifs.
+      Devant <strong>시</strong>,
+      certains prennent une forme raccourcie.
+    </p>
+
+    <div class="number-grid">
+
+      <div class="number-item">
+        <div class="number-korean">한 시</div>
+        <div class="number-french">1 h</div>
+      </div>
+
+      <div class="number-item">
+        <div class="number-korean">두 시</div>
+        <div class="number-french">2 h</div>
+      </div>
+
+      <div class="number-item">
+        <div class="number-korean">세 시</div>
+        <div class="number-french">3 h</div>
+      </div>
+
+      <div class="number-item">
+        <div class="number-korean">네 시</div>
+        <div class="number-french">4 h</div>
+      </div>
+
+      <div class="number-item">
+        <div class="number-korean">다섯 시</div>
+        <div class="number-french">5 h</div>
+      </div>
+
+      <div class="number-item">
+        <div class="number-korean">여섯 시</div>
+        <div class="number-french">6 h</div>
+      </div>
+
+      <div class="number-item">
+        <div class="number-korean">일곱 시</div>
+        <div class="number-french">7 h</div>
+      </div>
+
+      <div class="number-item">
+        <div class="number-korean">여덟 시</div>
+        <div class="number-french">8 h</div>
+      </div>
+
+      <div class="number-item">
+        <div class="number-korean">아홉 시</div>
+        <div class="number-french">9 h</div>
+      </div>
+
+      <div class="number-item">
+        <div class="number-korean">열 시</div>
+        <div class="number-french">10 h</div>
+      </div>
+
+      <div class="number-item">
+        <div class="number-korean">열한 시</div>
+        <div class="number-french">11 h</div>
+      </div>
+
+      <div class="number-item">
+        <div class="number-korean">열두 시</div>
+        <div class="number-french">12 h</div>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="lesson-card">
+
+    <h2>
+      ⏰ 3. Dire l'heure
+    </h2>
+
+    <p>
+      La structure la plus simple est :
+      <strong>nombre + 시예요</strong>.
+    </p>
+
+    <div class="grammar-box">
+
+      <div class="grammar-example">
+        <strong>한 시예요.</strong>
+        <br>
+        Il est 1 h.
+      </div>
+
+      <div class="grammar-example">
+        <strong>세 시예요.</strong>
+        <br>
+        Il est 3 h.
+      </div>
+
+      <div class="grammar-example">
+        <strong>일곱 시예요.</strong>
+        <br>
+        Il est 7 h.
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="lesson-card">
+
+    <h2>
+      🌓 4. Dire « et demie »
+    </h2>
+
+    <p>
+      <strong>반</strong> signifie « moitié ».
+      Après l'heure,
+      il permet de dire « et demie ».
+    </p>
+
+    <div class="grammar-box">
+
+      <div class="grammar-example">
+        <strong>두 시 반이에요.</strong>
+        <br>
+        Il est 2 h 30.
+      </div>
+
+      <div class="grammar-example">
+        <strong>일곱 시 반이에요.</strong>
+        <br>
+        Il est 7 h 30.
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="lesson-card">
+
+    <h2>
+      🌅 5. 오전 et 오후
+    </h2>
+
+    <p>
+      Pour préciser le moment de la journée,
+      on peut utiliser :
+    </p>
+
+    <div class="vocab-grid">
+
+      <div class="vocab-item">
+        <div class="vocab-korean">오전</div>
+        <div class="vocab-french">matin / AM</div>
+      </div>
+
+      <div class="vocab-item">
+        <div class="vocab-korean">오후</div>
+        <div class="vocab-french">après-midi / PM</div>
+      </div>
+
+    </div>
+
+    <div class="grammar-box">
+
+      <div class="grammar-example">
+        <strong>오전 일곱 시예요.</strong>
+        <br>
+        Il est 7 h du matin.
+      </div>
+
+      <div class="grammar-example">
+        <strong>오후 세 시예요.</strong>
+        <br>
+        Il est 3 h de l'après-midi.
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="lesson-card">
+
+    <h2>
+      📅 6. Dire « à quelle heure ? »
+    </h2>
+
+    <p>
+      Il faut bien distinguer :
+    </p>
+
+    <div class="grammar-box">
+
+      <div class="grammar-example">
+        <strong>몇 시예요?</strong>
+        <br>
+        Quelle heure est-il ?
+      </div>
+
+      <div class="grammar-example">
+        <strong>몇 시에 일어나요?</strong>
+        <br>
+        À quelle heure tu te lèves ?
+      </div>
+
+      <div class="grammar-example">
+        <strong>몇 시에 회사에 가요?</strong>
+        <br>
+        À quelle heure tu vas au travail ?
+      </div>
+
+    </div>
+
+    <p>
+      Quand on dit l'heure d'une action,
+      on ajoute souvent <strong>에</strong>
+      après l'heure.
+    </p>
+
+    <div class="grammar-box">
+
+      <div class="grammar-example">
+        <strong>일곱 시에 일어나요.</strong>
+        <br>
+        Je me lève à 7 h.
+      </div>
+
+      <div class="grammar-example">
+        <strong>여덟 시에 회사에 가요.</strong>
+        <br>
+        Je vais au travail à 8 h.
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="lesson-card">
+
+    <h2>
+      💬 7. Dialogue — On organise la journée
+    </h2>
+
+    <p>
+      Min-su demande à Hana
+      à quelle heure elle commence sa journée.
+    </p>
+
+    <div class="dialogue">
+
+      <div class="dialogue-line minsu">
+        <div class="speaker">
+          💙 Min-su
+        </div>
+
+        <div class="dialogue-korean">
+          지금 몇 시예요?
+        </div>
+
+        <div class="dialogue-french">
+          Quelle heure est-il maintenant ?
+        </div>
+      </div>
+
+
+      <div class="dialogue-line hana">
+        <div class="speaker">
+          🌸 Hana
+        </div>
+
+        <div class="dialogue-korean">
+          일곱 시예요.
+        </div>
+
+        <div class="dialogue-french">
+          Il est 7 h.
+        </div>
+      </div>
+
+
+      <div class="dialogue-line minsu">
+        <div class="speaker">
+          💙 Min-su
+        </div>
+
+        <div class="dialogue-korean">
+          몇 시에 일어나요?
+        </div>
+
+        <div class="dialogue-french">
+          À quelle heure tu te lèves ?
+        </div>
+      </div>
+
+
+      <div class="dialogue-line hana">
+        <div class="speaker">
+          🌸 Hana
+        </div>
+
+        <div class="dialogue-korean">
+          오전 일곱 시에 일어나요.
+        </div>
+
+        <div class="dialogue-french">
+          Je me lève à 7 h du matin.
+        </div>
+      </div>
+
+
+      <div class="dialogue-line minsu">
+        <div class="speaker">
+          💙 Min-su
+        </div>
+
+        <div class="dialogue-korean">
+          몇 시에 회사에 가요?
+        </div>
+
+        <div class="dialogue-french">
+          À quelle heure tu vas au travail ?
+        </div>
+      </div>
+
+
+      <div class="dialogue-line hana">
+        <div class="speaker">
+          🌸 Hana
+        </div>
+
+        <div class="dialogue-korean">
+          여덟 시에 회사에 가요.
+        </div>
+
+        <div class="dialogue-french">
+          Je vais au travail à 8 h.
+        </div>
+      </div>
+
+
+      <div class="dialogue-line minsu">
+        <div class="speaker">
+          💙 Min-su
+        </div>
+
+        <div class="dialogue-korean">
+          저녁에는 몇 시에 공부해요?
+        </div>
+
+        <div class="dialogue-french">
+          Et le soir, à quelle heure tu étudies ?
+        </div>
+      </div>
+
+
+      <div class="dialogue-line hana">
+        <div class="speaker">
+          🌸 Hana
+        </div>
+
+        <div class="dialogue-korean">
+          오후 일곱 시 반에 공부해요.
+        </div>
+
+        <div class="dialogue-french">
+          J'étudie à 19 h 30.
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="note-card">
+
+    <strong>🌿 Important</strong>
+
+    <br><br>
+
+    Pour les heures,
+    retiens surtout les formes
+    <strong>한 시, 두 시, 세 시, 네 시</strong>.
+
+    <br><br>
+
+    Nous n'introduisons pas encore les minutes détaillées.
+    Pour l'instant, on utilise les heures pleines
+    et <strong>반</strong> pour « et demie ».
+
+  </section>
+
+
+  <section class="lesson-card">
+
+    <h2>
+      🧠 8. À retenir
+    </h2>
+
+    <div class="recap-line">
+      🕒 <strong>몇 시예요?</strong> → Quelle heure est-il ?
+    </div>
+
+    <div class="recap-line">
+      1️⃣ <strong>한 시예요.</strong> → Il est 1 h.
+    </div>
+
+    <div class="recap-line">
+      2️⃣ <strong>두 시예요.</strong> → Il est 2 h.
+    </div>
+
+    <div class="recap-line">
+      🌓 <strong>두 시 반이에요.</strong> → Il est 2 h 30.
+    </div>
+
+    <div class="recap-line">
+      🌅 <strong>오전</strong> → matin / AM
+    </div>
+
+    <div class="recap-line">
+      🌇 <strong>오후</strong> → après-midi / PM
+    </div>
+
+    <div class="recap-line">
+      ❓ <strong>몇 시에 일어나요?</strong> → À quelle heure tu te lèves ?
+    </div>
+
+    <div class="recap-line">
+      ☀️ <strong>일곱 시에 일어나요.</strong> → Je me lève à 7 h.
+    </div>
+
+  </section>
+
+
+  <button
+    class="complete-button"
+    id="completeButton"
+    type="button"
+    onclick="completeUnderstanding()"
+  >
+    ✅ J'ai compris
+  </button>
+
+
+  <button
+    class="next-button"
+    id="nextButton"
+    type="button"
+    onclick="window.location.href='ecoute-8.html'"
+  >
+    🎧 Passer à « J'écoute »
+  </button>
+
+
+  <button
+    class="back-home-button"
+    type="button"
+    onclick="window.location.href='itineraire.html'"
+  >
+    Retour à l'itinéraire
+  </button>
+
+</main>
+
+
+<script>
+  function completeUnderstanding() {
+
+    localStorage.setItem(
+      "hanaKorean_chapter8_understanding",
+      "completed"
+    );
+
+
+    const completeButton =
+      document.getElementById(
+        "completeButton"
+      );
+
+
+    completeButton.textContent =
+      "✅ Compréhension validée";
+
+
+    completeButton.classList.add(
+      "done"
+    );
+
+
+    completeButton.disabled =
+      true;
+
+
+    document.getElementById(
+      "nextButton"
+    ).style.display =
+      "block";
+
+
+    window.scrollTo({
+      top: document.body.scrollHeight,
+      behavior: "smooth"
+    });
+
+  }
+
+
+  const understandingCompleted =
+    localStorage.getItem(
+      "hanaKorean_chapter8_understanding"
+    ) ===
+    "completed";
+
+
+  if (understandingCompleted) {
+
+    const completeButton =
+      document.getElementById(
+        "completeButton"
+      );
+
+
+    completeButton.textContent =
+      "✅ Compréhension validée";
+
+
+    completeButton.classList.add(
+      "done"
+    );
+
+
+    completeButton.disabled =
+      true;
+
+
+    document.getElementById(
+      "nextButton"
+    ).style.display =
+      "block";
+
+  }
+</script>
+
+</body>
+
+</html>

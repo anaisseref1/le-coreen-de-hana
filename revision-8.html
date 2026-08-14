@@ -1,0 +1,1478 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="theme-color"
+    content="#F7F4ED"
+  >
+
+  <title>Je révise — Chapitre 8</title>
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
+  <style>
+    .review-header {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .chapter-badge {
+      display: inline-block;
+      padding: 7px 14px;
+      margin-bottom: 10px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .review-header p {
+      line-height: 1.7;
+    }
+
+    .review-progress {
+      margin-bottom: 22px;
+    }
+
+    .progress-info {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      color: var(--text-light);
+      font-size: 13px;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 9px;
+      background: var(--soft-beige);
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      width: 16.67%;
+      height: 100%;
+      background: var(--jade);
+      border-radius: 20px;
+      transition: width 0.3s ease;
+    }
+
+    .review-card {
+      padding: 20px;
+      margin-bottom: 18px;
+      background: var(--white);
+      border-radius: var(--radius-large);
+      box-shadow: var(--shadow);
+    }
+
+    .question-number {
+      margin-top: 0;
+      color: var(--jade-dark);
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .review-card h2 {
+      margin-top: 8px;
+      color: var(--navy);
+    }
+
+    .prompt {
+      line-height: 1.7;
+    }
+
+    .answers {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    .answer {
+      width: 100%;
+      padding: 15px;
+      text-align: left;
+      border: 2px solid transparent;
+    }
+
+    .answer-input {
+      width: 100%;
+      margin-top: 14px;
+      padding: 15px;
+      box-sizing: border-box;
+      border: 2px solid var(--border);
+      border-radius: var(--radius-medium);
+      background: #FBFAF6;
+      color: var(--navy);
+      font-size: 20px;
+    }
+
+    .answer-input:focus {
+      outline: none;
+      border-color: var(--jade);
+    }
+
+    .validate-button {
+      width: 100%;
+      margin-top: 10px;
+      background: var(--jade);
+      color: white;
+      font-weight: bold;
+    }
+
+    .audio-button {
+      width: 100%;
+      margin-top: 12px;
+      background: var(--soft-blue);
+      color: var(--navy);
+      font-weight: bold;
+    }
+
+    .slow-button {
+      width: 100%;
+      margin-top: 8px;
+      background: var(--soft-beige);
+      color: var(--navy);
+    }
+
+    .feedback {
+      display: none;
+      padding: 15px;
+      margin-top: 14px;
+      border-radius: var(--radius-medium);
+      line-height: 1.7;
+    }
+
+    .feedback.correct {
+      display: block;
+      background: var(--success-light);
+      border-left: 4px solid var(--success);
+    }
+
+    .feedback.wrong {
+      display: block;
+      background: var(--warning-light);
+      border-left: 4px solid var(--warning);
+    }
+
+    .hint-box {
+      margin-top: 10px;
+      padding: 12px;
+      background: rgba(255, 255, 255, 0.65);
+      border-radius: var(--radius-small);
+    }
+
+    .next-question {
+      display: none;
+      width: 100%;
+      margin-top: 12px;
+      background: var(--navy);
+      color: white;
+      font-weight: bold;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .result-card {
+      display: none;
+      padding: 25px;
+      background: var(--white);
+      border-radius: var(--radius-large);
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+
+    .result-icon {
+      font-size: 60px;
+    }
+
+    .result-score {
+      color: var(--jade-dark);
+      font-size: 21px;
+      font-weight: bold;
+    }
+
+    .result-summary {
+      padding: 16px;
+      margin-top: 18px;
+      background: #FBFAF6;
+      border-radius: var(--radius-medium);
+      text-align: left;
+      line-height: 1.6;
+    }
+
+    .weak-box {
+      padding: 16px;
+      margin-top: 18px;
+      background: var(--soft-green);
+      border-radius: var(--radius-medium);
+      color: var(--navy);
+      text-align: left;
+      line-height: 1.7;
+    }
+
+    .skills-summary {
+      margin-top: 18px;
+      text-align: left;
+    }
+
+    .skill-line {
+      padding: 11px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .skill-line:last-child {
+      border-bottom: none;
+    }
+
+    .next-step-button {
+      width: 100%;
+      margin-top: 18px;
+      background: var(--jade);
+      color: white;
+      font-weight: bold;
+    }
+
+    .chapter-button {
+      width: 100%;
+      margin-top: 10px;
+      background: var(--soft-beige);
+      color: var(--navy);
+    }
+  </style>
+</head>
+
+<body>
+
+<main class="app">
+
+  <a
+    class="back-link"
+    href="chapitre-8.html"
+  >
+    ← Chapitre 8
+  </a>
+
+
+  <header class="review-header">
+
+    <span class="chapter-badge">
+      Chapitre 8 · Révision
+    </span>
+
+    <p class="korean">
+      복습해 봐요 🧠
+    </p>
+
+    <h1>
+      Je révise
+    </h1>
+
+    <p>
+      Mélange les heures,
+      les questions
+      et les expressions de routine vues dans les chapitres 7 et 8.
+    </p>
+
+  </header>
+
+
+  <div class="review-progress">
+
+    <div class="progress-info">
+      <span>Révision</span>
+      <span id="progressLabel">1 / 6</span>
+    </div>
+
+    <div class="progress-bar">
+      <div
+        class="progress-fill"
+        id="progressFill"
+      ></div>
+    </div>
+
+  </div>
+
+
+  <!-- QUESTION 1 -->
+
+  <section
+    class="review-card"
+    id="question1"
+  >
+
+    <p class="question-number">
+      Question 1 / 6
+    </p>
+
+    <h2>
+      ❓ Que signifie 몇 시예요?
+    </h2>
+
+    <div class="answers">
+
+      <button
+        class="answer"
+        type="button"
+        onclick="checkChoice(1, this, true, '몇 시예요')"
+      >
+        Quelle heure est-il ?
+      </button>
+
+      <button
+        class="answer"
+        type="button"
+        onclick="checkChoice(1, this, false, '몇 시예요')"
+      >
+        À quelle heure tu te lèves ?
+      </button>
+
+      <button
+        class="answer"
+        type="button"
+        onclick="checkChoice(1, this, false, '몇 시예요')"
+      >
+        Où est-ce que tu vas ?
+      </button>
+
+    </div>
+
+    <div
+      class="feedback"
+      id="feedback1"
+    ></div>
+
+    <button
+      class="next-question"
+      id="next1"
+      type="button"
+      onclick="showQuestion(2)"
+    >
+      Question suivante →
+    </button>
+
+  </section>
+
+
+  <!-- QUESTION 2 -->
+
+  <section
+    class="review-card hidden"
+    id="question2"
+  >
+
+    <p class="question-number">
+      Question 2 / 6
+    </p>
+
+    <h2>
+      🕓 Quelle forme signifie « 4 h » ?
+    </h2>
+
+    <div class="answers">
+
+      <button
+        class="answer"
+        type="button"
+        onclick="checkChoice(2, this, false, '네 시')"
+      >
+        넷 시
+      </button>
+
+      <button
+        class="answer"
+        type="button"
+        onclick="checkChoice(2, this, true, '네 시')"
+      >
+        네 시
+      </button>
+
+      <button
+        class="answer"
+        type="button"
+        onclick="checkChoice(2, this, false, '네 시')"
+      >
+        사 시
+      </button>
+
+    </div>
+
+    <div
+      class="feedback"
+      id="feedback2"
+    ></div>
+
+    <button
+      class="next-question"
+      id="next2"
+      type="button"
+      onclick="showQuestion(3)"
+    >
+      Question suivante →
+    </button>
+
+  </section>
+
+
+  <!-- QUESTION 3 -->
+
+  <section
+    class="review-card hidden"
+    id="question3"
+  >
+
+    <p class="question-number">
+      Question 3 / 6
+    </p>
+
+    <h2>
+      🌓 Écris « Il est 2 h 30. »
+    </h2>
+
+    <input
+      class="answer-input"
+      id="answer3"
+      type="text"
+      lang="ko"
+      autocomplete="off"
+      autocapitalize="off"
+      spellcheck="false"
+      placeholder="Écris en coréen"
+    >
+
+    <button
+      class="validate-button"
+      type="button"
+      onclick="checkText(3, ['두 시 반이에요', '지금 두 시 반이에요'], '반')"
+    >
+      Vérifier
+    </button>
+
+    <div
+      class="feedback"
+      id="feedback3"
+    ></div>
+
+    <button
+      class="next-question"
+      id="next3"
+      type="button"
+      onclick="showQuestion(4)"
+    >
+      Question suivante →
+    </button>
+
+  </section>
+
+
+  <!-- QUESTION 4 -->
+
+  <section
+    class="review-card hidden"
+    id="question4"
+  >
+
+    <p class="question-number">
+      Question 4 / 6
+    </p>
+
+    <h2>
+      🎧 Qu'entends-tu ?
+    </h2>
+
+    <p class="prompt">
+      Écoute la phrase puis choisis la bonne traduction.
+    </p>
+
+    <button
+      class="audio-button"
+      type="button"
+      onclick="speakKorean('오전 일곱 시에 일어나요.', false)"
+    >
+      🔊 Écouter
+    </button>
+
+    <button
+      class="slow-button"
+      type="button"
+      onclick="speakKorean('오전 일곱 시에 일어나요.', true)"
+    >
+      🐢 Écouter lentement
+    </button>
+
+    <div class="answers">
+
+      <button
+        class="answer"
+        type="button"
+        onclick="checkChoice(4, this, true, '오전 일곱 시에')"
+      >
+        Je me lève à 7 h du matin.
+      </button>
+
+      <button
+        class="answer"
+        type="button"
+        onclick="checkChoice(4, this, false, '오전 일곱 시에')"
+      >
+        Je vais au travail à 7 h.
+      </button>
+
+      <button
+        class="answer"
+        type="button"
+        onclick="checkChoice(4, this, false, '오전 일곱 시에')"
+      >
+        J'étudie à 19 h.
+      </button>
+
+    </div>
+
+    <div
+      class="feedback"
+      id="feedback4"
+    ></div>
+
+    <button
+      class="next-question"
+      id="next4"
+      type="button"
+      onclick="showQuestion(5)"
+    >
+      Question suivante →
+    </button>
+
+  </section>
+
+
+  <!-- QUESTION 5 -->
+
+  <section
+    class="review-card hidden"
+    id="question5"
+  >
+
+    <p class="question-number">
+      Question 5 / 6
+    </p>
+
+    <h2>
+      🌇 Que signifie 오후 ?
+    </h2>
+
+    <div class="answers">
+
+      <button
+        class="answer"
+        type="button"
+        onclick="checkChoice(5, this, false, '오후')"
+      >
+        matin / AM
+      </button>
+
+      <button
+        class="answer"
+        type="button"
+        onclick="checkChoice(5, this, true, '오후')"
+      >
+        après-midi / PM
+      </button>
+
+      <button
+        class="answer"
+        type="button"
+        onclick="checkChoice(5, this, false, '오후')"
+      >
+        tous les jours
+      </button>
+
+    </div>
+
+    <div
+      class="feedback"
+      id="feedback5"
+    ></div>
+
+    <button
+      class="next-question"
+      id="next5"
+      type="button"
+      onclick="showQuestion(6)"
+    >
+      Dernière question →
+    </button>
+
+  </section>
+
+
+  <!-- QUESTION 6 -->
+
+  <section
+    class="review-card hidden"
+    id="question6"
+  >
+
+    <p class="question-number">
+      Question 6 / 6
+    </p>
+
+    <h2>
+      🏢 Écris « Je vais au travail à 8 h. »
+    </h2>
+
+    <p class="prompt">
+      Réutilise le chapitre 7 avec une heure précise.
+    </p>
+
+    <input
+      class="answer-input"
+      id="answer6"
+      type="text"
+      lang="ko"
+      autocomplete="off"
+      autocapitalize="off"
+      spellcheck="false"
+      placeholder="Écris en coréen"
+    >
+
+    <button
+      class="validate-button"
+      type="button"
+      onclick="checkText(6, ['여덟 시에 회사에 가요', '저는 여덟 시에 회사에 가요'], '여덟 시에')"
+    >
+      Vérifier
+    </button>
+
+    <div
+      class="feedback"
+      id="feedback6"
+    ></div>
+
+    <button
+      class="next-question"
+      id="next6"
+      type="button"
+      onclick="finishReview()"
+    >
+      Voir mon résultat 🌿
+    </button>
+
+  </section>
+
+
+  <!-- RÉSULTAT -->
+
+  <section
+    class="result-card"
+    id="resultCard"
+  >
+
+    <div class="result-icon">
+      🧠🕒
+    </div>
+
+    <h2>
+      잘했어요!
+    </h2>
+
+    <p>
+      Tu as terminé la révision du chapitre 8.
+    </p>
+
+    <p class="result-score">
+      6 notions validées ✅
+    </p>
+
+
+    <div class="result-summary">
+
+      <strong>
+        📊 Ta séance
+      </strong>
+
+      <p id="sessionSummary"></p>
+
+    </div>
+
+
+    <div
+      class="weak-box"
+      id="weakBox"
+    ></div>
+
+
+    <div class="skills-summary">
+
+      <div class="skill-line">
+        ❓ <strong>몇 시예요?</strong>
+      </div>
+
+      <div class="skill-line">
+        🕓 <strong>네 시</strong>
+      </div>
+
+      <div class="skill-line">
+        🌓 <strong>두 시 반이에요.</strong>
+      </div>
+
+      <div class="skill-line">
+        🌅 <strong>오전 일곱 시에 일어나요.</strong>
+      </div>
+
+      <div class="skill-line">
+        🌇 <strong>오후</strong>
+      </div>
+
+      <div class="skill-line">
+        🏢 <strong>여덟 시에 회사에 가요.</strong>
+      </div>
+
+    </div>
+
+
+    <button
+      class="next-step-button"
+      type="button"
+      onclick="window.location.href='utilise-8.html'"
+    >
+      🎯 Passer à « Je l'utilise »
+    </button>
+
+
+    <button
+      class="chapter-button"
+      type="button"
+      onclick="window.location.href='chapitre-8.html'"
+    >
+      Retour au chapitre
+    </button>
+
+  </section>
+
+</main>
+
+
+<script>
+  const completedQuestions = {
+    1: false,
+    2: false,
+    3: false,
+    4: false,
+    5: false,
+    6: false
+  };
+
+
+  let incorrectAttempts = 0;
+
+
+  const weakNotions = new Set();
+
+
+  function normalizeKorean(text) {
+
+    return text
+      .trim()
+      .replace(/[.!?。！？,，]/g, "")
+      .replace(/\s+/g, "");
+
+  }
+
+
+  function getKoreanVoice() {
+
+    const voices =
+      window.speechSynthesis.getVoices();
+
+
+    return voices.find(
+      voice =>
+        voice.lang &&
+        voice.lang
+          .toLowerCase()
+          .startsWith("ko")
+    );
+
+  }
+
+
+  function speakKorean(
+    text,
+    slow = false
+  ) {
+
+    if (
+      !("speechSynthesis" in window)
+    ) {
+      return;
+    }
+
+
+    window.speechSynthesis.cancel();
+
+
+    const speech =
+      new SpeechSynthesisUtterance(
+        text
+      );
+
+
+    speech.lang =
+      "ko-KR";
+
+
+    speech.rate =
+      slow
+        ? 0.25
+        : 0.82;
+
+
+    speech.pitch =
+      1;
+
+
+    const voice =
+      getKoreanVoice();
+
+
+    if (voice) {
+
+      speech.voice =
+        voice;
+
+    }
+
+
+    window.speechSynthesis.speak(
+      speech
+    );
+
+  }
+
+
+  function checkChoice(
+    number,
+    button,
+    isCorrect,
+    notion
+  ) {
+
+    if (
+      completedQuestions[number]
+    ) {
+      return;
+    }
+
+
+    const feedback =
+      document.getElementById(
+        "feedback" + number
+      );
+
+
+    const question =
+      document.getElementById(
+        "question" + number
+      );
+
+
+    if (isCorrect) {
+
+      completedQuestions[number] =
+        true;
+
+
+      button.classList.add(
+        "correct"
+      );
+
+
+      question
+        .querySelectorAll(
+          ".answer"
+        )
+        .forEach(
+          answer => {
+
+            answer.disabled =
+              true;
+
+          }
+        );
+
+
+      feedback.className =
+        "feedback correct";
+
+
+      if (number === 1) {
+
+        feedback.innerHTML =
+          "✅ <strong>Exact !</strong>" +
+          "<br><br>" +
+          "<strong>몇 시예요?</strong> signifie « Quelle heure est-il ? ».";
+
+      }
+
+
+      if (number === 2) {
+
+        feedback.innerHTML =
+          "✅ <strong>Très bien !</strong>" +
+          "<br><br>" +
+          "Devant <strong>시</strong>, 넷 devient <strong>네</strong> : <strong>네 시</strong>.";
+
+      }
+
+
+      if (number === 4) {
+
+        feedback.innerHTML =
+          "✅ <strong>Exact !</strong>" +
+          "<br><br>" +
+          "<strong>오전 일곱 시에 일어나요.</strong> = Je me lève à 7 h du matin.";
+
+      }
+
+
+      if (number === 5) {
+
+        feedback.innerHTML =
+          "✅ <strong>Très bien !</strong>" +
+          "<br><br>" +
+          "<strong>오후</strong> correspond à l'après-midi / PM.";
+
+      }
+
+
+      document.getElementById(
+        "next" + number
+      ).style.display =
+        "block";
+
+
+      return;
+
+    }
+
+
+    incorrectAttempts++;
+
+
+    weakNotions.add(
+      notion
+    );
+
+
+    button.classList.add(
+      "wrong"
+    );
+
+
+    feedback.className =
+      "feedback wrong";
+
+
+    if (number === 1) {
+
+      feedback.innerHTML =
+        "❌ <strong>Attention à la différence.</strong>" +
+        "<div class='hint-box'>" +
+        "💡 <strong>몇 시예요?</strong> demande l'heure elle-même." +
+        "</div>";
+
+    }
+
+
+    if (number === 2) {
+
+      feedback.innerHTML =
+        "❌ <strong>Devant 시, le nombre change de forme.</strong>" +
+        "<div class='hint-box'>" +
+        "💡 Pour 4 h, on dit <strong>네 시</strong>." +
+        "</div>";
+
+    }
+
+
+    if (number === 4) {
+
+      feedback.innerHTML =
+        "❌ <strong>Repère 오전, 일곱 시에 et 일어나요.</strong>" +
+        "<div class='hint-box'>" +
+        "💡 오전 = matin, 일어나요 = se lever." +
+        "</div>";
+
+    }
+
+
+    if (number === 5) {
+
+      feedback.innerHTML =
+        "❌ <strong>Revois 오전 / 오후.</strong>" +
+        "<div class='hint-box'>" +
+        "💡 <strong>오전</strong> = matin, <strong>오후</strong> = après-midi." +
+        "</div>";
+
+    }
+
+
+    setTimeout(
+      () => {
+
+        button.classList.remove(
+          "wrong"
+        );
+
+      },
+      800
+    );
+
+  }
+
+
+  function checkText(
+    number,
+    acceptedAnswers,
+    notion
+  ) {
+
+    if (
+      completedQuestions[number]
+    ) {
+      return;
+    }
+
+
+    const input =
+      document.getElementById(
+        "answer" + number
+      );
+
+
+    const feedback =
+      document.getElementById(
+        "feedback" + number
+      );
+
+
+    const value =
+      normalizeKorean(
+        input.value
+      );
+
+
+    const accepted =
+      acceptedAnswers.some(
+        answer =>
+          normalizeKorean(
+            answer
+          ) === value
+      );
+
+
+    if (accepted) {
+
+      completedQuestions[number] =
+        true;
+
+
+      feedback.className =
+        "feedback correct";
+
+
+      if (number === 3) {
+
+        feedback.innerHTML =
+          "✅ <strong>Exact !</strong>" +
+          "<br><br>" +
+          "<strong>두 시 반이에요.</strong> = Il est 2 h 30.";
+
+      }
+
+
+      if (number === 6) {
+
+        feedback.innerHTML =
+          "✅ <strong>Très bien !</strong>" +
+          "<br><br>" +
+          "<strong>여덟 시에 회사에 가요.</strong> = Je vais au travail à 8 h.";
+
+      }
+
+
+      input.disabled =
+        true;
+
+
+      document.getElementById(
+        "next" + number
+      ).style.display =
+        "block";
+
+
+      return;
+
+    }
+
+
+    incorrectAttempts++;
+
+
+    weakNotions.add(
+      notion
+    );
+
+
+    feedback.className =
+      "feedback wrong";
+
+
+    if (number === 3) {
+
+      feedback.innerHTML =
+        "❌ <strong>N'oublie pas 반.</strong>" +
+        "<div class='hint-box'>" +
+        "💡 <strong>두 시 + 반이에요</strong>" +
+        "</div>";
+
+    }
+
+
+    if (number === 6) {
+
+      feedback.innerHTML =
+        "❌ <strong>Place d'abord l'heure de l'action.</strong>" +
+        "<div class='hint-box'>" +
+        "💡 <strong>여덟 시에 + 회사에 가요</strong>" +
+        "</div>";
+
+    }
+
+  }
+
+
+  function showQuestion(number) {
+
+    if (
+      "speechSynthesis" in window
+    ) {
+      window.speechSynthesis.cancel();
+    }
+
+
+    document
+      .querySelectorAll(
+        ".review-card"
+      )
+      .forEach(
+        card => {
+
+          card.classList.add(
+            "hidden"
+          );
+
+        }
+      );
+
+
+    document.getElementById(
+      "question" + number
+    ).classList.remove(
+      "hidden"
+    );
+
+
+    const percentage =
+      (number / 6) * 100;
+
+
+    document.getElementById(
+      "progressFill"
+    ).style.width =
+      percentage +
+      "%";
+
+
+    document.getElementById(
+      "progressLabel"
+    ).textContent =
+      number +
+      " / 6";
+
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+
+
+    if (
+      number === 3 ||
+      number === 6
+    ) {
+
+      setTimeout(
+        () => {
+
+          document.getElementById(
+            "answer" + number
+          ).focus();
+
+        },
+        350
+      );
+
+    }
+
+  }
+
+
+  function finishReview() {
+
+    if (
+      "speechSynthesis" in window
+    ) {
+      window.speechSynthesis.cancel();
+    }
+
+
+    document
+      .querySelectorAll(
+        ".review-card"
+      )
+      .forEach(
+        card => {
+
+          card.classList.add(
+            "hidden"
+          );
+
+        }
+      );
+
+
+    document.getElementById(
+      "progressFill"
+    ).style.width =
+      "100%";
+
+
+    document.getElementById(
+      "progressLabel"
+    ).textContent =
+      "6 / 6";
+
+
+    document.getElementById(
+      "resultCard"
+    ).style.display =
+      "block";
+
+
+    let summary = "";
+
+
+    if (
+      incorrectAttempts === 0
+    ) {
+
+      summary =
+        "🌟 Les 6 notions ont été validées du premier coup.";
+
+    }
+
+    else if (
+      incorrectAttempts === 1
+    ) {
+
+      summary =
+        "🌿 Une seule erreur sur toute la révision.";
+
+    }
+
+    else {
+
+      summary =
+        "Tu as terminé la révision avec " +
+        incorrectAttempts +
+        " tentative(s) incorrecte(s).";
+
+    }
+
+
+    document.getElementById(
+      "sessionSummary"
+    ).textContent =
+      summary;
+
+
+    const savedWritingNotions =
+      JSON.parse(
+        localStorage.getItem(
+          "hanaKorean_chapter8_revisionNotions"
+        ) || "[]"
+      );
+
+
+    savedWritingNotions.forEach(
+      notion =>
+        weakNotions.add(
+          notion
+        )
+    );
+
+
+    const weakArray =
+      Array.from(
+        weakNotions
+      );
+
+
+    const weakBox =
+      document.getElementById(
+        "weakBox"
+      );
+
+
+    if (
+      weakArray.length === 0
+    ) {
+
+      weakBox.innerHTML =
+        "<strong>🌟 Aucune notion fragile détectée.</strong>" +
+        "<br><br>" +
+        "Tu peux passer à la mission finale.";
+
+    }
+
+    else {
+
+      weakBox.innerHTML =
+        "<strong>🌱 À revoir encore un peu :</strong>" +
+        "<br><br>" +
+        weakArray.join(" · ");
+
+    }
+
+
+    localStorage.setItem(
+      "hanaKorean_chapter8_review",
+      "completed"
+    );
+
+
+    localStorage.setItem(
+      "hanaKorean_chapter8_reviewMistakes",
+      incorrectAttempts
+    );
+
+
+    localStorage.setItem(
+      "hanaKorean_chapter8_reviewWeakNotions",
+      JSON.stringify(
+        weakArray
+      )
+    );
+
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+
+  }
+
+
+  document
+    .querySelectorAll(
+      ".answer-input"
+    )
+    .forEach(
+      input => {
+
+        input.addEventListener(
+          "keydown",
+          function(event) {
+
+            if (
+              event.key !==
+              "Enter"
+            ) {
+              return;
+            }
+
+
+            event.preventDefault();
+
+
+            if (
+              input.id ===
+              "answer3"
+            ) {
+
+              checkText(
+                3,
+                [
+                  "두 시 반이에요",
+                  "지금 두 시 반이에요"
+                ],
+                "반"
+              );
+
+            }
+
+
+            if (
+              input.id ===
+              "answer6"
+            ) {
+
+              checkText(
+                6,
+                [
+                  "여덟 시에 회사에 가요",
+                  "저는 여덟 시에 회사에 가요"
+                ],
+                "여덟 시에"
+              );
+
+            }
+
+          }
+        );
+
+      }
+    );
+
+
+  if (
+    "speechSynthesis" in window
+  ) {
+
+    window.speechSynthesis.onvoiceschanged =
+      function() {
+
+        window.speechSynthesis.getVoices();
+
+      };
+
+  }
+</script>
+
+</body>
+
+</html>

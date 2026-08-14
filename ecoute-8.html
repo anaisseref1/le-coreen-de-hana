@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#F7F4ED">
+  <title>J'écoute — Chapitre 8</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .listen-header { text-align:center; margin-bottom:28px; }
+    .chapter-badge { display:inline-block; padding:7px 14px; margin-bottom:10px; border-radius:20px; font-size:14px; font-weight:bold; }
+    .listen-header p { line-height:1.7; }
+    .goal-card { padding:18px; margin-bottom:20px; background:var(--soft-green); border-radius:var(--radius-medium); color:var(--navy); line-height:1.7; }
+    .audio-card { padding:20px; margin-bottom:18px; background:var(--white); border-radius:var(--radius-large); box-shadow:var(--shadow); }
+    .audio-card h2 { margin-top:0; color:var(--navy); }
+    .audio-card p { line-height:1.7; }
+    .expression-list { margin-top:16px; }
+    .expression-item { padding:16px; margin-bottom:10px; background:#FBFAF6; border-radius:var(--radius-medium); }
+    .expression-korean { color:var(--navy); font-size:21px; font-weight:bold; }
+    .expression-french { margin-top:5px; color:var(--text-light); line-height:1.5; }
+    .expression-actions { margin-top:10px; }
+    .expression-actions button, .line-actions button { width:100%; }
+    .expression-actions .slow, .line-actions .slow { margin-top:7px; }
+    .dialogue-controls { margin:16px 0; }
+    .dialogue-play-button { width:100%; background:var(--jade); color:white; font-weight:bold; }
+    .dialogue-play-button.playing { background:var(--error); }
+    .dialogue-slow-button { width:100%; margin-top:8px; background:var(--soft-beige); color:var(--navy); font-weight:bold; }
+    .dialogue-line { padding:15px; margin-bottom:10px; border-radius:var(--radius-medium); line-height:1.7; }
+    .dialogue-line.minsu { background:var(--soft-blue); }
+    .dialogue-line.hana { background:var(--soft-green); }
+    .speaker { font-weight:bold; margin-bottom:4px; }
+    .dialogue-korean { color:var(--navy); font-size:20px; font-weight:bold; }
+    .dialogue-french { margin-top:5px; color:var(--text-light); }
+    .line-actions { margin-top:10px; }
+    .tip-card { padding:16px; margin-bottom:18px; background:var(--soft-beige); border-radius:var(--radius-medium); color:var(--navy); line-height:1.7; }
+    .next-button { width:100%; margin-top:10px; background:var(--jade); color:white; font-weight:bold; }
+    .chapter-button { width:100%; margin-top:10px; background:var(--soft-beige); color:var(--navy); }
+  </style>
+</head>
+
+<body>
+<main class="app">
+
+  <a class="back-link" href="chapitre-8.html">← Chapitre 8</a>
+
+  <header class="listen-header">
+    <span class="chapter-badge">Chapitre 8 · Compréhension orale</span>
+    <p class="korean">몇 시예요? 🎧</p>
+    <h1>J'écoute</h1>
+    <p>Écoute les heures, les expressions utiles puis le dialogue complet entre Hana et Min-su.</p>
+  </header>
+
+  <section class="goal-card">
+    <strong>🎯 Objectif</strong><br><br>
+    Reconnaître à l'oreille les heures simples, <strong>몇 시예요?</strong>,
+    <strong>반</strong>, <strong>오전 / 오후</strong>
+    et comprendre à quelle heure une activité a lieu.
+  </section>
+
+  <section class="audio-card">
+    <h2>🔢 1. Écoute les heures</h2>
+
+    <div class="expression-list">
+      <div class="expression-item">
+        <div class="expression-korean">한 시</div>
+        <div class="expression-french">1 h</div>
+        <div class="expression-actions">
+          <button type="button" onclick="speakKorean('한 시','hana',false)">🔊 Écouter</button>
+          <button class="slow" type="button" onclick="speakKorean('한 시','hana',true)">🐢 Écouter lentement</button>
+        </div>
+      </div>
+
+      <div class="expression-item">
+        <div class="expression-korean">두 시</div>
+        <div class="expression-french">2 h</div>
+        <div class="expression-actions">
+          <button type="button" onclick="speakKorean('두 시','hana',false)">🔊 Écouter</button>
+          <button class="slow" type="button" onclick="speakKorean('두 시','hana',true)">🐢 Écouter lentement</button>
+        </div>
+      </div>
+
+      <div class="expression-item">
+        <div class="expression-korean">세 시</div>
+        <div class="expression-french">3 h</div>
+        <div class="expression-actions">
+          <button type="button" onclick="speakKorean('세 시','hana',false)">🔊 Écouter</button>
+          <button class="slow" type="button" onclick="speakKorean('세 시','hana',true)">🐢 Écouter lentement</button>
+        </div>
+      </div>
+
+      <div class="expression-item">
+        <div class="expression-korean">네 시</div>
+        <div class="expression-french">4 h</div>
+        <div class="expression-actions">
+          <button type="button" onclick="speakKorean('네 시','hana',false)">🔊 Écouter</button>
+          <button class="slow" type="button" onclick="speakKorean('네 시','hana',true)">🐢 Écouter lentement</button>
+        </div>
+      </div>
+
+      <div class="expression-item">
+        <div class="expression-korean">일곱 시</div>
+        <div class="expression-french">7 h</div>
+        <div class="expression-actions">
+          <button type="button" onclick="speakKorean('일곱 시','hana',false)">🔊 Écouter</button>
+          <button class="slow" type="button" onclick="speakKorean('일곱 시','hana',true)">🐢 Écouter lentement</button>
+        </div>
+      </div>
+
+      <div class="expression-item">
+        <div class="expression-korean">여덟 시</div>
+        <div class="expression-french">8 h</div>
+        <div class="expression-actions">
+          <button type="button" onclick="speakKorean('여덟 시','hana',false)">🔊 Écouter</button>
+          <button class="slow" type="button" onclick="speakKorean('여덟 시','hana',true)">🐢 Écouter lentement</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="audio-card">
+    <h2>🕒 2. Écoute les expressions utiles</h2>
+
+    <div class="expression-list">
+      <div class="expression-item">
+        <div class="expression-korean">몇 시예요?</div>
+        <div class="expression-french">Quelle heure est-il ?</div>
+        <div class="expression-actions">
+          <button type="button" onclick="speakKorean('몇 시예요?','minsu',false)">🔊 Écouter</button>
+          <button class="slow" type="button" onclick="speakKorean('몇 시예요?','minsu',true)">🐢 Écouter lentement</button>
+        </div>
+      </div>
+
+      <div class="expression-item">
+        <div class="expression-korean">두 시 반이에요.</div>
+        <div class="expression-french">Il est 2 h 30.</div>
+        <div class="expression-actions">
+          <button type="button" onclick="speakKorean('두 시 반이에요.','hana',false)">🔊 Écouter</button>
+          <button class="slow" type="button" onclick="speakKorean('두 시 반이에요.','hana',true)">🐢 Écouter lentement</button>
+        </div>
+      </div>
+
+      <div class="expression-item">
+        <div class="expression-korean">오전 일곱 시예요.</div>
+        <div class="expression-french">Il est 7 h du matin.</div>
+        <div class="expression-actions">
+          <button type="button" onclick="speakKorean('오전 일곱 시예요.','hana',false)">🔊 Écouter</button>
+          <button class="slow" type="button" onclick="speakKorean('오전 일곱 시예요.','hana',true)">🐢 Écouter lentement</button>
+        </div>
+      </div>
+
+      <div class="expression-item">
+        <div class="expression-korean">오후 세 시예요.</div>
+        <div class="expression-french">Il est 3 h de l'après-midi.</div>
+        <div class="expression-actions">
+          <button type="button" onclick="speakKorean('오후 세 시예요.','hana',false)">🔊 Écouter</button>
+          <button class="slow" type="button" onclick="speakKorean('오후 세 시예요.','hana',true)">🐢 Écouter lentement</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="audio-card">
+    <h2>📅 3. Écoute « à quelle heure ? »</h2>
+
+    <div class="expression-list">
+      <div class="expression-item">
+        <div class="expression-korean">몇 시에 일어나요?</div>
+        <div class="expression-french">À quelle heure tu te lèves ?</div>
+        <div class="expression-actions">
+          <button type="button" onclick="speakKorean('몇 시에 일어나요?','minsu',false)">🔊 Écouter</button>
+          <button class="slow" type="button" onclick="speakKorean('몇 시에 일어나요?','minsu',true)">🐢 Écouter lentement</button>
+        </div>
+      </div>
+
+      <div class="expression-item">
+        <div class="expression-korean">일곱 시에 일어나요.</div>
+        <div class="expression-french">Je me lève à 7 h.</div>
+        <div class="expression-actions">
+          <button type="button" onclick="speakKorean('일곱 시에 일어나요.','hana',false)">🔊 Écouter</button>
+          <button class="slow" type="button" onclick="speakKorean('일곱 시에 일어나요.','hana',true)">🐢 Écouter lentement</button>
+        </div>
+      </div>
+
+      <div class="expression-item">
+        <div class="expression-korean">몇 시에 회사에 가요?</div>
+        <div class="expression-french">À quelle heure tu vas au travail ?</div>
+        <div class="expression-actions">
+          <button type="button" onclick="speakKorean('몇 시에 회사에 가요?','minsu',false)">🔊 Écouter</button>
+          <button class="slow" type="button" onclick="speakKorean('몇 시에 회사에 가요?','minsu',true)">🐢 Écouter lentement</button>
+        </div>
+      </div>
+
+      <div class="expression-item">
+        <div class="expression-korean">여덟 시에 회사에 가요.</div>
+        <div class="expression-french">Je vais au travail à 8 h.</div>
+        <div class="expression-actions">
+          <button type="button" onclick="speakKorean('여덟 시에 회사에 가요.','hana',false)">🔊 Écouter</button>
+          <button class="slow" type="button" onclick="speakKorean('여덟 시에 회사에 가요.','hana',true)">🐢 Écouter lentement</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="audio-card">
+    <h2>💬 4. Dialogue — On organise la journée</h2>
+
+    <p>
+      Écoute le dialogue complet, puis réécoute chaque phrase séparément si nécessaire.
+    </p>
+
+    <div class="dialogue-controls">
+      <button
+        class="dialogue-play-button"
+        id="dialogueButton"
+        type="button"
+        onclick="toggleDialogue(false)"
+      >
+        🎧 Écouter tout le dialogue
+      </button>
+
+      <button
+        class="dialogue-slow-button"
+        type="button"
+        onclick="toggleDialogue(true)"
+      >
+        🐢 Écouter tout lentement
+      </button>
+    </div>
+
+    <div class="dialogue-line minsu">
+      <div class="speaker">💙 Min-su</div>
+      <div class="dialogue-korean">지금 몇 시예요?</div>
+      <div class="dialogue-french">Quelle heure est-il maintenant ?</div>
+      <div class="line-actions">
+        <button type="button" onclick="speakKorean('지금 몇 시예요?','minsu',false)">🔊 Écouter Min-su</button>
+        <button class="slow" type="button" onclick="speakKorean('지금 몇 시예요?','minsu',true)">🐢 Lentement</button>
+      </div>
+    </div>
+
+    <div class="dialogue-line hana">
+      <div class="speaker">🌸 Hana</div>
+      <div class="dialogue-korean">일곱 시예요.</div>
+      <div class="dialogue-french">Il est 7 h.</div>
+      <div class="line-actions">
+        <button type="button" onclick="speakKorean('일곱 시예요.','hana',false)">🔊 Écouter Hana</button>
+        <button class="slow" type="button" onclick="speakKorean('일곱 시예요.','hana',true)">🐢 Lentement</button>
+      </div>
+    </div>
+
+    <div class="dialogue-line minsu">
+      <div class="speaker">💙 Min-su</div>
+      <div class="dialogue-korean">몇 시에 일어나요?</div>
+      <div class="dialogue-french">À quelle heure tu te lèves ?</div>
+      <div class="line-actions">
+        <button type="button" onclick="speakKorean('몇 시에 일어나요?','minsu',false)">🔊 Écouter Min-su</button>
+        <button class="slow" type="button" onclick="speakKorean('몇 시에 일어나요?','minsu',true)">🐢 Lentement</button>
+      </div>
+    </div>
+
+    <div class="dialogue-line hana">
+      <div class="speaker">🌸 Hana</div>
+      <div class="dialogue-korean">오전 일곱 시에 일어나요.</div>
+      <div class="dialogue-french">Je me lève à 7 h du matin.</div>
+      <div class="line-actions">
+        <button type="button" onclick="speakKorean('오전 일곱 시에 일어나요.','hana',false)">🔊 Écouter Hana</button>
+        <button class="slow" type="button" onclick="speakKorean('오전 일곱 시에 일어나요.','hana',true)">🐢 Lentement</button>
+      </div>
+    </div>
+
+    <div class="dialogue-line minsu">
+      <div class="speaker">💙 Min-su</div>
+      <div class="dialogue-korean">몇 시에 회사에 가요?</div>
+      <div class="dialogue-french">À quelle heure tu vas au travail ?</div>
+      <div class="line-actions">
+        <button type="button" onclick="speakKorean('몇 시에 회사에 가요?','minsu',false)">🔊 Écouter Min-su</button>
+        <button class="slow" type="button" onclick="speakKorean('몇 시에 회사에 가요?','minsu',true)">🐢 Lentement</button>
+      </div>
+    </div>
+
+    <div class="dialogue-line hana">
+      <div class="speaker">🌸 Hana</div>
+      <div class="dialogue-korean">여덟 시에 회사에 가요.</div>
+      <div class="dialogue-french">Je vais au travail à 8 h.</div>
+      <div class="line-actions">
+        <button type="button" onclick="speakKorean('여덟 시에 회사에 가요.','hana',false)">🔊 Écouter Hana</button>
+        <button class="slow" type="button" onclick="speakKorean('여덟 시에 회사에 가요.','hana',true)">🐢 Lentement</button>
+      </div>
+    </div>
+
+    <div class="dialogue-line minsu">
+      <div class="speaker">💙 Min-su</div>
+      <div class="dialogue-korean">저녁에는 몇 시에 공부해요?</div>
+      <div class="dialogue-french">Et le soir, à quelle heure tu étudies ?</div>
+      <div class="line-actions">
+        <button type="button" onclick="speakKorean('저녁에는 몇 시에 공부해요?','minsu',false)">🔊 Écouter Min-su</button>
+        <button class="slow" type="button" onclick="speakKorean('저녁에는 몇 시에 공부해요?','minsu',true)">🐢 Lentement</button>
+      </div>
+    </div>
+
+    <div class="dialogue-line hana">
+      <div class="speaker">🌸 Hana</div>
+      <div class="dialogue-korean">오후 일곱 시 반에 공부해요.</div>
+      <div class="dialogue-french">J'étudie à 19 h 30.</div>
+      <div class="line-actions">
+        <button type="button" onclick="speakKorean('오후 일곱 시 반에 공부해요.','hana',false)">🔊 Écouter Hana</button>
+        <button class="slow" type="button" onclick="speakKorean('오후 일곱 시 반에 공부해요.','hana',true)">🐢 Lentement</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="tip-card">
+    <strong>👂 Astuce d'écoute</strong><br><br>
+    Pour comprendre une heure, repère d'abord le nombre puis <strong>시</strong>.
+    <br><br>
+    Si tu entends <strong>반</strong>, cela signifie « et demie ».
+    Et si tu entends <strong>몇 시에</strong>, on te demande « à quelle heure ? ».
+  </section>
+
+  <button
+    class="next-button"
+    type="button"
+    onclick="goToListeningExercise()"
+  >
+    🎧 Faire le mini défi d'écoute
+  </button>
+
+  <button
+    class="chapter-button"
+    type="button"
+    onclick="window.location.href='chapitre-8.html'"
+  >
+    Retour au chapitre
+  </button>
+
+</main>
+
+<script>
+  const AUDIO_SETTINGS = {
+    normalRate: 0.82,
+    slowRate: 0.25
+  };
+
+  const dialogueLines = [
+    { character: "minsu", text: "지금 몇 시예요?" },
+    { character: "hana", text: "일곱 시예요." },
+    { character: "minsu", text: "몇 시에 일어나요?" },
+    { character: "hana", text: "오전 일곱 시에 일어나요." },
+    { character: "minsu", text: "몇 시에 회사에 가요?" },
+    { character: "hana", text: "여덟 시에 회사에 가요." },
+    { character: "minsu", text: "저녁에는 몇 시에 공부해요?" },
+    { character: "hana", text: "오후 일곱 시 반에 공부해요." }
+  ];
+
+  let dialogueSessionId = 0;
+  let dialoguePlaying = false;
+
+  function getKoreanVoice() {
+    const voices = window.speechSynthesis.getVoices();
+
+    return voices.find(
+      voice =>
+        voice.lang &&
+        voice.lang.toLowerCase().startsWith("ko")
+    );
+  }
+
+  function getCharacterSettings(character, slow) {
+    return {
+      rate: slow
+        ? AUDIO_SETTINGS.slowRate
+        : AUDIO_SETTINGS.normalRate,
+      pitch: 1
+    };
+  }
+
+  function speakKorean(text, character = "hana", slow = false) {
+    if (!("speechSynthesis" in window)) {
+      return;
+    }
+
+    stopDialogue();
+
+    const speech = new SpeechSynthesisUtterance(text);
+    const settings = getCharacterSettings(character, slow);
+
+    speech.lang = "ko-KR";
+    speech.rate = settings.rate;
+    speech.pitch = settings.pitch;
+
+    const koreanVoice = getKoreanVoice();
+
+    if (koreanVoice) {
+      speech.voice = koreanVoice;
+    }
+
+    window.speechSynthesis.speak(speech);
+  }
+
+  function toggleDialogue(slow) {
+    if (dialoguePlaying) {
+      stopDialogue();
+      return;
+    }
+
+    playDialogue(slow);
+  }
+
+  function playDialogue(slow) {
+    if (!("speechSynthesis" in window)) {
+      return;
+    }
+
+    window.speechSynthesis.cancel();
+
+    dialogueSessionId++;
+
+    const sessionId = dialogueSessionId;
+
+    dialoguePlaying = true;
+    updateDialogueButton();
+    playDialogueLine(0, slow, sessionId);
+  }
+
+  function playDialogueLine(index, slow, sessionId) {
+    if (sessionId !== dialogueSessionId) {
+      return;
+    }
+
+    if (index >= dialogueLines.length) {
+      dialoguePlaying = false;
+      updateDialogueButton();
+      return;
+    }
+
+    const line = dialogueLines[index];
+    const speech = new SpeechSynthesisUtterance(line.text);
+    const settings = getCharacterSettings(line.character, slow);
+
+    speech.lang = "ko-KR";
+    speech.rate = settings.rate;
+    speech.pitch = settings.pitch;
+
+    const koreanVoice = getKoreanVoice();
+
+    if (koreanVoice) {
+      speech.voice = koreanVoice;
+    }
+
+    speech.onend = function () {
+      if (sessionId !== dialogueSessionId) {
+        return;
+      }
+
+      setTimeout(
+        () => playDialogueLine(index + 1, slow, sessionId),
+        240
+      );
+    };
+
+    speech.onerror = function () {
+      if (sessionId === dialogueSessionId) {
+        dialoguePlaying = false;
+        updateDialogueButton();
+      }
+    };
+
+    window.speechSynthesis.speak(speech);
+  }
+
+  function stopDialogue() {
+    dialogueSessionId++;
+    dialoguePlaying = false;
+
+    if ("speechSynthesis" in window) {
+      window.speechSynthesis.cancel();
+    }
+
+    updateDialogueButton();
+  }
+
+  function updateDialogueButton() {
+    const button = document.getElementById("dialogueButton");
+
+    if (!button) {
+      return;
+    }
+
+    if (dialoguePlaying) {
+      button.textContent = "⏹️ Stopper le dialogue";
+      button.classList.add("playing");
+    } else {
+      button.textContent = "🎧 Écouter tout le dialogue";
+      button.classList.remove("playing");
+    }
+  }
+
+  function goToListeningExercise() {
+    stopDialogue();
+    window.location.href = "exercice-ecoute-8.html";
+  }
+
+  if ("speechSynthesis" in window) {
+    window.speechSynthesis.onvoiceschanged = function () {
+      window.speechSynthesis.getVoices();
+    };
+  }
+
+  window.addEventListener("pagehide", stopDialogue);
+</script>
+
+</body>
+</html>
