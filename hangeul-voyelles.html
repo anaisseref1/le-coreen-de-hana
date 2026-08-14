@@ -1,0 +1,1504 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="theme-color"
+    content="#F7F4ED"
+  >
+
+  <title>Les voyelles — Hangeul</title>
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
+  <style>
+    .lesson-header {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .lesson-badge {
+      display: inline-block;
+      padding: 7px 14px;
+      margin-bottom: 10px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .lesson-subtitle {
+      color: var(--text-light);
+      line-height: 1.7;
+    }
+
+    .intro-card,
+    .section-card,
+    .tip-card,
+    .quiz-card,
+    .result-card {
+      padding: 20px;
+      margin-bottom: 18px;
+      background: var(--white);
+      border-radius: var(--radius-large);
+      box-shadow: var(--shadow);
+    }
+
+    .intro-card {
+      background: var(--soft-green);
+      color: var(--navy);
+      line-height: 1.7;
+    }
+
+    .section-card h2,
+    .quiz-card h2 {
+      margin-top: 0;
+      color: var(--navy);
+    }
+
+    .section-card p,
+    .quiz-card p {
+      line-height: 1.7;
+    }
+
+    .vowel-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .vowel-card {
+      padding: 16px;
+      background: #FBFAF6;
+      border-radius: var(--radius-medium);
+    }
+
+    .vowel-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .vowel-letter {
+      color: var(--navy);
+      font-size: 38px;
+      font-weight: bold;
+    }
+
+    .vowel-name {
+      color: var(--jade-dark);
+      font-weight: bold;
+    }
+
+    .vowel-sound {
+      margin-top: 8px;
+      line-height: 1.6;
+    }
+
+    .vowel-example {
+      margin-top: 8px;
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+
+    .audio-button {
+      width: 100%;
+      margin-top: 12px;
+      background: var(--soft-blue);
+      color: var(--navy);
+    }
+
+    .pattern-box {
+      padding: 16px;
+      margin-top: 14px;
+      background: var(--soft-blue);
+      border-radius: var(--radius-medium);
+      color: var(--navy);
+      line-height: 1.7;
+    }
+
+    .compound-box {
+      padding: 16px;
+      margin-top: 14px;
+      background: var(--soft-beige);
+      border-radius: var(--radius-medium);
+      color: var(--navy);
+      line-height: 1.7;
+    }
+
+    .tip-card {
+      background: var(--soft-beige);
+      color: var(--navy);
+      line-height: 1.7;
+    }
+
+    .quiz-progress {
+      margin-bottom: 18px;
+    }
+
+    .progress-info {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      color: var(--text-light);
+      font-size: 13px;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 9px;
+      overflow: hidden;
+      background: var(--soft-beige);
+      border-radius: 20px;
+    }
+
+    .progress-fill {
+      width: 20%;
+      height: 100%;
+      background: var(--jade);
+      border-radius: 20px;
+      transition: width 0.3s ease;
+    }
+
+    .quiz-question {
+      padding: 18px;
+      margin: 14px 0;
+      background: #FBFAF6;
+      border-radius: var(--radius-medium);
+      color: var(--navy);
+      font-size: 20px;
+      font-weight: bold;
+      line-height: 1.6;
+    }
+
+    .answers {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .answer {
+      width: 100%;
+      padding: 15px;
+      text-align: left;
+      border: 2px solid transparent;
+    }
+
+    .feedback {
+      display: none;
+      padding: 15px;
+      margin-top: 14px;
+      border-radius: var(--radius-medium);
+      line-height: 1.7;
+    }
+
+    .feedback.show {
+      display: block;
+    }
+
+    .next-question {
+      display: none;
+      width: 100%;
+      margin-top: 12px;
+      background: var(--navy);
+      color: white;
+      font-weight: bold;
+    }
+
+    .next-question.show {
+      display: block;
+    }
+
+    .result-card {
+      display: none;
+      text-align: center;
+    }
+
+    .result-card.show {
+      display: block;
+    }
+
+    .result-icon {
+      font-size: 58px;
+    }
+
+    .summary-box {
+      padding: 16px;
+      margin-top: 18px;
+      background: #FBFAF6;
+      border-radius: var(--radius-medium);
+      text-align: left;
+      line-height: 1.7;
+    }
+
+    .finish-button,
+    .back-button {
+      width: 100%;
+    }
+
+    .finish-button {
+      margin-top: 18px;
+      background: var(--jade);
+      color: white;
+      font-weight: bold;
+    }
+
+    .back-button {
+      margin-top: 10px;
+      background: var(--soft-beige);
+      color: var(--navy);
+    }
+
+    @media (min-width: 680px) {
+      .vowel-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<main class="app">
+
+  <a
+    class="back-link"
+    href="hangeul.html"
+  >
+    ← Hangeul
+  </a>
+
+
+  <header class="lesson-header">
+
+    <span class="lesson-badge">
+      Hangeul · Étape 2
+    </span>
+
+    <p class="korean">
+      모음
+    </p>
+
+    <h1>
+      Les voyelles
+    </h1>
+
+    <p class="lesson-subtitle">
+      Apprends les voyelles simples,
+      puis découvre comment elles se combinent.
+    </p>
+
+  </header>
+
+
+  <section class="intro-card">
+
+    <strong>🌿 Avant de commencer</strong>
+
+    <br><br>
+
+    Les voyelles coréennes s'écrivent
+    à partir de traits simples.
+
+    <br><br>
+
+    Pour pouvoir les prononcer seules dans une syllabe,
+    on place souvent <strong>ㅇ</strong> devant elles.
+
+    <br><br>
+
+    Exemple :
+
+    <br>
+
+    <strong>ㅏ → 아</strong>
+
+    <br><br>
+
+    Ici, <strong>ㅇ</strong> est silencieux :
+    on entend uniquement la voyelle.
+
+  </section>
+
+
+  <section class="section-card">
+
+    <h2>
+      🔤 1. Les 6 voyelles essentielles
+    </h2>
+
+    <p>
+      Commence par ces six voyelles.
+      Elles servent de base pour comprendre
+      une grande partie du système.
+    </p>
+
+
+    <div class="vowel-grid">
+
+
+      <article class="vowel-card">
+
+        <div class="vowel-top">
+          <div class="vowel-letter">ㅏ</div>
+          <div class="vowel-name">a</div>
+        </div>
+
+        <div class="vowel-sound">
+          Son proche du <strong>a</strong>
+          de « papa ».
+        </div>
+
+        <div class="vowel-example">
+          Syllabe : <strong>아</strong>
+        </div>
+
+        <button
+          class="audio-button"
+          type="button"
+          onclick="speakKorean('아')"
+        >
+          🔊 Écouter 아
+        </button>
+
+      </article>
+
+
+      <article class="vowel-card">
+
+        <div class="vowel-top">
+          <div class="vowel-letter">ㅓ</div>
+          <div class="vowel-name">eo</div>
+        </div>
+
+        <div class="vowel-sound">
+          Son coréen sans équivalent exact en français.
+          Il se situe entre un <strong>o ouvert</strong>
+          et un son plus relâché.
+        </div>
+
+        <div class="vowel-example">
+          Syllabe : <strong>어</strong>
+        </div>
+
+        <button
+          class="audio-button"
+          type="button"
+          onclick="speakKorean('어')"
+        >
+          🔊 Écouter 어
+        </button>
+
+      </article>
+
+
+      <article class="vowel-card">
+
+        <div class="vowel-top">
+          <div class="vowel-letter">ㅗ</div>
+          <div class="vowel-name">o</div>
+        </div>
+
+        <div class="vowel-sound">
+          Son proche d'un <strong>o</strong>
+          assez fermé.
+        </div>
+
+        <div class="vowel-example">
+          Syllabe : <strong>오</strong>
+        </div>
+
+        <button
+          class="audio-button"
+          type="button"
+          onclick="speakKorean('오')"
+        >
+          🔊 Écouter 오
+        </button>
+
+      </article>
+
+
+      <article class="vowel-card">
+
+        <div class="vowel-top">
+          <div class="vowel-letter">ㅜ</div>
+          <div class="vowel-name">u</div>
+        </div>
+
+        <div class="vowel-sound">
+          Son proche du <strong>ou</strong>
+          français.
+        </div>
+
+        <div class="vowel-example">
+          Syllabe : <strong>우</strong>
+        </div>
+
+        <button
+          class="audio-button"
+          type="button"
+          onclick="speakKorean('우')"
+        >
+          🔊 Écouter 우
+        </button>
+
+      </article>
+
+
+      <article class="vowel-card">
+
+        <div class="vowel-top">
+          <div class="vowel-letter">ㅡ</div>
+          <div class="vowel-name">eu</div>
+        </div>
+
+        <div class="vowel-sound">
+          Son coréen sans équivalent exact en français.
+          Les lèvres restent plutôt étirées,
+          sans former un « ou ».
+        </div>
+
+        <div class="vowel-example">
+          Syllabe : <strong>으</strong>
+        </div>
+
+        <button
+          class="audio-button"
+          type="button"
+          onclick="speakKorean('으')"
+        >
+          🔊 Écouter 으
+        </button>
+
+      </article>
+
+
+      <article class="vowel-card">
+
+        <div class="vowel-top">
+          <div class="vowel-letter">ㅣ</div>
+          <div class="vowel-name">i</div>
+        </div>
+
+        <div class="vowel-sound">
+          Son proche du <strong>i</strong>
+          français.
+        </div>
+
+        <div class="vowel-example">
+          Syllabe : <strong>이</strong>
+        </div>
+
+        <button
+          class="audio-button"
+          type="button"
+          onclick="speakKorean('이')"
+        >
+          🔊 Écouter 이
+        </button>
+
+      </article>
+
+    </div>
+
+  </section>
+
+
+  <section class="section-card">
+
+    <h2>
+      🌱 2. Les voyelles avec un son « y »
+    </h2>
+
+    <p>
+      Lorsque certaines voyelles gagnent
+      un trait supplémentaire,
+      on obtient souvent un son avec <strong>y</strong>.
+    </p>
+
+    <div class="pattern-box">
+
+      <strong>ㅏ → ㅑ</strong>
+      <br>
+      a → ya
+
+      <br><br>
+
+      <strong>ㅓ → ㅕ</strong>
+      <br>
+      eo → yeo
+
+      <br><br>
+
+      <strong>ㅗ → ㅛ</strong>
+      <br>
+      o → yo
+
+      <br><br>
+
+      <strong>ㅜ → ㅠ</strong>
+      <br>
+      u → yu
+
+    </div>
+
+
+    <div class="vowel-grid">
+
+      <article class="vowel-card">
+        <div class="vowel-letter">ㅑ</div>
+        <div class="vowel-example">Syllabe : <strong>야</strong></div>
+        <button class="audio-button" type="button" onclick="speakKorean('야')">
+          🔊 Écouter 야
+        </button>
+      </article>
+
+      <article class="vowel-card">
+        <div class="vowel-letter">ㅕ</div>
+        <div class="vowel-example">Syllabe : <strong>여</strong></div>
+        <button class="audio-button" type="button" onclick="speakKorean('여')">
+          🔊 Écouter 여
+        </button>
+      </article>
+
+      <article class="vowel-card">
+        <div class="vowel-letter">ㅛ</div>
+        <div class="vowel-example">Syllabe : <strong>요</strong></div>
+        <button class="audio-button" type="button" onclick="speakKorean('요')">
+          🔊 Écouter 요
+        </button>
+      </article>
+
+      <article class="vowel-card">
+        <div class="vowel-letter">ㅠ</div>
+        <div class="vowel-example">Syllabe : <strong>유</strong></div>
+        <button class="audio-button" type="button" onclick="speakKorean('유')">
+          🔊 Écouter 유
+        </button>
+      </article>
+
+    </div>
+
+  </section>
+
+
+  <section class="section-card">
+
+    <h2>
+      💙 3. ㅐ et ㅔ
+    </h2>
+
+    <p>
+      Tu rencontreras très vite
+      <strong>ㅐ</strong> et <strong>ㅔ</strong>.
+    </p>
+
+    <div class="compound-box">
+
+      <strong>ㅐ → 애</strong>
+
+      <br>
+
+      <strong>ㅔ → 에</strong>
+
+      <br><br>
+
+      Dans le coréen moderne,
+      leur prononciation est très proche
+      chez de nombreux locuteurs.
+
+      <br><br>
+
+      Pour une débutante,
+      il est surtout important
+      de reconnaître leur écriture
+      et de savoir qu'il s'agit de deux voyelles différentes.
+
+    </div>
+
+    <button
+      class="audio-button"
+      type="button"
+      onclick="speakSequence(['애', '에'])"
+    >
+      🔊 Comparer 애 / 에
+    </button>
+
+  </section>
+
+
+  <section class="section-card">
+
+    <h2>
+      🌸 4. Les voyelles composées
+    </h2>
+
+    <p>
+      Certaines voyelles se combinent
+      pour former de nouveaux sons.
+      Tu n'as pas besoin de tout mémoriser d'un coup :
+      commence par reconnaître leur forme.
+    </p>
+
+    <div class="vowel-grid">
+
+      <article class="vowel-card">
+        <div class="vowel-letter">ㅘ</div>
+        <div class="vowel-sound">ㅗ + ㅏ → <strong>wa</strong></div>
+        <div class="vowel-example">Syllabe : <strong>와</strong></div>
+        <button class="audio-button" type="button" onclick="speakKorean('와')">
+          🔊 Écouter 와
+        </button>
+      </article>
+
+      <article class="vowel-card">
+        <div class="vowel-letter">ㅙ</div>
+        <div class="vowel-sound">ㅗ + ㅐ → <strong>wae</strong></div>
+        <div class="vowel-example">Syllabe : <strong>왜</strong></div>
+        <button class="audio-button" type="button" onclick="speakKorean('왜')">
+          🔊 Écouter 왜
+        </button>
+      </article>
+
+      <article class="vowel-card">
+        <div class="vowel-letter">ㅚ</div>
+        <div class="vowel-sound">son moderne souvent proche de <strong>we</strong></div>
+        <div class="vowel-example">Syllabe : <strong>외</strong></div>
+        <button class="audio-button" type="button" onclick="speakKorean('외')">
+          🔊 Écouter 외
+        </button>
+      </article>
+
+      <article class="vowel-card">
+        <div class="vowel-letter">ㅝ</div>
+        <div class="vowel-sound">ㅜ + ㅓ → <strong>wo</strong></div>
+        <div class="vowel-example">Syllabe : <strong>워</strong></div>
+        <button class="audio-button" type="button" onclick="speakKorean('워')">
+          🔊 Écouter 워
+        </button>
+      </article>
+
+      <article class="vowel-card">
+        <div class="vowel-letter">ㅞ</div>
+        <div class="vowel-sound">ㅜ + ㅔ → <strong>we</strong></div>
+        <div class="vowel-example">Syllabe : <strong>웨</strong></div>
+        <button class="audio-button" type="button" onclick="speakKorean('웨')">
+          🔊 Écouter 웨
+        </button>
+      </article>
+
+      <article class="vowel-card">
+        <div class="vowel-letter">ㅟ</div>
+        <div class="vowel-sound">son proche de <strong>wi</strong></div>
+        <div class="vowel-example">Syllabe : <strong>위</strong></div>
+        <button class="audio-button" type="button" onclick="speakKorean('위')">
+          🔊 Écouter 위
+        </button>
+      </article>
+
+      <article class="vowel-card">
+        <div class="vowel-letter">ㅢ</div>
+        <div class="vowel-sound">combinaison de <strong>ㅡ + ㅣ</strong></div>
+        <div class="vowel-example">Syllabe : <strong>의</strong></div>
+        <button class="audio-button" type="button" onclick="speakKorean('의')">
+          🔊 Écouter 의
+        </button>
+      </article>
+
+    </div>
+
+  </section>
+
+
+  <section class="tip-card">
+
+    <strong>
+      💙 Ce qu'il faut vraiment retenir maintenant
+    </strong>
+
+    <br><br>
+
+    Ne cherche pas encore à réciter
+    toutes les voyelles composées.
+
+    <br><br>
+
+    Commence par être très à l'aise avec :
+
+    <br><br>
+
+    <strong>ㅏ ㅓ ㅗ ㅜ ㅡ ㅣ</strong>
+
+    <br><br>
+
+    puis ajoute progressivement :
+
+    <br><br>
+
+    <strong>ㅑ ㅕ ㅛ ㅠ ㅐ ㅔ</strong>.
+
+    <br><br>
+
+    Les autres deviendront beaucoup plus faciles
+    lorsque nous apprendrons à construire les syllabes.
+
+  </section>
+
+
+  <div class="quiz-progress">
+
+    <div class="progress-info">
+      <span>Mini entraînement</span>
+      <span id="progressLabel">1 / 5</span>
+    </div>
+
+    <div class="progress-bar">
+      <div
+        class="progress-fill"
+        id="progressFill"
+      ></div>
+    </div>
+
+  </div>
+
+
+  <section
+    class="quiz-card"
+    id="quizCard"
+  >
+
+    <h2 id="quizTitle">
+      🧠 Question 1
+    </h2>
+
+    <div
+      class="quiz-question"
+      id="quizQuestion"
+    ></div>
+
+    <div
+      class="answers"
+      id="answers"
+    ></div>
+
+    <div
+      class="feedback"
+      id="feedback"
+    ></div>
+
+    <button
+      class="next-question"
+      id="nextButton"
+      type="button"
+      onclick="nextQuestion()"
+    >
+      Question suivante →
+    </button>
+
+  </section>
+
+
+  <section
+    class="result-card"
+    id="resultCard"
+  >
+
+    <div class="result-icon">
+      🔤🌿
+    </div>
+
+    <h2>
+      잘했어요!
+    </h2>
+
+    <p>
+      Tu as terminé la deuxième étape du Hangeul.
+    </p>
+
+    <div class="summary-box">
+
+      <strong>
+        🌸 À retenir
+      </strong>
+
+      <br><br>
+
+      Les six voyelles essentielles sont :
+
+      <br><br>
+
+      <strong>ㅏ ㅓ ㅗ ㅜ ㅡ ㅣ</strong>
+
+      <br><br>
+
+      Les formes
+      <strong>ㅑ ㅕ ㅛ ㅠ</strong>
+      ajoutent un son en « y ».
+
+      <br><br>
+
+      Tu as également découvert
+      <strong>ㅐ, ㅔ</strong>
+      et plusieurs voyelles composées.
+
+      <br><br>
+
+      <span id="resultText"></span>
+
+    </div>
+
+
+    <button
+      class="finish-button"
+      type="button"
+      onclick="finishLesson()"
+    >
+      ✅ Terminer cette leçon
+    </button>
+
+
+    <button
+      class="back-button"
+      type="button"
+      onclick="window.location.href='hangeul.html'"
+    >
+      Retour au Hangeul
+    </button>
+
+  </section>
+
+</main>
+
+
+<script>
+  const AUDIO_SETTINGS = {
+    normalRate: 0.82
+  };
+
+
+  const quiz = [
+
+    {
+      question:
+        "Quelle voyelle correspond au son proche de « a » ?",
+      options: [
+        {
+          text: "ㅏ",
+          correct: true
+        },
+        {
+          text: "ㅓ",
+          correct: false
+        },
+        {
+          text: "ㅡ",
+          correct: false
+        }
+      ],
+      explanation:
+        "ㅏ correspond au son a. Avec ㅇ silencieux : 아."
+    },
+
+    {
+      question:
+        "Quelle voyelle correspond au son proche de « ou » ?",
+      options: [
+        {
+          text: "ㅗ",
+          correct: false
+        },
+        {
+          text: "ㅜ",
+          correct: true
+        },
+        {
+          text: "ㅣ",
+          correct: false
+        }
+      ],
+      explanation:
+        "ㅜ correspond au son u dans la romanisation, proche du « ou » français."
+    },
+
+    {
+      question:
+        "Quelle transformation donne le son « ya » ?",
+      options: [
+        {
+          text: "ㅏ → ㅑ",
+          correct: true
+        },
+        {
+          text: "ㅗ → ㅛ",
+          correct: false
+        },
+        {
+          text: "ㅜ → ㅠ",
+          correct: false
+        }
+      ],
+      explanation:
+        "ㅑ se prononce ya. Avec ㅇ silencieux : 야."
+    },
+
+    {
+      question:
+        "Pourquoi écrit-on 아 pour entendre la voyelle ㅏ seule dans une syllabe ?",
+      options: [
+        {
+          text: "Parce que ㅇ est silencieux au début de la syllabe.",
+          correct: true
+        },
+        {
+          text: "Parce que ㅇ se prononce toujours ng.",
+          correct: false
+        },
+        {
+          text: "Parce que ㅏ ne peut jamais être prononcé.",
+          correct: false
+        }
+      ],
+      explanation:
+        "Au début d'une syllabe, ㅇ ne produit pas de son. Il sert ici de support à la voyelle."
+    },
+
+    {
+      question:
+        "Quelle combinaison forme ㅘ ?",
+      options: [
+        {
+          text: "ㅗ + ㅏ",
+          correct: true
+        },
+        {
+          text: "ㅜ + ㅓ",
+          correct: false
+        },
+        {
+          text: "ㅡ + ㅣ",
+          correct: false
+        }
+      ],
+      explanation:
+        "ㅘ est formé de ㅗ + ㅏ et se prononce approximativement wa."
+    }
+
+  ];
+
+
+  let currentQuestion = 0;
+  let mistakes = 0;
+
+
+  function getKoreanVoice() {
+
+    const voices =
+      window.speechSynthesis.getVoices();
+
+
+    return voices.find(
+      voice =>
+        voice.lang &&
+        voice.lang
+          .toLowerCase()
+          .startsWith("ko")
+    );
+
+  }
+
+
+  function speakKorean(text) {
+
+    if (
+      !("speechSynthesis" in window)
+    ) {
+      return;
+    }
+
+
+    window.speechSynthesis.cancel();
+
+
+    const speech =
+      new SpeechSynthesisUtterance(
+        text
+      );
+
+
+    speech.lang =
+      "ko-KR";
+
+
+    speech.rate =
+      AUDIO_SETTINGS.normalRate;
+
+
+    speech.pitch =
+      1;
+
+
+    const voice =
+      getKoreanVoice();
+
+
+    if (voice) {
+      speech.voice = voice;
+    }
+
+
+    window.speechSynthesis.speak(
+      speech
+    );
+
+  }
+
+
+  function speakSequence(items) {
+
+    if (
+      !("speechSynthesis" in window)
+    ) {
+      return;
+    }
+
+
+    window.speechSynthesis.cancel();
+
+
+    let index = 0;
+
+
+    function playNext() {
+
+      if (
+        index >= items.length
+      ) {
+        return;
+      }
+
+
+      const speech =
+        new SpeechSynthesisUtterance(
+          items[index]
+        );
+
+
+      speech.lang =
+        "ko-KR";
+
+
+      speech.rate =
+        AUDIO_SETTINGS.normalRate;
+
+
+      speech.pitch =
+        1;
+
+
+      const voice =
+        getKoreanVoice();
+
+
+      if (voice) {
+        speech.voice = voice;
+      }
+
+
+      speech.onend =
+        function() {
+
+          index++;
+
+
+          setTimeout(
+            playNext,
+            350
+          );
+
+        };
+
+
+      window.speechSynthesis.speak(
+        speech
+      );
+
+    }
+
+
+    playNext();
+
+  }
+
+
+  function renderQuestion() {
+
+    const item =
+      quiz[currentQuestion];
+
+
+    document.getElementById(
+      "quizTitle"
+    ).textContent =
+      "🧠 Question " +
+      (currentQuestion + 1);
+
+
+    document.getElementById(
+      "quizQuestion"
+    ).textContent =
+      item.question;
+
+
+    document.getElementById(
+      "progressLabel"
+    ).textContent =
+      (currentQuestion + 1) +
+      " / " +
+      quiz.length;
+
+
+    document.getElementById(
+      "progressFill"
+    ).style.width =
+      (
+        ((currentQuestion + 1) /
+          quiz.length) *
+        100
+      ) +
+      "%";
+
+
+    const answers =
+      document.getElementById(
+        "answers"
+      );
+
+
+    answers.innerHTML =
+      "";
+
+
+    item.options.forEach(
+      option => {
+
+        const button =
+          document.createElement(
+            "button"
+          );
+
+
+        button.type =
+          "button";
+
+
+        button.className =
+          "answer";
+
+
+        button.textContent =
+          option.text;
+
+
+        button.onclick =
+          function() {
+
+            checkAnswer(
+              button,
+              option.correct
+            );
+
+          };
+
+
+        answers.appendChild(
+          button
+        );
+
+      }
+    );
+
+
+    document.getElementById(
+      "feedback"
+    ).className =
+      "feedback";
+
+
+    document.getElementById(
+      "feedback"
+    ).innerHTML =
+      "";
+
+
+    document.getElementById(
+      "nextButton"
+    ).classList.remove(
+      "show"
+    );
+
+  }
+
+
+  function checkAnswer(
+    button,
+    isCorrect
+  ) {
+
+    const item =
+      quiz[currentQuestion];
+
+
+    const buttons =
+      document
+        .getElementById(
+          "answers"
+        )
+        .querySelectorAll(
+          ".answer"
+        );
+
+
+    const feedback =
+      document.getElementById(
+        "feedback"
+      );
+
+
+    if (isCorrect) {
+
+      button.classList.add(
+        "correct"
+      );
+
+
+      buttons.forEach(
+        answer => {
+          answer.disabled = true;
+        }
+      );
+
+
+      feedback.className =
+        "feedback show correct";
+
+
+      feedback.innerHTML =
+        "✅ <strong>Exact !</strong><br><br>" +
+        item.explanation;
+
+
+      document.getElementById(
+        "nextButton"
+      ).classList.add(
+        "show"
+      );
+
+
+      if (
+        currentQuestion ===
+        quiz.length - 1
+      ) {
+
+        document.getElementById(
+          "nextButton"
+        ).textContent =
+          "Voir mon résultat 🌿";
+
+      }
+
+
+      return;
+
+    }
+
+
+    mistakes++;
+
+
+    button.classList.add(
+      "wrong"
+    );
+
+
+    feedback.className =
+      "feedback show wrong";
+
+
+    feedback.innerHTML =
+      "❌ <strong>Pas encore.</strong><br><br>" +
+      "Regarde de nouveau les cartes plus haut puis réessaie.";
+
+
+    setTimeout(
+      () => {
+
+        button.classList.remove(
+          "wrong"
+        );
+
+      },
+      800
+    );
+
+  }
+
+
+  function nextQuestion() {
+
+    if (
+      currentQuestion <
+      quiz.length - 1
+    ) {
+
+      currentQuestion++;
+
+
+      renderQuestion();
+
+
+      document.getElementById(
+        "quizCard"
+      ).scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+
+
+      return;
+
+    }
+
+
+    showResult();
+
+  }
+
+
+  function showResult() {
+
+    document.getElementById(
+      "quizCard"
+    ).style.display =
+      "none";
+
+
+    document.getElementById(
+      "resultCard"
+    ).classList.add(
+      "show"
+    );
+
+
+    let text = "";
+
+
+    if (
+      mistakes === 0
+    ) {
+
+      text =
+        "🌟 Tu as répondu aux 5 questions sans erreur.";
+
+    }
+
+    else if (
+      mistakes === 1
+    ) {
+
+      text =
+        "💡 Tu as fait 1 tentative incorrecte pendant l'entraînement.";
+
+    }
+
+    else {
+
+      text =
+        "💡 Tu as fait " +
+        mistakes +
+        " tentatives incorrectes pendant l'entraînement.";
+
+    }
+
+
+    document.getElementById(
+      "resultText"
+    ).textContent =
+      text;
+
+
+    window.scrollTo({
+      top: document.body.scrollHeight,
+      behavior: "smooth"
+    });
+
+  }
+
+
+  function finishLesson() {
+
+    localStorage.setItem(
+      "hanaKorean_hangeul_vowels",
+      "completed"
+    );
+
+
+    localStorage.setItem(
+      "hanaKorean_hangeul_vowelsMistakes",
+      mistakes
+    );
+
+
+    window.location.href =
+      "hangeul.html";
+
+  }
+
+
+  if (
+    "speechSynthesis" in window
+  ) {
+
+    window.speechSynthesis.onvoiceschanged =
+      function() {
+
+        window.speechSynthesis.getVoices();
+
+      };
+
+  }
+
+
+  window.addEventListener(
+    "pagehide",
+    function() {
+
+      if (
+        "speechSynthesis" in window
+      ) {
+
+        window.speechSynthesis.cancel();
+
+      }
+
+    }
+  );
+
+
+  renderQuestion();
+</script>
+
+</body>
+
+</html>

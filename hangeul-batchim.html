@@ -1,0 +1,1361 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+  <meta
+    name="theme-color"
+    content="#F7F4ED"
+  >
+
+  <title>Les batchim — Hangeul</title>
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
+  <style>
+    .lesson-header {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .lesson-badge {
+      display: inline-block;
+      padding: 7px 14px;
+      margin-bottom: 10px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .lesson-subtitle {
+      color: var(--text-light);
+      line-height: 1.7;
+    }
+
+    .intro-card,
+    .section-card,
+    .tip-card,
+    .quiz-card,
+    .result-card {
+      padding: 20px;
+      margin-bottom: 18px;
+      background: var(--white);
+      border-radius: var(--radius-large);
+      box-shadow: var(--shadow);
+    }
+
+    .intro-card {
+      background: var(--soft-green);
+      color: var(--navy);
+      line-height: 1.7;
+    }
+
+    .section-card h2,
+    .quiz-card h2 {
+      margin-top: 0;
+      color: var(--navy);
+    }
+
+    .section-card p,
+    .quiz-card p {
+      line-height: 1.7;
+    }
+
+    .formula-box {
+      padding: 18px;
+      margin-top: 14px;
+      background: var(--soft-blue);
+      border-radius: var(--radius-medium);
+      color: var(--navy);
+      text-align: center;
+      line-height: 1.8;
+    }
+
+    .big-block {
+      margin: 10px 0;
+      font-size: 48px;
+      font-weight: bold;
+    }
+
+    .batchim-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .batchim-card {
+      padding: 16px;
+      background: #FBFAF6;
+      border-radius: var(--radius-medium);
+    }
+
+    .batchim-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .batchim-letter {
+      color: var(--navy);
+      font-size: 34px;
+      font-weight: bold;
+    }
+
+    .batchim-sound {
+      color: var(--jade-dark);
+      font-weight: bold;
+    }
+
+    .batchim-example {
+      margin-top: 8px;
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+
+    .audio-button {
+      width: 100%;
+      margin-top: 10px;
+      background: var(--soft-blue);
+      color: var(--navy);
+    }
+
+    .sound-table {
+      margin-top: 16px;
+    }
+
+    .sound-row {
+      padding: 13px 0;
+      border-bottom: 1px solid var(--border);
+      line-height: 1.7;
+    }
+
+    .sound-row:last-child {
+      border-bottom: none;
+    }
+
+    .warning-box {
+      padding: 16px;
+      margin-top: 14px;
+      background: var(--soft-beige);
+      border-radius: var(--radius-medium);
+      color: var(--navy);
+      line-height: 1.7;
+    }
+
+    .example-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .example-card {
+      padding: 16px;
+      background: #FBFAF6;
+      border-radius: var(--radius-medium);
+      text-align: center;
+    }
+
+    .example-word {
+      color: var(--navy);
+      font-size: 30px;
+      font-weight: bold;
+    }
+
+    .example-breakdown {
+      margin-top: 7px;
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+
+    .tip-card {
+      background: var(--soft-beige);
+      color: var(--navy);
+      line-height: 1.7;
+    }
+
+    .quiz-progress {
+      margin-bottom: 18px;
+    }
+
+    .progress-info {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      color: var(--text-light);
+      font-size: 13px;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 9px;
+      overflow: hidden;
+      background: var(--soft-beige);
+      border-radius: 20px;
+    }
+
+    .progress-fill {
+      width: 20%;
+      height: 100%;
+      background: var(--jade);
+      border-radius: 20px;
+      transition: width 0.3s ease;
+    }
+
+    .quiz-question {
+      padding: 18px;
+      margin: 14px 0;
+      background: #FBFAF6;
+      border-radius: var(--radius-medium);
+      color: var(--navy);
+      font-size: 20px;
+      font-weight: bold;
+      line-height: 1.6;
+    }
+
+    .answers {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .answer {
+      width: 100%;
+      padding: 15px;
+      text-align: left;
+      border: 2px solid transparent;
+    }
+
+    .feedback {
+      display: none;
+      padding: 15px;
+      margin-top: 14px;
+      border-radius: var(--radius-medium);
+      line-height: 1.7;
+    }
+
+    .feedback.show {
+      display: block;
+    }
+
+    .next-question {
+      display: none;
+      width: 100%;
+      margin-top: 12px;
+      background: var(--navy);
+      color: white;
+      font-weight: bold;
+    }
+
+    .next-question.show {
+      display: block;
+    }
+
+    .result-card {
+      display: none;
+      text-align: center;
+    }
+
+    .result-card.show {
+      display: block;
+    }
+
+    .result-icon {
+      font-size: 58px;
+    }
+
+    .summary-box {
+      padding: 16px;
+      margin-top: 18px;
+      background: #FBFAF6;
+      border-radius: var(--radius-medium);
+      text-align: left;
+      line-height: 1.7;
+    }
+
+    .finish-button,
+    .back-button {
+      width: 100%;
+    }
+
+    .finish-button {
+      margin-top: 18px;
+      background: var(--jade);
+      color: white;
+      font-weight: bold;
+    }
+
+    .back-button {
+      margin-top: 10px;
+      background: var(--soft-beige);
+      color: var(--navy);
+    }
+
+    @media (min-width: 680px) {
+      .batchim-grid,
+      .example-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<main class="app">
+
+  <a
+    class="back-link"
+    href="hangeul.html"
+  >
+    ← Hangeul
+  </a>
+
+
+  <header class="lesson-header">
+
+    <span class="lesson-badge">
+      Hangeul · Étape 4
+    </span>
+
+    <p class="korean">
+      받침
+    </p>
+
+    <h1>
+      Les batchim
+    </h1>
+
+    <p class="lesson-subtitle">
+      Découvre la consonne finale
+      qui se place en bas d'une syllabe.
+    </p>
+
+  </header>
+
+
+  <section class="intro-card">
+
+    <strong>🌿 Qu'est-ce qu'un 받침 ?</strong>
+
+    <br><br>
+
+    Un <strong>받침 (batchim)</strong>
+    est une consonne placée
+    <strong>en bas d'un bloc syllabique</strong>.
+
+    <br><br>
+
+    Exemple :
+
+    <div class="big-block">
+      한
+    </div>
+
+    Ici :
+
+    <br><br>
+
+    <strong>ㅎ</strong> = consonne initiale
+
+    <br>
+
+    <strong>ㅏ</strong> = voyelle
+
+    <br>
+
+    <strong>ㄴ</strong> = batchim
+
+  </section>
+
+
+  <section class="section-card">
+
+    <h2>
+      🧩 1. Ajouter une consonne finale
+    </h2>
+
+    <p>
+      Nous avions vu :
+    </p>
+
+    <div class="formula-box">
+
+      <strong>ㅎ + ㅏ → 하</strong>
+
+      <br><br>
+
+      Si on ajoute <strong>ㄴ</strong> en bas :
+
+      <br><br>
+
+      <strong>ㅎ + ㅏ + ㄴ → 한</strong>
+
+    </div>
+
+    <p>
+      Le bloc contient toujours une seule syllabe,
+      mais il possède maintenant
+      une consonne finale.
+    </p>
+
+  </section>
+
+
+  <section class="section-card">
+
+    <h2>
+      🔊 2. Les sons finaux principaux
+    </h2>
+
+    <p>
+      À l'écrit,
+      de nombreuses consonnes peuvent apparaître en batchim.
+
+      <br><br>
+
+      À la prononciation,
+      elles se regroupent autour
+      d'un petit nombre de sons finaux principaux.
+    </p>
+
+    <div class="sound-table">
+
+      <div class="sound-row">
+        <strong>ㄱ / ㅋ / ㄲ</strong>
+        → son final proche de <strong>k</strong>
+      </div>
+
+      <div class="sound-row">
+        <strong>ㄴ</strong>
+        → son final <strong>n</strong>
+      </div>
+
+      <div class="sound-row">
+        <strong>ㄷ / ㅅ / ㅆ / ㅈ / ㅊ / ㅌ / ㅎ</strong>
+        → son final proche de <strong>t</strong>
+      </div>
+
+      <div class="sound-row">
+        <strong>ㄹ</strong>
+        → son final proche de <strong>l</strong>
+      </div>
+
+      <div class="sound-row">
+        <strong>ㅁ</strong>
+        → son final <strong>m</strong>
+      </div>
+
+      <div class="sound-row">
+        <strong>ㅂ / ㅍ</strong>
+        → son final proche de <strong>p</strong>
+      </div>
+
+      <div class="sound-row">
+        <strong>ㅇ</strong>
+        → son final <strong>ng</strong>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="section-card">
+
+    <h2>
+      🌸 3. Quelques batchim simples
+    </h2>
+
+    <div class="batchim-grid">
+
+      <article class="batchim-card">
+        <div class="batchim-top">
+          <div class="batchim-letter">ㄱ</div>
+          <div class="batchim-sound">k final</div>
+        </div>
+        <div class="batchim-example">
+          Exemple : <strong>국</strong>
+        </div>
+        <button class="audio-button" type="button" onclick="speakKorean('국')">
+          🔊 Écouter 국
+        </button>
+      </article>
+
+      <article class="batchim-card">
+        <div class="batchim-top">
+          <div class="batchim-letter">ㄴ</div>
+          <div class="batchim-sound">n final</div>
+        </div>
+        <div class="batchim-example">
+          Exemple : <strong>한</strong>
+        </div>
+        <button class="audio-button" type="button" onclick="speakKorean('한')">
+          🔊 Écouter 한
+        </button>
+      </article>
+
+      <article class="batchim-card">
+        <div class="batchim-top">
+          <div class="batchim-letter">ㄹ</div>
+          <div class="batchim-sound">l final</div>
+        </div>
+        <div class="batchim-example">
+          Exemple : <strong>말</strong>
+        </div>
+        <button class="audio-button" type="button" onclick="speakKorean('말')">
+          🔊 Écouter 말
+        </button>
+      </article>
+
+      <article class="batchim-card">
+        <div class="batchim-top">
+          <div class="batchim-letter">ㅁ</div>
+          <div class="batchim-sound">m final</div>
+        </div>
+        <div class="batchim-example">
+          Exemple : <strong>밤</strong>
+        </div>
+        <button class="audio-button" type="button" onclick="speakKorean('밤')">
+          🔊 Écouter 밤
+        </button>
+      </article>
+
+      <article class="batchim-card">
+        <div class="batchim-top">
+          <div class="batchim-letter">ㅂ</div>
+          <div class="batchim-sound">p final</div>
+        </div>
+        <div class="batchim-example">
+          Exemple : <strong>밥</strong>
+        </div>
+        <button class="audio-button" type="button" onclick="speakKorean('밥')">
+          🔊 Écouter 밥
+        </button>
+      </article>
+
+      <article class="batchim-card">
+        <div class="batchim-top">
+          <div class="batchim-letter">ㅇ</div>
+          <div class="batchim-sound">ng final</div>
+        </div>
+        <div class="batchim-example">
+          Exemple : <strong>강</strong>
+        </div>
+        <button class="audio-button" type="button" onclick="speakKorean('강')">
+          🔊 Écouter 강
+        </button>
+      </article>
+
+    </div>
+
+  </section>
+
+
+  <section class="section-card">
+
+    <h2>
+      🇰🇷 4. Exemple : 한국
+    </h2>
+
+    <p>
+      Regarde le mot <strong>한국</strong>
+      (« Corée »).
+    </p>
+
+    <div class="example-grid">
+
+      <div class="example-card">
+        <div class="example-word">한</div>
+        <div class="example-breakdown">
+          ㅎ + ㅏ + ㄴ
+          <br>
+          batchim : ㄴ
+        </div>
+      </div>
+
+      <div class="example-card">
+        <div class="example-word">국</div>
+        <div class="example-breakdown">
+          ㄱ + ㅜ + ㄱ
+          <br>
+          batchim : ㄱ
+        </div>
+      </div>
+
+    </div>
+
+    <button
+      class="audio-button"
+      type="button"
+      onclick="speakKorean('한국')"
+    >
+      🔊 Écouter 한국
+    </button>
+
+  </section>
+
+
+  <section class="section-card">
+
+    <h2>
+      👀 5. Attention : l'écriture et le son
+    </h2>
+
+    <div class="warning-box">
+
+      Toutes les consonnes finales
+      ne gardent pas exactement
+      leur son habituel.
+
+      <br><br>
+
+      Par exemple,
+      plusieurs lettres différentes peuvent produire
+      le même son final.
+
+      <br><br>
+
+      C'est normal.
+
+      <br><br>
+
+      Pour l'instant,
+      retiens surtout les sept familles de sons :
+
+      <br><br>
+
+      <strong>ㄱ · ㄴ · ㄷ · ㄹ · ㅁ · ㅂ · ㅇ</strong>
+
+      <br><br>
+
+      Nous verrons ensuite
+      ce qui se passe lorsqu'une nouvelle syllabe
+      commence après un batchim.
+
+    </div>
+
+  </section>
+
+
+  <section class="tip-card">
+
+    <strong>
+      💙 Astuce pour lire
+    </strong>
+
+    <br><br>
+
+    Quand tu vois un bloc coréen,
+    regarde-le dans cet ordre :
+
+    <br><br>
+
+    <strong>1. consonne initiale</strong>
+
+    <br>
+
+    <strong>2. voyelle</strong>
+
+    <br>
+
+    <strong>3. consonne éventuelle en bas</strong>
+
+    <br><br>
+
+    Exemple :
+
+    <br><br>
+
+    <strong>밥 = ㅂ + ㅏ + ㅂ</strong>
+
+    <br><br>
+
+    Tu n'as pas besoin de lire toutes les lettres
+    séparément à voix haute :
+    le but est progressivement
+    de reconnaître le bloc comme une syllabe complète.
+
+  </section>
+
+
+  <div class="quiz-progress">
+
+    <div class="progress-info">
+      <span>Mini entraînement</span>
+      <span id="progressLabel">1 / 5</span>
+    </div>
+
+    <div class="progress-bar">
+      <div
+        class="progress-fill"
+        id="progressFill"
+      ></div>
+    </div>
+
+  </div>
+
+
+  <section
+    class="quiz-card"
+    id="quizCard"
+  >
+
+    <h2 id="quizTitle">
+      🧠 Question 1
+    </h2>
+
+    <div
+      class="quiz-question"
+      id="quizQuestion"
+    ></div>
+
+    <div
+      class="answers"
+      id="answers"
+    ></div>
+
+    <div
+      class="feedback"
+      id="feedback"
+    ></div>
+
+    <button
+      class="next-question"
+      id="nextButton"
+      type="button"
+      onclick="nextQuestion()"
+    >
+      Question suivante →
+    </button>
+
+  </section>
+
+
+  <section
+    class="result-card"
+    id="resultCard"
+  >
+
+    <div class="result-icon">
+      받 🌿
+    </div>
+
+    <h2>
+      잘했어요!
+    </h2>
+
+    <p>
+      Tu comprends maintenant
+      le principe du batchim.
+    </p>
+
+    <div class="summary-box">
+
+      <strong>
+        🌸 À retenir
+      </strong>
+
+      <br><br>
+
+      Le batchim est la consonne
+      placée en bas d'un bloc syllabique.
+
+      <br><br>
+
+      Exemple :
+
+      <br><br>
+
+      <strong>ㅎ + ㅏ + ㄴ → 한</strong>
+
+      <br><br>
+
+      Les consonnes finales se regroupent
+      autour de sept sons principaux :
+
+      <br><br>
+
+      <strong>ㄱ · ㄴ · ㄷ · ㄹ · ㅁ · ㅂ · ㅇ</strong>
+
+      <br><br>
+
+      <span id="resultText"></span>
+
+    </div>
+
+
+    <button
+      class="finish-button"
+      type="button"
+      onclick="finishLesson()"
+    >
+      ✅ Terminer cette leçon
+    </button>
+
+
+    <button
+      class="back-button"
+      type="button"
+      onclick="window.location.href='hangeul.html'"
+    >
+      Retour au Hangeul
+    </button>
+
+  </section>
+
+</main>
+
+
+<script>
+  const AUDIO_SETTINGS = {
+    normalRate: 0.82
+  };
+
+
+  const quiz = [
+
+    {
+      question:
+        "Dans 한, quelle lettre est le batchim ?",
+      options: [
+        {
+          text: "ㄴ",
+          correct: true
+        },
+        {
+          text: "ㅎ",
+          correct: false
+        },
+        {
+          text: "ㅏ",
+          correct: false
+        }
+      ],
+      explanation:
+        "Dans 한, ㄴ est placé en bas du bloc : c'est le batchim."
+    },
+
+    {
+      question:
+        "Que forme ㅂ + ㅏ + ㅂ ?",
+      options: [
+        {
+          text: "밥",
+          correct: true
+        },
+        {
+          text: "바",
+          correct: false
+        },
+        {
+          text: "밤",
+          correct: false
+        }
+      ],
+      explanation:
+        "ㅂ + ㅏ forme 바, puis le deuxième ㅂ se place en bas : 밥."
+    },
+
+    {
+      question:
+        "Quel son final produit généralement ㅇ en batchim ?",
+      options: [
+        {
+          text: "ng",
+          correct: true
+        },
+        {
+          text: "n",
+          correct: false
+        },
+        {
+          text: "m",
+          correct: false
+        }
+      ],
+      explanation:
+        "ㅇ en fin de syllabe produit un son ng."
+    },
+
+    {
+      question:
+        "Quel est le batchim de 국 ?",
+      options: [
+        {
+          text: "ㄱ",
+          correct: true
+        },
+        {
+          text: "ㅜ",
+          correct: false
+        },
+        {
+          text: "ㅇ",
+          correct: false
+        }
+      ],
+      explanation:
+        "국 = ㄱ + ㅜ + ㄱ. Le deuxième ㄱ est le batchim."
+    },
+
+    {
+      question:
+        "Combien de sons finaux principaux apprend-on pour simplifier la lecture des batchim ?",
+      options: [
+        {
+          text: "7",
+          correct: true
+        },
+        {
+          text: "14",
+          correct: false
+        },
+        {
+          text: "21",
+          correct: false
+        }
+      ],
+      explanation:
+        "Les consonnes finales se regroupent autour de sept sons principaux : ㄱ, ㄴ, ㄷ, ㄹ, ㅁ, ㅂ, ㅇ."
+    }
+
+  ];
+
+
+  let currentQuestion = 0;
+  let mistakes = 0;
+
+
+  function getKoreanVoice() {
+
+    const voices =
+      window.speechSynthesis.getVoices();
+
+
+    return voices.find(
+      voice =>
+        voice.lang &&
+        voice.lang
+          .toLowerCase()
+          .startsWith("ko")
+    );
+
+  }
+
+
+  function speakKorean(text) {
+
+    if (
+      !("speechSynthesis" in window)
+    ) {
+      return;
+    }
+
+
+    window.speechSynthesis.cancel();
+
+
+    const speech =
+      new SpeechSynthesisUtterance(
+        text
+      );
+
+
+    speech.lang =
+      "ko-KR";
+
+
+    speech.rate =
+      AUDIO_SETTINGS.normalRate;
+
+
+    speech.pitch =
+      1;
+
+
+    const voice =
+      getKoreanVoice();
+
+
+    if (voice) {
+      speech.voice = voice;
+    }
+
+
+    window.speechSynthesis.speak(
+      speech
+    );
+
+  }
+
+
+  function renderQuestion() {
+
+    const item =
+      quiz[currentQuestion];
+
+
+    document.getElementById(
+      "quizTitle"
+    ).textContent =
+      "🧠 Question " +
+      (currentQuestion + 1);
+
+
+    document.getElementById(
+      "quizQuestion"
+    ).textContent =
+      item.question;
+
+
+    document.getElementById(
+      "progressLabel"
+    ).textContent =
+      (currentQuestion + 1) +
+      " / " +
+      quiz.length;
+
+
+    document.getElementById(
+      "progressFill"
+    ).style.width =
+      (
+        ((currentQuestion + 1) /
+          quiz.length) *
+        100
+      ) +
+      "%";
+
+
+    const answers =
+      document.getElementById(
+        "answers"
+      );
+
+
+    answers.innerHTML =
+      "";
+
+
+    item.options.forEach(
+      option => {
+
+        const button =
+          document.createElement(
+            "button"
+          );
+
+
+        button.type =
+          "button";
+
+
+        button.className =
+          "answer";
+
+
+        button.textContent =
+          option.text;
+
+
+        button.onclick =
+          function() {
+
+            checkAnswer(
+              button,
+              option.correct
+            );
+
+          };
+
+
+        answers.appendChild(
+          button
+        );
+
+      }
+    );
+
+
+    document.getElementById(
+      "feedback"
+    ).className =
+      "feedback";
+
+
+    document.getElementById(
+      "feedback"
+    ).innerHTML =
+      "";
+
+
+    document.getElementById(
+      "nextButton"
+    ).classList.remove(
+      "show"
+    );
+
+  }
+
+
+  function checkAnswer(
+    button,
+    isCorrect
+  ) {
+
+    const item =
+      quiz[currentQuestion];
+
+
+    const buttons =
+      document
+        .getElementById(
+          "answers"
+        )
+        .querySelectorAll(
+          ".answer"
+        );
+
+
+    const feedback =
+      document.getElementById(
+        "feedback"
+      );
+
+
+    if (isCorrect) {
+
+      button.classList.add(
+        "correct"
+      );
+
+
+      buttons.forEach(
+        answer => {
+          answer.disabled = true;
+        }
+      );
+
+
+      feedback.className =
+        "feedback show correct";
+
+
+      feedback.innerHTML =
+        "✅ <strong>Exact !</strong><br><br>" +
+        item.explanation;
+
+
+      document.getElementById(
+        "nextButton"
+      ).classList.add(
+        "show"
+      );
+
+
+      if (
+        currentQuestion ===
+        quiz.length - 1
+      ) {
+
+        document.getElementById(
+          "nextButton"
+        ).textContent =
+          "Voir mon résultat 🌿";
+
+      }
+
+
+      return;
+
+    }
+
+
+    mistakes++;
+
+
+    button.classList.add(
+      "wrong"
+    );
+
+
+    feedback.className =
+      "feedback show wrong";
+
+
+    feedback.innerHTML =
+      "❌ <strong>Pas encore.</strong><br><br>" +
+      "Regarde de nouveau la position de la consonne finale puis réessaie.";
+
+
+    setTimeout(
+      () => {
+
+        button.classList.remove(
+          "wrong"
+        );
+
+      },
+      800
+    );
+
+  }
+
+
+  function nextQuestion() {
+
+    if (
+      currentQuestion <
+      quiz.length - 1
+    ) {
+
+      currentQuestion++;
+
+
+      renderQuestion();
+
+
+      document.getElementById(
+        "quizCard"
+      ).scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+
+
+      return;
+
+    }
+
+
+    showResult();
+
+  }
+
+
+  function showResult() {
+
+    document.getElementById(
+      "quizCard"
+    ).style.display =
+      "none";
+
+
+    document.getElementById(
+      "resultCard"
+    ).classList.add(
+      "show"
+    );
+
+
+    let text = "";
+
+
+    if (
+      mistakes === 0
+    ) {
+
+      text =
+        "🌟 Tu as répondu aux 5 questions sans erreur.";
+
+    }
+
+    else if (
+      mistakes === 1
+    ) {
+
+      text =
+        "💡 Tu as fait 1 tentative incorrecte pendant l'entraînement.";
+
+    }
+
+    else {
+
+      text =
+        "💡 Tu as fait " +
+        mistakes +
+        " tentatives incorrectes pendant l'entraînement.";
+
+    }
+
+
+    document.getElementById(
+      "resultText"
+    ).textContent =
+      text;
+
+
+    window.scrollTo({
+      top: document.body.scrollHeight,
+      behavior: "smooth"
+    });
+
+  }
+
+
+  function finishLesson() {
+
+    localStorage.setItem(
+      "hanaKorean_hangeul_batchim",
+      "completed"
+    );
+
+
+    localStorage.setItem(
+      "hanaKorean_hangeul_batchimMistakes",
+      mistakes
+    );
+
+
+    window.location.href =
+      "hangeul.html";
+
+  }
+
+
+  if (
+    "speechSynthesis" in window
+  ) {
+
+    window.speechSynthesis.onvoiceschanged =
+      function() {
+
+        window.speechSynthesis.getVoices();
+
+      };
+
+  }
+
+
+  window.addEventListener(
+    "pagehide",
+    function() {
+
+      if (
+        "speechSynthesis" in window
+      ) {
+
+        window.speechSynthesis.cancel();
+
+      }
+
+    }
+  );
+
+
+  renderQuestion();
+</script>
+
+</body>
+
+</html>

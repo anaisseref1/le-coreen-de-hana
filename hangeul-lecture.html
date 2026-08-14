@@ -1,0 +1,1315 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+  <meta
+    name="theme-color"
+    content="#F7F4ED"
+  >
+
+  <title>Je m'entraîne à lire — Hangeul</title>
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
+  <style>
+    .lesson-header {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .lesson-badge {
+      display: inline-block;
+      padding: 7px 14px;
+      margin-bottom: 10px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .lesson-subtitle {
+      color: var(--text-light);
+      line-height: 1.7;
+    }
+
+    .intro-card,
+    .section-card,
+    .tip-card,
+    .quiz-card,
+    .result-card {
+      padding: 20px;
+      margin-bottom: 18px;
+      background: var(--white);
+      border-radius: var(--radius-large);
+      box-shadow: var(--shadow);
+    }
+
+    .intro-card {
+      background: var(--soft-green);
+      color: var(--navy);
+      line-height: 1.7;
+    }
+
+    .section-card h2,
+    .quiz-card h2 {
+      margin-top: 0;
+      color: var(--navy);
+    }
+
+    .section-card p,
+    .quiz-card p {
+      line-height: 1.7;
+    }
+
+    .reading-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .reading-card {
+      padding: 16px;
+      background: #FBFAF6;
+      border-radius: var(--radius-medium);
+      text-align: center;
+    }
+
+    .reading-korean {
+      color: var(--navy);
+      font-size: 32px;
+      font-weight: bold;
+      line-height: 1.5;
+    }
+
+    .reading-hint {
+      margin-top: 7px;
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+
+    .audio-button {
+      width: 100%;
+      margin-top: 10px;
+      background: var(--soft-blue);
+      color: var(--navy);
+    }
+
+    .word-row {
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+      line-height: 1.7;
+    }
+
+    .word-row:last-child {
+      border-bottom: none;
+    }
+
+    .word-main {
+      color: var(--navy);
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .word-breakdown {
+      margin-top: 5px;
+      color: var(--text-light);
+    }
+
+    .sentence-card {
+      padding: 16px;
+      margin-top: 12px;
+      background: var(--soft-blue);
+      border-radius: var(--radius-medium);
+      line-height: 1.7;
+    }
+
+    .sentence-korean {
+      color: var(--navy);
+      font-size: 23px;
+      font-weight: bold;
+    }
+
+    .sentence-french {
+      margin-top: 5px;
+      color: var(--text-light);
+    }
+
+    .tip-card {
+      background: var(--soft-beige);
+      color: var(--navy);
+      line-height: 1.7;
+    }
+
+    .quiz-progress {
+      margin-bottom: 18px;
+    }
+
+    .progress-info {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      color: var(--text-light);
+      font-size: 13px;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 9px;
+      overflow: hidden;
+      background: var(--soft-beige);
+      border-radius: 20px;
+    }
+
+    .progress-fill {
+      width: 16.6667%;
+      height: 100%;
+      background: var(--jade);
+      border-radius: 20px;
+      transition: width 0.3s ease;
+    }
+
+    .quiz-question {
+      padding: 18px;
+      margin: 14px 0;
+      background: #FBFAF6;
+      border-radius: var(--radius-medium);
+      color: var(--navy);
+      font-size: 20px;
+      font-weight: bold;
+      line-height: 1.6;
+    }
+
+    .answers {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .answer {
+      width: 100%;
+      padding: 15px;
+      text-align: left;
+      border: 2px solid transparent;
+    }
+
+    .feedback {
+      display: none;
+      padding: 15px;
+      margin-top: 14px;
+      border-radius: var(--radius-medium);
+      line-height: 1.7;
+    }
+
+    .feedback.show {
+      display: block;
+    }
+
+    .next-question {
+      display: none;
+      width: 100%;
+      margin-top: 12px;
+      background: var(--navy);
+      color: white;
+      font-weight: bold;
+    }
+
+    .next-question.show {
+      display: block;
+    }
+
+    .result-card {
+      display: none;
+      text-align: center;
+    }
+
+    .result-card.show {
+      display: block;
+    }
+
+    .result-icon {
+      font-size: 58px;
+    }
+
+    .summary-box {
+      padding: 16px;
+      margin-top: 18px;
+      background: #FBFAF6;
+      border-radius: var(--radius-medium);
+      text-align: left;
+      line-height: 1.7;
+    }
+
+    .finish-button,
+    .back-button {
+      width: 100%;
+    }
+
+    .finish-button {
+      margin-top: 18px;
+      background: var(--jade);
+      color: white;
+      font-weight: bold;
+    }
+
+    .back-button {
+      margin-top: 10px;
+      background: var(--soft-beige);
+      color: var(--navy);
+    }
+
+    @media (min-width: 680px) {
+      .reading-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<main class="app">
+
+  <a
+    class="back-link"
+    href="hangeul.html"
+  >
+    ← Hangeul
+  </a>
+
+
+  <header class="lesson-header">
+
+    <span class="lesson-badge">
+      Hangeul · Étape 6
+    </span>
+
+    <p class="korean">
+      읽어 봐요
+    </p>
+
+    <h1>
+      Je m'entraîne à lire
+    </h1>
+
+    <p class="lesson-subtitle">
+      Passe des syllabes aux mots,
+      puis à de toutes petites phrases.
+    </p>
+
+  </header>
+
+
+  <section class="intro-card">
+
+    <strong>🌿 Objectif</strong>
+
+    <br><br>
+
+    Tu connais maintenant les consonnes,
+    les voyelles,
+    la construction des blocs,
+    les batchim
+    et plusieurs changements de son.
+
+    <br><br>
+
+    Il est temps de tout réunir.
+
+    <br><br>
+
+    Ici, le but n'est pas de lire vite :
+    il faut surtout apprendre
+    à reconnaître les blocs sans revenir
+    systématiquement à la romanisation.
+
+  </section>
+
+
+  <section class="section-card">
+
+    <h2>
+      1. Lis des syllabes simples
+    </h2>
+
+    <p>
+      Essaie de lire chaque bloc avant d'appuyer sur l'audio.
+    </p>
+
+    <div class="reading-grid">
+
+      <div class="reading-card">
+        <div class="reading-korean">가</div>
+        <div class="reading-hint">ㄱ + ㅏ</div>
+        <button class="audio-button" type="button" onclick="speakKorean('가')">
+          🔊 Vérifier
+        </button>
+      </div>
+
+      <div class="reading-card">
+        <div class="reading-korean">너</div>
+        <div class="reading-hint">ㄴ + ㅓ</div>
+        <button class="audio-button" type="button" onclick="speakKorean('너')">
+          🔊 Vérifier
+        </button>
+      </div>
+
+      <div class="reading-card">
+        <div class="reading-korean">모</div>
+        <div class="reading-hint">ㅁ + ㅗ</div>
+        <button class="audio-button" type="button" onclick="speakKorean('모')">
+          🔊 Vérifier
+        </button>
+      </div>
+
+      <div class="reading-card">
+        <div class="reading-korean">주</div>
+        <div class="reading-hint">ㅈ + ㅜ</div>
+        <button class="audio-button" type="button" onclick="speakKorean('주')">
+          🔊 Vérifier
+        </button>
+      </div>
+
+      <div class="reading-card">
+        <div class="reading-korean">세</div>
+        <div class="reading-hint">ㅅ + ㅔ</div>
+        <button class="audio-button" type="button" onclick="speakKorean('세')">
+          🔊 Vérifier
+        </button>
+      </div>
+
+      <div class="reading-card">
+        <div class="reading-korean">요</div>
+        <div class="reading-hint">ㅇ + ㅛ</div>
+        <button class="audio-button" type="button" onclick="speakKorean('요')">
+          🔊 Vérifier
+        </button>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="section-card">
+
+    <h2>
+      2. Lis des syllabes avec batchim
+    </h2>
+
+    <div class="reading-grid">
+
+      <div class="reading-card">
+        <div class="reading-korean">한</div>
+        <div class="reading-hint">ㅎ + ㅏ + ㄴ</div>
+        <button class="audio-button" type="button" onclick="speakKorean('한')">
+          🔊 Vérifier
+        </button>
+      </div>
+
+      <div class="reading-card">
+        <div class="reading-korean">국</div>
+        <div class="reading-hint">ㄱ + ㅜ + ㄱ</div>
+        <button class="audio-button" type="button" onclick="speakKorean('국')">
+          🔊 Vérifier
+        </button>
+      </div>
+
+      <div class="reading-card">
+        <div class="reading-korean">밥</div>
+        <div class="reading-hint">ㅂ + ㅏ + ㅂ</div>
+        <button class="audio-button" type="button" onclick="speakKorean('밥')">
+          🔊 Vérifier
+        </button>
+      </div>
+
+      <div class="reading-card">
+        <div class="reading-korean">말</div>
+        <div class="reading-hint">ㅁ + ㅏ + ㄹ</div>
+        <button class="audio-button" type="button" onclick="speakKorean('말')">
+          🔊 Vérifier
+        </button>
+      </div>
+
+      <div class="reading-card">
+        <div class="reading-korean">밤</div>
+        <div class="reading-hint">ㅂ + ㅏ + ㅁ</div>
+        <button class="audio-button" type="button" onclick="speakKorean('밤')">
+          🔊 Vérifier
+        </button>
+      </div>
+
+      <div class="reading-card">
+        <div class="reading-korean">강</div>
+        <div class="reading-hint">ㄱ + ㅏ + ㅇ</div>
+        <button class="audio-button" type="button" onclick="speakKorean('강')">
+          🔊 Vérifier
+        </button>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="section-card">
+
+    <h2>
+      3. Lis tes premiers mots
+    </h2>
+
+    <p>
+      Lis bloc par bloc,
+      puis essaie de prononcer le mot entier naturellement.
+    </p>
+
+    <div class="word-row">
+      <div class="word-main">나무</div>
+      <div class="word-breakdown">나 + 무 → arbre</div>
+      <button class="audio-button" type="button" onclick="speakKorean('나무')">
+        🔊 Vérifier 나무
+      </button>
+    </div>
+
+    <div class="word-row">
+      <div class="word-main">우유</div>
+      <div class="word-breakdown">우 + 유 → lait</div>
+      <button class="audio-button" type="button" onclick="speakKorean('우유')">
+        🔊 Vérifier 우유
+      </button>
+    </div>
+
+    <div class="word-row">
+      <div class="word-main">바다</div>
+      <div class="word-breakdown">바 + 다 → mer</div>
+      <button class="audio-button" type="button" onclick="speakKorean('바다')">
+        🔊 Vérifier 바다
+      </button>
+    </div>
+
+    <div class="word-row">
+      <div class="word-main">사람</div>
+      <div class="word-breakdown">사 + 람 → personne</div>
+      <button class="audio-button" type="button" onclick="speakKorean('사람')">
+        🔊 Vérifier 사람
+      </button>
+    </div>
+
+    <div class="word-row">
+      <div class="word-main">한국</div>
+      <div class="word-breakdown">한 + 국 → Corée</div>
+      <button class="audio-button" type="button" onclick="speakKorean('한국')">
+        🔊 Vérifier 한국
+      </button>
+    </div>
+
+    <div class="word-row">
+      <div class="word-main">커피</div>
+      <div class="word-breakdown">커 + 피 → café</div>
+      <button class="audio-button" type="button" onclick="speakKorean('커피')">
+        🔊 Vérifier 커피
+      </button>
+    </div>
+
+    <div class="word-row">
+      <div class="word-main">학교</div>
+      <div class="word-breakdown">학 + 교 → école</div>
+      <button class="audio-button" type="button" onclick="speakKorean('학교')">
+        🔊 Vérifier 학교
+      </button>
+    </div>
+
+  </section>
+
+
+  <section class="section-card">
+
+    <h2>
+      4. Lis de petites expressions
+    </h2>
+
+    <p>
+      Tu connais peut-être déjà certaines de ces expressions.
+      Cette fois, essaie surtout de les <strong>lire</strong>.
+    </p>
+
+    <div class="sentence-card">
+      <div class="sentence-korean">안녕하세요.</div>
+      <div class="sentence-french">Bonjour.</div>
+      <button class="audio-button" type="button" onclick="speakKorean('안녕하세요.')">
+        🔊 Vérifier
+      </button>
+    </div>
+
+    <div class="sentence-card">
+      <div class="sentence-korean">감사합니다.</div>
+      <div class="sentence-french">Merci.</div>
+      <button class="audio-button" type="button" onclick="speakKorean('감사합니다.')">
+        🔊 Vérifier
+      </button>
+    </div>
+
+    <div class="sentence-card">
+      <div class="sentence-korean">커피 주세요.</div>
+      <div class="sentence-french">Un café, s'il vous plaît.</div>
+      <button class="audio-button" type="button" onclick="speakKorean('커피 주세요.')">
+        🔊 Vérifier
+      </button>
+    </div>
+
+    <div class="sentence-card">
+      <div class="sentence-korean">이거 얼마예요?</div>
+      <div class="sentence-french">Combien coûte celui-ci ?</div>
+      <button class="audio-button" type="button" onclick="speakKorean('이거 얼마예요?')">
+        🔊 Vérifier
+      </button>
+    </div>
+
+  </section>
+
+
+  <section class="tip-card">
+
+    <strong>
+      💙 Ton objectif maintenant
+    </strong>
+
+    <br><br>
+
+    Quand tu rencontres un nouveau mot,
+    essaie d'abord de le lire en Hangeul.
+
+    <br><br>
+
+    Évite de chercher immédiatement la romanisation.
+
+    <br><br>
+
+    Tu peux :
+    <br><br>
+    1. repérer les blocs syllabiques ;
+    <br>
+    2. identifier consonne + voyelle + batchim ;
+    <br>
+    3. lire lentement ;
+    <br>
+    4. utiliser l'audio pour vérifier.
+
+    <br><br>
+
+    Avec la pratique,
+    tu passeras progressivement
+    de « je déchiffre »
+    à « je lis ».
+  </section>
+
+
+  <div class="quiz-progress">
+
+    <div class="progress-info">
+      <span>Défi de lecture</span>
+      <span id="progressLabel">1 / 6</span>
+    </div>
+
+    <div class="progress-bar">
+      <div
+        class="progress-fill"
+        id="progressFill"
+      ></div>
+    </div>
+
+  </div>
+
+
+  <section
+    class="quiz-card"
+    id="quizCard"
+  >
+
+    <h2 id="quizTitle">
+      📖 Lecture 1
+    </h2>
+
+    <div
+      class="quiz-question"
+      id="quizQuestion"
+    ></div>
+
+    <div
+      class="answers"
+      id="answers"
+    ></div>
+
+    <div
+      class="feedback"
+      id="feedback"
+    ></div>
+
+    <button
+      class="next-question"
+      id="nextButton"
+      type="button"
+      onclick="nextQuestion()"
+    >
+      Continuer →
+    </button>
+
+  </section>
+
+
+  <section
+    class="result-card"
+    id="resultCard"
+  >
+
+    <div class="result-icon">
+      📖🌿
+    </div>
+
+    <h2>
+      축하해요!
+    </h2>
+
+    <p>
+      Tu as terminé le parcours d'introduction au Hangeul.
+    </p>
+
+    <div class="summary-box">
+
+      <strong>
+        🌸 Tu sais maintenant
+      </strong>
+
+      <br><br>
+
+      reconnaître les consonnes et les voyelles ;
+
+      <br>
+
+      comprendre comment une syllabe est construite ;
+
+      <br>
+
+      repérer un batchim ;
+
+      <br>
+
+      reconnaître plusieurs changements de prononciation ;
+
+      <br>
+
+      lire des syllabes,
+      des mots simples
+      et de petites expressions.
+
+      <br><br>
+
+      <span id="resultText"></span>
+
+      <br><br>
+
+      Et surtout :
+      <strong>tu pourras revenir dans la section Hangeul à tout moment.</strong>
+
+    </div>
+
+
+    <button
+      class="finish-button"
+      type="button"
+      onclick="finishLesson()"
+    >
+      ✅ Terminer le parcours Hangeul
+    </button>
+
+
+    <button
+      class="back-button"
+      type="button"
+      onclick="window.location.href='hangeul.html'"
+    >
+      Retour au Hangeul
+    </button>
+
+  </section>
+
+</main>
+
+
+<script>
+  const AUDIO_SETTINGS = {
+    normalRate: 0.82
+  };
+
+
+  const quiz = [
+
+    {
+      question:
+        "Quel bloc lis-tu « na » ?",
+      options: [
+        {
+          text: "나",
+          correct: true
+        },
+        {
+          text: "너",
+          correct: false
+        },
+        {
+          text: "노",
+          correct: false
+        }
+      ],
+      explanation:
+        "나 = ㄴ + ㅏ."
+    },
+
+    {
+      question:
+        "Quel bloc contient le batchim ㄴ ?",
+      options: [
+        {
+          text: "한",
+          correct: true
+        },
+        {
+          text: "하",
+          correct: false
+        },
+        {
+          text: "호",
+          correct: false
+        }
+      ],
+      explanation:
+        "한 = ㅎ + ㅏ + ㄴ. ㄴ est placé en bas du bloc."
+    },
+
+    {
+      question:
+        "Combien de blocs syllabiques contient 나무 ?",
+      options: [
+        {
+          text: "2",
+          correct: true
+        },
+        {
+          text: "3",
+          correct: false
+        },
+        {
+          text: "4",
+          correct: false
+        }
+      ],
+      explanation:
+        "나무 = 나 + 무 : deux blocs, donc deux syllabes."
+    },
+
+    {
+      question:
+        "Quel mot signifie « Corée » ?",
+      options: [
+        {
+          text: "한국",
+          correct: true
+        },
+        {
+          text: "사람",
+          correct: false
+        },
+        {
+          text: "학교",
+          correct: false
+        }
+      ],
+      explanation:
+        "한국 signifie « Corée »."
+    },
+
+    {
+      question:
+        "Quelle expression lis-tu pour dire « Merci » ?",
+      options: [
+        {
+          text: "감사합니다.",
+          correct: true
+        },
+        {
+          text: "안녕하세요.",
+          correct: false
+        },
+        {
+          text: "커피 주세요.",
+          correct: false
+        }
+      ],
+      explanation:
+        "감사합니다. signifie « Merci »."
+    },
+
+    {
+      question:
+        "Quelle est la meilleure stratégie face à un nouveau mot en Hangeul ?",
+      options: [
+        {
+          text: "Repérer les blocs, les déchiffrer puis vérifier avec l'audio.",
+          correct: true
+        },
+        {
+          text: "Chercher immédiatement la romanisation.",
+          correct: false
+        },
+        {
+          text: "Ignorer les batchim.",
+          correct: false
+        }
+      ],
+      explanation:
+        "Le but est de devenir autonome en Hangeul : déchiffrer d'abord, puis utiliser l'audio comme vérification."
+    }
+
+  ];
+
+
+  let currentQuestion = 0;
+  let mistakes = 0;
+
+
+  function getKoreanVoice() {
+
+    const voices =
+      window.speechSynthesis.getVoices();
+
+
+    return voices.find(
+      voice =>
+        voice.lang &&
+        voice.lang
+          .toLowerCase()
+          .startsWith("ko")
+    );
+
+  }
+
+
+  function speakKorean(text) {
+
+    if (
+      !("speechSynthesis" in window)
+    ) {
+      return;
+    }
+
+
+    window.speechSynthesis.cancel();
+
+
+    const speech =
+      new SpeechSynthesisUtterance(
+        text
+      );
+
+
+    speech.lang =
+      "ko-KR";
+
+
+    speech.rate =
+      AUDIO_SETTINGS.normalRate;
+
+
+    speech.pitch =
+      1;
+
+
+    const voice =
+      getKoreanVoice();
+
+
+    if (voice) {
+      speech.voice = voice;
+    }
+
+
+    window.speechSynthesis.speak(
+      speech
+    );
+
+  }
+
+
+  function renderQuestion() {
+
+    const item =
+      quiz[currentQuestion];
+
+
+    document.getElementById(
+      "quizTitle"
+    ).textContent =
+      "📖 Lecture " +
+      (currentQuestion + 1);
+
+
+    document.getElementById(
+      "quizQuestion"
+    ).textContent =
+      item.question;
+
+
+    document.getElementById(
+      "progressLabel"
+    ).textContent =
+      (currentQuestion + 1) +
+      " / " +
+      quiz.length;
+
+
+    document.getElementById(
+      "progressFill"
+    ).style.width =
+      (
+        ((currentQuestion + 1) /
+          quiz.length) *
+        100
+      ) +
+      "%";
+
+
+    const answers =
+      document.getElementById(
+        "answers"
+      );
+
+
+    answers.innerHTML =
+      "";
+
+
+    item.options.forEach(
+      option => {
+
+        const button =
+          document.createElement(
+            "button"
+          );
+
+
+        button.type =
+          "button";
+
+
+        button.className =
+          "answer";
+
+
+        button.textContent =
+          option.text;
+
+
+        button.onclick =
+          function() {
+
+            checkAnswer(
+              button,
+              option.correct
+            );
+
+          };
+
+
+        answers.appendChild(
+          button
+        );
+
+      }
+    );
+
+
+    document.getElementById(
+      "feedback"
+    ).className =
+      "feedback";
+
+
+    document.getElementById(
+      "feedback"
+    ).innerHTML =
+      "";
+
+
+    document.getElementById(
+      "nextButton"
+    ).classList.remove(
+      "show"
+    );
+
+  }
+
+
+  function checkAnswer(
+    button,
+    isCorrect
+  ) {
+
+    const item =
+      quiz[currentQuestion];
+
+
+    const buttons =
+      document
+        .getElementById(
+          "answers"
+        )
+        .querySelectorAll(
+          ".answer"
+        );
+
+
+    const feedback =
+      document.getElementById(
+        "feedback"
+      );
+
+
+    if (isCorrect) {
+
+      button.classList.add(
+        "correct"
+      );
+
+
+      buttons.forEach(
+        answer => {
+          answer.disabled = true;
+        }
+      );
+
+
+      feedback.className =
+        "feedback show correct";
+
+
+      feedback.innerHTML =
+        "✅ <strong>Exact !</strong><br><br>" +
+        item.explanation;
+
+
+      document.getElementById(
+        "nextButton"
+      ).classList.add(
+        "show"
+      );
+
+
+      if (
+        currentQuestion ===
+        quiz.length - 1
+      ) {
+
+        document.getElementById(
+          "nextButton"
+        ).textContent =
+          "Voir mon résultat 🌿";
+
+      }
+
+
+      return;
+
+    }
+
+
+    mistakes++;
+
+
+    button.classList.add(
+      "wrong"
+    );
+
+
+    feedback.className =
+      "feedback show wrong";
+
+
+    feedback.innerHTML =
+      "❌ <strong>Pas encore.</strong><br><br>" +
+      "Décompose les blocs tranquillement puis réessaie.";
+
+
+    setTimeout(
+      () => {
+
+        button.classList.remove(
+          "wrong"
+        );
+
+      },
+      800
+    );
+
+  }
+
+
+  function nextQuestion() {
+
+    if (
+      currentQuestion <
+      quiz.length - 1
+    ) {
+
+      currentQuestion++;
+
+
+      renderQuestion();
+
+
+      document.getElementById(
+        "quizCard"
+      ).scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+
+
+      return;
+
+    }
+
+
+    showResult();
+
+  }
+
+
+  function showResult() {
+
+    document.getElementById(
+      "quizCard"
+    ).style.display =
+      "none";
+
+
+    document.getElementById(
+      "resultCard"
+    ).classList.add(
+      "show"
+    );
+
+
+    let text = "";
+
+
+    if (
+      mistakes === 0
+    ) {
+
+      text =
+        "🌟 Tu as réussi les 6 lectures sans erreur.";
+
+    }
+
+    else if (
+      mistakes === 1
+    ) {
+
+      text =
+        "💡 Tu as fait 1 tentative incorrecte pendant le défi.";
+
+    }
+
+    else {
+
+      text =
+        "💡 Tu as fait " +
+        mistakes +
+        " tentatives incorrectes pendant le défi.";
+
+    }
+
+
+    document.getElementById(
+      "resultText"
+    ).textContent =
+      text;
+
+
+    window.scrollTo({
+      top: document.body.scrollHeight,
+      behavior: "smooth"
+    });
+
+  }
+
+
+  function finishLesson() {
+
+    localStorage.setItem(
+      "hanaKorean_hangeul_reading",
+      "completed"
+    );
+
+
+    localStorage.setItem(
+      "hanaKorean_hangeul_readingMistakes",
+      mistakes
+    );
+
+
+    localStorage.setItem(
+      "hanaKorean_hangeul_completed",
+      "completed"
+    );
+
+
+    window.location.href =
+      "hangeul.html";
+
+  }
+
+
+  if (
+    "speechSynthesis" in window
+  ) {
+
+    window.speechSynthesis.onvoiceschanged =
+      function() {
+
+        window.speechSynthesis.getVoices();
+
+      };
+
+  }
+
+
+  window.addEventListener(
+    "pagehide",
+    function() {
+
+      if (
+        "speechSynthesis" in window
+      ) {
+
+        window.speechSynthesis.cancel();
+
+      }
+
+    }
+  );
+
+
+  renderQuestion();
+</script>
+
+</body>
+
+</html>

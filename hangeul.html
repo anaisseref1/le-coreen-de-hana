@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="theme-color"
+    content="#F7F4ED"
+  >
+
+  <title>Hangeul — Le coréen de Hana</title>
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
+  <style>
+    .hangeul-header {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .hangeul-badge {
+      display: inline-block;
+      padding: 7px 14px;
+      margin-bottom: 10px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .hangeul-subtitle {
+      color: var(--text-light);
+      line-height: 1.7;
+    }
+
+    .intro-card {
+      padding: 20px;
+      margin-bottom: 20px;
+      background: var(--soft-green);
+      border-radius: var(--radius-medium);
+      color: var(--navy);
+      line-height: 1.7;
+    }
+
+    .progress-card {
+      padding: 18px;
+      margin-bottom: 22px;
+      background: var(--white);
+      border-radius: var(--radius-large);
+      box-shadow: var(--shadow);
+    }
+
+    .progress-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .progress-title {
+      color: var(--navy);
+      font-weight: bold;
+    }
+
+    .progress-count {
+      color: var(--jade-dark);
+      font-weight: bold;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 10px;
+      overflow: hidden;
+      background: var(--soft-beige);
+      border-radius: 20px;
+    }
+
+    .progress-fill {
+      width: 0%;
+      height: 100%;
+      background: var(--jade);
+      border-radius: 20px;
+      transition: width 0.3s ease;
+    }
+
+    .progress-message {
+      margin-top: 10px;
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+
+    .section-title {
+      margin-top: 28px;
+      margin-bottom: 12px;
+      color: var(--navy);
+    }
+
+    .path-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    .path-card {
+      padding: 18px;
+      background: var(--white);
+      border-radius: var(--radius-large);
+      box-shadow: var(--shadow);
+    }
+
+    .path-icon {
+      margin-bottom: 8px;
+      font-size: 34px;
+    }
+
+    .path-card h2 {
+      margin: 0;
+      color: var(--navy);
+      font-size: 20px;
+    }
+
+    .path-card p {
+      margin-bottom: 0;
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+
+    .status-line {
+      margin-top: 12px;
+      color: var(--text-light);
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .status-line.done {
+      color: var(--success);
+    }
+
+    .path-button {
+      width: 100%;
+      margin-top: 14px;
+      background: var(--jade);
+      color: white;
+      font-weight: bold;
+    }
+
+    .path-button.done {
+      background: var(--success);
+    }
+
+    .memo-card {
+      padding: 18px;
+      margin-top: 20px;
+      background: var(--soft-blue);
+      border-radius: var(--radius-medium);
+      color: var(--navy);
+      line-height: 1.7;
+    }
+
+    .memo-button {
+      width: 100%;
+      margin-top: 12px;
+      background: var(--navy);
+      color: white;
+      font-weight: bold;
+    }
+
+    .memo-button:disabled {
+      opacity: 0.65;
+      cursor: default;
+    }
+
+    .reference-card {
+      padding: 18px;
+      margin-top: 20px;
+      background: var(--soft-beige);
+      border-radius: var(--radius-medium);
+      color: var(--navy);
+      line-height: 1.7;
+    }
+
+    .back-home-button {
+      width: 100%;
+      margin-top: 22px;
+      background: var(--soft-beige);
+      color: var(--navy);
+    }
+
+    @media (min-width: 680px) {
+      .path-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<main class="app">
+
+  <a
+    class="back-link"
+    href="index.html"
+  >
+    ← Accueil
+  </a>
+
+
+  <header class="hangeul-header">
+
+    <span class="hangeul-badge">
+      🔤 Section permanente
+    </span>
+
+    <p class="korean">
+      한글
+    </p>
+
+    <h1>
+      Découvrir le Hangeul
+    </h1>
+
+    <p class="hangeul-subtitle">
+      Apprends à lire le coréen pas à pas,
+      puis reviens ici à tout moment
+      dès que tu as un doute.
+    </p>
+
+  </header>
+
+
+  <section class="intro-card">
+
+    <strong>🌿 Comment utiliser cette section ?</strong>
+
+    <br><br>
+
+    Si tu débutes complètement,
+    suis les étapes dans l'ordre.
+
+    <br><br>
+
+    Si tu sais déjà lire un peu le coréen,
+    utilise cette section comme un mémo :
+    consonnes, voyelles, batchim,
+    assemblage des syllabes
+    et règles de prononciation restent accessibles à tout moment.
+
+  </section>
+
+
+  <section class="progress-card">
+
+    <div class="progress-top">
+
+      <div class="progress-title">
+        Progression Hangeul
+      </div>
+
+      <div
+        class="progress-count"
+        id="progressCount"
+      >
+        0 / 6
+      </div>
+
+    </div>
+
+    <div class="progress-bar">
+      <div
+        class="progress-fill"
+        id="progressFill"
+      ></div>
+    </div>
+
+    <div
+      class="progress-message"
+      id="progressMessage"
+    >
+      Commence par les consonnes 🌱
+    </div>
+
+  </section>
+
+
+  <h2 class="section-title">
+    Ton parcours Hangeul
+  </h2>
+
+
+  <section class="path-grid">
+
+
+    <article class="path-card">
+
+      <div class="path-icon">
+        ㄱ
+      </div>
+
+      <h2>
+        1. Les consonnes
+      </h2>
+
+      <p>
+        Découvre les consonnes de base,
+        leur forme,
+        leur son
+        et des exemples simples.
+      </p>
+
+      <div
+        class="status-line"
+        id="statusConsonants"
+      >
+        À découvrir
+      </div>
+
+      <button
+        class="path-button"
+        id="buttonConsonants"
+        type="button"
+        onclick="window.location.href='hangeul-consonnes.html'"
+      >
+        Commencer
+      </button>
+
+    </article>
+
+
+    <article class="path-card">
+
+      <div class="path-icon">
+        ㅏ
+      </div>
+
+      <h2>
+        2. Les voyelles
+      </h2>
+
+      <p>
+        Apprends les voyelles simples,
+        les sons en « y »
+        et les principales voyelles composées.
+      </p>
+
+      <div
+        class="status-line"
+        id="statusVowels"
+      >
+        À découvrir
+      </div>
+
+      <button
+        class="path-button"
+        id="buttonVowels"
+        type="button"
+        onclick="window.location.href='hangeul-voyelles.html'"
+      >
+        Ouvrir
+      </button>
+
+    </article>
+
+
+    <article class="path-card">
+
+      <div class="path-icon">
+        가
+      </div>
+
+      <h2>
+        3. Former une syllabe
+      </h2>
+
+      <p>
+        Assemble consonnes et voyelles
+        et découvre comment elles deviennent
+        de vrais blocs coréens.
+      </p>
+
+      <div
+        class="status-line"
+        id="statusSyllables"
+      >
+        À découvrir
+      </div>
+
+      <button
+        class="path-button"
+        id="buttonSyllables"
+        type="button"
+        onclick="window.location.href='hangeul-syllabes.html'"
+      >
+        Ouvrir
+      </button>
+
+    </article>
+
+
+    <article class="path-card">
+
+      <div class="path-icon">
+        받
+      </div>
+
+      <h2>
+        4. Les batchim 받침
+      </h2>
+
+      <p>
+        Comprends le rôle
+        de la consonne finale
+        et les sept sons finaux principaux.
+      </p>
+
+      <div
+        class="status-line"
+        id="statusBatchim"
+      >
+        À découvrir
+      </div>
+
+      <button
+        class="path-button"
+        id="buttonBatchim"
+        type="button"
+        onclick="window.location.href='hangeul-batchim.html'"
+      >
+        Ouvrir
+      </button>
+
+    </article>
+
+
+    <article class="path-card">
+
+      <div class="path-icon">
+        🔊
+      </div>
+
+      <h2>
+        5. Les changements de son
+      </h2>
+
+      <p>
+        Découvre pourquoi
+        un mot ne se prononce pas toujours
+        exactement comme il s'écrit.
+      </p>
+
+      <div
+        class="status-line"
+        id="statusSoundChanges"
+      >
+        À découvrir
+      </div>
+
+      <button
+        class="path-button"
+        id="buttonSoundChanges"
+        type="button"
+        onclick="window.location.href='hangeul-prononciation.html'"
+      >
+        Ouvrir
+      </button>
+
+    </article>
+
+
+    <article class="path-card">
+
+      <div class="path-icon">
+        📖
+      </div>
+
+      <h2>
+        6. Je m'entraîne à lire
+      </h2>
+
+      <p>
+        Passe des syllabes
+        aux mots,
+        puis à de petites expressions.
+      </p>
+
+      <div
+        class="status-line"
+        id="statusReading"
+      >
+        À découvrir
+      </div>
+
+      <button
+        class="path-button"
+        id="buttonReading"
+        type="button"
+        onclick="window.location.href='hangeul-lecture.html'"
+      >
+        Ouvrir
+      </button>
+
+    </article>
+
+  </section>
+
+
+  <section class="memo-card">
+
+    <strong>
+      📌 Mémo Hangeul
+    </strong>
+
+    <br><br>
+
+    Cette future page servira de référence rapide :
+    consonnes, voyelles,
+    sons finaux et principales règles de prononciation
+    réunis au même endroit.
+
+    <br><br>
+
+    Elle sera utile même longtemps
+    après avoir terminé le parcours Hangeul.
+
+    <button
+      class="memo-button"
+      type="button"
+      onclick="window.location.href='hangeul-memo.html'"
+    >
+      📌 Ouvrir le Mémo Hangeul
+    </button>
+
+  </section>
+
+
+  <section class="reference-card">
+
+    <strong>
+      💙 Une ressource permanente
+    </strong>
+
+    <br><br>
+
+    Le Hangeul n'est pas un module
+    que tu termines puis que tu oublies.
+
+    <br><br>
+
+    Toutes les leçons restent accessibles
+    même après leur validation,
+    pour pouvoir revenir sur une lettre,
+    un batchim ou une règle
+    dès que tu en as besoin.
+
+  </section>
+
+
+  <button
+    class="back-home-button"
+    type="button"
+    onclick="window.location.href='index.html'"
+  >
+    Retour à l'accueil
+  </button>
+
+</main>
+
+
+<script>
+  const hangeulSteps = [
+
+    {
+      key:
+        "hanaKorean_hangeul_consonants",
+
+      statusId:
+        "statusConsonants",
+
+      buttonId:
+        "buttonConsonants"
+    },
+
+    {
+      key:
+        "hanaKorean_hangeul_vowels",
+
+      statusId:
+        "statusVowels",
+
+      buttonId:
+        "buttonVowels"
+    },
+
+    {
+      key:
+        "hanaKorean_hangeul_syllables",
+
+      statusId:
+        "statusSyllables",
+
+      buttonId:
+        "buttonSyllables"
+    },
+
+    {
+      key:
+        "hanaKorean_hangeul_batchim",
+
+      statusId:
+        "statusBatchim",
+
+      buttonId:
+        "buttonBatchim"
+    },
+
+    {
+      key:
+        "hanaKorean_hangeul_soundChanges",
+
+      statusId:
+        "statusSoundChanges",
+
+      buttonId:
+        "buttonSoundChanges"
+    },
+
+    {
+      key:
+        "hanaKorean_hangeul_reading",
+
+      statusId:
+        "statusReading",
+
+      buttonId:
+        "buttonReading"
+    }
+
+  ];
+
+
+  function isCompleted(key) {
+
+    return localStorage.getItem(
+      key
+    ) === "completed";
+
+  }
+
+
+  function updateHangeulProgress() {
+
+    let completedCount = 0;
+
+
+    hangeulSteps.forEach(
+      step => {
+
+        const completed =
+          isCompleted(
+            step.key
+          );
+
+
+        const status =
+          document.getElementById(
+            step.statusId
+          );
+
+
+        const button =
+          document.getElementById(
+            step.buttonId
+          );
+
+
+        if (completed) {
+
+          completedCount++;
+
+
+          status.textContent =
+            "Terminé ✓";
+
+
+          status.classList.add(
+            "done"
+          );
+
+
+          button.textContent =
+            "Revoir";
+
+
+          button.classList.add(
+            "done"
+          );
+
+        }
+
+        else {
+
+          status.textContent =
+            "À découvrir";
+
+
+          status.classList.remove(
+            "done"
+          );
+
+
+          if (
+            step.buttonId ===
+            "buttonConsonants"
+          ) {
+
+            button.textContent =
+              "Commencer";
+
+          }
+
+          else {
+
+            button.textContent =
+              "Ouvrir";
+
+          }
+
+
+          button.classList.remove(
+            "done"
+          );
+
+        }
+
+      }
+    );
+
+
+    const percentage =
+      Math.round(
+        (
+          completedCount /
+          hangeulSteps.length
+        ) *
+        100
+      );
+
+
+    document.getElementById(
+      "progressCount"
+    ).textContent =
+      completedCount +
+      " / " +
+      hangeulSteps.length;
+
+
+    document.getElementById(
+      "progressFill"
+    ).style.width =
+      percentage +
+      "%";
+
+
+    const message =
+      document.getElementById(
+        "progressMessage"
+      );
+
+
+    if (
+      completedCount === 0
+    ) {
+
+      message.textContent =
+        "Commence par les consonnes 🌱";
+
+    }
+
+    else if (
+      completedCount <
+      hangeulSteps.length
+    ) {
+
+      message.textContent =
+        percentage +
+        " % du parcours Hangeul terminé 🌿";
+
+    }
+
+    else {
+
+      message.textContent =
+        "Parcours Hangeul terminé 🎉 Tu peux continuer à consulter toutes les leçons quand tu veux.";
+
+    }
+
+
+    if (
+      completedCount ===
+      hangeulSteps.length
+    ) {
+
+      localStorage.setItem(
+        "hanaKorean_hangeul_completed",
+        "completed"
+      );
+
+    }
+
+  }
+
+
+  updateHangeulProgress();
+
+
+  window.addEventListener(
+    "pageshow",
+    updateHangeulProgress
+  );
+</script>
+
+</body>
+
+</html>

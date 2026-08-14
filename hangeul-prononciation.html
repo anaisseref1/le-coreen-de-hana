@@ -1,0 +1,1295 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+  <meta
+    name="theme-color"
+    content="#F7F4ED"
+  >
+
+  <title>Les changements de son — Hangeul</title>
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
+  <style>
+    .lesson-header {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .lesson-badge {
+      display: inline-block;
+      padding: 7px 14px;
+      margin-bottom: 10px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .lesson-subtitle {
+      color: var(--text-light);
+      line-height: 1.7;
+    }
+
+    .intro-card,
+    .rule-card,
+    .tip-card,
+    .quiz-card,
+    .result-card {
+      padding: 20px;
+      margin-bottom: 18px;
+      background: var(--white);
+      border-radius: var(--radius-large);
+      box-shadow: var(--shadow);
+    }
+
+    .intro-card {
+      background: var(--soft-green);
+      color: var(--navy);
+      line-height: 1.7;
+    }
+
+    .rule-card h2,
+    .quiz-card h2 {
+      margin-top: 0;
+      color: var(--navy);
+    }
+
+    .rule-card p,
+    .quiz-card p {
+      line-height: 1.7;
+    }
+
+    .rule-summary {
+      padding: 16px;
+      margin-top: 14px;
+      background: var(--soft-blue);
+      border-radius: var(--radius-medium);
+      color: var(--navy);
+      line-height: 1.7;
+    }
+
+    .example-list {
+      margin-top: 15px;
+    }
+
+    .example-row {
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .example-row:last-child {
+      border-bottom: none;
+    }
+
+    .example-written {
+      color: var(--navy);
+      font-size: 21px;
+      font-weight: bold;
+    }
+
+    .example-pronounced {
+      margin-top: 5px;
+      color: var(--jade-dark);
+      font-weight: bold;
+    }
+
+    .example-explanation {
+      margin-top: 5px;
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+
+    .audio-button {
+      width: 100%;
+      margin-top: 9px;
+      background: var(--soft-blue);
+      color: var(--navy);
+    }
+
+    .warning-box {
+      padding: 16px;
+      margin-top: 14px;
+      background: var(--soft-beige);
+      border-radius: var(--radius-medium);
+      color: var(--navy);
+      line-height: 1.7;
+    }
+
+    .tip-card {
+      background: var(--soft-beige);
+      color: var(--navy);
+      line-height: 1.7;
+    }
+
+    .quiz-progress {
+      margin-bottom: 18px;
+    }
+
+    .progress-info {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      color: var(--text-light);
+      font-size: 13px;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 9px;
+      overflow: hidden;
+      background: var(--soft-beige);
+      border-radius: 20px;
+    }
+
+    .progress-fill {
+      width: 20%;
+      height: 100%;
+      background: var(--jade);
+      border-radius: 20px;
+      transition: width 0.3s ease;
+    }
+
+    .quiz-question {
+      padding: 18px;
+      margin: 14px 0;
+      background: #FBFAF6;
+      border-radius: var(--radius-medium);
+      color: var(--navy);
+      font-size: 20px;
+      font-weight: bold;
+      line-height: 1.6;
+    }
+
+    .answers {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .answer {
+      width: 100%;
+      padding: 15px;
+      text-align: left;
+      border: 2px solid transparent;
+    }
+
+    .feedback {
+      display: none;
+      padding: 15px;
+      margin-top: 14px;
+      border-radius: var(--radius-medium);
+      line-height: 1.7;
+    }
+
+    .feedback.show {
+      display: block;
+    }
+
+    .next-question {
+      display: none;
+      width: 100%;
+      margin-top: 12px;
+      background: var(--navy);
+      color: white;
+      font-weight: bold;
+    }
+
+    .next-question.show {
+      display: block;
+    }
+
+    .result-card {
+      display: none;
+      text-align: center;
+    }
+
+    .result-card.show {
+      display: block;
+    }
+
+    .result-icon {
+      font-size: 58px;
+    }
+
+    .summary-box {
+      padding: 16px;
+      margin-top: 18px;
+      background: #FBFAF6;
+      border-radius: var(--radius-medium);
+      text-align: left;
+      line-height: 1.7;
+    }
+
+    .finish-button,
+    .back-button {
+      width: 100%;
+    }
+
+    .finish-button {
+      margin-top: 18px;
+      background: var(--jade);
+      color: white;
+      font-weight: bold;
+    }
+
+    .back-button {
+      margin-top: 10px;
+      background: var(--soft-beige);
+      color: var(--navy);
+    }
+  </style>
+</head>
+
+<body>
+
+<main class="app">
+
+  <a
+    class="back-link"
+    href="hangeul.html"
+  >
+    ← Hangeul
+  </a>
+
+
+  <header class="lesson-header">
+
+    <span class="lesson-badge">
+      Hangeul · Étape 5
+    </span>
+
+    <p class="korean">
+      발음 변화
+    </p>
+
+    <h1>
+      Les changements de son
+    </h1>
+
+    <p class="lesson-subtitle">
+      Comprends pourquoi le coréen entendu
+      ne correspond pas toujours lettre par lettre
+      à ce qui est écrit.
+    </p>
+
+  </header>
+
+
+  <section class="intro-card">
+
+    <strong>🌿 Une idée très importante</strong>
+
+    <br><br>
+
+    En coréen,
+    l'écriture reste la même,
+    mais certains sons changent
+    lorsque deux syllabes se rencontrent.
+
+    <br><br>
+
+    Tu n'as pas besoin de mémoriser
+    toutes les règles aujourd'hui.
+
+    <br><br>
+
+    L'objectif est d'apprendre à reconnaître
+    les changements les plus fréquents
+    afin de ne pas penser :
+    « Ce n'est pas du tout ce qui est écrit ! »
+
+  </section>
+
+
+  <section class="rule-card">
+
+    <h2>
+      🔗 1. La liaison — 연음
+    </h2>
+
+    <p>
+      Lorsqu'un mot se termine par un batchim
+      et que l'élément grammatical suivant
+      commence par une voyelle,
+      la consonne finale peut se faire entendre
+      au début de la syllabe suivante.
+    </p>
+
+    <div class="rule-summary">
+      Imagine que le batchim
+      « glisse » vers la syllabe suivante
+      au moment de la prononciation.
+    </div>
+
+    <div class="example-list">
+
+      <div class="example-row">
+        <div class="example-written">옷이</div>
+        <div class="example-pronounced">Prononcé : [오시]</div>
+        <div class="example-explanation">
+          Le ㅅ final de 옷 se fait entendre
+          au début de 이.
+        </div>
+        <button class="audio-button" type="button" onclick="speakKorean('옷이')">
+          🔊 Écouter 옷이
+        </button>
+      </div>
+
+      <div class="example-row">
+        <div class="example-written">낮이</div>
+        <div class="example-pronounced">Prononcé : [나지]</div>
+        <div class="example-explanation">
+          Le ㅈ final passe devant la voyelle suivante.
+        </div>
+        <button class="audio-button" type="button" onclick="speakKorean('낮이')">
+          🔊 Écouter 낮이
+        </button>
+      </div>
+
+      <div class="example-row">
+        <div class="example-written">밭에</div>
+        <div class="example-pronounced">Prononcé : [바테]</div>
+        <div class="example-explanation">
+          Le ㅌ final se fait entendre devant 에.
+        </div>
+        <button class="audio-button" type="button" onclick="speakKorean('밭에')">
+          🔊 Écouter 밭에
+        </button>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="rule-card">
+
+    <h2>
+      👃 2. La nasalisation — 비음화
+    </h2>
+
+    <p>
+      Devant les consonnes nasales
+      <strong>ㄴ</strong> ou <strong>ㅁ</strong>,
+      certains batchim changent de son
+      pour rendre la prononciation plus fluide.
+    </p>
+
+    <div class="rule-summary">
+      <strong>ㄱ → ㅇ</strong>
+      <br>
+      <strong>ㄷ → ㄴ</strong>
+      <br>
+      <strong>ㅂ → ㅁ</strong>
+      <br><br>
+      lorsqu'ils rencontrent notamment ㄴ ou ㅁ
+      dans les environnements concernés.
+    </div>
+
+    <div class="example-list">
+
+      <div class="example-row">
+        <div class="example-written">먹는</div>
+        <div class="example-pronounced">Prononcé : [멍는]</div>
+        <div class="example-explanation">
+          Le son final ㄱ devient ㅇ devant ㄴ.
+        </div>
+        <button class="audio-button" type="button" onclick="speakKorean('먹는')">
+          🔊 Écouter 먹는
+        </button>
+      </div>
+
+      <div class="example-row">
+        <div class="example-written">국물</div>
+        <div class="example-pronounced">Prononcé : [궁물]</div>
+        <div class="example-explanation">
+          Le son final ㄱ devient ㅇ devant ㅁ.
+        </div>
+        <button class="audio-button" type="button" onclick="speakKorean('국물')">
+          🔊 Écouter 국물
+        </button>
+      </div>
+
+      <div class="example-row">
+        <div class="example-written">잡는</div>
+        <div class="example-pronounced">Prononcé : [잠는]</div>
+        <div class="example-explanation">
+          Le son final ㅂ devient ㅁ devant ㄴ.
+        </div>
+        <button class="audio-button" type="button" onclick="speakKorean('잡는')">
+          🔊 Écouter 잡는
+        </button>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="rule-card">
+
+    <h2>
+      ㄹ 3. ㄴ et ㄹ ensemble — 유음화
+    </h2>
+
+    <p>
+      Lorsque <strong>ㄴ</strong> et <strong>ㄹ</strong>
+      se rencontrent dans certains mots,
+      leur prononciation peut se rapprocher
+      de deux sons <strong>ㄹ</strong>.
+    </p>
+
+    <div class="example-list">
+
+      <div class="example-row">
+        <div class="example-written">신라</div>
+        <div class="example-pronounced">Prononcé : [실라]</div>
+        <div class="example-explanation">
+          ㄴ + ㄹ se prononce ici ㄹ + ㄹ.
+        </div>
+        <button class="audio-button" type="button" onclick="speakKorean('신라')">
+          🔊 Écouter 신라
+        </button>
+      </div>
+
+      <div class="example-row">
+        <div class="example-written">난로</div>
+        <div class="example-pronounced">Prononcé : [날로]</div>
+        <div class="example-explanation">
+          Même phénomène : ㄴ + ㄹ devient ici ㄹ + ㄹ.
+        </div>
+        <button class="audio-button" type="button" onclick="speakKorean('난로')">
+          🔊 Écouter 난로
+        </button>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="rule-card">
+
+    <h2>
+      👅 4. La palatalisation — 구개음화
+    </h2>
+
+    <p>
+      Dans certains contextes,
+      un batchim <strong>ㄷ</strong> ou <strong>ㅌ</strong>
+      suivi d'un élément commençant par <strong>ㅣ</strong>
+      se prononce respectivement
+      comme <strong>ㅈ</strong> ou <strong>ㅊ</strong>.
+    </p>
+
+    <div class="example-list">
+
+      <div class="example-row">
+        <div class="example-written">굳이</div>
+        <div class="example-pronounced">Prononcé : [구지]</div>
+        <div class="example-explanation">
+          ㄷ rencontre ㅣ et se prononce ㅈ dans ce contexte.
+        </div>
+        <button class="audio-button" type="button" onclick="speakKorean('굳이')">
+          🔊 Écouter 굳이
+        </button>
+      </div>
+
+      <div class="example-row">
+        <div class="example-written">밭이</div>
+        <div class="example-pronounced">Prononcé : [바치]</div>
+        <div class="example-explanation">
+          ㅌ rencontre ㅣ et se prononce ㅊ dans ce contexte.
+        </div>
+        <button class="audio-button" type="button" onclick="speakKorean('밭이')">
+          🔊 Écouter 밭이
+        </button>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="rule-card">
+
+    <h2>
+      💥 5. Le renforcement — 된소리되기
+    </h2>
+
+    <p>
+      Après certains sons finaux,
+      une consonne qui suit peut devenir
+      une consonne <strong>tendue</strong>.
+    </p>
+
+    <div class="rule-summary">
+      Par exemple,
+      un ㄱ peut devenir ㄲ
+      dans la prononciation.
+    </div>
+
+    <div class="example-list">
+
+      <div class="example-row">
+        <div class="example-written">깊게</div>
+        <div class="example-pronounced">Prononcé : [깁께]</div>
+        <div class="example-explanation">
+          Le ㅍ final est réalisé comme un son final ㅂ,
+          puis le ㄱ suivant est renforcé en ㄲ.
+        </div>
+        <button class="audio-button" type="button" onclick="speakKorean('깊게')">
+          🔊 Écouter 깊게
+        </button>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="tip-card">
+
+    <strong>
+      💙 Ce que tu dois retenir à ce stade
+    </strong>
+
+    <br><br>
+
+    Tu n'as pas besoin de calculer mentalement
+    toutes les transformations lorsque tu parles.
+
+    <br><br>
+
+    Commence simplement à reconnaître :
+
+    <br><br>
+
+    🔗 <strong>la liaison</strong>
+
+    <br>
+
+    👃 <strong>la nasalisation</strong>
+
+    <br>
+
+    ㄹ <strong>les changements entre ㄴ et ㄹ</strong>
+
+    <br>
+
+    👅 <strong>la palatalisation</strong>
+
+    <br>
+
+    💥 <strong>le renforcement</strong>
+
+    <br><br>
+
+    Avec l'écoute,
+    beaucoup de ces changements finiront
+    par devenir naturels.
+
+  </section>
+
+
+  <section class="rule-card">
+
+    <h2>
+      📌 Un dernier point important
+    </h2>
+
+    <div class="warning-box">
+
+      Les règles de prononciation coréennes
+      peuvent se combiner dans un même mot.
+
+      <br><br>
+
+      Il n'est donc pas toujours utile,
+      pour une débutante,
+      d'essayer de déterminer
+      « quelle règle arrive en premier ».
+
+      <br><br>
+
+      Dans cette section,
+      nous apprenons surtout
+      à reconnaître le résultat entendu.
+
+    </div>
+
+  </section>
+
+
+  <div class="quiz-progress">
+
+    <div class="progress-info">
+      <span>Mini entraînement</span>
+      <span id="progressLabel">1 / 5</span>
+    </div>
+
+    <div class="progress-bar">
+      <div
+        class="progress-fill"
+        id="progressFill"
+      ></div>
+    </div>
+
+  </div>
+
+
+  <section
+    class="quiz-card"
+    id="quizCard"
+  >
+
+    <h2 id="quizTitle">
+      🧠 Question 1
+    </h2>
+
+    <div
+      class="quiz-question"
+      id="quizQuestion"
+    ></div>
+
+    <div
+      class="answers"
+      id="answers"
+    ></div>
+
+    <div
+      class="feedback"
+      id="feedback"
+    ></div>
+
+    <button
+      class="next-question"
+      id="nextButton"
+      type="button"
+      onclick="nextQuestion()"
+    >
+      Question suivante →
+    </button>
+
+  </section>
+
+
+  <section
+    class="result-card"
+    id="resultCard"
+  >
+
+    <div class="result-icon">
+      🔊🌿
+    </div>
+
+    <h2>
+      잘했어요!
+    </h2>
+
+    <p>
+      Tu as terminé l'étape
+      sur les changements de son.
+    </p>
+
+    <div class="summary-box">
+
+      <strong>
+        🌸 À retenir
+      </strong>
+
+      <br><br>
+
+      L'écriture coréenne ne change pas,
+      mais la prononciation peut s'adapter
+      lorsque les sons se rencontrent.
+
+      <br><br>
+
+      Tu sais maintenant reconnaître
+      plusieurs phénomènes essentiels :
+      liaison, nasalisation,
+      유음화, palatalisation
+      et renforcement.
+
+      <br><br>
+
+      <span id="resultText"></span>
+
+    </div>
+
+
+    <button
+      class="finish-button"
+      type="button"
+      onclick="finishLesson()"
+    >
+      ✅ Terminer cette leçon
+    </button>
+
+
+    <button
+      class="back-button"
+      type="button"
+      onclick="window.location.href='hangeul.html'"
+    >
+      Retour au Hangeul
+    </button>
+
+  </section>
+
+</main>
+
+
+<script>
+  const AUDIO_SETTINGS = {
+    normalRate: 0.82
+  };
+
+
+  const quiz = [
+
+    {
+      question:
+        "Comment se prononce 옷이 ?",
+      options: [
+        {
+          text: "[오시]",
+          correct: true
+        },
+        {
+          text: "[옫이]",
+          correct: false
+        },
+        {
+          text: "[오티]",
+          correct: false
+        }
+      ],
+      explanation:
+        "Dans 옷이, le ㅅ final se fait entendre au début de la syllabe suivante : [오시]."
+    },
+
+    {
+      question:
+        "Comment se prononce 국물 ?",
+      options: [
+        {
+          text: "[궁물]",
+          correct: true
+        },
+        {
+          text: "[국물]",
+          correct: false
+        },
+        {
+          text: "[군물]",
+          correct: false
+        }
+      ],
+      explanation:
+        "Devant ㅁ, le son final ㄱ devient ici ㅇ : 국물 → [궁물]."
+    },
+
+    {
+      question:
+        "Comment se prononce 신라 ?",
+      options: [
+        {
+          text: "[실라]",
+          correct: true
+        },
+        {
+          text: "[신라]",
+          correct: false
+        },
+        {
+          text: "[심라]",
+          correct: false
+        }
+      ],
+      explanation:
+        "Dans 신라, ㄴ + ㄹ se réalise comme ㄹ + ㄹ : [실라]."
+    },
+
+    {
+      question:
+        "Quel changement observes-tu dans 밭이 → [바치] ?",
+      options: [
+        {
+          text: "ㅌ se prononce ㅊ devant ㅣ dans ce contexte.",
+          correct: true
+        },
+        {
+          text: "ㅌ se prononce ㅁ.",
+          correct: false
+        },
+        {
+          text: "ㅣ disparaît.",
+          correct: false
+        }
+      ],
+      explanation:
+        "C'est un exemple de palatalisation : 밭이 se prononce [바치]."
+    },
+
+    {
+      question:
+        "Quelle est l'idée principale de cette leçon ?",
+      options: [
+        {
+          text: "L'écriture peut rester identique alors que la prononciation s'adapte.",
+          correct: true
+        },
+        {
+          text: "Il faut modifier l'orthographe pour écrire comme on parle.",
+          correct: false
+        },
+        {
+          text: "Tous les batchim se prononcent toujours exactement comme à l'écrit.",
+          correct: false
+        }
+      ],
+      explanation:
+        "Exact : l'orthographe reste la même, tandis que certains sons s'adaptent dans la prononciation."
+    }
+
+  ];
+
+
+  let currentQuestion = 0;
+  let mistakes = 0;
+
+
+  function getKoreanVoice() {
+
+    const voices =
+      window.speechSynthesis.getVoices();
+
+
+    return voices.find(
+      voice =>
+        voice.lang &&
+        voice.lang
+          .toLowerCase()
+          .startsWith("ko")
+    );
+
+  }
+
+
+  function speakKorean(text) {
+
+    if (
+      !("speechSynthesis" in window)
+    ) {
+      return;
+    }
+
+
+    window.speechSynthesis.cancel();
+
+
+    const speech =
+      new SpeechSynthesisUtterance(
+        text
+      );
+
+
+    speech.lang =
+      "ko-KR";
+
+
+    speech.rate =
+      AUDIO_SETTINGS.normalRate;
+
+
+    speech.pitch =
+      1;
+
+
+    const voice =
+      getKoreanVoice();
+
+
+    if (voice) {
+      speech.voice = voice;
+    }
+
+
+    window.speechSynthesis.speak(
+      speech
+    );
+
+  }
+
+
+  function renderQuestion() {
+
+    const item =
+      quiz[currentQuestion];
+
+
+    document.getElementById(
+      "quizTitle"
+    ).textContent =
+      "🧠 Question " +
+      (currentQuestion + 1);
+
+
+    document.getElementById(
+      "quizQuestion"
+    ).textContent =
+      item.question;
+
+
+    document.getElementById(
+      "progressLabel"
+    ).textContent =
+      (currentQuestion + 1) +
+      " / " +
+      quiz.length;
+
+
+    document.getElementById(
+      "progressFill"
+    ).style.width =
+      (
+        ((currentQuestion + 1) /
+          quiz.length) *
+        100
+      ) +
+      "%";
+
+
+    const answers =
+      document.getElementById(
+        "answers"
+      );
+
+
+    answers.innerHTML =
+      "";
+
+
+    item.options.forEach(
+      option => {
+
+        const button =
+          document.createElement(
+            "button"
+          );
+
+
+        button.type =
+          "button";
+
+
+        button.className =
+          "answer";
+
+
+        button.textContent =
+          option.text;
+
+
+        button.onclick =
+          function() {
+
+            checkAnswer(
+              button,
+              option.correct
+            );
+
+          };
+
+
+        answers.appendChild(
+          button
+        );
+
+      }
+    );
+
+
+    document.getElementById(
+      "feedback"
+    ).className =
+      "feedback";
+
+
+    document.getElementById(
+      "feedback"
+    ).innerHTML =
+      "";
+
+
+    document.getElementById(
+      "nextButton"
+    ).classList.remove(
+      "show"
+    );
+
+  }
+
+
+  function checkAnswer(
+    button,
+    isCorrect
+  ) {
+
+    const item =
+      quiz[currentQuestion];
+
+
+    const buttons =
+      document
+        .getElementById(
+          "answers"
+        )
+        .querySelectorAll(
+          ".answer"
+        );
+
+
+    const feedback =
+      document.getElementById(
+        "feedback"
+      );
+
+
+    if (isCorrect) {
+
+      button.classList.add(
+        "correct"
+      );
+
+
+      buttons.forEach(
+        answer => {
+          answer.disabled = true;
+        }
+      );
+
+
+      feedback.className =
+        "feedback show correct";
+
+
+      feedback.innerHTML =
+        "✅ <strong>Exact !</strong><br><br>" +
+        item.explanation;
+
+
+      document.getElementById(
+        "nextButton"
+      ).classList.add(
+        "show"
+      );
+
+
+      if (
+        currentQuestion ===
+        quiz.length - 1
+      ) {
+
+        document.getElementById(
+          "nextButton"
+        ).textContent =
+          "Voir mon résultat 🌿";
+
+      }
+
+
+      return;
+
+    }
+
+
+    mistakes++;
+
+
+    button.classList.add(
+      "wrong"
+    );
+
+
+    feedback.className =
+      "feedback show wrong";
+
+
+    feedback.innerHTML =
+      "❌ <strong>Pas encore.</strong><br><br>" +
+      "Relis l'exemple correspondant puis réessaie.";
+
+
+    setTimeout(
+      () => {
+
+        button.classList.remove(
+          "wrong"
+        );
+
+      },
+      800
+    );
+
+  }
+
+
+  function nextQuestion() {
+
+    if (
+      currentQuestion <
+      quiz.length - 1
+    ) {
+
+      currentQuestion++;
+
+
+      renderQuestion();
+
+
+      document.getElementById(
+        "quizCard"
+      ).scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+
+
+      return;
+
+    }
+
+
+    showResult();
+
+  }
+
+
+  function showResult() {
+
+    document.getElementById(
+      "quizCard"
+    ).style.display =
+      "none";
+
+
+    document.getElementById(
+      "resultCard"
+    ).classList.add(
+      "show"
+    );
+
+
+    let text = "";
+
+
+    if (
+      mistakes === 0
+    ) {
+
+      text =
+        "🌟 Tu as répondu aux 5 questions sans erreur.";
+
+    }
+
+    else if (
+      mistakes === 1
+    ) {
+
+      text =
+        "💡 Tu as fait 1 tentative incorrecte pendant l'entraînement.";
+
+    }
+
+    else {
+
+      text =
+        "💡 Tu as fait " +
+        mistakes +
+        " tentatives incorrectes pendant l'entraînement.";
+
+    }
+
+
+    document.getElementById(
+      "resultText"
+    ).textContent =
+      text;
+
+
+    window.scrollTo({
+      top: document.body.scrollHeight,
+      behavior: "smooth"
+    });
+
+  }
+
+
+  function finishLesson() {
+
+    localStorage.setItem(
+      "hanaKorean_hangeul_soundChanges",
+      "completed"
+    );
+
+
+    localStorage.setItem(
+      "hanaKorean_hangeul_soundChangesMistakes",
+      mistakes
+    );
+
+
+    window.location.href =
+      "hangeul.html";
+
+  }
+
+
+  if (
+    "speechSynthesis" in window
+  ) {
+
+    window.speechSynthesis.onvoiceschanged =
+      function() {
+
+        window.speechSynthesis.getVoices();
+
+      };
+
+  }
+
+
+  window.addEventListener(
+    "pagehide",
+    function() {
+
+      if (
+        "speechSynthesis" in window
+      ) {
+
+        window.speechSynthesis.cancel();
+
+      }
+
+    }
+  );
+
+
+  renderQuestion();
+</script>
+
+</body>
+
+</html>

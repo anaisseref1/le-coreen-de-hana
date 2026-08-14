@@ -1,0 +1,1696 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+  <meta
+    name="theme-color"
+    content="#F7F4ED"
+  >
+
+  <title>Former une syllabe — Hangeul</title>
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
+  <style>
+    .lesson-header {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .lesson-badge {
+      display: inline-block;
+      padding: 7px 14px;
+      margin-bottom: 10px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .lesson-subtitle {
+      color: var(--text-light);
+      line-height: 1.7;
+    }
+
+    .intro-card,
+    .section-card,
+    .builder-card,
+    .tip-card,
+    .quiz-card,
+    .result-card {
+      padding: 20px;
+      margin-bottom: 18px;
+      background: var(--white);
+      border-radius: var(--radius-large);
+      box-shadow: var(--shadow);
+    }
+
+    .intro-card {
+      background: var(--soft-green);
+      color: var(--navy);
+      line-height: 1.7;
+    }
+
+    .section-card h2,
+    .builder-card h2,
+    .quiz-card h2 {
+      margin-top: 0;
+      color: var(--navy);
+    }
+
+    .section-card p,
+    .builder-card p,
+    .quiz-card p {
+      line-height: 1.7;
+    }
+
+    .structure-box {
+      padding: 16px;
+      margin-top: 14px;
+      background: var(--soft-blue);
+      border-radius: var(--radius-medium);
+      color: var(--navy);
+      line-height: 1.7;
+    }
+
+    .big-formula {
+      margin: 14px 0;
+      color: var(--navy);
+      font-size: 30px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .layout-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      margin-top: 16px;
+    }
+
+    .layout-card {
+      padding: 18px;
+      background: #FBFAF6;
+      border-radius: var(--radius-medium);
+      text-align: center;
+    }
+
+    .layout-example {
+      color: var(--navy);
+      font-size: 42px;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .layout-rule {
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+
+    .example-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .example-card {
+      padding: 16px;
+      background: #FBFAF6;
+      border-radius: var(--radius-medium);
+      text-align: center;
+    }
+
+    .example-parts {
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+
+    .example-result {
+      margin: 8px 0;
+      color: var(--navy);
+      font-size: 34px;
+      font-weight: bold;
+    }
+
+    .audio-button {
+      width: 100%;
+      margin-top: 10px;
+      background: var(--soft-blue);
+      color: var(--navy);
+    }
+
+    .builder-card {
+      background: var(--soft-green);
+    }
+
+    .builder-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      margin-top: 16px;
+    }
+
+    .picker-label {
+      color: var(--navy);
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .picker-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 8px;
+    }
+
+    .picker-button {
+      padding: 12px 6px;
+      background: var(--white);
+      color: var(--navy);
+      border: 2px solid transparent;
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .picker-button.selected {
+      border-color: var(--jade);
+      background: var(--soft-blue);
+    }
+
+    .builder-result {
+      padding: 20px;
+      margin-top: 18px;
+      background: var(--white);
+      border-radius: var(--radius-medium);
+      text-align: center;
+    }
+
+    .builder-formula {
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+
+    .builder-syllable {
+      margin: 12px 0;
+      color: var(--navy);
+      font-size: 56px;
+      font-weight: bold;
+    }
+
+    .builder-audio {
+      width: 100%;
+      background: var(--navy);
+      color: white;
+      font-weight: bold;
+    }
+
+    .tip-card {
+      background: var(--soft-beige);
+      color: var(--navy);
+      line-height: 1.7;
+    }
+
+    .quiz-progress {
+      margin-bottom: 18px;
+    }
+
+    .progress-info {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      color: var(--text-light);
+      font-size: 13px;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 9px;
+      overflow: hidden;
+      background: var(--soft-beige);
+      border-radius: 20px;
+    }
+
+    .progress-fill {
+      width: 20%;
+      height: 100%;
+      background: var(--jade);
+      border-radius: 20px;
+      transition: width 0.3s ease;
+    }
+
+    .quiz-question {
+      padding: 18px;
+      margin: 14px 0;
+      background: #FBFAF6;
+      border-radius: var(--radius-medium);
+      color: var(--navy);
+      font-size: 20px;
+      font-weight: bold;
+      line-height: 1.6;
+    }
+
+    .answers {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .answer {
+      width: 100%;
+      padding: 15px;
+      text-align: left;
+      border: 2px solid transparent;
+    }
+
+    .feedback {
+      display: none;
+      padding: 15px;
+      margin-top: 14px;
+      border-radius: var(--radius-medium);
+      line-height: 1.7;
+    }
+
+    .feedback.show {
+      display: block;
+    }
+
+    .next-question {
+      display: none;
+      width: 100%;
+      margin-top: 12px;
+      background: var(--navy);
+      color: white;
+      font-weight: bold;
+    }
+
+    .next-question.show {
+      display: block;
+    }
+
+    .result-card {
+      display: none;
+      text-align: center;
+    }
+
+    .result-card.show {
+      display: block;
+    }
+
+    .result-icon {
+      font-size: 58px;
+    }
+
+    .summary-box {
+      padding: 16px;
+      margin-top: 18px;
+      background: #FBFAF6;
+      border-radius: var(--radius-medium);
+      text-align: left;
+      line-height: 1.7;
+    }
+
+    .finish-button,
+    .back-button {
+      width: 100%;
+    }
+
+    .finish-button {
+      margin-top: 18px;
+      background: var(--jade);
+      color: white;
+      font-weight: bold;
+    }
+
+    .back-button {
+      margin-top: 10px;
+      background: var(--soft-beige);
+      color: var(--navy);
+    }
+
+    @media (min-width: 680px) {
+      .layout-grid,
+      .example-grid,
+      .builder-row {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<main class="app">
+
+  <a
+    class="back-link"
+    href="hangeul.html"
+  >
+    ← Hangeul
+  </a>
+
+
+  <header class="lesson-header">
+
+    <span class="lesson-badge">
+      Hangeul · Étape 3
+    </span>
+
+    <p class="korean">
+      글자 만들기
+    </p>
+
+    <h1>
+      Former une syllabe
+    </h1>
+
+    <p class="lesson-subtitle">
+      Assemble consonnes et voyelles
+      pour construire de vrais blocs coréens.
+    </p>
+
+  </header>
+
+
+  <section class="intro-card">
+
+    <strong>🌿 Le principe essentiel</strong>
+
+    <br><br>
+
+    En coréen, les lettres ne s'écrivent pas simplement
+    les unes à côté des autres comme en français.
+
+    <br><br>
+
+    Elles se regroupent en <strong>blocs syllabiques</strong>.
+
+    <div class="big-formula">
+      ㄱ + ㅏ → 가
+    </div>
+
+    Chaque bloc correspond à une syllabe.
+
+  </section>
+
+
+  <section class="section-card">
+
+    <h2>
+      🧩 1. Consonne + voyelle
+    </h2>
+
+    <p>
+      Une syllabe simple commence généralement
+      par une consonne suivie d'une voyelle.
+    </p>
+
+    <div class="structure-box">
+
+      <strong>ㄴ + ㅏ → 나</strong>
+
+      <br><br>
+
+      <strong>ㅁ + ㅗ → 모</strong>
+
+      <br><br>
+
+      <strong>ㅂ + ㅣ → 비</strong>
+
+      <br><br>
+
+      Ce sont toujours les mêmes lettres,
+      mais leur position change selon la forme de la voyelle.
+
+    </div>
+
+  </section>
+
+
+  <section class="section-card">
+
+    <h2>
+      ↔️ 2. Voyelles verticales
+    </h2>
+
+    <p>
+      Avec une voyelle verticale,
+      la consonne se place à gauche
+      et la voyelle à droite.
+    </p>
+
+    <div class="layout-grid">
+
+      <div class="layout-card">
+        <div class="layout-example">가</div>
+        <div class="layout-rule">
+          ㄱ + ㅏ
+          <br>
+          consonne à gauche, voyelle à droite
+        </div>
+      </div>
+
+      <div class="layout-card">
+        <div class="layout-example">너</div>
+        <div class="layout-rule">
+          ㄴ + ㅓ
+          <br>
+          consonne à gauche, voyelle à droite
+        </div>
+      </div>
+
+      <div class="layout-card">
+        <div class="layout-example">미</div>
+        <div class="layout-rule">
+          ㅁ + ㅣ
+          <br>
+          consonne à gauche, voyelle à droite
+        </div>
+      </div>
+
+      <div class="layout-card">
+        <div class="layout-example">세</div>
+        <div class="layout-rule">
+          ㅅ + ㅔ
+          <br>
+          consonne à gauche, voyelle à droite
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="section-card">
+
+    <h2>
+      ↕️ 3. Voyelles horizontales
+    </h2>
+
+    <p>
+      Avec une voyelle horizontale,
+      la consonne se place au-dessus
+      et la voyelle en dessous.
+    </p>
+
+    <div class="layout-grid">
+
+      <div class="layout-card">
+        <div class="layout-example">고</div>
+        <div class="layout-rule">
+          ㄱ + ㅗ
+          <br>
+          consonne en haut, voyelle en bas
+        </div>
+      </div>
+
+      <div class="layout-card">
+        <div class="layout-example">누</div>
+        <div class="layout-rule">
+          ㄴ + ㅜ
+          <br>
+          consonne en haut, voyelle en bas
+        </div>
+      </div>
+
+      <div class="layout-card">
+        <div class="layout-example">므</div>
+        <div class="layout-rule">
+          ㅁ + ㅡ
+          <br>
+          consonne en haut, voyelle en bas
+        </div>
+      </div>
+
+      <div class="layout-card">
+        <div class="layout-example">요</div>
+        <div class="layout-rule">
+          ㅇ + ㅛ
+          <br>
+          consonne en haut, voyelle en bas
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="section-card">
+
+    <h2>
+      ㅇ 4. Quand la syllabe commence par une voyelle
+    </h2>
+
+    <p>
+      Un bloc syllabique doit avoir une consonne au début.
+      Quand le son commence directement par une voyelle,
+      on utilise <strong>ㅇ</strong> comme support.
+    </p>
+
+    <div class="structure-box">
+
+      Au début d'une syllabe,
+      <strong>ㅇ est silencieux</strong>.
+
+      <br><br>
+
+      <strong>ㅇ + ㅏ → 아</strong>
+
+      <br>
+
+      <strong>ㅇ + ㅓ → 어</strong>
+
+      <br>
+
+      <strong>ㅇ + ㅗ → 오</strong>
+
+      <br>
+
+      <strong>ㅇ + ㅜ → 우</strong>
+
+      <br>
+
+      <strong>ㅇ + ㅣ → 이</strong>
+
+    </div>
+
+  </section>
+
+
+  <section class="section-card">
+
+    <h2>
+      🌸 5. Lis tes premières syllabes
+    </h2>
+
+    <div class="example-grid">
+
+      <div class="example-card">
+        <div class="example-parts">ㄱ + ㅏ</div>
+        <div class="example-result">가</div>
+        <button class="audio-button" type="button" onclick="speakKorean('가')">
+          🔊 Écouter
+        </button>
+      </div>
+
+      <div class="example-card">
+        <div class="example-parts">ㄴ + ㅏ</div>
+        <div class="example-result">나</div>
+        <button class="audio-button" type="button" onclick="speakKorean('나')">
+          🔊 Écouter
+        </button>
+      </div>
+
+      <div class="example-card">
+        <div class="example-parts">ㅁ + ㅜ</div>
+        <div class="example-result">무</div>
+        <button class="audio-button" type="button" onclick="speakKorean('무')">
+          🔊 Écouter
+        </button>
+      </div>
+
+      <div class="example-card">
+        <div class="example-parts">ㅂ + ㅣ</div>
+        <div class="example-result">비</div>
+        <button class="audio-button" type="button" onclick="speakKorean('비')">
+          🔊 Écouter
+        </button>
+      </div>
+
+      <div class="example-card">
+        <div class="example-parts">ㅅ + ㅗ</div>
+        <div class="example-result">소</div>
+        <button class="audio-button" type="button" onclick="speakKorean('소')">
+          🔊 Écouter
+        </button>
+      </div>
+
+      <div class="example-card">
+        <div class="example-parts">ㅈ + ㅏ</div>
+        <div class="example-result">자</div>
+        <button class="audio-button" type="button" onclick="speakKorean('자')">
+          🔊 Écouter
+        </button>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="builder-card">
+
+    <h2>
+      🛠️ 6. Construis toi-même une syllabe
+    </h2>
+
+    <p>
+      Choisis une consonne,
+      puis une voyelle.
+      L'application construit automatiquement le bloc.
+    </p>
+
+
+    <div class="builder-row">
+
+      <div>
+
+        <div class="picker-label">
+          1. Choisis une consonne
+        </div>
+
+        <div
+          class="picker-grid"
+          id="consonantPicker"
+        ></div>
+
+      </div>
+
+
+      <div>
+
+        <div class="picker-label">
+          2. Choisis une voyelle
+        </div>
+
+        <div
+          class="picker-grid"
+          id="vowelPicker"
+        ></div>
+
+      </div>
+
+    </div>
+
+
+    <div class="builder-result">
+
+      <div
+        class="builder-formula"
+        id="builderFormula"
+      >
+        ㄱ + ㅏ
+      </div>
+
+      <div
+        class="builder-syllable"
+        id="builderSyllable"
+      >
+        가
+      </div>
+
+      <button
+        class="builder-audio"
+        type="button"
+        onclick="playBuiltSyllable()"
+      >
+        🔊 Écouter la syllabe
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <section class="tip-card">
+
+    <strong>
+      💙 La règle à retenir
+    </strong>
+
+    <br><br>
+
+    Ne cherche pas à dessiner un carré toi-même.
+
+    <br><br>
+
+    Tu choisis simplement les lettres :
+    le Hangeul les organise automatiquement
+    en bloc syllabique.
+
+    <br><br>
+
+    Pour l'instant :
+
+    <br><br>
+
+    <strong>consonne + voyelle = une syllabe.</strong>
+
+    <br><br>
+
+    À l'étape suivante,
+    nous ajouterons une consonne en bas du bloc :
+    le <strong>받침 (batchim)</strong>.
+
+  </section>
+
+
+  <div class="quiz-progress">
+
+    <div class="progress-info">
+      <span>Mini entraînement</span>
+      <span id="progressLabel">1 / 5</span>
+    </div>
+
+    <div class="progress-bar">
+      <div
+        class="progress-fill"
+        id="progressFill"
+      ></div>
+    </div>
+
+  </div>
+
+
+  <section
+    class="quiz-card"
+    id="quizCard"
+  >
+
+    <h2 id="quizTitle">
+      🧠 Question 1
+    </h2>
+
+    <div
+      class="quiz-question"
+      id="quizQuestion"
+    ></div>
+
+    <div
+      class="answers"
+      id="answers"
+    ></div>
+
+    <div
+      class="feedback"
+      id="feedback"
+    ></div>
+
+    <button
+      class="next-question"
+      id="nextButton"
+      type="button"
+      onclick="nextQuestion()"
+    >
+      Question suivante →
+    </button>
+
+  </section>
+
+
+  <section
+    class="result-card"
+    id="resultCard"
+  >
+
+    <div class="result-icon">
+      가 🌿
+    </div>
+
+    <h2>
+      잘했어요!
+    </h2>
+
+    <p>
+      Tu sais maintenant former
+      une syllabe coréenne simple.
+    </p>
+
+    <div class="summary-box">
+
+      <strong>
+        🌸 À retenir
+      </strong>
+
+      <br><br>
+
+      <strong>ㄱ + ㅏ → 가</strong>
+
+      <br><br>
+
+      Avec une voyelle verticale,
+      la voyelle se place à droite.
+
+      <br><br>
+
+      Avec une voyelle horizontale,
+      la voyelle se place sous la consonne.
+
+      <br><br>
+
+      Quand la syllabe commence par une voyelle,
+      on utilise <strong>ㅇ</strong> comme support silencieux.
+
+      <br><br>
+
+      <span id="resultText"></span>
+
+    </div>
+
+
+    <button
+      class="finish-button"
+      type="button"
+      onclick="finishLesson()"
+    >
+      ✅ Terminer cette leçon
+    </button>
+
+
+    <button
+      class="back-button"
+      type="button"
+      onclick="window.location.href='hangeul.html'"
+    >
+      Retour au Hangeul
+    </button>
+
+  </section>
+
+</main>
+
+
+<script>
+  const AUDIO_SETTINGS = {
+    normalRate: 0.82
+  };
+
+
+  const consonants = [
+    "ㄱ",
+    "ㄴ",
+    "ㄷ",
+    "ㄹ",
+    "ㅁ",
+    "ㅂ",
+    "ㅅ",
+    "ㅇ",
+    "ㅈ",
+    "ㅎ"
+  ];
+
+
+  const vowels = [
+    "ㅏ",
+    "ㅓ",
+    "ㅗ",
+    "ㅜ",
+    "ㅡ",
+    "ㅣ",
+    "ㅑ",
+    "ㅕ",
+    "ㅛ",
+    "ㅠ"
+  ];
+
+
+  const initialIndex = {
+    "ㄱ": 0,
+    "ㄴ": 2,
+    "ㄷ": 3,
+    "ㄹ": 5,
+    "ㅁ": 6,
+    "ㅂ": 7,
+    "ㅅ": 9,
+    "ㅇ": 11,
+    "ㅈ": 12,
+    "ㅎ": 18
+  };
+
+
+  const vowelIndex = {
+    "ㅏ": 0,
+    "ㅑ": 2,
+    "ㅓ": 4,
+    "ㅕ": 6,
+    "ㅗ": 8,
+    "ㅛ": 12,
+    "ㅜ": 13,
+    "ㅠ": 17,
+    "ㅡ": 18,
+    "ㅣ": 20
+  };
+
+
+  let selectedConsonant = "ㄱ";
+  let selectedVowel = "ㅏ";
+
+
+  const quiz = [
+
+    {
+      question:
+        "Que forme ㄱ + ㅏ ?",
+      options: [
+        {
+          text: "가",
+          correct: true
+        },
+        {
+          text: "고",
+          correct: false
+        },
+        {
+          text: "나",
+          correct: false
+        }
+      ],
+      explanation:
+        "ㄱ + ㅏ se regroupent en un seul bloc : 가."
+    },
+
+    {
+      question:
+        "Avec une voyelle verticale comme ㅏ, où se place la voyelle ?",
+      options: [
+        {
+          text: "À droite de la consonne",
+          correct: true
+        },
+        {
+          text: "Sous la consonne",
+          correct: false
+        },
+        {
+          text: "Au-dessus de la consonne",
+          correct: false
+        }
+      ],
+      explanation:
+        "Avec ㅏ, ㅓ, ㅣ et les autres voyelles verticales, la voyelle se place à droite."
+    },
+
+    {
+      question:
+        "Que forme ㅁ + ㅜ ?",
+      options: [
+        {
+          text: "무",
+          correct: true
+        },
+        {
+          text: "미",
+          correct: false
+        },
+        {
+          text: "마",
+          correct: false
+        }
+      ],
+      explanation:
+        "ㅜ est horizontale, elle se place sous ㅁ : 무."
+    },
+
+    {
+      question:
+        "Pourquoi utilise-t-on ㅇ dans 아 ?",
+      options: [
+        {
+          text: "Pour servir de support silencieux à la voyelle",
+          correct: true
+        },
+        {
+          text: "Pour ajouter le son ng au début",
+          correct: false
+        },
+        {
+          text: "Pour transformer ㅏ en ㅗ",
+          correct: false
+        }
+      ],
+      explanation:
+        "Au début de 아, ㅇ est silencieux et permet à ㅏ de former un bloc syllabique."
+    },
+
+    {
+      question:
+        "Combien de syllabes contient 나무 ?",
+      options: [
+        {
+          text: "2",
+          correct: true
+        },
+        {
+          text: "3",
+          correct: false
+        },
+        {
+          text: "4",
+          correct: false
+        }
+      ],
+      explanation:
+        "나무 contient deux blocs : 나 + 무. Il y a donc deux syllabes."
+    }
+
+  ];
+
+
+  let currentQuestion = 0;
+  let mistakes = 0;
+
+
+  function getKoreanVoice() {
+
+    const voices =
+      window.speechSynthesis.getVoices();
+
+
+    return voices.find(
+      voice =>
+        voice.lang &&
+        voice.lang
+          .toLowerCase()
+          .startsWith("ko")
+    );
+
+  }
+
+
+  function speakKorean(text) {
+
+    if (
+      !("speechSynthesis" in window)
+    ) {
+      return;
+    }
+
+
+    window.speechSynthesis.cancel();
+
+
+    const speech =
+      new SpeechSynthesisUtterance(
+        text
+      );
+
+
+    speech.lang =
+      "ko-KR";
+
+
+    speech.rate =
+      AUDIO_SETTINGS.normalRate;
+
+
+    speech.pitch =
+      1;
+
+
+    const voice =
+      getKoreanVoice();
+
+
+    if (voice) {
+      speech.voice = voice;
+    }
+
+
+    window.speechSynthesis.speak(
+      speech
+    );
+
+  }
+
+
+  function composeSyllable(
+    consonant,
+    vowel
+  ) {
+
+    const cho =
+      initialIndex[consonant];
+
+
+    const jung =
+      vowelIndex[vowel];
+
+
+    if (
+      cho === undefined ||
+      jung === undefined
+    ) {
+      return "";
+    }
+
+
+    const codePoint =
+      0xAC00 +
+      (
+        (
+          cho * 21
+        ) +
+        jung
+      ) * 28;
+
+
+    return String.fromCharCode(
+      codePoint
+    );
+
+  }
+
+
+  function renderPickers() {
+
+    const consonantPicker =
+      document.getElementById(
+        "consonantPicker"
+      );
+
+
+    const vowelPicker =
+      document.getElementById(
+        "vowelPicker"
+      );
+
+
+    consonantPicker.innerHTML =
+      "";
+
+
+    vowelPicker.innerHTML =
+      "";
+
+
+    consonants.forEach(
+      consonant => {
+
+        const button =
+          document.createElement(
+            "button"
+          );
+
+
+        button.type =
+          "button";
+
+
+        button.className =
+          "picker-button";
+
+
+        if (
+          consonant ===
+          selectedConsonant
+        ) {
+
+          button.classList.add(
+            "selected"
+          );
+
+        }
+
+
+        button.textContent =
+          consonant;
+
+
+        button.onclick =
+          function() {
+
+            selectedConsonant =
+              consonant;
+
+
+            renderPickers();
+            updateBuilder();
+
+          };
+
+
+        consonantPicker.appendChild(
+          button
+        );
+
+      }
+    );
+
+
+    vowels.forEach(
+      vowel => {
+
+        const button =
+          document.createElement(
+            "button"
+          );
+
+
+        button.type =
+          "button";
+
+
+        button.className =
+          "picker-button";
+
+
+        if (
+          vowel ===
+          selectedVowel
+        ) {
+
+          button.classList.add(
+            "selected"
+          );
+
+        }
+
+
+        button.textContent =
+          vowel;
+
+
+        button.onclick =
+          function() {
+
+            selectedVowel =
+              vowel;
+
+
+            renderPickers();
+            updateBuilder();
+
+          };
+
+
+        vowelPicker.appendChild(
+          button
+        );
+
+      }
+    );
+
+  }
+
+
+  function updateBuilder() {
+
+    const syllable =
+      composeSyllable(
+        selectedConsonant,
+        selectedVowel
+      );
+
+
+    document.getElementById(
+      "builderFormula"
+    ).textContent =
+      selectedConsonant +
+      " + " +
+      selectedVowel;
+
+
+    document.getElementById(
+      "builderSyllable"
+    ).textContent =
+      syllable;
+
+  }
+
+
+  function playBuiltSyllable() {
+
+    const syllable =
+      composeSyllable(
+        selectedConsonant,
+        selectedVowel
+      );
+
+
+    speakKorean(
+      syllable
+    );
+
+  }
+
+
+  function renderQuestion() {
+
+    const item =
+      quiz[currentQuestion];
+
+
+    document.getElementById(
+      "quizTitle"
+    ).textContent =
+      "🧠 Question " +
+      (currentQuestion + 1);
+
+
+    document.getElementById(
+      "quizQuestion"
+    ).textContent =
+      item.question;
+
+
+    document.getElementById(
+      "progressLabel"
+    ).textContent =
+      (currentQuestion + 1) +
+      " / " +
+      quiz.length;
+
+
+    document.getElementById(
+      "progressFill"
+    ).style.width =
+      (
+        ((currentQuestion + 1) /
+          quiz.length) *
+        100
+      ) +
+      "%";
+
+
+    const answers =
+      document.getElementById(
+        "answers"
+      );
+
+
+    answers.innerHTML =
+      "";
+
+
+    item.options.forEach(
+      option => {
+
+        const button =
+          document.createElement(
+            "button"
+          );
+
+
+        button.type =
+          "button";
+
+
+        button.className =
+          "answer";
+
+
+        button.textContent =
+          option.text;
+
+
+        button.onclick =
+          function() {
+
+            checkAnswer(
+              button,
+              option.correct
+            );
+
+          };
+
+
+        answers.appendChild(
+          button
+        );
+
+      }
+    );
+
+
+    document.getElementById(
+      "feedback"
+    ).className =
+      "feedback";
+
+
+    document.getElementById(
+      "feedback"
+    ).innerHTML =
+      "";
+
+
+    document.getElementById(
+      "nextButton"
+    ).classList.remove(
+      "show"
+    );
+
+  }
+
+
+  function checkAnswer(
+    button,
+    isCorrect
+  ) {
+
+    const item =
+      quiz[currentQuestion];
+
+
+    const buttons =
+      document
+        .getElementById(
+          "answers"
+        )
+        .querySelectorAll(
+          ".answer"
+        );
+
+
+    const feedback =
+      document.getElementById(
+        "feedback"
+      );
+
+
+    if (isCorrect) {
+
+      button.classList.add(
+        "correct"
+      );
+
+
+      buttons.forEach(
+        answer => {
+          answer.disabled = true;
+        }
+      );
+
+
+      feedback.className =
+        "feedback show correct";
+
+
+      feedback.innerHTML =
+        "✅ <strong>Exact !</strong><br><br>" +
+        item.explanation;
+
+
+      document.getElementById(
+        "nextButton"
+      ).classList.add(
+        "show"
+      );
+
+
+      if (
+        currentQuestion ===
+        quiz.length - 1
+      ) {
+
+        document.getElementById(
+          "nextButton"
+        ).textContent =
+          "Voir mon résultat 🌿";
+
+      }
+
+
+      return;
+
+    }
+
+
+    mistakes++;
+
+
+    button.classList.add(
+      "wrong"
+    );
+
+
+    feedback.className =
+      "feedback show wrong";
+
+
+    feedback.innerHTML =
+      "❌ <strong>Pas encore.</strong><br><br>" +
+      "Observe de nouveau la construction des blocs puis réessaie.";
+
+
+    setTimeout(
+      () => {
+
+        button.classList.remove(
+          "wrong"
+        );
+
+      },
+      800
+    );
+
+  }
+
+
+  function nextQuestion() {
+
+    if (
+      currentQuestion <
+      quiz.length - 1
+    ) {
+
+      currentQuestion++;
+
+
+      renderQuestion();
+
+
+      document.getElementById(
+        "quizCard"
+      ).scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+
+
+      return;
+
+    }
+
+
+    showResult();
+
+  }
+
+
+  function showResult() {
+
+    document.getElementById(
+      "quizCard"
+    ).style.display =
+      "none";
+
+
+    document.getElementById(
+      "resultCard"
+    ).classList.add(
+      "show"
+    );
+
+
+    let text = "";
+
+
+    if (
+      mistakes === 0
+    ) {
+
+      text =
+        "🌟 Tu as répondu aux 5 questions sans erreur.";
+
+    }
+
+    else if (
+      mistakes === 1
+    ) {
+
+      text =
+        "💡 Tu as fait 1 tentative incorrecte pendant l'entraînement.";
+
+    }
+
+    else {
+
+      text =
+        "💡 Tu as fait " +
+        mistakes +
+        " tentatives incorrectes pendant l'entraînement.";
+
+    }
+
+
+    document.getElementById(
+      "resultText"
+    ).textContent =
+      text;
+
+
+    window.scrollTo({
+      top: document.body.scrollHeight,
+      behavior: "smooth"
+    });
+
+  }
+
+
+  function finishLesson() {
+
+    localStorage.setItem(
+      "hanaKorean_hangeul_syllables",
+      "completed"
+    );
+
+
+    localStorage.setItem(
+      "hanaKorean_hangeul_syllablesMistakes",
+      mistakes
+    );
+
+
+    window.location.href =
+      "hangeul.html";
+
+  }
+
+
+  if (
+    "speechSynthesis" in window
+  ) {
+
+    window.speechSynthesis.onvoiceschanged =
+      function() {
+
+        window.speechSynthesis.getVoices();
+
+      };
+
+  }
+
+
+  window.addEventListener(
+    "pagehide",
+    function() {
+
+      if (
+        "speechSynthesis" in window
+      ) {
+
+        window.speechSynthesis.cancel();
+
+      }
+
+    }
+  );
+
+
+  renderPickers();
+  updateBuilder();
+  renderQuestion();
+</script>
+
+</body>
+
+</html>
