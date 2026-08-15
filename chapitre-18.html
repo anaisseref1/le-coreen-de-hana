@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#F7F4ED">
+  <title>Chapitre 18 — Parler de ses goûts</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .chapter-header { text-align:center; margin-bottom:28px; }
+    .chapter-badge { display:inline-block; padding:7px 14px; margin-bottom:10px; border-radius:20px; font-size:14px; font-weight:bold; }
+    .chapter-subtitle { color:var(--text-light); line-height:1.7; }
+
+    .objective-card,
+    .lesson-card,
+    .culture-card,
+    .note-card {
+      padding:18px;
+      margin-bottom:18px;
+      border-radius:var(--radius-medium);
+    }
+
+    .objective-card {
+      background:var(--soft-green);
+      color:var(--navy);
+      line-height:1.7;
+    }
+
+    .lesson-card {
+      background:var(--white);
+      border-radius:var(--radius-large);
+      box-shadow:var(--shadow);
+    }
+
+    .lesson-card h2 {
+      margin-top:0;
+      color:var(--navy);
+    }
+
+    .vocab-grid {
+      display:grid;
+      grid-template-columns:1fr;
+      gap:10px;
+      margin-top:14px;
+    }
+
+    .vocab-item {
+      padding:14px;
+      background:#FBFAF6;
+      border-radius:var(--radius-medium);
+    }
+
+    .vocab-korean {
+      color:var(--navy);
+      font-size:20px;
+      font-weight:bold;
+    }
+
+    .vocab-french {
+      margin-top:4px;
+      color:var(--text-light);
+    }
+
+    .pronunciation-card,
+    .grammar-box,
+    .why-box {
+      padding:16px;
+      margin-top:14px;
+      border-radius:var(--radius-medium);
+      line-height:1.7;
+    }
+
+    .pronunciation-card,
+    .grammar-box {
+      background:var(--soft-blue);
+    }
+
+    .why-box {
+      background:var(--soft-beige);
+      color:var(--navy);
+    }
+
+    .grammar-example {
+      padding:11px 0;
+      border-bottom:1px solid var(--border);
+    }
+
+    .grammar-example:last-child {
+      border-bottom:none;
+    }
+
+    .dialogue-line {
+      padding:15px;
+      margin-bottom:10px;
+      border-radius:var(--radius-medium);
+      line-height:1.7;
+    }
+
+    .dialogue-line.hana {
+      background:var(--soft-green);
+    }
+
+    .dialogue-line.minsu {
+      background:var(--soft-blue);
+    }
+
+    .speaker {
+      font-weight:bold;
+      margin-bottom:4px;
+    }
+
+    .dialogue-korean {
+      color:var(--navy);
+      font-size:19px;
+      font-weight:bold;
+    }
+
+    .dialogue-french {
+      margin-top:5px;
+      color:var(--text-light);
+    }
+
+    .note-card {
+      background:var(--soft-beige);
+      color:var(--navy);
+      line-height:1.7;
+    }
+
+    .culture-card {
+      background:var(--soft-green);
+      color:var(--navy);
+      line-height:1.7;
+    }
+
+    .recap-line {
+      padding:11px 0;
+      border-bottom:1px solid var(--border);
+      line-height:1.6;
+    }
+
+    .recap-line:last-child {
+      border-bottom:none;
+    }
+
+    .complete-button,
+    .next-button,
+    .back-route-button {
+      width:100%;
+      margin-top:10px;
+    }
+
+    .complete-button {
+      background:var(--jade);
+      color:white;
+      font-weight:bold;
+    }
+
+    .complete-button.done {
+      background:var(--success);
+    }
+
+    .next-button {
+      display:none;
+      background:var(--navy);
+      color:white;
+      font-weight:bold;
+    }
+
+    .back-route-button {
+      background:var(--soft-beige);
+      color:var(--navy);
+    }
+
+    @media (min-width:620px) {
+      .vocab-grid {
+        grid-template-columns:1fr 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<main class="app">
+
+  <a class="back-link" href="itineraire.html">
+    ← Itinéraire
+  </a>
+
+
+  <header class="chapter-header">
+
+    <span class="chapter-badge">
+      Chapitre 18 · ❤️ Parler de ses goûts
+    </span>
+
+    <p class="korean">
+      뭐가 제일 좋아요? ❤️
+    </p>
+
+    <h1>
+      Parler de ses goûts
+    </h1>
+
+    <p class="chapter-subtitle">
+      Apprends à parler de ce que tu aimes,
+      demander les préférences de quelqu'un
+      et expliquer simplement pourquoi.
+    </p>
+
+  </header>
+
+
+  <section class="objective-card">
+
+    <strong>
+      🎯 Objectif du chapitre
+    </strong>
+
+    <br><br>
+
+    ✅ parler de tes goûts et préférences<br>
+    ✅ demander ce que quelqu'un préfère<br>
+    ✅ dire ce que tu aimes le plus<br>
+    ✅ dire ce que tu n'aimes pas<br>
+    ✅ utiliser 좋아요 et 좋아해요 correctement<br>
+    ✅ expliquer simplement pourquoi
+
+  </section>
+
+
+  <section class="lesson-card">
+
+    <h2>🟩 1. Vocabulaire</h2>
+
+    <div class="vocab-grid">
+
+      <div class="vocab-item">
+        <div class="vocab-korean">제일</div>
+        <div class="vocab-french">le plus</div>
+      </div>
+
+      <div class="vocab-item">
+        <div class="vocab-korean">가장</div>
+        <div class="vocab-french">le plus</div>
+      </div>
+
+      <div class="vocab-item">
+        <div class="vocab-korean">좋아하다</div>
+        <div class="vocab-french">aimer</div>
+      </div>
+
+      <div class="vocab-item">
+        <div class="vocab-korean">싫어하다</div>
+        <div class="vocab-french">ne pas aimer / détester selon le contexte</div>
+      </div>
+
+      <div class="vocab-item">
+        <div class="vocab-korean">좋아하는</div>
+        <div class="vocab-french">que l'on aime / préféré selon le contexte</div>
+      </div>
+
+      <div class="vocab-item">
+        <div class="vocab-korean">음악</div>
+        <div class="vocab-french">musique</div>
+      </div>
+
+      <div class="vocab-item">
+        <div class="vocab-korean">영화</div>
+        <div class="vocab-french">film</div>
+      </div>
+
+      <div class="vocab-item">
+        <div class="vocab-korean">사진</div>
+        <div class="vocab-french">photographie / photo</div>
+      </div>
+
+      <div class="vocab-item">
+        <div class="vocab-korean">여행</div>
+        <div class="vocab-french">voyage</div>
+      </div>
+
+      <div class="vocab-item">
+        <div class="vocab-korean">커피</div>
+        <div class="vocab-french">café</div>
+      </div>
+
+      <div class="vocab-item">
+        <div class="vocab-korean">고양이</div>
+        <div class="vocab-french">chat</div>
+      </div>
+
+      <div class="vocab-item">
+        <div class="vocab-korean">딸기</div>
+        <div class="vocab-french">fraise</div>
+      </div>
+
+      <div class="vocab-item">
+        <div class="vocab-korean">한국 음식</div>
+        <div class="vocab-french">cuisine coréenne</div>
+      </div>
+
+      <div class="vocab-item">
+        <div class="vocab-korean">바다</div>
+        <div class="vocab-french">mer</div>
+      </div>
+
+      <div class="vocab-item">
+        <div class="vocab-korean">산</div>
+        <div class="vocab-french">montagne</div>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="lesson-card">
+
+    <h2>💙 2. 좋아요 ou 좋아해요 ?</h2>
+
+    <div class="grammar-box">
+
+      En français, les deux peuvent souvent se traduire par
+      <strong>« aimer »</strong>,
+      mais la construction n'est pas la même.
+
+      <div class="grammar-example">
+        <strong>커피가 좋아요.</strong><br>
+        → J'aime le café. / Le café me plaît.
+      </div>
+
+      <div class="grammar-example">
+        <strong>커피를 좋아해요.</strong><br>
+        → J'aime le café.
+      </div>
+
+      <div class="grammar-example">
+        <strong>뭐가 제일 좋아요?</strong><br>
+        → Qu'est-ce que tu préfères ?
+      </div>
+
+      <div class="grammar-example">
+        <strong>뭘 제일 좋아해요?</strong><br>
+        → Qu'est-ce que tu aimes le plus ?
+      </div>
+
+      🌿 À retenir :
+      <strong>좋아요</strong> se construit souvent avec
+      <strong>이/가</strong>,
+      tandis que <strong>좋아해요</strong> se construit avec
+      <strong>을/를</strong>.
+
+    </div>
+
+  </section>
+
+
+  <section class="lesson-card">
+
+    <h2>❤️ 3. 제일 — « le plus »</h2>
+
+    <div class="grammar-box">
+
+      <strong>제일</strong>
+      permet d'exprimer ce que tu préfères ou ce que tu aimes le plus.
+
+      <div class="grammar-example">
+        <strong>커피를 제일 좋아해요.</strong><br>
+        → J'aime le café par-dessus tout.
+      </div>
+
+      <div class="grammar-example">
+        <strong>사진 찍는 걸 제일 좋아해요.</strong><br>
+        → Ce que je préfère, c'est prendre des photos.
+      </div>
+
+      <div class="grammar-example">
+        <strong>한강이 제일 좋아요.</strong><br>
+        → Ce que je préfère, c'est le fleuve Han.
+      </div>
+
+      <div class="grammar-example">
+        <strong>어떤 음악을 제일 좋아해요?</strong><br>
+        → Quelle musique préfères-tu ?
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="lesson-card">
+
+    <h2>🟨 4. 제일 ou 가장 ?</h2>
+
+    <div class="why-box">
+
+      Les deux signifient
+      <strong>« le plus »</strong>.
+
+      <br><br>
+
+      <strong>제일</strong>
+      est extrêmement fréquent dans la conversation quotidienne
+      et convient très bien pour parler de préférences.
+
+      <br><br>
+
+      <strong>가장</strong>
+      est également très courant
+      et a une nuance un peu plus neutre,
+      notamment dans des phrases descriptives ou écrites.
+
+      <br><br>
+
+      🌿 Pour commencer,
+      utilise surtout <strong>제일</strong>
+      quand tu parles de ce que tu préfères.
+
+    </div>
+
+  </section>
+
+
+  <section class="lesson-card">
+
+    <h2>🩵 5. Prononciation — 좋아하는</h2>
+
+    <div class="pronunciation-card">
+
+      <strong>좋아하는</strong>
+      se prononce de manière très fluide,
+      avec un son proche de :
+
+      <br><br>
+
+      <strong>조아하는</strong>
+
+      <br><br>
+
+      Le <strong>ㅎ</strong>
+      devient très discret dans la prononciation naturelle.
+
+      <br><br>
+
+      🌿 Exemples :
+
+      <br><br>
+
+      <strong>좋아하는 음악</strong>
+      → la musique que j'aime / ma musique préférée
+
+      <br>
+
+      <strong>좋아하는 영화</strong>
+      → le film ou genre de film que j'aime
+
+      <br>
+
+      <strong>좋아하는 음식</strong>
+      → la nourriture que j'aime
+
+    </div>
+
+  </section>
+
+
+  <section class="lesson-card">
+
+    <h2>🙂 6. Dire ce qu'on n'aime pas</h2>
+
+    <div class="grammar-box">
+
+      Tu peux rencontrer deux façons très utiles :
+
+      <div class="grammar-example">
+        <strong>안 좋아해요.</strong><br>
+        → Je n'aime pas / je n'aime pas trop.
+      </div>
+
+      <div class="grammar-example">
+        <strong>싫어해요.</strong><br>
+        → Je n'aime vraiment pas / je déteste, selon le contexte.
+      </div>
+
+      <div class="grammar-example">
+        <strong>매운 음식을 안 좋아해요.</strong><br>
+        → Je n'aime pas trop la nourriture épicée.
+      </div>
+
+      🌿 <strong>안 좋아해요</strong>
+      est souvent plus doux pour exprimer simplement une préférence négative.
+
+    </div>
+
+  </section>
+
+
+  <section class="lesson-card">
+
+    <h2>📷 7. Une forme orale à reconnaître</h2>
+
+    <div class="grammar-box">
+
+      Tu peux rencontrer :
+
+      <br><br>
+
+      <strong>사진 찍는 것을 제일 좋아해요.</strong>
+
+      <br>
+
+      et, très naturellement à l'oral :
+
+      <br><br>
+
+      <strong>사진 찍는 걸 제일 좋아해요.</strong>
+
+      <br><br>
+
+      Ici,
+      <strong>것을 → 걸</strong>
+      est une forme contractée très courante à l'oral.
+
+      <br><br>
+
+      🌿 Pour l'instant,
+      reconnais simplement cette forme sans chercher à mémoriser toute la règle.
+
+    </div>
+
+  </section>
+
+
+  <section class="lesson-card">
+
+    <h2>💬 8. Dialogue — Hana et Min-su</h2>
+
+
+    <div class="dialogue-line minsu">
+      <div class="speaker">💙 Min-su</div>
+      <div class="dialogue-korean">
+        하나 씨는 한국에서 뭐가 제일 좋아요?
+      </div>
+      <div class="dialogue-french">
+        Hana, qu'est-ce que tu préfères en Corée ?
+      </div>
+    </div>
+
+
+    <div class="dialogue-line hana">
+      <div class="speaker">🌸 Hana</div>
+      <div class="dialogue-korean">
+        커피도 좋아하고 사진 찍는 것도 좋아해요. 하지만 한강이 제일 좋아요.
+      </div>
+      <div class="dialogue-french">
+        J'aime le café et j'aime aussi prendre des photos.
+        Mais ce que je préfère, c'est le fleuve Han.
+      </div>
+    </div>
+
+
+    <div class="dialogue-line minsu">
+      <div class="speaker">💙 Min-su</div>
+      <div class="dialogue-korean">
+        왜요?
+      </div>
+      <div class="dialogue-french">
+        Pourquoi ?
+      </div>
+    </div>
+
+
+    <div class="dialogue-line hana">
+      <div class="speaker">🌸 Hana</div>
+      <div class="dialogue-korean">
+        조용하고 정말 아름다워요.
+      </div>
+      <div class="dialogue-french">
+        C'est calme et vraiment magnifique.
+      </div>
+    </div>
+
+
+    <div class="dialogue-line minsu">
+      <div class="speaker">💙 Min-su</div>
+      <div class="dialogue-korean">
+        어떤 음악을 제일 좋아해요?
+      </div>
+      <div class="dialogue-french">
+        Quelle musique préfères-tu ?
+      </div>
+    </div>
+
+
+    <div class="dialogue-line hana">
+      <div class="speaker">🌸 Hana</div>
+      <div class="dialogue-korean">
+        케이팝을 제일 좋아해요.
+      </div>
+      <div class="dialogue-french">
+        Je préfère la K-pop.
+      </div>
+    </div>
+
+  </section>
+
+
+  <section class="note-card">
+
+    <strong>🗣️ Expression du quotidien</strong>
+
+    <br><br>
+
+    <strong>저는 ○○를 제일 좋아해요.</strong>
+
+    <br>
+
+    → Ce que je préfère, c'est ○○.
+
+    <br><br>
+
+    Tu peux remplacer ○○ par ce que tu veux :
+
+    <br><br>
+
+    음악 · 영화 · 커피 · 고양이 · 딸기 · 한국 음식 · 여행
+
+  </section>
+
+
+  <section class="culture-card">
+
+    <strong>💬 Astuce conversation</strong>
+
+    <br><br>
+
+    <strong>뭐가 제일 좋아요?</strong>
+    est une question simple et naturelle
+    pour apprendre à connaître quelqu'un.
+
+    <br><br>
+
+    Tu peux ensuite poursuivre avec :
+
+    <br><br>
+
+    <strong>왜요?</strong>
+
+    <br>
+
+    → Pourquoi ?
+
+    <br><br>
+
+    Cela permet d'enrichir très facilement une conversation.
+
+  </section>
+
+
+  <section class="note-card">
+
+    <strong>🌿 À produire / à reconnaître</strong>
+
+    <br><br>
+
+    <strong>À produire en priorité :</strong><br>
+    뭐가 제일 좋아요?<br>
+    커피를 좋아해요.<br>
+    저는 ○○를 제일 좋아해요.<br>
+    어떤 음악을 제일 좋아해요?<br>
+    안 좋아해요.<br>
+    왜요?<br><br>
+
+    <strong>À reconnaître puis réutiliser :</strong><br>
+    좋아하는 음악<br>
+    사진 찍는 걸 제일 좋아해요.<br>
+    가장<br>
+    싫어해요.
+
+  </section>
+
+
+  <section class="lesson-card">
+
+    <h2>🧠 9. À retenir</h2>
+
+    <div class="recap-line">
+      ❤️ <strong>뭐가 제일 좋아요?</strong>
+      → Qu'est-ce que tu préfères ?
+    </div>
+
+    <div class="recap-line">
+      ☕ <strong>커피를 좋아해요.</strong>
+      → J'aime le café.
+    </div>
+
+    <div class="recap-line">
+      🌟 <strong>저는 ○○를 제일 좋아해요.</strong>
+      → Ce que je préfère, c'est ○○.
+    </div>
+
+    <div class="recap-line">
+      🎵 <strong>어떤 음악을 제일 좋아해요?</strong>
+      → Quelle musique préfères-tu ?
+    </div>
+
+    <div class="recap-line">
+      🙂 <strong>안 좋아해요.</strong>
+      → Je n'aime pas trop / je n'aime pas.
+    </div>
+
+    <div class="recap-line">
+      ❓ <strong>왜요?</strong>
+      → Pourquoi ?
+    </div>
+
+  </section>
+
+
+  <section class="note-card">
+
+    <strong>📝 Mon carnet de voyage</strong>
+
+    <br><br>
+
+    Qu'est-ce que tu préfères en Corée ?
+
+    <br><br>
+
+    Et pourquoi ?
+
+  </section>
+
+
+  <section class="note-card">
+
+    <strong>🌟 Phrase du chapitre</strong>
+
+    <br><br>
+
+    « Parler de ce que l'on aime,
+    c'est laisser les autres découvrir une partie de soi. » 🌸
+
+  </section>
+
+
+  <button
+    class="complete-button"
+    id="completeButton"
+    type="button"
+    onclick="completeUnderstanding()"
+  >
+    J'ai compris 🌿
+  </button>
+
+
+  <button
+    class="next-button"
+    id="nextButton"
+    type="button"
+    onclick="window.location.href='ecoute-18.html'"
+  >
+    🎧 Passer à « J'écoute »
+  </button>
+
+
+  <button
+    class="back-route-button"
+    type="button"
+    onclick="window.location.href='itineraire.html'"
+  >
+    Retour à l'itinéraire
+  </button>
+
+</main>
+
+
+<script>
+
+  const STORAGE_KEY =
+    "hanaKorean_chapter18_understanding";
+
+
+  function completeUnderstanding() {
+
+    localStorage.setItem(
+      STORAGE_KEY,
+      "completed"
+    );
+
+    renderCompletion();
+
+  }
+
+
+  function renderCompletion() {
+
+    const completed =
+      localStorage.getItem(
+        STORAGE_KEY
+      ) === "completed";
+
+
+    const completeButton =
+      document.getElementById(
+        "completeButton"
+      );
+
+
+    const nextButton =
+      document.getElementById(
+        "nextButton"
+      );
+
+
+    if (
+      completed
+    ) {
+
+      completeButton.textContent =
+        "Compris ✓";
+
+
+      completeButton.classList.add(
+        "done"
+      );
+
+
+      nextButton.style.display =
+        "block";
+
+    }
+
+  }
+
+
+  renderCompletion();
+
+</script>
+
+</body>
+</html>

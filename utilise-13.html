@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="theme-color"
+    content="#F7F4ED"
+  >
+
+  <title>Chapitre 13 — Je l'utilise</title>
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
+
+  <style>
+
+    .mission-header {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+
+    .mission-header h1 {
+      margin-bottom: 8px;
+    }
+
+
+    .mission-header p {
+      color: var(--text-light);
+      line-height: 1.7;
+    }
+
+
+    .mission-intro,
+    .mission-card,
+    .result-card {
+      padding: 20px;
+      margin-bottom: 18px;
+
+      background: var(--white);
+
+      border-radius: var(--radius-large);
+
+      box-shadow: var(--shadow);
+    }
+
+
+    .mission-intro {
+      background: var(--soft-green);
+      color: var(--navy);
+      line-height: 1.7;
+    }
+
+
+    .mission-progress {
+      margin-bottom: 20px;
+    }
+
+
+    .progress-info {
+      display: flex;
+      justify-content: space-between;
+
+      gap: 12px;
+
+      margin-bottom: 8px;
+
+      color: var(--text-light);
+
+      font-size: 14px;
+    }
+
+
+    .progress-bar {
+      width: 100%;
+      height: 10px;
+
+      overflow: hidden;
+
+      background: var(--soft-beige);
+
+      border-radius: 20px;
+    }
+
+
+    .progress-fill {
+      width: 25%;
+      height: 100%;
+
+      background: var(--jade);
+
+      border-radius: 20px;
+
+      transition: width 0.3s ease;
+    }
+
+
+    .scene-card {
+      padding: 16px;
+      margin-bottom: 16px;
+
+      background: var(--soft-blue);
+
+      border-radius: var(--radius-medium);
+
+      color: var(--navy);
+
+      line-height: 1.7;
+    }
+
+
+    .npc-line {
+      padding: 15px;
+      margin-bottom: 16px;
+
+      background: var(--soft-beige);
+
+      border-radius: var(--radius-medium);
+
+      line-height: 1.7;
+    }
+
+
+    .npc-name {
+      font-weight: bold;
+    }
+
+
+    .npc-korean {
+      margin-top: 5px;
+
+      color: var(--navy);
+
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+
+    .npc-french {
+      margin-top: 4px;
+
+      color: var(--text-light);
+    }
+
+
+    .mission-question {
+      margin-top: 0;
+
+      color: var(--navy);
+    }
+
+
+    .answers {
+      display: flex;
+      flex-direction: column;
+
+      gap: 10px;
+
+      margin-top: 16px;
+    }
+
+
+    .answer {
+      width: 100%;
+
+      text-align: left;
+
+      background: #FBFAF6;
+      color: var(--navy);
+
+      border: 1px solid var(--border);
+    }
+
+
+    .answer.correct {
+      background: var(--success-light);
+
+      color: var(--success);
+
+      border-color:
+        rgba(95, 146, 112, 0.35);
+    }
+
+
+    .answer.wrong {
+      background: var(--error-light);
+
+      color: var(--error);
+
+      border-color:
+        rgba(200, 107, 105, 0.35);
+    }
+
+
+    .feedback {
+      display: none;
+
+      padding: 14px;
+      margin-top: 14px;
+
+      border-radius: var(--radius-medium);
+
+      line-height: 1.7;
+    }
+
+
+    .feedback.correct {
+      display: block;
+
+      background: var(--success-light);
+
+      color: var(--navy);
+    }
+
+
+    .feedback.wrong {
+      display: block;
+
+      background: var(--error-light);
+
+      color: var(--navy);
+    }
+
+
+    .hint-box {
+      display: none;
+
+      padding: 14px;
+      margin-top: 12px;
+
+      background: var(--soft-beige);
+
+      border-radius: var(--radius-medium);
+
+      color: var(--navy);
+
+      line-height: 1.7;
+    }
+
+
+    .hint-box.show {
+      display: block;
+    }
+
+
+    .hint-button {
+      width: 100%;
+
+      margin-top: 10px;
+
+      background: var(--soft-beige);
+
+      color: var(--navy);
+    }
+
+
+    .next-button {
+      display: none;
+
+      width: 100%;
+
+      margin-top: 14px;
+
+      background: var(--navy);
+
+      color: white;
+
+      font-weight: bold;
+    }
+
+
+    .hidden {
+      display: none;
+    }
+
+
+    .result-card {
+      display: none;
+
+      text-align: center;
+    }
+
+
+    .result-card.show {
+      display: block;
+    }
+
+
+    .result-icon {
+      font-size: 60px;
+    }
+
+
+    .result-score {
+      color: var(--jade-dark);
+
+      font-size: 21px;
+      font-weight: bold;
+    }
+
+
+    .result-summary,
+    .skills-box,
+    .travel-box {
+      padding: 16px;
+      margin-top: 18px;
+
+      border-radius: var(--radius-medium);
+
+      text-align: left;
+
+      line-height: 1.7;
+    }
+
+
+    .result-summary {
+      background: #FBFAF6;
+    }
+
+
+    .skills-box {
+      background: var(--soft-green);
+
+      color: var(--navy);
+    }
+
+
+    .travel-box {
+      background: var(--soft-blue);
+
+      color: var(--navy);
+    }
+
+
+    .skill-line {
+      padding: 10px 0;
+
+      border-bottom: 1px solid var(--border);
+    }
+
+
+    .skill-line:last-child {
+      border-bottom: none;
+    }
+
+
+    .route-button,
+    .chapter-button {
+      width: 100%;
+      margin-top: 12px;
+    }
+
+
+    .route-button {
+      background: var(--jade);
+
+      color: white;
+
+      font-weight: bold;
+    }
+
+
+    .chapter-button {
+      background: var(--soft-beige);
+
+      color: var(--navy);
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+<main class="app">
+
+
+  <a
+    class="back-link"
+    href="revision-13.html"
+  >
+    ← Je révise
+  </a>
+
+
+
+  <header class="mission-header">
+
+    <span class="chapter-badge">
+      Chapitre 13 · Mission finale
+    </span>
+
+
+    <p class="korean">
+      실제로 써 봐요 🎯
+    </p>
+
+
+    <h1>
+      Je l'utilise
+    </h1>
+
+
+    <p>
+      Tu es dans le métro de Séoul.
+      Cette fois, utilise ce que tu as appris
+      pour choisir la bonne ligne et comprendre ton trajet.
+    </p>
+
+  </header>
+
+
+
+  <section class="mission-intro">
+
+    <strong>
+      🎯 Ta mission
+    </strong>
+
+    <br><br>
+
+    Tu veux rejoindre
+    <strong>명동 — Myeong-dong</strong>.
+
+    <br><br>
+
+    Demande quelle ligne prendre,
+    comprends où faire la correspondance,
+    repère la prochaine station
+    et vérifie la bonne sortie.
+
+  </section>
+
+
+
+  <div class="mission-progress">
+
+    <div class="progress-info">
+
+      <span>
+        Situation réelle
+      </span>
+
+      <span id="progressLabel">
+        1 / 4
+      </span>
+
+    </div>
+
+
+    <div class="progress-bar">
+
+      <div
+        class="progress-fill"
+        id="progressFill"
+      ></div>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- =====================================================
+       ETAPE 1
+       ===================================================== -->
+
+  <section class="mission-card" id="step1">
+
+    <div class="scene-card">
+      🚇 Tu es dans le métro de Séoul.
+      <br><br>
+      Tu veux aller à Myeong-dong et tu demandes de l'aide à Monsieur Park.
+    </div>
+
+    <h2 class="mission-question">
+      Que dis-tu ?
+    </h2>
+
+    <div class="answers">
+
+      <button class="answer" type="button"
+        onclick="checkAnswer(1, this, true)">
+        실례합니다. 명동에 가려면 몇 호선을 타야 해요?
+      </button>
+
+      <button class="answer" type="button"
+        onclick="checkAnswer(1, this, false)">
+        명동이 어디에 있어요?
+      </button>
+
+      <button class="answer" type="button"
+        onclick="checkAnswer(1, this, false)">
+        몇 번 출구예요?
+      </button>
+
+    </div>
+
+    <div class="feedback" id="feedback1"></div>
+
+    <button class="hint-button" type="button"
+      onclick="toggleHint(1)">
+      💡 Un indice
+    </button>
+
+    <div class="hint-box" id="hint1">
+      Tu veux demander <strong>quelle ligne prendre</strong> pour aller à une destination.
+      Pense au modèle
+      <strong>___에 가려면 몇 호선을 타야 해요?</strong>.
+    </div>
+
+    <button class="next-button" id="next1" type="button"
+      onclick="showStep(2)">
+      Continuer →
+    </button>
+
+  </section>
+
+
+  <!-- =====================================================
+       ETAPE 2
+       ===================================================== -->
+
+  <section class="mission-card hidden" id="step2">
+
+    <div class="npc-line">
+
+      <div class="npc-name">
+        👨 Monsieur Park
+      </div>
+
+      <div class="npc-korean">
+        사호선을 타세요. 서울역에서 갈아타세요.
+      </div>
+
+    </div>
+
+    <h2 class="mission-question">
+      Que dois-tu faire ?
+    </h2>
+
+    <div class="answers">
+
+      <button class="answer" type="button"
+        onclick="checkAnswer(2, this, false)">
+        Prendre la ligne 2 et descendre à Seoul Station.
+      </button>
+
+      <button class="answer" type="button"
+        onclick="checkAnswer(2, this, true)">
+        Prendre la ligne 4 et changer à Seoul Station.
+      </button>
+
+      <button class="answer" type="button"
+        onclick="checkAnswer(2, this, false)">
+        Prendre un bus à Seoul Station.
+      </button>
+
+    </div>
+
+    <div class="feedback" id="feedback2"></div>
+
+    <button class="hint-button" type="button"
+      onclick="toggleHint(2)">
+      💡 Un indice
+    </button>
+
+    <div class="hint-box" id="hint2">
+      <strong>사호선</strong> = ligne 4
+      et <strong>갈아타세요</strong> = changez / faites une correspondance.
+    </div>
+
+    <button class="next-button" id="next2" type="button"
+      onclick="showStep(3)">
+      Continuer →
+    </button>
+
+  </section>
+
+
+  <!-- =====================================================
+       ETAPE 3
+       ===================================================== -->
+
+  <section class="mission-card hidden" id="step3">
+
+    <div class="scene-card">
+      📢 Tu es dans le métro.
+      <br><br>
+      Une annonce retentit :
+    </div>
+
+    <div class="npc-line">
+
+      <div class="npc-name">
+        🚇 Annonce du métro
+      </div>
+
+      <div class="npc-korean">
+        다음 역은 서울역입니다.
+      </div>
+
+    </div>
+
+    <h2 class="mission-question">
+      Que dois-tu comprendre ?
+    </h2>
+
+    <div class="answers">
+
+      <button class="answer" type="button"
+        onclick="checkAnswer(3, this, true)">
+        La prochaine station est Seoul Station.
+      </button>
+
+      <button class="answer" type="button"
+        onclick="checkAnswer(3, this, false)">
+        Cette station est Seoul Station.
+      </button>
+
+      <button class="answer" type="button"
+        onclick="checkAnswer(3, this, false)">
+        Il faut sortir à Seoul Station.
+      </button>
+
+    </div>
+
+    <div class="feedback" id="feedback3"></div>
+
+    <button class="hint-button" type="button"
+      onclick="toggleHint(3)">
+      💡 Un indice
+    </button>
+
+    <div class="hint-box" id="hint3">
+      <strong>다음 역</strong>
+      signifie
+      <strong>« la station suivante »</strong>.
+    </div>
+
+    <button class="next-button" id="next3" type="button"
+      onclick="showStep(4)">
+      Continuer →
+    </button>
+
+  </section>
+
+
+  <!-- =====================================================
+       ETAPE 4
+       ===================================================== -->
+
+  <section class="mission-card hidden" id="step4">
+
+    <div class="scene-card">
+      🚪 Tu arrives à destination.
+      <br><br>
+      Il y a plusieurs sorties et tu veux demander laquelle prendre.
+    </div>
+
+    <h2 class="mission-question">
+      Quelle question est la plus adaptée ?
+    </h2>
+
+    <div class="answers">
+
+      <button class="answer" type="button"
+        onclick="checkAnswer(4, this, false)">
+        몇 호선이에요?
+      </button>
+
+      <button class="answer" type="button"
+        onclick="checkAnswer(4, this, true)">
+        몇 번 출구예요?
+      </button>
+
+      <button class="answer" type="button"
+        onclick="checkAnswer(4, this, false)">
+        이번 역이에요?
+      </button>
+
+    </div>
+
+    <div class="feedback" id="feedback4"></div>
+
+    <button class="hint-button" type="button"
+      onclick="toggleHint(4)">
+      💡 Un indice
+    </button>
+
+    <div class="hint-box" id="hint4">
+      Le mot <strong>출구</strong> signifie <strong>« sortie »</strong>.
+    </div>
+
+    <button class="next-button" id="next4" type="button"
+      onclick="finishMission()">
+      Terminer la mission 🌿
+    </button>
+
+  </section>
+
+
+  <!-- =====================================================
+       RESULTAT
+       ===================================================== -->
+
+  <section
+    class="result-card"
+    id="resultCard"
+  >
+
+    <div class="result-icon">
+      🎯🚇
+    </div>
+
+
+    <h2>
+      미션 성공!
+    </h2>
+
+
+    <p>
+      Mission réussie :
+      tu as choisi une ligne,
+      compris une correspondance et reconnu une annonce du métro.
+    </p>
+
+
+    <p class="result-score">
+      Chapitre 12 terminé ✅
+    </p>
+
+
+    <div class="result-summary">
+
+      <strong>
+        📊 Ta mission
+      </strong>
+
+      <p id="attemptText"></p>
+
+    </div>
+
+
+    <div class="skills-box">
+
+      <strong>
+        🌿 Ce que tu sais maintenant faire
+      </strong>
+
+      <br><br>
+
+      <div class="skill-line">
+        🚇 Demander quelle ligne prendre
+      </div>
+
+      <div class="skill-line">
+        🔁 Comprendre où faire une correspondance
+      </div>
+
+      <div class="skill-line">
+        📢 Repérer la station suivante dans une annonce
+      </div>
+
+      <div class="skill-line">
+        🚪 Demander quelle sortie prendre
+      </div>
+
+    </div>
+
+
+    <div class="travel-box">
+
+      <strong>
+        📝 Mon carnet de voyage
+      </strong>
+
+      <br><br>
+
+      Imagine que tu visites Séoul.
+
+      <br><br>
+
+      Quelle ligne aimerais-tu emprunter et pour aller où ?
+
+      <br><br>
+
+      Essaie de construire une phrase avec le modèle :
+
+      <br><br>
+
+      <strong>
+        ___에 가려면 몇 호선을 타야 해요?
+      </strong>
+
+    </div>
+
+
+    <button
+      class="route-button"
+      type="button"
+      onclick="window.location.href='itineraire.html'"
+    >
+      🌿 Retour à mon itinéraire
+    </button>
+
+
+    <button
+      class="chapter-button"
+      type="button"
+      onclick="window.location.href='chapitre-13.html'"
+    >
+      Revoir le chapitre
+    </button>
+
+  </section>
+
+
+</main>
+
+
+
+<script>
+
+  let incorrectAttempts =
+    0;
+
+
+  let hintCount =
+    0;
+
+
+  const completedSteps = {
+    1: false,
+    2: false,
+    3: false,
+    4: false
+  };
+
+
+
+  function toggleHint(
+    number
+  ) {
+
+    const hint =
+      document.getElementById(
+        "hint" + number
+      );
+
+
+    const wasHidden =
+      !hint.classList.contains(
+        "show"
+      );
+
+
+    hint.classList.toggle(
+      "show"
+    );
+
+
+    if (wasHidden) {
+
+      hintCount++;
+
+    }
+
+  }
+
+
+
+  function checkAnswer(
+    number,
+    button,
+    isCorrect
+  ) {
+
+    if (
+      completedSteps[
+        number
+      ]
+    ) {
+      return;
+    }
+
+
+    const step =
+      document.getElementById(
+        "step" + number
+      );
+
+
+    const answers =
+      step.querySelectorAll(
+        ".answer"
+      );
+
+
+    const feedback =
+      document.getElementById(
+        "feedback" + number
+      );
+
+
+    if (isCorrect) {
+
+      completedSteps[
+        number
+      ] = true;
+
+
+      button.classList.add(
+        "correct"
+      );
+
+
+      feedback.className =
+        "feedback correct";
+
+
+      if (
+        number === 1
+      ) {
+
+        feedback.innerHTML =
+          "✅ <strong>Très bien !</strong>" +
+          "<br><br>" +
+          "Tu utilises le modèle du chapitre pour demander quelle ligne prendre.";
+
+      }
+
+
+      if (
+        number === 2
+      ) {
+
+        feedback.innerHTML =
+          "✅ <strong>Exact !</strong>" +
+          "<br><br>" +
+          "<strong>사호선</strong> = ligne 4 et <strong>갈아타세요</strong> indique une correspondance.";
+
+      }
+
+
+      if (
+        number === 3
+      ) {
+
+        feedback.innerHTML =
+          "✅ <strong>Très bien !</strong>" +
+          "<br><br>" +
+          "<strong>다음 역</strong> signifie que Seoul Station est la prochaine station.";
+
+      }
+
+
+      if (
+        number === 4
+      ) {
+
+        feedback.innerHTML =
+          "✅ <strong>Mission réussie !</strong>" +
+          "<br><br>" +
+          "<strong>몇 번 출구예요?</strong> permet de demander quelle sortie prendre.";
+
+      }
+
+
+      answers.forEach(
+        answer => {
+
+          answer.disabled =
+            true;
+
+        }
+      );
+
+
+      document.getElementById(
+        "next" + number
+      ).style.display =
+        "block";
+
+
+      return;
+
+    }
+
+
+    incorrectAttempts++;
+
+
+    button.classList.add(
+      "wrong"
+    );
+
+
+    feedback.className =
+      "feedback wrong";
+
+
+    if (
+      number === 1
+    ) {
+
+      feedback.innerHTML =
+        "❌ <strong>Tu demandes une ligne, pas seulement un lieu.</strong>" +
+        "<br><br>" +
+        "💡 Pense au modèle <strong>___에 가려면 몇 호선을 타야 해요?</strong>.";
+
+    }
+
+
+    if (
+      number === 2
+    ) {
+
+      feedback.innerHTML =
+        "❌ <strong>Repère deux éléments.</strong>" +
+        "<br><br>" +
+        "💡 <strong>사호선</strong> = ligne 4 et <strong>갈아타세요</strong> = changez.";
+
+    }
+
+
+    if (
+      number === 3
+    ) {
+
+      feedback.innerHTML =
+        "❌ <strong>Repère 다음 역.</strong>" +
+        "<br><br>" +
+        "💡 Cela signifie « la station suivante ».";
+
+    }
+
+
+    if (
+      number === 4
+    ) {
+
+      feedback.innerHTML =
+        "❌ <strong>Repère 출구.</strong>" +
+        "<br><br>" +
+        "💡 <strong>출구</strong> signifie « sortie ».";
+
+    }
+
+  }
+
+
+
+  function showStep(
+    number
+  ) {
+
+    for (
+      let i = 1;
+      i <= 4;
+      i++
+    ) {
+
+      document.getElementById(
+        "step" + i
+      ).classList.add(
+        "hidden"
+      );
+
+    }
+
+
+    document.getElementById(
+      "step" + number
+    ).classList.remove(
+      "hidden"
+    );
+
+
+    document.getElementById(
+      "progressLabel"
+    ).textContent =
+      number +
+      " / 4";
+
+
+    document.getElementById(
+      "progressFill"
+    ).style.width =
+      (
+        number * 25
+      ) +
+      "%";
+
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+
+  }
+
+
+
+  function finishMission() {
+
+    document.getElementById(
+      "step4"
+    ).classList.add(
+      "hidden"
+    );
+
+
+    const resultCard =
+      document.getElementById(
+        "resultCard"
+      );
+
+
+    resultCard.classList.add(
+      "show"
+    );
+
+
+    const attemptText =
+      document.getElementById(
+        "attemptText"
+      );
+
+
+    if (
+      incorrectAttempts === 0 &&
+      hintCount === 0
+    ) {
+
+      attemptText.innerHTML =
+        "🌟 <strong>Mission réussie sans aide et sans erreur !</strong>" +
+        "<br>Tu as utilisé les notions du chapitre avec beaucoup d'autonomie.";
+
+    } else {
+
+      attemptText.innerHTML =
+        "Erreurs : <strong>" +
+        incorrectAttempts +
+        "</strong><br>" +
+        "Indices utilisés : <strong>" +
+        hintCount +
+        "</strong><br><br>" +
+        "Tu as tout de même mené la situation jusqu'au bout.";
+
+    }
+
+
+    localStorage.setItem(
+      "hanaKorean_chapter13_mission",
+      "completed"
+    );
+
+
+    localStorage.setItem(
+      "hanaKorean_chapter13_missionMistakes",
+      String(
+        incorrectAttempts
+      )
+    );
+
+
+    localStorage.setItem(
+      "hanaKorean_chapter13_missionHints",
+      String(
+        hintCount
+      )
+    );
+
+
+    localStorage.setItem(
+      "hanaKorean_chapter13_completed",
+      "completed"
+    );
+
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+
+  }
+
+</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,1251 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="theme-color"
+    content="#F7F4ED"
+  >
+
+  <title>Chapitre 17 — Je l'utilise</title>
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
+
+  <style>
+
+    .mission-header {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+
+    .mission-header h1 {
+      margin-bottom: 8px;
+    }
+
+
+    .mission-header p {
+      color: var(--text-light);
+      line-height: 1.7;
+    }
+
+
+    .mission-intro,
+    .mission-card,
+    .result-card {
+      padding: 20px;
+      margin-bottom: 18px;
+
+      background: var(--white);
+
+      border-radius: var(--radius-large);
+
+      box-shadow: var(--shadow);
+    }
+
+
+    .mission-intro {
+      background: var(--soft-green);
+      color: var(--navy);
+      line-height: 1.7;
+    }
+
+
+    .mission-progress {
+      margin-bottom: 20px;
+    }
+
+
+    .progress-info {
+      display: flex;
+      justify-content: space-between;
+
+      gap: 12px;
+
+      margin-bottom: 8px;
+
+      color: var(--text-light);
+
+      font-size: 14px;
+    }
+
+
+    .progress-bar {
+      width: 100%;
+      height: 10px;
+
+      overflow: hidden;
+
+      background: var(--soft-beige);
+
+      border-radius: 20px;
+    }
+
+
+    .progress-fill {
+      width: 25%;
+      height: 100%;
+
+      background: var(--jade);
+
+      border-radius: 20px;
+
+      transition: width 0.3s ease;
+    }
+
+
+    .scene-card {
+      padding: 16px;
+      margin-bottom: 16px;
+
+      background: var(--soft-blue);
+
+      border-radius: var(--radius-medium);
+
+      color: var(--navy);
+
+      line-height: 1.7;
+    }
+
+
+    .npc-line {
+      padding: 15px;
+      margin-bottom: 16px;
+
+      background: var(--soft-beige);
+
+      border-radius: var(--radius-medium);
+
+      line-height: 1.7;
+    }
+
+
+    .npc-name {
+      font-weight: bold;
+    }
+
+
+    .npc-korean {
+      margin-top: 5px;
+
+      color: var(--navy);
+
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+
+    .npc-french {
+      margin-top: 4px;
+
+      color: var(--text-light);
+    }
+
+
+    .mission-question {
+      margin-top: 0;
+
+      color: var(--navy);
+    }
+
+
+    .answers {
+      display: flex;
+      flex-direction: column;
+
+      gap: 10px;
+
+      margin-top: 16px;
+    }
+
+
+    .answer {
+      width: 100%;
+
+      text-align: left;
+
+      background: #FBFAF6;
+      color: var(--navy);
+
+      border: 1px solid var(--border);
+    }
+
+
+    .answer.correct {
+      background: var(--success-light);
+
+      color: var(--success);
+
+      border-color:
+        rgba(95, 146, 112, 0.35);
+    }
+
+
+    .answer.wrong {
+      background: var(--error-light);
+
+      color: var(--error);
+
+      border-color:
+        rgba(200, 107, 105, 0.35);
+    }
+
+
+    .feedback {
+      display: none;
+
+      padding: 14px;
+      margin-top: 14px;
+
+      border-radius: var(--radius-medium);
+
+      line-height: 1.7;
+    }
+
+
+    .feedback.correct {
+      display: block;
+
+      background: var(--success-light);
+
+      color: var(--navy);
+    }
+
+
+    .feedback.wrong {
+      display: block;
+
+      background: var(--error-light);
+
+      color: var(--navy);
+    }
+
+
+    .hint-box {
+      display: none;
+
+      padding: 14px;
+      margin-top: 12px;
+
+      background: var(--soft-beige);
+
+      border-radius: var(--radius-medium);
+
+      color: var(--navy);
+
+      line-height: 1.7;
+    }
+
+
+    .hint-box.show {
+      display: block;
+    }
+
+
+    .hint-button {
+      width: 100%;
+
+      margin-top: 10px;
+
+      background: var(--soft-beige);
+
+      color: var(--navy);
+    }
+
+
+    .next-button {
+      display: none;
+
+      width: 100%;
+
+      margin-top: 14px;
+
+      background: var(--navy);
+
+      color: white;
+
+      font-weight: bold;
+    }
+
+
+    .hidden {
+      display: none;
+    }
+
+
+    .result-card {
+      display: none;
+
+      text-align: center;
+    }
+
+
+    .result-card.show {
+      display: block;
+    }
+
+
+    .result-icon {
+      font-size: 60px;
+    }
+
+
+    .result-score {
+      color: var(--jade-dark);
+
+      font-size: 21px;
+      font-weight: bold;
+    }
+
+
+    .result-summary,
+    .skills-box,
+    .travel-box {
+      padding: 16px;
+      margin-top: 18px;
+
+      border-radius: var(--radius-medium);
+
+      text-align: left;
+
+      line-height: 1.7;
+    }
+
+
+    .result-summary {
+      background: #FBFAF6;
+    }
+
+
+    .skills-box {
+      background: var(--soft-green);
+
+      color: var(--navy);
+    }
+
+
+    .travel-box {
+      background: var(--soft-blue);
+
+      color: var(--navy);
+    }
+
+
+    .skill-line {
+      padding: 10px 0;
+
+      border-bottom: 1px solid var(--border);
+    }
+
+
+    .skill-line:last-child {
+      border-bottom: none;
+    }
+
+
+    .route-button,
+    .chapter-button {
+      width: 100%;
+      margin-top: 12px;
+    }
+
+
+    .route-button {
+      background: var(--jade);
+
+      color: white;
+
+      font-weight: bold;
+    }
+
+
+    .chapter-button {
+      background: var(--soft-beige);
+
+      color: var(--navy);
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+<main class="app">
+
+
+  <a
+    class="back-link"
+    href="revision-17.html"
+  >
+    ← Je révise
+  </a>
+
+
+
+  <header class="mission-header">
+
+    <span class="chapter-badge">
+      Chapitre 17 · Mission finale
+    </span>
+
+
+    <p class="korean">
+      실제로 써 봐요 🎯
+    </p>
+
+
+    <h1>
+      Je l'utilise
+    </h1>
+
+
+    <p>
+      Tu es dans un café avec Ji-eun.
+      Utilise ce que tu as appris pour demander le Wi-Fi,
+      obtenir le mot de passe, parler de ta batterie et trouver où recharger ton téléphone.
+    </p>
+
+  </header>
+
+
+
+  <section class="mission-intro">
+
+    <strong>🎯 Ta mission</strong>
+
+    <br><br>
+
+    Tu es dans un café en Corée.
+
+    <br><br>
+
+    Demande à Ji-eun s'il y a du Wi-Fi,
+    récupère le mot de passe,
+    explique que tu n'as plus de batterie,
+    demande un chargeur
+    puis demande où tu peux recharger ton téléphone.
+
+  </section>
+
+
+
+  <div class="mission-progress">
+
+    <div class="progress-info">
+
+      <span>
+        Situation réelle
+      </span>
+
+      <span id="progressLabel">
+        1 / 4
+      </span>
+
+    </div>
+
+
+    <div class="progress-bar">
+
+      <div
+        class="progress-fill"
+        id="progressFill"
+      ></div>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- =====================================================
+       ETAPE 1
+       ===================================================== -->
+
+  <section class="mission-card" id="step1">
+
+    <div class="scene-card">
+      ☕ Tu t'installes dans un café.
+      <br><br>
+      Tu veux te connecter à Internet.
+    </div>
+
+    <h2 class="mission-question">
+      Que demandes-tu à Ji-eun ?
+    </h2>
+
+    <div class="answers">
+
+      <button class="answer" type="button"
+        onclick="checkAnswer(1, this, true)">
+        와이파이 있어요?
+      </button>
+
+      <button class="answer" type="button"
+        onclick="checkAnswer(1, this, false)">
+        배터리가 없어요.
+      </button>
+
+      <button class="answer" type="button"
+        onclick="checkAnswer(1, this, false)">
+        충전기 있어요?
+      </button>
+
+    </div>
+
+    <div class="feedback" id="feedback1"></div>
+
+    <button class="hint-button" type="button"
+      onclick="toggleHint(1)">
+      💡 Un indice
+    </button>
+
+    <div class="hint-box" id="hint1">
+      Pense à <strong>와이파이</strong> + <strong>있어요?</strong>
+    </div>
+
+    <button class="next-button" id="next1" type="button"
+      onclick="showStep(2)">
+      Continuer →
+    </button>
+
+  </section>
+
+
+  <!-- =====================================================
+       ETAPE 2
+       ===================================================== -->
+
+  <section class="mission-card hidden" id="step2">
+
+    <div class="npc-line">
+
+      <div class="npc-name">
+        💚 Ji-eun
+      </div>
+
+      <div class="npc-korean">
+        네. 여기 있어요.
+      </div>
+
+    </div>
+
+    <h2 class="mission-question">
+      Le Wi-Fi est disponible. Que demandes-tu maintenant ?
+    </h2>
+
+    <div class="answers">
+
+      <button class="answer" type="button"
+        onclick="checkAnswer(2, this, true)">
+        와이파이 비밀번호가 뭐예요?
+      </button>
+
+      <button class="answer" type="button"
+        onclick="checkAnswer(2, this, false)">
+        제 방이 어디예요?
+      </button>
+
+      <button class="answer" type="button"
+        onclick="checkAnswer(2, this, false)">
+        계산해 주세요.
+      </button>
+
+    </div>
+
+    <div class="feedback" id="feedback2"></div>
+
+    <button class="hint-button" type="button"
+      onclick="toggleHint(2)">
+      💡 Un indice
+    </button>
+
+    <div class="hint-box" id="hint2">
+      <strong>비밀번호</strong> signifie « mot de passe ».
+    </div>
+
+    <button class="next-button" id="next2" type="button"
+      onclick="showStep(3)">
+      Continuer →
+    </button>
+
+  </section>
+
+
+  <!-- =====================================================
+       ETAPE 3
+       ===================================================== -->
+
+  <section class="mission-card hidden" id="step3">
+
+    <div class="npc-line">
+
+      <div class="npc-name">
+        💚 Ji-eun
+      </div>
+
+      <div class="npc-korean">
+        여기 있습니다.
+      </div>
+
+    </div>
+
+    <div class="scene-card">
+      🔋 Quelques minutes plus tard,
+      ton téléphone est presque éteint.
+    </div>
+
+    <h2 class="mission-question">
+      Que dis-tu pour expliquer le problème
+      et demander un chargeur ?
+    </h2>
+
+    <div class="answers">
+
+      <button class="answer" type="button"
+        onclick="checkAnswer(3, this, false)">
+        인터넷이 안 돼요. 와이파이 있어요?
+      </button>
+
+      <button class="answer" type="button"
+        onclick="checkAnswer(3, this, true)">
+        배터리가 없어요. 충전기 있어요?
+      </button>
+
+      <button class="answer" type="button"
+        onclick="checkAnswer(3, this, false)">
+        핸드폰 있어요? 감사합니다.
+      </button>
+
+    </div>
+
+    <div class="feedback" id="feedback3"></div>
+
+    <button class="hint-button" type="button"
+      onclick="toggleHint(3)">
+      💡 Un indice
+    </button>
+
+    <div class="hint-box" id="hint3">
+      <strong>배터리가 없어요.</strong>
+      = Je n'ai plus de batterie.
+      <br><br>
+      <strong>충전기 있어요?</strong>
+      = Vous avez un chargeur ?
+    </div>
+
+    <button class="next-button" id="next3" type="button"
+      onclick="showStep(4)">
+      Continuer →
+    </button>
+
+  </section>
+
+
+  <!-- =====================================================
+       ETAPE 4
+       ===================================================== -->
+
+  <section class="mission-card hidden" id="step4">
+
+    <div class="npc-line">
+
+      <div class="npc-name">
+        💚 Ji-eun
+      </div>
+
+      <div class="npc-korean">
+        네. 있어요.
+      </div>
+
+    </div>
+
+    <h2 class="mission-question">
+      Tu as trouvé un chargeur.
+      Que demandes-tu pour savoir où recharger ?
+    </h2>
+
+    <div class="answers">
+
+      <button class="answer" type="button"
+        onclick="checkAnswer(4, this, false)">
+        인터넷이 안 돼요.
+      </button>
+
+      <button class="answer" type="button"
+        onclick="checkAnswer(4, this, true)">
+        어디에서 충전할 수 있어요?
+      </button>
+
+      <button class="answer" type="button"
+        onclick="checkAnswer(4, this, false)">
+        와이파이 비밀번호가 뭐예요?
+      </button>
+
+    </div>
+
+    <div class="feedback" id="feedback4"></div>
+
+    <button class="hint-button" type="button"
+      onclick="toggleHint(4)">
+      💡 Un indice
+    </button>
+
+    <div class="hint-box" id="hint4">
+      <strong>어디에서</strong> = où
+      <br>
+      <strong>충전할 수 있어요?</strong>
+      = est-ce que je peux recharger ?
+    </div>
+
+    <button class="next-button" id="next4" type="button"
+      onclick="finishMission()">
+      Terminer la mission 🌿
+    </button>
+
+  </section>
+
+
+  <!-- =====================================================
+       RESULTAT
+       ===================================================== -->
+
+  <section
+    class="result-card"
+    id="resultCard"
+  >
+
+    <div class="result-icon">
+      🎯📱
+    </div>
+
+
+    <h2>
+      미션 성공!
+    </h2>
+
+
+    <p>
+      Mission réussie :
+      tu as demandé le Wi-Fi,
+      obtenu le mot de passe, parlé de ta batterie et trouvé où recharger ton téléphone.
+    </p>
+
+
+    <p class="result-score">
+      Chapitre 12 terminé ✅
+    </p>
+
+
+    <div class="result-summary">
+
+      <strong>
+        📊 Ta mission
+      </strong>
+
+      <p id="attemptText"></p>
+
+    </div>
+
+
+    <div class="skills-box">
+
+      <strong>
+        🌿 Ce que tu sais maintenant faire
+      </strong>
+
+      <br><br>
+
+      <div class="skill-line">
+        📶 Demander si le Wi-Fi est disponible
+      </div>
+
+      <div class="skill-line">
+        🔐 Demander le mot de passe
+      </div>
+
+      <div class="skill-line">
+        🔋 Dire que tu n'as plus de batterie
+      </div>
+
+      <div class="skill-line">
+        🔌 Demander un chargeur
+      </div>
+
+      <div class="skill-line">
+        ⚡ Demander où recharger ton téléphone
+      </div>
+
+      <div class="skill-line">
+        🌐 Dire qu'Internet ne fonctionne pas
+      </div>
+
+    </div>
+
+
+    <div class="travel-box">
+
+      <strong>
+        📝 Mon carnet de voyage
+      </strong>
+
+      <br><br>
+
+      Quelle photo aimerais-tu envoyer
+      à ta famille pendant ton voyage ?
+
+      <br><br>
+
+      Imagine que ton téléphone n'a presque plus de batterie
+      juste avant de l'envoyer.
+
+      <br><br>
+
+      Essaie de reconstruire mentalement :
+
+      <br><br>
+
+      <strong>
+        와이파이 있어요?
+      </strong>
+
+      <br>
+
+      <strong>
+        와이파이 비밀번호가 뭐예요?
+      </strong>
+
+      <br>
+
+      <strong>
+        배터리가 없어요. 충전기 있어요?
+      </strong>
+
+      <br>
+
+      <strong>
+        어디에서 충전할 수 있어요?
+      </strong>
+
+    </div>
+
+
+    <button
+      class="route-button"
+      type="button"
+      onclick="window.location.href='itineraire.html'"
+    >
+      🌿 Retour à mon itinéraire
+    </button>
+
+
+    <button
+      class="chapter-button"
+      type="button"
+      onclick="window.location.href='chapitre-17.html'"
+    >
+      Revoir le chapitre
+    </button>
+
+  </section>
+
+
+</main>
+
+
+
+<script>
+
+  let incorrectAttempts =
+    0;
+
+
+  let hintCount =
+    0;
+
+
+  const completedSteps = {
+    1: false,
+    2: false,
+    3: false,
+    4: false
+  };
+
+
+
+  function toggleHint(
+    number
+  ) {
+
+    const hint =
+      document.getElementById(
+        "hint" + number
+      );
+
+
+    const wasHidden =
+      !hint.classList.contains(
+        "show"
+      );
+
+
+    hint.classList.toggle(
+      "show"
+    );
+
+
+    if (wasHidden) {
+
+      hintCount++;
+
+    }
+
+  }
+
+
+
+  function checkAnswer(
+    number,
+    button,
+    isCorrect
+  ) {
+
+    if (
+      completedSteps[
+        number
+      ]
+    ) {
+      return;
+    }
+
+
+    const step =
+      document.getElementById(
+        "step" + number
+      );
+
+
+    const answers =
+      step.querySelectorAll(
+        ".answer"
+      );
+
+
+    const feedback =
+      document.getElementById(
+        "feedback" + number
+      );
+
+
+    if (isCorrect) {
+
+      completedSteps[
+        number
+      ] = true;
+
+
+      button.classList.add(
+        "correct"
+      );
+
+
+      feedback.className =
+        "feedback correct";
+
+
+      if (
+        number === 1
+      ) {
+
+        feedback.innerHTML =
+          "✅ <strong>Exact !</strong>" +
+          "<br><br>" +
+          "<strong>와이파이 있어요?</strong> permet de demander si le Wi-Fi est disponible.";
+
+      }
+
+
+      if (
+        number === 2
+      ) {
+
+        feedback.innerHTML =
+          "✅ <strong>Très bien !</strong>" +
+          "<br><br>" +
+          "<strong>와이파이 비밀번호가 뭐예요?</strong> permet de demander le mot de passe du Wi-Fi.";
+
+      }
+
+
+      if (
+        number === 3
+      ) {
+
+        feedback.innerHTML =
+          "✅ <strong>Exact !</strong>" +
+          "<br><br>" +
+          "<strong>배터리가 없어요.</strong> explique que tu n'as plus de batterie, puis <strong>충전기 있어요?</strong> demande un chargeur.";
+
+      }
+
+
+      if (
+        number === 4
+      ) {
+
+        feedback.innerHTML =
+          "✅ <strong>Mission réussie !</strong>" +
+          "<br><br>" +
+          "<strong>어디에서 충전할 수 있어요?</strong> permet de demander où tu peux recharger ton téléphone.";
+
+      }
+
+
+      answers.forEach(
+        answer => {
+
+          answer.disabled =
+            true;
+
+        }
+      );
+
+
+      document.getElementById(
+        "next" + number
+      ).style.display =
+        "block";
+
+
+      return;
+
+    }
+
+
+    incorrectAttempts++;
+
+
+    button.classList.add(
+      "wrong"
+    );
+
+
+    feedback.className =
+      "feedback wrong";
+
+
+    if (
+      number === 1
+    ) {
+
+      feedback.innerHTML =
+        "❌ <strong>Tu veux demander le Wi-Fi.</strong>" +
+        "<br><br>" +
+        "💡 Utilise <strong>와이파이 있어요?</strong>";
+
+    }
+
+
+    if (
+      number === 2
+    ) {
+
+      feedback.innerHTML =
+        "❌ <strong>Tu veux le mot de passe.</strong>" +
+        "<br><br>" +
+        "💡 <strong>비밀번호</strong> = mot de passe.";
+
+    }
+
+
+    if (
+      number === 3
+    ) {
+
+      feedback.innerHTML =
+        "❌ <strong>Le problème est la batterie.</strong>" +
+        "<br><br>" +
+        "💡 Utilise <strong>배터리가 없어요.</strong> puis <strong>충전기 있어요?</strong>";
+
+    }
+
+
+    if (
+      number === 4
+    ) {
+
+      feedback.innerHTML =
+        "❌ <strong>Tu veux savoir où recharger.</strong>" +
+        "<br><br>" +
+        "💡 Repère <strong>어디에서</strong> et <strong>충전</strong>.";
+
+    }
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+  function showStep(
+    number
+  ) {
+
+    for (
+      let i = 1;
+      i <= 4;
+      i++
+    ) {
+
+      document.getElementById(
+        "step" + i
+      ).classList.add(
+        "hidden"
+      );
+
+    }
+
+
+    document.getElementById(
+      "step" + number
+    ).classList.remove(
+      "hidden"
+    );
+
+
+    document.getElementById(
+      "progressLabel"
+    ).textContent =
+      number +
+      " / 4";
+
+
+    document.getElementById(
+      "progressFill"
+    ).style.width =
+      (
+        number * 25
+      ) +
+      "%";
+
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+
+  }
+
+
+
+  function finishMission() {
+
+    document.getElementById(
+      "step4"
+    ).classList.add(
+      "hidden"
+    );
+
+
+    const resultCard =
+      document.getElementById(
+        "resultCard"
+      );
+
+
+    resultCard.classList.add(
+      "show"
+    );
+
+
+    const attemptText =
+      document.getElementById(
+        "attemptText"
+      );
+
+
+    if (
+      incorrectAttempts === 0 &&
+      hintCount === 0
+    ) {
+
+      attemptText.innerHTML =
+        "🌟 <strong>Mission réussie sans aide et sans erreur !</strong>" +
+        "<br>Tu as utilisé les notions du chapitre avec beaucoup d'autonomie.";
+
+    } else {
+
+      attemptText.innerHTML =
+        "Erreurs : <strong>" +
+        incorrectAttempts +
+        "</strong><br>" +
+        "Indices utilisés : <strong>" +
+        hintCount +
+        "</strong><br><br>" +
+        "Tu as tout de même mené la situation jusqu'au bout.";
+
+    }
+
+
+    localStorage.setItem(
+      "hanaKorean_chapter17_mission",
+      "completed"
+    );
+
+
+    localStorage.setItem(
+      "hanaKorean_chapter17_missionMistakes",
+      String(
+        incorrectAttempts
+      )
+    );
+
+
+    localStorage.setItem(
+      "hanaKorean_chapter17_missionHints",
+      String(
+        hintCount
+      )
+    );
+
+
+    localStorage.setItem(
+      "hanaKorean_chapter17_completed",
+      "completed"
+    );
+
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+
+  }
+
+</script>
+
+
+</body>
+
+</html>

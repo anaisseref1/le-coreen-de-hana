@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="theme-color"
+    content="#F7F4ED"
+  >
+
+  <title>Chapitre 19 — J'écoute</title>
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
+
+  <style>
+
+    .listen-header {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+
+    .listen-header h1 {
+      margin-bottom: 8px;
+    }
+
+
+    .listen-header p {
+      color: var(--text-light);
+      line-height: 1.7;
+    }
+
+
+    .goal-card,
+    .audio-card,
+    .tip-card {
+      padding: 20px;
+      margin-bottom: 18px;
+      background: var(--white);
+      border-radius: var(--radius-large);
+      box-shadow: var(--shadow);
+    }
+
+
+    .goal-card {
+      background: var(--soft-green);
+      color: var(--navy);
+      line-height: 1.7;
+    }
+
+
+    .audio-card h2 {
+      margin-top: 0;
+      color: var(--navy);
+    }
+
+
+    .expression-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+
+    .expression-item {
+      padding: 15px;
+      background: #FBFAF6;
+      border-radius: var(--radius-medium);
+    }
+
+
+    .expression-korean {
+      color: var(--navy);
+      font-size: 21px;
+      font-weight: bold;
+    }
+
+
+    .expression-french {
+      margin-top: 4px;
+      color: var(--text-light);
+    }
+
+
+    .expression-actions,
+    .line-actions,
+    .dialogue-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+
+    .expression-actions button,
+    .line-actions button,
+    .dialogue-controls button {
+      flex: 1;
+      min-width: 135px;
+    }
+
+
+    .slow,
+    .dialogue-slow-button {
+      background: var(--soft-beige);
+      color: var(--navy);
+    }
+
+
+    .dialogue-play-button {
+      background: var(--jade);
+      color: white;
+      font-weight: bold;
+    }
+
+
+    .dialogue-line {
+      padding: 15px;
+      margin-top: 12px;
+      border-radius: var(--radius-medium);
+      line-height: 1.7;
+    }
+
+
+    .dialogue-line.hana {
+      background: var(--soft-green);
+    }
+
+
+    .dialogue-line.joonho {
+      background: var(--soft-blue);
+    }
+
+
+    .speaker {
+      margin-bottom: 4px;
+      font-weight: bold;
+    }
+
+
+    .dialogue-korean {
+      color: var(--navy);
+      font-size: 19px;
+      font-weight: bold;
+    }
+
+
+    .dialogue-french {
+      margin-top: 5px;
+      color: var(--text-light);
+    }
+
+
+    .recognition-box {
+      padding: 16px;
+      margin-top: 14px;
+      background: var(--soft-beige);
+      border-radius: var(--radius-medium);
+      color: var(--navy);
+      line-height: 1.7;
+    }
+
+
+    .tip-card {
+      background: var(--soft-beige);
+      color: var(--navy);
+      line-height: 1.7;
+    }
+
+
+    .next-button,
+    .chapter-button {
+      width: 100%;
+      margin-top: 10px;
+    }
+
+
+    .next-button {
+      background: var(--jade);
+      color: white;
+      font-weight: bold;
+    }
+
+
+    .chapter-button {
+      background: var(--soft-beige);
+      color: var(--navy);
+    }
+
+
+    .playing {
+      background: var(--navy) !important;
+      color: white !important;
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+<main class="app">
+
+
+  <a
+    class="back-link"
+    href="chapitre-19.html"
+  >
+    ← Chapitre 16
+  </a>
+
+
+
+  <header class="listen-header">
+
+    <span class="chapter-badge">
+      Chapitre 19 · Compréhension orale
+    </span>
+
+
+    <p class="korean">
+      잘 들어 봐요 🏨
+    </p>
+
+
+    <h1>
+      J'écoute
+    </h1>
+
+
+    <p>
+      Écoute les formes passées les plus utiles,
+      puis entraîne-toi à reconnaître ce que quelqu'un a fait,
+      comment s'est passée une expérience et ce qu'il a préféré.
+    </p>
+
+  </header>
+
+
+
+  <section class="goal-card">
+
+    <strong>
+      🎯 Objectif
+    </strong>
+
+    <br><br>
+
+    Reconnaître à l'oreille
+    <strong>갔어요</strong>,
+    <strong>먹었어요</strong>,
+    <strong>찍었어요</strong>,
+    <strong>정말 좋았어요</strong>
+    et <strong>어땠어요?</strong>.
+
+  </section>
+
+
+
+  <!-- =====================================================
+       1. EXPRESSIONS ESSENTIELLES
+       ===================================================== -->
+
+  <section class="audio-card">
+
+    <h2>📸 1. Écoute les formes essentielles du passé</h2>
+
+    <div class="expression-list">
+
+      <div class="expression-item">
+        <div class="expression-korean">갔어요.</div>
+        <div class="expression-french">Je suis allé(e).</div>
+        <div class="expression-actions">
+          <button type="button" onclick="speakKorean('갔어요.', 'hana', false)">🔊 Écouter</button>
+          <button class="slow" type="button" onclick="speakKorean('갔어요.', 'hana', true)">🐢 Lentement</button>
+        </div>
+      </div>
+
+      <div class="expression-item">
+        <div class="expression-korean">먹었어요.</div>
+        <div class="expression-french">J'ai mangé.</div>
+        <div class="expression-actions">
+          <button type="button" onclick="speakKorean('먹었어요.', 'hana', false)">🔊 Écouter</button>
+          <button class="slow" type="button" onclick="speakKorean('먹었어요.', 'hana', true)">🐢 Lentement</button>
+        </div>
+      </div>
+
+      <div class="expression-item">
+        <div class="expression-korean">봤어요.</div>
+        <div class="expression-french">J'ai vu / regardé.</div>
+        <div class="expression-actions">
+          <button type="button" onclick="speakKorean('봤어요.', 'hana', false)">🔊 Écouter</button>
+          <button class="slow" type="button" onclick="speakKorean('봤어요.', 'hana', true)">🐢 Lentement</button>
+        </div>
+      </div>
+
+      <div class="expression-item">
+        <div class="expression-korean">찍었어요.</div>
+        <div class="expression-french">J'ai pris une photo.</div>
+        <div class="expression-actions">
+          <button type="button" onclick="speakKorean('찍었어요.', 'hana', false)">🔊 Écouter</button>
+          <button class="slow" type="button" onclick="speakKorean('찍었어요.', 'hana', true)">🐢 Lentement</button>
+        </div>
+      </div>
+
+      <div class="expression-item">
+        <div class="expression-korean">했어요.</div>
+        <div class="expression-french">J'ai fait.</div>
+        <div class="expression-actions">
+          <button type="button" onclick="speakKorean('했어요.', 'hana', false)">🔊 Écouter</button>
+          <button class="slow" type="button" onclick="speakKorean('했어요.', 'hana', true)">🐢 Lentement</button>
+        </div>
+      </div>
+
+      <div class="expression-item">
+        <div class="expression-korean">정말 좋았어요.</div>
+        <div class="expression-french">C'était vraiment bien.</div>
+        <div class="expression-actions">
+          <button type="button" onclick="speakKorean('정말 좋았어요.', 'hana', false)">🔊 Écouter</button>
+          <button class="slow" type="button" onclick="speakKorean('정말 좋았어요.', 'hana', true)">🐢 Lentement</button>
+        </div>
+      </div>
+
+      <div class="expression-item">
+        <div class="expression-korean">어땠어요?</div>
+        <div class="expression-french">Comment c'était ?</div>
+        <div class="expression-actions">
+          <button type="button" onclick="speakKorean('어땠어요?', 'minsu', false)">🔊 Écouter</button>
+          <button class="slow" type="button" onclick="speakKorean('어땠어요?', 'minsu', true)">🐢 Lentement</button>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+       2. PHRASES A RECONNAITRE
+       ===================================================== -->
+
+  <section class="audio-card">
+
+    <h2>👂 2. Petites phrases à reconnaître</h2>
+
+    <div class="recognition-box">
+      Ici, le but est surtout de reconnaître <strong>l'action passée</strong>
+      et quelques repères temporels.
+      <br><br>
+      Repère <strong>처음</strong>, <strong>어제</strong>, <strong>지난주</strong>
+      ainsi que les fins en <strong>-았어요 / -었어요</strong>.
+    </div>
+
+    <div class="expression-list">
+
+      <div class="expression-item">
+        <div class="expression-korean">한국에 처음 갔어요.</div>
+        <div class="expression-french">Je suis allé(e) en Corée pour la première fois.</div>
+        <div class="expression-actions">
+          <button type="button" onclick="speakKorean('한국에 처음 갔어요.', 'hana', false)">🔊 Écouter</button>
+          <button class="slow" type="button" onclick="speakKorean('한국에 처음 갔어요.', 'hana', true)">🐢 Lentement</button>
+        </div>
+      </div>
+
+      <div class="expression-item">
+        <div class="expression-korean">어제 비빔밥을 먹었어요.</div>
+        <div class="expression-french">Hier, j'ai mangé un bibimbap.</div>
+        <div class="expression-actions">
+          <button type="button" onclick="speakKorean('어제 비빔밥을 먹었어요.', 'hana', false)">🔊 Écouter</button>
+          <button class="slow" type="button" onclick="speakKorean('어제 비빔밥을 먹었어요.', 'hana', true)">🐢 Lentement</button>
+        </div>
+      </div>
+
+      <div class="expression-item">
+        <div class="expression-korean">지난주에 서울에 갔어요.</div>
+        <div class="expression-french">La semaine dernière, je suis allé(e) à Séoul.</div>
+        <div class="expression-actions">
+          <button type="button" onclick="speakKorean('지난주에 서울에 갔어요.', 'hana', false)">🔊 Écouter</button>
+          <button class="slow" type="button" onclick="speakKorean('지난주에 서울에 갔어요.', 'hana', true)">🐢 Lentement</button>
+        </div>
+      </div>
+
+      <div class="expression-item">
+        <div class="expression-korean">사진을 많이 찍었어요.</div>
+        <div class="expression-french">J'ai pris beaucoup de photos.</div>
+        <div class="expression-actions">
+          <button type="button" onclick="speakKorean('사진을 많이 찍었어요.', 'hana', false)">🔊 Écouter</button>
+          <button class="slow" type="button" onclick="speakKorean('사진을 많이 찍었어요.', 'hana', true)">🐢 Lentement</button>
+        </div>
+      </div>
+
+      <div class="expression-item">
+        <div class="expression-korean">제일 좋았던 건 뭐예요?</div>
+        <div class="expression-french">Qu'est-ce que tu as préféré ?</div>
+        <div class="expression-actions">
+          <button type="button" onclick="speakKorean('제일 좋았던 건 뭐예요?', 'minsu', false)">🔊 Écouter Min-su</button>
+          <button class="slow" type="button" onclick="speakKorean('제일 좋았던 건 뭐예요?', 'minsu', true)">🐢 Lentement</button>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+       3. DIALOGUE
+       ===================================================== -->
+
+  <section class="audio-card">
+
+    <h2>💬 3. Dialogue — Hana raconte son voyage</h2>
+
+    <p>
+      Écoute d'abord le dialogue complet,
+      puis réécoute les phrases qui te posent difficulté.
+    </p>
+
+    <div class="dialogue-controls">
+
+      <button class="dialogue-play-button" id="dialogueButton" type="button" onclick="toggleDialogue(false)">
+        🎧 Écouter tout le dialogue
+      </button>
+
+      <button class="dialogue-slow-button" id="dialogueSlowButton" type="button" onclick="toggleDialogue(true)">
+        🐢 Écouter tout lentement
+      </button>
+
+    </div>
+
+    <div class="dialogue-line minsu">
+      <div class="speaker">💙 Min-su</div>
+      <div class="dialogue-korean">첫 한국 여행은 어땠어요?</div>
+      <div class="dialogue-french">Comment était ton premier voyage en Corée ?</div>
+      <div class="line-actions">
+        <button type="button" onclick="speakKorean('첫 한국 여행은 어땠어요?', 'minsu', false)">🔊 Écouter Min-su</button>
+        <button class="slow" type="button" onclick="speakKorean('첫 한국 여행은 어땠어요?', 'minsu', true)">🐢 Lentement</button>
+      </div>
+    </div>
+
+    <div class="dialogue-line hana">
+      <div class="speaker">🌸 Hana</div>
+      <div class="dialogue-korean">정말 즐거웠어요. 경복궁에 갔어요. 비빔밥도 먹었어요. 사진도 많이 찍었어요.</div>
+      <div class="dialogue-french">C'était vraiment génial. Je suis allée à Gyeongbokgung. J'ai aussi mangé un bibimbap. J'ai pris beaucoup de photos.</div>
+      <div class="line-actions">
+        <button type="button" onclick="speakKorean('정말 즐거웠어요. 경복궁에 갔어요. 비빔밥도 먹었어요. 사진도 많이 찍었어요.', 'hana', false)">🔊 Écouter Hana</button>
+        <button class="slow" type="button" onclick="speakKorean('정말 즐거웠어요. 경복궁에 갔어요. 비빔밥도 먹었어요. 사진도 많이 찍었어요.', 'hana', true)">🐢 Lentement</button>
+      </div>
+    </div>
+
+    <div class="dialogue-line minsu">
+      <div class="speaker">💙 Min-su</div>
+      <div class="dialogue-korean">제일 좋았던 건 뭐예요?</div>
+      <div class="dialogue-french">Qu'est-ce que tu as préféré ?</div>
+      <div class="line-actions">
+        <button type="button" onclick="speakKorean('제일 좋았던 건 뭐예요?', 'minsu', false)">🔊 Écouter Min-su</button>
+        <button class="slow" type="button" onclick="speakKorean('제일 좋았던 건 뭐예요?', 'minsu', true)">🐢 Lentement</button>
+      </div>
+    </div>
+
+    <div class="dialogue-line hana">
+      <div class="speaker">🌸 Hana</div>
+      <div class="dialogue-korean">한강이 제일 좋았어요.</div>
+      <div class="dialogue-french">Ce que j'ai préféré, c'était le fleuve Han.</div>
+      <div class="line-actions">
+        <button type="button" onclick="speakKorean('한강이 제일 좋았어요.', 'hana', false)">🔊 Écouter Hana</button>
+        <button class="slow" type="button" onclick="speakKorean('한강이 제일 좋았어요.', 'hana', true)">🐢 Lentement</button>
+      </div>
+    </div>
+
+  </section>
+
+
+  <section class="tip-card">
+
+    <strong>👂 Astuce d'écoute</strong>
+
+    <br><br>
+
+    Pour reconnaître le passé, écoute surtout les fins :
+
+    <br><br>
+
+    <strong>갔어요</strong> → est allé(e)<br>
+    <strong>먹었어요</strong> → a mangé<br>
+    <strong>찍었어요</strong> → a pris une photo<br>
+    <strong>좋았어요</strong> → c'était bien / a aimé
+
+    <br><br>
+
+    Les formes peuvent sembler longues au début,
+    mais la fin <strong>-았어요 / -었어요</strong>
+    devient vite un repère très utile.
+
+  </section>
+
+
+
+  <button
+    class="next-button"
+    type="button"
+    onclick="goToListeningExercise()"
+  >
+    🎧 Faire le mini défi d'écoute
+  </button>
+
+
+
+  <button
+    class="chapter-button"
+    type="button"
+    onclick="window.location.href='chapitre-19.html'"
+  >
+    Retour au chapitre
+  </button>
+
+
+</main>
+
+
+
+<script>
+
+  const AUDIO_SETTINGS = {
+    normalRate: 0.82,
+    slowRate: 0.25
+  };
+
+
+  const dialogueLines = [
+
+    {
+      text:
+        "첫 한국 여행은 어땠어요?",
+      character:
+        "minsu"
+    },
+
+    {
+      text:
+        "정말 즐거웠어요. 경복궁에 갔어요. 비빔밥도 먹었어요. 사진도 많이 찍었어요.",
+      character:
+        "hana"
+    },
+
+    {
+      text:
+        "제일 좋았던 건 뭐예요?",
+      character:
+        "minsu"
+    },
+
+    {
+      text:
+        "한강이 제일 좋았어요.",
+      character:
+        "hana"
+    }
+
+  ];
+
+
+  let dialogueSessionId =
+    0;
+
+
+  let dialoguePlaying =
+    false;
+
+
+  let dialogueSlowMode =
+    false;
+
+
+
+  function getKoreanVoice() {
+
+    const voices =
+      window.speechSynthesis.getVoices();
+
+
+    return voices.find(
+      voice =>
+        voice.lang &&
+        voice.lang
+          .toLowerCase()
+          .startsWith(
+            "ko"
+          )
+    );
+
+  }
+
+
+
+  function getCharacterSettings(
+    character,
+    slow
+  ) {
+
+    return {
+      rate:
+        slow
+          ? AUDIO_SETTINGS.slowRate
+          : AUDIO_SETTINGS.normalRate,
+
+      pitch:
+        1
+    };
+
+  }
+
+
+
+  function speakKorean(
+    text,
+    character = "hana",
+    slow = false
+  ) {
+
+    if (
+      !(
+        "speechSynthesis"
+        in window
+      )
+    ) {
+      return;
+    }
+
+
+    stopDialogue();
+
+
+    const speech =
+      new SpeechSynthesisUtterance(
+        text
+      );
+
+
+    const settings =
+      getCharacterSettings(
+        character,
+        slow
+      );
+
+
+    speech.lang =
+      "ko-KR";
+
+
+    speech.rate =
+      settings.rate;
+
+
+    speech.pitch =
+      settings.pitch;
+
+
+    const koreanVoice =
+      getKoreanVoice();
+
+
+    if (
+      koreanVoice
+    ) {
+
+      speech.voice =
+        koreanVoice;
+
+    }
+
+
+    window.speechSynthesis.speak(
+      speech
+    );
+
+  }
+
+
+
+  function toggleDialogue(
+    slow
+  ) {
+
+    if (
+      dialoguePlaying
+    ) {
+
+      stopDialogue();
+
+      return;
+
+    }
+
+
+    dialogueSlowMode =
+      slow;
+
+
+    playDialogue(
+      slow
+    );
+
+  }
+
+
+
+  function playDialogue(
+    slow
+  ) {
+
+    if (
+      !(
+        "speechSynthesis"
+        in window
+      )
+    ) {
+      return;
+    }
+
+
+    window.speechSynthesis.cancel();
+
+
+    dialogueSessionId++;
+
+
+    const sessionId =
+      dialogueSessionId;
+
+
+    dialoguePlaying =
+      true;
+
+
+    dialogueSlowMode =
+      slow;
+
+
+    updateDialogueButtons();
+
+
+    playDialogueLine(
+      0,
+      slow,
+      sessionId
+    );
+
+  }
+
+
+
+  function playDialogueLine(
+    index,
+    slow,
+    sessionId
+  ) {
+
+    if (
+      sessionId !==
+      dialogueSessionId
+    ) {
+      return;
+    }
+
+
+    if (
+      index >=
+      dialogueLines.length
+    ) {
+
+      dialoguePlaying =
+        false;
+
+
+      updateDialogueButtons();
+
+      return;
+
+    }
+
+
+    const line =
+      dialogueLines[
+        index
+      ];
+
+
+    const speech =
+      new SpeechSynthesisUtterance(
+        line.text
+      );
+
+
+    const settings =
+      getCharacterSettings(
+        line.character,
+        slow
+      );
+
+
+    speech.lang =
+      "ko-KR";
+
+
+    speech.rate =
+      settings.rate;
+
+
+    speech.pitch =
+      settings.pitch;
+
+
+    const koreanVoice =
+      getKoreanVoice();
+
+
+    if (
+      koreanVoice
+    ) {
+
+      speech.voice =
+        koreanVoice;
+
+    }
+
+
+    speech.onend =
+      function() {
+
+        if (
+          sessionId !==
+          dialogueSessionId
+        ) {
+          return;
+        }
+
+
+        window.setTimeout(
+          function() {
+
+            playDialogueLine(
+              index + 1,
+              slow,
+              sessionId
+            );
+
+          },
+          350
+        );
+
+      };
+
+
+    speech.onerror =
+      function() {
+
+        dialoguePlaying =
+          false;
+
+
+        updateDialogueButtons();
+
+      };
+
+
+    window.speechSynthesis.speak(
+      speech
+    );
+
+  }
+
+
+
+  function stopDialogue() {
+
+    dialogueSessionId++;
+
+
+    dialoguePlaying =
+      false;
+
+
+    if (
+      "speechSynthesis"
+      in window
+    ) {
+
+      window.speechSynthesis.cancel();
+
+    }
+
+
+    updateDialogueButtons();
+
+  }
+
+
+
+  function updateDialogueButtons() {
+
+    const normalButton =
+      document.getElementById(
+        "dialogueButton"
+      );
+
+
+    const slowButton =
+      document.getElementById(
+        "dialogueSlowButton"
+      );
+
+
+    if (
+      normalButton
+    ) {
+
+      normalButton.classList.remove(
+        "playing"
+      );
+
+
+      normalButton.textContent =
+        "🎧 Écouter tout le dialogue";
+
+    }
+
+
+    if (
+      slowButton
+    ) {
+
+      slowButton.classList.remove(
+        "playing"
+      );
+
+
+      slowButton.textContent =
+        "🐢 Écouter tout lentement";
+
+    }
+
+
+    if (
+      !dialoguePlaying
+    ) {
+      return;
+    }
+
+
+    if (
+      dialogueSlowMode
+    ) {
+
+      if (
+        slowButton
+      ) {
+
+        slowButton.classList.add(
+          "playing"
+        );
+
+
+        slowButton.textContent =
+          "⏹️ Stopper le dialogue";
+
+      }
+
+    } else {
+
+      if (
+        normalButton
+      ) {
+
+        normalButton.classList.add(
+          "playing"
+        );
+
+
+        normalButton.textContent =
+          "⏹️ Stopper le dialogue";
+
+      }
+
+    }
+
+  }
+
+
+
+  function goToListeningExercise() {
+
+    localStorage.setItem(
+      "hanaKorean_chapter19_listening",
+      "completed"
+    );
+
+
+    if (
+      localStorage.getItem(
+        "hanaKorean_chapter19_listeningMistakes"
+      ) === null
+    ) {
+
+      localStorage.setItem(
+        "hanaKorean_chapter19_listeningMistakes",
+        "0"
+      );
+
+    }
+
+
+    window.location.href =
+      "exercice-ecoute-19.html";
+
+  }
+
+
+
+  window
+    .speechSynthesis
+    ?.getVoices();
+
+
+  if (
+    "speechSynthesis"
+    in window
+  ) {
+
+    window.speechSynthesis.onvoiceschanged =
+      function() {
+
+        window
+          .speechSynthesis
+          .getVoices();
+
+      };
+
+  }
+
+</script>
+
+
+</body>
+
+</html>

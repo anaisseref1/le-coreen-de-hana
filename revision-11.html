@@ -1,0 +1,1616 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="theme-color"
+    content="#F7F4ED"
+  >
+
+  <title>Je révise — Chapitre 11</title>
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
+  <style>
+    .review-header {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .chapter-badge {
+      display: inline-block;
+      padding: 7px 14px;
+      margin-bottom: 10px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .intro-card,
+    .review-card,
+    .result-card {
+      padding: 20px;
+      margin-bottom: 18px;
+      background: var(--white);
+      border-radius: var(--radius-large);
+      box-shadow: var(--shadow);
+    }
+
+    .intro-card {
+      background: var(--soft-green);
+      color: var(--navy);
+      line-height: 1.7;
+    }
+
+    .weak-card {
+      display: none;
+      padding: 16px;
+      margin-bottom: 18px;
+      background: var(--soft-beige);
+      border-radius: var(--radius-medium);
+      color: var(--navy);
+      line-height: 1.7;
+    }
+
+    .weak-card.show {
+      display: block;
+    }
+
+    .review-progress {
+      margin-bottom: 22px;
+    }
+
+    .progress-info {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      color: var(--text-light);
+      font-size: 13px;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 9px;
+      overflow: hidden;
+      background: var(--soft-beige);
+      border-radius: 20px;
+    }
+
+    .progress-fill {
+      width: 16.6667%;
+      height: 100%;
+      background: var(--jade);
+      border-radius: 20px;
+      transition: width 0.3s ease;
+    }
+
+    .step-label {
+      color: var(--jade-dark);
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .prompt-box {
+      padding: 18px;
+      margin: 16px 0;
+      background: #FBFAF6;
+      border-radius: var(--radius-medium);
+      line-height: 1.7;
+    }
+
+    .prompt-main {
+      color: var(--navy);
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .audio-zone {
+      display: none;
+      margin-top: 14px;
+      padding: 15px;
+      background: var(--soft-blue);
+      border-radius: var(--radius-medium);
+    }
+
+    .audio-zone.show {
+      display: block;
+    }
+
+    .audio-zone button {
+      width: 100%;
+    }
+
+    .audio-zone .slow {
+      margin-top: 8px;
+    }
+
+    .answers {
+      display: none;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .answers.show {
+      display: flex;
+    }
+
+    .answer {
+      width: 100%;
+      padding: 15px;
+      text-align: left;
+      border: 2px solid transparent;
+    }
+
+    .review-input {
+      display: none;
+      width: 100%;
+      min-height: 58px;
+      padding: 14px;
+      box-sizing: border-box;
+      border: 2px solid var(--border);
+      border-radius: var(--radius-medium);
+      background: var(--white);
+      color: var(--text);
+      font-size: 20px;
+      font-family: inherit;
+    }
+
+    .review-input.show {
+      display: block;
+    }
+
+    .review-input:focus {
+      outline: none;
+      border-color: var(--jade);
+    }
+
+    .check-button,
+    .retry-button,
+    .next-button,
+    .help-button,
+    .continue-button,
+    .back-button {
+      width: 100%;
+    }
+
+    .check-button {
+      display: none;
+      margin-top: 12px;
+      background: var(--jade);
+      color: white;
+      font-weight: bold;
+    }
+
+    .check-button.show {
+      display: block;
+    }
+
+    .feedback {
+      display: none;
+      padding: 16px;
+      margin-top: 14px;
+      border-radius: var(--radius-medium);
+      line-height: 1.7;
+    }
+
+    .feedback.show {
+      display: block;
+    }
+
+    .help-button {
+      margin-top: 10px;
+      background: var(--soft-beige);
+      color: var(--navy);
+    }
+
+    .help-box {
+      display: none;
+      padding: 15px;
+      margin-top: 10px;
+      background: var(--soft-beige);
+      border-radius: var(--radius-medium);
+      color: var(--navy);
+      line-height: 1.7;
+    }
+
+    .help-box.show {
+      display: block;
+    }
+
+    .retry-button {
+      display: none;
+      margin-top: 10px;
+    }
+
+    .retry-button.show {
+      display: block;
+    }
+
+    .next-button {
+      display: none;
+      margin-top: 12px;
+      background: var(--navy);
+      color: white;
+      font-weight: bold;
+    }
+
+    .next-button.show {
+      display: block;
+    }
+
+    .answer-reveal {
+      margin-top: 10px;
+      padding: 12px;
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: var(--radius-small);
+      color: var(--navy);
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .result-card {
+      display: none;
+      text-align: center;
+    }
+
+    .result-card.show {
+      display: block;
+    }
+
+    .result-icon {
+      font-size: 58px;
+    }
+
+    .summary-box {
+      padding: 16px;
+      margin-top: 18px;
+      background: #FBFAF6;
+      border-radius: var(--radius-medium);
+      text-align: left;
+      line-height: 1.7;
+    }
+
+    .notion-line {
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .notion-line:last-child {
+      border-bottom: none;
+    }
+
+    .continue-button {
+      margin-top: 18px;
+      background: var(--jade);
+      color: white;
+      font-weight: bold;
+    }
+
+    .back-button {
+      margin-top: 10px;
+      background: var(--soft-beige);
+      color: var(--navy);
+    }
+  </style>
+</head>
+
+<body>
+
+<main class="app">
+
+  <a
+    class="back-link"
+    href="ecriture-11.html"
+  >
+    ← J'écris
+  </a>
+
+
+  <header class="review-header">
+
+    <span class="chapter-badge">
+      Chapitre 11 · Révision
+    </span>
+
+    <p class="korean">
+      복습해 봐요 🧠
+    </p>
+
+    <h1>
+      Je révise
+    </h1>
+
+    <p>
+      Mélange écoute, compréhension et écriture
+      pour vérifier que les expressions du chapitre sont acquises.
+    </p>
+
+  </header>
+
+
+  <section class="intro-card">
+
+    <strong>🎯 Objectif</strong>
+
+    <br><br>
+
+    Retrouver les expressions essentielles d'une situation d'achat
+    sans suivre toujours le même type d'exercice.
+
+  </section>
+
+
+  <section
+    class="weak-card"
+    id="weakCard"
+  >
+
+    <strong>
+      🌿 Petit rappel personnalisé
+    </strong>
+
+    <br><br>
+
+    Pendant « J'écris », certaines notions ont demandé un peu plus d'attention :
+
+    <br><br>
+
+    <span id="weakText"></span>
+
+  </section>
+
+
+  <div class="review-progress">
+
+    <div class="progress-info">
+      <span>Révision</span>
+      <span id="progressLabel">1 / 6</span>
+    </div>
+
+    <div class="progress-bar">
+      <div
+        class="progress-fill"
+        id="progressFill"
+      ></div>
+    </div>
+
+  </div>
+
+
+  <section
+    class="review-card"
+    id="reviewCard"
+  >
+
+    <div
+      class="step-label"
+      id="stepLabel"
+    >
+      Étape 1 / 6
+    </div>
+
+    <h2 id="stepTitle">
+      💰 Comprendre
+    </h2>
+
+    <div class="prompt-box">
+
+      <div
+        class="prompt-main"
+        id="promptMain"
+      ></div>
+
+    </div>
+
+
+    <div
+      class="audio-zone"
+      id="audioZone"
+    >
+
+      <button
+        type="button"
+        onclick="playAudio(false)"
+      >
+        🔊 Écouter
+      </button>
+
+      <button
+        class="slow"
+        type="button"
+        onclick="playAudio(true)"
+      >
+        🐢 Écouter lentement
+      </button>
+
+    </div>
+
+
+    <div
+      class="answers"
+      id="answers"
+    ></div>
+
+
+    <input
+      class="review-input"
+      id="reviewInput"
+      type="text"
+      lang="ko"
+      autocomplete="off"
+      autocapitalize="off"
+      spellcheck="false"
+      placeholder="Écris en coréen…"
+    >
+
+
+    <button
+      class="check-button"
+      id="checkButton"
+      type="button"
+      onclick="checkInputAnswer()"
+    >
+      Vérifier
+    </button>
+
+
+    <div
+      class="feedback"
+      id="feedback"
+    ></div>
+
+
+    <button
+      class="help-button"
+      type="button"
+      onclick="toggleHelp()"
+    >
+      💡 Besoin d'aide ?
+    </button>
+
+
+    <div
+      class="help-box"
+      id="helpBox"
+    ></div>
+
+
+    <button
+      class="retry-button"
+      id="retryButton"
+      type="button"
+      onclick="retryCurrent()"
+    >
+      Réessayer
+    </button>
+
+
+    <button
+      class="next-button"
+      id="nextButton"
+      type="button"
+      onclick="nextStep()"
+    >
+      Continuer →
+    </button>
+
+  </section>
+
+
+  <section
+    class="result-card"
+    id="resultCard"
+  >
+
+    <div class="result-icon">
+      🧠🛍️
+    </div>
+
+    <h2>
+      잘했어요!
+    </h2>
+
+    <p>
+      Tu as terminé la révision du chapitre 11.
+    </p>
+
+
+    <div class="summary-box">
+
+      <strong>
+        🌿 Les indispensables du chapitre
+      </strong>
+
+      <div class="notion-line">
+        💰 <strong>이거 얼마예요?</strong>
+        → Combien coûte celui-ci ?
+      </div>
+
+      <div class="notion-line">
+        🇰🇷 <strong>만오천 원이에요.</strong>
+        → 15 000 wons.
+      </div>
+
+      <div class="notion-line">
+        💸 <strong>비싸요.</strong>
+        → C'est cher.
+      </div>
+
+      <div class="notion-line">
+        🛍️ <strong>싸요.</strong>
+        → C'est bon marché.
+      </div>
+
+      <div class="notion-line">
+        👉 <strong>이거 주세요.</strong>
+        → Je voudrais celui-ci.
+      </div>
+
+      <div class="notion-line">
+        🙏 <strong>감사합니다.</strong>
+        → Merci.
+      </div>
+
+      <p id="resultSummary"></p>
+
+    </div>
+
+
+    <button
+      class="continue-button"
+      type="button"
+      onclick="window.location.href='utilise-11.html'"
+    >
+      🎯 Passer à « Je l'utilise »
+    </button>
+
+
+    <button
+      class="back-button"
+      type="button"
+      onclick="window.location.href='chapitre-11.html'"
+    >
+      Retour au chapitre
+    </button>
+
+  </section>
+
+</main>
+
+
+<script>
+  const AUDIO_SETTINGS = {
+    normalRate: 0.82,
+    slowRate: 0.25
+  };
+
+
+  const steps = [
+
+    {
+      title: "💰 Comprendre",
+      type: "choice",
+      prompt:
+        "Que signifie « 얼마예요? » ?",
+      options: [
+        {
+          text: "Combien ça coûte ?",
+          correct: true
+        },
+        {
+          text: "C'est cher.",
+          correct: false
+        },
+        {
+          text: "Je voudrais celui-ci.",
+          correct: false
+        }
+      ],
+      answer:
+        "얼마예요? = « Combien ça coûte ? »",
+      help:
+        "얼마 signifie « combien ».",
+      notion:
+        "얼마예요"
+    },
+
+    {
+      title: "🎧 Écouter un prix",
+      type: "audioChoice",
+      prompt:
+        "Quel prix entends-tu ?",
+      audio:
+        "만오천 원이에요.",
+      options: [
+        {
+          text: "5 000 wons",
+          correct: false
+        },
+        {
+          text: "15 000 wons",
+          correct: true
+        },
+        {
+          text: "50 000 wons",
+          correct: false
+        }
+      ],
+      answer:
+        "만오천 원이에요. = 15 000 wons.",
+      help:
+        "Repère 만오천 puis 원.",
+      notion:
+        "prix"
+    },
+
+    {
+      title: "✍️ Écrire",
+      type: "input",
+      prompt:
+        "Écris : « C'est bon marché. »",
+      accepted: [
+        "싸요"
+      ],
+      answer:
+        "싸요.",
+      help:
+        "Attention au ㅆ tendu.",
+      notion:
+        "싸요"
+    },
+
+    {
+      title: "🛍️ Choisir un objet",
+      type: "choice",
+      prompt:
+        "Quelle phrase utilise-t-on pour dire « Je voudrais celui-ci » ?",
+      options: [
+        {
+          text: "이거 얼마예요?",
+          correct: false
+        },
+        {
+          text: "이거 주세요.",
+          correct: true
+        },
+        {
+          text: "비싸요.",
+          correct: false
+        }
+      ],
+      answer:
+        "이거 주세요. = « Je voudrais celui-ci. »",
+      help:
+        "주세요 sert ici à demander l'objet.",
+      notion:
+        "주세요"
+    },
+
+    {
+      title: "🎧 Réagir au prix",
+      type: "audioChoice",
+      prompt:
+        "Que signifie la phrase entendue ?",
+      audio:
+        "비싸요.",
+      options: [
+        {
+          text: "C'est bon marché.",
+          correct: false
+        },
+        {
+          text: "C'est cher.",
+          correct: true
+        },
+        {
+          text: "Merci.",
+          correct: false
+        }
+      ],
+      answer:
+        "비싸요. = « C'est cher. »",
+      help:
+        "비싸요 et 싸요 sont opposés.",
+      notion:
+        "비싸요"
+    },
+
+    {
+      title: "✍️ Phrase complète",
+      type: "input",
+      prompt:
+        "Écris : « Combien coûte celui-ci ? »",
+      accepted: [
+        "이거 얼마예요",
+        "이거 얼마에요",
+        "이것 얼마예요",
+        "이것 얼마에요"
+      ],
+      answer:
+        "이거 얼마예요?",
+      help:
+        "Commence par 이거 puis ajoute 얼마예요?",
+      notion:
+        "얼마예요"
+    }
+
+  ];
+
+
+  let currentStep = 0;
+  let mistakes = 0;
+  let helpCount = 0;
+  const reviewWeakNotions = [];
+
+
+  function normalizeKorean(text) {
+
+    return text
+      .replace(/[.,!?~…'"]/g, "")
+      .replace(/\s+/g, " ")
+      .trim();
+
+  }
+
+
+  function getKoreanVoice() {
+
+    const voices =
+      window.speechSynthesis.getVoices();
+
+
+    return voices.find(
+      voice =>
+        voice.lang &&
+        voice.lang
+          .toLowerCase()
+          .startsWith("ko")
+    );
+
+  }
+
+
+  function speakKorean(
+    text,
+    slow = false
+  ) {
+
+    if (
+      !("speechSynthesis" in window)
+    ) {
+      return;
+    }
+
+
+    window.speechSynthesis.cancel();
+
+
+    const speech =
+      new SpeechSynthesisUtterance(
+        text
+      );
+
+
+    speech.lang =
+      "ko-KR";
+
+
+    speech.rate =
+      slow
+        ? AUDIO_SETTINGS.slowRate
+        : AUDIO_SETTINGS.normalRate;
+
+
+    speech.pitch =
+      1;
+
+
+    const voice =
+      getKoreanVoice();
+
+
+    if (voice) {
+      speech.voice = voice;
+    }
+
+
+    window.speechSynthesis.speak(
+      speech
+    );
+
+  }
+
+
+  function renderWeakNotions() {
+
+    const raw =
+      localStorage.getItem(
+        "hanaKorean_chapter11_revisionNotions"
+      );
+
+
+    if (!raw) {
+      return;
+    }
+
+
+    let notions = [];
+
+
+    try {
+
+      notions =
+        JSON.parse(raw);
+
+    }
+
+    catch (error) {
+
+      notions = [];
+
+    }
+
+
+    if (
+      !Array.isArray(notions) ||
+      notions.length === 0
+    ) {
+      return;
+    }
+
+
+    document.getElementById(
+      "weakText"
+    ).textContent =
+      notions.join(" · ");
+
+
+    document.getElementById(
+      "weakCard"
+    ).classList.add(
+      "show"
+    );
+
+  }
+
+
+  function renderStep() {
+
+    const step =
+      steps[currentStep];
+
+
+    document.getElementById(
+      "stepLabel"
+    ).textContent =
+      "Étape " +
+      (currentStep + 1) +
+      " / " +
+      steps.length;
+
+
+    document.getElementById(
+      "stepTitle"
+    ).textContent =
+      step.title;
+
+
+    document.getElementById(
+      "promptMain"
+    ).textContent =
+      step.prompt;
+
+
+    document.getElementById(
+      "helpBox"
+    ).textContent =
+      "💡 " +
+      step.help;
+
+
+    document.getElementById(
+      "progressLabel"
+    ).textContent =
+      (currentStep + 1) +
+      " / " +
+      steps.length;
+
+
+    document.getElementById(
+      "progressFill"
+    ).style.width =
+      (
+        ((currentStep + 1) /
+          steps.length) *
+        100
+      ) +
+      "%";
+
+
+    document.getElementById(
+      "audioZone"
+    ).classList.remove(
+      "show"
+    );
+
+
+    document.getElementById(
+      "answers"
+    ).classList.remove(
+      "show"
+    );
+
+
+    document.getElementById(
+      "reviewInput"
+    ).classList.remove(
+      "show"
+    );
+
+
+    document.getElementById(
+      "checkButton"
+    ).classList.remove(
+      "show"
+    );
+
+
+    document.getElementById(
+      "feedback"
+    ).className =
+      "feedback";
+
+
+    document.getElementById(
+      "feedback"
+    ).innerHTML =
+      "";
+
+
+    document.getElementById(
+      "helpBox"
+    ).classList.remove(
+      "show"
+    );
+
+
+    document.getElementById(
+      "retryButton"
+    ).classList.remove(
+      "show"
+    );
+
+
+    document.getElementById(
+      "nextButton"
+    ).classList.remove(
+      "show"
+    );
+
+
+    if (
+      step.type === "audioChoice"
+    ) {
+
+      document.getElementById(
+        "audioZone"
+      ).classList.add(
+        "show"
+      );
+
+    }
+
+
+    if (
+      step.type === "choice" ||
+      step.type === "audioChoice"
+    ) {
+
+      renderChoices(step);
+
+    }
+
+
+    if (
+      step.type === "input"
+    ) {
+
+      const input =
+        document.getElementById(
+          "reviewInput"
+        );
+
+
+      input.value =
+        "";
+
+
+      input.disabled =
+        false;
+
+
+      input.classList.add(
+        "show"
+      );
+
+
+      document.getElementById(
+        "checkButton"
+      ).disabled =
+        false;
+
+
+      document.getElementById(
+        "checkButton"
+      ).classList.add(
+        "show"
+      );
+
+
+      setTimeout(
+        () => input.focus(),
+        200
+      );
+
+    }
+
+  }
+
+
+  function renderChoices(step) {
+
+    const answers =
+      document.getElementById(
+        "answers"
+      );
+
+
+    answers.innerHTML =
+      "";
+
+
+    step.options.forEach(
+      option => {
+
+        const button =
+          document.createElement(
+            "button"
+          );
+
+
+        button.type =
+          "button";
+
+
+        button.className =
+          "answer";
+
+
+        button.textContent =
+          option.text;
+
+
+        button.onclick =
+          function() {
+
+            checkChoice(
+              button,
+              option.correct
+            );
+
+          };
+
+
+        answers.appendChild(
+          button
+        );
+
+      }
+    );
+
+
+    answers.classList.add(
+      "show"
+    );
+
+  }
+
+
+  function playAudio(slow) {
+
+    const step =
+      steps[currentStep];
+
+
+    if (
+      step.audio
+    ) {
+
+      speakKorean(
+        step.audio,
+        slow
+      );
+
+    }
+
+  }
+
+
+  function toggleHelp() {
+
+    helpCount++;
+
+
+    document.getElementById(
+      "helpBox"
+    ).classList.toggle(
+      "show"
+    );
+
+  }
+
+
+  function addWeakNotion(notion) {
+
+    if (
+      !reviewWeakNotions.includes(
+        notion
+      )
+    ) {
+
+      reviewWeakNotions.push(
+        notion
+      );
+
+    }
+
+  }
+
+
+  function showCorrectFeedback() {
+
+    const step =
+      steps[currentStep];
+
+
+    const feedback =
+      document.getElementById(
+        "feedback"
+      );
+
+
+    feedback.className =
+      "feedback show correct";
+
+
+    feedback.innerHTML =
+      "✅ <strong>Très bien !</strong>" +
+      "<div class='answer-reveal'>" +
+      step.answer +
+      "</div>";
+
+
+    document.getElementById(
+      "retryButton"
+    ).classList.remove(
+      "show"
+    );
+
+
+    document.getElementById(
+      "nextButton"
+    ).classList.add(
+      "show"
+    );
+
+  }
+
+
+  function showWrongFeedback() {
+
+    const step =
+      steps[currentStep];
+
+
+    mistakes++;
+
+
+    addWeakNotion(
+      step.notion
+    );
+
+
+    const feedback =
+      document.getElementById(
+        "feedback"
+      );
+
+
+    feedback.className =
+      "feedback show wrong";
+
+
+    feedback.innerHTML =
+      "❌ <strong>Pas encore.</strong><br><br>" +
+      step.help;
+
+
+    document.getElementById(
+      "retryButton"
+    ).classList.add(
+      "show"
+    );
+
+  }
+
+
+  function checkChoice(
+    button,
+    isCorrect
+  ) {
+
+    const answers =
+      document
+        .getElementById(
+          "answers"
+        )
+        .querySelectorAll(
+          ".answer"
+        );
+
+
+    if (isCorrect) {
+
+      button.classList.add(
+        "correct"
+      );
+
+
+      answers.forEach(
+        item => {
+
+          item.disabled =
+            true;
+
+        }
+      );
+
+
+      showCorrectFeedback();
+
+      return;
+
+    }
+
+
+    button.classList.add(
+      "wrong"
+    );
+
+
+    showWrongFeedback();
+
+
+    setTimeout(
+      () => {
+
+        button.classList.remove(
+          "wrong"
+        );
+
+      },
+      800
+    );
+
+  }
+
+
+  function checkInputAnswer() {
+
+    const step =
+      steps[currentStep];
+
+
+    const input =
+      document.getElementById(
+        "reviewInput"
+      );
+
+
+    const value =
+      normalizeKorean(
+        input.value
+      );
+
+
+    const accepted =
+      step.accepted.map(
+        answer =>
+          normalizeKorean(answer)
+      );
+
+
+    if (
+      accepted.includes(value)
+    ) {
+
+      input.disabled =
+        true;
+
+
+      document.getElementById(
+        "checkButton"
+      ).disabled =
+        true;
+
+
+      showCorrectFeedback();
+
+      return;
+
+    }
+
+
+    showWrongFeedback();
+
+  }
+
+
+  function retryCurrent() {
+
+    const step =
+      steps[currentStep];
+
+
+    document.getElementById(
+      "feedback"
+    ).className =
+      "feedback";
+
+
+    document.getElementById(
+      "retryButton"
+    ).classList.remove(
+      "show"
+    );
+
+
+    if (
+      step.type === "input"
+    ) {
+
+      const input =
+        document.getElementById(
+          "reviewInput"
+        );
+
+
+      input.value =
+        "";
+
+
+      input.focus();
+
+    }
+
+  }
+
+
+  function nextStep() {
+
+    if (
+      "speechSynthesis" in window
+    ) {
+
+      window.speechSynthesis.cancel();
+
+    }
+
+
+    if (
+      currentStep <
+      steps.length - 1
+    ) {
+
+      currentStep++;
+
+
+      renderStep();
+
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+
+
+      return;
+
+    }
+
+
+    finishReview();
+
+  }
+
+
+  function finishReview() {
+
+    document.getElementById(
+      "reviewCard"
+    ).style.display =
+      "none";
+
+
+    document.getElementById(
+      "resultCard"
+    ).classList.add(
+      "show"
+    );
+
+
+    let summary = "";
+
+
+    if (
+      mistakes === 0
+    ) {
+
+      summary =
+        "🌟 Révision terminée sans erreur.";
+
+    }
+
+    else if (
+      mistakes === 1
+    ) {
+
+      summary =
+        "💡 1 tentative incorrecte pendant la révision.";
+
+    }
+
+    else {
+
+      summary =
+        "💡 " +
+        mistakes +
+        " tentatives incorrectes pendant la révision.";
+
+    }
+
+
+    if (
+      reviewWeakNotions.length > 0
+    ) {
+
+      summary +=
+        "<br><br>À revoir : <strong>" +
+        reviewWeakNotions.join(
+          " · "
+        ) +
+        "</strong>.";
+
+    }
+
+
+    if (
+      helpCount > 0
+    ) {
+
+      summary +=
+        "<br><br>Aide consultée " +
+        helpCount +
+        " fois.";
+
+    }
+
+
+    document.getElementById(
+      "resultSummary"
+    ).innerHTML =
+      summary;
+
+
+    localStorage.setItem(
+      "hanaKorean_chapter11_review",
+      "completed"
+    );
+
+
+    localStorage.setItem(
+      "hanaKorean_chapter11_reviewMistakes",
+      mistakes
+    );
+
+
+    localStorage.setItem(
+      "hanaKorean_chapter11_reviewWeakNotions",
+      JSON.stringify(
+        reviewWeakNotions
+      )
+    );
+
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+
+  }
+
+
+  document.getElementById(
+    "reviewInput"
+  ).addEventListener(
+    "keydown",
+    function(event) {
+
+      if (
+        event.key === "Enter" &&
+        document.getElementById(
+          "checkButton"
+        ).classList.contains(
+          "show"
+        ) &&
+        !document.getElementById(
+          "checkButton"
+        ).disabled
+      ) {
+
+        checkInputAnswer();
+
+      }
+
+    }
+  );
+
+
+  if (
+    "speechSynthesis" in window
+  ) {
+
+    window.speechSynthesis.onvoiceschanged =
+      function() {
+
+        window.speechSynthesis.getVoices();
+
+      };
+
+  }
+
+
+  window.addEventListener(
+    "pagehide",
+    function() {
+
+      if (
+        "speechSynthesis" in window
+      ) {
+
+        window.speechSynthesis.cancel();
+
+      }
+
+    }
+  );
+
+
+  renderWeakNotions();
+  renderStep();
+</script>
+
+</body>
+
+</html>

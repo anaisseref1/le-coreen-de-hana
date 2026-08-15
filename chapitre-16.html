@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#F7F4ED">
+  <title>Chapitre 16 — À l'hôtel</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .chapter-header { text-align:center; margin-bottom:28px; }
+    .chapter-badge { display:inline-block; padding:7px 14px; margin-bottom:10px; border-radius:20px; font-size:14px; font-weight:bold; }
+    .chapter-subtitle { color:var(--text-light); line-height:1.7; }
+
+    .objective-card,
+    .lesson-card,
+    .culture-card,
+    .note-card {
+      padding:18px;
+      margin-bottom:18px;
+      border-radius:var(--radius-medium);
+    }
+
+    .objective-card {
+      background:var(--soft-green);
+      color:var(--navy);
+      line-height:1.7;
+    }
+
+    .lesson-card {
+      background:var(--white);
+      border-radius:var(--radius-large);
+      box-shadow:var(--shadow);
+    }
+
+    .lesson-card h2 {
+      margin-top:0;
+      color:var(--navy);
+    }
+
+    .lesson-card p {
+      line-height:1.7;
+    }
+
+    .vocab-grid {
+      display:grid;
+      grid-template-columns:1fr;
+      gap:10px;
+      margin-top:14px;
+    }
+
+    .vocab-item {
+      padding:14px;
+      background:#FBFAF6;
+      border-radius:var(--radius-medium);
+    }
+
+    .vocab-korean {
+      color:var(--navy);
+      font-size:20px;
+      font-weight:bold;
+    }
+
+    .vocab-french {
+      margin-top:4px;
+      color:var(--text-light);
+    }
+
+    .pronunciation-card,
+    .grammar-box,
+    .why-box {
+      padding:16px;
+      margin-top:14px;
+      border-radius:var(--radius-medium);
+      line-height:1.7;
+    }
+
+    .pronunciation-card,
+    .grammar-box {
+      background:var(--soft-blue);
+    }
+
+    .why-box {
+      background:var(--soft-beige);
+      color:var(--navy);
+    }
+
+    .grammar-example {
+      padding:11px 0;
+      border-bottom:1px solid var(--border);
+    }
+
+    .grammar-example:last-child {
+      border-bottom:none;
+    }
+
+    .dialogue-line {
+      padding:15px;
+      margin-bottom:10px;
+      border-radius:var(--radius-medium);
+      line-height:1.7;
+    }
+
+    .dialogue-line.hana {
+      background:var(--soft-green);
+    }
+
+    .dialogue-line.joonho {
+      background:var(--soft-blue);
+    }
+
+    .speaker {
+      font-weight:bold;
+      margin-bottom:4px;
+    }
+
+    .dialogue-korean {
+      color:var(--navy);
+      font-size:19px;
+      font-weight:bold;
+    }
+
+    .dialogue-french {
+      margin-top:5px;
+      color:var(--text-light);
+    }
+
+    .note-card {
+      background:var(--soft-beige);
+      color:var(--navy);
+      line-height:1.7;
+    }
+
+    .culture-card {
+      background:var(--soft-green);
+      color:var(--navy);
+      line-height:1.7;
+    }
+
+    .recap-line {
+      padding:11px 0;
+      border-bottom:1px solid var(--border);
+      line-height:1.6;
+    }
+
+    .recap-line:last-child {
+      border-bottom:none;
+    }
+
+    .complete-button,
+    .next-button,
+    .back-route-button {
+      width:100%;
+      margin-top:10px;
+    }
+
+    .complete-button {
+      background:var(--jade);
+      color:white;
+      font-weight:bold;
+    }
+
+    .complete-button.done {
+      background:var(--success);
+    }
+
+    .next-button {
+      display:none;
+      background:var(--navy);
+      color:white;
+      font-weight:bold;
+    }
+
+    .back-route-button {
+      background:var(--soft-beige);
+      color:var(--navy);
+    }
+
+    @media (min-width:620px) {
+      .vocab-grid {
+        grid-template-columns:1fr 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<main class="app">
+
+  <a class="back-link" href="itineraire.html">
+    ← Itinéraire
+  </a>
+
+
+  <header class="chapter-header">
+
+    <span class="chapter-badge">
+      Chapitre 16 · 🏨 À l'hôtel
+    </span>
+
+    <p class="korean">
+      예약했어요 🛎️
+    </p>
+
+    <h1>
+      À l'hôtel
+    </h1>
+
+    <p class="chapter-subtitle">
+      Apprends à dire que tu as une réservation,
+      demander ta chambre, le Wi-Fi et de l'aide,
+      puis remercier le personnel.
+    </p>
+
+  </header>
+
+
+  <section class="objective-card">
+
+    <strong>
+      🎯 Objectif du chapitre
+    </strong>
+
+    <br><br>
+
+    ✅ dire que tu as une réservation<br>
+    ✅ demander où est ta chambre<br>
+    ✅ demander le mot de passe du Wi-Fi<br>
+    ✅ demander de l'aide<br>
+    ✅ remercier le personnel
+
+  </section>
+
+
+  <section class="lesson-card">
+
+    <h2>
+      🟩 1. Vocabulaire
+    </h2>
+
+    <div class="vocab-grid">
+
+      <div class="vocab-item">
+        <div class="vocab-korean">호텔</div>
+        <div class="vocab-french">hôtel</div>
+      </div>
+
+      <div class="vocab-item">
+        <div class="vocab-korean">방</div>
+        <div class="vocab-french">chambre</div>
+      </div>
+
+      <div class="vocab-item">
+        <div class="vocab-korean">열쇠</div>
+        <div class="vocab-french">clé</div>
+      </div>
+
+      <div class="vocab-item">
+        <div class="vocab-korean">와이파이</div>
+        <div class="vocab-french">Wi-Fi</div>
+      </div>
+
+      <div class="vocab-item">
+        <div class="vocab-korean">비밀번호</div>
+        <div class="vocab-french">mot de passe</div>
+      </div>
+
+      <div class="vocab-item">
+        <div class="vocab-korean">도와주세요</div>
+        <div class="vocab-french">Aidez-moi, s'il vous plaît.</div>
+      </div>
+
+      <div class="vocab-item">
+        <div class="vocab-korean">예약</div>
+        <div class="vocab-french">réservation</div>
+      </div>
+
+      <div class="vocab-item">
+        <div class="vocab-korean">이름</div>
+        <div class="vocab-french">nom</div>
+      </div>
+
+      <div class="vocab-item">
+        <div class="vocab-korean">성함</div>
+        <div class="vocab-french">nom — forme respectueuse</div>
+      </div>
+
+      <div class="vocab-item">
+        <div class="vocab-korean">감사합니다</div>
+        <div class="vocab-french">merci</div>
+      </div>
+
+      <div class="vocab-item">
+        <div class="vocab-korean">엘리베이터</div>
+        <div class="vocab-french">ascenseur</div>
+      </div>
+
+      <div class="vocab-item">
+        <div class="vocab-korean">키</div>
+        <div class="vocab-french">clé / key</div>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="lesson-card">
+
+    <h2>
+      🩵 2. Prononciation — 비밀번호
+    </h2>
+
+    <div class="pronunciation-card">
+
+      <strong>비밀번호</strong>
+      est souvent prononcé rapidement dans une conversation.
+
+      <br><br>
+
+      Tu peux aussi entendre :
+
+      <br><br>
+
+      <strong>비밀번호요?</strong>
+
+      <br><br>
+
+      Dans ce cas, le personnel ou le client reprend simplement
+      « le mot de passe ? » de façon courte et naturelle.
+
+    </div>
+
+  </section>
+
+
+  <section class="lesson-card">
+
+    <h2>
+      💙 3. Grammaire — 도와주세요
+    </h2>
+
+    <div class="grammar-box">
+
+      <strong>도와주세요.</strong>
+      → Aidez-moi, s'il vous plaît.
+
+      <br><br>
+
+      C'est une phrase essentielle en voyage.
+
+      <div class="grammar-example">
+        <strong>와이파이가 안 돼요. 도와주세요.</strong><br>
+        → Le Wi-Fi ne fonctionne pas. Aidez-moi, s'il vous plaît.
+      </div>
+
+      🌿 Ici, retiens surtout l'expression comme une formule prête à utiliser.
+
+    </div>
+
+  </section>
+
+
+  <section class="lesson-card">
+
+    <h2>
+      🛎️ 4. Dire que tu as une réservation
+    </h2>
+
+    <div class="grammar-box">
+
+      <div class="grammar-example">
+        <strong>예약했어요.</strong><br>
+        → J'ai une réservation. / J'ai réservé.
+      </div>
+
+      <div class="grammar-example">
+        <strong>체크인하려고요.</strong><br>
+        → Je voudrais faire le check-in.
+      </div>
+
+      🌿 Pour l'instant, produis surtout
+      <strong>예약했어요.</strong>
+
+      <br><br>
+
+      <strong>체크인하려고요</strong>
+      est utile à reconnaître, mais tu n'as pas besoin
+      d'analyser cette construction maintenant.
+
+    </div>
+
+  </section>
+
+
+  <section class="lesson-card">
+
+    <h2>
+      👤 5. Dire ton nom
+    </h2>
+
+    <div class="grammar-box">
+
+      <div class="grammar-example">
+        <strong>성함이 어떻게 되세요?</strong><br>
+        → Quel est votre nom ?
+      </div>
+
+      <div class="grammar-example">
+        <strong>하나예요.</strong><br>
+        → Je m'appelle Hana. / C'est Hana.
+      </div>
+
+      <strong>이름</strong>
+      signifie « nom ».
+
+      <br><br>
+
+      <strong>성함</strong>
+      est une manière plus respectueuse de parler
+      du nom d'une personne.
+
+      <br><br>
+
+      🌿 Tu dois surtout reconnaître
+      <strong>성함이 어떻게 되세요?</strong>
+      quand le personnel te parle.
+
+    </div>
+
+  </section>
+
+
+  <section class="lesson-card">
+
+    <h2>
+      🚪 6. Demander ta chambre et ta clé
+    </h2>
+
+    <div class="grammar-box">
+
+      <div class="grammar-example">
+        <strong>제 방이 어디예요?</strong><br>
+        → Où est ma chambre ?
+      </div>
+
+      <div class="grammar-example">
+        <strong>방 열쇠 주세요.</strong><br>
+        → La clé de la chambre, s'il vous plaît.
+      </div>
+
+      <div class="grammar-example">
+        <strong>객실 키</strong><br>
+        → clé de chambre / room key
+      </div>
+
+      <div class="grammar-example">
+        <strong>엘리베이터가 어디예요?</strong><br>
+        → Où est l'ascenseur ?
+      </div>
+
+      🌿 <strong>엘리베이터가 어디예요?</strong>
+      est surtout une phrase bonus à reconnaître.
+
+    </div>
+
+  </section>
+
+
+  <section class="lesson-card">
+
+    <h2>
+      📶 7. Demander le Wi-Fi
+    </h2>
+
+    <div class="grammar-box">
+
+      <div class="grammar-example">
+        <strong>와이파이 비밀번호가 뭐예요?</strong><br>
+        → Quel est le mot de passe du Wi-Fi ?
+      </div>
+
+      <div class="grammar-example">
+        <strong>비밀번호요?</strong><br>
+        → Le mot de passe ?
+      </div>
+
+      <div class="grammar-example">
+        <strong>와이파이가 안 돼요.</strong><br>
+        → Le Wi-Fi ne fonctionne pas.
+      </div>
+
+      Cette dernière phrase se combine très naturellement avec :
+
+      <br><br>
+
+      <strong>도와주세요.</strong>
+      → Aidez-moi, s'il vous plaît.
+
+    </div>
+
+  </section>
+
+
+  <section class="lesson-card">
+
+    <h2>
+      🟨 8. Pourquoi apprendre 도와주세요 si tôt ?
+    </h2>
+
+    <div class="why-box">
+
+      Parce qu'en voyage,
+      savoir demander de l'aide peut être plus utile
+      que connaître beaucoup de vocabulaire.
+
+      <br><br>
+
+      <strong>도와주세요</strong>
+      est courte, claire et peut être utilisée
+      dans de nombreuses situations.
+
+      <br><br>
+
+      C'est donc une excellente phrase de survie
+      à retenir dès le niveau débutant.
+
+    </div>
+
+  </section>
+
+
+  <section class="lesson-card">
+
+    <h2>
+      💬 9. Dialogue — À la réception
+    </h2>
+
+
+    <div class="dialogue-line hana">
+
+      <div class="speaker">
+        🌸 Hana
+      </div>
+
+      <div class="dialogue-korean">
+        안녕하세요. 예약했어요.
+      </div>
+
+      <div class="dialogue-french">
+        Bonjour. J'ai une réservation.
+      </div>
+
+    </div>
+
+
+    <div class="dialogue-line joonho">
+
+      <div class="speaker">
+        🩶 Joon-ho
+      </div>
+
+      <div class="dialogue-korean">
+        성함이 어떻게 되세요?
+      </div>
+
+      <div class="dialogue-french">
+        Quel est votre nom ?
+      </div>
+
+    </div>
+
+
+    <div class="dialogue-line hana">
+
+      <div class="speaker">
+        🌸 Hana
+      </div>
+
+      <div class="dialogue-korean">
+        하나예요.
+      </div>
+
+      <div class="dialogue-french">
+        Je m'appelle Hana.
+      </div>
+
+    </div>
+
+
+    <div class="dialogue-line joonho">
+
+      <div class="speaker">
+        🩶 Joon-ho
+      </div>
+
+      <div class="dialogue-korean">
+        네. 여기 있습니다.
+      </div>
+
+      <div class="dialogue-french">
+        Oui. Voici.
+      </div>
+
+    </div>
+
+
+    <div class="dialogue-line hana">
+
+      <div class="speaker">
+        🌸 Hana
+      </div>
+
+      <div class="dialogue-korean">
+        감사합니다. 제 방이 어디예요?
+      </div>
+
+      <div class="dialogue-french">
+        Merci. Où est ma chambre ?
+      </div>
+
+    </div>
+
+
+    <div class="dialogue-line joonho">
+
+      <div class="speaker">
+        🩶 Joon-ho
+      </div>
+
+      <div class="dialogue-korean">
+        삼 층이에요.
+      </div>
+
+      <div class="dialogue-french">
+        C'est au troisième étage.
+      </div>
+
+    </div>
+
+
+    <div class="dialogue-line hana">
+
+      <div class="speaker">
+        🌸 Hana
+      </div>
+
+      <div class="dialogue-korean">
+        와이파이 비밀번호가 뭐예요?
+      </div>
+
+      <div class="dialogue-french">
+        Quel est le mot de passe du Wi-Fi ?
+      </div>
+
+    </div>
+
+
+    <div class="dialogue-line joonho">
+
+      <div class="speaker">
+        🩶 Joon-ho
+      </div>
+
+      <div class="dialogue-korean">
+        여기 있습니다.
+      </div>
+
+      <div class="dialogue-french">
+        Le voici.
+      </div>
+
+    </div>
+
+
+    <div class="dialogue-line hana">
+
+      <div class="speaker">
+        🌸 Hana
+      </div>
+
+      <div class="dialogue-korean">
+        감사합니다!
+      </div>
+
+      <div class="dialogue-french">
+        Merci !
+      </div>
+
+    </div>
+
+
+    <div class="dialogue-line joonho">
+
+      <div class="speaker">
+        🩶 Joon-ho
+      </div>
+
+      <div class="dialogue-korean">
+        좋은 여행 되세요.
+      </div>
+
+      <div class="dialogue-french">
+        Bon séjour ! / Bon voyage !
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="note-card">
+
+    <strong>
+      🆘 Mini-situation utile
+    </strong>
+
+    <br><br>
+
+    📶 Le Wi-Fi ne fonctionne pas :
+
+    <br><br>
+
+    <strong>
+      와이파이가 안 돼요. 도와주세요.
+    </strong>
+
+    <br>
+
+    → Le Wi-Fi ne fonctionne pas. Aidez-moi, s'il vous plaît.
+
+  </section>
+
+
+  <section class="note-card">
+
+    <strong>
+      🌿 À produire / à reconnaître
+    </strong>
+
+    <br><br>
+
+    <strong>À produire en priorité :</strong><br>
+    예약했어요.<br>
+    하나예요.<br>
+    제 방이 어디예요?<br>
+    와이파이 비밀번호가 뭐예요?<br>
+    도와주세요.<br>
+    감사합니다.<br><br>
+
+    <strong>À reconnaître d'abord :</strong><br>
+    성함이 어떻게 되세요?<br>
+    체크인하려고요.<br>
+    삼 층이에요.<br>
+    엘리베이터가 어디예요?<br>
+    좋은 여행 되세요.
+
+  </section>
+
+
+  <section class="culture-card">
+
+    <strong>
+      🌸 Point culture
+    </strong>
+
+    <br><br>
+
+    Dans de nombreux hôtels coréens,
+    le Wi-Fi est proposé aux clients
+    et les informations de connexion
+    peuvent être indiquées à la réception
+    ou directement dans la chambre.
+
+    <br><br>
+
+    Si tu ne trouves pas le mot de passe,
+    <strong>와이파이 비밀번호가 뭐예요?</strong>
+    est une phrase simple et très pratique.
+
+  </section>
+
+
+  <section class="lesson-card">
+
+    <h2>
+      🧠 10. À retenir
+    </h2>
+
+    <div class="recap-line">
+      🛎️ <strong>예약했어요.</strong>
+      → J'ai une réservation.
+    </div>
+
+    <div class="recap-line">
+      👤 <strong>하나예요.</strong>
+      → Je m'appelle Hana.
+    </div>
+
+    <div class="recap-line">
+      🚪 <strong>제 방이 어디예요?</strong>
+      → Où est ma chambre ?
+    </div>
+
+    <div class="recap-line">
+      📶 <strong>와이파이 비밀번호가 뭐예요?</strong>
+      → Quel est le mot de passe du Wi-Fi ?
+    </div>
+
+    <div class="recap-line">
+      🆘 <strong>도와주세요.</strong>
+      → Aidez-moi, s'il vous plaît.
+    </div>
+
+    <div class="recap-line">
+      🙏 <strong>감사합니다.</strong>
+      → Merci.
+    </div>
+
+  </section>
+
+
+  <section class="note-card">
+
+    <strong>
+      🌟 Phrase du chapitre
+    </strong>
+
+    <br><br>
+
+    « Voyager, c'est aussi apprendre à demander de l'aide.
+    Quelques mots peuvent ouvrir bien des portes. » 🌸
+
+  </section>
+
+
+  <button
+    class="complete-button"
+    id="completeButton"
+    type="button"
+    onclick="completeUnderstanding()"
+  >
+    J'ai compris 🌿
+  </button>
+
+
+  <button
+    class="next-button"
+    id="nextButton"
+    type="button"
+    onclick="window.location.href='ecoute-16.html'"
+  >
+    🎧 Passer à « J'écoute »
+  </button>
+
+
+  <button
+    class="back-route-button"
+    type="button"
+    onclick="window.location.href='itineraire.html'"
+  >
+    Retour à l'itinéraire
+  </button>
+
+</main>
+
+
+<script>
+
+  const STORAGE_KEY =
+    "hanaKorean_chapter16_understanding";
+
+
+  function completeUnderstanding() {
+
+    localStorage.setItem(
+      STORAGE_KEY,
+      "completed"
+    );
+
+    renderCompletion();
+
+  }
+
+
+  function renderCompletion() {
+
+    const completed =
+      localStorage.getItem(
+        STORAGE_KEY
+      ) === "completed";
+
+
+    const completeButton =
+      document.getElementById(
+        "completeButton"
+      );
+
+
+    const nextButton =
+      document.getElementById(
+        "nextButton"
+      );
+
+
+    if (
+      completed
+    ) {
+
+      completeButton.textContent =
+        "Compris ✓";
+
+
+      completeButton.classList.add(
+        "done"
+      );
+
+
+      nextButton.style.display =
+        "block";
+
+    }
+
+  }
+
+
+  renderCompletion();
+
+</script>
+
+</body>
+</html>

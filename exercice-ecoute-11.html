@@ -1,0 +1,1315 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="theme-color"
+    content="#F7F4ED"
+  >
+
+  <title>Mini défi d'écoute — Chapitre 11</title>
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
+  <style>
+    .exercise-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .chapter-badge {
+      display: inline-block;
+      padding: 7px 14px;
+      margin-bottom: 10px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .exercise-progress {
+      margin-bottom: 22px;
+    }
+
+    .progress-info {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      color: var(--text-light);
+      font-size: 13px;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 9px;
+      background: var(--soft-beige);
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      width: 20%;
+      height: 100%;
+      background: var(--jade);
+      border-radius: 20px;
+      transition: width 0.3s ease;
+    }
+
+    .exercise-card {
+      padding: 20px;
+      margin-bottom: 18px;
+      background: var(--white);
+      border-radius: var(--radius-large);
+      box-shadow: var(--shadow);
+    }
+
+    .question-number {
+      margin-top: 0;
+      color: var(--jade-dark);
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .question-text {
+      line-height: 1.6;
+    }
+
+    .audio-zone {
+      padding: 18px;
+      margin: 15px 0;
+      background: var(--soft-blue);
+      border-radius: var(--radius-medium);
+      text-align: center;
+    }
+
+    .audio-icon {
+      margin-bottom: 8px;
+      font-size: 38px;
+    }
+
+    .audio-note {
+      margin-bottom: 14px;
+      color: var(--text-light);
+      font-size: 14px;
+    }
+
+    .audio-main {
+      width: 100%;
+      font-weight: bold;
+    }
+
+    .slow-button {
+      width: 100%;
+      margin-top: 8px;
+    }
+
+    .answers {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    .answer {
+      width: 100%;
+      padding: 15px;
+      text-align: left;
+      border: 2px solid transparent;
+    }
+
+    .feedback {
+      display: none;
+      margin-top: 16px;
+      padding: 15px;
+      border-radius: var(--radius-medium);
+      line-height: 1.7;
+    }
+
+    .feedback.correct,
+    .feedback.wrong {
+      display: block;
+    }
+
+    .heard-question {
+      margin-top: 10px;
+      padding: 12px;
+      background: rgba(255, 255, 255, 0.65);
+      border-radius: var(--radius-small);
+      color: var(--navy);
+      font-size: 19px;
+      font-weight: bold;
+    }
+
+    .next-question {
+      display: none;
+      width: 100%;
+      margin-top: 15px;
+      background: var(--jade);
+      color: white;
+      font-weight: bold;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .result-card {
+      display: none;
+      padding: 25px;
+      background: var(--white);
+      border-radius: var(--radius-large);
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+
+    .result-icon {
+      font-size: 60px;
+    }
+
+    .result-score {
+      color: var(--jade-dark);
+      font-size: 21px;
+      font-weight: bold;
+    }
+
+    .result-summary {
+      padding: 16px;
+      margin-top: 18px;
+      background: #FBFAF6;
+      border-radius: var(--radius-medium);
+      text-align: left;
+      line-height: 1.6;
+    }
+
+    .notion-summary {
+      margin-top: 18px;
+      text-align: left;
+    }
+
+    .notion-line {
+      padding: 11px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .notion-line:last-child {
+      border-bottom: none;
+    }
+
+    .strategy-box {
+      padding: 16px;
+      margin-top: 18px;
+      background: var(--soft-green);
+      border-radius: var(--radius-medium);
+      color: var(--navy);
+      text-align: left;
+      line-height: 1.7;
+    }
+
+    .next-step-button {
+      width: 100%;
+      margin-top: 18px;
+      background: var(--jade);
+      color: white;
+      font-weight: bold;
+    }
+
+    .chapter-button {
+      width: 100%;
+      margin-top: 10px;
+      background: var(--soft-beige);
+      color: var(--navy);
+    }
+  </style>
+</head>
+
+<body>
+
+<main class="app">
+
+  <a
+    class="back-link"
+    href="ecoute-11.html"
+  >
+    ← J'écoute
+  </a>
+
+
+  <header class="exercise-header">
+
+    <span class="chapter-badge">
+      Chapitre 11 · Mini défi
+    </span>
+
+    <p class="korean">
+      잘 들어 보세요 🎧
+    </p>
+
+    <h1>
+      Faire des achats
+    </h1>
+
+    <p>
+      Écoute chaque phrase et repère
+      le prix, la réaction ou la demande.
+    </p>
+
+  </header>
+
+
+  <div class="exercise-progress">
+
+    <div class="progress-info">
+      <span>Compréhension orale</span>
+      <span id="progressLabel">1 / 5</span>
+    </div>
+
+    <div class="progress-bar">
+      <div
+        class="progress-fill"
+        id="progressFill"
+      ></div>
+    </div>
+
+  </div>
+
+
+  <!-- QUESTION 1 -->
+
+  <section
+    class="exercise-card"
+    id="question1"
+  >
+
+    <p class="question-number">
+      Question 1 / 5
+    </p>
+
+    <h2>
+      💰 Reconnais la question
+    </h2>
+
+    <div class="audio-zone">
+
+      <div class="audio-icon">
+        🎧
+      </div>
+
+      <div class="audio-note">
+        Écoute la question du prix.
+      </div>
+
+      <button
+        class="audio-main"
+        type="button"
+        onclick="speakKorean('이거 얼마예요?', false)"
+      >
+        🔊 Écouter
+      </button>
+
+      <button
+        class="slow-button"
+        type="button"
+        onclick="speakKorean('이거 얼마예요?', true)"
+      >
+        🐢 Écouter lentement
+      </button>
+
+    </div>
+
+    <p class="question-text">
+      Que demande Hana ?
+    </p>
+
+    <div class="answers">
+
+      <button
+        class="answer"
+        type="button"
+        onclick="checkAnswer(1, this, true)"
+      >
+        Combien coûte celui-ci ?
+      </button>
+
+      <button
+        class="answer"
+        type="button"
+        onclick="checkAnswer(1, this, false)"
+      >
+        Où est celui-ci ?
+      </button>
+
+      <button
+        class="answer"
+        type="button"
+        onclick="checkAnswer(1, this, false)"
+      >
+        Est-ce que celui-ci est cher ?
+      </button>
+
+    </div>
+
+    <div
+      class="feedback"
+      id="feedback1"
+    ></div>
+
+    <button
+      class="next-question"
+      id="next1"
+      type="button"
+      onclick="showQuestion(2)"
+    >
+      Question suivante →
+    </button>
+
+  </section>
+
+
+  <!-- QUESTION 2 -->
+
+  <section
+    class="exercise-card hidden"
+    id="question2"
+  >
+
+    <p class="question-number">
+      Question 2 / 5
+    </p>
+
+    <h2>
+      🇰🇷 Comprends le prix
+    </h2>
+
+    <div class="audio-zone">
+
+      <div class="audio-icon">
+        🎧
+      </div>
+
+      <div class="audio-note">
+        Repère le montant et 원.
+      </div>
+
+      <button
+        class="audio-main"
+        type="button"
+        onclick="speakKorean('만오천 원이에요.', false)"
+      >
+        🔊 Écouter
+      </button>
+
+      <button
+        class="slow-button"
+        type="button"
+        onclick="speakKorean('만오천 원이에요.', true)"
+      >
+        🐢 Écouter lentement
+      </button>
+
+    </div>
+
+    <p class="question-text">
+      Quel prix est annoncé ?
+    </p>
+
+    <div class="answers">
+
+      <button
+        class="answer"
+        type="button"
+        onclick="checkAnswer(2, this, false)"
+      >
+        5 000 wons
+      </button>
+
+      <button
+        class="answer"
+        type="button"
+        onclick="checkAnswer(2, this, true)"
+      >
+        15 000 wons
+      </button>
+
+      <button
+        class="answer"
+        type="button"
+        onclick="checkAnswer(2, this, false)"
+      >
+        50 000 wons
+      </button>
+
+    </div>
+
+    <div
+      class="feedback"
+      id="feedback2"
+    ></div>
+
+    <button
+      class="next-question"
+      id="next2"
+      type="button"
+      onclick="showQuestion(3)"
+    >
+      Question suivante →
+    </button>
+
+  </section>
+
+
+  <!-- QUESTION 3 -->
+
+  <section
+    class="exercise-card hidden"
+    id="question3"
+  >
+
+    <p class="question-number">
+      Question 3 / 5
+    </p>
+
+    <h2>
+      💸 Cher ou bon marché ?
+    </h2>
+
+    <div class="audio-zone">
+
+      <div class="audio-icon">
+        🎧
+      </div>
+
+      <div class="audio-note">
+        Écoute le mot principal.
+      </div>
+
+      <button
+        class="audio-main"
+        type="button"
+        onclick="speakKorean('비싸요.', false)"
+      >
+        🔊 Écouter
+      </button>
+
+      <button
+        class="slow-button"
+        type="button"
+        onclick="speakKorean('비싸요.', true)"
+      >
+        🐢 Écouter lentement
+      </button>
+
+    </div>
+
+    <p class="question-text">
+      Que signifie la phrase ?
+    </p>
+
+    <div class="answers">
+
+      <button
+        class="answer"
+        type="button"
+        onclick="checkAnswer(3, this, true)"
+      >
+        C'est cher.
+      </button>
+
+      <button
+        class="answer"
+        type="button"
+        onclick="checkAnswer(3, this, false)"
+      >
+        C'est bon marché.
+      </button>
+
+      <button
+        class="answer"
+        type="button"
+        onclick="checkAnswer(3, this, false)"
+      >
+        C'est joli.
+      </button>
+
+    </div>
+
+    <div
+      class="feedback"
+      id="feedback3"
+    ></div>
+
+    <button
+      class="next-question"
+      id="next3"
+      type="button"
+      onclick="showQuestion(4)"
+    >
+      Question suivante →
+    </button>
+
+  </section>
+
+
+  <!-- QUESTION 4 -->
+
+  <section
+    class="exercise-card hidden"
+    id="question4"
+  >
+
+    <p class="question-number">
+      Question 4 / 5
+    </p>
+
+    <h2>
+      🛍️ Faire son choix
+    </h2>
+
+    <div class="audio-zone">
+
+      <div class="audio-icon">
+        🎧
+      </div>
+
+      <div class="audio-note">
+        Repère 주세요.
+      </div>
+
+      <button
+        class="audio-main"
+        type="button"
+        onclick="speakKorean('이거 주세요.', false)"
+      >
+        🔊 Écouter
+      </button>
+
+      <button
+        class="slow-button"
+        type="button"
+        onclick="speakKorean('이거 주세요.', true)"
+      >
+        🐢 Écouter lentement
+      </button>
+
+    </div>
+
+    <p class="question-text">
+      Que dit Hana ?
+    </p>
+
+    <div class="answers">
+
+      <button
+        class="answer"
+        type="button"
+        onclick="checkAnswer(4, this, false)"
+      >
+        Combien coûte celui-ci ?
+      </button>
+
+      <button
+        class="answer"
+        type="button"
+        onclick="checkAnswer(4, this, true)"
+      >
+        Je voudrais celui-ci.
+      </button>
+
+      <button
+        class="answer"
+        type="button"
+        onclick="checkAnswer(4, this, false)"
+      >
+        Celui-ci est bon marché.
+      </button>
+
+    </div>
+
+    <div
+      class="feedback"
+      id="feedback4"
+    ></div>
+
+    <button
+      class="next-question"
+      id="next4"
+      type="button"
+      onclick="showQuestion(5)"
+    >
+      Dernière question →
+    </button>
+
+  </section>
+
+
+  <!-- QUESTION 5 -->
+
+  <section
+    class="exercise-card hidden"
+    id="question5"
+  >
+
+    <p class="question-number">
+      Question 5 / 5
+    </p>
+
+    <h2>
+      💳 Carte ou espèces ?
+    </h2>
+
+    <div class="audio-zone">
+
+      <div class="audio-icon">
+        🎧
+      </div>
+
+      <div class="audio-note">
+        Écoute le moyen de paiement.
+      </div>
+
+      <button
+        class="audio-main"
+        type="button"
+        onclick="speakKorean('카드', false)"
+      >
+        🔊 Écouter
+      </button>
+
+      <button
+        class="slow-button"
+        type="button"
+        onclick="speakKorean('카드', true)"
+      >
+        🐢 Écouter lentement
+      </button>
+
+    </div>
+
+    <p class="question-text">
+      Quel mot as-tu entendu ?
+    </p>
+
+    <div class="answers">
+
+      <button
+        class="answer"
+        type="button"
+        onclick="checkAnswer(5, this, true)"
+      >
+        carte bancaire
+      </button>
+
+      <button
+        class="answer"
+        type="button"
+        onclick="checkAnswer(5, this, false)"
+      >
+        espèces
+      </button>
+
+      <button
+        class="answer"
+        type="button"
+        onclick="checkAnswer(5, this, false)"
+      >
+        prix
+      </button>
+
+    </div>
+
+    <div
+      class="feedback"
+      id="feedback5"
+    ></div>
+
+    <button
+      class="next-question"
+      id="next5"
+      type="button"
+      onclick="finishExercise()"
+    >
+      Voir mon résultat 🌿
+    </button>
+
+  </section>
+
+
+  <!-- RÉSULTAT -->
+
+  <section
+    class="result-card"
+    id="resultCard"
+  >
+
+    <div class="result-icon">
+      🎧🛍️
+    </div>
+
+    <h2>
+      잘했어요!
+    </h2>
+
+    <p>
+      Tu as terminé le mini défi d'écoute du chapitre 11.
+    </p>
+
+    <p class="result-score">
+      5 éléments reconnus ✅
+    </p>
+
+
+    <div class="result-summary">
+
+      <strong>
+        📊 Ta séance
+      </strong>
+
+      <p id="attemptText"></p>
+
+    </div>
+
+
+    <div class="notion-summary">
+
+      <div class="notion-line">
+        💰 <strong>이거 얼마예요?</strong> → Combien coûte celui-ci ?
+      </div>
+
+      <div class="notion-line">
+        🇰🇷 <strong>만오천 원이에요.</strong> → 15 000 wons.
+      </div>
+
+      <div class="notion-line">
+        💸 <strong>비싸요.</strong> → C'est cher.
+      </div>
+
+      <div class="notion-line">
+        🛍️ <strong>이거 주세요.</strong> → Je voudrais celui-ci.
+      </div>
+
+      <div class="notion-line">
+        💳 <strong>카드</strong> → carte bancaire
+      </div>
+
+    </div>
+
+
+    <div class="strategy-box">
+
+      <strong>
+        🧠 Stratégie d'écoute
+      </strong>
+
+      <br><br>
+
+      Dans une boutique,
+      repère <strong>얼마예요?</strong> pour la question du prix
+      et <strong>원</strong> après un montant.
+
+      <br><br>
+
+      <strong>비싸요</strong> signifie « c'est cher »,
+      tandis que <strong>싸요</strong> signifie « c'est bon marché ».
+
+    </div>
+
+
+    <button
+      class="next-step-button"
+      type="button"
+      onclick="window.location.href='parle-11.html'"
+    >
+      🗣️ Passer à « Je parle »
+    </button>
+
+
+    <button
+      class="chapter-button"
+      type="button"
+      onclick="window.location.href='chapitre-11.html'"
+    >
+      Retour au chapitre
+    </button>
+
+  </section>
+
+</main>
+
+
+<script>
+  let incorrectAttempts = 0;
+
+
+  const completedQuestions = {
+    1: false,
+    2: false,
+    3: false,
+    4: false,
+    5: false
+  };
+
+
+  function getKoreanVoice() {
+
+    const voices =
+      window.speechSynthesis.getVoices();
+
+
+    return voices.find(
+      voice =>
+        voice.lang &&
+        voice.lang
+          .toLowerCase()
+          .startsWith("ko")
+    );
+
+  }
+
+
+  function speakKorean(
+    text,
+    slow = false
+  ) {
+
+    if (
+      !("speechSynthesis" in window)
+    ) {
+      return;
+    }
+
+
+    window.speechSynthesis.cancel();
+
+
+    const speech =
+      new SpeechSynthesisUtterance(
+        text
+      );
+
+
+    speech.lang =
+      "ko-KR";
+
+
+    speech.rate =
+      slow
+        ? 0.25
+        : 0.82;
+
+
+    speech.pitch =
+      1;
+
+
+    const voice =
+      getKoreanVoice();
+
+
+    if (voice) {
+
+      speech.voice =
+        voice;
+
+    }
+
+
+    window.speechSynthesis.speak(
+      speech
+    );
+
+  }
+
+
+  function checkAnswer(
+    number,
+    button,
+    isCorrect
+  ) {
+
+    if (
+      completedQuestions[number]
+    ) {
+      return;
+    }
+
+
+    const feedback =
+      document.getElementById(
+        "feedback" + number
+      );
+
+
+    const question =
+      document.getElementById(
+        "question" + number
+      );
+
+
+    const answers =
+      question.querySelectorAll(
+        ".answer"
+      );
+
+
+    if (isCorrect) {
+
+      completedQuestions[number] =
+        true;
+
+
+      button.classList.add(
+        "correct"
+      );
+
+
+      feedback.className =
+        "feedback correct";
+
+
+      if (number === 1) {
+
+        feedback.innerHTML =
+          "✅ <strong>Exact !</strong>" +
+          "<br><br>" +
+          "Tu as entendu :" +
+          "<div class='heard-question'>이거 얼마예요?</div>" +
+          "<strong>얼마예요?</strong> sert à demander le prix.";
+
+      }
+
+
+      if (number === 2) {
+
+        feedback.innerHTML =
+          "✅ <strong>Très bien !</strong>" +
+          "<br><br>" +
+          "La phrase était :" +
+          "<div class='heard-question'>만오천 원이에요.</div>" +
+          "Le prix annoncé est <strong>15 000 wons</strong>.";
+
+      }
+
+
+      if (number === 3) {
+
+        feedback.innerHTML =
+          "✅ <strong>Exact !</strong>" +
+          "<br><br>" +
+          "Tu as entendu :" +
+          "<div class='heard-question'>비싸요.</div>" +
+          "<strong>비싸요</strong> = c'est cher.";
+
+      }
+
+
+      if (number === 4) {
+
+        feedback.innerHTML =
+          "✅ <strong>Très bien !</strong>" +
+          "<br><br>" +
+          "La phrase était :" +
+          "<div class='heard-question'>이거 주세요.</div>" +
+          "<strong>주세요</strong> permet ici de demander l'objet.";
+
+      }
+
+
+      if (number === 5) {
+
+        feedback.innerHTML =
+          "✅ <strong>Parfait !</strong>" +
+          "<br><br>" +
+          "Tu as entendu :" +
+          "<div class='heard-question'>카드</div>" +
+          "<strong>카드</strong> = carte bancaire.";
+
+      }
+
+
+      answers.forEach(
+        answer => {
+
+          answer.disabled =
+            true;
+
+        }
+      );
+
+
+      document.getElementById(
+        "next" + number
+      ).style.display =
+        "block";
+
+
+      return;
+
+    }
+
+
+    incorrectAttempts++;
+
+
+    button.classList.add(
+      "wrong"
+    );
+
+
+    feedback.className =
+      "feedback wrong";
+
+
+    if (number === 1) {
+
+      feedback.innerHTML =
+        "❌ <strong>Réécoute la question.</strong>" +
+        "<br><br>" +
+        "💡 <strong>얼마예요?</strong> = « Combien ça coûte ? »";
+
+    }
+
+
+    if (number === 2) {
+
+      feedback.innerHTML =
+        "❌ <strong>Réécoute le montant.</strong>" +
+        "<br><br>" +
+        "💡 <strong>만오천 원</strong> = 15 000 wons.";
+
+    }
+
+
+    if (number === 3) {
+
+      feedback.innerHTML =
+        "❌ <strong>Attention à 비싸요.</strong>" +
+        "<br><br>" +
+        "💡 <strong>비싸요</strong> = « C'est cher. »";
+
+    }
+
+
+    if (number === 4) {
+
+      feedback.innerHTML =
+        "❌ <strong>Repère 주세요.</strong>" +
+        "<br><br>" +
+        "💡 <strong>이거 주세요.</strong> = « Je voudrais celui-ci. »";
+
+    }
+
+
+    if (number === 5) {
+
+      feedback.innerHTML =
+        "❌ <strong>Réécoute le mot.</strong>" +
+        "<br><br>" +
+        "💡 <strong>카드</strong> = carte bancaire ; <strong>현금</strong> = espèces.";
+
+    }
+
+
+    setTimeout(
+      () => {
+
+        button.classList.remove(
+          "wrong"
+        );
+
+      },
+      800
+    );
+
+  }
+
+
+  function showQuestion(number) {
+
+    if (
+      "speechSynthesis" in window
+    ) {
+
+      window.speechSynthesis.cancel();
+
+    }
+
+
+    document
+      .querySelectorAll(
+        ".exercise-card"
+      )
+      .forEach(
+        card => {
+
+          card.classList.add(
+            "hidden"
+          );
+
+        }
+      );
+
+
+    document.getElementById(
+      "question" + number
+    ).classList.remove(
+      "hidden"
+    );
+
+
+    const percentages = {
+      1: 20,
+      2: 40,
+      3: 60,
+      4: 80,
+      5: 100
+    };
+
+
+    document.getElementById(
+      "progressFill"
+    ).style.width =
+      percentages[number] +
+      "%";
+
+
+    document.getElementById(
+      "progressLabel"
+    ).textContent =
+      number +
+      " / 5";
+
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+
+  }
+
+
+  function finishExercise() {
+
+    if (
+      "speechSynthesis" in window
+    ) {
+
+      window.speechSynthesis.cancel();
+
+    }
+
+
+    document
+      .querySelectorAll(
+        ".exercise-card"
+      )
+      .forEach(
+        card => {
+
+          card.classList.add(
+            "hidden"
+          );
+
+        }
+      );
+
+
+    document.getElementById(
+      "progressFill"
+    ).style.width =
+      "100%";
+
+
+    document.getElementById(
+      "progressLabel"
+    ).textContent =
+      "5 / 5";
+
+
+    document.getElementById(
+      "resultCard"
+    ).style.display =
+      "block";
+
+
+    let message = "";
+
+
+    if (
+      incorrectAttempts === 0
+    ) {
+
+      message =
+        "🌟 Tu as reconnu les 5 éléments du premier coup.";
+
+    }
+
+    else if (
+      incorrectAttempts === 1
+    ) {
+
+      message =
+        "💡 1 tentative incorrecte, puis les 5 éléments ont été reconnus.";
+
+    }
+
+    else {
+
+      message =
+        "💡 " +
+        incorrectAttempts +
+        " tentatives incorrectes. Les 5 éléments ont malgré tout été validés.";
+
+    }
+
+
+    document.getElementById(
+      "attemptText"
+    ).textContent =
+      message;
+
+
+    localStorage.setItem(
+      "hanaKorean_chapter11_listening",
+      "completed"
+    );
+
+
+    localStorage.setItem(
+      "hanaKorean_chapter11_listeningMistakes",
+      incorrectAttempts
+    );
+
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+
+  }
+
+
+  if (
+    "speechSynthesis" in window
+  ) {
+
+    window.speechSynthesis.onvoiceschanged =
+      function() {
+
+        window.speechSynthesis.getVoices();
+
+      };
+
+  }
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#F7F4ED">
+  <title>Chapitre 13 — Demander son chemin</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .chapter-header { text-align:center; margin-bottom:28px; }
+    .chapter-badge { display:inline-block; padding:7px 14px; margin-bottom:10px; border-radius:20px; font-size:14px; font-weight:bold; }
+    .chapter-subtitle { color:var(--text-light); line-height:1.7; }
+    .objective-card, .lesson-card, .culture-card, .note-card { padding:18px; margin-bottom:18px; border-radius:var(--radius-medium); }
+    .objective-card { background:var(--soft-green); color:var(--navy); line-height:1.7; }
+    .lesson-card { background:var(--white); border-radius:var(--radius-large); box-shadow:var(--shadow); }
+    .lesson-card h2 { margin-top:0; color:var(--navy); }
+    .lesson-card p { line-height:1.7; }
+    .vocab-grid { display:grid; grid-template-columns:1fr; gap:10px; margin-top:14px; }
+    .vocab-item { padding:14px; background:#FBFAF6; border-radius:var(--radius-medium); }
+    .vocab-korean { color:var(--navy); font-size:20px; font-weight:bold; }
+    .vocab-french { margin-top:4px; color:var(--text-light); }
+    .pronunciation-card, .grammar-box, .why-box { padding:16px; margin-top:14px; border-radius:var(--radius-medium); line-height:1.7; }
+    .pronunciation-card, .grammar-box { background:var(--soft-blue); }
+    .why-box { background:var(--soft-beige); color:var(--navy); }
+    .grammar-example { padding:11px 0; border-bottom:1px solid var(--border); }
+    .grammar-example:last-child { border-bottom:none; }
+    .dialogue-line { padding:15px; margin-bottom:10px; border-radius:var(--radius-medium); line-height:1.7; }
+    .dialogue-line.hana { background:var(--soft-green); }
+    .dialogue-line.park { background:var(--soft-blue); }
+    .speaker { font-weight:bold; margin-bottom:4px; }
+    .dialogue-korean { color:var(--navy); font-size:19px; font-weight:bold; }
+    .dialogue-french { margin-top:5px; color:var(--text-light); }
+    .note-card { background:var(--soft-beige); color:var(--navy); line-height:1.7; }
+    .culture-card { background:var(--soft-green); color:var(--navy); line-height:1.7; }
+    .recap-line { padding:11px 0; border-bottom:1px solid var(--border); line-height:1.6; }
+    .recap-line:last-child { border-bottom:none; }
+    .complete-button, .next-button, .back-route-button { width:100%; margin-top:10px; }
+    .complete-button { background:var(--jade); color:white; font-weight:bold; }
+    .complete-button.done { background:var(--success); }
+    .next-button { display:none; background:var(--navy); color:white; font-weight:bold; }
+    .back-route-button { background:var(--soft-beige); color:var(--navy); }
+    @media (min-width:620px) { .vocab-grid { grid-template-columns:1fr 1fr; } }
+  </style>
+</head>
+<body>
+<main class="app">
+
+  <a class="back-link" href="itineraire.html">← Itinéraire</a>
+
+  <header class="chapter-header">
+    <span class="chapter-badge">Chapitre 13 · 🚇 Prendre les transports</span>
+    <p class="korean">몇 호선이에요? 🚇</p>
+    <h1>Prendre les transports</h1>
+    <p class="chapter-subtitle">
+      Apprends à demander quelle ligne prendre, où descendre
+      et à reconnaître les annonces simples du métro.
+    </p>
+  </header>
+
+  <section class="objective-card">
+    <strong>🎯 Objectif du chapitre</strong><br><br>
+    ✅ demander quelle ligne prendre<br>
+    ✅ comprendre un numéro de ligne<br>
+    ✅ demander où descendre<br>
+    ✅ comprendre les annonces simples du métro
+  </section>
+
+  <section class="lesson-card">
+    <h2>🟩 1. Vocabulaire</h2>
+    <div class="vocab-grid">
+      <div class="vocab-item"><div class="vocab-korean">지하철</div><div class="vocab-french">métro</div></div>
+      <div class="vocab-item"><div class="vocab-korean">버스</div><div class="vocab-french">bus</div></div>
+      <div class="vocab-item"><div class="vocab-korean">몇 번</div><div class="vocab-french">quel numéro</div></div>
+      <div class="vocab-item"><div class="vocab-korean">호선</div><div class="vocab-french">ligne de métro</div></div>
+      <div class="vocab-item"><div class="vocab-korean">타다</div><div class="vocab-french">prendre / monter dans un transport</div></div>
+      <div class="vocab-item"><div class="vocab-korean">내리다</div><div class="vocab-french">descendre</div></div>
+      <div class="vocab-item"><div class="vocab-korean">갈아타다</div><div class="vocab-french">faire une correspondance</div></div>
+      <div class="vocab-item"><div class="vocab-korean">다음 역</div><div class="vocab-french">station suivante</div></div>
+      <div class="vocab-item"><div class="vocab-korean">이번 역</div><div class="vocab-french">cette station</div></div>
+      <div class="vocab-item"><div class="vocab-korean">출구</div><div class="vocab-french">sortie</div></div>
+    </div>
+  </section>
+
+  <section class="lesson-card">
+    <h2>🩵 2. Prononciation — 왼쪽</h2>
+    <div class="pronunciation-card">
+      <strong>왼쪽</strong><br><br>
+      Le <strong>ㄴ</strong> et le <strong>ㅉ</strong> s'enchaînent rapidement.<br><br>
+      Prononciation du manuel :
+      <strong>« ouène-tchok »</strong>.
+    </div>
+  </section>
+
+  <section class="lesson-card">
+    <h2>💙 3. -에 있어요</h2>
+    <p>
+      Cette structure permet de dire qu'un lieu ou un objet
+      <strong>se trouve à un endroit</strong>.
+    </p>
+
+    <div class="grammar-box">
+      <div class="grammar-example">
+        <strong>화장실이 어디에 있어요?</strong><br>
+        Où sont les toilettes ?
+      </div>
+
+      <div class="grammar-example">
+        <strong>지하철역이 저기에 있어요.</strong><br>
+        La station de métro est là-bas.
+      </div>
+    </div>
+  </section>
+
+  
+
+  <section class="lesson-card">
+    <h2>💬 8. Dialogue</h2>
+
+    <div class="dialogue-line hana">
+      <div class="speaker">🌸 Hana</div>
+      <div class="dialogue-korean">실례합니다. 명동에 가려면 몇 호선을 타야 해요?</div>
+      <div class="dialogue-french">
+        Excusez-moi. Quelle ligne dois-je prendre pour aller à Myeong-dong ?
+      </div>
+    </div>
+
+    <div class="dialogue-line park">
+      <div class="speaker">👨 Monsieur Park</div>
+      <div class="dialogue-korean">사호선을 타세요. 서울역에서 갈아타세요.</div>
+      <div class="dialogue-french">
+        Prenez la ligne 4. Changez à Seoul Station.
+      </div>
+    </div>
+
+    <div class="dialogue-line hana">
+      <div class="speaker">🌸 Hana</div>
+      <div class="dialogue-korean">감사합니다.</div>
+      <div class="dialogue-french">Merci beaucoup.</div>
+    </div>
+
+  </section>
+
+  <section class="note-card">
+    <strong>🌿 À reconnaître dans ce chapitre</strong><br><br>
+    Concentre-toi surtout sur
+    <strong>몇 호선</strong>,
+    <strong>타세요</strong>,
+    <strong>내려요</strong>,
+    <strong>갈아타세요</strong>,
+    <strong>다음 역</strong> et
+    <strong>이번 역</strong>.<br><br>
+    Les structures <strong>가려면</strong> et <strong>타야 해요</strong>
+    sont introduites comme modèles utiles : tu peux les réutiliser sans
+    devoir encore analyser toute leur grammaire.
+  </section>
+
+  <section class="culture-card">
+    <strong>🌸 Point culture</strong><br><br>
+    Le métro de Séoul est très simple à utiliser grâce aux indications visuelles
+    et aux annonces multilingues.<br><br>
+    Pour apprendre, essaie progressivement de repérer les mots coréens avant
+    de lire l'anglais : numéro de ligne, prochaine station, correspondance et sortie.
+  </section>
+
+  <section class="lesson-card">
+    <h2>🧠 9. À retenir</h2>
+
+    <div class="recap-line">🚇 <strong>지하철</strong> → métro</div>
+    <div class="recap-line">🚌 <strong>버스</strong> → bus</div>
+    <div class="recap-line">🔢 <strong>몇 번</strong> → quel numéro</div>
+    <div class="recap-line">🚇 <strong>몇 호선이에요?</strong> → Quelle ligne ?</div>
+    <div class="recap-line">⬆️ <strong>타다</strong> → prendre / monter</div>
+    <div class="recap-line">⬇️ <strong>내리다</strong> → descendre</div>
+    <div class="recap-line">🔁 <strong>갈아타다</strong> → faire une correspondance</div>
+    <div class="recap-line">📢 <strong>다음 역</strong> → station suivante</div>
+    <div class="recap-line">📢 <strong>이번 역</strong> → cette station</div>
+    <div class="recap-line">🚪 <strong>출구</strong> → sortie</div>
+    <div class="recap-line">🌿 <strong>명동에 가려면 몇 호선을 타야 해요?</strong> → Quelle ligne dois-je prendre pour aller à Myeong-dong ?</div>
+
+  </section>
+
+  <section class="note-card">
+    <strong>🌟 Phrase du chapitre</strong><br><br>
+    « Se perdre n'est jamais un problème quand on sait demander son chemin.
+    Chaque question te rapproche un peu plus de la Corée. » 🌸
+  </section>
+
+  <section class="note-card">
+    <strong>🌟 Phrase du chapitre</strong><br><br>
+    « Chaque station est une nouvelle étape de ton voyage.
+    En apprenant à te déplacer, tu découvres la Corée en toute liberté. » 🌸
+  </section>
+
+  <button class="complete-button" id="completeButton" type="button" onclick="completeUnderstanding()">
+    ✅ J'ai compris
+  </button>
+
+  <button class="next-button" id="nextButton" type="button" onclick="window.location.href='ecoute-13.html'">
+    🎧 Passer à « J'écoute »
+  </button>
+
+  <button class="back-route-button" type="button" onclick="window.location.href='itineraire.html'">
+    Retour à l'itinéraire
+  </button>
+
+</main>
+
+<script>
+  function completeUnderstanding() {
+    localStorage.setItem(
+      "hanaKorean_chapter13_understanding",
+      "completed"
+    );
+
+    const completeButton =
+      document.getElementById("completeButton");
+
+    completeButton.textContent =
+      "✅ Compréhension validée";
+
+    completeButton.classList.add("done");
+    completeButton.disabled = true;
+
+    document.getElementById("nextButton").style.display =
+      "block";
+
+    window.scrollTo({
+      top: document.body.scrollHeight,
+      behavior: "smooth"
+    });
+  }
+
+  const understandingCompleted =
+    localStorage.getItem(
+      "hanaKorean_chapter13_understanding"
+    ) === "completed";
+
+  if (understandingCompleted) {
+    const completeButton =
+      document.getElementById("completeButton");
+
+    completeButton.textContent =
+      "✅ Compréhension validée";
+
+    completeButton.classList.add("done");
+    completeButton.disabled = true;
+
+    document.getElementById("nextButton").style.display =
+      "block";
+  }
+</script>
+
+</body>
+</html>

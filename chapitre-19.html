@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#F7F4ED">
+  <title>Chapitre 19 — Parler du passé</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .chapter-header { text-align:center; margin-bottom:28px; }
+    .chapter-badge { display:inline-block; padding:7px 14px; margin-bottom:10px; border-radius:20px; font-size:14px; font-weight:bold; }
+    .chapter-subtitle { color:var(--text-light); line-height:1.7; }
+
+    .objective-card,
+    .lesson-card,
+    .culture-card,
+    .note-card {
+      padding:18px;
+      margin-bottom:18px;
+      border-radius:var(--radius-medium);
+    }
+
+    .objective-card {
+      background:var(--soft-green);
+      color:var(--navy);
+      line-height:1.7;
+    }
+
+    .lesson-card {
+      background:var(--white);
+      border-radius:var(--radius-large);
+      box-shadow:var(--shadow);
+    }
+
+    .lesson-card h2 {
+      margin-top:0;
+      color:var(--navy);
+    }
+
+    .vocab-grid {
+      display:grid;
+      grid-template-columns:1fr;
+      gap:10px;
+      margin-top:14px;
+    }
+
+    .vocab-item {
+      padding:14px;
+      background:#FBFAF6;
+      border-radius:var(--radius-medium);
+    }
+
+    .vocab-korean {
+      color:var(--navy);
+      font-size:20px;
+      font-weight:bold;
+    }
+
+    .vocab-french {
+      margin-top:4px;
+      color:var(--text-light);
+    }
+
+    .pronunciation-card,
+    .grammar-box,
+    .why-box {
+      padding:16px;
+      margin-top:14px;
+      border-radius:var(--radius-medium);
+      line-height:1.7;
+    }
+
+    .pronunciation-card,
+    .grammar-box {
+      background:var(--soft-blue);
+    }
+
+    .why-box {
+      background:var(--soft-beige);
+      color:var(--navy);
+    }
+
+    .grammar-example {
+      padding:11px 0;
+      border-bottom:1px solid var(--border);
+    }
+
+    .grammar-example:last-child {
+      border-bottom:none;
+    }
+
+    .dialogue-line {
+      padding:15px;
+      margin-bottom:10px;
+      border-radius:var(--radius-medium);
+      line-height:1.7;
+    }
+
+    .dialogue-line.hana {
+      background:var(--soft-green);
+    }
+
+    .dialogue-line.minsu {
+      background:var(--soft-blue);
+    }
+
+    .speaker {
+      font-weight:bold;
+      margin-bottom:4px;
+    }
+
+    .dialogue-korean {
+      color:var(--navy);
+      font-size:19px;
+      font-weight:bold;
+    }
+
+    .dialogue-french {
+      margin-top:5px;
+      color:var(--text-light);
+    }
+
+    .note-card {
+      background:var(--soft-beige);
+      color:var(--navy);
+      line-height:1.7;
+    }
+
+    .culture-card {
+      background:var(--soft-green);
+      color:var(--navy);
+      line-height:1.7;
+    }
+
+    .recap-line {
+      padding:11px 0;
+      border-bottom:1px solid var(--border);
+      line-height:1.6;
+    }
+
+    .recap-line:last-child {
+      border-bottom:none;
+    }
+
+    .complete-button,
+    .next-button,
+    .back-route-button {
+      width:100%;
+      margin-top:10px;
+    }
+
+    .complete-button {
+      background:var(--jade);
+      color:white;
+      font-weight:bold;
+    }
+
+    .complete-button.done {
+      background:var(--success);
+    }
+
+    .next-button {
+      display:none;
+      background:var(--navy);
+      color:white;
+      font-weight:bold;
+    }
+
+    .back-route-button {
+      background:var(--soft-beige);
+      color:var(--navy);
+    }
+
+    @media (min-width:620px) {
+      .vocab-grid {
+        grid-template-columns:1fr 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<main class="app">
+
+  <a class="back-link" href="itineraire.html">
+    ← Itinéraire
+  </a>
+
+
+  <header class="chapter-header">
+
+    <span class="chapter-badge">
+      Chapitre 19 · 📸 Parler du passé
+    </span>
+
+    <p class="korean">
+      어땠어요? 📸
+    </p>
+
+    <h1>
+      Parler du passé
+    </h1>
+
+    <p class="chapter-subtitle">
+      Apprends à raconter ce que tu as fait,
+      parler d'un voyage et comprendre
+      les formes passées les plus fréquentes.
+    </p>
+
+  </header>
+
+
+  <section class="objective-card">
+
+    <strong>
+      🎯 Objectif du chapitre
+    </strong>
+
+    <br><br>
+
+    ✅ raconter une expérience passée<br>
+    ✅ dire où tu es allé(e)<br>
+    ✅ dire ce que tu as mangé ou vu<br>
+    ✅ dire que tu as pris des photos<br>
+    ✅ demander « Comment c'était ? »<br>
+    ✅ raconter ce que tu as préféré
+
+  </section>
+
+
+  <section class="lesson-card">
+
+    <h2>🟩 1. Vocabulaire</h2>
+
+    <div class="vocab-grid">
+
+      <div class="vocab-item">
+        <div class="vocab-korean">갔어요</div>
+        <div class="vocab-french">je suis allé(e)</div>
+      </div>
+
+      <div class="vocab-item">
+        <div class="vocab-korean">먹었어요</div>
+        <div class="vocab-french">j'ai mangé</div>
+      </div>
+
+      <div class="vocab-item">
+        <div class="vocab-korean">봤어요</div>
+        <div class="vocab-french">j'ai vu / regardé</div>
+      </div>
+
+      <div class="vocab-item">
+        <div class="vocab-korean">찍었어요</div>
+        <div class="vocab-french">j'ai pris, par ex. une photo</div>
+      </div>
+
+      <div class="vocab-item">
+        <div class="vocab-korean">했어요</div>
+        <div class="vocab-french">j'ai fait</div>
+      </div>
+
+      <div class="vocab-item">
+        <div class="vocab-korean">여행</div>
+        <div class="vocab-french">voyage</div>
+      </div>
+
+      <div class="vocab-item">
+        <div class="vocab-korean">사진</div>
+        <div class="vocab-french">photo</div>
+      </div>
+
+      <div class="vocab-item">
+        <div class="vocab-korean">처음</div>
+        <div class="vocab-french">pour la première fois / début selon le contexte</div>
+      </div>
+
+      <div class="vocab-item">
+        <div class="vocab-korean">다시</div>
+        <div class="vocab-french">de nouveau</div>
+      </div>
+
+      <div class="vocab-item">
+        <div class="vocab-korean">정말</div>
+        <div class="vocab-french">vraiment</div>
+      </div>
+
+      <div class="vocab-item">
+        <div class="vocab-korean">즐거웠어요</div>
+        <div class="vocab-french">c'était agréable / génial</div>
+      </div>
+
+      <div class="vocab-item">
+        <div class="vocab-korean">좋았어요</div>
+        <div class="vocab-french">c'était bien / j'ai aimé</div>
+      </div>
+
+      <div class="vocab-item">
+        <div class="vocab-korean">어제</div>
+        <div class="vocab-french">hier</div>
+      </div>
+
+      <div class="vocab-item">
+        <div class="vocab-korean">지난주</div>
+        <div class="vocab-french">la semaine dernière</div>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="lesson-card">
+
+    <h2>💙 2. Le passé en -았어요 / -었어요</h2>
+
+    <div class="grammar-box">
+
+      Pour parler d'une action passée,
+      on rencontre très souvent les formes
+      <strong>-았어요</strong> et <strong>-었어요</strong>.
+
+      <br><br>
+
+      Une règle simple pour commencer :
+
+      <br><br>
+
+      si la dernière voyelle du radical est
+      <strong>ㅏ</strong> ou <strong>ㅗ</strong>,
+      on utilise souvent <strong>-았어요</strong> ;
+
+      <br><br>
+
+      sinon, on utilise souvent
+      <strong>-었어요</strong>.
+
+      <br><br>
+
+      Certaines formes se contractent.
+
+      <div class="grammar-example">
+        <strong>가요 → 갔어요</strong><br>
+        → je vais → je suis allé(e)
+      </div>
+
+      <div class="grammar-example">
+        <strong>먹어요 → 먹었어요</strong><br>
+        → je mange → j'ai mangé
+      </div>
+
+      <div class="grammar-example">
+        <strong>봐요 → 봤어요</strong><br>
+        → je vois / regarde → j'ai vu / regardé
+      </div>
+
+      <div class="grammar-example">
+        <strong>찍어요 → 찍었어요</strong><br>
+        → je prends une photo → j'ai pris une photo
+      </div>
+
+      <div class="grammar-example">
+        <strong>해요 → 했어요</strong><br>
+        → je fais → j'ai fait
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="lesson-card">
+
+    <h2>🩵 3. Prononciation — 봤어요</h2>
+
+    <div class="pronunciation-card">
+
+      <strong>봤어요</strong>
+      s'entend naturellement avec un son proche de :
+
+      <br><br>
+
+      <strong>봐써요</strong>
+
+      <br><br>
+
+      Le <strong>ㅆ</strong> est bien présent,
+      mais les syllabes se lient naturellement dans la parole.
+
+    </div>
+
+  </section>
+
+
+  <section class="lesson-card">
+
+    <h2>🧳 4. 처음 — « pour la première fois »</h2>
+
+    <div class="grammar-box">
+
+      <strong>처음</strong>
+      peut exprimer l'idée de
+      « première fois » ou de « début »
+      selon le contexte.
+
+      <div class="grammar-example">
+        <strong>한국에 처음 갔어요.</strong><br>
+        → Je suis allé(e) en Corée pour la première fois.
+      </div>
+
+      <div class="grammar-example">
+        <strong>처음 먹었어요.</strong><br>
+        → J'en ai mangé pour la première fois.
+      </div>
+
+      🌿 Pour parler de « mon premier voyage »,
+      tu peux aussi rencontrer
+      <strong>첫 여행</strong>
+      ou <strong>첫 번째 여행</strong>.
+
+    </div>
+
+  </section>
+
+
+  <section class="lesson-card">
+
+    <h2>🕒 5. Ajouter un repère dans le temps</h2>
+
+    <div class="grammar-box">
+
+      Les mots de temps rendent ton récit beaucoup plus clair.
+
+      <div class="grammar-example">
+        <strong>어제 비빔밥을 먹었어요.</strong><br>
+        → Hier, j'ai mangé un bibimbap.
+      </div>
+
+      <div class="grammar-example">
+        <strong>지난주에 서울에 갔어요.</strong><br>
+        → La semaine dernière, je suis allé(e) à Séoul.
+      </div>
+
+      🌿 Tu n'as pas besoin de longues phrases :
+      un mot de temps + une action au passé suffit déjà.
+
+    </div>
+
+  </section>
+
+
+  <section class="lesson-card">
+
+    <h2>💬 6. 어땠어요? — « Comment c'était ? »</h2>
+
+    <div class="grammar-box">
+
+      <strong>어땠어요?</strong>
+      est une question très utile après une expérience.
+
+      <div class="grammar-example">
+        <strong>여행 어땠어요?</strong><br>
+        → Comment était le voyage ?
+      </div>
+
+      <div class="grammar-example">
+        <strong>영화 어땠어요?</strong><br>
+        → Comment était le film ?
+      </div>
+
+      <div class="grammar-example">
+        <strong>콘서트 어땠어요?</strong><br>
+        → Comment était le concert ?
+      </div>
+
+      <div class="grammar-example">
+        <strong>음식 어땠어요?</strong><br>
+        → Comment était le repas / la nourriture ?
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="lesson-card">
+
+    <h2>🌟 7. Dire que c'était bien</h2>
+
+    <div class="grammar-box">
+
+      <div class="grammar-example">
+        <strong>정말 즐거웠어요.</strong><br>
+        → C'était vraiment agréable / génial.
+      </div>
+
+      <div class="grammar-example">
+        <strong>정말 좋았어요.</strong><br>
+        → C'était vraiment bien.
+      </div>
+
+      Ces deux expressions sont très utiles
+      pour donner une première impression
+      avant de raconter ce que tu as fait.
+
+    </div>
+
+  </section>
+
+
+  <section class="lesson-card">
+
+    <h2>💬 8. Dialogue — Hana raconte son voyage</h2>
+
+
+    <div class="dialogue-line minsu">
+      <div class="speaker">💙 Min-su</div>
+      <div class="dialogue-korean">
+        첫 한국 여행은 어땠어요?
+      </div>
+      <div class="dialogue-french">
+        Comment était ton premier voyage en Corée ?
+      </div>
+    </div>
+
+
+    <div class="dialogue-line hana">
+      <div class="speaker">🌸 Hana</div>
+      <div class="dialogue-korean">
+        정말 즐거웠어요. 경복궁에 갔어요. 비빔밥도 먹었어요. 사진도 많이 찍었어요.
+      </div>
+      <div class="dialogue-french">
+        C'était vraiment génial. Je suis allée à Gyeongbokgung.
+        J'ai aussi mangé un bibimbap. J'ai pris beaucoup de photos.
+      </div>
+    </div>
+
+
+    <div class="dialogue-line minsu">
+      <div class="speaker">💙 Min-su</div>
+      <div class="dialogue-korean">
+        제일 좋았던 건 뭐예요?
+      </div>
+      <div class="dialogue-french">
+        Qu'est-ce que tu as préféré ?
+      </div>
+    </div>
+
+
+    <div class="dialogue-line hana">
+      <div class="speaker">🌸 Hana</div>
+      <div class="dialogue-korean">
+        한강이 제일 좋았어요.
+      </div>
+      <div class="dialogue-french">
+        Ce que j'ai préféré, c'était le fleuve Han.
+      </div>
+    </div>
+
+  </section>
+
+
+  <section class="note-card">
+
+    <strong>📸 Raconter 3 choses simplement</strong>
+
+    <br><br>
+
+    Pour raconter une expérience passée,
+    tu peux déjà enchaîner trois petites phrases :
+
+    <br><br>
+
+    <strong>서울에 갔어요.</strong><br>
+    → Je suis allé(e) à Séoul.
+
+    <br><br>
+
+    <strong>비빔밥을 먹었어요.</strong><br>
+    → J'ai mangé un bibimbap.
+
+    <br><br>
+
+    <strong>사진을 많이 찍었어요.</strong><br>
+    → J'ai pris beaucoup de photos.
+
+    <br><br>
+
+    Pas besoin d'une longue histoire :
+    quelques actions simples suffisent pour commencer à raconter.
+
+  </section>
+
+
+  <section class="note-card">
+
+    <strong>🌿 À produire / à reconnaître</strong>
+
+    <br><br>
+
+    <strong>À produire en priorité :</strong><br>
+    서울에 갔어요.<br>
+    비빔밥을 먹었어요.<br>
+    사진을 많이 찍었어요.<br>
+    정말 좋았어요.<br>
+    어땠어요?<br><br>
+
+    <strong>À reconnaître puis réutiliser :</strong><br>
+    한국에 처음 갔어요.<br>
+    지난주에 서울에 갔어요.<br>
+    제일 좋았던 건 뭐예요?<br>
+    한강이 제일 좋았어요.
+
+  </section>
+
+
+  <section class="culture-card">
+
+    <strong>💬 Astuce conversation</strong>
+
+    <br><br>
+
+    Quand tu racontes un voyage,
+    une photo peut servir de point de départ à la conversation.
+
+    <br><br>
+
+    Tu peux ensuite dire simplement :
+
+    <br><br>
+
+    où tu es allé(e),<br>
+    ce que tu as mangé,<br>
+    ce que tu as vu,<br>
+    et ce que tu as préféré.
+
+  </section>
+
+
+  <section class="lesson-card">
+
+    <h2>🧠 9. À retenir</h2>
+
+    <div class="recap-line">
+      🚶 <strong>갔어요.</strong>
+      → Je suis allé(e).
+    </div>
+
+    <div class="recap-line">
+      🍚 <strong>먹었어요.</strong>
+      → J'ai mangé.
+    </div>
+
+    <div class="recap-line">
+      👀 <strong>봤어요.</strong>
+      → J'ai vu / regardé.
+    </div>
+
+    <div class="recap-line">
+      📷 <strong>찍었어요.</strong>
+      → J'ai pris une photo.
+    </div>
+
+    <div class="recap-line">
+      🌟 <strong>정말 좋았어요.</strong>
+      → C'était vraiment bien.
+    </div>
+
+    <div class="recap-line">
+      ❓ <strong>어땠어요?</strong>
+      → Comment c'était ?
+    </div>
+
+  </section>
+
+
+  <section class="note-card">
+
+    <strong>📝 Mon carnet de voyage</strong>
+
+    <br><br>
+
+    Imagine que tu racontes ton voyage à un ami coréen.
+
+    <br><br>
+
+    Essaie de construire 3 ou 4 phrases simples au passé :
+
+    <br><br>
+
+    Où es-tu allé(e) ?<br>
+    Qu'as-tu mangé ?<br>
+    Qu'as-tu vu ou photographié ?<br>
+    Comment c'était ?
+
+  </section>
+
+
+  <section class="note-card">
+
+    <strong>🌟 Phrase du chapitre</strong>
+
+    <br><br>
+
+    « Les souvenirs prennent une nouvelle valeur
+    lorsqu'on est capable de les raconter dans une autre langue. » 🌸
+
+  </section>
+
+
+  <button
+    class="complete-button"
+    id="completeButton"
+    type="button"
+    onclick="completeUnderstanding()"
+  >
+    J'ai compris 🌿
+  </button>
+
+
+  <button
+    class="next-button"
+    id="nextButton"
+    type="button"
+    onclick="window.location.href='ecoute-19.html'"
+  >
+    🎧 Passer à « J'écoute »
+  </button>
+
+
+  <button
+    class="back-route-button"
+    type="button"
+    onclick="window.location.href='itineraire.html'"
+  >
+    Retour à l'itinéraire
+  </button>
+
+</main>
+
+
+<script>
+
+  const STORAGE_KEY =
+    "hanaKorean_chapter19_understanding";
+
+
+  function completeUnderstanding() {
+
+    localStorage.setItem(
+      STORAGE_KEY,
+      "completed"
+    );
+
+    renderCompletion();
+
+  }
+
+
+  function renderCompletion() {
+
+    const completed =
+      localStorage.getItem(
+        STORAGE_KEY
+      ) === "completed";
+
+
+    const completeButton =
+      document.getElementById(
+        "completeButton"
+      );
+
+
+    const nextButton =
+      document.getElementById(
+        "nextButton"
+      );
+
+
+    if (
+      completed
+    ) {
+
+      completeButton.textContent =
+        "Compris ✓";
+
+
+      completeButton.classList.add(
+        "done"
+      );
+
+
+      nextButton.style.display =
+        "block";
+
+    }
+
+  }
+
+
+  renderCompletion();
+
+</script>
+
+</body>
+</html>

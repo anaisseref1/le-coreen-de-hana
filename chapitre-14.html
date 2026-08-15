@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#F7F4ED">
+  <title>Chapitre 14 — Commander un café</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .chapter-header { text-align:center; margin-bottom:28px; }
+    .chapter-badge { display:inline-block; padding:7px 14px; margin-bottom:10px; border-radius:20px; font-size:14px; font-weight:bold; }
+    .chapter-subtitle { color:var(--text-light); line-height:1.7; }
+    .objective-card, .lesson-card, .culture-card, .note-card { padding:18px; margin-bottom:18px; border-radius:var(--radius-medium); }
+    .objective-card { background:var(--soft-green); color:var(--navy); line-height:1.7; }
+    .lesson-card { background:var(--white); border-radius:var(--radius-large); box-shadow:var(--shadow); }
+    .lesson-card h2 { margin-top:0; color:var(--navy); }
+    .lesson-card p { line-height:1.7; }
+    .vocab-grid { display:grid; grid-template-columns:1fr; gap:10px; margin-top:14px; }
+    .vocab-item { padding:14px; background:#FBFAF6; border-radius:var(--radius-medium); }
+    .vocab-korean { color:var(--navy); font-size:20px; font-weight:bold; }
+    .vocab-french { margin-top:4px; color:var(--text-light); }
+    .pronunciation-card, .grammar-box, .why-box { padding:16px; margin-top:14px; border-radius:var(--radius-medium); line-height:1.7; }
+    .pronunciation-card, .grammar-box { background:var(--soft-blue); }
+    .why-box { background:var(--soft-beige); color:var(--navy); }
+    .grammar-example { padding:11px 0; border-bottom:1px solid var(--border); }
+    .grammar-example:last-child { border-bottom:none; }
+    .dialogue-line { padding:15px; margin-bottom:10px; border-radius:var(--radius-medium); line-height:1.7; }
+    .dialogue-line.hana { background:var(--soft-green); }
+    .dialogue-line.jieun { background:var(--soft-blue); }
+    .speaker { font-weight:bold; margin-bottom:4px; }
+    .dialogue-korean { color:var(--navy); font-size:19px; font-weight:bold; }
+    .dialogue-french { margin-top:5px; color:var(--text-light); }
+    .note-card { background:var(--soft-beige); color:var(--navy); line-height:1.7; }
+    .culture-card { background:var(--soft-green); color:var(--navy); line-height:1.7; }
+    .recap-line { padding:11px 0; border-bottom:1px solid var(--border); line-height:1.6; }
+    .recap-line:last-child { border-bottom:none; }
+    .complete-button, .next-button, .back-route-button { width:100%; margin-top:10px; }
+    .complete-button { background:var(--jade); color:white; font-weight:bold; }
+    .complete-button.done { background:var(--success); }
+    .next-button { display:none; background:var(--navy); color:white; font-weight:bold; }
+    .back-route-button { background:var(--soft-beige); color:var(--navy); }
+    @media (min-width:620px) { .vocab-grid { grid-template-columns:1fr 1fr; } }
+  </style>
+</head>
+
+<body>
+<main class="app">
+
+  <a class="back-link" href="itineraire.html">← Itinéraire</a>
+
+  <header class="chapter-header">
+    <span class="chapter-badge">Chapitre 14 · ☕ Commander un café</span>
+    <p class="korean">커피 한 잔 주세요 ☕</p>
+    <h1>Commander un café</h1>
+    <p class="chapter-subtitle">
+      Apprends à commander une boisson, choisir chaud ou froid,
+      comprendre les questions du personnel et terminer ta commande naturellement.
+    </p>
+  </header>
+
+  <section class="objective-card">
+    <strong>🎯 Objectif du chapitre</strong><br><br>
+    ✅ commander une boisson<br>
+    ✅ demander une boisson chaude ou froide<br>
+    ✅ comprendre une commande simple<br>
+    ✅ reconnaître « sur place ou à emporter ? »<br>
+    ✅ comprendre un prix et un paiement simple<br>
+    ✅ remercier le personnel
+  </section>
+
+  <section class="lesson-card">
+    <h2>🟩 1. Vocabulaire</h2>
+
+    <div class="vocab-grid">
+      <div class="vocab-item"><div class="vocab-korean">커피</div><div class="vocab-french">café</div></div>
+      <div class="vocab-item"><div class="vocab-korean">차</div><div class="vocab-french">thé</div></div>
+      <div class="vocab-item"><div class="vocab-korean">주스</div><div class="vocab-french">jus</div></div>
+      <div class="vocab-item"><div class="vocab-korean">뜨거운</div><div class="vocab-french">chaud</div></div>
+      <div class="vocab-item"><div class="vocab-korean">차가운</div><div class="vocab-french">froid</div></div>
+      <div class="vocab-item"><div class="vocab-korean">아이스</div><div class="vocab-french">glacé / iced</div></div>
+      <div class="vocab-item"><div class="vocab-korean">한 잔</div><div class="vocab-french">une tasse / un verre</div></div>
+      <div class="vocab-item"><div class="vocab-korean">주세요</div><div class="vocab-french">s'il vous plaît / donnez-moi</div></div>
+      <div class="vocab-item"><div class="vocab-korean">맛있어요</div><div class="vocab-french">c'est délicieux</div></div>
+      <div class="vocab-item"><div class="vocab-korean">추천</div><div class="vocab-french">recommandation</div></div>
+      <div class="vocab-item"><div class="vocab-korean">추천하다</div><div class="vocab-french">recommander</div></div>
+      <div class="vocab-item"><div class="vocab-korean">포장</div><div class="vocab-french">à emporter / emballage</div></div>
+      <div class="vocab-item"><div class="vocab-korean">카드</div><div class="vocab-french">carte bancaire</div></div>
+      <div class="vocab-item"><div class="vocab-korean">현금</div><div class="vocab-french">espèces</div></div>
+    </div>
+  </section>
+
+  <section class="lesson-card">
+    <h2>🩵 2. Prononciation</h2>
+
+    <div class="pronunciation-card">
+      <strong>뜨거운</strong><br><br>
+      Le <strong>ㄸ</strong> est une consonne tendue.
+      Prononce le début de manière nette, sans ajouter d'air comme pour une consonne aspirée.<br><br>
+      Le groupe reste fluide : <strong>뜨-거-운</strong>.
+    </div>
+  </section>
+
+  <section class="lesson-card">
+    <h2>💙 3. Grammaire — 주세요</h2>
+
+    <div class="grammar-box">
+      <strong>주세요</strong> est l'une des formules les plus utiles pour commander.
+      Dans un café ou un restaurant, elle permet de demander quelque chose poliment.
+
+      <div class="grammar-example">
+        <strong>커피 주세요.</strong><br>
+        → Un café, s'il vous plaît.
+      </div>
+
+      <div class="grammar-example">
+        <strong>물 주세요.</strong><br>
+        → De l'eau, s'il vous plaît.
+      </div>
+
+      <div class="grammar-example">
+        <strong>딸기 주스 주세요.</strong><br>
+        → Un jus de fraise, s'il vous plaît.
+      </div>
+    </div>
+  </section>
+
+  <section class="lesson-card">
+    <h2>☕ 4. Compter une boisson avec 잔</h2>
+
+    <div class="grammar-box">
+      <strong>잔</strong> est un compteur utilisé notamment pour les boissons
+      servies dans une tasse ou un verre.<br><br>
+
+      <div class="grammar-example">
+        <strong>커피 한 잔 주세요.</strong><br>
+        → Un café, s'il vous plaît.
+      </div>
+
+      <div class="grammar-example">
+        <strong>차 두 잔 주세요.</strong><br>
+        → Deux thés, s'il vous plaît.
+      </div>
+
+      Pour l'instant, retiens surtout <strong>한 잔</strong> comme un bloc très utile.
+    </div>
+  </section>
+
+  <section class="lesson-card">
+    <h2>🧊 5. Chaud ou froid ?</h2>
+
+    <div class="grammar-box">
+      <div class="grammar-example">
+        <strong>뜨거운 커피</strong><br>
+        → café chaud
+      </div>
+
+      <div class="grammar-example">
+        <strong>차가운 커피</strong><br>
+        → café froid
+      </div>
+
+      <div class="grammar-example">
+        <strong>아이스 아메리카노 주세요.</strong><br>
+        → Un americano glacé, s'il vous plaît.
+      </div>
+
+      🌿 Dans les cafés, <strong>아이스</strong> est un mot très fréquent
+      devant le nom d'une boisson froide.
+    </div>
+  </section>
+
+  <section class="lesson-card">
+    <h2>🥤 6. Sur place ou à emporter ?</h2>
+
+    <div class="why-box">
+      Au comptoir, tu peux entendre des questions comme :<br><br>
+
+      <strong>드시고 가세요?</strong><br>
+      → Vous consommez sur place ?<br><br>
+
+      <strong>포장이세요?</strong><br>
+      → C'est à emporter ?<br><br>
+
+      Réponses utiles :<br><br>
+
+      <strong>여기서 마실게요.</strong><br>
+      → Je vais boire ici.<br><br>
+
+      <strong>포장해 주세요.</strong><br>
+      → À emporter, s'il vous plaît.<br><br>
+
+      🌿 Ces phrases sont surtout à <strong>reconnaître</strong> pour le moment.
+      Tu n'as pas besoin d'analyser toute leur grammaire.
+    </div>
+  </section>
+
+  <section class="lesson-card">
+    <h2>💳 7. Comprendre le prix et payer</h2>
+
+    <div class="grammar-box">
+      Ce chapitre réutilise du vocabulaire déjà rencontré avec
+      <strong>카드</strong> et <strong>현금</strong>.
+
+      <div class="grammar-example">
+        <strong>오천 원입니다.</strong><br>
+        → Ça fait 5 000 wons.
+      </div>
+
+      <div class="grammar-example">
+        <strong>카드로 하시겠어요?</strong><br>
+        → Vous payez par carte ?
+      </div>
+
+      <div class="grammar-example">
+        <strong>카드로 할게요.</strong><br>
+        → Je vais payer par carte.
+      </div>
+
+      🌿 Ici encore, <strong>하시겠어요?</strong> et <strong>할게요</strong>
+      sont surtout introduits comme des expressions pratiques à reconnaître et réutiliser.
+    </div>
+  </section>
+
+  <section class="lesson-card">
+    <h2>😋 8. 맛있어요 ou 맛있게 드세요 ?</h2>
+
+    <div class="grammar-box">
+      <div class="grammar-example">
+        <strong>맛있어요!</strong><br>
+        → C'est délicieux !
+      </div>
+
+      <div class="grammar-example">
+        <strong>정말 맛있어요!</strong><br>
+        → C'est vraiment délicieux !
+      </div>
+
+      <div class="grammar-example">
+        <strong>맛있게 드세요!</strong><br>
+        → Bonne dégustation ! / Régalez-vous !
+      </div>
+
+      <strong>맛있어요</strong> décrit ce que tu goûtes.<br>
+      <strong>맛있게 드세요</strong> est une formule adressée à la personne qui va manger ou boire.
+    </div>
+  </section>
+
+  <section class="lesson-card">
+    <h2>🟨 9. Pourquoi 주세요 suffit-il ?</h2>
+
+    <div class="why-box">
+      En français, on utilise souvent « Je voudrais… » pour commander.<br><br>
+
+      En coréen, <strong>주세요</strong> est déjà une formule polie et naturelle.
+      Elle signifie littéralement quelque chose comme
+      <strong>« Donnez-moi, s'il vous plaît »</strong>.<br><br>
+
+      Dans un café, <strong>커피 주세요.</strong> n'est donc pas brutal :
+      c'est une façon tout à fait normale de commander.
+    </div>
+  </section>
+
+  <section class="lesson-card">
+    <h2>💬 10. Dialogue — Au café de Ji-eun</h2>
+
+    <div class="dialogue-line hana">
+      <div class="speaker">🌸 Hana</div>
+      <div class="dialogue-korean">안녕하세요. 커피 한 잔 주세요.</div>
+      <div class="dialogue-french">Bonjour. Un café, s'il vous plaît.</div>
+    </div>
+
+    <div class="dialogue-line jieun">
+      <div class="speaker">💚 Ji-eun</div>
+      <div class="dialogue-korean">뜨거운 커피요?</div>
+      <div class="dialogue-french">Un café chaud ?</div>
+    </div>
+
+    <div class="dialogue-line hana">
+      <div class="speaker">🌸 Hana</div>
+      <div class="dialogue-korean">네, 뜨거운 커피 주세요.</div>
+      <div class="dialogue-french">Oui, un café chaud, s'il vous plaît.</div>
+    </div>
+
+    <div class="dialogue-line jieun">
+      <div class="speaker">💚 Ji-eun</div>
+      <div class="dialogue-korean">드시고 가세요? 포장이세요?</div>
+      <div class="dialogue-french">Sur place ou à emporter ?</div>
+    </div>
+
+    <div class="dialogue-line hana">
+      <div class="speaker">🌸 Hana</div>
+      <div class="dialogue-korean">여기서 마실게요.</div>
+      <div class="dialogue-french">Je vais boire ici.</div>
+    </div>
+
+    <div class="dialogue-line jieun">
+      <div class="speaker">💚 Ji-eun</div>
+      <div class="dialogue-korean">오천 원입니다. 카드로 하시겠어요?</div>
+      <div class="dialogue-french">Ça fait 5 000 wons. Vous payez par carte ?</div>
+    </div>
+
+    <div class="dialogue-line hana">
+      <div class="speaker">🌸 Hana</div>
+      <div class="dialogue-korean">네, 카드로 할게요. 감사합니다.</div>
+      <div class="dialogue-french">Oui, par carte. Merci.</div>
+    </div>
+
+    <div class="dialogue-line jieun">
+      <div class="speaker">💚 Ji-eun</div>
+      <div class="dialogue-korean">맛있게 드세요!</div>
+      <div class="dialogue-french">Bonne dégustation !</div>
+    </div>
+
+    <div class="dialogue-line hana">
+      <div class="speaker">🌸 Hana</div>
+      <div class="dialogue-korean">정말 맛있어요!</div>
+      <div class="dialogue-french">C'est vraiment délicieux !</div>
+    </div>
+  </section>
+
+  <section class="note-card">
+    <strong>🌿 À produire / à reconnaître</strong><br><br>
+
+    <strong>À produire en priorité :</strong><br>
+    커피 한 잔 주세요.<br>
+    뜨거운 커피 주세요.<br>
+    포장해 주세요.<br>
+    몇 번 출구예요? — non, celui-ci appartient au chapitre précédent : ici, concentre-toi sur la commande.<br>
+    맛있어요.<br>
+    감사합니다.<br><br>
+
+    <strong>À reconnaître d'abord :</strong><br>
+    드시고 가세요?<br>
+    포장이세요?<br>
+    오천 원입니다.<br>
+    카드로 하시겠어요?<br>
+    여기서 마실게요.<br>
+    카드로 할게요.
+  </section>
+
+  <section class="culture-card">
+    <strong>🌸 Point culture</strong><br><br>
+
+    Les cafés occupent une place importante dans la vie quotidienne en Corée :
+    on y travaille, on y étudie, on y retrouve ses amis ou on profite simplement
+    d'un moment de calme.<br><br>
+
+    Dans l'application, ce chapitre te prépare surtout à reconnaître les questions
+    rapides du personnel pour ne pas rester bloqué(e) au comptoir.
+  </section>
+
+  <section class="lesson-card">
+    <h2>🧠 11. À retenir</h2>
+
+    <div class="recap-line">☕ <strong>커피 한 잔 주세요.</strong> → Un café, s'il vous plaît.</div>
+    <div class="recap-line">🔥 <strong>뜨거운 커피</strong> → café chaud</div>
+    <div class="recap-line">🧊 <strong>차가운 커피 / 아이스 커피</strong> → café froid / glacé</div>
+    <div class="recap-line">🥤 <strong>포장해 주세요.</strong> → À emporter, s'il vous plaît.</div>
+    <div class="recap-line">💳 <strong>카드로 할게요.</strong> → Je vais payer par carte.</div>
+    <div class="recap-line">😋 <strong>맛있어요!</strong> → C'est délicieux !</div>
+    <div class="recap-line">🌿 <strong>맛있게 드세요!</strong> → Bonne dégustation !</div>
+    <div class="recap-line">🙏 <strong>감사합니다.</strong> → Merci.</div>
+  </section>
+
+  <section class="note-card">
+    <strong>🌟 Phrase du chapitre</strong><br><br>
+    « Commander un café, c'est bien plus qu'acheter une boisson :
+    c'est prendre le temps de vivre un moment à la coréenne. » 🌸
+  </section>
+
+  <button
+    class="complete-button"
+    id="completeButton"
+    type="button"
+    onclick="completeUnderstanding()"
+  >
+    J'ai compris 🌿
+  </button>
+
+  <button
+    class="next-button"
+    id="nextButton"
+    type="button"
+    onclick="window.location.href='ecoute-14.html'"
+  >
+    🎧 Passer à « J'écoute »
+  </button>
+
+  <button
+    class="back-route-button"
+    type="button"
+    onclick="window.location.href='itineraire.html'"
+  >
+    Retour à l'itinéraire
+  </button>
+
+</main>
+
+<script>
+  const STORAGE_KEY =
+    "hanaKorean_chapter14_understanding";
+
+  function completeUnderstanding() {
+
+    localStorage.setItem(
+      STORAGE_KEY,
+      "completed"
+    );
+
+    renderCompletion();
+
+  }
+
+  function renderCompletion() {
+
+    const completed =
+      localStorage.getItem(
+        STORAGE_KEY
+      ) === "completed";
+
+    const completeButton =
+      document.getElementById(
+        "completeButton"
+      );
+
+    const nextButton =
+      document.getElementById(
+        "nextButton"
+      );
+
+    if (completed) {
+
+      completeButton.textContent =
+        "Compris ✓";
+
+      completeButton.classList.add(
+        "done"
+      );
+
+      nextButton.style.display =
+        "block";
+
+    }
+
+  }
+
+  renderCompletion();
+</script>
+
+</body>
+</html>

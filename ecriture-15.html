@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="theme-color"
+    content="#F7F4ED"
+  >
+
+  <title>J'écris — Chapitre 12</title>
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
+  <style>
+    .writing-header {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .chapter-badge {
+      display: inline-block;
+      padding: 7px 14px;
+      margin-bottom: 10px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .intro-card,
+    .writing-card,
+    .result-card {
+      padding: 20px;
+      margin-bottom: 18px;
+      background: var(--white);
+      border-radius: var(--radius-large);
+      box-shadow: var(--shadow);
+    }
+
+    .intro-card {
+      background: var(--soft-green);
+      color: var(--navy);
+      line-height: 1.7;
+    }
+
+    .exercise-progress {
+      margin-bottom: 22px;
+    }
+
+    .progress-info {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      color: var(--text-light);
+      font-size: 13px;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 9px;
+      background: var(--soft-beige);
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      width: 20%;
+      height: 100%;
+      background: var(--jade);
+      border-radius: 20px;
+      transition: width 0.3s ease;
+    }
+
+    .step-label {
+      color: var(--jade-dark);
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .prompt-box {
+      padding: 18px;
+      margin: 16px 0;
+      background: #FBFAF6;
+      border-radius: var(--radius-medium);
+      line-height: 1.7;
+    }
+
+    .prompt-main {
+      color: var(--navy);
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .hint-line {
+      margin-top: 8px;
+      color: var(--text-light);
+    }
+
+    .writing-input {
+      width: 100%;
+      min-height: 58px;
+      padding: 14px;
+      box-sizing: border-box;
+      border: 2px solid var(--border);
+      border-radius: var(--radius-medium);
+      background: var(--white);
+      color: var(--text);
+      font-size: 20px;
+      font-family: inherit;
+    }
+
+    .writing-input:focus {
+      outline: none;
+      border-color: var(--jade);
+    }
+
+    .check-button,
+    .retry-button,
+    .next-button,
+    .help-button,
+    .continue-button,
+    .back-button {
+      width: 100%;
+    }
+
+    .check-button {
+      margin-top: 12px;
+      background: var(--jade);
+      color: white;
+      font-weight: bold;
+    }
+
+    .feedback {
+      display: none;
+      padding: 16px;
+      margin-top: 14px;
+      border-radius: var(--radius-medium);
+      line-height: 1.7;
+    }
+
+    .feedback.show {
+      display: block;
+    }
+
+    .help-button {
+      margin-top: 10px;
+      background: var(--soft-beige);
+      color: var(--navy);
+    }
+
+    .help-box {
+      display: none;
+      padding: 15px;
+      margin-top: 10px;
+      background: var(--soft-beige);
+      border-radius: var(--radius-medium);
+      color: var(--navy);
+      line-height: 1.7;
+    }
+
+    .help-box.show {
+      display: block;
+    }
+
+    .retry-button {
+      display: none;
+      margin-top: 10px;
+    }
+
+    .retry-button.show {
+      display: block;
+    }
+
+    .next-button {
+      display: none;
+      margin-top: 12px;
+      background: var(--navy);
+      color: white;
+      font-weight: bold;
+    }
+
+    .next-button.show {
+      display: block;
+    }
+
+    .answer-reveal {
+      margin-top: 10px;
+      padding: 12px;
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: var(--radius-small);
+      color: var(--navy);
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .result-card {
+      display: none;
+      text-align: center;
+    }
+
+    .result-card.show {
+      display: block;
+    }
+
+    .result-icon {
+      font-size: 58px;
+    }
+
+    .summary-box {
+      padding: 16px;
+      margin-top: 18px;
+      background: #FBFAF6;
+      border-radius: var(--radius-medium);
+      text-align: left;
+      line-height: 1.7;
+    }
+
+    .notion-list {
+      margin-top: 14px;
+    }
+
+    .notion-line {
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .notion-line:last-child {
+      border-bottom: none;
+    }
+
+    .continue-button {
+      margin-top: 18px;
+      background: var(--jade);
+      color: white;
+      font-weight: bold;
+    }
+
+    .back-button {
+      margin-top: 10px;
+      background: var(--soft-beige);
+      color: var(--navy);
+    }
+  </style>
+</head>
+
+<body>
+
+<main class="app">
+
+  <a
+    class="back-link"
+    href="parle-15.html"
+  >
+    ← Je parle
+  </a>
+
+
+  <header class="writing-header">
+
+    <span class="chapter-badge">
+      Chapitre 15 · Expression écrite
+    </span>
+
+    <p class="korean">
+      써 봐요 ✍️
+    </p>
+
+    <h1>
+      J'écris
+    </h1>
+
+    <p>
+      Écris les expressions utiles pour commander au restaurant,
+      demander une recommandation, préciser une restriction alimentaire et demander l'addition.
+    </p>
+
+  </header>
+
+
+  <section class="intro-card">
+
+    <strong>🎯 Objectif</strong>
+
+    <br><br>
+
+    Savoir écrire les expressions essentielles du chapitre :
+    <strong>메뉴 주세요.</strong>,
+    <strong>추천해 주세요.</strong>,
+    <strong>돼지고기를 안 먹어요.</strong>,
+    <strong>많이 매워요?</strong>,
+    <strong>비빔밥 하나 주세요.</strong>
+    et <strong>계산해 주세요.</strong>.
+
+  </section>
+
+
+  <div class="exercise-progress">
+
+    <div class="progress-info">
+      <span>Expression écrite</span>
+      <span id="progressLabel">1 / 5</span>
+    </div>
+
+    <div class="progress-bar">
+      <div
+        class="progress-fill"
+        id="progressFill"
+      ></div>
+    </div>
+
+  </div>
+
+
+  <section
+    class="writing-card"
+    id="writingCard"
+  >
+
+    <div
+      class="step-label"
+      id="stepLabel"
+    >
+      Étape 1 / 5
+    </div>
+
+    <h2 id="stepTitle">
+      📖 Demander le menu
+    </h2>
+
+    <div class="prompt-box">
+
+      <div
+        class="prompt-main"
+        id="promptMain"
+      >
+        Écris : « Le menu, s'il vous plaît. »
+      </div>
+
+      <div
+        class="hint-line"
+        id="promptHint"
+      >
+        Utilise 메뉴 + 주세요.
+      </div>
+
+    </div>
+
+
+    <input
+      class="writing-input"
+      id="writingInput"
+      type="text"
+      lang="ko"
+      autocomplete="off"
+      autocapitalize="off"
+      spellcheck="false"
+      placeholder="Écris en coréen…"
+    >
+
+
+    <button
+      class="check-button"
+      id="checkButton"
+      type="button"
+      onclick="checkWriting()"
+    >
+      Vérifier
+    </button>
+
+
+    <div
+      class="feedback"
+      id="feedback"
+    ></div>
+
+
+    <button
+      class="help-button"
+      type="button"
+      onclick="toggleHelp()"
+    >
+      💡 Besoin d'aide ?
+    </button>
+
+
+    <div
+      class="help-box"
+      id="helpBox"
+    ></div>
+
+
+    <button
+      class="retry-button"
+      id="retryButton"
+      type="button"
+      onclick="retryWriting()"
+    >
+      ✍️ Réessayer
+    </button>
+
+
+    <button
+      class="next-button"
+      id="nextButton"
+      type="button"
+      onclick="nextStep()"
+    >
+      Continuer →
+    </button>
+
+  </section>
+
+
+  <section
+    class="result-card"
+    id="resultCard"
+  >
+
+    <div class="result-icon">
+      ✍️🍜
+    </div>
+
+    <h2>
+      잘했어요!
+    </h2>
+
+    <p>
+      Tu as terminé l'expression écrite du chapitre 15.
+    </p>
+
+
+    <div class="summary-box">
+
+      <strong>
+        🌿 À retenir
+      </strong>
+
+      <div class="notion-list">
+
+        <div class="notion-line">
+          📖 <strong>메뉴 주세요.</strong>
+          → Le menu, s'il vous plaît.
+        </div>
+
+        <div class="notion-line">
+          ⭐ <strong>추천해 주세요.</strong>
+          → Recommandez-moi quelque chose, s'il vous plaît.
+        </div>
+
+        <div class="notion-line">
+          🐷 <strong>돼지고기를 안 먹어요.</strong>
+          → Je ne mange pas de porc.
+        </div>
+
+        <div class="notion-line">
+          🌶️ <strong>많이 매워요?</strong>
+          → C'est très épicé ?
+        </div>
+
+        <div class="notion-line">
+          🍚 <strong>비빔밥 하나 주세요.</strong>
+          → Un bibimbap, s'il vous plaît.
+        </div>
+
+        <div class="notion-line">
+          💳 <strong>계산해 주세요.</strong>
+          → L'addition, s'il vous plaît.
+        </div>
+
+      </div>
+
+      <p id="mistakeSummary"></p>
+
+    </div>
+
+
+    <button
+      class="continue-button"
+      type="button"
+      onclick="window.location.href='revision-15.html'"
+    >
+      🧠 Passer à « Je révise »
+    </button>
+
+
+    <button
+      class="back-button"
+      type="button"
+      onclick="window.location.href='chapitre-15.html'"
+    >
+      Retour au chapitre
+    </button>
+
+  </section>
+
+</main>
+
+
+<script>
+  const steps = [
+
+    {
+      title: "📖 Demander le menu",
+      prompt: "Écris : « Le menu, s'il vous plaît. »",
+      hint: "Utilise 메뉴 + 주세요.",
+      accepted: [
+        "메뉴주세요"
+      ],
+      answer: "메뉴 주세요.",
+      notion: "메뉴 / 주세요"
+    },
+
+    {
+      title: "⭐ Demander une recommandation",
+      prompt: "Écris : « Recommandez-moi quelque chose, s'il vous plaît. »",
+      hint: "Utilise 추천해 주세요.",
+      accepted: [
+        "추천해주세요"
+      ],
+      answer: "추천해 주세요.",
+      notion: "추천해 주세요"
+    },
+
+    {
+      title: "🐷 Préciser une restriction alimentaire",
+      prompt: "Écris : « Je ne mange pas de porc. »",
+      hint: "Utilise 돼지고기를 + 안 먹어요.",
+      accepted: [
+        "돼지고기를안먹어요",
+        "돼지고기안먹어요"
+      ],
+      answer: "돼지고기를 안 먹어요.",
+      notion: "돼지고기 / 안 먹어요"
+    },
+
+    {
+      title: "🌶️ Demander si c'est épicé",
+      prompt: "Écris : « C'est très épicé ? »",
+      hint: "Utilise 많이 + 매워요?",
+      accepted: [
+        "많이매워요"
+      ],
+      answer: "많이 매워요?",
+      notion: "많이 매워요?"
+    },
+
+    {
+      title: "🍚 Commander un plat",
+      prompt: "Écris : « Un bibimbap, s'il vous plaît. »",
+      hint: "Utilise 비빔밥 + 하나 + 주세요.",
+      accepted: [
+        "비빔밥하나주세요"
+      ],
+      answer: "비빔밥 하나 주세요.",
+      notion: "하나 / 주세요"
+    },
+
+    {
+      title: "💳 Demander l'addition",
+      prompt: "Écris : « L'addition, s'il vous plaît. »",
+      hint: "Utilise 계산해 주세요.",
+      accepted: [
+        "계산해주세요"
+      ],
+      answer: "계산해 주세요.",
+      notion: "계산해 주세요"
+    }
+
+  ];
+
+
+  let currentStep = 0;
+  let mistakes = 0;
+  let helpCount = 0;
+  const weakNotions = [];
+
+
+  function normalizeKorean(text) {
+
+    return text
+      .replace(/[.,!?~…'"]/g, "")
+      .replace(/\s+/g, " ")
+      .trim();
+
+  }
+
+
+  function renderStep() {
+
+    const step =
+      steps[currentStep];
+
+
+    document.getElementById(
+      "stepLabel"
+    ).textContent =
+      "Étape " +
+      (currentStep + 1) +
+      " / " +
+      steps.length;
+
+
+    document.getElementById(
+      "stepTitle"
+    ).textContent =
+      step.title;
+
+
+    document.getElementById(
+      "promptMain"
+    ).textContent =
+      step.prompt;
+
+
+    document.getElementById(
+      "promptHint"
+    ).textContent =
+      step.hint;
+
+
+    document.getElementById(
+      "helpBox"
+    ).textContent =
+      "💡 Réponse attendue : " +
+      step.answer;
+
+
+    document.getElementById(
+      "progressLabel"
+    ).textContent =
+      (currentStep + 1) +
+      " / " +
+      steps.length;
+
+
+    document.getElementById(
+      "progressFill"
+    ).style.width =
+      (
+        ((currentStep + 1) /
+          steps.length) *
+        100
+      ) +
+      "%";
+
+
+    const input =
+      document.getElementById(
+        "writingInput"
+      );
+
+
+    input.value =
+      "";
+
+
+    input.disabled =
+      false;
+
+
+    document.getElementById(
+      "checkButton"
+    ).disabled =
+      false;
+
+
+    document.getElementById(
+      "feedback"
+    ).className =
+      "feedback";
+
+
+    document.getElementById(
+      "feedback"
+    ).innerHTML =
+      "";
+
+
+    document.getElementById(
+      "helpBox"
+    ).classList.remove(
+      "show"
+    );
+
+
+    document.getElementById(
+      "retryButton"
+    ).classList.remove(
+      "show"
+    );
+
+
+    document.getElementById(
+      "nextButton"
+    ).classList.remove(
+      "show"
+    );
+
+
+    setTimeout(
+      () => input.focus(),
+      200
+    );
+
+  }
+
+
+  function toggleHelp() {
+
+    helpCount++;
+
+
+    document.getElementById(
+      "helpBox"
+    ).classList.toggle(
+      "show"
+    );
+
+  }
+
+
+  function checkWriting() {
+
+    const step =
+      steps[currentStep];
+
+
+    const input =
+      document.getElementById(
+        "writingInput"
+      );
+
+
+    const value =
+      normalizeKorean(
+        input.value
+      );
+
+
+    const accepted =
+      step.accepted.map(
+        answer =>
+          normalizeKorean(answer)
+      );
+
+
+    const feedback =
+      document.getElementById(
+        "feedback"
+      );
+
+
+    if (
+      accepted.includes(value)
+    ) {
+
+      feedback.className =
+        "feedback show correct";
+
+
+      feedback.innerHTML =
+        "✅ <strong>Très bien !</strong>" +
+        "<div class='answer-reveal'>" +
+        step.answer +
+        "</div>";
+
+
+      input.disabled =
+        true;
+
+
+      document.getElementById(
+        "checkButton"
+      ).disabled =
+        true;
+
+
+      document.getElementById(
+        "retryButton"
+      ).classList.remove(
+        "show"
+      );
+
+
+      document.getElementById(
+        "nextButton"
+      ).classList.add(
+        "show"
+      );
+
+
+      return;
+
+    }
+
+
+    mistakes++;
+
+
+    if (
+      !weakNotions.includes(
+        step.notion
+      )
+    ) {
+
+      weakNotions.push(
+        step.notion
+      );
+
+    }
+
+
+    feedback.className =
+      "feedback show wrong";
+
+
+    if (
+      currentStep === 0
+    ) {
+
+      feedback.innerHTML =
+        "❌ <strong>Pas encore.</strong><br><br>" +
+        "Commence par <strong>이거</strong>, puis ajoute la question <strong>얼마예요?</strong>.";
+
+    }
+
+
+    if (
+      currentStep === 1
+    ) {
+
+      feedback.innerHTML =
+        "❌ <strong>Attention.</strong><br><br>" +
+        "Pour dire « c'est cher », utilise <strong>비싸요</strong>.";
+
+    }
+
+
+    if (
+      currentStep === 2
+    ) {
+
+      feedback.innerHTML =
+        "❌ <strong>Regarde bien la consonne.</strong><br><br>" +
+        "« Bon marché » s'écrit <strong>싸요</strong> avec <strong>ㅆ</strong>.";
+
+    }
+
+
+    if (
+      currentStep === 3
+    ) {
+
+      feedback.innerHTML =
+        "❌ <strong>Réessaie.</strong><br><br>" +
+        "Pour demander l'objet, combine <strong>이거</strong> et <strong>주세요</strong>.";
+
+    }
+
+
+    if (
+      currentStep === 4
+    ) {
+
+      feedback.innerHTML =
+        "❌ <strong>Réessaie la formule complète.</strong><br><br>" +
+        "La formule polie pour « merci » est <strong>감사합니다</strong>.";
+
+    }
+
+
+    document.getElementById(
+      "retryButton"
+    ).classList.add(
+      "show"
+    );
+
+  }
+
+
+  function retryWriting() {
+
+    const input =
+      document.getElementById(
+        "writingInput"
+      );
+
+
+    input.value =
+      "";
+
+
+    input.focus();
+
+
+    document.getElementById(
+      "feedback"
+    ).className =
+      "feedback";
+
+
+    document.getElementById(
+      "retryButton"
+    ).classList.remove(
+      "show"
+    );
+
+  }
+
+
+  function nextStep() {
+
+    if (
+      currentStep <
+      steps.length - 1
+    ) {
+
+      currentStep++;
+
+
+      renderStep();
+
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+
+
+      return;
+
+    }
+
+
+    finishWriting();
+
+  }
+
+
+  function finishWriting() {
+
+    document.getElementById(
+      "writingCard"
+    ).style.display =
+      "none";
+
+
+    document.getElementById(
+      "resultCard"
+    ).classList.add(
+      "show"
+    );
+
+
+    let summary = "";
+
+
+    if (
+      mistakes === 0
+    ) {
+
+      summary =
+        "🌟 Toutes les réponses ont été écrites correctement du premier coup.";
+
+    }
+
+    else if (
+      mistakes === 1
+    ) {
+
+      summary =
+        "💡 Tu as eu 1 tentative incorrecte pendant la séance.";
+
+    }
+
+    else {
+
+      summary =
+        "💡 Tu as eu " +
+        mistakes +
+        " tentatives incorrectes pendant la séance.";
+
+    }
+
+
+    if (
+      helpCount > 0
+    ) {
+
+      summary +=
+        "<br><br>Tu as consulté l'aide " +
+        helpCount +
+        " fois.";
+
+    }
+
+
+    document.getElementById(
+      "mistakeSummary"
+    ).innerHTML =
+      summary;
+
+
+    localStorage.setItem(
+      "hanaKorean_chapter15_writing",
+      "completed"
+    );
+
+
+    localStorage.setItem(
+      "hanaKorean_chapter15_writingMistakes",
+      mistakes
+    );
+
+
+    localStorage.setItem(
+      "hanaKorean_chapter15_revisionNotions",
+      JSON.stringify(
+        weakNotions
+      )
+    );
+
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+
+  }
+
+
+  document.getElementById(
+    "writingInput"
+  ).addEventListener(
+    "keydown",
+    function(event) {
+
+      if (
+        event.key === "Enter" &&
+        !document.getElementById(
+          "checkButton"
+        ).disabled
+      ) {
+
+        checkWriting();
+
+      }
+
+    }
+  );
+
+
+  renderStep();
+</script>
+
+</body>
+
+</html>
