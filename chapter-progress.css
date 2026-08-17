@@ -1,0 +1,91 @@
+/* =========================================================
+   LE CORÉEN DE HANA
+   "Ton parcours dans ce chapitre"
+   ========================================================= */
+
+.hana-chapter-path {
+  margin: 18px 0 24px;
+}
+
+.hana-chapter-path__title {
+  margin: 0 0 12px;
+  color: var(--navy, #26364A);
+  font-size: 18px;
+  line-height: 1.4;
+}
+
+.hana-chapter-path__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 9px;
+}
+
+.hana-chapter-path__step {
+  position: relative;
+  min-height: 78px;
+  padding: 12px 8px 10px;
+  border: 1px solid var(--border, #E7E2D9);
+  border-radius: 16px;
+  background: #FFFFFF;
+  color: var(--navy, #26364A);
+  cursor: pointer;
+  transition:
+    transform 0.15s ease,
+    background 0.15s ease,
+    border-color 0.15s ease,
+    opacity 0.15s ease;
+}
+
+.hana-chapter-path__step:not(:disabled):active {
+  transform: scale(0.98);
+}
+
+.hana-chapter-path__step.is-unlocked {
+  border-color: var(--jade, #6F9F92);
+  background: var(--soft-green, #EAF3EF);
+}
+
+.hana-chapter-path__step.is-completed {
+  border-color: var(--jade, #6F9F92);
+  background: var(--soft-green, #EAF3EF);
+}
+
+.hana-chapter-path__step.is-locked {
+  opacity: 0.48;
+  cursor: default;
+  background: #F4F2ED;
+}
+
+.hana-chapter-path__status {
+  position: absolute;
+  top: 7px;
+  right: 9px;
+  color: var(--success, #5F9270);
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.hana-chapter-path__step.is-locked
+.hana-chapter-path__status {
+  color: var(--text-light, #6F7478);
+  font-size: 13px;
+}
+
+.hana-chapter-path__icon {
+  display: block;
+  margin-bottom: 7px;
+  font-size: 23px;
+  line-height: 1;
+}
+
+.hana-chapter-path__label {
+  display: block;
+  font-size: 13px;
+  line-height: 1.25;
+}
+
+@media (max-width: 370px) {
+  .hana-chapter-path__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
