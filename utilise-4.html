@@ -22,6 +22,11 @@
     href="style.css"
   >
 
+  <link
+    rel="stylesheet"
+    href="chapter-progress.css"
+  >
+
 
   <style>
 
@@ -588,6 +593,23 @@
 
   </style>
 
+  <script>
+    /*
+      Accès séquentiel au chapitre :
+      « Je l'utilise » n'est accessible qu'après
+      la validation de « Je révise ».
+    */
+    if (
+      localStorage.getItem(
+        "hanaKorean_chapter4_review"
+      ) !== "completed"
+    ) {
+      window.location.replace(
+        "chapitre-4.html"
+      );
+    }
+  </script>
+
 </head>
 
 
@@ -994,7 +1016,7 @@
     <button
       class="finish-button"
       type="button"
-      onclick="window.location.href='chapitre-4.html'"
+      onclick="completeMissionAndFinish()"
     >
       ✅ Terminer le chapitre 4
     </button>
@@ -1014,6 +1036,8 @@
 </main>
 
 
+
+<script src="chapter-progress.js"></script>
 
 <script>
 
@@ -2182,15 +2206,11 @@
 
 
 
-    /* ===================================================
-       VALIDATION DE 🎯 JE L'UTILISE
-       =================================================== */
-
-    localStorage.setItem(
-      "hanaKorean_chapter4_mission",
-      "completed"
-    );
-
+    /*
+      On enregistre les statistiques ici,
+      mais la mission et le chapitre ne sont validés
+      qu'au clic sur « Terminer le chapitre 4 ».
+    */
 
     localStorage.setItem(
       "hanaKorean_chapter4_missionMistakes",
@@ -2210,6 +2230,36 @@
       behavior: "smooth"
 
     });
+
+  }
+
+
+
+  /* =====================================================
+     VALIDER « JE L'UTILISE » ET TERMINER LE CHAPITRE 4
+     ===================================================== */
+
+  function completeMissionAndFinish() {
+
+    localStorage.setItem(
+      "hanaKorean_chapter4_mission",
+      "completed"
+    );
+
+    localStorage.setItem(
+      "hanaKorean_chapter4_completed",
+      "completed"
+    );
+
+    if (
+      window.HanaChapterProgress &&
+      typeof window.HanaChapterProgress.render === "function"
+    ) {
+      window.HanaChapterProgress.render();
+    }
+
+    window.location.href =
+      "chapitre-4.html";
 
   }
 

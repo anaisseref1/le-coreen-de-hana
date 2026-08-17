@@ -22,6 +22,11 @@
     href="style.css"
   >
 
+  <link
+    rel="stylesheet"
+    href="chapter-progress.css"
+  >
+
 
   <style>
 
@@ -352,6 +357,23 @@
     }
 
   </style>
+
+  <script>
+    /*
+      Accès séquentiel au chapitre :
+      « Je révise » n'est accessible qu'après
+      la validation de « J'écris ».
+    */
+    if (
+      localStorage.getItem(
+        "hanaKorean_chapter4_writing"
+      ) !== "completed"
+    ) {
+      window.location.replace(
+        "chapitre-4.html"
+      );
+    }
+  </script>
 
 </head>
 
@@ -926,9 +948,9 @@
     <button
       class="finish-button"
       type="button"
-      onclick="window.location.href='utilise-4.html'"
+      onclick="completeReviewAndGo()"
     >
-      🎯 Passer à « Je l'utilise »
+      ✅ J'ai terminé · Passer à « Je l'utilise »
     </button>
 
 
@@ -946,6 +968,8 @@
 </main>
 
 
+
+<script src="chapter-progress.js"></script>
 
 <script>
 
@@ -1520,15 +1544,11 @@
 
 
 
-    /* ===================================================
-       VALIDATION DE 🧠 JE RÉVISE
-       =================================================== */
-
-    localStorage.setItem(
-      "hanaKorean_chapter4_review",
-      "completed"
-    );
-
+    /*
+      On enregistre les statistiques ici,
+      mais « Je révise » n'est validé qu'au clic
+      sur le bouton final vers « Je l'utilise ».
+    */
 
     localStorage.setItem(
       "hanaKorean_chapter4_reviewMistakes",
@@ -1550,6 +1570,31 @@
       behavior: "smooth"
 
     });
+
+  }
+
+
+
+  /* =====================================================
+     VALIDER « JE RÉVISE » ET DÉBLOQUER « JE L'UTILISE »
+     ===================================================== */
+
+  function completeReviewAndGo() {
+
+    localStorage.setItem(
+      "hanaKorean_chapter4_review",
+      "completed"
+    );
+
+    if (
+      window.HanaChapterProgress &&
+      typeof window.HanaChapterProgress.render === "function"
+    ) {
+      window.HanaChapterProgress.render();
+    }
+
+    window.location.href =
+      "utilise-4.html";
 
   }
 

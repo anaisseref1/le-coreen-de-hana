@@ -22,6 +22,11 @@
     href="style.css"
   >
 
+  <link
+    rel="stylesheet"
+    href="chapter-progress.css"
+  >
+
 
   <style>
 
@@ -684,6 +689,18 @@
 
   </style>
 
+  <script>
+    if (
+      localStorage.getItem(
+        "hanaKorean_chapter4_listeningExercise"
+      ) !== "completed"
+    ) {
+      window.location.replace(
+        "chapitre-4.html"
+      );
+    }
+  </script>
+
 </head>
 
 
@@ -1216,9 +1233,9 @@
     <button
       class="next-button"
       type="button"
-      onclick="window.location.href='ecriture-4.html'"
+      onclick="completeSpeakingAndGo()"
     >
-      ✍️ Passer à « J'écris »
+      ✅ J'ai terminé · Passer à « J'écris »
     </button>
 
 
@@ -1236,6 +1253,8 @@
 </main>
 
 
+
+<script src="chapter-progress.js"></script>
 
 <script>
 
@@ -2908,14 +2927,6 @@
 
 
 
-    /* VALIDATION DE 🗣️ JE PARLE */
-
-    localStorage.setItem(
-      "hanaKorean_chapter4_speaking",
-      "completed"
-    );
-
-
     localStorage.setItem(
       "hanaKorean_chapter4_speakingMistakes",
       incorrectAttempts
@@ -2932,6 +2943,31 @@
       top: 0,
       behavior: "smooth"
     });
+
+  }
+
+
+
+  /* =====================================================
+     VALIDER « JE PARLE » ET DÉBLOQUER « J'ÉCRIS »
+     ===================================================== */
+
+  function completeSpeakingAndGo() {
+
+    localStorage.setItem(
+      "hanaKorean_chapter4_speaking",
+      "completed"
+    );
+
+    if (
+      window.HanaChapterProgress &&
+      typeof window.HanaChapterProgress.render === "function"
+    ) {
+      window.HanaChapterProgress.render();
+    }
+
+    window.location.href =
+      "ecriture-4.html";
 
   }
 

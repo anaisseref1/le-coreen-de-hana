@@ -22,6 +22,11 @@
     href="style.css"
   >
 
+  <link
+    rel="stylesheet"
+    href="chapter-progress.css"
+  >
+
 
   <style>
 
@@ -317,6 +322,29 @@
     }
 
   </style>
+
+  <script>
+    if (
+      localStorage.getItem(
+        "hanaKorean_chapter4_understanding"
+      ) !== "completed"
+    ) {
+      window.location.replace(
+        "chapitre-4.html"
+      );
+    }
+
+    if (
+      localStorage.getItem(
+        "hanaKorean_chapter4_listeningExercise"
+      ) !== "completed"
+    ) {
+      localStorage.setItem(
+        "hanaKorean_chapter4_listeningExercise",
+        "in_progress"
+      );
+    }
+  </script>
 
 </head>
 
@@ -948,9 +976,9 @@
     <button
       class="next-step-button"
       type="button"
-      onclick="window.location.href='parle-4.html'"
+      onclick="completeListeningAndGo()"
     >
-      🗣️ Passer à « Je parle »
+      ✅ J'ai terminé · Passer à « Je parle »
     </button>
 
 
@@ -968,6 +996,8 @@
 </main>
 
 
+
+<script src="chapter-progress.js"></script>
 
 <script>
 
@@ -1420,14 +1450,6 @@
 
 
 
-    /* VALIDATION DE 🎧 J'ÉCOUTE */
-
-    localStorage.setItem(
-      "hanaKorean_chapter4_listening",
-      "completed"
-    );
-
-
     localStorage.setItem(
       "hanaKorean_chapter4_listeningMistakes",
       incorrectAttempts
@@ -1438,6 +1460,36 @@
       top: 0,
       behavior: "smooth"
     });
+
+  }
+
+
+
+  /* =====================================================
+     VALIDER « J'ÉCOUTE » ET DÉBLOQUER « JE PARLE »
+     ===================================================== */
+
+  function completeListeningAndGo() {
+
+    localStorage.setItem(
+      "hanaKorean_chapter4_listening",
+      "completed"
+    );
+
+    localStorage.setItem(
+      "hanaKorean_chapter4_listeningExercise",
+      "completed"
+    );
+
+    if (
+      window.HanaChapterProgress &&
+      typeof window.HanaChapterProgress.render === "function"
+    ) {
+      window.HanaChapterProgress.render();
+    }
+
+    window.location.href =
+      "parle-4.html";
 
   }
 

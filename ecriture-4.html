@@ -22,6 +22,11 @@
     href="style.css"
   >
 
+  <link
+    rel="stylesheet"
+    href="chapter-progress.css"
+  >
+
 
   <style>
 
@@ -406,6 +411,23 @@
     }
 
   </style>
+
+  <script>
+    /*
+      Accès séquentiel au chapitre :
+      « J'écris » n'est accessible qu'après
+      la validation de « Je parle ».
+    */
+    if (
+      localStorage.getItem(
+        "hanaKorean_chapter4_speaking"
+      ) !== "completed"
+    ) {
+      window.location.replace(
+        "chapitre-4.html"
+      );
+    }
+  </script>
 
 </head>
 
@@ -1070,9 +1092,9 @@
     <button
       class="finish-button"
       type="button"
-      onclick="window.location.href='revision-4.html'"
+      onclick="completeWritingAndGo()"
     >
-      🧠 Passer à « Je révise »
+      ✅ J'ai terminé · Passer à « Je révise »
     </button>
 
 
@@ -1090,6 +1112,8 @@
 </main>
 
 
+
+<script src="chapter-progress.js"></script>
 
 <script>
 
@@ -2003,13 +2027,11 @@
 
 
 
-    /* VALIDATION DE ✍️ J'ÉCRIS */
-
-    localStorage.setItem(
-      "hanaKorean_chapter4_writing",
-      "completed"
-    );
-
+    /*
+      On enregistre les statistiques ici,
+      mais « J'écris » n'est validé qu'au clic
+      sur le bouton final vers « Je révise ».
+    */
 
     localStorage.setItem(
       "hanaKorean_chapter4_writingMistakes",
@@ -2033,6 +2055,32 @@
     });
 
   }
+
+
+
+  /* =====================================================
+     VALIDER « J'ÉCRIS » ET DÉBLOQUER « JE RÉVISE »
+     ===================================================== */
+
+  function completeWritingAndGo() {
+
+    localStorage.setItem(
+      "hanaKorean_chapter4_writing",
+      "completed"
+    );
+
+    if (
+      window.HanaChapterProgress &&
+      typeof window.HanaChapterProgress.render === "function"
+    ) {
+      window.HanaChapterProgress.render();
+    }
+
+    window.location.href =
+      "revision-4.html";
+
+  }
+
 
 </script>
 
