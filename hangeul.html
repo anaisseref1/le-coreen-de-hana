@@ -69,6 +69,12 @@
     .clear-writing-button { background:var(--soft-beige); color:var(--navy); }
     .next-writing-button { background:var(--jade); color:#fff; }
     .handwriting-message { min-height:24px; margin-top:12px; color:var(--text-light); font-size:13px; line-height:1.5; text-align:center; }
+
+    .handwriting-message.success { color:var(--success); font-weight:700; }
+    .handwriting-message.error { color:var(--error); font-weight:700; }
+    .next-writing-button:disabled { opacity:.45; cursor:not-allowed; }
+    .writing-progress { margin-top:10px; color:var(--text-light); font-size:12px; text-align:center; }
+
     .handwriting-tip { padding:13px; margin-top:14px; background:var(--warning-light); border-radius:var(--radius-medium); color:var(--navy); font-size:13px; line-height:1.6; }
 
     @media (min-width:680px) {
@@ -185,10 +191,11 @@
 
         <div class="handwriting-actions">
           <button class="clear-writing-button" type="button" onclick="clearHandwriting()">↩️ Effacer</button>
-          <button class="next-writing-button" type="button" onclick="nextWritingCharacter()">Suivant →</button>
+          <button class="next-writing-button" id="nextWritingButton" type="button" onclick="nextWritingCharacter()" disabled>Suivant →</button>
         </div>
 
         <div class="handwriting-message" id="handwritingMessage">Trace ㄱ en suivant le modèle.</div>
+        <div class="writing-progress" id="writingStrokeProgress"></div>
         <div class="handwriting-tip">💡 Le but est d'apprendre le geste : l'application ne juge pas ton écriture. Tu peux recommencer autant de fois que tu veux.</div>
       </div>
     </div>
@@ -313,6 +320,150 @@
   let handwritingIndex = 0;
   let handwritingMode = "guided";
   let canvas, ctx, drawing = false, lastPoint = null;
+  let currentStrokePoints = [];
+  let validatedStrokeCount = 0;
+  let characterValidated = false;
+  let validationCanvas = null;
+  let validationCtx = null;
+
+
+  function setHandwritingFeedback(message, state = "") {
+    const el = document.getElementById("handwritingMessage");
+    el.textContent = message;
+    el.classList.remove("success", "error");
+    if (state) el.classList.add(state);
+  }
+
+  function updateStrokeProgress() {
+    const item = currentItem();
+    const total = item.paths.length;
+    const el = document.getElementById("writingStrokeProgress");
+    if (!el) return;
+
+    if (characterValidated) {
+      el.textContent = "Caractère validé ✓";
+      return;
+    }
+
+    el.textContent = "Trait " + Math.min(validatedStrokeCount + 1, total) + " / " + total;
+  }
+
+  function resetValidationState() {
+    validatedStrokeCount = 0;
+    characterValidated = false;
+    currentStrokePoints = [];
+
+    const next = document.getElementById("nextWritingButton");
+    if (next) next.disabled = true;
+
+    updateStrokeProgress();
+  }
+
+  function getExpectedStart(pathString) {
+    const match = pathString.match(/M\s*([0-9.]+)\s*([0-9.]+)/i);
+    return match ? { x:Number(match[1]), y:Number(match[2]) } : null;
+  }
+
+  function getExpectedEnd(pathString) {
+    const numbers = [...pathString.matchAll(/(-?\d+(?:\.\d+)?)/g)].map(m => Number(m[1]));
+    if (numbers.length < 2) return null;
+    return { x:numbers[numbers.length-2], y:numbers[numbers.length-1] };
+  }
+
+  function distance(a,b) {
+    return Math.hypot(a.x-b.x, a.y-b.y);
+  }
+
+  function normalizedPoint(point) {
+    const rect = canvas.getBoundingClientRect();
+    return {
+      x: point.x / rect.width * 100,
+      y: point.y / rect.height * 100
+    };
+  }
+
+  function prepareValidationCanvas() {
+    validationCanvas = document.createElement("canvas");
+    validationCanvas.width = 100;
+    validationCanvas.height = 100;
+    validationCtx = validationCanvas.getContext("2d");
+    validationCtx.lineCap = "round";
+    validationCtx.lineJoin = "round";
+    validationCtx.lineWidth = 14;
+  }
+
+  function strokeMatchesExpected(points, pathString) {
+    if (!points || points.length < 3 || !validationCtx) return false;
+
+    let path;
+    try {
+      path = new Path2D(pathString);
+    } catch (error) {
+      return false;
+    }
+
+    const normalized = points.map(normalizedPoint);
+    let closeCount = 0;
+
+    normalized.forEach(point => {
+      if (validationCtx.isPointInStroke(path, point.x, point.y)) {
+        closeCount++;
+      }
+    });
+
+    const closeRatio = closeCount / normalized.length;
+    const expectedStart = getExpectedStart(pathString);
+    const expectedEnd = getExpectedEnd(pathString);
+    const userStart = normalized[0];
+    const userEnd = normalized[normalized.length - 1];
+
+    const startOkay = !expectedStart || distance(userStart, expectedStart) <= 22;
+    const endOkay = !expectedEnd || distance(userEnd, expectedEnd) <= 24;
+
+    return closeRatio >= 0.72 && startOkay && endOkay;
+  }
+
+  function validateCurrentStroke() {
+    const item = currentItem();
+    if (characterValidated) return true;
+
+    const expectedPath = item.paths[validatedStrokeCount];
+    if (!expectedPath) return false;
+
+    const correct = strokeMatchesExpected(currentStrokePoints, expectedPath);
+
+    if (!correct) {
+      setHandwritingFeedback(
+        "Ce trait ne correspond pas au modèle. Efface et recommence ce caractère. 💡",
+        "error"
+      );
+      clearHandwriting();
+      resetValidationState();
+      return false;
+    }
+
+    validatedStrokeCount++;
+
+    if (validatedStrokeCount >= item.paths.length) {
+      characterValidated = true;
+      const next = document.getElementById("nextWritingButton");
+      if (next) next.disabled = false;
+
+      setHandwritingFeedback(
+        "Très bien ! " + item.char + " est validé ✓ Tu peux passer au suivant.",
+        "success"
+      );
+      updateStrokeProgress();
+      return true;
+    }
+
+    setHandwritingFeedback(
+      "Trait correct ✓ Continue avec le trait suivant.",
+      "success"
+    );
+    updateStrokeProgress();
+    return true;
+  }
 
   function currentItem() { return handwritingGroups[handwritingGroup][handwritingIndex]; }
 
@@ -332,7 +483,10 @@
     document.getElementById("canvasGhost").classList.toggle("hidden", mode === "free");
     document.getElementById("strokeOverlay").style.display = mode === "guided" ? "block" : "none";
     clearHandwriting();
-    document.getElementById("handwritingMessage").textContent = mode === "guided" ? "Suis le modèle et l'ordre des traits." : "Écris maintenant sans modèle ✨";
+    resetValidationState();
+    setHandwritingFeedback(
+      mode === "guided" ? "Suis le modèle et l'ordre des traits." : "Écris maintenant sans modèle ✨"
+    );
   }
 
   function renderPicker() {
@@ -364,7 +518,10 @@
 
     renderStrokeOverlay();
     clearHandwriting();
-    document.getElementById("handwritingMessage").textContent = handwritingMode === "guided" ? "Trace " + item.char + " en suivant le modèle." : "Écris " + item.char + " sans modèle.";
+    resetValidationState();
+    setHandwritingFeedback(
+      handwritingMode === "guided" ? "Trace " + item.char + " en suivant le modèle." : "Écris " + item.char + " sans modèle."
+    );
   }
 
   function renderStrokeOverlay() {
@@ -405,7 +562,7 @@
   }
 
   function startDraw(e) {
-    e.preventDefault(); drawing = true; lastPoint = pointFromEvent(e);
+    e.preventDefault(); drawing = true; lastPoint = pointFromEvent(e); currentStrokePoints = [lastPoint];
     try { canvas.setPointerCapture(e.pointerId); } catch(err) {}
   }
 
@@ -413,24 +570,37 @@
     if (!drawing) return;
     e.preventDefault();
     const p = pointFromEvent(e);
+    currentStrokePoints.push(p);
     ctx.beginPath(); ctx.moveTo(lastPoint.x,lastPoint.y); ctx.lineTo(p.x,p.y); ctx.stroke();
     lastPoint = p;
   }
 
   function stopDraw(e) {
     if (!drawing) return;
-    e.preventDefault(); drawing = false; lastPoint = null;
-    document.getElementById("handwritingMessage").textContent = handwritingMode === "guided" ? "Bien ! Compare ton tracé au modèle, puis recommence ou passe au suivant. 🌿" : "Bien ! Efface et recommence pour rendre le geste plus fluide. ✨";
+    e.preventDefault();
+    drawing = false;
+    lastPoint = null;
+    validateCurrentStroke();
   }
 
   function nextWritingCharacter() {
+    if (!characterValidated) {
+      setHandwritingFeedback(
+        "Termine correctement le caractère avant de passer au suivant.",
+        "error"
+      );
+      return;
+    }
+
     const group = handwritingGroups[handwritingGroup];
     handwritingIndex = (handwritingIndex + 1) % group.length;
-    renderPicker(); renderItem();
+    renderPicker();
+    renderItem();
   }
 
   function initHandwriting() {
     canvas = document.getElementById("handwritingCanvas");
+    prepareValidationCanvas();
     resizeCanvas();
     canvas.addEventListener("pointerdown", startDraw);
     canvas.addEventListener("pointermove", moveDraw);
