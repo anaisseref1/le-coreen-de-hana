@@ -37,27 +37,29 @@
       margin-bottom: 10px;
     }
 
-    .home-intro {
+    .home-header p {
+      max-width: 380px;
+      margin: 0 auto;
       color: var(--text-light);
       line-height: 1.6;
     }
 
-    .modules-section {
-      margin-top: 8px;
-    }
-
     .modules-title {
-      margin-bottom: 15px;
+      margin-bottom: 14px;
       color: var(--navy);
       font-size: 18px;
       font-weight: bold;
     }
 
+    .modules-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
     .module-card {
       display: block;
-      position: relative;
       padding: 20px;
-      margin-bottom: 16px;
       background: var(--white);
       border: 1px solid var(--border);
       border-radius: var(--radius-large);
@@ -66,11 +68,18 @@
       text-decoration: none;
       transition:
         transform 0.2s ease,
-        box-shadow 0.2s ease;
+        box-shadow 0.2s ease,
+        border-color 0.2s ease;
     }
 
-    .module-card:active {
-      transform: scale(0.99);
+    .module-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--jade);
+    }
+
+    .module-card.future {
+      background: #FBFAF6;
     }
 
     .module-top {
@@ -81,7 +90,7 @@
     }
 
     .module-number {
-      margin-bottom: 6px;
+      margin-bottom: 5px;
       color: var(--jade-dark);
       font-size: 13px;
       font-weight: bold;
@@ -92,31 +101,35 @@
     .module-card h2 {
       margin: 0;
       color: var(--navy);
-      font-size: 20px;
-      line-height: 1.35;
+      font-size: 21px;
     }
 
     .module-icon {
-      flex: 0 0 auto;
-      width: 48px;
-      height: 48px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: var(--soft-green);
-      border-radius: 16px;
-      font-size: 25px;
+      flex-shrink: 0;
+      font-size: 31px;
+      line-height: 1;
     }
 
     .module-description {
-      margin: 11px 0 0;
+      margin: 12px 0 0;
       color: var(--text-light);
       font-size: 14px;
-      line-height: 1.55;
+      line-height: 1.6;
+    }
+
+    .module-status {
+      display: inline-block;
+      margin-top: 13px;
+      padding: 6px 10px;
+      background: var(--soft-beige);
+      border-radius: 20px;
+      color: var(--text-light);
+      font-size: 12px;
+      font-weight: 600;
     }
 
     .module-progress {
-      margin-top: 17px;
+      margin-top: 16px;
     }
 
     .module-progress-top {
@@ -131,9 +144,9 @@
     .module-progress-bar {
       width: 100%;
       height: 8px;
+      overflow: hidden;
       background: var(--soft-beige);
       border-radius: 20px;
-      overflow: hidden;
     }
 
     .module-progress-fill {
@@ -148,8 +161,8 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 10px;
-      margin-top: 15px;
+      gap: 12px;
+      margin-top: 16px;
       color: var(--jade-dark);
       font-size: 14px;
       font-weight: bold;
@@ -159,23 +172,44 @@
       font-size: 18px;
     }
 
-    .module-card.future {
-      background: #FBFAF6;
+    .mini-garden {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-top: 26px;
+      padding: 14px 16px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-large);
+      box-shadow: var(--shadow);
     }
 
-    .module-card.future .module-icon {
-      background: var(--soft-blue);
+    .mini-garden-copy {
+      flex: 1;
+      min-width: 0;
     }
 
-    .module-status {
-      display: inline-block;
-      padding: 6px 10px;
-      margin-top: 14px;
-      background: var(--soft-beige);
-      border-radius: 20px;
+    .mini-garden-title {
+      margin: 0 0 4px;
+      color: var(--navy);
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    .plant-message {
+      margin: 0;
       color: var(--text-light);
       font-size: 12px;
-      font-weight: 600;
+      line-height: 1.45;
+    }
+
+    .mini-garden-plant {
+      flex: 0 0 auto;
+      margin: 0;
+      font-size: 68px;
+      line-height: 1;
+      transform-origin: center bottom;
     }
 
     @media (max-width: 480px) {
@@ -188,10 +222,8 @@
         font-size: 19px;
       }
 
-      .module-icon {
-        width: 44px;
-        height: 44px;
-        font-size: 23px;
+      .mini-garden {
+        padding: 13px 14px;
       }
 
     }
@@ -203,33 +235,38 @@
 
 <body>
 
+
   <main class="app">
 
 
     <header class="home-header">
 
       <p class="korean">
-        안녕하세요 🌿
+        하나의 한국어 여행 🌿
       </p>
 
       <h1>
         Le coréen de Hana
       </h1>
 
-      <p class="home-intro">
-        Choisis ton module et poursuis ton voyage en coréen. 🇰🇷
+      <p>
+        Apprends le coréen progressivement,
+        module après module,
+        et transforme ce que tu apprends
+        en vraies phrases.
       </p>
 
     </header>
 
 
 
-    <section class="modules-section">
+    <div class="modules-title">
+      🗺️ Mon parcours
+    </div>
 
-      <div class="modules-title">
-        🗺️ Mon parcours
-      </div>
 
+
+    <section class="modules-grid">
 
 
       <a
@@ -259,7 +296,8 @@
 
         <p class="module-description">
           Apprends et révise l'alphabet coréen :
-          consonnes, voyelles, syllabes, batchim et prononciation.
+          consonnes, voyelles, syllabes,
+          batchim et prononciation.
         </p>
 
         <div class="module-action">
@@ -304,8 +342,8 @@
         </div>
 
         <p class="module-description">
-          Les bases pour te présenter, parler de ton quotidien
-          et commencer à communiquer simplement.
+          Les bases pour comprendre
+          et utiliser tes premières phrases en coréen.
         </p>
 
         <div class="module-progress">
@@ -316,9 +354,9 @@
               Progression
             </span>
 
-            <strong id="module1ProgressText">
+            <span id="module1ProgressText">
               0 / 10 chapitres
-            </strong>
+            </span>
 
           </div>
 
@@ -375,8 +413,9 @@
         </div>
 
         <p class="module-description">
-          Achats, déplacements, café, restaurant, hôtel
-          et situations utiles de tous les jours.
+          Apprends à gérer des situations
+          simples de la vie quotidienne
+          avec davantage d'autonomie.
         </p>
 
         <div class="module-progress">
@@ -387,9 +426,9 @@
               Progression
             </span>
 
-            <strong id="module2ProgressText">
+            <span id="module2ProgressText">
               0 / 9 chapitres
-            </strong>
+            </span>
 
           </div>
 
@@ -446,8 +485,9 @@
         </div>
 
         <p class="module-description">
-          Faire connaissance, sortir, faire des achats,
-          voyager et raconter tes expériences.
+          Développe des échanges plus naturels
+          et utilise ton coréen dans
+          davantage de situations.
         </p>
 
         <div class="module-progress">
@@ -458,9 +498,9 @@
               Progression
             </span>
 
-            <strong id="module3ProgressText">
+            <span id="module3ProgressText">
               0 / 11 chapitres
-            </strong>
+            </span>
 
           </div>
 
@@ -517,8 +557,9 @@
         </div>
 
         <p class="module-description">
-          Habitudes, opinions, émotions, invitations,
-          voyages et conversations plus libres.
+          Habitudes, opinions, émotions,
+          invitations, voyages
+          et conversations plus libres.
         </p>
 
         <span class="module-status">
@@ -539,6 +580,38 @@
 
       </a>
 
+
+    </section>
+
+
+
+    <section
+      class="mini-garden"
+      aria-label="Plante de progression"
+    >
+
+      <div class="mini-garden-copy">
+
+        <p class="mini-garden-title">
+          🌱 Ma plante
+        </p>
+
+        <p
+          class="plant-message"
+          id="plantMessage"
+        >
+          Termine un chapitre pour la faire grandir.
+        </p>
+
+      </div>
+
+      <div
+        class="mini-garden-plant"
+        id="plant"
+        aria-label="Plante de progression"
+      >
+        🌱
+      </div>
 
     </section>
 
@@ -732,6 +805,10 @@
     );
 
   </script>
+
+
+  <script src="app.js"></script>
+
 
 </body>
 
