@@ -22,6 +22,11 @@
     href="style.css"
   >
 
+  <link
+    rel="stylesheet"
+    href="chapter-progress.css"
+  >
+
 
   <style>
 
@@ -445,157 +450,6 @@
     </p>
 
   </header>
-
-
-
-  <!-- =====================================================
-       PARCOURS DU CHAPITRE
-       ===================================================== -->
-
-  <section class="chapter-path">
-
-    <div class="chapter-path-title">
-      🌿 Ton parcours dans ce chapitre
-    </div>
-
-
-    <div class="learning-path">
-
-
-      <!-- COMPRENDRE -->
-
-      <a
-        class="learning-step active"
-        id="stepUnderstanding"
-        href="chapitre-2.html"
-      >
-
-        <span class="step-check">
-          ✓
-        </span>
-
-        <span class="step-icon">
-          📖
-        </span>
-
-        Je comprends
-
-      </a>
-
-
-
-      <!-- ÉCOUTER -->
-
-      <a
-        class="learning-step"
-        id="stepListening"
-        href="ecoute-2.html"
-      >
-
-        <span class="step-check">
-          ✓
-        </span>
-
-        <span class="step-icon">
-          🎧
-        </span>
-
-        J'écoute
-
-      </a>
-
-
-
-      <!-- PARLER -->
-
-      <a
-        class="learning-step"
-        id="stepSpeaking"
-        href="parle-2.html"
-      >
-
-        <span class="step-check">
-          ✓
-        </span>
-
-        <span class="step-icon">
-          🗣️
-        </span>
-
-        Je parle
-
-      </a>
-
-
-
-      <!-- ÉCRIRE -->
-
-      <a
-        class="learning-step"
-        id="stepWriting"
-        href="ecriture-2.html"
-      >
-
-        <span class="step-check">
-          ✓
-        </span>
-
-        <span class="step-icon">
-          ✍️
-        </span>
-
-        J'écris
-
-      </a>
-
-
-
-      <!-- RÉVISER -->
-
-      <a
-        class="learning-step"
-        id="stepReview"
-        href="revision-2.html"
-      >
-
-        <span class="step-check">
-          ✓
-        </span>
-
-        <span class="step-icon">
-          🧠
-        </span>
-
-        Je révise
-
-      </a>
-
-
-
-      <!-- UTILISER -->
-
-      <a
-        class="learning-step"
-        id="stepMission"
-        href="utilise-2.html"
-      >
-
-        <span class="step-check">
-          ✓
-        </span>
-
-        <span class="step-icon">
-          🎯
-        </span>
-
-        Je l'utilise
-
-      </a>
-
-
-    </div>
-
-  </section>
 
 
 
@@ -1638,50 +1492,26 @@
 
 
 
+<script src="chapter-progress.js"></script>
+
 <script>
 
   /* =====================================================
-     PROGRESSION DU CHAPITRE
+     CHAPITRE 2 — PROGRESSION
      ===================================================== */
 
   const chapterSteps = [
-
-    {
-      id: "stepUnderstanding",
-      key: "hanaKorean_chapter2_understanding"
-    },
-
-    {
-      id: "stepListening",
-      key: "hanaKorean_chapter2_listening"
-    },
-
-    {
-      id: "stepSpeaking",
-      key: "hanaKorean_chapter2_speaking"
-    },
-
-    {
-      id: "stepWriting",
-      key: "hanaKorean_chapter2_writing"
-    },
-
-    {
-      id: "stepReview",
-      key: "hanaKorean_chapter2_review"
-    },
-
-    {
-      id: "stepMission",
-      key: "hanaKorean_chapter2_mission"
-    }
-
+    "hanaKorean_chapter2_understanding",
+    "hanaKorean_chapter2_listening",
+    "hanaKorean_chapter2_speaking",
+    "hanaKorean_chapter2_writing",
+    "hanaKorean_chapter2_review",
+    "hanaKorean_chapter2_mission"
   ];
 
 
-
   /* =====================================================
-     JE COMPRENDS
+     TERMINER « JE COMPRENDS »
      ===================================================== */
 
   function completeUnderstanding() {
@@ -1691,9 +1521,7 @@
       "completed"
     );
 
-
     updateChapterProgress();
-
 
     window.location.href =
       "ecoute-2.html";
@@ -1701,52 +1529,19 @@
   }
 
 
-
   /* =====================================================
-     ACTUALISER LA PROGRESSION
+     BARRE DE PROGRESSION DU CHAPITRE
      ===================================================== */
 
   function updateChapterProgress() {
 
-    let completedCount = 0;
-
-
-    chapterSteps.forEach(
-      step => {
-
-        const element =
-          document.getElementById(
-            step.id
-          );
-
-
-        const completed =
+    const completedCount =
+      chapterSteps.filter(
+        key =>
           localStorage.getItem(
-            step.key
-          ) === "completed";
-
-
-        if (completed) {
-
-          completedCount++;
-
-
-          element.classList.add(
-            "completed"
-          );
-
-        }
-
-        else {
-
-          element.classList.remove(
-            "completed"
-          );
-
-        }
-
-      }
-    );
+            key
+          ) === "completed"
+      ).length;
 
 
     const percentage =
@@ -1757,19 +1552,41 @@
       );
 
 
-    document.getElementById(
-      "chapterProgressText"
-    ).textContent =
-      completedCount +
-      " / 6";
+    const progressText =
+      document.getElementById(
+        "chapterProgressText"
+      );
 
 
-    document.getElementById(
-      "chapterProgressFill"
-    ).style.width =
-      percentage +
-      "%";
+    const progressFill =
+      document.getElementById(
+        "chapterProgressFill"
+      );
 
+
+    if (progressText) {
+
+      progressText.textContent =
+        completedCount +
+        " / 6";
+
+    }
+
+
+    if (progressFill) {
+
+      progressFill.style.width =
+        percentage +
+        "%";
+
+    }
+
+
+    /*
+      IMPORTANT :
+      on ne supprime jamais une progression déjà acquise.
+      Ainsi, une étape déverrouillée ne peut pas se rebloquer.
+    */
 
     if (
       completedCount ===
@@ -1783,10 +1600,67 @@
 
     }
 
-    else {
 
-      localStorage.removeItem(
-        "hanaKorean_chapter2_completed"
+    if (
+      window.HanaChapterProgress &&
+      typeof window.HanaChapterProgress.render === "function"
+    ) {
+
+      window.HanaChapterProgress.render();
+
+    }
+
+  }
+
+
+  /* =====================================================
+     COMPATIBILITÉ AVEC UNE ANCIENNE PROGRESSION
+     ===================================================== */
+
+  function migratePreviousProgress() {
+
+    const understanding =
+      localStorage.getItem(
+        "hanaKorean_chapter2_understanding"
+      );
+
+
+    if (
+      understanding ===
+      "completed"
+    ) {
+
+      return;
+
+    }
+
+
+    const laterSteps = [
+      "hanaKorean_chapter2_listening",
+      "hanaKorean_chapter2_listeningExercise",
+      "hanaKorean_chapter2_speaking",
+      "hanaKorean_chapter2_writing",
+      "hanaKorean_chapter2_review",
+      "hanaKorean_chapter2_mission"
+    ];
+
+
+    const alreadyContinued =
+      laterSteps.some(
+        key =>
+          localStorage.getItem(
+            key
+          ) === "completed"
+      );
+
+
+    if (
+      alreadyContinued
+    ) {
+
+      localStorage.setItem(
+        "hanaKorean_chapter2_understanding",
+        "completed"
       );
 
     }
@@ -1794,10 +1668,11 @@
   }
 
 
-
   /* =====================================================
      DÉMARRAGE
      ===================================================== */
+
+  migratePreviousProgress();
 
   updateChapterProgress();
 

@@ -22,6 +22,11 @@
     href="style.css"
   >
 
+  <link
+    rel="stylesheet"
+    href="chapter-progress.css"
+  >
+
 
   <style>
 
@@ -291,6 +296,40 @@
     }
 
   </style>
+
+  <script>
+    /*
+      Accès séquentiel au chapitre :
+      le mini défi d'écoute n'est accessible
+      qu'après la validation de « Je comprends ».
+    */
+    if (
+      localStorage.getItem(
+        "hanaKorean_chapter1_understanding"
+      ) !== "completed"
+    ) {
+      window.location.replace(
+        "chapitre-1.html"
+      );
+    }
+
+    /*
+      Dès que le mini défi est commencé,
+      on crée l'état listeningExercise.
+      Tant qu'il n'est pas "completed",
+      « Je parle » reste verrouillé.
+    */
+    if (
+      localStorage.getItem(
+        "hanaKorean_chapter1_listeningExercise"
+      ) !== "completed"
+    ) {
+      localStorage.setItem(
+        "hanaKorean_chapter1_listeningExercise",
+        "in_progress"
+      );
+    }
+  </script>
 
 </head>
 
@@ -709,9 +748,9 @@
     <button
       class="speaking-button"
       type="button"
-      onclick="window.location.href='parle-1.html'"
+      onclick="completeListeningAndGo()"
     >
-      🗣️ Passer à « Je parle »
+      ✅ J'ai terminé · Passer à « Je parle »
     </button>
 
 
@@ -729,6 +768,8 @@
 </main>
 
 
+
+<script src="chapter-progress.js"></script>
 
 <script>
 
@@ -1271,11 +1312,11 @@
        SAUVEGARDE
        ===================================================== */
 
-    localStorage.setItem(
-      "hanaKorean_chapter1_listening",
-      "completed"
-    );
-
+    /*
+      On enregistre les tentatives ici,
+      mais « J'écoute » n'est validé qu'au clic
+      sur le bouton final vers « Je parle ».
+    */
 
     localStorage.setItem(
       "hanaKorean_chapter1_listeningMistakes",
@@ -1290,6 +1331,41 @@
       behavior: "smooth"
 
     });
+
+  }
+
+
+
+  /* =====================================================
+     VALIDER « J'ÉCOUTE » ET DÉBLOQUER « JE PARLE »
+     ===================================================== */
+
+  function completeListeningAndGo() {
+
+    localStorage.setItem(
+      "hanaKorean_chapter1_listening",
+      "completed"
+    );
+
+    localStorage.setItem(
+      "hanaKorean_chapter1_listeningExercise",
+      "completed"
+    );
+
+    /*
+      Le déblocage est permanent :
+      ces clés restent dans localStorage.
+    */
+
+    if (
+      window.HanaChapterProgress &&
+      typeof window.HanaChapterProgress.render === "function"
+    ) {
+      window.HanaChapterProgress.render();
+    }
+
+    window.location.href =
+      "parle-1.html";
 
   }
 

@@ -22,6 +22,11 @@
     href="style.css"
   >
 
+  <link
+    rel="stylesheet"
+    href="chapter-progress.css"
+  >
+
 
   <style>
 
@@ -684,6 +689,23 @@
 
   </style>
 
+  <script>
+    /*
+      Accès séquentiel au chapitre :
+      « Je parle » n'est accessible qu'après
+      la validation complète de « J'écoute ».
+    */
+    if (
+      localStorage.getItem(
+        "hanaKorean_chapter2_listeningExercise"
+      ) !== "completed"
+    ) {
+      window.location.replace(
+        "chapitre-2.html"
+      );
+    }
+  </script>
+
 </head>
 
 
@@ -1195,9 +1217,9 @@
     <button
       class="next-button"
       type="button"
-      onclick="window.location.href='ecriture-2.html'"
+      onclick="completeSpeakingAndGo()"
     >
-      ✍️ Passer à « J'écris »
+      ✅ J'ai terminé · Passer à « J'écris »
     </button>
 
 
@@ -1216,6 +1238,8 @@
 </main>
 
 
+
+<script src="chapter-progress.js"></script>
 
 <script>
 
@@ -2796,11 +2820,11 @@
       summary;
 
 
-    localStorage.setItem(
-      "hanaKorean_chapter2_speaking",
-      "completed"
-    );
-
+    /*
+      On enregistre les statistiques de la séance ici,
+      mais « Je parle » n'est validé qu'au clic
+      sur le bouton final vers « J'écris ».
+    */
 
     localStorage.setItem(
       "hanaKorean_chapter2_speakingMistakes",
@@ -2818,6 +2842,31 @@
       top: 0,
       behavior: "smooth"
     });
+
+  }
+
+
+
+  /* =====================================================
+     VALIDER « JE PARLE » ET DÉBLOQUER « J'ÉCRIS »
+     ===================================================== */
+
+  function completeSpeakingAndGo() {
+
+    localStorage.setItem(
+      "hanaKorean_chapter2_speaking",
+      "completed"
+    );
+
+    if (
+      window.HanaChapterProgress &&
+      typeof window.HanaChapterProgress.render === "function"
+    ) {
+      window.HanaChapterProgress.render();
+    }
+
+    window.location.href =
+      "ecriture-2.html";
 
   }
 

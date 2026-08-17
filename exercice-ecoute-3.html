@@ -22,6 +22,11 @@
     href="style.css"
   >
 
+  <link
+    rel="stylesheet"
+    href="chapter-progress.css"
+  >
+
 
   <style>
 
@@ -317,6 +322,29 @@
     }
 
   </style>
+
+  <script>
+    if (
+      localStorage.getItem(
+        "hanaKorean_chapter3_understanding"
+      ) !== "completed"
+    ) {
+      window.location.replace(
+        "chapitre-3.html"
+      );
+    }
+
+    if (
+      localStorage.getItem(
+        "hanaKorean_chapter3_listeningExercise"
+      ) !== "completed"
+    ) {
+      localStorage.setItem(
+        "hanaKorean_chapter3_listeningExercise",
+        "in_progress"
+      );
+    }
+  </script>
 
 </head>
 
@@ -852,9 +880,9 @@
     <button
       class="next-step-button"
       type="button"
-      onclick="window.location.href='parle-3.html'"
+      onclick="completeListeningAndGo()"
     >
-      🗣️ Passer à « Je parle »
+      ✅ J'ai terminé · Passer à « Je parle »
     </button>
 
 
@@ -872,6 +900,8 @@
 </main>
 
 
+
+<script src="chapter-progress.js"></script>
 
 <script>
 
@@ -1295,14 +1325,10 @@
 
 
     /*
-      VALIDATION DE L'ÉTAPE 🎧
+      On enregistre les statistiques ici,
+      mais « J'écoute » n'est validé qu'au clic
+      sur le bouton final vers « Je parle ».
     */
-
-    localStorage.setItem(
-      "hanaKorean_chapter3_listening",
-      "completed"
-    );
-
 
     localStorage.setItem(
       "hanaKorean_chapter3_listeningMistakes",
@@ -1314,6 +1340,36 @@
       top: 0,
       behavior: "smooth"
     });
+
+  }
+
+
+
+  /* =====================================================
+     VALIDER « J'ÉCOUTE » ET DÉBLOQUER « JE PARLE »
+     ===================================================== */
+
+  function completeListeningAndGo() {
+
+    localStorage.setItem(
+      "hanaKorean_chapter3_listening",
+      "completed"
+    );
+
+    localStorage.setItem(
+      "hanaKorean_chapter3_listeningExercise",
+      "completed"
+    );
+
+    if (
+      window.HanaChapterProgress &&
+      typeof window.HanaChapterProgress.render === "function"
+    ) {
+      window.HanaChapterProgress.render();
+    }
+
+    window.location.href =
+      "parle-3.html";
 
   }
 

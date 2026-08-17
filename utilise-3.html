@@ -22,6 +22,11 @@
     href="style.css"
   >
 
+  <link
+    rel="stylesheet"
+    href="chapter-progress.css"
+  >
+
 
   <style>
 
@@ -570,6 +575,23 @@
 
   </style>
 
+  <script>
+    /*
+      Accès séquentiel au chapitre :
+      « Je l'utilise » n'est accessible qu'après
+      la validation de « Je révise ».
+    */
+    if (
+      localStorage.getItem(
+        "hanaKorean_chapter3_review"
+      ) !== "completed"
+    ) {
+      window.location.replace(
+        "chapitre-3.html"
+      );
+    }
+  </script>
+
 </head>
 
 
@@ -965,7 +987,7 @@
     <button
       class="finish-button"
       type="button"
-      onclick="window.location.href='chapitre-3.html'"
+      onclick="completeMissionAndFinish()"
     >
       ✅ Terminer le chapitre 3
     </button>
@@ -985,6 +1007,8 @@
 </main>
 
 
+
+<script src="chapter-progress.js"></script>
 
 <script>
 
@@ -1140,6 +1164,36 @@
       .trim()
       .replace(/[.!?。！？,，]/g, "")
       .replace(/\s+/g, "");
+
+  }
+
+
+
+  /* =====================================================
+     VALIDER « JE L'UTILISE » ET TERMINER LE CHAPITRE 3
+     ===================================================== */
+
+  function completeMissionAndFinish() {
+
+    localStorage.setItem(
+      "hanaKorean_chapter3_mission",
+      "completed"
+    );
+
+    localStorage.setItem(
+      "hanaKorean_chapter3_completed",
+      "completed"
+    );
+
+    if (
+      window.HanaChapterProgress &&
+      typeof window.HanaChapterProgress.render === "function"
+    ) {
+      window.HanaChapterProgress.render();
+    }
+
+    window.location.href =
+      "chapitre-3.html";
 
   }
 
@@ -1991,13 +2045,11 @@
 
 
 
-    /* VALIDATION DE 🎯 JE L'UTILISE */
-
-    localStorage.setItem(
-      "hanaKorean_chapter3_mission",
-      "completed"
-    );
-
+    /*
+      On enregistre les statistiques ici,
+      mais la mission et le chapitre ne sont validés
+      qu'au clic sur « Terminer le chapitre 3 ».
+    */
 
     localStorage.setItem(
       "hanaKorean_chapter3_missionMistakes",

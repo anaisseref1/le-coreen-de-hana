@@ -22,6 +22,11 @@
     href="style.css"
   >
 
+  <link
+    rel="stylesheet"
+    href="chapter-progress.css"
+  >
+
 
   <style>
 
@@ -332,157 +337,6 @@
     </p>
 
   </header>
-
-
-
-  <!-- =====================================================
-       PARCOURS
-       ===================================================== -->
-
-  <section class="chapter-path">
-
-    <div class="chapter-path-title">
-      🌿 Ton parcours dans ce chapitre
-    </div>
-
-
-    <div class="learning-path">
-
-
-      <!-- COMPRENDRE -->
-
-      <a
-        class="learning-step active"
-        id="stepUnderstanding"
-        href="chapitre-1.html"
-      >
-
-        <span class="step-check">
-          ✓
-        </span>
-
-        <span class="step-icon">
-          📖
-        </span>
-
-        Je comprends
-
-      </a>
-
-
-
-      <!-- ÉCOUTER -->
-
-      <a
-        class="learning-step"
-        id="stepListening"
-        href="ecoute-1.html"
-      >
-
-        <span class="step-check">
-          ✓
-        </span>
-
-        <span class="step-icon">
-          🎧
-        </span>
-
-        J'écoute
-
-      </a>
-
-
-
-      <!-- PARLER -->
-
-      <a
-        class="learning-step"
-        id="stepSpeaking"
-        href="parle-1.html"
-      >
-
-        <span class="step-check">
-          ✓
-        </span>
-
-        <span class="step-icon">
-          🗣️
-        </span>
-
-        Je parle
-
-      </a>
-
-
-
-      <!-- ÉCRIRE -->
-
-      <a
-        class="learning-step"
-        id="stepWriting"
-        href="ecriture-1.html"
-      >
-
-        <span class="step-check">
-          ✓
-        </span>
-
-        <span class="step-icon">
-          ✍️
-        </span>
-
-        J'écris
-
-      </a>
-
-
-
-      <!-- RÉVISER -->
-
-      <a
-        class="learning-step"
-        id="stepReview"
-        href="revision-1.html"
-      >
-
-        <span class="step-check">
-          ✓
-        </span>
-
-        <span class="step-icon">
-          🧠
-        </span>
-
-        Je révise
-
-      </a>
-
-
-
-      <!-- UTILISER -->
-
-      <a
-        class="learning-step"
-        id="stepMission"
-        href="utilise-1.html"
-      >
-
-        <span class="step-check">
-          ✓
-        </span>
-
-        <span class="step-icon">
-          🎯
-        </span>
-
-        Je l'utilise
-
-      </a>
-
-
-    </div>
-
-  </section>
 
 
 
@@ -1013,46 +867,22 @@
 
 
 
+<script src="chapter-progress.js"></script>
+
 <script>
 
   /* =====================================================
-     CLÉS DE PROGRESSION
+     CHAPITRE 1 — PROGRESSION
      ===================================================== */
 
   const chapterSteps = [
-
-    {
-      id: "stepUnderstanding",
-      key: "hanaKorean_chapter1_understanding"
-    },
-
-    {
-      id: "stepListening",
-      key: "hanaKorean_chapter1_listening"
-    },
-
-    {
-      id: "stepSpeaking",
-      key: "hanaKorean_chapter1_speaking"
-    },
-
-    {
-      id: "stepWriting",
-      key: "hanaKorean_chapter1_writing"
-    },
-
-    {
-      id: "stepReview",
-      key: "hanaKorean_chapter1_review"
-    },
-
-    {
-      id: "stepMission",
-      key: "hanaKorean_chapter1_mission"
-    }
-
+    "hanaKorean_chapter1_understanding",
+    "hanaKorean_chapter1_listening",
+    "hanaKorean_chapter1_speaking",
+    "hanaKorean_chapter1_writing",
+    "hanaKorean_chapter1_review",
+    "hanaKorean_chapter1_mission"
   ];
-
 
 
   /* =====================================================
@@ -1066,9 +896,13 @@
       "completed"
     );
 
-
     updateChapterProgress();
 
+    /*
+      La clé reste enregistrée dans localStorage.
+      Une fois « J'écoute » débloqué, il le restera donc
+      même après fermeture ou rechargement de l'application.
+    */
 
     window.location.href =
       "ecoute-1.html";
@@ -1076,51 +910,19 @@
   }
 
 
-
   /* =====================================================
-     PROGRESSION
+     BARRE DE PROGRESSION DU CHAPITRE
      ===================================================== */
 
   function updateChapterProgress() {
 
-    let completedCount = 0;
-
-
-    chapterSteps.forEach(
-      step => {
-
-        const element =
-          document.getElementById(
-            step.id
-          );
-
-
-        const completed =
+    const completedCount =
+      chapterSteps.filter(
+        key =>
           localStorage.getItem(
-            step.key
-          ) === "completed";
-
-
-        if (completed) {
-
-          completedCount++;
-
-          element.classList.add(
-            "completed"
-          );
-
-        }
-
-        else {
-
-          element.classList.remove(
-            "completed"
-          );
-
-        }
-
-      }
-    );
+            key
+          ) === "completed"
+      ).length;
 
 
     const percentage =
@@ -1131,22 +933,39 @@
       );
 
 
-    document.getElementById(
-      "chapterProgressText"
-    ).textContent =
-      completedCount +
-      " / 6";
+    const progressText =
+      document.getElementById(
+        "chapterProgressText"
+      );
 
 
-    document.getElementById(
-      "chapterProgressFill"
-    ).style.width =
-      percentage + "%";
+    const progressFill =
+      document.getElementById(
+        "chapterProgressFill"
+      );
+
+
+    if (progressText) {
+
+      progressText.textContent =
+        completedCount +
+        " / 6";
+
+    }
+
+
+    if (progressFill) {
+
+      progressFill.style.width =
+        percentage +
+        "%";
+
+    }
 
 
     /*
-      Le chapitre n'est considéré terminé
-      que lorsque les six étapes le sont.
+      Le chapitre est considéré terminé
+      lorsque les six étapes le sont.
     */
 
     if (
@@ -1161,20 +980,27 @@
 
     }
 
-    else {
 
-      localStorage.removeItem(
-        "hanaKorean_chapter1_completed"
-      );
+    /*
+      IMPORTANT :
+      on ne supprime jamais une progression déjà acquise.
+      Ainsi, une étape déverrouillée ne peut pas se rebloquer.
+    */
+
+    if (
+      window.HanaChapterProgress &&
+      typeof window.HanaChapterProgress.render === "function"
+    ) {
+
+      window.HanaChapterProgress.render();
 
     }
 
   }
 
 
-
   /* =====================================================
-     COMPATIBILITÉ AVEC NOS TESTS PRÉCÉDENTS
+     COMPATIBILITÉ AVEC UNE ANCIENNE PROGRESSION
      ===================================================== */
 
   function migratePreviousProgress() {
@@ -1186,20 +1012,22 @@
 
 
     if (
-      understanding === "completed"
+      understanding ===
+      "completed"
     ) {
+
       return;
+
     }
 
 
     const laterSteps = [
-
       "hanaKorean_chapter1_listening",
+      "hanaKorean_chapter1_listeningExercise",
       "hanaKorean_chapter1_speaking",
       "hanaKorean_chapter1_writing",
       "hanaKorean_chapter1_review",
       "hanaKorean_chapter1_mission"
-
     ];
 
 
@@ -1213,14 +1041,14 @@
 
 
     /*
-      Nous avons créé la clé
-      « understanding » après les autres pages.
-
       Si une ancienne progression existe déjà,
-      on considère donc « Je comprends » terminé.
+      on considère « Je comprends » comme terminé.
+      Cela évite de retirer un déblocage déjà obtenu.
     */
 
-    if (alreadyContinued) {
+    if (
+      alreadyContinued
+    ) {
 
       localStorage.setItem(
         "hanaKorean_chapter1_understanding",
@@ -1230,7 +1058,6 @@
     }
 
   }
-
 
 
   /* =====================================================

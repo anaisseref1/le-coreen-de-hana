@@ -22,6 +22,11 @@
     href="style.css"
   >
 
+  <link
+    rel="stylesheet"
+    href="chapter-progress.css"
+  >
+
 
   <style>
 
@@ -269,6 +274,23 @@
     }
 
   </style>
+
+  <script>
+    /*
+      Accès séquentiel au chapitre :
+      « J'écoute » n'est accessible qu'après
+      la validation de « Je comprends ».
+    */
+    if (
+      localStorage.getItem(
+        "hanaKorean_chapter2_understanding"
+      ) !== "completed"
+    ) {
+      window.location.replace(
+        "chapitre-2.html"
+      );
+    }
+  </script>
 
 </head>
 
@@ -865,6 +887,8 @@
 </main>
 
 
+
+<script src="chapter-progress.js"></script>
 
 <script>
 

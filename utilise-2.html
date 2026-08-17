@@ -22,6 +22,11 @@
     href="style.css"
   >
 
+  <link
+    rel="stylesheet"
+    href="chapter-progress.css"
+  >
+
 
   <style>
 
@@ -570,6 +575,23 @@
 
   </style>
 
+  <script>
+    /*
+      Accès séquentiel au chapitre :
+      « Je l'utilise » n'est accessible qu'après
+      la validation de « Je révise ».
+    */
+    if (
+      localStorage.getItem(
+        "hanaKorean_chapter2_review"
+      ) !== "completed"
+    ) {
+      window.location.replace(
+        "chapitre-2.html"
+      );
+    }
+  </script>
+
 </head>
 
 
@@ -972,7 +994,7 @@
     <button
       class="finish-button"
       type="button"
-      onclick="window.location.href='chapitre-2.html'"
+      onclick="completeMissionAndFinish()"
     >
       ✅ Terminer le chapitre 2
     </button>
@@ -992,6 +1014,8 @@
 </main>
 
 
+
+<script src="chapter-progress.js"></script>
 
 <script>
 
@@ -1141,6 +1165,41 @@
       .trim()
       .replace(/[.!?。！？,，]/g, "")
       .replace(/\s+/g, "");
+
+  }
+
+
+
+  /* =====================================================
+     VALIDER « JE L'UTILISE » ET TERMINER LE CHAPITRE 2
+     ===================================================== */
+
+  function completeMissionAndFinish() {
+
+    localStorage.setItem(
+      "hanaKorean_chapter2_mission",
+      "completed"
+    );
+
+    localStorage.setItem(
+      "hanaKorean_chapter2_completed",
+      "completed"
+    );
+
+    /*
+      La progression acquise reste enregistrée :
+      aucune étape validée ne sera rebloquée.
+    */
+
+    if (
+      window.HanaChapterProgress &&
+      typeof window.HanaChapterProgress.render === "function"
+    ) {
+      window.HanaChapterProgress.render();
+    }
+
+    window.location.href =
+      "chapitre-2.html";
 
   }
 
@@ -1902,11 +1961,11 @@
 
 
 
-    localStorage.setItem(
-      "hanaKorean_chapter2_mission",
-      "completed"
-    );
-
+    /*
+      On enregistre les statistiques ici,
+      mais la mission et le chapitre ne sont validés
+      qu'au clic sur « Terminer le chapitre 2 ».
+    */
 
     localStorage.setItem(
       "hanaKorean_chapter2_missionMistakes",

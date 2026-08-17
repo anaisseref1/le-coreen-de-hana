@@ -22,6 +22,11 @@
     href="style.css"
   >
 
+  <link
+    rel="stylesheet"
+    href="chapter-progress.css"
+  >
+
 
   <style>
 
@@ -398,6 +403,23 @@
 
   </style>
 
+  <script>
+    /*
+      Accès séquentiel au chapitre :
+      « Je l'utilise » n'est accessible qu'après
+      la validation de « Je révise ».
+    */
+    if (
+      localStorage.getItem(
+        "hanaKorean_chapter1_review"
+      ) !== "completed"
+    ) {
+      window.location.replace(
+        "chapitre-1.html"
+      );
+    }
+  </script>
+
 </head>
 
 
@@ -758,7 +780,7 @@
     <button
       class="finish-button"
       type="button"
-      onclick="window.location.href='chapitre-1.html'"
+      onclick="completeMissionAndFinish()"
     >
       ✅ Terminer le chapitre
     </button>
@@ -778,6 +800,8 @@
 </main>
 
 
+
+<script src="chapter-progress.js"></script>
 
 <script>
 
@@ -1633,11 +1657,11 @@
 
     /* SAUVEGARDE */
 
-    localStorage.setItem(
-      "hanaKorean_chapter1_mission",
-      "completed"
-    );
-
+    /*
+      On enregistre les statistiques de la mission ici,
+      mais le chapitre n'est validé qu'au clic
+      sur « Terminer le chapitre ».
+    */
 
     localStorage.setItem(
       "hanaKorean_chapter1_missionMistakes",
@@ -1658,6 +1682,42 @@
 
   }
 
+
+
+
+  /* =====================================================
+     VALIDER « JE L'UTILISE » ET TERMINER LE CHAPITRE
+     ===================================================== */
+
+  function completeMissionAndFinish() {
+
+    localStorage.setItem(
+      "hanaKorean_chapter1_mission",
+      "completed"
+    );
+
+    localStorage.setItem(
+      "hanaKorean_chapter1_completed",
+      "completed"
+    );
+
+    /*
+      Ces validations restent enregistrées dans localStorage :
+      le parcours ne se rebloque pas après fermeture
+      ou rechargement de l'application.
+    */
+
+    if (
+      window.HanaChapterProgress &&
+      typeof window.HanaChapterProgress.render === "function"
+    ) {
+      window.HanaChapterProgress.render();
+    }
+
+    window.location.href =
+      "chapitre-1.html";
+
+  }
 
 
   /* =====================================================
