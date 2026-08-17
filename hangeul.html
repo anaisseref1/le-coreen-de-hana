@@ -1,833 +1,448 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
   <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
-
-  <meta
-    name="theme-color"
-    content="#F7F4ED"
-  >
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#F7F4ED">
   <title>Hangeul — Le coréen de Hana</title>
-
-  <link
-    rel="stylesheet"
-    href="style.css"
-  >
+  <link rel="stylesheet" href="style.css">
 
   <style>
-    .hangeul-header {
-      text-align: center;
-      margin-bottom: 28px;
-    }
+    .hangeul-header { text-align:center; margin-bottom:28px; }
+    .hangeul-badge { display:inline-block; padding:7px 14px; margin-bottom:10px; border-radius:20px; font-size:14px; font-weight:bold; }
+    .hangeul-subtitle { color:var(--text-light); line-height:1.7; }
+    .intro-card, .memo-card, .reference-card, .progress-card, .handwriting-card { padding:20px; margin-bottom:20px; border-radius:var(--radius-large); }
+    .intro-card { background:var(--soft-green); color:var(--navy); line-height:1.7; }
+    .progress-card, .handwriting-card { background:var(--white); box-shadow:var(--shadow); }
+    .memo-card { margin-top:20px; background:var(--soft-blue); color:var(--navy); line-height:1.7; }
+    .reference-card { margin-top:20px; background:var(--soft-beige); color:var(--navy); line-height:1.7; }
+    .progress-top { display:flex; justify-content:space-between; align-items:center; gap:14px; margin-bottom:10px; }
+    .progress-title { color:var(--navy); font-weight:bold; }
+    .progress-count { color:var(--jade-dark); font-weight:bold; }
+    .progress-bar { width:100%; height:10px; overflow:hidden; background:var(--soft-beige); border-radius:20px; }
+    .progress-fill { width:0%; height:100%; background:var(--jade); border-radius:20px; transition:width .3s ease; }
+    .progress-message { margin-top:10px; color:var(--text-light); line-height:1.6; }
+    .section-title { margin-top:28px; margin-bottom:12px; color:var(--navy); }
+    .path-grid { display:grid; grid-template-columns:1fr; gap:14px; }
+    .path-card { padding:18px; background:var(--white); border-radius:var(--radius-large); box-shadow:var(--shadow); }
+    .path-icon { margin-bottom:8px; font-size:34px; }
+    .path-card h2 { margin:0; color:var(--navy); font-size:20px; }
+    .path-card p { margin-bottom:0; color:var(--text-light); line-height:1.6; }
+    .status-line { margin-top:12px; color:var(--text-light); font-size:14px; font-weight:bold; }
+    .status-line.done { color:var(--success); }
+    .path-button, .memo-button, .back-home-button { width:100%; margin-top:14px; font-weight:bold; }
+    .path-button { background:var(--jade); color:white; }
+    .path-button.done { background:var(--success); }
+    .memo-button { background:var(--navy); color:white; }
+    .back-home-button { margin-top:22px; background:var(--soft-beige); color:var(--navy); }
 
-    .hangeul-badge {
-      display: inline-block;
-      padding: 7px 14px;
-      margin-bottom: 10px;
-      border-radius: 20px;
-      font-size: 14px;
-      font-weight: bold;
-    }
+    /* ÉCRITURE À LA MAIN */
+    .handwriting-card { margin-top:32px; }
+    .handwriting-card h2 { margin-top:0; color:var(--navy); }
+    .handwriting-intro { color:var(--text-light); line-height:1.7; }
+    .handwriting-tabs { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin:18px 0 14px; }
+    .handwriting-tab, .writing-mode-button { padding:12px 8px; border:0; border-radius:14px; background:var(--soft-beige); color:var(--navy); font-weight:bold; }
+    .handwriting-tab.active { background:var(--jade); color:#fff; }
+    .writing-mode-button.active { background:var(--navy); color:#fff; }
+    .character-picker { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:18px; }
+    .character-chip { min-width:48px; min-height:48px; padding:8px 12px; border:2px solid var(--border); border-radius:14px; background:#FBFAF6; color:var(--navy); font-size:22px; font-weight:bold; }
+    .character-chip.active { background:var(--soft-green); border-color:var(--jade); color:var(--jade-dark); }
+    .handwriting-layout { display:grid; grid-template-columns:1fr; gap:16px; }
+    .handwriting-guide-panel { padding:16px; background:var(--soft-blue); border-radius:var(--radius-medium); }
+    .guide-title { margin-bottom:8px; color:var(--navy); font-weight:bold; }
+    .guide-character { display:flex; align-items:center; justify-content:center; min-height:88px; margin-bottom:12px; color:rgba(38,54,74,.28); font-size:76px; font-weight:700; line-height:1; }
+    .stroke-list { display:flex; flex-direction:column; gap:8px; color:var(--navy); font-size:14px; line-height:1.5; }
+    .stroke-row { display:flex; align-items:center; gap:10px; }
+    .stroke-number { width:26px; height:26px; flex:0 0 26px; display:flex; align-items:center; justify-content:center; background:var(--jade); border-radius:50%; color:#fff; font-size:13px; font-weight:bold; }
+    .writing-mode-row { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:12px; }
+    .writing-canvas-wrap { position:relative; width:100%; max-width:420px; aspect-ratio:1/1; margin:0 auto; overflow:hidden; background:#FFFDFC; border:2px solid var(--border); border-radius:20px; }
+    .writing-grid-line { position:absolute; z-index:1; pointer-events:none; opacity:.42; }
+    .writing-grid-line.vertical { top:0; bottom:0; left:50%; border-left:1px dashed var(--border); }
+    .writing-grid-line.horizontal { left:0; right:0; top:50%; border-top:1px dashed var(--border); }
+    .canvas-ghost { position:absolute; inset:0; z-index:2; display:flex; align-items:center; justify-content:center; pointer-events:none; color:rgba(111,159,146,.18); font-size:clamp(120px,42vw,190px); font-weight:700; line-height:1; transition:opacity .2s ease; }
+    .canvas-ghost.hidden { opacity:0; }
+    .stroke-overlay { position:absolute; inset:0; z-index:2; pointer-events:none; }
+    .stroke-overlay svg { width:100%; height:100%; }
+    #handwritingCanvas { position:absolute; inset:0; z-index:3; width:100%; height:100%; touch-action:none; cursor:crosshair; }
+    .handwriting-actions { display:grid; grid-template-columns:1fr 1fr; gap:9px; margin-top:12px; }
+    .handwriting-actions button { width:100%; padding:13px 9px; font-weight:bold; }
+    .clear-writing-button { background:var(--soft-beige); color:var(--navy); }
+    .next-writing-button { background:var(--jade); color:#fff; }
+    .handwriting-message { min-height:24px; margin-top:12px; color:var(--text-light); font-size:13px; line-height:1.5; text-align:center; }
+    .handwriting-tip { padding:13px; margin-top:14px; background:var(--warning-light); border-radius:var(--radius-medium); color:var(--navy); font-size:13px; line-height:1.6; }
 
-    .hangeul-subtitle {
-      color: var(--text-light);
-      line-height: 1.7;
-    }
-
-    .intro-card {
-      padding: 20px;
-      margin-bottom: 20px;
-      background: var(--soft-green);
-      border-radius: var(--radius-medium);
-      color: var(--navy);
-      line-height: 1.7;
-    }
-
-    .progress-card {
-      padding: 18px;
-      margin-bottom: 22px;
-      background: var(--white);
-      border-radius: var(--radius-large);
-      box-shadow: var(--shadow);
-    }
-
-    .progress-top {
-      display: flex;
-      justify-content: space-between;
-      gap: 14px;
-      align-items: center;
-      margin-bottom: 10px;
-    }
-
-    .progress-title {
-      color: var(--navy);
-      font-weight: bold;
-    }
-
-    .progress-count {
-      color: var(--jade-dark);
-      font-weight: bold;
-    }
-
-    .progress-bar {
-      width: 100%;
-      height: 10px;
-      overflow: hidden;
-      background: var(--soft-beige);
-      border-radius: 20px;
-    }
-
-    .progress-fill {
-      width: 0%;
-      height: 100%;
-      background: var(--jade);
-      border-radius: 20px;
-      transition: width 0.3s ease;
-    }
-
-    .progress-message {
-      margin-top: 10px;
-      color: var(--text-light);
-      line-height: 1.6;
-    }
-
-    .section-title {
-      margin-top: 28px;
-      margin-bottom: 12px;
-      color: var(--navy);
-    }
-
-    .path-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 14px;
-    }
-
-    .path-card {
-      padding: 18px;
-      background: var(--white);
-      border-radius: var(--radius-large);
-      box-shadow: var(--shadow);
-    }
-
-    .path-icon {
-      margin-bottom: 8px;
-      font-size: 34px;
-    }
-
-    .path-card h2 {
-      margin: 0;
-      color: var(--navy);
-      font-size: 20px;
-    }
-
-    .path-card p {
-      margin-bottom: 0;
-      color: var(--text-light);
-      line-height: 1.6;
-    }
-
-    .status-line {
-      margin-top: 12px;
-      color: var(--text-light);
-      font-size: 14px;
-      font-weight: bold;
-    }
-
-    .status-line.done {
-      color: var(--success);
-    }
-
-    .path-button {
-      width: 100%;
-      margin-top: 14px;
-      background: var(--jade);
-      color: white;
-      font-weight: bold;
-    }
-
-    .path-button.done {
-      background: var(--success);
-    }
-
-    .memo-card {
-      padding: 18px;
-      margin-top: 20px;
-      background: var(--soft-blue);
-      border-radius: var(--radius-medium);
-      color: var(--navy);
-      line-height: 1.7;
-    }
-
-    .memo-button {
-      width: 100%;
-      margin-top: 12px;
-      background: var(--navy);
-      color: white;
-      font-weight: bold;
-    }
-
-    .memo-button:disabled {
-      opacity: 0.65;
-      cursor: default;
-    }
-
-    .reference-card {
-      padding: 18px;
-      margin-top: 20px;
-      background: var(--soft-beige);
-      border-radius: var(--radius-medium);
-      color: var(--navy);
-      line-height: 1.7;
-    }
-
-    .back-home-button {
-      width: 100%;
-      margin-top: 22px;
-      background: var(--soft-beige);
-      color: var(--navy);
-    }
-
-    @media (min-width: 680px) {
-      .path-grid {
-        grid-template-columns: 1fr 1fr;
-      }
+    @media (min-width:680px) {
+      .path-grid { grid-template-columns:1fr 1fr; }
+      .handwriting-layout { grid-template-columns:.8fr 1.2fr; }
     }
   </style>
 </head>
 
 <body>
-
 <main class="app">
-
-  <a
-    class="back-link"
-    href="index.html"
-  >
-    ← Accueil
-  </a>
-
+  <a class="back-link" href="index.html">← Accueil</a>
 
   <header class="hangeul-header">
-
-    <span class="hangeul-badge">
-      🔤 Section permanente
-    </span>
-
-    <p class="korean">
-      한글
-    </p>
-
-    <h1>
-      Découvrir le Hangeul
-    </h1>
-
-    <p class="hangeul-subtitle">
-      Apprends à lire le coréen pas à pas,
-      puis reviens ici à tout moment
-      dès que tu as un doute.
-    </p>
-
+    <span class="hangeul-badge">🔤 Section permanente</span>
+    <p class="korean">한글</p>
+    <h1>Découvrir le Hangeul</h1>
+    <p class="hangeul-subtitle">Apprends à lire le coréen pas à pas, puis reviens ici à tout moment dès que tu as un doute.</p>
   </header>
 
-
   <section class="intro-card">
-
-    <strong>🌿 Comment utiliser cette section ?</strong>
-
-    <br><br>
-
-    Si tu débutes complètement,
-    suis les étapes dans l'ordre.
-
-    <br><br>
-
-    Si tu sais déjà lire un peu le coréen,
-    utilise cette section comme un mémo :
-    consonnes, voyelles, batchim,
-    assemblage des syllabes
-    et règles de prononciation restent accessibles à tout moment.
-
+    <strong>🌿 Comment utiliser cette section ?</strong><br><br>
+    Si tu débutes complètement, suis les étapes dans l'ordre.<br><br>
+    Si tu sais déjà lire un peu le coréen, utilise cette section comme un mémo : consonnes, voyelles, batchim, assemblage des syllabes et règles de prononciation restent accessibles à tout moment.
   </section>
-
 
   <section class="progress-card">
-
     <div class="progress-top">
-
-      <div class="progress-title">
-        Progression Hangeul
-      </div>
-
-      <div
-        class="progress-count"
-        id="progressCount"
-      >
-        0 / 6
-      </div>
-
+      <div class="progress-title">Progression Hangeul</div>
+      <div class="progress-count" id="progressCount">0 / 6</div>
     </div>
-
-    <div class="progress-bar">
-      <div
-        class="progress-fill"
-        id="progressFill"
-      ></div>
-    </div>
-
-    <div
-      class="progress-message"
-      id="progressMessage"
-    >
-      Commence par les consonnes 🌱
-    </div>
-
+    <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    <div class="progress-message" id="progressMessage">Commence par les consonnes 🌱</div>
   </section>
 
-
-  <h2 class="section-title">
-    Ton parcours Hangeul
-  </h2>
-
+  <h2 class="section-title">Ton parcours Hangeul</h2>
 
   <section class="path-grid">
-
-
     <article class="path-card">
-
-      <div class="path-icon">
-        ㄱ
-      </div>
-
-      <h2>
-        1. Les consonnes
-      </h2>
-
-      <p>
-        Découvre les consonnes de base,
-        leur forme,
-        leur son
-        et des exemples simples.
-      </p>
-
-      <div
-        class="status-line"
-        id="statusConsonants"
-      >
-        À découvrir
-      </div>
-
-      <button
-        class="path-button"
-        id="buttonConsonants"
-        type="button"
-        onclick="window.location.href='hangeul-consonnes.html'"
-      >
-        Commencer
-      </button>
-
+      <div class="path-icon">ㄱ</div><h2>1. Les consonnes</h2>
+      <p>Découvre les consonnes de base, leur forme, leur son et des exemples simples.</p>
+      <div class="status-line" id="statusConsonants">À découvrir</div>
+      <button class="path-button" id="buttonConsonants" type="button" onclick="window.location.href='hangeul-consonnes.html'">Commencer</button>
     </article>
 
-
     <article class="path-card">
-
-      <div class="path-icon">
-        ㅏ
-      </div>
-
-      <h2>
-        2. Les voyelles
-      </h2>
-
-      <p>
-        Apprends les voyelles simples,
-        les sons en « y »
-        et les principales voyelles composées.
-      </p>
-
-      <div
-        class="status-line"
-        id="statusVowels"
-      >
-        À découvrir
-      </div>
-
-      <button
-        class="path-button"
-        id="buttonVowels"
-        type="button"
-        onclick="window.location.href='hangeul-voyelles.html'"
-      >
-        Ouvrir
-      </button>
-
+      <div class="path-icon">ㅏ</div><h2>2. Les voyelles</h2>
+      <p>Apprends les voyelles simples, les sons en « y » et les principales voyelles composées.</p>
+      <div class="status-line" id="statusVowels">À découvrir</div>
+      <button class="path-button" id="buttonVowels" type="button" onclick="window.location.href='hangeul-voyelles.html'">Ouvrir</button>
     </article>
 
-
     <article class="path-card">
-
-      <div class="path-icon">
-        가
-      </div>
-
-      <h2>
-        3. Former une syllabe
-      </h2>
-
-      <p>
-        Assemble consonnes et voyelles
-        et découvre comment elles deviennent
-        de vrais blocs coréens.
-      </p>
-
-      <div
-        class="status-line"
-        id="statusSyllables"
-      >
-        À découvrir
-      </div>
-
-      <button
-        class="path-button"
-        id="buttonSyllables"
-        type="button"
-        onclick="window.location.href='hangeul-syllabes.html'"
-      >
-        Ouvrir
-      </button>
-
+      <div class="path-icon">가</div><h2>3. Former une syllabe</h2>
+      <p>Assemble consonnes et voyelles et découvre comment elles deviennent de vrais blocs coréens.</p>
+      <div class="status-line" id="statusSyllables">À découvrir</div>
+      <button class="path-button" id="buttonSyllables" type="button" onclick="window.location.href='hangeul-syllabes.html'">Ouvrir</button>
     </article>
 
-
     <article class="path-card">
-
-      <div class="path-icon">
-        받
-      </div>
-
-      <h2>
-        4. Les batchim 받침
-      </h2>
-
-      <p>
-        Comprends le rôle
-        de la consonne finale
-        et les sept sons finaux principaux.
-      </p>
-
-      <div
-        class="status-line"
-        id="statusBatchim"
-      >
-        À découvrir
-      </div>
-
-      <button
-        class="path-button"
-        id="buttonBatchim"
-        type="button"
-        onclick="window.location.href='hangeul-batchim.html'"
-      >
-        Ouvrir
-      </button>
-
+      <div class="path-icon">받</div><h2>4. Les batchim 받침</h2>
+      <p>Comprends le rôle de la consonne finale et les sept sons finaux principaux.</p>
+      <div class="status-line" id="statusBatchim">À découvrir</div>
+      <button class="path-button" id="buttonBatchim" type="button" onclick="window.location.href='hangeul-batchim.html'">Ouvrir</button>
     </article>
 
-
     <article class="path-card">
-
-      <div class="path-icon">
-        🔊
-      </div>
-
-      <h2>
-        5. Les changements de son
-      </h2>
-
-      <p>
-        Découvre pourquoi
-        un mot ne se prononce pas toujours
-        exactement comme il s'écrit.
-      </p>
-
-      <div
-        class="status-line"
-        id="statusSoundChanges"
-      >
-        À découvrir
-      </div>
-
-      <button
-        class="path-button"
-        id="buttonSoundChanges"
-        type="button"
-        onclick="window.location.href='hangeul-prononciation.html'"
-      >
-        Ouvrir
-      </button>
-
+      <div class="path-icon">🔊</div><h2>5. Les changements de son</h2>
+      <p>Découvre pourquoi un mot ne se prononce pas toujours exactement comme il s'écrit.</p>
+      <div class="status-line" id="statusSoundChanges">À découvrir</div>
+      <button class="path-button" id="buttonSoundChanges" type="button" onclick="window.location.href='hangeul-prononciation.html'">Ouvrir</button>
     </article>
 
-
     <article class="path-card">
-
-      <div class="path-icon">
-        📖
-      </div>
-
-      <h2>
-        6. Je m'entraîne à lire
-      </h2>
-
-      <p>
-        Passe des syllabes
-        aux mots,
-        puis à de petites expressions.
-      </p>
-
-      <div
-        class="status-line"
-        id="statusReading"
-      >
-        À découvrir
-      </div>
-
-      <button
-        class="path-button"
-        id="buttonReading"
-        type="button"
-        onclick="window.location.href='hangeul-lecture.html'"
-      >
-        Ouvrir
-      </button>
-
+      <div class="path-icon">📖</div><h2>6. Je m'entraîne à lire</h2>
+      <p>Passe des syllabes aux mots, puis à de petites expressions.</p>
+      <div class="status-line" id="statusReading">À découvrir</div>
+      <button class="path-button" id="buttonReading" type="button" onclick="window.location.href='hangeul-lecture.html'">Ouvrir</button>
     </article>
-
   </section>
 
+  <section class="handwriting-card" id="handwritingStudio">
+    <h2>✍️ J'écris le Hangeul à la main</h2>
+    <p class="handwriting-intro">Entraîne ton geste à la souris sur PC, puis directement avec ton doigt sur iPhone. Commence en mode guidé, puis passe en mode libre quand le mouvement devient plus naturel.</p>
+
+    <div class="handwriting-tabs">
+      <button class="handwriting-tab active" id="tabConsonants" type="button" onclick="setWritingGroup('consonants')">ㄱ Consonnes</button>
+      <button class="handwriting-tab" id="tabVowels" type="button" onclick="setWritingGroup('vowels')">ㅏ Voyelles</button>
+      <button class="handwriting-tab" id="tabSyllables" type="button" onclick="setWritingGroup('syllables')">가 Syllabes</button>
+    </div>
+
+    <div class="character-picker" id="characterPicker"></div>
+
+    <div class="handwriting-layout">
+      <div class="handwriting-guide-panel">
+        <div class="guide-title">Ordre des traits</div>
+        <div class="guide-character" id="guideCharacter">ㄱ</div>
+        <div class="stroke-list" id="strokeList"></div>
+      </div>
+
+      <div>
+        <div class="writing-mode-row">
+          <button class="writing-mode-button active" id="guidedModeButton" type="button" onclick="setWritingMode('guided')">👆 Mode guidé</button>
+          <button class="writing-mode-button" id="freeModeButton" type="button" onclick="setWritingMode('free')">✨ Mode libre</button>
+        </div>
+
+        <div class="writing-canvas-wrap">
+          <div class="writing-grid-line vertical"></div>
+          <div class="writing-grid-line horizontal"></div>
+          <div class="canvas-ghost" id="canvasGhost">ㄱ</div>
+          <div class="stroke-overlay" id="strokeOverlay" aria-hidden="true"></div>
+          <canvas id="handwritingCanvas" aria-label="Zone tactile pour écrire le Hangeul à la main"></canvas>
+        </div>
+
+        <div class="handwriting-actions">
+          <button class="clear-writing-button" type="button" onclick="clearHandwriting()">↩️ Effacer</button>
+          <button class="next-writing-button" type="button" onclick="nextWritingCharacter()">Suivant →</button>
+        </div>
+
+        <div class="handwriting-message" id="handwritingMessage">Trace ㄱ en suivant le modèle.</div>
+        <div class="handwriting-tip">💡 Le but est d'apprendre le geste : l'application ne juge pas ton écriture. Tu peux recommencer autant de fois que tu veux.</div>
+      </div>
+    </div>
+  </section>
 
   <section class="memo-card">
-
-    <strong>
-      📌 Mémo Hangeul
-    </strong>
-
-    <br><br>
-
-    Cette future page servira de référence rapide :
-    consonnes, voyelles,
-    sons finaux et principales règles de prononciation
-    réunis au même endroit.
-
-    <br><br>
-
-    Elle sera utile même longtemps
-    après avoir terminé le parcours Hangeul.
-
-    <button
-      class="memo-button"
-      type="button"
-      onclick="window.location.href='hangeul-memo.html'"
-    >
-      📌 Ouvrir le Mémo Hangeul
-    </button>
-
+    <strong>📌 Mémo Hangeul</strong><br><br>
+    Cette page sert de référence rapide : consonnes, voyelles, sons finaux et principales règles de prononciation réunis au même endroit.
+    <button class="memo-button" type="button" onclick="window.location.href='hangeul-memo.html'">📌 Ouvrir le Mémo Hangeul</button>
   </section>
-
 
   <section class="reference-card">
-
-    <strong>
-      💙 Une ressource permanente
-    </strong>
-
-    <br><br>
-
-    Le Hangeul n'est pas un module
-    que tu termines puis que tu oublies.
-
-    <br><br>
-
-    Toutes les leçons restent accessibles
-    même après leur validation,
-    pour pouvoir revenir sur une lettre,
-    un batchim ou une règle
-    dès que tu en as besoin.
-
+    <strong>💙 Une ressource permanente</strong><br><br>
+    Le Hangeul n'est pas un module que tu termines puis que tu oublies.<br><br>
+    Toutes les leçons restent accessibles même après leur validation, pour pouvoir revenir sur une lettre, un batchim ou une règle dès que tu en as besoin.
   </section>
 
-
-  <button
-    class="back-home-button"
-    type="button"
-    onclick="window.location.href='index.html'"
-  >
-    Retour à l'accueil
-  </button>
-
+  <button class="back-home-button" type="button" onclick="window.location.href='index.html'">Retour à l'accueil</button>
 </main>
 
-
 <script>
+  /* ===== Progression Hangeul ===== */
   const hangeulSteps = [
-
-    {
-      key:
-        "hanaKorean_hangeul_consonants",
-
-      statusId:
-        "statusConsonants",
-
-      buttonId:
-        "buttonConsonants"
-    },
-
-    {
-      key:
-        "hanaKorean_hangeul_vowels",
-
-      statusId:
-        "statusVowels",
-
-      buttonId:
-        "buttonVowels"
-    },
-
-    {
-      key:
-        "hanaKorean_hangeul_syllables",
-
-      statusId:
-        "statusSyllables",
-
-      buttonId:
-        "buttonSyllables"
-    },
-
-    {
-      key:
-        "hanaKorean_hangeul_batchim",
-
-      statusId:
-        "statusBatchim",
-
-      buttonId:
-        "buttonBatchim"
-    },
-
-    {
-      key:
-        "hanaKorean_hangeul_soundChanges",
-
-      statusId:
-        "statusSoundChanges",
-
-      buttonId:
-        "buttonSoundChanges"
-    },
-
-    {
-      key:
-        "hanaKorean_hangeul_reading",
-
-      statusId:
-        "statusReading",
-
-      buttonId:
-        "buttonReading"
-    }
-
+    { key:"hanaKorean_hangeul_consonants", statusId:"statusConsonants", buttonId:"buttonConsonants" },
+    { key:"hanaKorean_hangeul_vowels", statusId:"statusVowels", buttonId:"buttonVowels" },
+    { key:"hanaKorean_hangeul_syllables", statusId:"statusSyllables", buttonId:"buttonSyllables" },
+    { key:"hanaKorean_hangeul_batchim", statusId:"statusBatchim", buttonId:"buttonBatchim" },
+    { key:"hanaKorean_hangeul_soundChanges", statusId:"statusSoundChanges", buttonId:"buttonSoundChanges" },
+    { key:"hanaKorean_hangeul_reading", statusId:"statusReading", buttonId:"buttonReading" }
   ];
 
-
   function isCompleted(key) {
-
-    return localStorage.getItem(
-      key
-    ) === "completed";
-
+    return localStorage.getItem(key) === "completed";
   }
-
 
   function updateHangeulProgress() {
-
     let completedCount = 0;
 
+    hangeulSteps.forEach(step => {
+      const completed = isCompleted(step.key);
+      const status = document.getElementById(step.statusId);
+      const button = document.getElementById(step.buttonId);
 
-    hangeulSteps.forEach(
-      step => {
-
-        const completed =
-          isCompleted(
-            step.key
-          );
-
-
-        const status =
-          document.getElementById(
-            step.statusId
-          );
-
-
-        const button =
-          document.getElementById(
-            step.buttonId
-          );
-
-
-        if (completed) {
-
-          completedCount++;
-
-
-          status.textContent =
-            "Terminé ✓";
-
-
-          status.classList.add(
-            "done"
-          );
-
-
-          button.textContent =
-            "Revoir";
-
-
-          button.classList.add(
-            "done"
-          );
-
-        }
-
-        else {
-
-          status.textContent =
-            "À découvrir";
-
-
-          status.classList.remove(
-            "done"
-          );
-
-
-          if (
-            step.buttonId ===
-            "buttonConsonants"
-          ) {
-
-            button.textContent =
-              "Commencer";
-
-          }
-
-          else {
-
-            button.textContent =
-              "Ouvrir";
-
-          }
-
-
-          button.classList.remove(
-            "done"
-          );
-
-        }
-
+      if (completed) {
+        completedCount++;
+        status.textContent = "Terminé ✓";
+        status.classList.add("done");
+        button.textContent = "Revoir";
+        button.classList.add("done");
+      } else {
+        status.textContent = "À découvrir";
+        status.classList.remove("done");
+        button.textContent = step.buttonId === "buttonConsonants" ? "Commencer" : "Ouvrir";
+        button.classList.remove("done");
       }
-    );
+    });
 
+    const percentage = Math.round((completedCount / hangeulSteps.length) * 100);
+    document.getElementById("progressCount").textContent = completedCount + " / " + hangeulSteps.length;
+    document.getElementById("progressFill").style.width = percentage + "%";
 
-    const percentage =
-      Math.round(
-        (
-          completedCount /
-          hangeulSteps.length
-        ) *
-        100
-      );
-
-
-    document.getElementById(
-      "progressCount"
-    ).textContent =
-      completedCount +
-      " / " +
-      hangeulSteps.length;
-
-
-    document.getElementById(
-      "progressFill"
-    ).style.width =
-      percentage +
-      "%";
-
-
-    const message =
-      document.getElementById(
-        "progressMessage"
-      );
-
-
-    if (
-      completedCount === 0
-    ) {
-
-      message.textContent =
-        "Commence par les consonnes 🌱";
-
-    }
-
-    else if (
-      completedCount <
-      hangeulSteps.length
-    ) {
-
-      message.textContent =
-        percentage +
-        " % du parcours Hangeul terminé 🌿";
-
-    }
-
+    const message = document.getElementById("progressMessage");
+    if (completedCount === 0) message.textContent = "Commence par les consonnes 🌱";
+    else if (completedCount < hangeulSteps.length) message.textContent = percentage + " % du parcours Hangeul terminé 🌿";
     else {
-
-      message.textContent =
-        "Parcours Hangeul terminé 🎉 Tu peux continuer à consulter toutes les leçons quand tu veux.";
-
+      message.textContent = "Parcours Hangeul terminé 🎉 Tu peux continuer à consulter toutes les leçons quand tu veux.";
+      localStorage.setItem("hanaKorean_hangeul_completed", "completed");
     }
-
-
-    if (
-      completedCount ===
-      hangeulSteps.length
-    ) {
-
-      localStorage.setItem(
-        "hanaKorean_hangeul_completed",
-        "completed"
-      );
-
-    }
-
   }
 
+  /* ===== Atelier d'écriture ===== */
+  const handwritingGroups = {
+    consonants: [
+      { char:"ㄱ", steps:["De gauche à droite.","Puis descends verticalement."], paths:["M28 32 L72 32","M72 32 L72 76"] },
+      { char:"ㄴ", steps:["Descends verticalement.","Puis va vers la droite."], paths:["M32 26 L32 72","M32 72 L76 72"] },
+      { char:"ㄷ", steps:["Trace le haut vers la droite.","Descends à gauche.","Trace le bas vers la droite."], paths:["M28 30 L74 30","M28 30 L28 74","M28 74 L74 74"] },
+      { char:"ㄹ", steps:["Trace le haut vers la droite.","Descends.","Reviens vers la gauche.","Descends.","Termine vers la droite."], paths:["M26 24 L72 24","M72 24 L72 42","M72 42 L36 42","M36 42 L36 70","M36 70 L76 70"] },
+      { char:"ㅁ", steps:["Descends à gauche.","Trace le haut vers la droite.","Descends à droite.","Ferme par le bas."], paths:["M30 28 L30 74","M30 28 L72 28","M72 28 L72 74","M30 74 L72 74"] },
+      { char:"ㅂ", steps:["Trace la verticale gauche.","Trace la verticale droite.","Relie en haut.","Trace la barre du milieu.","Relie en bas."], paths:["M28 24 L28 76","M72 24 L72 76","M28 24 L72 24","M28 50 L72 50","M28 76 L72 76"] },
+      { char:"ㅅ", steps:["Descends en diagonale vers la gauche.","Puis descends en diagonale vers la droite."], paths:["M52 28 L30 74","M52 28 L76 74"] },
+      { char:"ㅇ", steps:["Trace le cercle dans un mouvement continu.","Referme proprement la forme."], paths:["M52 26 C26 26 26 76 52 76 C78 76 78 26 52 26"] },
+      { char:"ㅈ", steps:["Trace ㅅ.","Ajoute une barre horizontale au-dessus."], paths:["M52 34 L32 72","M52 34 L74 72","M30 24 L76 24"] },
+      { char:"ㅊ", steps:["Trace une petite barre en haut.","Ajoute une seconde barre horizontale.","Puis trace ㅅ."], paths:["M44 16 L60 16","M30 28 L76 28","M52 36 L32 74","M52 36 L74 74"] },
+      { char:"ㅋ", steps:["Trace ㄱ.","Ajoute une barre horizontale au milieu."], paths:["M28 28 L72 28","M72 28 L72 76","M48 50 L78 50"] },
+      { char:"ㅌ", steps:["Trace une barre horizontale en haut.","Trace une deuxième barre au milieu.","Ferme comme ㄷ avec le bas."], paths:["M26 24 L76 24","M26 48 L76 48","M28 24 L28 76","M28 76 L76 76"] },
+      { char:"ㅍ", steps:["Trace deux barres horizontales.","Ajoute deux verticales."], paths:["M26 30 L76 30","M26 66 L76 66","M38 22 L38 76","M64 22 L64 76"] },
+      { char:"ㅎ", steps:["Petite barre horizontale en haut.","Trace une ligne horizontale.","Puis trace un cercle dessous."], paths:["M44 18 L60 18","M30 34 L76 34","M52 44 C30 44 30 78 52 78 C74 78 74 44 52 44"] }
+    ],
+    vowels: [
+      { char:"ㅏ", steps:["Grande ligne verticale de haut en bas.","Petit trait vers la droite."], paths:["M48 22 L48 80","M48 50 L74 50"] },
+      { char:"ㅑ", steps:["Grande ligne verticale.","Ajoute deux petits traits vers la droite."], paths:["M46 20 L46 82","M46 42 L72 42","M46 60 L72 60"] },
+      { char:"ㅓ", steps:["Grande ligne verticale de haut en bas.","Petit trait vers la gauche."], paths:["M56 22 L56 80","M30 50 L56 50"] },
+      { char:"ㅕ", steps:["Grande ligne verticale.","Ajoute deux petits traits vers la gauche."], paths:["M58 20 L58 82","M32 42 L58 42","M32 60 L58 60"] },
+      { char:"ㅗ", steps:["Ligne horizontale de gauche à droite.","Trait vertical vers le haut."], paths:["M24 62 L80 62","M52 62 L52 30"] },
+      { char:"ㅛ", steps:["Ligne horizontale.","Ajoute deux traits verticaux vers le haut."], paths:["M22 66 L82 66","M42 66 L42 34","M62 66 L62 34"] },
+      { char:"ㅜ", steps:["Ligne horizontale de gauche à droite.","Trait vertical vers le bas."], paths:["M24 42 L80 42","M52 42 L52 76"] },
+      { char:"ㅠ", steps:["Ligne horizontale.","Ajoute deux traits verticaux vers le bas."], paths:["M22 36 L82 36","M42 36 L42 72","M62 36 L62 72"] },
+      { char:"ㅡ", steps:["Une ligne horizontale de gauche à droite."], paths:["M22 52 L82 52"] },
+      { char:"ㅣ", steps:["Une ligne verticale de haut en bas."], paths:["M52 20 L52 82"] },
+      { char:"ㅐ", steps:["Trace ㅏ.","Ajoute une verticale à droite."], paths:["M38 20 L38 82","M38 50 L58 50","M70 20 L70 82"] },
+      { char:"ㅔ", steps:["Trace ㅓ.","Ajoute une verticale à droite."], paths:["M58 20 L58 82","M34 50 L58 50","M76 20 L76 82"] },
+      { char:"ㅚ", steps:["Trace ㅗ.","Ajoute ㅣ à droite."], paths:["M20 64 L72 64","M46 64 L46 34","M80 20 L80 82"] },
+      { char:"ㅟ", steps:["Trace ㅜ.","Ajoute ㅣ à droite."], paths:["M20 38 L72 38","M46 38 L46 72","M80 20 L80 82"] }
+    ],
+    syllables: [
+      { char:"가", steps:["Écris d'abord ㄱ.","Puis construis ㅏ à droite."], paths:["M18 28 L43 28","M43 28 L43 72","M62 22 L62 80","M62 50 L83 50"] },
+      { char:"나", steps:["Écris d'abord ㄴ.","Puis construis ㅏ à droite."], paths:["M21 25 L21 70","M21 70 L44 70","M62 22 L62 80","M62 50 L83 50"] },
+      { char:"다", steps:["Écris d'abord ㄷ.","Puis construis ㅏ à droite."], paths:["M16 28 L42 28","M16 28 L16 72","M16 72 L42 72","M62 22 L62 80","M62 50 L83 50"] },
+      { char:"라", steps:["Écris d'abord ㄹ.","Puis construis ㅏ à droite."], paths:["M14 24 L42 24","M42 24 L42 40","M42 40 L22 40","M22 40 L22 66","M22 66 L44 66","M64 20 L64 82","M64 50 L84 50"] },
+      { char:"마", steps:["Écris d'abord ㅁ.","Puis construis ㅏ à droite."], paths:["M15 28 L15 72","M15 28 L42 28","M42 28 L42 72","M15 72 L42 72","M62 22 L62 80","M62 50 L83 50"] },
+      { char:"바", steps:["Écris d'abord ㅂ.","Puis construis ㅏ à droite."], paths:["M14 24 L14 74","M42 24 L42 74","M14 24 L42 24","M14 49 L42 49","M14 74 L42 74","M64 20 L64 82","M64 50 L84 50"] },
+      { char:"사", steps:["Écris d'abord ㅅ.","Puis construis ㅏ à droite."], paths:["M28 28 L14 70","M28 28 L44 70","M64 20 L64 82","M64 50 L84 50"] },
+      { char:"아", steps:["Écris d'abord ㅇ.","Puis construis ㅏ à droite."], paths:["M28 24 C12 24 12 72 28 72 C44 72 44 24 28 24","M64 20 L64 82","M64 50 L84 50"] },
+      { char:"자", steps:["Écris d'abord ㅈ.","Puis construis ㅏ à droite."], paths:["M28 34 L14 70","M28 34 L44 70","M12 22 L44 22","M64 20 L64 82","M64 50 L84 50"] },
+      { char:"하", steps:["Écris d'abord ㅎ.","Puis construis ㅏ à droite."], paths:["M18 16 L38 16","M12 30 L44 30","M28 40 C14 40 14 70 28 70 C42 70 42 40 28 40","M64 20 L64 82","M64 50 L84 50"] },
+      { char:"고", steps:["Écris ㄱ.","Puis ajoute ㅗ sous la consonne."], paths:["M28 20 L66 20","M66 20 L66 48","M22 70 L78 70","M50 70 L50 46"] },
+      { char:"누", steps:["Écris ㄴ.","Puis ajoute ㅜ sous la consonne."], paths:["M28 18 L28 48","M28 48 L66 48","M22 64 L78 64","M50 64 L50 84"] }
+    ]
+  };
 
+  let handwritingGroup = "consonants";
+  let handwritingIndex = 0;
+  let handwritingMode = "guided";
+  let canvas, ctx, drawing = false, lastPoint = null;
+
+  function currentItem() { return handwritingGroups[handwritingGroup][handwritingIndex]; }
+
+  function setWritingGroup(group) {
+    handwritingGroup = group;
+    handwritingIndex = 0;
+    document.querySelectorAll(".handwriting-tab").forEach(b => b.classList.remove("active"));
+    const map = { consonants:"tabConsonants", vowels:"tabVowels", syllables:"tabSyllables" };
+    document.getElementById(map[group]).classList.add("active");
+    renderPicker(); renderItem();
+  }
+
+  function setWritingMode(mode) {
+    handwritingMode = mode;
+    document.getElementById("guidedModeButton").classList.toggle("active", mode === "guided");
+    document.getElementById("freeModeButton").classList.toggle("active", mode === "free");
+    document.getElementById("canvasGhost").classList.toggle("hidden", mode === "free");
+    document.getElementById("strokeOverlay").style.display = mode === "guided" ? "block" : "none";
+    clearHandwriting();
+    document.getElementById("handwritingMessage").textContent = mode === "guided" ? "Suis le modèle et l'ordre des traits." : "Écris maintenant sans modèle ✨";
+  }
+
+  function renderPicker() {
+    const picker = document.getElementById("characterPicker");
+    picker.innerHTML = "";
+    handwritingGroups[handwritingGroup].forEach((item,index) => {
+      const b = document.createElement("button");
+      b.type = "button";
+      b.className = "character-chip" + (index === handwritingIndex ? " active" : "");
+      b.textContent = item.char;
+      b.onclick = () => { handwritingIndex = index; renderPicker(); renderItem(); };
+      picker.appendChild(b);
+    });
+  }
+
+  function renderItem() {
+    const item = currentItem();
+    document.getElementById("guideCharacter").textContent = item.char;
+    document.getElementById("canvasGhost").textContent = item.char;
+
+    const list = document.getElementById("strokeList");
+    list.innerHTML = "";
+    item.steps.forEach((text,index) => {
+      const row = document.createElement("div");
+      row.className = "stroke-row";
+      row.innerHTML = "<span class='stroke-number'>" + (index+1) + "</span><span>" + text + "</span>";
+      list.appendChild(row);
+    });
+
+    renderStrokeOverlay();
+    clearHandwriting();
+    document.getElementById("handwritingMessage").textContent = handwritingMode === "guided" ? "Trace " + item.char + " en suivant le modèle." : "Écris " + item.char + " sans modèle.";
+  }
+
+  function renderStrokeOverlay() {
+    const item = currentItem();
+    let svg = '<svg viewBox="0 0 100 100" preserveAspectRatio="none"><defs><marker id="arrowHead" markerWidth="7" markerHeight="7" refX="5.5" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="rgba(85,126,115,.62)"></path></marker></defs>';
+    item.paths.forEach((path,index) => {
+      svg += '<path d="' + path + '" fill="none" stroke="rgba(85,126,115,.48)" stroke-width="2.2" stroke-dasharray="4 3" marker-end="url(#arrowHead)"></path>';
+      const m = path.match(/M\s*([0-9.]+)\s*([0-9.]+)/);
+      if (m) svg += '<circle cx="'+m[1]+'" cy="'+m[2]+'" r="5.5" fill="rgba(215,185,120,.92)"></circle><text x="'+m[1]+'" y="'+(Number(m[2])+2.2)+'" text-anchor="middle" font-size="6" font-weight="700" fill="#26364A">'+(index+1)+'</text>';
+    });
+    document.getElementById("strokeOverlay").innerHTML = svg + "</svg>";
+  }
+
+  function resizeCanvas() {
+    if (!canvas) return;
+    const rect = canvas.getBoundingClientRect();
+    const ratio = window.devicePixelRatio || 1;
+    canvas.width = Math.max(1, Math.round(rect.width * ratio));
+    canvas.height = Math.max(1, Math.round(rect.height * ratio));
+    ctx = canvas.getContext("2d");
+    ctx.setTransform(ratio,0,0,ratio,0,0);
+    ctx.lineCap = "round";
+    ctx.lineJoin = "round";
+    ctx.lineWidth = Math.max(5, rect.width * .018);
+    ctx.strokeStyle = "#26364A";
+  }
+
+  function clearHandwriting() {
+    if (!canvas || !ctx) return;
+    const rect = canvas.getBoundingClientRect();
+    ctx.clearRect(0,0,rect.width,rect.height);
+    drawing = false; lastPoint = null;
+  }
+
+  function pointFromEvent(e) {
+    const r = canvas.getBoundingClientRect();
+    return { x:e.clientX-r.left, y:e.clientY-r.top };
+  }
+
+  function startDraw(e) {
+    e.preventDefault(); drawing = true; lastPoint = pointFromEvent(e);
+    try { canvas.setPointerCapture(e.pointerId); } catch(err) {}
+  }
+
+  function moveDraw(e) {
+    if (!drawing) return;
+    e.preventDefault();
+    const p = pointFromEvent(e);
+    ctx.beginPath(); ctx.moveTo(lastPoint.x,lastPoint.y); ctx.lineTo(p.x,p.y); ctx.stroke();
+    lastPoint = p;
+  }
+
+  function stopDraw(e) {
+    if (!drawing) return;
+    e.preventDefault(); drawing = false; lastPoint = null;
+    document.getElementById("handwritingMessage").textContent = handwritingMode === "guided" ? "Bien ! Compare ton tracé au modèle, puis recommence ou passe au suivant. 🌿" : "Bien ! Efface et recommence pour rendre le geste plus fluide. ✨";
+  }
+
+  function nextWritingCharacter() {
+    const group = handwritingGroups[handwritingGroup];
+    handwritingIndex = (handwritingIndex + 1) % group.length;
+    renderPicker(); renderItem();
+  }
+
+  function initHandwriting() {
+    canvas = document.getElementById("handwritingCanvas");
+    resizeCanvas();
+    canvas.addEventListener("pointerdown", startDraw);
+    canvas.addEventListener("pointermove", moveDraw);
+    canvas.addEventListener("pointerup", stopDraw);
+    canvas.addEventListener("pointercancel", stopDraw);
+    window.addEventListener("resize", () => { resizeCanvas(); clearHandwriting(); });
+    renderPicker(); renderItem();
+  }
+
+  initHandwriting();
   updateHangeulProgress();
-
-
-  window.addEventListener(
-    "pageshow",
-    updateHangeulProgress
-  );
+  window.addEventListener("pageshow", updateHangeulProgress);
 </script>
-
 </body>
-
 </html>
