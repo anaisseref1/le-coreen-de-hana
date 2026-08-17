@@ -20,6 +20,184 @@
     rel="stylesheet"
     href="style.css"
   >
+
+  <style>
+
+    .home-header {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .home-header .korean {
+      margin-bottom: 8px;
+      font-size: 20px;
+    }
+
+    .home-header h1 {
+      margin-bottom: 10px;
+    }
+
+    .home-intro {
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+
+    .modules-section {
+      margin-top: 8px;
+    }
+
+    .modules-title {
+      margin-bottom: 15px;
+      color: var(--navy);
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .module-card {
+      display: block;
+      position: relative;
+      padding: 20px;
+      margin-bottom: 16px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-large);
+      box-shadow: var(--shadow);
+      color: inherit;
+      text-decoration: none;
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    .module-card:active {
+      transform: scale(0.99);
+    }
+
+    .module-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 15px;
+    }
+
+    .module-number {
+      margin-bottom: 6px;
+      color: var(--jade-dark);
+      font-size: 13px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .module-card h2 {
+      margin: 0;
+      color: var(--navy);
+      font-size: 20px;
+      line-height: 1.35;
+    }
+
+    .module-icon {
+      flex: 0 0 auto;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--soft-green);
+      border-radius: 16px;
+      font-size: 25px;
+    }
+
+    .module-description {
+      margin: 11px 0 0;
+      color: var(--text-light);
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .module-progress {
+      margin-top: 17px;
+    }
+
+    .module-progress-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 7px;
+      color: var(--text-light);
+      font-size: 12px;
+    }
+
+    .module-progress-bar {
+      width: 100%;
+      height: 8px;
+      background: var(--soft-beige);
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .module-progress-fill {
+      width: 0%;
+      height: 100%;
+      background: var(--jade);
+      border-radius: 20px;
+      transition: width 0.35s ease;
+    }
+
+    .module-action {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: 15px;
+      color: var(--jade-dark);
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .module-arrow {
+      font-size: 18px;
+    }
+
+    .module-card.future {
+      background: #FBFAF6;
+    }
+
+    .module-card.future .module-icon {
+      background: var(--soft-blue);
+    }
+
+    .module-status {
+      display: inline-block;
+      padding: 6px 10px;
+      margin-top: 14px;
+      background: var(--soft-beige);
+      border-radius: 20px;
+      color: var(--text-light);
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    @media (max-width: 480px) {
+
+      .module-card {
+        padding: 18px;
+      }
+
+      .module-card h2 {
+        font-size: 19px;
+      }
+
+      .module-icon {
+        width: 44px;
+        height: 44px;
+        font-size: 23px;
+      }
+
+    }
+
+  </style>
+
 </head>
 
 
@@ -28,11 +206,7 @@
   <main class="app">
 
 
-    <!-- =========================
-         EN-TÊTE
-    ========================== -->
-
-    <header>
+    <header class="home-header">
 
       <p class="korean">
         안녕하세요 🌿
@@ -42,129 +216,329 @@
         Le coréen de Hana
       </h1>
 
-      <p>
-        Ton voyage vers le coréen commence ici 🇰🇷
+      <p class="home-intro">
+        Choisis ton module et poursuis ton voyage en coréen. 🇰🇷
       </p>
 
     </header>
 
 
 
-    <!-- =========================
-         CONTINUER MON VOYAGE
-    ========================== -->
+    <section class="modules-section">
 
-    <section class="continue-card">
-
-      <p>
-        Continuer mon voyage
-      </p>
-
-      <h2>
-        Module 1
-      </h2>
-
-      <p>
-        Premiers pas en coréen
-      </p>
-
-      <button
-        id="continueButton"
-        type="button"
-        onclick="window.location.href='itineraire.html'"
-      >
-        Continuer
-      </button>
-
-    </section>
-
-
-
-    <!-- =========================
-         PARCOURS D'APPRENTISSAGE
-    ========================== -->
-
-    <section class="learning-menu">
-
-      <button
-        type="button"
-        onclick="window.location.href='chapitre-1.html'"
-      >
-        📖 Je comprends
-      </button>
-
-
-      <button
-        type="button"
-        onclick="window.location.href='ecoute-1.html'"
-      >
-        🎧 J'écoute
-      </button>
-
-
-      <button
-        type="button"
-        id="speakHomeButton"
-      >
-        🗣️ Je parle
-      </button>
-
-
-      <button
-        type="button"
-        onclick="window.location.href='ecriture-1.html'"
-      >
-        ✍️ J'écris
-      </button>
-
-
-      <button
-        type="button"
-        onclick="window.location.href='revision-1.html'"
-      >
-        🧠 Je révise
-      </button>
-
-
-      <button
-        type="button"
-        id="useHomeButton"
-      >
-        🎯 Je l'utilise
-      </button>
-
-    </section>
-
-
-
-    <!-- =========================
-         JARDIN DE HANA
-    ========================== -->
-
-    <section class="garden">
-
-      <h2>
-        🌱 Le jardin de Hana
-      </h2>
-
-      <div
-        class="plant"
-        id="plant"
-        aria-label="Plante du jardin de Hana"
-      >
-        🌱
+      <div class="modules-title">
+        🗺️ Mon parcours
       </div>
 
-      <p>
-        Fais une activité aujourd'hui pour arroser ton jardin.
-      </p>
 
-      <button
-        id="waterButton"
-        type="button"
+
+      <a
+        class="module-card"
+        href="hangeul.html"
       >
-        💧 Arroser
-      </button>
+
+        <div class="module-top">
+
+          <div>
+
+            <div class="module-number">
+              Fondations
+            </div>
+
+            <h2>
+              Hangeul
+            </h2>
+
+          </div>
+
+          <div class="module-icon">
+            🔤
+          </div>
+
+        </div>
+
+        <p class="module-description">
+          Apprends et révise l'alphabet coréen :
+          consonnes, voyelles, syllabes, batchim et prononciation.
+        </p>
+
+        <div class="module-action">
+
+          <span>
+            Ouvrir le parcours Hangeul
+          </span>
+
+          <span class="module-arrow">
+            →
+          </span>
+
+        </div>
+
+      </a>
+
+
+
+      <a
+        class="module-card"
+        href="itineraire.html#module1"
+      >
+
+        <div class="module-top">
+
+          <div>
+
+            <div class="module-number">
+              Module 1
+            </div>
+
+            <h2>
+              Premiers pas en coréen
+            </h2>
+
+          </div>
+
+          <div class="module-icon">
+            🌱
+          </div>
+
+        </div>
+
+        <p class="module-description">
+          Les bases pour te présenter, parler de ton quotidien
+          et commencer à communiquer simplement.
+        </p>
+
+        <div class="module-progress">
+
+          <div class="module-progress-top">
+
+            <span>
+              Progression
+            </span>
+
+            <strong id="module1ProgressText">
+              0 / 10 chapitres
+            </strong>
+
+          </div>
+
+          <div class="module-progress-bar">
+
+            <div
+              class="module-progress-fill"
+              id="module1ProgressFill"
+            ></div>
+
+          </div>
+
+        </div>
+
+        <div class="module-action">
+
+          <span id="module1Action">
+            Commencer le module
+          </span>
+
+          <span class="module-arrow">
+            →
+          </span>
+
+        </div>
+
+      </a>
+
+
+
+      <a
+        class="module-card"
+        href="itineraire.html#module2"
+      >
+
+        <div class="module-top">
+
+          <div>
+
+            <div class="module-number">
+              Module 2
+            </div>
+
+            <h2>
+              La vie quotidienne
+            </h2>
+
+          </div>
+
+          <div class="module-icon">
+            ☕
+          </div>
+
+        </div>
+
+        <p class="module-description">
+          Achats, déplacements, café, restaurant, hôtel
+          et situations utiles de tous les jours.
+        </p>
+
+        <div class="module-progress">
+
+          <div class="module-progress-top">
+
+            <span>
+              Progression
+            </span>
+
+            <strong id="module2ProgressText">
+              0 / 9 chapitres
+            </strong>
+
+          </div>
+
+          <div class="module-progress-bar">
+
+            <div
+              class="module-progress-fill"
+              id="module2ProgressFill"
+            ></div>
+
+          </div>
+
+        </div>
+
+        <div class="module-action">
+
+          <span id="module2Action">
+            Commencer le module
+          </span>
+
+          <span class="module-arrow">
+            →
+          </span>
+
+        </div>
+
+      </a>
+
+
+
+      <a
+        class="module-card"
+        href="itineraire.html#module3"
+      >
+
+        <div class="module-top">
+
+          <div>
+
+            <div class="module-number">
+              Module 3
+            </div>
+
+            <h2>
+              Chapitres 20 à 30
+            </h2>
+
+          </div>
+
+          <div class="module-icon">
+            🚄
+          </div>
+
+        </div>
+
+        <p class="module-description">
+          Faire connaissance, sortir, faire des achats,
+          voyager et raconter tes expériences.
+        </p>
+
+        <div class="module-progress">
+
+          <div class="module-progress-top">
+
+            <span>
+              Progression
+            </span>
+
+            <strong id="module3ProgressText">
+              0 / 11 chapitres
+            </strong>
+
+          </div>
+
+          <div class="module-progress-bar">
+
+            <div
+              class="module-progress-fill"
+              id="module3ProgressFill"
+            ></div>
+
+          </div>
+
+        </div>
+
+        <div class="module-action">
+
+          <span id="module3Action">
+            Commencer le module
+          </span>
+
+          <span class="module-arrow">
+            →
+          </span>
+
+        </div>
+
+      </a>
+
+
+
+      <a
+        class="module-card future"
+        href="itineraire.html#module4"
+      >
+
+        <div class="module-top">
+
+          <div>
+
+            <div class="module-number">
+              Module 4
+            </div>
+
+            <h2>
+              Parler, raconter et s'exprimer
+            </h2>
+
+          </div>
+
+          <div class="module-icon">
+            💬
+          </div>
+
+        </div>
+
+        <p class="module-description">
+          Habitudes, opinions, émotions, invitations,
+          voyages et conversations plus libres.
+        </p>
+
+        <span class="module-status">
+          Chapitres 31 à 42
+        </span>
+
+        <div class="module-action">
+
+          <span>
+            Voir le module
+          </span>
+
+          <span class="module-arrow">
+            →
+          </span>
+
+        </div>
+
+      </a>
+
 
     </section>
 
@@ -172,7 +546,192 @@
   </main>
 
 
-  <script src="app.js"></script>
+
+  <script>
+
+    const modules = [
+
+      {
+        number: 1,
+        firstChapter: 1,
+        lastChapter: 10
+      },
+
+      {
+        number: 2,
+        firstChapter: 11,
+        lastChapter: 19
+      },
+
+      {
+        number: 3,
+        firstChapter: 20,
+        lastChapter: 30
+      }
+
+    ];
+
+
+    function chapterCompleted(
+      chapterNumber
+    ) {
+
+      return (
+        localStorage.getItem(
+          "hanaKorean_chapter" +
+          chapterNumber +
+          "_completed"
+        ) === "completed"
+      );
+
+    }
+
+
+    function updateModuleProgress(
+      module
+    ) {
+
+      const total =
+        module.lastChapter -
+        module.firstChapter +
+        1;
+
+
+      let completed =
+        0;
+
+
+      for (
+        let chapter =
+          module.firstChapter;
+
+        chapter <=
+          module.lastChapter;
+
+        chapter++
+      ) {
+
+        if (
+          chapterCompleted(
+            chapter
+          )
+        ) {
+
+          completed++;
+
+        }
+
+      }
+
+
+      const percentage =
+        Math.round(
+          completed /
+          total *
+          100
+        );
+
+
+      const text =
+        document.getElementById(
+          "module" +
+          module.number +
+          "ProgressText"
+        );
+
+
+      const fill =
+        document.getElementById(
+          "module" +
+          module.number +
+          "ProgressFill"
+        );
+
+
+      const action =
+        document.getElementById(
+          "module" +
+          module.number +
+          "Action"
+        );
+
+
+      if (text) {
+
+        text.textContent =
+          completed +
+          " / " +
+          total +
+          " chapitres";
+
+      }
+
+
+      if (fill) {
+
+        fill.style.width =
+          percentage +
+          "%";
+
+      }
+
+
+      if (action) {
+
+        if (
+          completed === 0
+        ) {
+
+          action.textContent =
+            "Commencer le module";
+
+        }
+
+        else if (
+          completed === total
+        ) {
+
+          action.textContent =
+            "Module terminé ✓";
+
+        }
+
+        else {
+
+          action.textContent =
+            "Continuer le module";
+
+        }
+
+      }
+
+    }
+
+
+    function updateHome() {
+
+      modules.forEach(
+        updateModuleProgress
+      );
+
+    }
+
+
+    updateHome();
+
+
+    window.addEventListener(
+      "pageshow",
+      updateHome
+    );
+
+
+    window.addEventListener(
+      "storage",
+      updateHome
+    );
+
+  </script>
 
 </body>
 

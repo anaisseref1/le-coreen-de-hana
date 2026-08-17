@@ -299,6 +299,39 @@
 
 
     /* =====================================================
+       RÉSUMÉ DE CHAPITRE
+       ===================================================== */
+
+    .chapter-summary-link {
+      display: inline-block;
+
+      margin-top: 8px;
+      padding: 6px 10px;
+
+      background: var(--soft-beige);
+
+      border-radius: 12px;
+
+      color: var(--jade-dark);
+
+      font-size: 12px;
+      font-weight: 700;
+
+      text-decoration: none;
+    }
+
+
+    .chapter-summary-link:hover {
+      background: var(--soft-green);
+    }
+
+
+    .chapter-summary-link.hidden {
+      display: none;
+    }
+
+
+    /* =====================================================
        ICÔNES
        ===================================================== */
 
@@ -342,6 +375,15 @@
       line-height: 1.6;
     }
 
+
+
+    .module-anchor {
+      scroll-margin-top: 18px;
+    }
+
+    .module-view-hidden {
+      display: none !important;
+    }
 
     /* =====================================================
        MOBILE
@@ -418,7 +460,7 @@
 
     <div class="progress-top">
 
-      <span>
+      <span id="currentModuleLabel">
         Module 1 · Premiers pas
       </span>
 
@@ -452,69 +494,10 @@
 
 
   <!-- =====================================================
-       HANGEUL
-       ===================================================== -->
-
-  <section class="module">
-
-    <div class="module-header">
-
-      <div class="module-number">
-        🔤 HANGEUL
-      </div>
-
-      <h2 class="module-title">
-        Les fondations du coréen 🌿
-      </h2>
-
-      <p class="module-description">
-        Apprends à lire l'alphabet coréen pas à pas :
-        consonnes, voyelles, syllabes, batchim et règles essentielles de prononciation.
-        Cette section reste accessible à tout moment comme référence.
-      </p>
-
-    </div>
-
-    <div class="chapter-list">
-
-      <a
-        class="chapter unlocked"
-        href="hangeul.html"
-      >
-
-        <div class="chapter-number">
-          🔤
-        </div>
-
-        <div class="chapter-content">
-
-          <div class="chapter-title">
-            Parcours Hangeul complet
-          </div>
-
-          <div class="chapter-status">
-            Consonnes · Voyelles · Syllabes · Batchim · Lecture
-          </div>
-
-        </div>
-
-        <div class="chapter-arrow">
-          →
-        </div>
-
-      </a>
-
-    </div>
-
-  </section>
-
-
-
-  <!-- =====================================================
        MODULE 1
        ===================================================== -->
 
-  <section class="module">
+  <section class="module module-anchor" id="module1" data-module-view="module1">
 
     <div class="module-header">
 
@@ -964,7 +947,7 @@
        MODULE 2
        ===================================================== -->
 
-  <section class="module" id="module2Card">
+  <section class="module" id="module2Card" data-module-view="module2">
 
     <div class="module-header">
 
@@ -1340,6 +1323,275 @@
   </section>
 
 
+
+  <!-- =====================================================
+       MODULE 3
+       ===================================================== -->
+
+  <section class="module" id="module3Card" data-module-view="module3">
+
+    <div class="module-header">
+
+      <div class="module-number">
+        MODULE 3
+      </div>
+
+      <h2 class="module-title">
+        Aller plus loin 🌸
+      </h2>
+
+      <p class="module-description">
+        Développe des échanges plus naturels et apprends à créer
+        de vraies interactions en coréen.
+      </p>
+
+    </div>
+
+
+    <div class="chapter-list">
+
+
+      <!-- =================================================
+           CHAPITRE 20
+           ================================================= -->
+
+      <div
+        class="chapter locked"
+        id="chapter20Card"
+      >
+
+        <div class="chapter-number">
+          20
+        </div>
+
+
+        <div class="chapter-content">
+
+          <div class="chapter-title">
+            👋 Faire connaissance
+          </div>
+
+
+          <div
+            class="chapter-status"
+            id="chapter20Status"
+          >
+            Termine le chapitre 19
+          </div>
+
+
+          <a
+            class="chapter-summary-link hidden"
+            id="chapter20Summary"
+            href="resume-20.html"
+            onclick="event.stopPropagation();"
+          >
+            📖 Résumé
+          </a>
+
+        </div>
+
+
+        <div
+          class="lock-icon"
+          id="chapter20Icon"
+        >
+          🔒
+        </div>
+
+      </div>
+
+
+      <!-- =================================================
+           CHAPITRE 21
+           ================================================= -->
+
+      <div
+        class="chapter locked"
+        id="chapter21Card"
+      >
+
+        <div class="chapter-number">
+          21
+        </div>
+
+
+        <div class="chapter-content">
+
+          <div class="chapter-title">
+            🌸 Proposer une sortie
+          </div>
+
+
+          <div
+            class="chapter-status"
+            id="chapter21Status"
+          >
+            Termine le chapitre 20
+          </div>
+
+
+          <a
+            class="chapter-summary-link hidden"
+            id="chapter21Summary"
+            href="resume-21.html"
+            onclick="event.stopPropagation();"
+          >
+            📖 Résumé
+          </a>
+
+        </div>
+
+
+        <div
+          class="lock-icon"
+          id="chapter21Icon"
+        >
+          🔒
+        </div>
+
+      </div>
+
+
+      <!-- =================================================
+           CHAPITRE 22
+           ================================================= -->
+
+      <div
+        class="chapter locked"
+        id="chapter22Card"
+      >
+
+        <div class="chapter-number">
+          22
+        </div>
+
+
+        <div class="chapter-content">
+
+          <div class="chapter-title">
+            🌦️ La météo
+          </div>
+
+
+          <div
+            class="chapter-status"
+            id="chapter22Status"
+          >
+            Termine le chapitre 21
+          </div>
+
+
+          <a
+            class="chapter-summary-link hidden"
+            id="chapter22Summary"
+            href="resume-22.html"
+            onclick="event.stopPropagation();"
+          >
+            📖 Résumé
+          </a>
+
+        </div>
+
+
+        <div
+          class="lock-icon"
+          id="chapter22Icon"
+        >
+          🔒
+        </div>
+
+      </div>
+
+
+      <!-- =================================================
+           CHAPITRE 23
+           ================================================= -->
+
+      <div
+        class="chapter locked"
+        id="chapter23Card"
+      >
+
+        <div class="chapter-number">
+          23
+        </div>
+
+
+        <div class="chapter-content">
+
+          <div class="chapter-title">
+            🛒 Faire les courses
+          </div>
+
+
+          <div
+            class="chapter-status"
+            id="chapter23Status"
+          >
+            Termine le chapitre 22
+          </div>
+
+
+          <a
+            class="chapter-summary-link hidden"
+            id="chapter23Summary"
+            href="resume-23.html"
+            onclick="event.stopPropagation();"
+          >
+            📖 Résumé
+          </a>
+
+        </div>
+
+
+        <div
+          class="lock-icon"
+          id="chapter23Icon"
+        >
+          🔒
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       MODULE 4
+       ===================================================== -->
+
+  <section class="module module-anchor" id="module4" data-module-view="module4">
+
+    <div class="module-header">
+
+      <div class="module-number">
+        MODULE 4
+      </div>
+
+      <h2 class="module-title">
+        Parler, raconter et s'exprimer 💬
+      </h2>
+
+      <p class="module-description">
+        Habitudes, opinions, raisons, comparaisons, émotions,
+        invitations, sorties, voyages et conversations plus libres.
+      </p>
+
+    </div>
+
+    <div class="locked-module-message">
+      🌿 Ce module commencera au chapitre 31.
+      <br><br>
+      Il sera ajouté à l'itinéraire au fur et à mesure de sa création.
+    </div>
+
+  </section>
+
 </main>
 
 
@@ -1521,6 +1773,42 @@
       "hanaKorean_chapter19_writing",
       "hanaKorean_chapter19_review",
       "hanaKorean_chapter19_mission"
+    ],
+
+    20: [
+      "hanaKorean_chapter20_understanding",
+      "hanaKorean_chapter20_listening",
+      "hanaKorean_chapter20_speaking",
+      "hanaKorean_chapter20_writing",
+      "hanaKorean_chapter20_review",
+      "hanaKorean_chapter20_mission"
+    ],
+
+    21: [
+      "hanaKorean_chapter21_understanding",
+      "hanaKorean_chapter21_listening",
+      "hanaKorean_chapter21_speaking",
+      "hanaKorean_chapter21_writing",
+      "hanaKorean_chapter21_review",
+      "hanaKorean_chapter21_mission"
+    ],
+
+    22: [
+      "hanaKorean_chapter22_understanding",
+      "hanaKorean_chapter22_listening",
+      "hanaKorean_chapter22_speaking",
+      "hanaKorean_chapter22_writing",
+      "hanaKorean_chapter22_review",
+      "hanaKorean_chapter22_mission"
+    ],
+
+    23: [
+      "hanaKorean_chapter23_understanding",
+      "hanaKorean_chapter23_listening",
+      "hanaKorean_chapter23_speaking",
+      "hanaKorean_chapter23_writing",
+      "hanaKorean_chapter23_review",
+      "hanaKorean_chapter23_mission"
     ]
 
   };
@@ -1734,6 +2022,23 @@
     status.textContent =
       "Terminé ✓";
 
+
+    const summaryLink =
+      document.getElementById(
+        "chapter" +
+        chapterNumber +
+        "Summary"
+      );
+
+
+    if (summaryLink) {
+
+      summaryLink.classList.remove(
+        "hidden"
+      );
+
+    }
+
   }
 
 
@@ -1778,7 +2083,7 @@
 
     for (
       let chapterNumber = 1;
-      chapterNumber <= 19;
+      chapterNumber <= 23;
       chapterNumber++
     ) {
 
@@ -1958,9 +2263,268 @@
 
     }
 
+
+    /* ===================================================
+       MODULE 3 — CHAPITRE 20
+       =================================================== */
+
+    if (
+      completed[19]
+    ) {
+
+      unlockChapter(
+        20
+      );
+
+
+      if (
+        completed[20]
+      ) {
+
+        markChapterCompleted(
+          20
+        );
+
+
+        unlockChapter(
+          21
+        );
+
+
+        if (
+          completed[21]
+        ) {
+
+          markChapterCompleted(
+            21
+          );
+
+
+          unlockChapter(
+            22
+          );
+
+
+          if (
+            completed[22]
+          ) {
+
+            markChapterCompleted(
+              22
+            );
+
+
+            unlockChapter(
+              23
+            );
+
+
+            if (
+              completed[23]
+            ) {
+
+              markChapterCompleted(
+                23
+              );
+
+            }
+
+          }
+
+        }
+
+      }
+
+    }
+
   }
 
 
+
+
+
+  const moduleMeta = {
+
+    module1: {
+      label: "Module 1 · Premiers pas",
+      firstChapter: 1,
+      lastChapter: 10
+    },
+
+    module2: {
+      label: "Module 2 · La vie quotidienne",
+      firstChapter: 11,
+      lastChapter: 19
+    },
+
+    module3: {
+      label: "Module 3 · Chapitres 20 à 30",
+      firstChapter: 20,
+      lastChapter: 30
+    },
+
+    module4: {
+      label: "Module 4 · Parler, raconter et s'exprimer",
+      firstChapter: 31,
+      lastChapter: 42
+    }
+
+  };
+
+
+  function getRequestedModule() {
+
+    const hash =
+      window.location.hash
+        .replace("#", "");
+
+    if (
+      moduleMeta[hash]
+    ) {
+      return hash;
+    }
+
+    return "module1";
+
+  }
+
+
+  function chapterFinalCompleted(
+    chapterNumber
+  ) {
+
+    return (
+      localStorage.getItem(
+        "hanaKorean_chapter" +
+        chapterNumber +
+        "_completed"
+      ) === "completed"
+    );
+
+  }
+
+
+  function showRequestedModule() {
+
+    const requestedModule =
+      getRequestedModule();
+
+
+    document
+      .querySelectorAll(
+        "[data-module-view]"
+      )
+      .forEach(
+        section => {
+
+          if (
+            section.dataset.moduleView ===
+            requestedModule
+          ) {
+
+            section.classList.remove(
+              "module-view-hidden"
+            );
+
+          }
+
+          else {
+
+            section.classList.add(
+              "module-view-hidden"
+            );
+
+          }
+
+        }
+      );
+
+
+    const meta =
+      moduleMeta[
+        requestedModule
+      ];
+
+
+    const total =
+      meta.lastChapter -
+      meta.firstChapter +
+      1;
+
+
+    let completedCount =
+      0;
+
+
+    for (
+      let chapter =
+        meta.firstChapter;
+
+      chapter <=
+        meta.lastChapter;
+
+      chapter++
+    ) {
+
+      if (
+        chapterFinalCompleted(
+          chapter
+        )
+      ) {
+
+        completedCount++;
+
+      }
+
+    }
+
+
+    const percentage =
+      Math.round(
+        completedCount /
+        total *
+        100
+      );
+
+
+    const label =
+      document.getElementById(
+        "currentModuleLabel"
+      );
+
+
+    if (label) {
+
+      label.textContent =
+        meta.label;
+
+    }
+
+
+    document.getElementById(
+      "progressText"
+    ).textContent =
+      completedCount +
+      " / " +
+      total;
+
+
+    document.getElementById(
+      "courseProgress"
+    ).style.width =
+      percentage +
+      "%";
+
+
+    document.getElementById(
+      "percentageText"
+    ).textContent =
+      percentage === 100
+        ? "100 % du module terminé 🎉"
+        : percentage +
+          " % du module terminé";
+
+  }
 
 
   /* =====================================================
@@ -1968,6 +2532,14 @@
      ===================================================== */
 
   updateRoute();
+
+  showRequestedModule();
+
+
+  window.addEventListener(
+    "hashchange",
+    showRequestedModule
+  );
 
 </script>
 
