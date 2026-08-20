@@ -6,6 +6,7 @@
   <meta name="theme-color" content="#F7F4ED">
   <title>Chapitre 16 — Je révise</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="chapter-progress.css">
 
   <style>
     .review-header {
@@ -49,6 +50,19 @@
       background: var(--jade);
       border-radius: 20px;
       transition: width 0.3s ease;
+    }
+
+    .personal-review {
+      padding: 18px;
+      margin-bottom: 18px;
+      background: var(--soft-green);
+      border-radius: var(--radius-large);
+      color: var(--navy);
+      line-height: 1.7;
+    }
+
+    .personal-review.hidden {
+      display: none;
     }
 
     .review-card {
@@ -205,6 +219,7 @@
       background: var(--soft-beige);
       color: var(--navy);
     }
+  
   </style>
 </head>
 
@@ -212,10 +227,7 @@
 
 <main class="app">
 
-  <a
-    class="back-link"
-    href="ecriture-16.html"
-  >
+  <a class="back-link" href="écriture-16.html">
     ← J'écris
   </a>
 
@@ -233,10 +245,24 @@
     </h1>
 
     <p>
-      Vérifie que tu sais annoncer ta réservation,
-      comprendre le réceptionniste, demander ta chambre, le Wi-Fi et de l'aide.
+      Vérifie que tu sais annoncer une réservation,
+      comprendre la question sur ton nom, demander ta chambre,
+      demander le mot de passe du Wi-Fi et demander de l'aide.
     </p>
   </header>
+
+  <section
+    id="hanaChapterPath"
+    data-chapter-path
+  ></section>
+
+  <section
+    class="personal-review hidden"
+    id="personalReview"
+  >
+    <strong>🌿 Révision personnalisée</strong>
+    <div id="personalReviewContent"></div>
+  </section>
 
   <div class="review-progress">
 
@@ -264,7 +290,7 @@
     </div>
 
     <h2 class="question-title">
-      🛎️ Réservation
+      🛎️ Annoncer une réservation
     </h2>
 
     <p class="question-text">
@@ -281,20 +307,24 @@
 
       <button class="answer" type="button"
         onclick="checkAnswer(1, this, false, '예약했어요')">
-        도와주세요.
+        감사합니다.
       </button>
 
       <button class="answer" type="button"
         onclick="checkAnswer(1, this, false, '예약했어요')">
-        감사합니다.
+        도와주세요.
       </button>
 
     </div>
 
     <div class="feedback" id="feedback1"></div>
 
-    <button class="next-question" id="next1" type="button"
-      onclick="showQuestion(2)">
+    <button
+      class="next-question"
+      id="next1"
+      type="button"
+      onclick="showQuestion(2)"
+    >
       Question suivante →
     </button>
 
@@ -310,37 +340,41 @@
     </div>
 
     <h2 class="question-title">
-      👤 À la réception
+      👤 Comprendre le réceptionniste
     </h2>
 
     <p class="question-text">
-      Que signifie :
-      <strong>성함이 어떻게 되세요?</strong>
+      Quelle phrase signifie :
+      <strong>« Quel est votre nom ? »</strong>
     </p>
 
     <div class="answers">
 
       <button class="answer" type="button"
-        onclick="checkAnswer(2, this, false, '성함')">
-        Où est votre chambre ?
+        onclick="checkAnswer(2, this, true, '성함이 어떻게 되세요?')">
+        성함이 어떻게 되세요?
       </button>
 
       <button class="answer" type="button"
-        onclick="checkAnswer(2, this, true, '성함')">
-        Quel est votre nom ?
+        onclick="checkAnswer(2, this, false, '성함이 어떻게 되세요?')">
+        제 방이 어디예요?
       </button>
 
       <button class="answer" type="button"
-        onclick="checkAnswer(2, this, false, '성함')">
-        Quel est votre mot de passe ?
+        onclick="checkAnswer(2, this, false, '성함이 어떻게 되세요?')">
+        와이파이 비밀번호가 뭐예요?
       </button>
 
     </div>
 
     <div class="feedback" id="feedback2"></div>
 
-    <button class="next-question" id="next2" type="button"
-      onclick="showQuestion(3)">
+    <button
+      class="next-question"
+      id="next2"
+      type="button"
+      onclick="showQuestion(3)"
+    >
       Question suivante →
     </button>
 
@@ -356,11 +390,11 @@
     </div>
 
     <h2 class="question-title">
-      🚪 Chambre
+      🚪 Demander sa chambre
     </h2>
 
     <p class="question-text">
-      Quelle phrase signifie :
+      Comment demandes-tu :
       <strong>« Où est ma chambre ? »</strong>
     </p>
 
@@ -368,7 +402,7 @@
 
       <button class="answer" type="button"
         onclick="checkAnswer(3, this, false, '제 방이 어디예요?')">
-        엘리베이터가 어디예요?
+        방 열쇠 주세요.
       </button>
 
       <button class="answer" type="button"
@@ -378,15 +412,19 @@
 
       <button class="answer" type="button"
         onclick="checkAnswer(3, this, false, '제 방이 어디예요?')">
-        방 열쇠 주세요.
+        엘리베이터가 어디예요?
       </button>
 
     </div>
 
     <div class="feedback" id="feedback3"></div>
 
-    <button class="next-question" id="next3" type="button"
-      onclick="showQuestion(4)">
+    <button
+      class="next-question"
+      id="next3"
+      type="button"
+      onclick="showQuestion(4)"
+    >
       Question suivante →
     </button>
 
@@ -402,38 +440,42 @@
     </div>
 
     <h2 class="question-title">
-      📶 Wi-Fi
+      📶 Demander le Wi-Fi
     </h2>
 
     <p class="question-text">
-      Que demande :
-      <strong>와이파이 비밀번호가 뭐예요?</strong>
+      Comment demandes-tu :
+      <strong>« Quel est le mot de passe du Wi-Fi ? »</strong>
     </p>
 
     <div class="answers">
 
       <button class="answer" type="button"
-        onclick="checkAnswer(4, this, false, '비밀번호')">
-        Le prix du Wi-Fi.
+        onclick="checkAnswer(4, this, false, '와이파이 비밀번호가 뭐예요?')">
+        와이파이가 안 돼요.
       </button>
 
       <button class="answer" type="button"
-        onclick="checkAnswer(4, this, true, '비밀번호')">
-        Le mot de passe du Wi-Fi.
+        onclick="checkAnswer(4, this, false, '와이파이 비밀번호가 뭐예요?')">
+        비밀번호요?
       </button>
 
       <button class="answer" type="button"
-        onclick="checkAnswer(4, this, false, '비밀번호')">
-        Le numéro de chambre.
+        onclick="checkAnswer(4, this, true, '와이파이 비밀번호가 뭐예요?')">
+        와이파이 비밀번호가 뭐예요?
       </button>
 
     </div>
 
     <div class="feedback" id="feedback4"></div>
 
-    <button class="next-question" id="next4" type="button"
-      onclick="showQuestion(5)">
-      Dernière question →
+    <button
+      class="next-question"
+      id="next4"
+      type="button"
+      onclick="showQuestion(5)"
+    >
+      Question suivante →
     </button>
 
   </section>
@@ -448,44 +490,49 @@
     </div>
 
     <h2 class="question-title">
-      🆘 Demander de l'aide
+      🆘 Signaler un problème
     </h2>
 
     <p class="question-text">
-      Que signifie :
-      <strong>와이파이가 안 돼요. 도와주세요.</strong>
+      Le Wi-Fi ne fonctionne pas.
+      Quelle réponse dit clairement :
+      <strong>« Le Wi-Fi ne fonctionne pas. Aidez-moi, s'il vous plaît. »</strong>
     </p>
 
     <div class="answers">
 
       <button class="answer" type="button"
-        onclick="checkAnswer(5, this, false, '도와주세요')">
-        Le Wi-Fi est gratuit.
+        onclick="checkAnswer(5, this, true, '와이파이가 안 돼요 / 도와주세요')">
+        와이파이가 안 돼요. 도와주세요.
       </button>
 
       <button class="answer" type="button"
-        onclick="checkAnswer(5, this, true, '도와주세요')">
-        Le Wi-Fi ne fonctionne pas. Aidez-moi, s'il vous plaît.
+        onclick="checkAnswer(5, this, false, '와이파이가 안 돼요 / 도와주세요')">
+        와이파이 비밀번호가 뭐예요?
       </button>
 
       <button class="answer" type="button"
-        onclick="checkAnswer(5, this, false, '도와주세요')">
-        Je voudrais le mot de passe.
+        onclick="checkAnswer(5, this, false, '와이파이가 안 돼요 / 도와주세요')">
+        방 열쇠 주세요.
       </button>
 
     </div>
 
     <div class="feedback" id="feedback5"></div>
 
-    <button class="next-question" id="next5" type="button"
-      onclick="finishReview()">
-      Voir mon résultat 🌿
+    <button
+      class="next-question"
+      id="next5"
+      type="button"
+      onclick="finishReview()"
+    >
+      Voir mon résultat →
     </button>
 
   </section>
 
 
-  <!-- RESULTAT -->
+  <!-- RÉSULTAT -->
 
   <section
     class="result-card"
@@ -493,23 +540,19 @@
   >
 
     <div class="result-icon">
-      🧠🏨
+      🌸
     </div>
 
     <h2>
-      잘했어요!
+      Révision terminée !
     </h2>
 
-    <p>
-      Tu as terminé la révision du chapitre 16.
-    </p>
-
     <p class="result-score">
-      5 notions révisées ✅
+      Chapitre 16 · Révision validée ✅
     </p>
 
     <div class="result-summary">
-      <strong>📊 Ta séance</strong>
+      <strong>📊 Ta révision</strong>
       <p id="attemptText"></p>
     </div>
 
@@ -520,24 +563,35 @@
 
     <div class="notion-summary">
 
+      <strong>
+        🌿 Les notions essentielles
+      </strong>
+
+      <br><br>
+
       <div class="notion-line">
-        🛎️ <strong>예약했어요.</strong> → J'ai une réservation.
+        🛎️ <strong>예약했어요.</strong>
+        → J'ai une réservation.
       </div>
 
       <div class="notion-line">
-        👤 <strong>성함이 어떻게 되세요?</strong> → Quel est votre nom ?
+        👤 <strong>성함이 어떻게 되세요?</strong>
+        → Quel est votre nom ?
       </div>
 
       <div class="notion-line">
-        🚪 <strong>제 방이 어디예요?</strong> → Où est ma chambre ?
+        🚪 <strong>제 방이 어디예요?</strong>
+        → Où est ma chambre ?
       </div>
 
       <div class="notion-line">
-        📶 <strong>와이파이 비밀번호가 뭐예요?</strong> → Quel est le mot de passe du Wi-Fi ?
+        📶 <strong>와이파이 비밀번호가 뭐예요?</strong>
+        → Quel est le mot de passe du Wi-Fi ?
       </div>
 
       <div class="notion-line">
-        🆘 <strong>도와주세요.</strong> → Aidez-moi, s'il vous plaît.
+        🆘 <strong>와이파이가 안 돼요. 도와주세요.</strong>
+        → Le Wi-Fi ne fonctionne pas. Aidez-moi, s'il vous plaît.
       </div>
 
     </div>
@@ -545,7 +599,7 @@
     <button
       class="continue-button"
       type="button"
-      onclick="window.location.href='utilise-16.html'"
+      onclick="goToMission()"
     >
       🎯 Passer à « Je l'utilise »
     </button>
@@ -563,7 +617,120 @@
 </main>
 
 
+<script src="chapter-progress.js"></script>
+
 <script>
+  const CHAPTER = 16;
+
+  const UNDERSTANDING_KEY =
+    "hanaKorean_chapter16_understanding";
+
+  const LISTENING_EXERCISE_KEY =
+    "hanaKorean_chapter16_listeningExercise";
+
+  const SPEAKING_KEY =
+    "hanaKorean_chapter16_speaking";
+
+  const WRITING_KEY =
+    "hanaKorean_chapter16_writing";
+
+  const REVIEW_KEY =
+    "hanaKorean_chapter16_review";
+
+  const REVISION_NOTIONS_KEY =
+    "hanaKorean_chapter16_revisionNotions";
+
+  const REVIEW_MISTAKES_KEY =
+    "hanaKorean_chapter16_reviewMistakes";
+
+  const REVIEW_WEAK_NOTIONS_KEY =
+    "hanaKorean_chapter16_reviewWeakNotions";
+
+
+  function guardReviewAccess() {
+
+    const required = [
+      [UNDERSTANDING_KEY, "chapitre-16.html"],
+      [LISTENING_EXERCISE_KEY, "ecoute-16.html"],
+      [SPEAKING_KEY, "parle-16.html"],
+      [WRITING_KEY, "écriture-16.html"]
+    ];
+
+    for (const item of required) {
+
+      if (
+        localStorage.getItem(item[0]) !== "completed"
+      ) {
+        window.location.replace(item[1]);
+        return false;
+      }
+    }
+
+    return true;
+  }
+
+
+  function renderChapterProgress() {
+
+    if (
+      window.HanaChapterProgress &&
+      typeof window.HanaChapterProgress.render === "function"
+    ) {
+      window.HanaChapterProgress.render();
+    }
+  }
+
+
+  function loadPersonalReview() {
+
+    let notions = [];
+
+    try {
+      notions =
+        JSON.parse(
+          localStorage.getItem(
+            REVISION_NOTIONS_KEY
+          ) || "[]"
+        );
+    }
+    catch (error) {
+      notions = [];
+    }
+
+    if (
+      !Array.isArray(notions) ||
+      notions.length === 0
+    ) {
+      return;
+    }
+
+    const box =
+      document.getElementById(
+        "personalReview"
+      );
+
+    const content =
+      document.getElementById(
+        "personalReviewContent"
+      );
+
+    if (
+      !box ||
+      !content
+    ) {
+      return;
+    }
+
+    content.innerHTML =
+      "<br>À partir de ton exercice d'écriture, pense particulièrement à revoir : <strong>" +
+      notions.join(", ") +
+      "</strong>.";
+
+    box.classList.remove(
+      "hidden"
+    );
+  }
+
 
   let incorrectAttempts = 0;
 
@@ -621,47 +788,37 @@
 
 
       if (number === 1) {
-
         feedback.innerHTML =
           "✅ <strong>Exact !</strong><br><br>" +
-          "<strong>예약했어요.</strong> signifie « J'ai une réservation / J'ai réservé. »";
-
+          "<strong>예약했어요.</strong> signifie « J'ai une réservation » ou « J'ai réservé ».";
       }
 
 
       if (number === 2) {
-
         feedback.innerHTML =
           "✅ <strong>Très bien !</strong><br><br>" +
-          "<strong>성함</strong> est une manière respectueuse de parler du nom d'une personne.";
-
+          "<strong>성함</strong> est la forme respectueuse de « nom ». Tu dois surtout reconnaître cette question à la réception.";
       }
 
 
       if (number === 3) {
-
         feedback.innerHTML =
           "✅ <strong>Exact !</strong><br><br>" +
-          "<strong>제 방이 어디예요?</strong> signifie « Où est ma chambre ? »";
-
+          "<strong>제 방이 어디예요?</strong> permet de demander où se trouve ta chambre.";
       }
 
 
       if (number === 4) {
-
         feedback.innerHTML =
           "✅ <strong>Très bien !</strong><br><br>" +
-          "<strong>비밀번호</strong> signifie « mot de passe ».";
-
+          "<strong>와이파이 비밀번호가 뭐예요?</strong> permet de demander le mot de passe du Wi-Fi.";
       }
 
 
       if (number === 5) {
-
         feedback.innerHTML =
           "✅ <strong>Parfait !</strong><br><br>" +
-          "<strong>안 돼요</strong> indique que quelque chose ne fonctionne pas et <strong>도와주세요</strong> sert à demander de l'aide.";
-
+          "<strong>안 돼요</strong> indique que quelque chose ne fonctionne pas et <strong>도와주세요</strong> permet de demander de l'aide.";
       }
 
 
@@ -704,47 +861,37 @@
 
 
     if (number === 1) {
-
       feedback.innerHTML =
         "❌ <strong>Repère 예약.</strong><br><br>" +
-        "💡 <strong>예약</strong> = réservation.";
-
+        "💡 <strong>예약</strong> = réservation. La phrase à retenir est <strong>예약했어요.</strong>";
     }
 
 
     if (number === 2) {
-
       feedback.innerHTML =
         "❌ <strong>Repère 성함.</strong><br><br>" +
-        "💡 <strong>성함</strong> est la forme respectueuse liée au nom.";
-
+        "💡 <strong>성함</strong> signifie « nom » dans une forme respectueuse.";
     }
 
 
     if (number === 3) {
-
       feedback.innerHTML =
-        "❌ <strong>Repère 방.</strong><br><br>" +
-        "💡 <strong>방</strong> = chambre et <strong>어디예요?</strong> = où est-ce ?";
-
+        "❌ <strong>Attention à ce que tu cherches.</strong><br><br>" +
+        "💡 <strong>제 방이 어디예요?</strong> = Où est ma chambre ? <strong>엘리베이터가 어디예요?</strong> parle de l'ascenseur.";
     }
 
 
     if (number === 4) {
-
       feedback.innerHTML =
         "❌ <strong>Repère 비밀번호.</strong><br><br>" +
-        "💡 <strong>비밀번호</strong> = mot de passe.";
-
+        "💡 <strong>비밀번호</strong> = mot de passe. La phrase complète est <strong>와이파이 비밀번호가 뭐예요?</strong>";
     }
 
 
     if (number === 5) {
-
       feedback.innerHTML =
-        "❌ <strong>Repère 안 돼요 et 도와주세요.</strong><br><br>" +
-        "💡 <strong>안 돼요</strong> = ça ne fonctionne pas ; <strong>도와주세요</strong> = aidez-moi.";
-
+        "❌ <strong>Il faut signaler le problème puis demander de l'aide.</strong><br><br>" +
+        "💡 <strong>와이파이가 안 돼요.</strong> = Le Wi-Fi ne fonctionne pas. <strong>도와주세요.</strong> = Aidez-moi, s'il vous plaît.";
     }
 
   }
@@ -759,13 +906,11 @@
       i <= 5;
       i++
     ) {
-
       document.getElementById(
         "question" + i
       ).classList.add(
         "hidden"
       );
-
     }
 
 
@@ -796,7 +941,6 @@
       top: 0,
       behavior: "smooth"
     });
-
   }
 
 
@@ -828,13 +972,10 @@
     if (
       incorrectAttempts === 0
     ) {
-
       attemptText.innerHTML =
         "🌟 <strong>Sans erreur !</strong><br>" +
         "Tu maîtrises très bien les notions principales de ce chapitre.";
-
     } else {
-
       attemptText.innerHTML =
         "Tu as eu <strong>" +
         incorrectAttempts +
@@ -851,7 +992,6 @@
             : ""
         ) +
         ".<br>Les erreurs servent à cibler ce qu'il faut revoir.";
-
     }
 
 
@@ -864,48 +1004,72 @@
     if (
       weakNotions.length === 0
     ) {
-
       weakBox.innerHTML =
         "🌿 <strong>Aucune notion fragile détectée.</strong>";
-
     } else {
-
       weakBox.innerHTML =
         "🧠 <strong>À revoir en priorité :</strong><br><br>" +
         weakNotions.join(
           " · "
         );
-
     }
 
 
     localStorage.setItem(
-      "hanaKorean_chapter16_review",
+      REVIEW_KEY,
       "completed"
     );
 
-
     localStorage.setItem(
-      "hanaKorean_chapter16_reviewMistakes",
-      String(
-        incorrectAttempts
-      )
+      REVIEW_MISTAKES_KEY,
+      String(incorrectAttempts)
     );
 
-
     localStorage.setItem(
-      "hanaKorean_chapter16_reviewWeakNotions",
+      REVIEW_WEAK_NOTIONS_KEY,
       JSON.stringify(
         weakNotions
       )
     );
+
+    renderChapterProgress();
 
 
     window.scrollTo({
       top: 0,
       behavior: "smooth"
     });
+  }
 
+
+  function goToMission() {
+
+    if (
+      localStorage.getItem(
+        REVIEW_KEY
+      ) !== "completed"
+    ) {
+      return;
+    }
+
+    window.location.href =
+      "utilise-16.html";
+  }
+
+
+  if (
+    guardReviewAccess()
+  ) {
+
+    loadPersonalReview();
+    renderChapterProgress();
+
+    window.addEventListener(
+      "pageshow",
+      function() {
+        renderChapterProgress();
+      }
+    );
   }
 
 </script>

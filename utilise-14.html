@@ -22,6 +22,11 @@
     href="style.css"
   >
 
+  <link
+    rel="stylesheet"
+    href="chapter-progress.css"
+  >
+
 
   <style>
 
@@ -423,6 +428,11 @@
   </header>
 
 
+  <section
+    id="hanaChapterPath"
+    data-chapter-path
+  ></section>
+
 
   <section class="mission-intro">
 
@@ -812,7 +822,7 @@
     <button
       class="route-button"
       type="button"
-      onclick="window.location.href='itineraire.html'"
+      onclick="window.location.href='itineraire.html#module2'"
     >
       🌿 Retour à mon itinéraire
     </button>
@@ -833,7 +843,112 @@
 
 
 
+<script src="chapter-progress.js"></script>
+
 <script>
+
+  const CHAPTER = 14;
+
+  const UNDERSTANDING_KEY =
+    "hanaKorean_chapter14_understanding";
+
+  const LISTENING_EXERCISE_KEY =
+    "hanaKorean_chapter14_listeningExercise";
+
+  const SPEAKING_KEY =
+    "hanaKorean_chapter14_speaking";
+
+  const WRITING_KEY =
+    "hanaKorean_chapter14_writing";
+
+  const REVIEW_KEY =
+    "hanaKorean_chapter14_review";
+
+  const MISSION_KEY =
+    "hanaKorean_chapter14_mission";
+
+  const COMPLETED_KEY =
+    "hanaKorean_chapter14_completed";
+
+  const MISSION_MISTAKES_KEY =
+    "hanaKorean_chapter14_missionMistakes";
+
+  const MISSION_HELP_KEY =
+    "hanaKorean_chapter14_missionHelp";
+
+
+  function guardMissionAccess() {
+
+    if (
+      localStorage.getItem(
+        UNDERSTANDING_KEY
+      ) !== "completed"
+    ) {
+      window.location.replace(
+        "chapitre-14.html"
+      );
+      return false;
+    }
+
+    if (
+      localStorage.getItem(
+        LISTENING_EXERCISE_KEY
+      ) !== "completed"
+    ) {
+      window.location.replace(
+        "ecoute-14.html"
+      );
+      return false;
+    }
+
+    if (
+      localStorage.getItem(
+        SPEAKING_KEY
+      ) !== "completed"
+    ) {
+      window.location.replace(
+        "parle-14.html"
+      );
+      return false;
+    }
+
+    if (
+      localStorage.getItem(
+        WRITING_KEY
+      ) !== "completed"
+    ) {
+      window.location.replace(
+        "écriture-14.html"
+      );
+      return false;
+    }
+
+    if (
+      localStorage.getItem(
+        REVIEW_KEY
+      ) !== "completed"
+    ) {
+      window.location.replace(
+        "revision-14.html"
+      );
+      return false;
+    }
+
+    return true;
+  }
+
+
+  function renderChapterProgress() {
+
+    if (
+      window.HanaChapterProgress &&
+      typeof window.HanaChapterProgress.render ===
+        "function"
+    ) {
+      window.HanaChapterProgress.render();
+    }
+  }
+
 
   let incorrectAttempts =
     0;
@@ -1165,13 +1280,13 @@
 
 
     localStorage.setItem(
-      "hanaKorean_chapter14_mission",
+      MISSION_KEY,
       "completed"
     );
 
 
     localStorage.setItem(
-      "hanaKorean_chapter14_missionMistakes",
+      MISSION_MISTAKES_KEY,
       String(
         incorrectAttempts
       )
@@ -1179,7 +1294,7 @@
 
 
     localStorage.setItem(
-      "hanaKorean_chapter14_missionHints",
+      MISSION_HELP_KEY,
       String(
         hintCount
       )
@@ -1187,9 +1302,12 @@
 
 
     localStorage.setItem(
-      "hanaKorean_chapter14_completed",
+      COMPLETED_KEY,
       "completed"
     );
+
+
+    renderChapterProgress();
 
 
     window.scrollTo({
@@ -1197,6 +1315,22 @@
       behavior: "smooth"
     });
 
+  }
+
+
+
+  if (
+    guardMissionAccess()
+  ) {
+
+    renderChapterProgress();
+
+    window.addEventListener(
+      "pageshow",
+      function() {
+        renderChapterProgress();
+      }
+    );
   }
 
 </script>

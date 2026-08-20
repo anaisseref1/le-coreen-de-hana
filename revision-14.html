@@ -6,6 +6,7 @@
   <meta name="theme-color" content="#F7F4ED">
   <title>Chapitre 14 — Je révise</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="chapter-progress.css">
 
   <style>
     .review-header {
@@ -49,6 +50,19 @@
       background: var(--jade);
       border-radius: 20px;
       transition: width 0.3s ease;
+    }
+
+    .personal-review {
+      padding: 18px;
+      margin-bottom: 18px;
+      background: var(--soft-green);
+      border-radius: var(--radius-large);
+      color: var(--navy);
+      line-height: 1.7;
+    }
+
+    .personal-review.hidden {
+      display: none;
     }
 
     .review-card {
@@ -214,7 +228,7 @@
 
   <a
     class="back-link"
-    href="ecriture-14.html"
+    href="écriture-14.html"
   >
     ← J'écris
   </a>
@@ -237,6 +251,19 @@
       comprendre les questions du personnel et réagir naturellement au café.
     </p>
   </header>
+
+  <section
+    id="hanaChapterPath"
+    data-chapter-path
+  ></section>
+
+  <section
+    class="personal-review hidden"
+    id="personalReview"
+  >
+    <strong>🌿 Révision personnalisée</strong>
+    <div id="personalReviewContent"></div>
+  </section>
 
   <div class="review-progress">
 
@@ -545,7 +572,7 @@
     <button
       class="continue-button"
       type="button"
-      onclick="window.location.href='utilise-14.html'"
+      onclick="goToMission()"
     >
       🎯 Passer à « Je l'utilise »
     </button>
@@ -880,9 +907,23 @@
 
 
     localStorage.setItem(
-      "hanaKorean_chapter14_review",
+      REVIEW_KEY,
       "completed"
     );
+
+    localStorage.setItem(
+      REVIEW_MISTAKES_KEY,
+      String(incorrectAttempts)
+    );
+
+    localStorage.setItem(
+      REVIEW_WEAK_NOTIONS_KEY,
+      JSON.stringify(
+        weakNotions
+      )
+    );
+
+    renderChapterProgress();
 
 
     localStorage.setItem(
@@ -906,6 +947,36 @@
       behavior: "smooth"
     });
 
+  }
+
+
+
+  function goToMission() {
+    if (
+      localStorage.getItem(
+        REVIEW_KEY
+      ) !== "completed"
+    ) {
+      return;
+    }
+
+    window.location.href =
+      "utilise-14.html";
+  }
+
+
+  if (
+    guardReviewAccess()
+  ) {
+    loadPersonalReview();
+    renderChapterProgress();
+
+    window.addEventListener(
+      "pageshow",
+      function() {
+        renderChapterProgress();
+      }
+    );
   }
 
 </script>

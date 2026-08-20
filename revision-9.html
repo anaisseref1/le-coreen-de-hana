@@ -2,6 +2,7 @@
 <html lang="fr">
 
 <head>
+
   <meta charset="UTF-8">
 
   <meta
@@ -14,18 +15,45 @@
     content="#F7F4ED"
   >
 
-  <title>Je révise — Chapitre 9</title>
+  <title>
+    Chapitre 9 — J'écris
+  </title>
 
   <link
     rel="stylesheet"
     href="style.css"
   >
 
-  <style>
-    .review-header {
-      text-align: center;
-      margin-bottom: 28px;
+  <link
+    rel="stylesheet"
+    href="chapter-progress.css"
+  >
+
+
+  <script>
+
+    if (
+      localStorage.getItem(
+        "hanaKorean_chapter9_speaking"
+      ) !== "completed"
+    ) {
+
+      window.location.replace(
+        "parle-9.html"
+      );
+
     }
+
+  </script>
+
+
+  <style>
+
+    .writing-header {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
 
     .chapter-badge {
       display: inline-block;
@@ -36,31 +64,41 @@
       font-weight: bold;
     }
 
-    .review-header p {
+
+    .writing-intro {
+      color: var(--text-light);
       line-height: 1.7;
     }
 
-    .review-progress {
-      margin-bottom: 22px;
+
+    .exercise-progress-card {
+      padding: 17px;
+      margin-bottom: 20px;
+      background: var(--white);
+      border-radius: var(--radius-large);
+      box-shadow: var(--shadow);
     }
 
-    .progress-info {
+
+    .exercise-progress-top {
       display: flex;
       justify-content: space-between;
-      margin-bottom: 8px;
+      gap: 10px;
+      margin-bottom: 9px;
       color: var(--text-light);
       font-size: 13px;
     }
 
-    .progress-bar {
-      width: 100%;
+
+    .exercise-progress-bar {
       height: 9px;
+      overflow: hidden;
       background: var(--soft-beige);
       border-radius: 20px;
-      overflow: hidden;
     }
 
-    .progress-fill {
+
+    .exercise-progress-fill {
       width: 16.67%;
       height: 100%;
       background: var(--jade);
@@ -68,83 +106,126 @@
       transition: width 0.3s ease;
     }
 
-    .review-card {
+
+    .writing-card {
       padding: 20px;
       margin-bottom: 18px;
-      background: var(--white);
-      border-radius: var(--radius-large);
-      box-shadow: var(--shadow);
     }
 
-    .question-number {
-      margin-top: 0;
+
+    .writing-card.hidden {
+      display: none;
+    }
+
+
+    .step-number {
+      margin-bottom: 8px;
       color: var(--jade-dark);
-      font-size: 14px;
+      font-size: 13px;
       font-weight: bold;
     }
 
-    .review-card h2 {
-      margin-top: 8px;
-      color: var(--navy);
-    }
 
-    .prompt {
+    .prompt-box {
+      padding: 16px;
+      margin-top: 14px;
+      background: var(--soft-green);
+      border-radius: var(--radius-medium);
+      color: var(--navy);
       line-height: 1.7;
     }
 
-    .answers {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-top: 15px;
-    }
-
-    .answer {
-      width: 100%;
-      padding: 15px;
-      text-align: left;
-      border: 2px solid transparent;
-    }
 
     .answer-input {
       width: 100%;
-      margin-top: 14px;
-      padding: 15px;
       box-sizing: border-box;
-      border: 2px solid var(--border);
+      margin-top: 15px;
+      padding: 14px;
+      border: 1px solid var(--border);
       border-radius: var(--radius-medium);
-      background: #FBFAF6;
+      background: white;
       color: var(--navy);
-      font-size: 20px;
+      font-size: 18px;
     }
 
+
     .answer-input:focus {
-      outline: none;
+      outline: 2px solid var(--soft-blue);
       border-color: var(--jade);
     }
 
-    .validate-button {
+
+    .sentence-builder {
+      min-height: 58px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      padding: 12px;
+      margin-top: 15px;
+      background: #FBFAF6;
+      border: 1px dashed var(--border);
+      border-radius: var(--radius-medium);
+    }
+
+
+    .builder-placeholder {
+      color: var(--text-light);
+      font-size: 14px;
+    }
+
+
+    .word-bank {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 13px;
+    }
+
+
+    .word-chip {
+      padding: 9px 12px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: var(--soft-blue);
+      color: var(--navy);
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+
+    .check-button {
       width: 100%;
-      margin-top: 10px;
+      margin-top: 15px;
       background: var(--jade);
       color: white;
       font-weight: bold;
     }
 
-    .audio-button {
+
+    .reset-button {
       width: 100%;
-      margin-top: 12px;
-      background: var(--soft-blue);
+      margin-top: 9px;
+      background: var(--soft-beige);
       color: var(--navy);
       font-weight: bold;
     }
 
-    .slow-button {
+
+    .next-button {
+      display: none;
       width: 100%;
-      margin-top: 8px;
-      background: var(--soft-beige);
-      color: var(--navy);
+      margin-top: 14px;
+      background: var(--jade);
+      color: white;
+      font-weight: bold;
     }
+
+
+    .next-button.show {
+      display: block;
+    }
+
 
     .feedback {
       display: none;
@@ -154,91 +235,69 @@
       line-height: 1.7;
     }
 
-    .feedback.correct {
+
+    .feedback.success {
       display: block;
       background: var(--success-light);
       border-left: 4px solid var(--success);
+      color: var(--navy);
     }
 
-    .feedback.wrong {
+
+    .feedback.error {
       display: block;
       background: var(--warning-light);
       border-left: 4px solid var(--warning);
+      color: var(--navy);
     }
 
-    .hint-box {
-      margin-top: 10px;
-      padding: 12px;
-      background: rgba(255, 255, 255, 0.65);
-      border-radius: var(--radius-small);
-    }
 
-    .next-question {
-      display: none;
-      width: 100%;
-      margin-top: 12px;
-      background: var(--navy);
-      color: white;
+    .correction {
+      display: block;
+      margin: 9px 0;
+      color: var(--navy);
+      font-size: 20px;
       font-weight: bold;
     }
 
-    .hidden {
-      display: none;
-    }
 
     .result-card {
       display: none;
-      padding: 25px;
-      background: var(--white);
-      border-radius: var(--radius-large);
-      box-shadow: var(--shadow);
+      padding: 22px;
       text-align: center;
     }
 
-    .result-icon {
-      font-size: 60px;
+
+    .result-card.show {
+      display: block;
     }
+
+
+    .result-icon {
+      font-size: 48px;
+      margin-bottom: 8px;
+    }
+
 
     .result-score {
       color: var(--jade-dark);
-      font-size: 21px;
+      font-size: 20px;
       font-weight: bold;
     }
 
+
     .result-summary {
       padding: 16px;
-      margin-top: 18px;
-      background: #FBFAF6;
-      border-radius: var(--radius-medium);
-      text-align: left;
-      line-height: 1.6;
-    }
-
-    .weak-box {
-      padding: 16px;
-      margin-top: 18px;
+      margin-top: 16px;
       background: var(--soft-green);
       border-radius: var(--radius-medium);
       color: var(--navy);
       text-align: left;
-      line-height: 1.7;
+      line-height: 1.8;
     }
 
-    .skills-summary {
-      margin-top: 18px;
-      text-align: left;
-    }
 
-    .skill-line {
-      padding: 11px 0;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .skill-line:last-child {
-      border-bottom: none;
-    }
-
-    .next-step-button {
+    .finish-button {
       width: 100%;
       margin-top: 18px;
       background: var(--jade);
@@ -246,392 +305,467 @@
       font-weight: bold;
     }
 
-    .chapter-button {
-      width: 100%;
-      margin-top: 10px;
-      background: var(--soft-beige);
-      color: var(--navy);
-    }
   </style>
+
 </head>
+
 
 <body>
 
+
 <main class="app">
+
 
   <a
     class="back-link"
-    href="chapitre-9.html"
+    href="parle-9.html"
   >
-    ← Chapitre 9
+    ← Je parle
   </a>
 
 
-  <header class="review-header">
+  <header class="writing-header">
 
     <span class="chapter-badge">
-      Chapitre 9 · Révision
+      Module 1 · Chapitre 9 · Étape 4
     </span>
 
+
     <p class="korean">
-      복습해 봐요 🧠
+      써 봐요 ✍️
     </p>
 
+
     <h1>
-      Je révise
+      J'écris
     </h1>
 
-    <p>
-      Mélange les transports,
-      les questions utiles
-      et les phrases essentielles pour se déplacer.
+
+    <p class="writing-intro">
+      Écris maintenant
+      les structures utiles
+      pour demander comment aller quelque part,
+      parler d'un transport
+      et dire où descendre.
     </p>
 
   </header>
 
 
-  <div class="review-progress">
+  <section
+    id="hanaChapterPath"
+    data-chapter-path
+  ></section>
 
-    <div class="progress-info">
-      <span>Révision</span>
-      <span id="progressLabel">1 / 6</span>
+
+  <section class="exercise-progress-card">
+
+    <div class="exercise-progress-top">
+
+      <span>
+        Expression écrite
+      </span>
+
+      <strong id="progressLabel">
+        1 / 6
+      </strong>
+
     </div>
 
-    <div class="progress-bar">
+
+    <div class="exercise-progress-bar">
+
       <div
-        class="progress-fill"
+        class="exercise-progress-fill"
         id="progressFill"
       ></div>
+
     </div>
 
-  </div>
+  </section>
 
 
-  <!-- QUESTION 1 -->
+
+  <!-- EXERCICE 1 -->
 
   <section
-    class="review-card"
-    id="question1"
+    class="writing-card"
+    id="exercise1"
   >
 
-    <p class="question-number">
-      Question 1 / 6
-    </p>
+    <div class="step-number">
+      EXERCICE 1 / 6
+    </div>
+
 
     <h2>
-      🚇 Que signifie 지하철 ?
+      ❓ Comment on y va ?
     </h2>
 
-    <div class="answers">
 
-      <button
-        class="answer"
-        type="button"
-        onclick="checkChoice(1, this, true, '지하철')"
-      >
-        métro
-      </button>
-
-      <button
-        class="answer"
-        type="button"
-        onclick="checkChoice(1, this, false, '지하철')"
-      >
-        train
-      </button>
-
-      <button
-        class="answer"
-        type="button"
-        onclick="checkChoice(1, this, false, '지하철')"
-      >
-        taxi
-      </button>
-
+    <div class="prompt-box">
+      Écris :
+      <strong>« Comment on y va ? »</strong>
     </div>
+
+
+    <input
+      class="answer-input"
+      id="answer1"
+      type="text"
+      lang="ko"
+      autocomplete="off"
+      autocapitalize="off"
+      spellcheck="false"
+      placeholder="Écris la question en coréen…"
+    >
+
+
+    <button
+      class="check-button"
+      type="button"
+      onclick="checkExercise1()"
+    >
+      Vérifier
+    </button>
+
 
     <div
       class="feedback"
       id="feedback1"
     ></div>
 
+
     <button
-      class="next-question"
+      class="next-button"
       id="next1"
       type="button"
-      onclick="showQuestion(2)"
+      onclick="showExercise(2)"
     >
-      Question suivante →
+      Exercice suivant →
     </button>
 
   </section>
 
 
-  <!-- QUESTION 2 -->
+
+  <!-- EXERCICE 2 -->
 
   <section
-    class="review-card hidden"
-    id="question2"
+    class="writing-card hidden"
+    id="exercise2"
   >
 
-    <p class="question-number">
-      Question 2 / 6
-    </p>
+    <div class="step-number">
+      EXERCICE 2 / 6
+    </div>
+
 
     <h2>
-      ❓ Que signifie 어떻게 가요?
+      🚉 Comment aller à la gare de Séoul ?
     </h2>
 
-    <div class="answers">
 
-      <button
-        class="answer"
-        type="button"
-        onclick="checkChoice(2, this, false, '어떻게 가요')"
-      >
-        Où est-ce que tu vas ?
-      </button>
+    <div class="prompt-box">
+      Écris :
 
-      <button
-        class="answer"
-        type="button"
-        onclick="checkChoice(2, this, true, '어떻게 가요')"
-      >
-        Comment on y va ?
-      </button>
+      <br><br>
 
-      <button
-        class="answer"
-        type="button"
-        onclick="checkChoice(2, this, false, '어떻게 가요')"
-      >
-        À quelle heure tu pars ?
-      </button>
-
+      <strong>
+        « Comment aller à la gare de Séoul ? »
+      </strong>
     </div>
+
+
+    <input
+      class="answer-input"
+      id="answer2"
+      type="text"
+      lang="ko"
+      autocomplete="off"
+      autocapitalize="off"
+      spellcheck="false"
+      placeholder="Écris la phrase en coréen…"
+    >
+
+
+    <button
+      class="check-button"
+      type="button"
+      onclick="checkExercise2()"
+    >
+      Vérifier
+    </button>
+
 
     <div
       class="feedback"
       id="feedback2"
     ></div>
 
+
     <button
-      class="next-question"
+      class="next-button"
       id="next2"
       type="button"
-      onclick="showQuestion(3)"
+      onclick="showExercise(3)"
     >
-      Question suivante →
+      Exercice suivant →
     </button>
 
   </section>
 
 
-  <!-- QUESTION 3 -->
+
+  <!-- EXERCICE 3 -->
 
   <section
-    class="review-card hidden"
-    id="question3"
+    class="writing-card hidden"
+    id="exercise3"
   >
 
-    <p class="question-number">
-      Question 3 / 6
-    </p>
+    <div class="step-number">
+      EXERCICE 3 / 6
+    </div>
+
 
     <h2>
-      🚇 Écris « J'y vais en métro. »
+      🚇 Construis « J'y vais en métro »
     </h2>
 
-    <input
-      class="answer-input"
-      id="answer3"
-      type="text"
-      lang="ko"
-      autocomplete="off"
-      autocapitalize="off"
-      spellcheck="false"
-      placeholder="Écris en coréen"
+
+    <div class="prompt-box">
+      Remets les blocs dans l'ordre.
+    </div>
+
+
+    <div
+      class="sentence-builder"
+      id="sentenceBuilder"
+    >
+      <span class="builder-placeholder">
+        Clique sur les blocs pour construire la phrase.
+      </span>
+    </div>
+
+
+    <div
+      class="word-bank"
+      id="wordBank"
     >
 
+      <button
+        class="word-chip"
+        type="button"
+        data-word="가요"
+        onclick="selectWord(this)"
+      >
+        가요
+      </button>
+
+
+      <button
+        class="word-chip"
+        type="button"
+        data-word="지하철로"
+        onclick="selectWord(this)"
+      >
+        지하철로
+      </button>
+
+    </div>
+
+
     <button
-      class="validate-button"
+      class="check-button"
       type="button"
-      onclick="checkText(3, ['지하철로 가요', '저는 지하철로 가요'], '(으)로')"
+      onclick="checkSentenceOrder()"
     >
       Vérifier
     </button>
+
+
+    <button
+      class="reset-button"
+      type="button"
+      onclick="resetSentence()"
+    >
+      ↺ Recommencer la phrase
+    </button>
+
 
     <div
       class="feedback"
       id="feedback3"
     ></div>
 
+
     <button
-      class="next-question"
+      class="next-button"
       id="next3"
       type="button"
-      onclick="showQuestion(4)"
+      onclick="showExercise(4)"
     >
-      Question suivante →
+      Exercice suivant →
     </button>
 
   </section>
 
 
-  <!-- QUESTION 4 -->
+
+  <!-- EXERCICE 4 -->
 
   <section
-    class="review-card hidden"
-    id="question4"
+    class="writing-card hidden"
+    id="exercise4"
   >
 
-    <p class="question-number">
-      Question 4 / 6
-    </p>
+    <div class="step-number">
+      EXERCICE 4 / 6
+    </div>
+
 
     <h2>
-      🎧 Qu'entends-tu ?
+      🚉 Je prends le métro
     </h2>
 
-    <p class="prompt">
-      Écoute la phrase puis choisis la bonne traduction.
-    </p>
 
-    <button
-      class="audio-button"
-      type="button"
-      onclick="speakKorean('지하철을 타요.', false)"
-    >
-      🔊 Écouter
-    </button>
-
-    <button
-      class="slow-button"
-      type="button"
-      onclick="speakKorean('지하철을 타요.', true)"
-    >
-      🐢 Écouter lentement
-    </button>
-
-    <div class="answers">
-
-      <button
-        class="answer"
-        type="button"
-        onclick="checkChoice(4, this, true, '타요')"
-      >
-        Je prends le métro.
-      </button>
-
-      <button
-        class="answer"
-        type="button"
-        onclick="checkChoice(4, this, false, '타요')"
-      >
-        Je descends du métro.
-      </button>
-
-      <button
-        class="answer"
-        type="button"
-        onclick="checkChoice(4, this, false, '타요')"
-      >
-        Je vais en métro.
-      </button>
-
+    <div class="prompt-box">
+      Écris :
+      <strong>« Je prends le métro. »</strong>
     </div>
+
+
+    <input
+      class="answer-input"
+      id="answer4"
+      type="text"
+      lang="ko"
+      autocomplete="off"
+      autocapitalize="off"
+      spellcheck="false"
+      placeholder="Écris la phrase en coréen…"
+    >
+
+
+    <button
+      class="check-button"
+      type="button"
+      onclick="checkExercise4()"
+    >
+      Vérifier
+    </button>
+
 
     <div
       class="feedback"
       id="feedback4"
     ></div>
 
+
     <button
-      class="next-question"
+      class="next-button"
       id="next4"
       type="button"
-      onclick="showQuestion(5)"
+      onclick="showExercise(5)"
     >
-      Question suivante →
+      Exercice suivant →
     </button>
 
   </section>
 
 
-  <!-- QUESTION 5 -->
+
+  <!-- EXERCICE 5 -->
 
   <section
-    class="review-card hidden"
-    id="question5"
+    class="writing-card hidden"
+    id="exercise5"
   >
 
-    <p class="question-number">
-      Question 5 / 6
-    </p>
+    <div class="step-number">
+      EXERCICE 5 / 6
+    </div>
+
 
     <h2>
-      📍 Que signifie 어디에서 내려요?
+      📍 Où est-ce que je descends ?
     </h2>
 
-    <div class="answers">
 
-      <button
-        class="answer"
-        type="button"
-        onclick="checkChoice(5, this, false, '내려요')"
-      >
-        Où est-ce que je monte ?
-      </button>
-
-      <button
-        class="answer"
-        type="button"
-        onclick="checkChoice(5, this, true, '내려요')"
-      >
-        Où est-ce que je descends ?
-      </button>
-
-      <button
-        class="answer"
-        type="button"
-        onclick="checkChoice(5, this, false, '내려요')"
-      >
-        Où est la station ?
-      </button>
-
+    <div class="prompt-box">
+      Écris :
+      <strong>« Où est-ce que je descends ? »</strong>
     </div>
+
+
+    <input
+      class="answer-input"
+      id="answer5"
+      type="text"
+      lang="ko"
+      autocomplete="off"
+      autocapitalize="off"
+      spellcheck="false"
+      placeholder="Écris la question en coréen…"
+    >
+
+
+    <button
+      class="check-button"
+      type="button"
+      onclick="checkExercise5()"
+    >
+      Vérifier
+    </button>
+
 
     <div
       class="feedback"
       id="feedback5"
     ></div>
 
+
     <button
-      class="next-question"
+      class="next-button"
       id="next5"
       type="button"
-      onclick="showQuestion(6)"
+      onclick="showExercise(6)"
     >
-      Dernière question →
+      Dernier exercice →
     </button>
 
   </section>
 
 
-  <!-- QUESTION 6 -->
+
+  <!-- EXERCICE 6 -->
 
   <section
-    class="review-card hidden"
-    id="question6"
+    class="writing-card hidden"
+    id="exercise6"
   >
 
-    <p class="question-number">
-      Question 6 / 6
-    </p>
+    <div class="step-number">
+      EXERCICE 6 / 6
+    </div>
+
 
     <h2>
-      🚉 Écris « Je descends à la gare de Séoul. »
+      🚉 Je descends à la gare de Séoul
     </h2>
+
+
+    <div class="prompt-box">
+      Écris :
+
+      <br><br>
+
+      <strong>
+        « Je descends à la gare de Séoul. »
+      </strong>
+    </div>
+
 
     <input
       class="answer-input"
@@ -641,32 +775,36 @@
       autocomplete="off"
       autocapitalize="off"
       spellcheck="false"
-      placeholder="Écris en coréen"
+      placeholder="Écris la phrase en coréen…"
     >
 
+
     <button
-      class="validate-button"
+      class="check-button"
       type="button"
-      onclick="checkText(6, ['서울역에서 내려요', '저는 서울역에서 내려요'], '서울역에서 내려요')"
+      onclick="checkExercise6()"
     >
       Vérifier
     </button>
+
 
     <div
       class="feedback"
       id="feedback6"
     ></div>
 
+
     <button
-      class="next-question"
+      class="next-button"
       id="next6"
       type="button"
-      onclick="finishReview()"
+      onclick="showResult()"
     >
-      Voir mon résultat 🌿
+      Voir mon résultat →
     </button>
 
   </section>
+
 
 
   <!-- RÉSULTAT -->
@@ -677,199 +815,178 @@
   >
 
     <div class="result-icon">
-      🧠🚇
+      ✍️🚇
     </div>
+
 
     <h2>
       잘했어요!
     </h2>
 
+
     <p>
-      Tu as terminé la révision du chapitre 9.
+      Tu as terminé
+      l'expression écrite du chapitre 9.
     </p>
 
+
     <p class="result-score">
-      6 notions validées ✅
+      6 exercices validés ✅
     </p>
 
 
     <div class="result-summary">
 
       <strong>
-        📊 Ta séance
+        🧠 Tu sais maintenant écrire :
       </strong>
 
-      <p id="sessionSummary"></p>
+      <br><br>
 
-    </div>
+      ❓ <strong>어떻게 가요?</strong>
 
+      <br><br>
 
-    <div
-      class="weak-box"
-      id="weakBox"
-    ></div>
+      🚉 <strong>서울역에 어떻게 가요?</strong>
 
+      <br><br>
 
-    <div class="skills-summary">
+      🚇 <strong>지하철로 가요.</strong>
 
-      <div class="skill-line">
-        🚇 <strong>지하철</strong>
-      </div>
+      <br><br>
 
-      <div class="skill-line">
-        ❓ <strong>어떻게 가요?</strong>
-      </div>
+      🚉 <strong>지하철을 타요.</strong>
 
-      <div class="skill-line">
-        🚇 <strong>지하철로 가요.</strong>
-      </div>
+      <br><br>
 
-      <div class="skill-line">
-        🚉 <strong>지하철을 타요.</strong>
-      </div>
+      📍 <strong>어디에서 내려요?</strong>
 
-      <div class="skill-line">
-        📍 <strong>어디에서 내려요?</strong>
-      </div>
+      <br><br>
 
-      <div class="skill-line">
-        🚉 <strong>서울역에서 내려요.</strong>
-      </div>
+      🚉 <strong>서울역에서 내려요.</strong>
 
     </div>
 
 
     <button
-      class="next-step-button"
+      class="finish-button"
       type="button"
-      onclick="window.location.href='utilise-9.html'"
+      onclick="completeWriting()"
     >
-      🎯 Passer à « Je l'utilise »
-    </button>
-
-
-    <button
-      class="chapter-button"
-      type="button"
-      onclick="window.location.href='chapitre-9.html'"
-    >
-      Retour au chapitre
+      ✅ Valider « J'écris » · Passer à « Je révise »
     </button>
 
   </section>
 
+
 </main>
 
 
+
+<script src="chapter-progress.js"></script>
+
+
 <script>
-  const completedQuestions = {
+
+  const completed = {
+
     1: false,
     2: false,
     3: false,
     4: false,
     5: false,
     6: false
+
   };
 
 
-  let incorrectAttempts = 0;
+  const mistakes = [];
 
 
-  const weakNotions = new Set();
+  const revisionNotions = [];
 
 
-  function normalizeKorean(text) {
+  let builtSentence = [];
+
+
+
+  function normalize(text) {
 
     return text
       .trim()
-      .replace(/[.!?。！？,，]/g, "")
-      .replace(/\s+/g, "");
+      .replace(/[.,!?？！。]/g, "")
+      .replace(/\s+/g, " ");
 
   }
 
 
-  function getKoreanVoice() {
 
-    const voices =
-      window.speechSynthesis.getVoices();
+  function compact(text) {
 
-
-    return voices.find(
-      voice =>
-        voice.lang &&
-        voice.lang
-          .toLowerCase()
-          .startsWith("ko")
-    );
+    return normalize(text)
+      .replace(/\s/g, "");
 
   }
 
 
-  function speakKorean(
-    text,
-    slow = false
+
+  function success(
+    number,
+    message
   ) {
 
-    if (
-      !("speechSynthesis" in window)
-    ) {
-      return;
-    }
+    completed[number] =
+      true;
 
 
-    window.speechSynthesis.cancel();
-
-
-    const speech =
-      new SpeechSynthesisUtterance(
-        text
+    const feedback =
+      document.getElementById(
+        "feedback" + number
       );
 
 
-    speech.lang =
-      "ko-KR";
+    feedback.className =
+      "feedback success";
 
 
-    speech.rate =
-      slow
-        ? 0.25
-        : 0.82;
+    feedback.innerHTML =
+      "✅ <strong>Très bien !</strong>" +
+      "<br><br>" +
+      message;
 
 
-    speech.pitch =
-      1;
-
-
-    const voice =
-      getKoreanVoice();
-
-
-    if (voice) {
-
-      speech.voice =
-        voice;
-
-    }
-
-
-    window.speechSynthesis.speak(
-      speech
+    document.getElementById(
+      "next" + number
+    ).classList.add(
+      "show"
     );
 
   }
 
 
-  function checkChoice(
+
+  function error(
     number,
-    button,
-    isCorrect,
+    message,
     notion
   ) {
 
     if (
-      completedQuestions[number]
+      !mistakes.includes(number)
     ) {
-      return;
+
+      mistakes.push(number);
+
+    }
+
+
+    if (
+      notion &&
+      !revisionNotions.includes(notion)
+    ) {
+
+      revisionNotions.push(notion);
+
     }
 
 
@@ -879,300 +996,611 @@
       );
 
 
-    const question =
-      document.getElementById(
-        "question" + number
+    feedback.className =
+      "feedback error";
+
+
+    feedback.innerHTML =
+      message;
+
+  }
+
+
+
+  function checkExercise1() {
+
+    if (completed[1]) {
+      return;
+    }
+
+
+    const answer =
+      compact(
+        document.getElementById(
+          "answer1"
+        ).value
       );
 
 
-    if (isCorrect) {
+    if (
+      answer === "어떻게가요"
+    ) {
 
-      completedQuestions[number] =
-        true;
-
-
-      button.classList.add(
-        "correct"
+      success(
+        1,
+        "<span class='correction'>어떻게 가요?</span>" +
+        "<strong>어떻게</strong> signifie « comment »."
       );
-
-
-      question
-        .querySelectorAll(
-          ".answer"
-        )
-        .forEach(
-          answer => {
-
-            answer.disabled =
-              true;
-
-          }
-        );
-
-
-      feedback.className =
-        "feedback correct";
-
-
-      if (number === 1) {
-
-        feedback.innerHTML =
-          "✅ <strong>Exact !</strong>" +
-          "<br><br>" +
-          "<strong>지하철</strong> signifie « métro ».";
-
-      }
-
-
-      if (number === 2) {
-
-        feedback.innerHTML =
-          "✅ <strong>Très bien !</strong>" +
-          "<br><br>" +
-          "<strong>어떻게 가요?</strong> signifie « Comment on y va ? ».";
-
-      }
-
-
-      if (number === 4) {
-
-        feedback.innerHTML =
-          "✅ <strong>Exact !</strong>" +
-          "<br><br>" +
-          "<strong>지하철을 타요.</strong> = Je prends le métro.";
-
-      }
-
-
-      if (number === 5) {
-
-        feedback.innerHTML =
-          "✅ <strong>Très bien !</strong>" +
-          "<br><br>" +
-          "<strong>어디에서 내려요?</strong> signifie « Où est-ce que je descends ? ».";
-
-      }
-
-
-      document.getElementById(
-        "next" + number
-      ).style.display =
-        "block";
-
 
       return;
 
     }
 
 
-    incorrectAttempts++;
+    if (
+      answer.includes("어떻게") &&
+      !answer.includes("가요")
+    ) {
 
+      error(
+        1,
+        "Tu as bien écrit <strong>어떻게</strong>." +
+        "<br><br>" +
+        "Ajoute <strong>가요</strong> pour former la question complète.",
+        "어떻게 가요?"
+      );
 
-    weakNotions.add(
-      notion
-    );
-
-
-    button.classList.add(
-      "wrong"
-    );
-
-
-    feedback.className =
-      "feedback wrong";
-
-
-    if (number === 1) {
-
-      feedback.innerHTML =
-        "❌ <strong>Revois le vocabulaire des transports.</strong>" +
-        "<div class='hint-box'>" +
-        "💡 <strong>지하철</strong> = métro." +
-        "</div>";
+      return;
 
     }
 
 
-    if (number === 2) {
-
-      feedback.innerHTML =
-        "❌ <strong>Repère 어떻게.</strong>" +
-        "<div class='hint-box'>" +
-        "💡 <strong>어떻게 가요?</strong> demande comment on se rend quelque part." +
-        "</div>";
-
-    }
-
-
-    if (number === 4) {
-
-      feedback.innerHTML =
-        "❌ <strong>Écoute le verbe 타요.</strong>" +
-        "<div class='hint-box'>" +
-        "💡 <strong>타요</strong> = prendre / monter dans un transport." +
-        "</div>";
-
-    }
-
-
-    if (number === 5) {
-
-      feedback.innerHTML =
-        "❌ <strong>Repère 내려요.</strong>" +
-        "<div class='hint-box'>" +
-        "💡 <strong>내려요</strong> signifie « descendre »." +
-        "</div>";
-
-    }
-
-
-    setTimeout(
-      () => {
-
-        button.classList.remove(
-          "wrong"
-        );
-
-      },
-      800
+    error(
+      1,
+      "💡 Construis :" +
+      "<br><br>" +
+      "<strong>어떻게 + 가요?</strong>",
+      "어떻게 가요?"
     );
 
   }
 
 
-  function checkText(
-    number,
-    acceptedAnswers,
-    notion
-  ) {
+
+  function checkExercise2() {
+
+    if (completed[2]) {
+      return;
+    }
+
+
+    const answer =
+      compact(
+        document.getElementById(
+          "answer2"
+        ).value
+      );
+
 
     if (
-      completedQuestions[number]
+      answer === "서울역에어떻게가요"
     ) {
-      return;
-    }
 
-
-    const input =
-      document.getElementById(
-        "answer" + number
+      success(
+        2,
+        "<span class='correction'>서울역에 어떻게 가요?</span>" +
+        "<strong>서울역에</strong> indique ici la destination."
       );
-
-
-    const feedback =
-      document.getElementById(
-        "feedback" + number
-      );
-
-
-    const value =
-      normalizeKorean(
-        input.value
-      );
-
-
-    const accepted =
-      acceptedAnswers.some(
-        answer =>
-          normalizeKorean(
-            answer
-          ) === value
-      );
-
-
-    if (accepted) {
-
-      completedQuestions[number] =
-        true;
-
-
-      feedback.className =
-        "feedback correct";
-
-
-      if (number === 3) {
-
-        feedback.innerHTML =
-          "✅ <strong>Exact !</strong>" +
-          "<br><br>" +
-          "<strong>지하철로 가요.</strong> = J'y vais en métro.";
-
-      }
-
-
-      if (number === 6) {
-
-        feedback.innerHTML =
-          "✅ <strong>Très bien !</strong>" +
-          "<br><br>" +
-          "<strong>서울역에서 내려요.</strong> = Je descends à la gare de Séoul.";
-
-      }
-
-
-      input.disabled =
-        true;
-
-
-      document.getElementById(
-        "next" + number
-      ).style.display =
-        "block";
-
 
       return;
 
     }
 
 
-    incorrectAttempts++;
+    if (
+      answer === "어떻게가요"
+    ) {
+
+      error(
+        2,
+        "La question « Comment on y va ? » est correcte." +
+        "<br><br>" +
+        "Mais la consigne demande de préciser la gare de Séoul." +
+        "<br><br>" +
+        "💡 Ajoute <strong>서울역에</strong> au début.",
+        "서울역에"
+      );
+
+      return;
+
+    }
 
 
-    weakNotions.add(
-      notion
+    if (
+      answer.includes("서울역") &&
+      !answer.includes("에")
+    ) {
+
+      error(
+        2,
+        "Tu as le bon lieu : <strong>서울역</strong>." +
+        "<br><br>" +
+        "Ajoute <strong>에</strong> après le lieu.",
+        "lieu + 에"
+      );
+
+      return;
+
+    }
+
+
+    if (
+      answer.includes("서울역에") &&
+      !answer.includes("어떻게가요")
+    ) {
+
+      error(
+        2,
+        "La destination est correcte." +
+        "<br><br>" +
+        "Ajoute maintenant <strong>어떻게 가요?</strong>",
+        "어떻게 가요?"
+      );
+
+      return;
+
+    }
+
+
+    error(
+      2,
+      "💡 Modèle :" +
+      "<br><br>" +
+      "<strong>서울역에 어떻게 가요?</strong>",
+      "서울역에 어떻게 가요?"
     );
-
-
-    feedback.className =
-      "feedback wrong";
-
-
-    if (number === 3) {
-
-      feedback.innerHTML =
-        "❌ <strong>Fais attention au moyen de transport.</strong>" +
-        "<div class='hint-box'>" +
-        "💡 <strong>지하철로 + 가요</strong>" +
-        "</div>";
-
-    }
-
-
-    if (number === 6) {
-
-      feedback.innerHTML =
-        "❌ <strong>Fais attention au lieu où l'action se produit.</strong>" +
-        "<div class='hint-box'>" +
-        "💡 <strong>서울역에서 + 내려요</strong>" +
-        "</div>";
-
-    }
 
   }
 
 
-  function showQuestion(number) {
+
+  function selectWord(button) {
+
+    if (completed[3]) {
+      return;
+    }
+
+
+    builtSentence.push(
+      button.dataset.word
+    );
+
+
+    button.style.display =
+      "none";
+
+
+    renderSentence();
+
+  }
+
+
+
+  function renderSentence() {
+
+    const builder =
+      document.getElementById(
+        "sentenceBuilder"
+      );
+
+
+    builder.innerHTML = "";
+
 
     if (
-      "speechSynthesis" in window
+      builtSentence.length === 0
     ) {
-      window.speechSynthesis.cancel();
+
+      builder.innerHTML =
+        "<span class='builder-placeholder'>" +
+        "Clique sur les blocs pour construire la phrase." +
+        "</span>";
+
+      return;
+
     }
+
+
+    builtSentence.forEach(
+      word => {
+
+        const chip =
+          document.createElement(
+            "span"
+          );
+
+
+        chip.className =
+          "word-chip";
+
+
+        chip.textContent =
+          word;
+
+
+        builder.appendChild(
+          chip
+        );
+
+      }
+    );
+
+  }
+
+
+
+  function resetSentence() {
+
+    if (completed[3]) {
+      return;
+    }
+
+
+    builtSentence = [];
 
 
     document
       .querySelectorAll(
-        ".review-card"
+        "#wordBank .word-chip"
+      )
+      .forEach(
+        button => {
+
+          button.style.display =
+            "inline-block";
+
+        }
+      );
+
+
+    renderSentence();
+
+  }
+
+
+
+  function checkSentenceOrder() {
+
+    if (completed[3]) {
+      return;
+    }
+
+
+    const sentence =
+      builtSentence.join("|");
+
+
+    if (
+      sentence ===
+      "지하철로|가요"
+    ) {
+
+      success(
+        3,
+        "<span class='correction'>지하철로 가요.</span>" +
+        "<strong>로</strong> indique ici le moyen de transport."
+      );
+
+      return;
+
+    }
+
+
+    if (
+      builtSentence.length < 2
+    ) {
+
+      error(
+        3,
+        "Il manque encore un bloc." +
+        "<br><br>" +
+        "💡 Utilise les deux blocs.",
+        "transport + 로 + 가요"
+      );
+
+      return;
+
+    }
+
+
+    error(
+      3,
+      "L'ordre n'est pas correct." +
+      "<br><br>" +
+      "💡 Commence par <strong>지하철로</strong>, puis ajoute <strong>가요</strong>.",
+      "지하철로 가요"
+    );
+
+  }
+
+
+
+  function checkExercise4() {
+
+    if (completed[4]) {
+      return;
+    }
+
+
+    const answer =
+      compact(
+        document.getElementById(
+          "answer4"
+        ).value
+      );
+
+
+    if (
+      answer ===
+      "지하철을타요"
+    ) {
+
+      success(
+        4,
+        "<span class='correction'>지하철을 타요.</span>" +
+        "<strong>타요</strong> signifie prendre / monter dans un transport."
+      );
+
+      return;
+
+    }
+
+
+    if (
+      answer ===
+      "지하철로가요"
+    ) {
+
+      error(
+        4,
+        "<strong>지하철로 가요.</strong> signifie « J'y vais en métro »." +
+        "<br><br>" +
+        "Ici, la consigne demande l'action de <strong>prendre le métro</strong>.",
+        "지하철로 가요 / 지하철을 타요"
+      );
+
+      return;
+
+    }
+
+
+    if (
+      answer.includes("지하철") &&
+      !answer.includes("타요")
+    ) {
+
+      error(
+        4,
+        "Tu as bien écrit <strong>지하철</strong>." +
+        "<br><br>" +
+        "Ajoute <strong>을 타요</strong>.",
+        "타요"
+      );
+
+      return;
+
+    }
+
+
+    error(
+      4,
+      "💡 Modèle :" +
+      "<br><br>" +
+      "<strong>지하철을 타요.</strong>",
+      "지하철을 타요"
+    );
+
+  }
+
+
+
+  function checkExercise5() {
+
+    if (completed[5]) {
+      return;
+    }
+
+
+    const answer =
+      compact(
+        document.getElementById(
+          "answer5"
+        ).value
+      );
+
+
+    if (
+      answer ===
+      "어디에서내려요"
+    ) {
+
+      success(
+        5,
+        "<span class='correction'>어디에서 내려요?</span>" +
+        "<strong>에서</strong> marque ici le lieu où se produit l'action."
+      );
+
+      return;
+
+    }
+
+
+    if (
+      answer === "어디"
+    ) {
+
+      error(
+        5,
+        "<strong>어디</strong> signifie bien « où »." +
+        "<br><br>" +
+        "Mais il manque la structure complète <strong>에서 내려요?</strong>",
+        "어디에서 내려요?"
+      );
+
+      return;
+
+    }
+
+
+    if (
+      answer.includes("어디") &&
+      !answer.includes("에서")
+    ) {
+
+      error(
+        5,
+        "Tu as bien commencé par <strong>어디</strong>." +
+        "<br><br>" +
+        "Ajoute <strong>에서</strong>.",
+        "에서"
+      );
+
+      return;
+
+    }
+
+
+    if (
+      answer.includes("어디에서") &&
+      !answer.includes("내려요")
+    ) {
+
+      error(
+        5,
+        "La structure de lieu est correcte." +
+        "<br><br>" +
+        "Ajoute <strong>내려요</strong> = descendre.",
+        "내려요"
+      );
+
+      return;
+
+    }
+
+
+    error(
+      5,
+      "💡 Construis :" +
+      "<br><br>" +
+      "<strong>어디에서 + 내려요?</strong>",
+      "어디에서 내려요?"
+    );
+
+  }
+
+
+
+  function checkExercise6() {
+
+    if (completed[6]) {
+      return;
+    }
+
+
+    const answer =
+      compact(
+        document.getElementById(
+          "answer6"
+        ).value
+      );
+
+
+    if (
+      answer ===
+      "서울역에서내려요"
+    ) {
+
+      success(
+        6,
+        "<span class='correction'>서울역에서 내려요.</span>" +
+        "<strong>서울역에서</strong> indique le lieu où l'on descend."
+      );
+
+      return;
+
+    }
+
+
+    if (
+      answer.includes("서울역") &&
+      !answer.includes("에서")
+    ) {
+
+      error(
+        6,
+        "Le lieu est correct." +
+        "<br><br>" +
+        "Ajoute <strong>에서</strong> après <strong>서울역</strong>.",
+        "lieu + 에서"
+      );
+
+      return;
+
+    }
+
+
+    if (
+      answer.includes("서울역에서") &&
+      !answer.includes("내려요")
+    ) {
+
+      error(
+        6,
+        "Le lieu est parfaitement écrit." +
+        "<br><br>" +
+        "Ajoute le verbe <strong>내려요</strong>.",
+        "내려요"
+      );
+
+      return;
+
+    }
+
+
+    if (
+      answer.includes("서울역에내려요")
+    ) {
+
+      error(
+        6,
+        "Ici, le chapitre utilise <strong>에서</strong> avec 내려요." +
+        "<br><br>" +
+        "💡 Écris <strong>서울역에서 내려요.</strong>",
+        "에 / 에서"
+      );
+
+      return;
+
+    }
+
+
+    error(
+      6,
+      "💡 Modèle :" +
+      "<br><br>" +
+      "<strong>서울역에서 내려요.</strong>",
+      "서울역에서 내려요"
+    );
+
+  }
+
+
+
+  function showExercise(number) {
+
+    document
+      .querySelectorAll(
+        ".writing-card"
       )
       .forEach(
         card => {
@@ -1186,28 +1614,27 @@
 
 
     document.getElementById(
-      "question" + number
+      "exercise" + number
     ).classList.remove(
       "hidden"
     );
 
 
-    const percentage =
-      (number / 6) * 100;
+    document.getElementById(
+      "progressLabel"
+    ).textContent =
+      number + " / 6";
 
 
     document.getElementById(
       "progressFill"
     ).style.width =
-      percentage +
+      (
+        number /
+        6 *
+        100
+      ) +
       "%";
-
-
-    document.getElementById(
-      "progressLabel"
-    ).textContent =
-      number +
-      " / 6";
 
 
     window.scrollTo({
@@ -1215,40 +1642,20 @@
       behavior: "smooth"
     });
 
-
-    if (
-      number === 3 ||
-      number === 6
-    ) {
-
-      setTimeout(
-        () => {
-
-          document.getElementById(
-            "answer" + number
-          ).focus();
-
-        },
-        350
-      );
-
-    }
-
   }
 
 
-  function finishReview() {
 
-    if (
-      "speechSynthesis" in window
-    ) {
-      window.speechSynthesis.cancel();
+  function showResult() {
+
+    if (!completed[6]) {
+      return;
     }
 
 
     document
       .querySelectorAll(
-        ".review-card"
+        ".writing-card"
       )
       .forEach(
         card => {
@@ -1275,127 +1682,20 @@
 
     document.getElementById(
       "resultCard"
-    ).style.display =
-      "block";
-
-
-    let summary = "";
-
-
-    if (
-      incorrectAttempts === 0
-    ) {
-
-      summary =
-        "🌟 Les 6 notions ont été validées du premier coup.";
-
-    }
-
-    else if (
-      incorrectAttempts === 1
-    ) {
-
-      summary =
-        "🌿 Une seule erreur sur toute la révision.";
-
-    }
-
-    else {
-
-      summary =
-        "Tu as terminé la révision avec " +
-        incorrectAttempts +
-        " tentative(s) incorrecte(s).";
-
-    }
-
-
-    document.getElementById(
-      "sessionSummary"
-    ).textContent =
-      summary;
-
-
-    let savedWritingNotions = [];
-
-
-    try {
-
-      savedWritingNotions =
-        JSON.parse(
-          localStorage.getItem(
-            "hanaKorean_chapter9_revisionNotions"
-          ) || "[]"
-        );
-
-    }
-
-    catch (error) {
-
-      savedWritingNotions =
-        [];
-
-    }
-
-
-    savedWritingNotions.forEach(
-      notion =>
-        weakNotions.add(
-          notion
-        )
-    );
-
-
-    const weakArray =
-      Array.from(
-        weakNotions
-      );
-
-
-    const weakBox =
-      document.getElementById(
-        "weakBox"
-      );
-
-
-    if (
-      weakArray.length === 0
-    ) {
-
-      weakBox.innerHTML =
-        "<strong>🌟 Aucune notion fragile détectée.</strong>" +
-        "<br><br>" +
-        "Tu peux passer à la mission finale.";
-
-    }
-
-    else {
-
-      weakBox.innerHTML =
-        "<strong>🌱 À revoir encore un peu :</strong>" +
-        "<br><br>" +
-        weakArray.join(" · ");
-
-    }
-
-
-    localStorage.setItem(
-      "hanaKorean_chapter9_review",
-      "completed"
+    ).classList.add(
+      "show"
     );
 
 
     localStorage.setItem(
-      "hanaKorean_chapter9_reviewMistakes",
-      incorrectAttempts
+      "hanaKorean_chapter9_writingMistakes",
+      JSON.stringify(mistakes)
     );
 
 
     localStorage.setItem(
-      "hanaKorean_chapter9_reviewWeakNotions",
-      JSON.stringify(
-        weakArray
-      )
+      "hanaKorean_chapter9_revisionNotions",
+      JSON.stringify(revisionNotions)
     );
 
 
@@ -1407,81 +1707,50 @@
   }
 
 
-  document
-    .querySelectorAll(
-      ".answer-input"
-    )
-    .forEach(
-      input => {
 
-        input.addEventListener(
-          "keydown",
-          function(event) {
+  function completeWriting() {
 
-            if (
-              event.key !==
-              "Enter"
-            ) {
-              return;
-            }
-
-
-            event.preventDefault();
-
-
-            if (
-              input.id ===
-              "answer3"
-            ) {
-
-              checkText(
-                3,
-                [
-                  "지하철로 가요",
-                  "저는 지하철로 가요"
-                ],
-                "(으)로"
-              );
-
-            }
-
-
-            if (
-              input.id ===
-              "answer6"
-            ) {
-
-              checkText(
-                6,
-                [
-                  "서울역에서 내려요",
-                  "저는 서울역에서 내려요"
-                ],
-                "서울역에서 내려요"
-              );
-
-            }
-
-          }
-        );
-
-      }
+    localStorage.setItem(
+      "hanaKorean_chapter9_writing",
+      "completed"
     );
 
 
-  if (
-    "speechSynthesis" in window
-  ) {
+    if (
+      window.HanaChapterProgress &&
+      typeof window.HanaChapterProgress.render === "function"
+    ) {
 
-    window.speechSynthesis.onvoiceschanged =
-      function() {
+      window.HanaChapterProgress.render();
 
-        window.speechSynthesis.getVoices();
+    }
 
-      };
+
+    window.location.href =
+      "revision-9.html";
 
   }
+
+
+
+  window.addEventListener(
+    "pageshow",
+    function() {
+
+      if (
+        window.HanaChapterProgress &&
+        typeof window.HanaChapterProgress.render === "function"
+      ) {
+
+        window.HanaChapterProgress.render();
+
+      }
+
+    }
+  );
+
 </script>
+
 
 </body>
 

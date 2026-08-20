@@ -2,6 +2,7 @@
 <html lang="fr">
 
 <head>
+
   <meta charset="UTF-8">
 
   <meta
@@ -14,18 +15,45 @@
     content="#F7F4ED"
   >
 
-  <title>Je révise — Chapitre 10</title>
+  <title>
+    Chapitre 10 — Je révise
+  </title>
 
   <link
     rel="stylesheet"
     href="style.css"
   >
 
+  <link
+    rel="stylesheet"
+    href="chapter-progress.css"
+  >
+
+
+  <script>
+
+    if (
+      localStorage.getItem(
+        "hanaKorean_chapter10_writing"
+      ) !== "completed"
+    ) {
+
+      window.location.replace(
+        "ecriture-10.html"
+      );
+
+    }
+
+  </script>
+
+
   <style>
+
     .review-header {
       text-align: center;
-      margin-bottom: 28px;
+      margin-bottom: 25px;
     }
+
 
     .chapter-badge {
       display: inline-block;
@@ -36,115 +64,150 @@
       font-weight: bold;
     }
 
-    .review-header p {
+
+    .review-intro {
+      color: var(--text-light);
       line-height: 1.7;
     }
 
-    .review-progress {
-      margin-bottom: 22px;
+
+    .personal-review {
+      display: none;
+      padding: 18px;
+      margin-bottom: 20px;
+      background: var(--soft-beige);
+      border-radius: var(--radius-large);
+      color: var(--navy);
+      line-height: 1.7;
     }
 
-    .progress-info {
+
+    .personal-review.show {
+      display: block;
+    }
+
+
+    .notion-list {
+      margin-top: 10px;
+      line-height: 1.8;
+    }
+
+
+    .exercise-progress-card {
+      padding: 17px;
+      margin-bottom: 20px;
+      background: var(--white);
+      border-radius: var(--radius-large);
+      box-shadow: var(--shadow);
+    }
+
+
+    .exercise-progress-top {
       display: flex;
       justify-content: space-between;
-      margin-bottom: 8px;
+      gap: 10px;
+      margin-bottom: 9px;
       color: var(--text-light);
       font-size: 13px;
     }
 
-    .progress-bar {
-      width: 100%;
+
+    .exercise-progress-bar {
       height: 9px;
+      overflow: hidden;
       background: var(--soft-beige);
       border-radius: 20px;
-      overflow: hidden;
     }
 
-    .progress-fill {
-      width: 16.67%;
+
+    .exercise-progress-fill {
+      width: 20%;
       height: 100%;
       background: var(--jade);
       border-radius: 20px;
       transition: width 0.3s ease;
     }
 
+
     .review-card {
       padding: 20px;
       margin-bottom: 18px;
-      background: var(--white);
-      border-radius: var(--radius-large);
-      box-shadow: var(--shadow);
     }
 
+
+    .review-card.hidden {
+      display: none;
+    }
+
+
     .question-number {
-      margin-top: 0;
+      margin-bottom: 8px;
       color: var(--jade-dark);
-      font-size: 14px;
+      font-size: 13px;
       font-weight: bold;
     }
 
-    .review-card h2 {
-      margin-top: 8px;
-      color: var(--navy);
-    }
 
-    .prompt {
+    .prompt-box {
+      padding: 16px;
+      margin-top: 14px;
+      background: var(--soft-green);
+      border-radius: var(--radius-medium);
+      color: var(--navy);
       line-height: 1.7;
     }
 
-    .answers {
-      display: flex;
-      flex-direction: column;
+
+    .choices {
+      display: grid;
       gap: 10px;
-      margin-top: 15px;
+      margin-top: 16px;
     }
 
-    .answer {
+
+    .choice-button {
       width: 100%;
-      padding: 15px;
+      padding: 14px 15px;
+      background: #FBFAF6;
+      color: var(--navy);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-medium);
       text-align: left;
-      border: 2px solid transparent;
+      line-height: 1.5;
+      font-weight: 600;
     }
+
+
+    .choice-button.correct-choice {
+      background: var(--success-light);
+      border-color: var(--success);
+    }
+
+
+    .choice-button.wrong-choice {
+      background: var(--error-light);
+      border-color: var(--error);
+    }
+
 
     .answer-input {
       width: 100%;
-      margin-top: 14px;
-      padding: 15px;
       box-sizing: border-box;
-      border: 2px solid var(--border);
+      margin-top: 15px;
+      padding: 14px;
+      border: 1px solid var(--border);
       border-radius: var(--radius-medium);
-      background: #FBFAF6;
+      background: white;
       color: var(--navy);
-      font-size: 20px;
+      font-size: 18px;
     }
 
+
     .answer-input:focus {
-      outline: none;
+      outline: 2px solid var(--soft-blue);
       border-color: var(--jade);
     }
 
-    .validate-button {
-      width: 100%;
-      margin-top: 10px;
-      background: var(--jade);
-      color: white;
-      font-weight: bold;
-    }
-
-    .audio-button {
-      width: 100%;
-      margin-top: 12px;
-      background: var(--soft-blue);
-      color: var(--navy);
-      font-weight: bold;
-    }
-
-    .slow-button {
-      width: 100%;
-      margin-top: 8px;
-      background: var(--soft-beige);
-      color: var(--navy);
-    }
 
     .feedback {
       display: none;
@@ -154,91 +217,93 @@
       line-height: 1.7;
     }
 
-    .feedback.correct {
+
+    .feedback.success {
       display: block;
       background: var(--success-light);
       border-left: 4px solid var(--success);
+      color: var(--navy);
     }
 
-    .feedback.wrong {
+
+    .feedback.error {
       display: block;
       background: var(--warning-light);
       border-left: 4px solid var(--warning);
+      color: var(--navy);
     }
 
-    .hint-box {
-      margin-top: 10px;
-      padding: 12px;
-      background: rgba(255, 255, 255, 0.65);
-      border-radius: var(--radius-small);
+
+    .correction {
+      display: block;
+      margin: 9px 0;
+      color: var(--navy);
+      font-size: 20px;
+      font-weight: bold;
     }
 
-    .next-question {
-      display: none;
+
+    .check-button {
       width: 100%;
-      margin-top: 12px;
-      background: var(--navy);
+      margin-top: 14px;
+      background: var(--jade);
       color: white;
       font-weight: bold;
     }
 
-    .hidden {
+
+    .next-button {
       display: none;
-    }
-
-    .result-card {
-      display: none;
-      padding: 25px;
-      background: var(--white);
-      border-radius: var(--radius-large);
-      box-shadow: var(--shadow);
-      text-align: center;
-    }
-
-    .result-icon {
-      font-size: 60px;
-    }
-
-    .result-score {
-      color: var(--jade-dark);
-      font-size: 21px;
+      width: 100%;
+      margin-top: 14px;
+      background: var(--jade);
+      color: white;
       font-weight: bold;
     }
 
-    .result-summary {
-      padding: 16px;
-      margin-top: 18px;
-      background: #FBFAF6;
-      border-radius: var(--radius-medium);
-      text-align: left;
-      line-height: 1.6;
+
+    .next-button.show {
+      display: block;
     }
 
-    .weak-box {
+
+    .result-card {
+      display: none;
+      padding: 22px;
+      text-align: center;
+    }
+
+
+    .result-card.show {
+      display: block;
+    }
+
+
+    .result-icon {
+      margin-bottom: 8px;
+      font-size: 48px;
+    }
+
+
+    .result-score {
+      color: var(--jade-dark);
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+
+    .result-summary {
       padding: 16px;
-      margin-top: 18px;
+      margin-top: 16px;
       background: var(--soft-green);
       border-radius: var(--radius-medium);
       color: var(--navy);
       text-align: left;
-      line-height: 1.7;
+      line-height: 1.8;
     }
 
-    .skills-summary {
-      margin-top: 18px;
-      text-align: left;
-    }
 
-    .skill-line {
-      padding: 11px 0;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .skill-line:last-child {
-      border-bottom: none;
-    }
-
-    .next-step-button {
+    .finish-button {
       width: 100%;
       margin-top: 18px;
       background: var(--jade);
@@ -246,65 +311,102 @@
       font-weight: bold;
     }
 
-    .chapter-button {
-      width: 100%;
-      margin-top: 10px;
-      background: var(--soft-beige);
-      color: var(--navy);
-    }
   </style>
+
 </head>
+
 
 <body>
 
+
 <main class="app">
+
 
   <a
     class="back-link"
-    href="chapitre-10.html"
+    href="ecriture-10.html"
   >
-    ← Chapitre 10
+    ← J'écris
   </a>
 
 
   <header class="review-header">
 
     <span class="chapter-badge">
-      Chapitre 10 · Révision
+      Module 1 · Chapitre 10 · Étape 5
     </span>
+
 
     <p class="korean">
       복습해 봐요 🧠
     </p>
 
+
     <h1>
       Je révise
     </h1>
 
-    <p>
-      Mélange les commandes,
-      les expressions utiles
-      et le vocabulaire du restaurant.
+
+    <p class="review-intro">
+      Mélange maintenant les expressions
+      du restaurant pour vérifier
+      que tu sais choisir la bonne structure
+      selon la situation.
     </p>
 
   </header>
 
 
-  <div class="review-progress">
+  <section
+    id="hanaChapterPath"
+    data-chapter-path
+  ></section>
 
-    <div class="progress-info">
-      <span>Révision</span>
-      <span id="progressLabel">1 / 6</span>
+
+  <section
+    class="personal-review"
+    id="personalReview"
+  >
+
+    <strong>
+      🌿 Petit rappel personnalisé
+    </strong>
+
+
+    <div
+      class="notion-list"
+      id="notionList"
+    ></div>
+
+  </section>
+
+
+  <section class="exercise-progress-card">
+
+    <div class="exercise-progress-top">
+
+      <span>
+        Révision
+      </span>
+
+      <strong id="progressLabel">
+        1 / 5
+      </strong>
+
     </div>
 
-    <div class="progress-bar">
+
+    <div class="exercise-progress-bar">
+
       <div
-        class="progress-fill"
+        class="exercise-progress-fill"
         id="progressFill"
       ></div>
+
     </div>
 
-  </div>
+  </section>
+
 
 
   <!-- QUESTION 1 -->
@@ -314,49 +416,61 @@
     id="question1"
   >
 
-    <p class="question-number">
-      Question 1 / 6
-    </p>
+    <div class="question-number">
+      QUESTION 1 / 5
+    </div>
+
 
     <h2>
-      🍚 Que signifie 비빔밥 ?
+      🙏 Quelle phrase est une commande simple ?
     </h2>
 
-    <div class="answers">
+
+    <div class="prompt-box">
+      Tu veux demander
+      un bibimbap poliment.
+    </div>
+
+
+    <div class="choices">
 
       <button
-        class="answer"
+        class="choice-button"
         type="button"
-        onclick="checkChoice(1, this, true, '비빔밥')"
+        onclick="checkChoice(1, this, true)"
       >
-        bibimbap
+        비빔밥 주세요.
       </button>
 
-      <button
-        class="answer"
-        type="button"
-        onclick="checkChoice(1, this, false, '비빔밥')"
-      >
-        bulgogi
-      </button>
 
       <button
-        class="answer"
+        class="choice-button"
         type="button"
-        onclick="checkChoice(1, this, false, '비빔밥')"
+        onclick="checkChoice(1, this, false)"
       >
-        kimchi
+        비빔밥 맛있어요.
+      </button>
+
+
+      <button
+        class="choice-button"
+        type="button"
+        onclick="checkChoice(1, this, false)"
+      >
+        계산해 주세요.
       </button>
 
     </div>
+
 
     <div
       class="feedback"
       id="feedback1"
     ></div>
 
+
     <button
-      class="next-question"
+      class="next-button"
       id="next1"
       type="button"
       onclick="showQuestion(2)"
@@ -367,6 +481,7 @@
   </section>
 
 
+
   <!-- QUESTION 2 -->
 
   <section
@@ -374,13 +489,21 @@
     id="question2"
   >
 
-    <p class="question-number">
-      Question 2 / 6
-    </p>
+    <div class="question-number">
+      QUESTION 2 / 5
+    </div>
+
 
     <h2>
-      🙏 Écris « Un bibimbap, s'il vous plaît. »
+      1️⃣ Écris « Un bulgogi, s'il vous plaît »
     </h2>
+
+
+    <div class="prompt-box">
+      Utilise
+      <strong>하나 주세요</strong>.
+    </div>
+
 
     <input
       class="answer-input"
@@ -390,24 +513,27 @@
       autocomplete="off"
       autocapitalize="off"
       spellcheck="false"
-      placeholder="Écris en coréen"
+      placeholder="Écris la commande en coréen…"
     >
 
+
     <button
-      class="validate-button"
+      class="check-button"
       type="button"
-      onclick="checkText(2, ['비빔밥 하나 주세요', '네 비빔밥 하나 주세요', '네, 비빔밥 하나 주세요'], '하나 주세요')"
+      onclick="checkQuestion2()"
     >
       Vérifier
     </button>
+
 
     <div
       class="feedback"
       id="feedback2"
     ></div>
 
+
     <button
-      class="next-question"
+      class="next-button"
       id="next2"
       type="button"
       onclick="showQuestion(3)"
@@ -418,6 +544,7 @@
   </section>
 
 
+
   <!-- QUESTION 3 -->
 
   <section
@@ -425,49 +552,55 @@
     id="question3"
   >
 
-    <p class="question-number">
-      Question 3 / 6
-    </p>
+    <div class="question-number">
+      QUESTION 3 / 5
+    </div>
+
 
     <h2>
-      💧 Que signifie 물도 주세요?
+      ➕ Que signifie 물도 주세요?
     </h2>
 
-    <div class="answers">
+
+    <div class="choices">
 
       <button
-        class="answer"
+        class="choice-button"
         type="button"
-        onclick="checkChoice(3, this, false, '도')"
+        onclick="checkChoice(3, this, false)"
       >
-        Pas d'eau, merci.
+        De l'eau, s'il vous plaît.
       </button>
 
+
       <button
-        class="answer"
+        class="choice-button"
         type="button"
-        onclick="checkChoice(3, this, true, '도')"
+        onclick="checkChoice(3, this, true)"
       >
         De l'eau aussi, s'il vous plaît.
       </button>
 
+
       <button
-        class="answer"
+        class="choice-button"
         type="button"
-        onclick="checkChoice(3, this, false, '도')"
+        onclick="checkChoice(3, this, false)"
       >
-        Où est l'eau ?
+        L'addition, s'il vous plaît.
       </button>
 
     </div>
+
 
     <div
       class="feedback"
       id="feedback3"
     ></div>
 
+
     <button
-      class="next-question"
+      class="next-button"
       id="next3"
       type="button"
       onclick="showQuestion(4)"
@@ -478,6 +611,7 @@
   </section>
 
 
+
   <!-- QUESTION 4 -->
 
   <section
@@ -485,77 +619,54 @@
     id="question4"
   >
 
-    <p class="question-number">
-      Question 4 / 6
-    </p>
+    <div class="question-number">
+      QUESTION 4 / 5
+    </div>
+
 
     <h2>
-      🎧 Qu'entends-tu ?
+      😋 Écris « C'est vraiment délicieux ! »
     </h2>
 
-    <p class="prompt">
-      Écoute la phrase puis choisis la bonne traduction.
-    </p>
+
+    <input
+      class="answer-input"
+      id="answer4"
+      type="text"
+      lang="ko"
+      autocomplete="off"
+      autocapitalize="off"
+      spellcheck="false"
+      placeholder="Écris la phrase en coréen…"
+    >
+
 
     <button
-      class="audio-button"
+      class="check-button"
       type="button"
-      onclick="speakKorean('정말 맛있어요!', false)"
+      onclick="checkQuestion4()"
     >
-      🔊 Écouter
+      Vérifier
     </button>
 
-    <button
-      class="slow-button"
-      type="button"
-      onclick="speakKorean('정말 맛있어요!', true)"
-    >
-      🐢 Écouter lentement
-    </button>
-
-    <div class="answers">
-
-      <button
-        class="answer"
-        type="button"
-        onclick="checkChoice(4, this, true, '정말 맛있어요')"
-      >
-        C'est vraiment délicieux !
-      </button>
-
-      <button
-        class="answer"
-        type="button"
-        onclick="checkChoice(4, this, false, '정말 맛있어요')"
-      >
-        Je n'aime pas ça.
-      </button>
-
-      <button
-        class="answer"
-        type="button"
-        onclick="checkChoice(4, this, false, '정말 맛있어요')"
-      >
-        C'est trop cher.
-      </button>
-
-    </div>
 
     <div
       class="feedback"
       id="feedback4"
     ></div>
 
+
     <button
-      class="next-question"
+      class="next-button"
       id="next4"
       type="button"
       onclick="showQuestion(5)"
     >
-      Question suivante →
+      Dernière question →
     </button>
 
   </section>
+
 
 
   <!-- QUESTION 5 -->
@@ -565,108 +676,64 @@
     id="question5"
   >
 
-    <p class="question-number">
-      Question 5 / 6
-    </p>
+    <div class="question-number">
+      QUESTION 5 / 5
+    </div>
+
 
     <h2>
-      💳 Que signifie 계산해 주세요?
+      💳 Quelle expression utilise-t-on pour demander l'addition ?
     </h2>
 
-    <div class="answers">
+
+    <div class="choices">
 
       <button
-        class="answer"
+        class="choice-button"
         type="button"
-        onclick="checkChoice(5, this, false, '계산해 주세요')"
+        onclick="checkChoice(5, this, false)"
       >
-        Le menu, s'il vous plaît.
+        물 주세요.
       </button>
 
-      <button
-        class="answer"
-        type="button"
-        onclick="checkChoice(5, this, true, '계산해 주세요')"
-      >
-        L'addition, s'il vous plaît.
-      </button>
 
       <button
-        class="answer"
+        class="choice-button"
         type="button"
-        onclick="checkChoice(5, this, false, '계산해 주세요')"
+        onclick="checkChoice(5, this, false)"
       >
-        Encore de l'eau, s'il vous plaît.
+        맛있어요.
+      </button>
+
+
+      <button
+        class="choice-button"
+        type="button"
+        onclick="checkChoice(5, this, true)"
+      >
+        계산해 주세요.
       </button>
 
     </div>
+
 
     <div
       class="feedback"
       id="feedback5"
     ></div>
 
+
     <button
-      class="next-question"
+      class="next-button"
       id="next5"
       type="button"
-      onclick="showQuestion(6)"
+      onclick="showResult()"
     >
-      Dernière question →
+      Voir mon résultat →
     </button>
 
   </section>
 
-
-  <!-- QUESTION 6 -->
-
-  <section
-    class="review-card hidden"
-    id="question6"
-  >
-
-    <p class="question-number">
-      Question 6 / 6
-    </p>
-
-    <h2>
-      🍽️ Écris « De l'eau aussi, s'il vous plaît. »
-    </h2>
-
-    <input
-      class="answer-input"
-      id="answer6"
-      type="text"
-      lang="ko"
-      autocomplete="off"
-      autocapitalize="off"
-      spellcheck="false"
-      placeholder="Écris en coréen"
-    >
-
-    <button
-      class="validate-button"
-      type="button"
-      onclick="checkText(6, ['물도 주세요'], '물도 주세요')"
-    >
-      Vérifier
-    </button>
-
-    <div
-      class="feedback"
-      id="feedback6"
-    ></div>
-
-    <button
-      class="next-question"
-      id="next6"
-      type="button"
-      onclick="finishReview()"
-    >
-      Voir mon résultat 🌿
-    </button>
-
-  </section>
 
 
   <!-- RÉSULTAT -->
@@ -680,284 +747,423 @@
       🧠🍜
     </div>
 
+
     <h2>
       잘했어요!
     </h2>
 
+
     <p>
-      Tu as terminé la révision du chapitre 10.
+      Tu as terminé
+      la révision du chapitre 10.
     </p>
 
+
     <p class="result-score">
-      6 notions validées ✅
+      5 notions validées ✅
     </p>
 
 
     <div class="result-summary">
 
       <strong>
-        📊 Ta séance
+        🌿 Tu as revu :
       </strong>
 
-      <p id="sessionSummary"></p>
+      <br><br>
 
-    </div>
+      🙏 <strong>비빔밥 주세요.</strong>
 
+      <br>
 
-    <div
-      class="weak-box"
-      id="weakBox"
-    ></div>
+      Un bibimbap, s'il vous plaît.
 
+      <br><br>
 
-    <div class="skills-summary">
+      1️⃣ <strong>불고기 하나 주세요.</strong>
 
-      <div class="skill-line">
-        🍚 <strong>비빔밥</strong>
-      </div>
+      <br>
 
-      <div class="skill-line">
-        🙏 <strong>비빔밥 하나 주세요.</strong>
-      </div>
+      Un bulgogi, s'il vous plaît.
 
-      <div class="skill-line">
-        💧 <strong>물도 주세요.</strong>
-      </div>
+      <br><br>
 
-      <div class="skill-line">
-        😋 <strong>정말 맛있어요!</strong>
-      </div>
+      ➕ <strong>물도 주세요.</strong>
 
-      <div class="skill-line">
-        💳 <strong>계산해 주세요.</strong>
-      </div>
+      <br>
 
-      <div class="skill-line">
-        🍽️ Commander et terminer un repas simplement
-      </div>
+      De l'eau aussi, s'il vous plaît.
+
+      <br><br>
+
+      😋 <strong>정말 맛있어요!</strong>
+
+      <br>
+
+      C'est vraiment délicieux !
+
+      <br><br>
+
+      💳 <strong>계산해 주세요.</strong>
+
+      <br>
+
+      L'addition, s'il vous plaît.
 
     </div>
 
 
     <button
-      class="next-step-button"
+      class="finish-button"
       type="button"
-      onclick="window.location.href='utilise-10.html'"
+      onclick="completeReview()"
     >
-      🎯 Passer à « Je l'utilise »
-    </button>
-
-
-    <button
-      class="chapter-button"
-      type="button"
-      onclick="window.location.href='chapitre-10.html'"
-    >
-      Retour au chapitre
+      🎯 Valider « Je révise » · Passer à « Je l'utilise »
     </button>
 
   </section>
 
+
 </main>
 
 
+
+<script src="chapter-progress.js"></script>
+
+
 <script>
-  const completedQuestions = {
+
+  const completed = {
+
     1: false,
     2: false,
     3: false,
     4: false,
-    5: false,
-    6: false
+    5: false
+
   };
 
 
-  let incorrectAttempts = 0;
+  const reviewMistakes =
+    [];
 
 
-  const weakNotions = new Set();
+  const weakNotions =
+    [];
 
 
-  function normalizeKorean(text) {
+
+  function normalize(
+    text
+  ) {
 
     return text
       .trim()
-      .replace(/[.!?。！？,，]/g, "")
-      .replace(/\s+/g, "");
+      .replace(
+        /[.,!?？！。]/g,
+        ""
+      )
+      .replace(
+        /\s+/g,
+        " "
+      );
 
   }
 
 
-  function getKoreanVoice() {
 
-    const voices =
-      window.speechSynthesis.getVoices();
+  function compact(
+    text
+  ) {
 
-
-    return voices.find(
-      voice =>
-        voice.lang &&
-        voice.lang
-          .toLowerCase()
-          .startsWith("ko")
+    return normalize(
+      text
+    ).replace(
+      /\s/g,
+      ""
     );
 
   }
 
 
-  function speakKorean(
-    text,
-    slow = false
+
+  function escapeHtml(
+    text
   ) {
 
-    if (
-      !("speechSynthesis" in window)
-    ) {
-      return;
-    }
+    const div =
+      document.createElement(
+        "div"
+      );
 
 
-    window.speechSynthesis.cancel();
-
-
-    const speech =
-      new SpeechSynthesisUtterance(
+    div.textContent =
+      String(
         text
       );
 
 
-    speech.lang =
-      "ko-KR";
+    return div.innerHTML;
+
+  }
 
 
-    speech.rate =
-      slow
-        ? 0.25
-        : 0.82;
+
+  function loadPersonalReview() {
+
+    let notions =
+      [];
 
 
-    speech.pitch =
-      1;
+    try {
 
+      notions =
+        JSON.parse(
+          localStorage.getItem(
+            "hanaKorean_chapter10_revisionNotions"
+          ) ||
+          "[]"
+        );
 
-    const voice =
-      getKoreanVoice();
+    }
 
+    catch (error) {
 
-    if (voice) {
-
-      speech.voice =
-        voice;
+      notions =
+        [];
 
     }
 
 
-    window.speechSynthesis.speak(
-      speech
+    if (
+      !Array.isArray(
+        notions
+      ) ||
+      notions.length === 0
+    ) {
+
+      return;
+
+    }
+
+
+    const card =
+      document.getElementById(
+        "personalReview"
+      );
+
+
+    const list =
+      document.getElementById(
+        "notionList"
+      );
+
+
+    list.innerHTML =
+      "Pendant l'étape d'écriture, certaines notions t'ont demandé un peu plus d'attention :" +
+      "<br><br>" +
+      notions
+        .map(
+          notion =>
+            "• <strong>" +
+            escapeHtml(
+              notion
+            ) +
+            "</strong>"
+        )
+        .join(
+          "<br>"
+        );
+
+
+    card.classList.add(
+      "show"
     );
 
   }
+
+
+
+  function markMistake(
+    number,
+    notion
+  ) {
+
+    if (
+      !reviewMistakes.includes(
+        number
+      )
+    ) {
+
+      reviewMistakes.push(
+        number
+      );
+
+    }
+
+
+    if (
+      notion &&
+      !weakNotions.includes(
+        notion
+      )
+    ) {
+
+      weakNotions.push(
+        notion
+      );
+
+    }
+
+  }
+
+
+
+  function success(
+    number,
+    message
+  ) {
+
+    completed[number] =
+      true;
+
+
+    const feedback =
+      document.getElementById(
+        "feedback" +
+        number
+      );
+
+
+    feedback.className =
+      "feedback success";
+
+
+    feedback.innerHTML =
+      "✅ <strong>Très bien !</strong>" +
+      "<br><br>" +
+      message;
+
+
+    document.getElementById(
+      "next" +
+      number
+    ).classList.add(
+      "show"
+    );
+
+  }
+
+
+
+  function error(
+    number,
+    message,
+    notion
+  ) {
+
+    markMistake(
+      number,
+      notion
+    );
+
+
+    const feedback =
+      document.getElementById(
+        "feedback" +
+        number
+      );
+
+
+    feedback.className =
+      "feedback error";
+
+
+    feedback.innerHTML =
+      message;
+
+  }
+
 
 
   function checkChoice(
     number,
     button,
-    isCorrect,
-    notion
+    correct
   ) {
 
     if (
-      completedQuestions[number]
+      completed[number]
     ) {
+
       return;
+
     }
 
 
-    const feedback =
-      document.getElementById(
-        "feedback" + number
-      );
-
-
-    const question =
-      document.getElementById(
-        "question" + number
-      );
-
-
-    if (isCorrect) {
-
-      completedQuestions[number] =
-        true;
-
+    if (
+      correct
+    ) {
 
       button.classList.add(
-        "correct"
+        "correct-choice"
       );
 
 
-      question
+      button
+        .closest(
+          ".review-card"
+        )
         .querySelectorAll(
-          ".answer"
+          ".choice-button"
         )
         .forEach(
-          answer => {
+          choice => {
 
-            answer.disabled =
+            choice.disabled =
               true;
 
           }
         );
 
 
-      feedback.className =
-        "feedback correct";
+      if (
+        number === 1
+      ) {
 
-
-      if (number === 1) {
-
-        feedback.innerHTML =
-          "✅ <strong>Exact !</strong>" +
-          "<br><br>" +
-          "<strong>비빔밥</strong> = bibimbap.";
-
-      }
-
-
-      if (number === 3) {
-
-        feedback.innerHTML =
-          "✅ <strong>Très bien !</strong>" +
-          "<br><br>" +
-          "<strong>물도 주세요.</strong> = De l'eau aussi, s'il vous plaît.";
+        success(
+          1,
+          "<span class='correction'>비빔밥 주세요.</span>" +
+          "<strong>주세요</strong> permet de demander quelque chose poliment."
+        );
 
       }
 
 
-      if (number === 4) {
+      if (
+        number === 3
+      ) {
 
-        feedback.innerHTML =
-          "✅ <strong>Exact !</strong>" +
-          "<br><br>" +
-          "<strong>정말 맛있어요!</strong> = C'est vraiment délicieux !";
-
-      }
-
-
-      if (number === 5) {
-
-        feedback.innerHTML =
-          "✅ <strong>Très bien !</strong>" +
-          "<br><br>" +
-          "<strong>계산해 주세요.</strong> sert à demander l'addition.";
+        success(
+          3,
+          "<span class='correction'>물도 주세요.</span>" +
+          "<strong>도</strong> ajoute ici l'idée de « aussi »."
+        );
 
       }
 
 
-      document.getElementById(
-        "next" + number
-      ).style.display =
-        "block";
+      if (
+        number === 5
+      ) {
+
+        success(
+          5,
+          "<span class='correction'>계산해 주세요.</span>" +
+          "Cette expression sert à demander l'addition / à dire qu'on souhaite payer."
+        );
+
+      }
 
 
       return;
@@ -965,72 +1171,61 @@
     }
 
 
-    incorrectAttempts++;
-
-
-    weakNotions.add(
-      notion
-    );
-
-
     button.classList.add(
-      "wrong"
+      "wrong-choice"
     );
 
 
-    feedback.className =
-      "feedback wrong";
+    if (
+      number === 1
+    ) {
 
-
-    if (number === 1) {
-
-      feedback.innerHTML =
-        "❌ <strong>Revois le nom du plat.</strong>" +
-        "<div class='hint-box'>" +
-        "💡 <strong>비빔밥</strong> = bibimbap." +
-        "</div>";
-
-    }
-
-
-    if (number === 3) {
-
-      feedback.innerHTML =
-        "❌ <strong>Repère 도.</strong>" +
-        "<div class='hint-box'>" +
-        "💡 Ici, <strong>도</strong> signifie « aussi »." +
-        "</div>";
+      error(
+        1,
+        "Cherche la structure qui sert à <strong>demander un plat</strong>." +
+        "<br><br>" +
+        "💡 <strong>주세요</strong> est la demande polie.",
+        "주세요"
+      );
 
     }
 
 
-    if (number === 4) {
+    if (
+      number === 3
+    ) {
 
-      feedback.innerHTML =
-        "❌ <strong>Repère 맛있어요.</strong>" +
-        "<div class='hint-box'>" +
-        "💡 <strong>정말</strong> = vraiment, <strong>맛있어요</strong> = c'est délicieux." +
-        "</div>";
+      error(
+        3,
+        "Regarde le petit élément ajouté après <strong>물</strong>." +
+        "<br><br>" +
+        "💡 <strong>도</strong> signifie ici « aussi ».",
+        "도"
+      );
 
     }
 
 
-    if (number === 5) {
+    if (
+      number === 5
+    ) {
 
-      feedback.innerHTML =
-        "❌ <strong>Revois l'expression de fin de repas.</strong>" +
-        "<div class='hint-box'>" +
-        "💡 <strong>계산해 주세요.</strong> = L'addition, s'il vous plaît." +
-        "</div>";
+      error(
+        5,
+        "Cette phrase est utilisée à la fin du repas pour demander à payer." +
+        "<br><br>" +
+        "💡 Cherche <strong>계산해 주세요.</strong>",
+        "계산해 주세요"
+      );
 
     }
 
 
     setTimeout(
-      () => {
+      function() {
 
         button.classList.remove(
-          "wrong"
+          "wrong-choice"
         );
 
       },
@@ -1040,84 +1235,36 @@
   }
 
 
-  function checkText(
-    number,
-    acceptedAnswers,
-    notion
-  ) {
+
+  function checkQuestion2() {
 
     if (
-      completedQuestions[number]
+      completed[2]
     ) {
+
       return;
+
     }
 
 
-    const input =
-      document.getElementById(
-        "answer" + number
+    const answer =
+      compact(
+        document.getElementById(
+          "answer2"
+        ).value
       );
 
 
-    const feedback =
-      document.getElementById(
-        "feedback" + number
+    if (
+      answer ===
+      "불고기하나주세요"
+    ) {
+
+      success(
+        2,
+        "<span class='correction'>불고기 하나 주세요.</span>" +
+        "La structure est <strong>plat + 하나 + 주세요</strong>."
       );
-
-
-    const value =
-      normalizeKorean(
-        input.value
-      );
-
-
-    const accepted =
-      acceptedAnswers.some(
-        answer =>
-          normalizeKorean(
-            answer
-          ) === value
-      );
-
-
-    if (accepted) {
-
-      completedQuestions[number] =
-        true;
-
-
-      feedback.className =
-        "feedback correct";
-
-
-      if (number === 2) {
-
-        feedback.innerHTML =
-          "✅ <strong>Exact !</strong>" +
-          "<br><br>" +
-          "<strong>비빔밥 하나 주세요.</strong> permet de commander un bibimbap poliment.";
-
-      }
-
-
-      if (number === 6) {
-
-        feedback.innerHTML =
-          "✅ <strong>Très bien !</strong>" +
-          "<br><br>" +
-          "<strong>물도 주세요.</strong> = De l'eau aussi, s'il vous plaît.";
-
-      }
-
-
-      input.disabled =
-        true;
-
-
-      document.getElementById(
-        "next" + number
-      ).style.display =
-        "block";
 
 
       return;
@@ -1125,50 +1272,173 @@
     }
 
 
-    incorrectAttempts++;
+    if (
+      answer ===
+      "불고기주세요"
+    ) {
+
+      error(
+        2,
+        "Ta commande simple est correcte." +
+        "<br><br>" +
+        "Mais cette question demande d'utiliser <strong>하나</strong>.",
+        "하나"
+      );
 
 
-    weakNotions.add(
-      notion
+      return;
+
+    }
+
+
+    if (
+      answer.includes(
+        "비빔밥"
+      )
+    ) {
+
+      error(
+        2,
+        "Tu utilises le mauvais plat." +
+        "<br><br>" +
+        "💡 Ici, il faut <strong>불고기</strong> = bulgogi.",
+        "불고기"
+      );
+
+
+      return;
+
+    }
+
+
+    if (
+      answer.includes(
+        "불고기"
+      ) &&
+      !answer.includes(
+        "하나"
+      )
+    ) {
+
+      error(
+        2,
+        "Le plat est correct." +
+        "<br><br>" +
+        "Ajoute <strong>하나 주세요</strong>.",
+        "하나"
+      );
+
+
+      return;
+
+    }
+
+
+    error(
+      2,
+      "💡 Modèle :" +
+      "<br><br>" +
+      "<strong>불고기 하나 주세요.</strong>",
+      "불고기 하나 주세요"
     );
-
-
-    feedback.className =
-      "feedback wrong";
-
-
-    if (number === 2) {
-
-      feedback.innerHTML =
-        "❌ <strong>Revois la structure de commande.</strong>" +
-        "<div class='hint-box'>" +
-        "💡 <strong>비빔밥 + 하나 + 주세요</strong>" +
-        "</div>";
-
-    }
-
-
-    if (number === 6) {
-
-      feedback.innerHTML =
-        "❌ <strong>N'oublie pas 도.</strong>" +
-        "<div class='hint-box'>" +
-        "💡 <strong>물도 + 주세요</strong>" +
-        "</div>";
-
-    }
 
   }
 
 
-  function showQuestion(number) {
+
+  function checkQuestion4() {
 
     if (
-      "speechSynthesis" in window
+      completed[4]
     ) {
-      window.speechSynthesis.cancel();
+
+      return;
+
     }
 
+
+    const answer =
+      compact(
+        document.getElementById(
+          "answer4"
+        ).value
+      );
+
+
+    if (
+      answer ===
+      "정말맛있어요"
+    ) {
+
+      success(
+        4,
+        "<span class='correction'>정말 맛있어요!</span>" +
+        "<strong>정말</strong> signifie « vraiment »."
+      );
+
+
+      return;
+
+    }
+
+
+    if (
+      answer ===
+      "맛있어요"
+    ) {
+
+      error(
+        4,
+        "Tu as correctement écrit « C'est délicieux »." +
+        "<br><br>" +
+        "Il manque <strong>정말</strong> pour dire « vraiment ».",
+        "정말"
+      );
+
+
+      return;
+
+    }
+
+
+    if (
+      answer.includes(
+        "정말"
+      ) &&
+      !answer.includes(
+        "맛있어요"
+      )
+    ) {
+
+      error(
+        4,
+        "Tu as bien utilisé <strong>정말</strong>." +
+        "<br><br>" +
+        "Ajoute <strong>맛있어요</strong>.",
+        "맛있어요"
+      );
+
+
+      return;
+
+    }
+
+
+    error(
+      4,
+      "💡 Construis :" +
+      "<br><br>" +
+      "<strong>정말 + 맛있어요</strong>",
+      "정말 맛있어요"
+    );
+
+  }
+
+
+
+  function showQuestion(
+    number
+  ) {
 
     document
       .querySelectorAll(
@@ -1186,63 +1456,53 @@
 
 
     document.getElementById(
-      "question" + number
+      "question" +
+      number
     ).classList.remove(
       "hidden"
     );
-
-
-    const percentage =
-      (number / 6) * 100;
-
-
-    document.getElementById(
-      "progressFill"
-    ).style.width =
-      percentage +
-      "%";
 
 
     document.getElementById(
       "progressLabel"
     ).textContent =
       number +
-      " / 6";
+      " / 5";
+
+
+    document.getElementById(
+      "progressFill"
+    ).style.width =
+      (
+        number /
+        5 *
+        100
+      ) +
+      "%";
 
 
     window.scrollTo({
-      top: 0,
-      behavior: "smooth"
+
+      top:
+        0,
+
+      behavior:
+        "smooth"
+
     });
-
-
-    if (
-      number === 2 ||
-      number === 6
-    ) {
-
-      setTimeout(
-        () => {
-
-          document.getElementById(
-            "answer" + number
-          ).focus();
-
-        },
-        350
-      );
-
-    }
 
   }
 
 
-  function finishReview() {
+
+  function showResult() {
 
     if (
-      "speechSynthesis" in window
+      !completed[5]
     ) {
-      window.speechSynthesis.cancel();
+
+      return;
+
     }
 
 
@@ -1270,114 +1530,47 @@
     document.getElementById(
       "progressLabel"
     ).textContent =
-      "6 / 6";
+      "5 / 5";
 
 
     document.getElementById(
       "resultCard"
-    ).style.display =
-      "block";
-
-
-    let summary = "";
-
-
-    if (
-      incorrectAttempts === 0
-    ) {
-
-      summary =
-        "🌟 Les 6 notions ont été validées du premier coup.";
-
-    }
-
-    else if (
-      incorrectAttempts === 1
-    ) {
-
-      summary =
-        "🌿 Une seule erreur sur toute la révision.";
-
-    }
-
-    else {
-
-      summary =
-        "Tu as terminé la révision avec " +
-        incorrectAttempts +
-        " tentative(s) incorrecte(s).";
-
-    }
-
-
-    document.getElementById(
-      "sessionSummary"
-    ).textContent =
-      summary;
-
-
-    let savedWritingNotions = [];
-
-
-    try {
-
-      savedWritingNotions =
-        JSON.parse(
-          localStorage.getItem(
-            "hanaKorean_chapter10_revisionNotions"
-          ) || "[]"
-        );
-
-    }
-
-    catch (error) {
-
-      savedWritingNotions =
-        [];
-
-    }
-
-
-    savedWritingNotions.forEach(
-      notion =>
-        weakNotions.add(
-          notion
-        )
+    ).classList.add(
+      "show"
     );
 
 
-    const weakArray =
-      Array.from(
+    localStorage.setItem(
+      "hanaKorean_chapter10_reviewMistakes",
+      JSON.stringify(
+        reviewMistakes
+      )
+    );
+
+
+    localStorage.setItem(
+      "hanaKorean_chapter10_reviewWeakNotions",
+      JSON.stringify(
         weakNotions
-      );
+      )
+    );
 
 
-    const weakBox =
-      document.getElementById(
-        "weakBox"
-      );
+    window.scrollTo({
+
+      top:
+        0,
+
+      behavior:
+        "smooth"
+
+    });
+
+  }
 
 
-    if (
-      weakArray.length === 0
-    ) {
 
-      weakBox.innerHTML =
-        "<strong>🌟 Aucune notion fragile détectée.</strong>" +
-        "<br><br>" +
-        "Tu peux passer à la mission finale.";
-
-    }
-
-    else {
-
-      weakBox.innerHTML =
-        "<strong>🌱 À revoir encore un peu :</strong>" +
-        "<br><br>" +
-        weakArray.join(" · ");
-
-    }
-
+  function completeReview() {
 
     localStorage.setItem(
       "hanaKorean_chapter10_review",
@@ -1385,103 +1578,44 @@
     );
 
 
-    localStorage.setItem(
-      "hanaKorean_chapter10_reviewMistakes",
-      incorrectAttempts
-    );
+    if (
+      window.HanaChapterProgress &&
+      typeof window.HanaChapterProgress.render === "function"
+    ) {
+
+      window.HanaChapterProgress.render();
+
+    }
 
 
-    localStorage.setItem(
-      "hanaKorean_chapter10_reviewWeakNotions",
-      JSON.stringify(
-        weakArray
-      )
-    );
-
-
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    });
+    window.location.href =
+      "utilise-10.html";
 
   }
 
 
-  document
-    .querySelectorAll(
-      ".answer-input"
-    )
-    .forEach(
-      input => {
 
-        input.addEventListener(
-          "keydown",
-          function(event) {
-
-            if (
-              event.key !==
-              "Enter"
-            ) {
-              return;
-            }
+  loadPersonalReview();
 
 
-            event.preventDefault();
+  window.addEventListener(
+    "pageshow",
+    function() {
 
+      if (
+        window.HanaChapterProgress &&
+        typeof window.HanaChapterProgress.render === "function"
+      ) {
 
-            if (
-              input.id ===
-              "answer2"
-            ) {
-
-              checkText(
-                2,
-                [
-                  "비빔밥 하나 주세요",
-                  "네 비빔밥 하나 주세요",
-                  "네, 비빔밥 하나 주세요"
-                ],
-                "하나 주세요"
-              );
-
-            }
-
-
-            if (
-              input.id ===
-              "answer6"
-            ) {
-
-              checkText(
-                6,
-                [
-                  "물도 주세요"
-                ],
-                "물도 주세요"
-              );
-
-            }
-
-          }
-        );
+        window.HanaChapterProgress.render();
 
       }
-    );
 
+    }
+  );
 
-  if (
-    "speechSynthesis" in window
-  ) {
-
-    window.speechSynthesis.onvoiceschanged =
-      function() {
-
-        window.speechSynthesis.getVoices();
-
-      };
-
-  }
 </script>
+
 
 </body>
 

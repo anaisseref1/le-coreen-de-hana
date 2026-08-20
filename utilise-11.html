@@ -2,6 +2,7 @@
 <html lang="fr">
 
 <head>
+
   <meta charset="UTF-8">
 
   <meta
@@ -14,18 +15,53 @@
     content="#F7F4ED"
   >
 
-  <title>Je l'utilise — Chapitre 11</title>
+  <title>
+    Chapitre 11 — Je l'utilise
+  </title>
 
   <link
     rel="stylesheet"
     href="style.css"
   >
 
+  <link
+    rel="stylesheet"
+    href="chapter-progress.css"
+  >
+
+
+  <script>
+
+    /* =====================================================
+       ACCÈS SÉQUENTIEL
+       ===================================================== */
+
+    if (
+      localStorage.getItem(
+        "hanaKorean_chapter11_review"
+      ) !== "completed"
+    ) {
+
+      window.location.replace(
+        "revision-11.html"
+      );
+
+    }
+
+  </script>
+
+
   <style>
+
+    /* =====================================================
+       EN-TÊTE
+       ===================================================== */
+
     .mission-header {
       text-align: center;
-      margin-bottom: 28px;
+      margin-bottom: 25px;
     }
+
 
     .chapter-badge {
       display: inline-block;
@@ -36,254 +72,318 @@
       font-weight: bold;
     }
 
-    .mission-intro,
-    .mission-card,
-    .result-card {
-      padding: 20px;
-      margin-bottom: 18px;
+
+    .mission-intro {
+      color: var(--text-light);
+      line-height: 1.7;
+    }
+
+
+    /* =====================================================
+       HISTOIRE
+       ===================================================== */
+
+    .mission-story {
+      padding: 18px;
+      margin-bottom: 20px;
+      background: var(--soft-green);
+      border-radius: var(--radius-large);
+      color: var(--navy);
+      line-height: 1.7;
+    }
+
+
+    /* =====================================================
+       PROGRESSION
+       ===================================================== */
+
+    .exercise-progress-card {
+      padding: 17px;
+      margin-bottom: 20px;
       background: var(--white);
       border-radius: var(--radius-large);
       box-shadow: var(--shadow);
     }
 
-    .mission-intro {
-      background: var(--soft-green);
-      color: var(--navy);
-      line-height: 1.7;
-    }
 
-    .mission-progress {
-      margin-bottom: 22px;
-    }
-
-    .progress-info {
+    .exercise-progress-top {
       display: flex;
       justify-content: space-between;
-      margin-bottom: 8px;
+      gap: 10px;
+      margin-bottom: 9px;
       color: var(--text-light);
       font-size: 13px;
     }
 
-    .progress-bar {
-      width: 100%;
+
+    .exercise-progress-bar {
       height: 9px;
       overflow: hidden;
       background: var(--soft-beige);
       border-radius: 20px;
     }
 
-    .progress-fill {
-      width: 25%;
+
+    .exercise-progress-fill {
+      width: 20%;
       height: 100%;
       background: var(--jade);
       border-radius: 20px;
       transition: width 0.3s ease;
     }
 
-    .step-label {
+
+    /* =====================================================
+       CARTES
+       ===================================================== */
+
+    .mission-card {
+      padding: 20px;
+      margin-bottom: 18px;
+    }
+
+
+    .mission-card.hidden {
+      display: none;
+    }
+
+
+    .step-number {
+      margin-bottom: 8px;
       color: var(--jade-dark);
-      font-size: 14px;
+      font-size: 13px;
       font-weight: bold;
     }
 
-    .scene-box {
-      padding: 18px;
-      margin: 16px 0;
-      background: var(--soft-blue);
-      border-radius: var(--radius-medium);
-      line-height: 1.7;
-    }
 
-    .seller-box {
+    /* =====================================================
+       PERSONNAGES
+       ===================================================== */
+
+    .npc-box {
       padding: 16px;
       margin-top: 14px;
-      background: var(--soft-beige);
+      background: var(--soft-blue);
       border-radius: var(--radius-medium);
+      color: var(--navy);
       line-height: 1.7;
     }
 
-    .seller-name {
+
+    .npc-box.minsu {
+      background: var(--soft-beige);
+    }
+
+
+    .npc-name {
       font-weight: bold;
     }
 
-    .seller-korean {
-      margin-top: 5px;
+
+    .npc-korean {
+      margin-top: 7px;
       color: var(--navy);
-      font-size: 20px;
+      font-size: 21px;
       font-weight: bold;
+      line-height: 1.6;
     }
 
-    .seller-french {
+
+    .npc-translation {
       margin-top: 5px;
       color: var(--text-light);
     }
 
-    .seller-button {
+
+    .npc-audio-button {
       width: 100%;
-      margin-top: 10px;
-    }
-
-    .task-box {
-      padding: 18px;
-      margin-top: 16px;
-      background: #FBFAF6;
-      border-radius: var(--radius-medium);
-      line-height: 1.7;
-    }
-
-    .task-main {
+      margin-top: 12px;
+      background: var(--soft-blue);
       color: var(--navy);
-      font-size: 20px;
       font-weight: bold;
     }
 
-    .mission-input {
-      width: 100%;
-      min-height: 58px;
-      padding: 14px;
+
+    .npc-box.minsu .npc-audio-button {
+      background: var(--soft-beige);
+    }
+
+
+    /* =====================================================
+       CONSIGNE
+       ===================================================== */
+
+    .prompt-box {
+      padding: 16px;
       margin-top: 14px;
-      box-sizing: border-box;
-      border: 2px solid var(--border);
+      background: var(--soft-green);
       border-radius: var(--radius-medium);
-      background: var(--white);
-      color: var(--text);
-      font-size: 20px;
-      font-family: inherit;
+      color: var(--navy);
+      line-height: 1.7;
     }
 
-    .mission-input:focus {
-      outline: none;
-      border-color: var(--jade);
-    }
 
-    .check-button,
-    .retry-button,
-    .next-button,
-    .hint-button,
-    .finish-button,
-    .back-button {
+    /* =====================================================
+       MICRO
+       ===================================================== */
+
+    .mic-button {
       width: 100%;
-    }
-
-    .check-button {
-      margin-top: 12px;
+      margin-top: 15px;
       background: var(--jade);
       color: white;
       font-weight: bold;
     }
 
+
+    .mic-button.listening {
+      background: var(--navy);
+    }
+
+
+    .status-box {
+      min-height: 52px;
+      padding: 14px;
+      margin-top: 14px;
+      background: #FBFAF6;
+      border-radius: var(--radius-medium);
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+
+
+    /* =====================================================
+       FEEDBACK
+       ===================================================== */
+
     .feedback {
       display: none;
-      padding: 16px;
+      padding: 15px;
       margin-top: 14px;
       border-radius: var(--radius-medium);
       line-height: 1.7;
     }
 
-    .feedback.show {
-      display: block;
-    }
 
-    .hint-button {
-      margin-top: 10px;
-      background: var(--soft-beige);
+    .feedback.success {
+      display: block;
+      background: var(--success-light);
+      border-left: 4px solid var(--success);
       color: var(--navy);
     }
 
-    .hint-box {
-      display: none;
-      padding: 15px;
+
+    .feedback.error {
+      display: block;
+      background: var(--warning-light);
+      border-left: 4px solid var(--warning);
+      color: var(--navy);
+    }
+
+
+    .recognized-text {
+      display: block;
+      margin-top: 8px;
+      color: var(--navy);
+      font-size: 19px;
+      font-weight: bold;
+    }
+
+
+    /* =====================================================
+       AIDE
+       ===================================================== */
+
+    .help-button {
+      width: 100%;
       margin-top: 10px;
       background: var(--soft-beige);
-      border-radius: var(--radius-medium);
       color: var(--navy);
-      line-height: 1.7;
+      font-weight: bold;
     }
 
-    .hint-box.show {
-      display: block;
-    }
 
-    .retry-button {
-      display: none;
-      margin-top: 10px;
-    }
-
-    .retry-button.show {
-      display: block;
-    }
+    /* =====================================================
+       NAVIGATION
+       ===================================================== */
 
     .next-button {
       display: none;
-      margin-top: 12px;
-      background: var(--navy);
+      width: 100%;
+      margin-top: 14px;
+      background: var(--jade);
       color: white;
       font-weight: bold;
     }
+
 
     .next-button.show {
       display: block;
     }
 
-    .answer-reveal {
-      margin-top: 10px;
-      padding: 12px;
-      background: rgba(255, 255, 255, 0.72);
-      border-radius: var(--radius-small);
-      color: var(--navy);
-      font-size: 20px;
-      font-weight: bold;
-    }
+
+    /* =====================================================
+       RÉSULTAT
+       ===================================================== */
 
     .result-card {
       display: none;
+      padding: 22px;
       text-align: center;
     }
+
 
     .result-card.show {
       display: block;
     }
 
+
     .result-icon {
-      font-size: 60px;
+      margin-bottom: 8px;
+      font-size: 48px;
     }
 
-    .summary-box {
+
+    .result-score {
+      color: var(--jade-dark);
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+
+    .result-summary {
       padding: 16px;
-      margin-top: 18px;
-      background: #FBFAF6;
+      margin-top: 16px;
+      background: var(--soft-green);
       border-radius: var(--radius-medium);
+      color: var(--navy);
       text-align: left;
-      line-height: 1.7;
+      line-height: 1.8;
     }
 
-    .summary-line {
-      padding: 10px 0;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .summary-line:last-child {
-      border-bottom: none;
-    }
 
     .finish-button {
+      width: 100%;
       margin-top: 18px;
       background: var(--jade);
       color: white;
       font-weight: bold;
     }
 
-    .back-button {
-      margin-top: 10px;
-      background: var(--soft-beige);
-      color: var(--navy);
-    }
   </style>
+
 </head>
+
 
 <body>
 
+
 <main class="app">
+
+
+  <!-- =====================================================
+       RETOUR
+       ===================================================== -->
 
   <a
     class="back-link"
@@ -293,190 +393,181 @@
   </a>
 
 
+
+  <!-- =====================================================
+       EN-TÊTE
+       ===================================================== -->
+
   <header class="mission-header">
 
     <span class="chapter-badge">
-      Chapitre 11 · Mission finale
+      Module 2 · Chapitre 11 · Étape 6
     </span>
+
 
     <p class="korean">
       직접 써 봐요 🎯
     </p>
 
+
     <h1>
       Je l'utilise
     </h1>
 
-    <p>
-      Tu es dans une boutique en Corée.
-      À toi de gérer l'achat du début à la fin.
+
+    <p class="mission-intro">
+      Tu es dans un magasin à Séoul.
+      Tu as repéré un objet qui te plaît.
+      À toi de demander son prix,
+      réagir et terminer ton achat.
     </p>
 
   </header>
 
 
-  <section class="mission-intro">
 
-    <strong>🎯 Mission</strong>
+  <!-- =====================================================
+       PARCOURS
+       ===================================================== -->
+
+  <section
+    id="hanaChapterPath"
+    data-chapter-path
+  ></section>
+
+
+
+  <!-- =====================================================
+       HISTOIRE
+       ===================================================== -->
+
+  <section class="mission-story">
+
+    🛍️ Hana et Min-su
+    entrent dans une boutique.
 
     <br><br>
 
-    Demander le prix,
-    réagir au montant,
-    choisir l'objet
-    puis remercier le vendeur.
+    Tu repères un article
+    et tu veux savoir combien il coûte.
 
     <br><br>
 
-    Ici, on essaie de t'aider le moins possible :
-    utilise d'abord ce que tu as retenu du chapitre.
+    Le vendeur te répond,
+    Min-su donne son avis,
+    puis tu dois décider
+    si tu l'achètes.
 
   </section>
 
 
-  <div class="mission-progress">
 
-    <div class="progress-info">
-      <span>Mission en boutique</span>
-      <span id="progressLabel">1 / 4</span>
+  <!-- =====================================================
+       PROGRESSION
+       ===================================================== -->
+
+  <section class="exercise-progress-card">
+
+    <div class="exercise-progress-top">
+
+      <span>
+        Mission finale
+      </span>
+
+      <strong id="progressLabel">
+        1 / 5
+      </strong>
+
     </div>
 
-    <div class="progress-bar">
+
+    <div class="exercise-progress-bar">
+
       <div
-        class="progress-fill"
+        class="exercise-progress-fill"
         id="progressFill"
       ></div>
+
     </div>
 
-  </div>
+  </section>
 
+
+
+  <!-- =====================================================
+       ÉTAPE 1
+       ===================================================== -->
 
   <section
     class="mission-card"
-    id="missionCard"
+    id="step1"
   >
 
-    <div
-      class="step-label"
-      id="stepLabel"
-    >
-      Étape 1 / 4
+    <div class="step-number">
+      ÉTAPE 1 / 5
     </div>
 
-    <h2 id="stepTitle">
-      💰 Demander le prix
+
+    <h2>
+      💰 Demande le prix
     </h2>
 
 
-    <div
-      class="scene-box"
-      id="sceneBox"
-    >
-      🛍️ Tu vois un objet qui te plaît.
-    </div>
+    <div class="prompt-box">
 
+      Tu montres l'article au vendeur.
 
-    <div
-      class="seller-box"
-      id="sellerBox"
-      style="display:none;"
-    >
+      <br><br>
 
-      <div class="seller-name">
-        💙 Vendeur
-      </div>
+      Demande :
 
-      <div
-        class="seller-korean"
-        id="sellerKorean"
-      ></div>
+      <br><br>
 
-      <div
-        class="seller-french"
-        id="sellerFrench"
-      ></div>
-
-      <button
-        class="seller-button"
-        type="button"
-        onclick="playSellerLine()"
-      >
-        🔊 Écouter le vendeur
-      </button>
+      <strong>
+        « Combien coûte celui-ci ? »
+      </strong>
 
     </div>
-
-
-    <div class="task-box">
-
-      <div
-        class="task-main"
-        id="taskMain"
-      >
-        Demande combien coûte celui-ci.
-      </div>
-
-    </div>
-
-
-    <input
-      class="mission-input"
-      id="missionInput"
-      type="text"
-      lang="ko"
-      autocomplete="off"
-      autocapitalize="off"
-      spellcheck="false"
-      placeholder="Écris ta réponse en coréen…"
-    >
 
 
     <button
-      class="check-button"
-      id="checkButton"
+      class="mic-button"
+      id="mic1"
       type="button"
-      onclick="checkMission()"
+      onclick="startRecognition(1)"
     >
-      Valider ma réponse
+      🎙️ Poser la question
     </button>
+
+
+    <button
+      class="help-button"
+      type="button"
+      onclick="showHelp(1)"
+    >
+      💡 Besoin d'aide
+    </button>
+
+
+    <div
+      class="status-box"
+      id="status1"
+    >
+      Utilise 이거 + 얼마예요?
+    </div>
 
 
     <div
       class="feedback"
-      id="feedback"
+      id="feedback1"
     ></div>
-
-
-    <button
-      class="hint-button"
-      type="button"
-      onclick="toggleHint()"
-    >
-      💡 Un indice
-    </button>
-
-
-    <div
-      class="hint-box"
-      id="hintBox"
-    ></div>
-
-
-    <button
-      class="retry-button"
-      id="retryButton"
-      type="button"
-      onclick="retryMission()"
-    >
-      Réessayer
-    </button>
 
 
     <button
       class="next-button"
-      id="nextButton"
+      id="next1"
       type="button"
-      onclick="nextStep()"
+      onclick="showStep(2)"
     >
       Continuer →
     </button>
@@ -484,52 +575,498 @@
   </section>
 
 
+
+  <!-- =====================================================
+       ÉTAPE 2
+       ===================================================== -->
+
+  <section
+    class="mission-card hidden"
+    id="step2"
+  >
+
+    <div class="step-number">
+      ÉTAPE 2 / 5
+    </div>
+
+
+    <h2>
+      🇰🇷 Le vendeur annonce le prix
+    </h2>
+
+
+    <div class="npc-box">
+
+      <div class="npc-name">
+        💙 Vendeur
+      </div>
+
+
+      <div class="npc-korean">
+        만오천 원이에요.
+      </div>
+
+
+      <div class="npc-translation">
+        C'est 15 000 wons.
+      </div>
+
+
+      <button
+        class="npc-audio-button"
+        type="button"
+        onclick="speakCharacter('만오천 원이에요.', 'seller')"
+      >
+        🔊 Écouter le vendeur
+      </button>
+
+    </div>
+
+
+    <div class="prompt-box">
+
+      Tu trouves le prix élevé.
+
+      <br><br>
+
+      Réagis simplement :
+
+      <strong>
+        « C'est cher. »
+      </strong>
+
+    </div>
+
+
+    <button
+      class="mic-button"
+      id="mic2"
+      type="button"
+      onclick="startRecognition(2)"
+    >
+      🎙️ Réagir
+    </button>
+
+
+    <button
+      class="help-button"
+      type="button"
+      onclick="showHelp(2)"
+    >
+      💡 Besoin d'aide
+    </button>
+
+
+    <div
+      class="status-box"
+      id="status2"
+    >
+      Utilise 비싸요.
+    </div>
+
+
+    <div
+      class="feedback"
+      id="feedback2"
+    ></div>
+
+
+    <button
+      class="next-button"
+      id="next2"
+      type="button"
+      onclick="showStep(3)"
+    >
+      Continuer →
+    </button>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       ÉTAPE 3
+       ===================================================== -->
+
+  <section
+    class="mission-card hidden"
+    id="step3"
+  >
+
+    <div class="step-number">
+      ÉTAPE 3 / 5
+    </div>
+
+
+    <h2>
+      💙 Min-su donne son avis
+    </h2>
+
+
+    <div class="npc-box minsu">
+
+      <div class="npc-name">
+        💙 Min-su
+      </div>
+
+
+      <div class="npc-korean">
+        하지만 정말 좋아요.
+      </div>
+
+
+      <div class="npc-translation">
+        Mais il est vraiment bien.
+      </div>
+
+
+      <button
+        class="npc-audio-button"
+        type="button"
+        onclick="speakCharacter('하지만 정말 좋아요.', 'minsu')"
+      >
+        🔊 Écouter Min-su
+      </button>
+
+    </div>
+
+
+    <div class="prompt-box">
+
+      Imagine qu'un autre article
+      est beaucoup moins cher.
+
+      <br><br>
+
+      Dis :
+
+      <strong>
+        « C'est bon marché. »
+      </strong>
+
+    </div>
+
+
+    <button
+      class="mic-button"
+      id="mic3"
+      type="button"
+      onclick="startRecognition(3)"
+    >
+      🎙️ Réagir
+    </button>
+
+
+    <button
+      class="help-button"
+      type="button"
+      onclick="showHelp(3)"
+    >
+      💡 Besoin d'aide
+    </button>
+
+
+    <div
+      class="status-box"
+      id="status3"
+    >
+      Attention au ㅆ de 싸요.
+    </div>
+
+
+    <div
+      class="feedback"
+      id="feedback3"
+    ></div>
+
+
+    <button
+      class="next-button"
+      id="next3"
+      type="button"
+      onclick="showStep(4)"
+    >
+      Continuer →
+    </button>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       ÉTAPE 4
+       ===================================================== -->
+
+  <section
+    class="mission-card hidden"
+    id="step4"
+  >
+
+    <div class="step-number">
+      ÉTAPE 4 / 5
+    </div>
+
+
+    <h2>
+      👉 Tu prends l'article
+    </h2>
+
+
+    <div class="prompt-box">
+
+      Tu décides finalement
+      de l'acheter.
+
+      <br><br>
+
+      Dis au vendeur :
+
+      <strong>
+        « Je voudrais celui-ci. »
+      </strong>
+
+      <br><br>
+
+      Utilise la forme parlée
+      <strong>이거</strong>.
+    </div>
+
+
+    <button
+      class="mic-button"
+      id="mic4"
+      type="button"
+      onclick="startRecognition(4)"
+    >
+      🎙️ Choisir l'article
+    </button>
+
+
+    <button
+      class="help-button"
+      type="button"
+      onclick="showHelp(4)"
+    >
+      💡 Besoin d'aide
+    </button>
+
+
+    <div
+      class="status-box"
+      id="status4"
+    >
+      Utilise 이거 + 주세요.
+    </div>
+
+
+    <div
+      class="feedback"
+      id="feedback4"
+    ></div>
+
+
+    <button
+      class="next-button"
+      id="next4"
+      type="button"
+      onclick="showStep(5)"
+    >
+      Dernière étape →
+    </button>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       ÉTAPE 5
+       ===================================================== -->
+
+  <section
+    class="mission-card hidden"
+    id="step5"
+  >
+
+    <div class="step-number">
+      ÉTAPE 5 / 5
+    </div>
+
+
+    <h2>
+      🙏 Termine ton achat
+    </h2>
+
+
+    <div class="npc-box">
+
+      <div class="npc-name">
+        💙 Vendeur
+      </div>
+
+
+      <div class="npc-korean">
+        네.
+      </div>
+
+
+      <div class="npc-translation">
+        D'accord.
+      </div>
+
+
+      <button
+        class="npc-audio-button"
+        type="button"
+        onclick="speakCharacter('네.', 'seller')"
+      >
+        🔊 Écouter le vendeur
+      </button>
+
+    </div>
+
+
+    <div class="prompt-box">
+
+      Termine poliment :
+
+      <br><br>
+
+      <strong>
+        « Merci ! »
+      </strong>
+
+    </div>
+
+
+    <button
+      class="mic-button"
+      id="mic5"
+      type="button"
+      onclick="startRecognition(5)"
+    >
+      🎙️ Remercier
+    </button>
+
+
+    <button
+      class="help-button"
+      type="button"
+      onclick="showHelp(5)"
+    >
+      💡 Besoin d'aide
+    </button>
+
+
+    <div
+      class="status-box"
+      id="status5"
+    >
+      Remercie le vendeur en coréen.
+    </div>
+
+
+    <div
+      class="feedback"
+      id="feedback5"
+    ></div>
+
+
+    <button
+      class="next-button"
+      id="next5"
+      type="button"
+      onclick="showResult()"
+    >
+      Terminer la mission →
+    </button>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       RÉSULTAT
+       ===================================================== -->
+
   <section
     class="result-card"
     id="resultCard"
   >
 
     <div class="result-icon">
-      🛍️🌿
+      🎯🛍️
     </div>
 
+
     <h2>
-      미션 성공!
+      잘했어요!
     </h2>
 
+
     <p>
-      Mission réussie :
-      tu sais maintenant gérer un achat simple en coréen.
+      Tu as réussi
+      ta mission dans le magasin.
     </p>
 
 
-    <div class="summary-box">
+    <p class="result-score">
+      Mission réussie ✅
+    </p>
+
+
+    <div class="result-summary">
 
       <strong>
-        🌸 Ta conversation essentielle
+        🌿 Tu as utilisé :
       </strong>
 
-      <div class="summary-line">
-        💰 <strong>이거 얼마예요?</strong>
-        → Combien coûte celui-ci ?
-      </div>
+      <br><br>
 
-      <div class="summary-line">
-        💸 <strong>비싸요.</strong>
-        → C'est cher.
-      </div>
+      💰 <strong>이거 얼마예요?</strong>
 
-      <div class="summary-line">
-        👉 <strong>이거 주세요.</strong>
-        → Je voudrais celui-ci.
-      </div>
+      <br>
 
-      <div class="summary-line">
-        🙏 <strong>감사합니다.</strong>
-        → Merci.
-      </div>
+      Combien coûte celui-ci ?
 
-      <p id="resultSummary"></p>
+      <br><br>
+
+      🇰🇷 <strong>만오천 원이에요.</strong>
+
+      <br>
+
+      15 000 wons.
+
+      <br><br>
+
+      💸 <strong>비싸요.</strong>
+
+      <br>
+
+      C'est cher.
+
+      <br><br>
+
+      🛍️ <strong>싸요.</strong>
+
+      <br>
+
+      C'est bon marché.
+
+      <br><br>
+
+      👉 <strong>이거 주세요.</strong>
+
+      <br>
+
+      Je voudrais celui-ci.
+
+      <br><br>
+
+      🙏 <strong>감사합니다.</strong>
+
+      <br>
+
+      Merci.
 
     </div>
 
@@ -537,509 +1074,586 @@
     <button
       class="finish-button"
       type="button"
-      onclick="window.location.href='itineraire.html'"
+      onclick="completeMission()"
     >
-      🌿 Terminer le chapitre 11
-    </button>
-
-
-    <button
-      class="back-button"
-      type="button"
-      onclick="window.location.href='chapitre-11.html'"
-    >
-      Revoir le chapitre
+      🛍️ Terminer le chapitre 11
     </button>
 
   </section>
 
+
 </main>
 
 
+
+<script src="chapter-progress.js"></script>
+
+
 <script>
-  const AUDIO_SETTINGS = {
-    normalRate: 0.82,
-    slowRate: 0.25
-  };
 
+  /* =====================================================
+     CONFIGURATION
+     ===================================================== */
 
-  const steps = [
+  const steps = {
 
-    {
-      title:
-        "💰 Demander le prix",
-
-      scene:
-        "🛍️ Tu vois un objet qui te plaît dans une boutique.",
-
-      seller:
-        null,
-
-      task:
-        "Demande combien coûte celui-ci.",
+    1: {
 
       accepted: [
         "이거 얼마예요",
-        "이거 얼마에요",
+        "이거얼마예요",
         "이것 얼마예요",
-        "이것 얼마에요"
+        "이것얼마예요"
       ],
 
-      answer:
-        "이거 얼마예요?",
+      model:
+        "이거 얼마예요?"
 
-      hint:
-        "Commence par 이거, puis utilise la question du prix.",
-
-      notion:
-        "얼마예요"
     },
 
-    {
-      title:
-        "💸 Réagir au montant",
 
-      scene:
-        "💰 Le vendeur t'annonce le prix.",
-
-      seller: {
-        korean:
-          "만오천 원이에요.",
-        french:
-          "C'est 15 000 wons."
-      },
-
-      task:
-        "Dis simplement que c'est cher.",
+    2: {
 
       accepted: [
         "비싸요"
       ],
 
-      answer:
-        "비싸요.",
+      model:
+        "비싸요."
 
-      hint:
-        "Le mot commence par 비 et contient ㅆ.",
-
-      notion:
-        "비싸요"
     },
 
-    {
-      title:
-        "👉 Choisir l'objet",
 
-      scene:
-        "🛍️ Malgré le prix, tu décides de l'acheter.",
+    3: {
 
-      seller:
-        null,
+      accepted: [
+        "싸요"
+      ],
 
-      task:
-        "Dis : « Je voudrais celui-ci. »",
+      model:
+        "싸요."
+
+    },
+
+
+    4: {
 
       accepted: [
         "이거 주세요",
-        "이것 주세요"
+        "이거주세요",
+        "이것 주세요",
+        "이것주세요"
       ],
 
-      answer:
-        "이거 주세요.",
+      model:
+        "이거 주세요."
 
-      hint:
-        "Utilise 이거 + 주세요.",
-
-      notion:
-        "주세요"
     },
 
-    {
-      title:
-        "🙏 Terminer l'échange",
 
-      scene:
-        "🌿 Le vendeur te remet ton achat.",
-
-      seller: {
-        korean:
-          "여기 있습니다.",
-        french:
-          "Voilà."
-      },
-
-      task:
-        "Remercie le vendeur.",
+    5: {
 
       accepted: [
         "감사합니다"
       ],
 
-      answer:
-        "감사합니다.",
+      model:
+        "감사합니다!"
 
-      hint:
-        "Utilise la formule polie déjà connue.",
-
-      notion:
-        "감사합니다"
     }
 
-  ];
+  };
 
 
-  let currentStep = 0;
-  let mistakes = 0;
-  let hints = 0;
-  const weakNotions = [];
+  const completed =
+    {};
 
 
-  function normalizeKorean(text) {
+  const mistakes =
+    [];
+
+
+  const helpUsed =
+    [];
+
+
+  const AUDIO_SETTINGS = {
+
+    normalRate:
+      0.82
+
+  };
+
+
+
+  /* =====================================================
+     NORMALISATION
+     ===================================================== */
+
+  function normalize(
+    text
+  ) {
 
     return text
-      .replace(/[.,!?~…'"]/g, "")
-      .replace(/\s+/g, " ")
-      .trim();
+      .trim()
+      .replace(
+        /[.,!?？！。]/g,
+        ""
+      )
+      .replace(
+        /\s+/g,
+        " "
+      );
 
   }
 
 
-  function getKoreanVoice() {
 
-    const voices =
-      window.speechSynthesis.getVoices();
+  function compact(
+    text
+  ) {
 
-
-    return voices.find(
-      voice =>
-        voice.lang &&
-        voice.lang
-          .toLowerCase()
-          .startsWith("ko")
+    return normalize(
+      text
+    ).replace(
+      /\s/g,
+      ""
     );
 
   }
 
 
-  function speakKorean(text) {
 
-    if (
-      !("speechSynthesis" in window)
-    ) {
-      return;
-    }
+  /* =====================================================
+     AUDIO
+     ===================================================== */
 
+  function getKoreanVoice() {
+
+    const voices =
+      window.speechSynthesis
+        .getVoices();
+
+
+    return (
+      voices.find(
+        voice =>
+          voice.lang &&
+          voice.lang
+            .toLowerCase()
+            .startsWith("ko")
+      ) ||
+      null
+    );
+
+  }
+
+
+
+  function characterPitch(
+    character
+  ) {
+
+    const pitches = {
+
+      hana:
+        1.06,
+
+      minsu:
+        0.94,
+
+      seller:
+        0.98
+
+    };
+
+
+    return (
+      pitches[
+        character
+      ] ||
+      1
+    );
+
+  }
+
+
+
+  function speakCharacter(
+    text,
+    character
+  ) {
 
     window.speechSynthesis.cancel();
 
 
-    const speech =
+    const utterance =
       new SpeechSynthesisUtterance(
         text
       );
 
 
-    speech.lang =
+    utterance.lang =
       "ko-KR";
 
 
-    speech.rate =
+    utterance.rate =
       AUDIO_SETTINGS.normalRate;
 
 
-    speech.pitch =
-      1;
+    utterance.pitch =
+      characterPitch(
+        character
+      );
 
 
     const voice =
       getKoreanVoice();
 
 
-    if (voice) {
+    if (
+      voice
+    ) {
 
-      speech.voice =
+      utterance.voice =
         voice;
 
     }
 
 
     window.speechSynthesis.speak(
-      speech
+      utterance
     );
 
   }
 
 
-  function playSellerLine() {
 
-    const step =
-      steps[currentStep];
+  /* =====================================================
+     RECONNAISSANCE VOCALE
+     ===================================================== */
+
+  function startRecognition(
+    number
+  ) {
+
+    if (
+      completed[number]
+    ) {
+
+      return;
+
+    }
+
+
+    window.speechSynthesis.cancel();
+
+
+    const Recognition =
+      window.SpeechRecognition ||
+      window.webkitSpeechRecognition;
 
 
     if (
-      step.seller
+      !Recognition
     ) {
 
-      speakKorean(
-        step.seller.korean
-      );
-
-    }
-
-  }
+      const feedback =
+        document.getElementById(
+          "feedback" +
+          number
+        );
 
 
-  function renderStep() {
-
-    const step =
-      steps[currentStep];
+      feedback.className =
+        "feedback error";
 
 
-    document.getElementById(
-      "stepLabel"
-    ).textContent =
-      "Étape " +
-      (currentStep + 1) +
-      " / " +
-      steps.length;
+      feedback.innerHTML =
+        "La reconnaissance vocale n'est pas disponible ici." +
+        "<br><br>" +
+        "Teste cette mission sur ton iPhone avec Safari.";
 
 
-    document.getElementById(
-      "stepTitle"
-    ).textContent =
-      step.title;
-
-
-    document.getElementById(
-      "sceneBox"
-    ).textContent =
-      step.scene;
-
-
-    document.getElementById(
-      "taskMain"
-    ).textContent =
-      step.task;
-
-
-    document.getElementById(
-      "hintBox"
-    ).textContent =
-      "💡 " +
-      step.hint;
-
-
-    document.getElementById(
-      "progressLabel"
-    ).textContent =
-      (currentStep + 1) +
-      " / " +
-      steps.length;
-
-
-    document.getElementById(
-      "progressFill"
-    ).style.width =
-      (
-        ((currentStep + 1) /
-          steps.length) *
-        100
-      ) +
-      "%";
-
-
-    const sellerBox =
-      document.getElementById(
-        "sellerBox"
-      );
-
-
-    if (
-      step.seller
-    ) {
-
-      sellerBox.style.display =
-        "block";
-
-
-      document.getElementById(
-        "sellerKorean"
-      ).textContent =
-        step.seller.korean;
-
-
-      document.getElementById(
-        "sellerFrench"
-      ).textContent =
-        step.seller.french;
-
-    }
-
-    else {
-
-      sellerBox.style.display =
-        "none";
+      return;
 
     }
 
 
-    const input =
-      document.getElementById(
-        "missionInput"
-      );
+    const recognition =
+      new Recognition();
 
 
-    input.value =
-      "";
+    recognition.lang =
+      "ko-KR";
 
 
-    input.disabled =
+    recognition.interimResults =
       false;
 
 
-    document.getElementById(
-      "checkButton"
-    ).disabled =
-      false;
+    recognition.maxAlternatives =
+      3;
 
 
-    document.getElementById(
-      "feedback"
-    ).className =
-      "feedback";
-
-
-    document.getElementById(
-      "feedback"
-    ).innerHTML =
-      "";
-
-
-    document.getElementById(
-      "hintBox"
-    ).classList.remove(
-      "show"
-    );
-
-
-    document.getElementById(
-      "retryButton"
-    ).classList.remove(
-      "show"
-    );
-
-
-    document.getElementById(
-      "nextButton"
-    ).classList.remove(
-      "show"
-    );
-
-
-    setTimeout(
-      () => input.focus(),
-      200
-    );
-
-  }
-
-
-  function addWeakNotion(notion) {
-
-    if (
-      !weakNotions.includes(
-        notion
-      )
-    ) {
-
-      weakNotions.push(
-        notion
-      );
-
-    }
-
-  }
-
-
-  function toggleHint() {
-
-    hints++;
-
-
-    document.getElementById(
-      "hintBox"
-    ).classList.toggle(
-      "show"
-    );
-
-  }
-
-
-  function checkMission() {
-
-    const step =
-      steps[currentStep];
-
-
-    const input =
+    const button =
       document.getElementById(
-        "missionInput"
+        "mic" +
+        number
       );
 
 
-    const value =
-      normalizeKorean(
-        input.value
+    const status =
+      document.getElementById(
+        "status" +
+        number
       );
 
 
-    const accepted =
-      step.accepted.map(
-        answer =>
-          normalizeKorean(answer)
+    button.classList.add(
+      "listening"
+    );
+
+
+    button.textContent =
+      "🎙️ J'écoute…";
+
+
+    status.textContent =
+      "Parle maintenant en coréen…";
+
+
+    recognition.onresult =
+      function(event) {
+
+        const alternatives =
+          [];
+
+
+        const result =
+          event.results[0];
+
+
+        for (
+          let i = 0;
+          i < result.length;
+          i++
+        ) {
+
+          alternatives.push(
+            result[i].transcript
+          );
+
+        }
+
+
+        checkRecognition(
+          number,
+          alternatives
+        );
+
+      };
+
+
+    recognition.onerror =
+      function() {
+
+        button.classList.remove(
+          "listening"
+        );
+
+
+        button.textContent =
+          getButtonLabel(
+            number
+          );
+
+
+        status.textContent =
+          "Je n'ai pas réussi à entendre correctement. Réessaie.";
+
+      };
+
+
+    recognition.onend =
+      function() {
+
+        if (
+          !completed[number]
+        ) {
+
+          button.classList.remove(
+            "listening"
+          );
+
+
+          button.textContent =
+            getButtonLabel(
+              number
+            );
+
+        }
+
+      };
+
+
+    recognition.start();
+
+  }
+
+
+
+  function getButtonLabel(
+    number
+  ) {
+
+    const labels = {
+
+      1:
+        "🎙️ Poser la question",
+
+      2:
+        "🎙️ Réagir",
+
+      3:
+        "🎙️ Réagir",
+
+      4:
+        "🎙️ Choisir l'article",
+
+      5:
+        "🎙️ Remercier"
+
+    };
+
+
+    return (
+      labels[number] ||
+      "🎙️ Parler"
+    );
+
+  }
+
+
+
+  /* =====================================================
+     VÉRIFICATION
+     ===================================================== */
+
+  function checkRecognition(
+    number,
+    alternatives
+  ) {
+
+    const config =
+      steps[number];
+
+
+    const normalizedAlternatives =
+      alternatives.map(
+        text =>
+          normalize(
+            text
+          )
+      );
+
+
+    const compactAlternatives =
+      alternatives.map(
+        text =>
+          compact(
+            text
+          )
+      );
+
+
+    const success =
+      config.accepted.some(
+        accepted => {
+
+          return (
+            normalizedAlternatives.includes(
+              normalize(
+                accepted
+              )
+            ) ||
+            compactAlternatives.includes(
+              compact(
+                accepted
+              )
+            )
+          );
+
+        }
+      );
+
+
+    const status =
+      document.getElementById(
+        "status" +
+        number
       );
 
 
     const feedback =
       document.getElementById(
-        "feedback"
+        "feedback" +
+        number
       );
 
 
+    const button =
+      document.getElementById(
+        "mic" +
+        number
+      );
+
+
+    status.innerHTML =
+      "J'ai entendu :" +
+      "<span class='recognized-text'>" +
+      escapeHtml(
+        alternatives[0]
+      ) +
+      "</span>";
+
+
     if (
-      accepted.includes(value)
+      success
     ) {
 
+      completed[number] =
+        true;
+
+
+      button.disabled =
+        true;
+
+
+      button.classList.remove(
+        "listening"
+      );
+
+
+      button.textContent =
+        "✅ Validé";
+
+
       feedback.className =
-        "feedback show correct";
+        "feedback success";
 
 
       feedback.innerHTML =
         "✅ <strong>Très bien !</strong>" +
-        "<div class='answer-reveal'>" +
-        step.answer +
-        "</div>";
-
-
-      input.disabled =
-        true;
+        "<br><br>" +
+        "<span class='recognized-text'>" +
+        config.model +
+        "</span>";
 
 
       document.getElementById(
-        "checkButton"
-      ).disabled =
-        true;
-
-
-      document.getElementById(
-        "retryButton"
-      ).classList.remove(
-        "show"
-      );
-
-
-      document.getElementById(
-        "nextButton"
+        "next" +
+        number
       ).classList.add(
         "show"
       );
@@ -1050,107 +1664,421 @@
     }
 
 
-    mistakes++;
+    if (
+      !mistakes.includes(
+        number
+      )
+    ) {
 
+      mistakes.push(
+        number
+      );
 
-    addWeakNotion(
-      step.notion
-    );
+    }
 
 
     feedback.className =
-      "feedback show wrong";
+      "feedback error";
 
 
     feedback.innerHTML =
-      "❌ <strong>Pas encore.</strong><br><br>" +
-      "La réponse ne correspond pas encore à la situation. " +
-      "Réessaie, ou utilise l'indice si tu en as besoin.";
-
-
-    document.getElementById(
-      "retryButton"
-    ).classList.add(
-      "show"
-    );
-
-  }
-
-
-  function retryMission() {
-
-    const input =
-      document.getElementById(
-        "missionInput"
+      buildErrorFeedback(
+        number,
+        compactAlternatives[0] || ""
       );
 
-
-    input.value =
-      "";
-
-
-    input.focus();
-
-
-    document.getElementById(
-      "feedback"
-    ).className =
-      "feedback";
-
-
-    document.getElementById(
-      "retryButton"
-    ).classList.remove(
-      "show"
-    );
-
   }
 
 
-  function nextStep() {
+
+  /* =====================================================
+     FEEDBACK CIBLÉ
+     ===================================================== */
+
+  function buildErrorFeedback(
+    number,
+    answer
+  ) {
 
     if (
-      "speechSynthesis" in window
+      number === 1
     ) {
 
-      window.speechSynthesis.cancel();
+      if (
+        answer ===
+        "얼마예요"
+      ) {
+
+        return (
+          "<strong>얼마예요?</strong> signifie bien « Combien ça coûte ? »." +
+          "<br><br>" +
+          "Mais ici, tu montres précisément un objet." +
+          "<br><br>" +
+          "Ajoute <strong>이거</strong>."
+        );
+
+      }
+
+
+      if (
+        answer.includes(
+          "이거"
+        ) &&
+        !answer.includes(
+          "얼마예요"
+        )
+      ) {
+
+        return (
+          "Tu as bien utilisé <strong>이거</strong>." +
+          "<br><br>" +
+          "Ajoute <strong>얼마예요?</strong>"
+        );
+
+      }
+
+
+      if (
+        answer ===
+        "이거주세요"
+      ) {
+
+        return (
+          "<strong>이거 주세요.</strong> signifie « Je voudrais celui-ci »." +
+          "<br><br>" +
+          "Tu n'as pas encore décidé de l'acheter : demande d'abord son prix."
+        );
+
+      }
+
+
+      return (
+        "💡 Demande :" +
+        "<br><br>" +
+        "<strong>이거 얼마예요?</strong>"
+      );
 
     }
 
 
     if (
-      currentStep <
-      steps.length - 1
+      number === 2
     ) {
 
-      currentStep++;
+      if (
+        answer ===
+        "싸요"
+      ) {
+
+        return (
+          "<strong>싸요</strong> signifie « C'est bon marché »." +
+          "<br><br>" +
+          "Ici, tu trouves le prix élevé."
+        );
+
+      }
 
 
-      renderStep();
+      if (
+        answer.includes(
+          "비싸네요"
+        )
+      ) {
+
+        return (
+          "Tu as repris une forme entendue dans le dialogue." +
+          "<br><br>" +
+          "Mais elle est seulement à reconnaître dans ce chapitre." +
+          "<br><br>" +
+          "Réagis avec la forme que tu dois savoir produire : <strong>비싸요.</strong>"
+        );
+
+      }
 
 
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
+      return (
+        "💡 Dis :" +
+        "<br><br>" +
+        "<strong>비싸요.</strong>"
+      );
 
+    }
+
+
+    if (
+      number === 3
+    ) {
+
+      if (
+        answer ===
+        "비싸요"
+      ) {
+
+        return (
+          "<strong>비싸요</strong> signifie « C'est cher »." +
+          "<br><br>" +
+          "Ici, le nouvel article est bon marché."
+        );
+
+      }
+
+
+      if (
+        answer ===
+        "사요"
+      ) {
+
+        return (
+          "Attention à la consonne." +
+          "<br><br>" +
+          "Le mot utilise <strong>ㅆ</strong> :" +
+          "<br><br>" +
+          "<strong>싸요.</strong>"
+        );
+
+      }
+
+
+      return (
+        "💡 Dis :" +
+        "<br><br>" +
+        "<strong>싸요.</strong>"
+      );
+
+    }
+
+
+    if (
+      number === 4
+    ) {
+
+      if (
+        answer ===
+        "이거"
+      ) {
+
+        return (
+          "Tu as bien désigné l'objet." +
+          "<br><br>" +
+          "Ajoute <strong>주세요</strong> pour dire que tu le veux."
+        );
+
+      }
+
+
+      if (
+        answer ===
+        "얼마예요" ||
+        answer ===
+        "이거얼마예요"
+      ) {
+
+        return (
+          "Cette phrase sert à demander le prix." +
+          "<br><br>" +
+          "Cette fois, tu as décidé d'acheter l'objet."
+        );
+
+      }
+
+
+      return (
+        "💡 Dis :" +
+        "<br><br>" +
+        "<strong>이거 주세요.</strong>"
+      );
+
+    }
+
+
+    if (
+      number === 5
+    ) {
+
+      if (
+        answer.includes(
+          "주세요"
+        )
+      ) {
+
+        return (
+          "La commande est déjà terminée." +
+          "<br><br>" +
+          "Il reste simplement à remercier le vendeur."
+        );
+
+      }
+
+
+      return (
+        "💡 Dis :" +
+        "<br><br>" +
+        "<strong>감사합니다!</strong>"
+      );
+
+    }
+
+
+    return (
+      "Réessaie avec les expressions du chapitre."
+    );
+
+  }
+
+
+
+  /* =====================================================
+     AIDE
+     ===================================================== */
+
+  function showHelp(
+    number
+  ) {
+
+    if (
+      !helpUsed.includes(
+        number
+      )
+    ) {
+
+      helpUsed.push(
+        number
+      );
+
+    }
+
+
+    const feedback =
+      document.getElementById(
+        "feedback" +
+        number
+      );
+
+
+    feedback.className =
+      "feedback error";
+
+
+    feedback.innerHTML =
+      "💡 <strong>Modèle :</strong>" +
+      "<br><br>" +
+      "<span class='recognized-text'>" +
+      steps[number].model +
+      "</span>";
+
+  }
+
+
+
+  /* =====================================================
+     ÉTAPE SUIVANTE
+     ===================================================== */
+
+  function showStep(
+    number
+  ) {
+
+    window.speechSynthesis.cancel();
+
+
+    document
+      .querySelectorAll(
+        ".mission-card"
+      )
+      .forEach(
+        card => {
+
+          card.classList.add(
+            "hidden"
+          );
+
+        }
+      );
+
+
+    document.getElementById(
+      "step" +
+      number
+    ).classList.remove(
+      "hidden"
+    );
+
+
+    document.getElementById(
+      "progressLabel"
+    ).textContent =
+      number +
+      " / 5";
+
+
+    document.getElementById(
+      "progressFill"
+    ).style.width =
+      (
+        number /
+        5 *
+        100
+      ) +
+      "%";
+
+
+    window.scrollTo({
+
+      top:
+        0,
+
+      behavior:
+        "smooth"
+
+    });
+
+  }
+
+
+
+  /* =====================================================
+     RÉSULTAT
+     ===================================================== */
+
+  function showResult() {
+
+    if (
+      !completed[5]
+    ) {
 
       return;
 
     }
 
 
-    finishMission();
-
-  }
+    window.speechSynthesis.cancel();
 
 
-  function finishMission() {
+    document
+      .querySelectorAll(
+        ".mission-card"
+      )
+      .forEach(
+        card => {
+
+          card.classList.add(
+            "hidden"
+          );
+
+        }
+      );
+
 
     document.getElementById(
-      "missionCard"
-    ).style.display =
-      "none";
+      "progressFill"
+    ).style.width =
+      "100%";
+
+
+    document.getElementById(
+      "progressLabel"
+    ).textContent =
+      "5 / 5";
 
 
     document.getElementById(
@@ -1160,84 +2088,45 @@
     );
 
 
-    let summary = "";
+    localStorage.setItem(
+      "hanaKorean_chapter11_missionMistakes",
+      JSON.stringify(
+        mistakes
+      )
+    );
 
 
-    if (
-      mistakes === 0
-    ) {
-
-      summary =
-        "🌟 Mission terminée sans erreur.";
-
-    }
-
-    else if (
-      mistakes === 1
-    ) {
-
-      summary =
-        "💡 Tu as eu 1 tentative incorrecte pendant la mission.";
-
-    }
-
-    else {
-
-      summary =
-        "💡 Tu as eu " +
-        mistakes +
-        " tentatives incorrectes pendant la mission.";
-
-    }
+    localStorage.setItem(
+      "hanaKorean_chapter11_missionHelp",
+      JSON.stringify(
+        helpUsed
+      )
+    );
 
 
-    if (
-      weakNotions.length > 0
-    ) {
+    window.scrollTo({
 
-      summary +=
-        "<br><br>À revoir si besoin : <strong>" +
-        weakNotions.join(
-          " · "
-        ) +
-        "</strong>.";
+      top:
+        0,
 
-    }
+      behavior:
+        "smooth"
 
+    });
 
-    if (
-      hints > 0
-    ) {
-
-      summary +=
-        "<br><br>Indices consultés : " +
-        hints +
-        ".";
-
-    }
+  }
 
 
-    document.getElementById(
-      "resultSummary"
-    ).innerHTML =
-      summary;
 
+  /* =====================================================
+     FIN DU CHAPITRE
+     ===================================================== */
+
+  function completeMission() {
 
     localStorage.setItem(
       "hanaKorean_chapter11_mission",
       "completed"
-    );
-
-
-    localStorage.setItem(
-      "hanaKorean_chapter11_missionMistakes",
-      mistakes
-    );
-
-
-    localStorage.setItem(
-      "hanaKorean_chapter11_missionHints",
-      hints
     );
 
 
@@ -1247,67 +2136,81 @@
     );
 
 
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    });
+    if (
+      window.HanaChapterProgress &&
+      typeof window.HanaChapterProgress.render === "function"
+    ) {
 
-  }
-
-
-  document.getElementById(
-    "missionInput"
-  ).addEventListener(
-    "keydown",
-    function(event) {
-
-      if (
-        event.key === "Enter" &&
-        !document.getElementById(
-          "checkButton"
-        ).disabled
-      ) {
-
-        checkMission();
-
-      }
+      window.HanaChapterProgress.render();
 
     }
-  );
 
 
-  if (
-    "speechSynthesis" in window
-  ) {
-
-    window.speechSynthesis.onvoiceschanged =
-      function() {
-
-        window.speechSynthesis.getVoices();
-
-      };
+    window.location.href =
+      "itineraire.html#module2";
 
   }
 
+
+
+  /* =====================================================
+     SÉCURITÉ HTML
+     ===================================================== */
+
+  function escapeHtml(
+    text
+  ) {
+
+    const div =
+      document.createElement(
+        "div"
+      );
+
+
+    div.textContent =
+      String(
+        text
+      );
+
+
+    return div.innerHTML;
+
+  }
+
+
+
+  /* =====================================================
+     SÉCURITÉ AUDIO
+     ===================================================== */
 
   window.addEventListener(
     "pagehide",
     function() {
 
+      window.speechSynthesis.cancel();
+
+    }
+  );
+
+
+  window.addEventListener(
+    "pageshow",
+    function() {
+
       if (
-        "speechSynthesis" in window
+        window.HanaChapterProgress &&
+        typeof window.HanaChapterProgress.render === "function"
       ) {
 
-        window.speechSynthesis.cancel();
+        window.HanaChapterProgress.render();
 
       }
 
     }
   );
 
-
-  renderStep();
 </script>
+
 
 </body>
 

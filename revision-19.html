@@ -6,6 +6,7 @@
   <meta name="theme-color" content="#F7F4ED">
   <title>Chapitre 19 — Je révise</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="chapter-progress.css">
 
   <style>
     .review-header {
@@ -49,6 +50,19 @@
       background: var(--jade);
       border-radius: 20px;
       transition: width 0.3s ease;
+    }
+
+    .personal-review {
+      padding: 18px;
+      margin-bottom: 18px;
+      background: var(--soft-green);
+      border-radius: var(--radius-large);
+      color: var(--navy);
+      line-height: 1.7;
+    }
+
+    .personal-review.hidden {
+      display: none;
     }
 
     .review-card {
@@ -237,6 +251,19 @@
       donner un repère temporel, dire comment c'était et demander l'impression de quelqu'un.
     </p>
   </header>
+
+  <section
+    id="hanaChapterPath"
+    data-chapter-path
+  ></section>
+
+  <section
+    class="personal-review hidden"
+    id="personalReview"
+  >
+    <strong>🌿 Révision personnalisée</strong>
+    <div id="personalReviewContent"></div>
+  </section>
 
   <div class="review-progress">
 
@@ -563,7 +590,111 @@
 </main>
 
 
+<script src="chapter-progress.js"></script>
+
 <script>
+
+  const CHAPTER = 19;
+
+  const UNDERSTANDING_KEY =
+    "hanaKorean_chapter19_understanding";
+
+  const LISTENING_EXERCISE_KEY =
+    "hanaKorean_chapter19_listeningExercise";
+
+  const SPEAKING_KEY =
+    "hanaKorean_chapter19_speaking";
+
+  const WRITING_KEY =
+    "hanaKorean_chapter19_writing";
+
+  const REVISION_NOTIONS_KEY =
+    "hanaKorean_chapter19_revisionNotions";
+
+  const REVIEW_KEY =
+    "hanaKorean_chapter19_review";
+
+  const REVIEW_MISTAKES_KEY =
+    "hanaKorean_chapter19_reviewMistakes";
+
+  const REVIEW_WEAK_NOTIONS_KEY =
+    "hanaKorean_chapter19_reviewWeakNotions";
+
+  function guardReviewAccess() {
+    const required = [
+      [UNDERSTANDING_KEY, "chapitre-19.html"],
+      [LISTENING_EXERCISE_KEY, "ecoute-19.html"],
+      [SPEAKING_KEY, "parle-19.html"],
+      [WRITING_KEY, "ecriture-19.html"]
+    ];
+
+    for (const item of required) {
+      if (
+        localStorage.getItem(item[0]) !==
+        "completed"
+      ) {
+        window.location.replace(item[1]);
+        return false;
+      }
+    }
+
+    return true;
+  }
+
+  function renderChapterProgress() {
+    if (
+      window.HanaChapterProgress &&
+      typeof window.HanaChapterProgress.render === "function"
+    ) {
+      window.HanaChapterProgress.render();
+    }
+  }
+
+  function loadPersonalReview() {
+    let notions = [];
+
+    try {
+      notions = JSON.parse(
+        localStorage.getItem(
+          REVISION_NOTIONS_KEY
+        ) || "[]"
+      );
+    } catch (error) {
+      notions = [];
+    }
+
+    if (
+      !Array.isArray(notions) ||
+      notions.length === 0
+    ) {
+      return;
+    }
+
+    const box =
+      document.getElementById(
+        "personalReview"
+      );
+
+    const content =
+      document.getElementById(
+        "personalReviewContent"
+      );
+
+    if (!box || !content) {
+      return;
+    }
+
+    content.innerHTML =
+      "<br>À partir de ton exercice d'écriture, pense particulièrement à revoir : <strong>" +
+      notions.join(", ") +
+      "</strong>.";
+
+    box.classList.remove("hidden");
+  }
+
+
+
+
 
   let incorrectAttempts = 0;
 
@@ -880,25 +1011,25 @@
 
 
     localStorage.setItem(
-      "hanaKorean_chapter19_review",
+      REVIEW_KEY,
       "completed"
     );
 
 
     localStorage.setItem(
-      "hanaKorean_chapter19_reviewMistakes",
-      String(
-        incorrectAttempts
-      )
+      REVIEW_MISTAKES_KEY,
+      String(incorrectAttempts)
     );
 
 
     localStorage.setItem(
-      "hanaKorean_chapter19_reviewWeakNotions",
+      REVIEW_WEAK_NOTIONS_KEY,
       JSON.stringify(
         weakNotions
       )
     );
+
+    renderChapterProgress();
 
 
     window.scrollTo({
@@ -908,6 +1039,20 @@
 
   }
 
+
+
+  if (guardReviewAccess()) {
+    loadPersonalReview();
+    renderChapterProgress();
+
+    window.addEventListener(
+      "pageshow",
+      function() {
+        loadPersonalReview();
+        renderChapterProgress();
+      }
+    );
+  }
 </script>
 
 </body>

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#F7F4ED">
-  <title>Chapitre 18 — Je révise</title>
+  <title>Chapitre 20 — Je révise</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="chapter-progress.css">
 
@@ -228,14 +228,14 @@
 
   <a
     class="back-link"
-    href="ecriture-18.html"
+    href="ecriture-20.html"
   >
     ← J'écris
   </a>
 
   <header class="review-header">
     <span class="chapter-badge">
-      Chapitre 18 · Révision
+      Chapitre 20 · Révision
     </span>
 
     <p class="korean">
@@ -247,8 +247,9 @@
     </h1>
 
     <p>
-      Vérifie que tu sais parler de tes goûts,
-      exprimer une préférence, poser une question et dire ce que tu n'aimes pas.
+      Vérifie que tu sais parler de ton origine,
+      de ton métier, de tes loisirs
+      et utiliser naturellement <strong>도</strong>.
     </p>
   </header>
 
@@ -291,29 +292,29 @@
     </div>
 
     <h2 class="question-title">
-      ☕ Aimer quelque chose
+      🌍 Dire d'où l'on vient
     </h2>
 
     <p class="question-text">
-      Comment dis-tu :
-      <strong>« J'aime le café. »</strong>
+      Quelle phrase signifie :
+      <strong>« Je viens de France. »</strong>
     </p>
 
     <div class="answers">
 
       <button class="answer" type="button"
-        onclick="checkAnswer(1, this, true, '커피를 좋아해요')">
-        커피를 좋아해요.
+        onclick="checkAnswer(1, this, true, '프랑스에서 왔어요')">
+        프랑스에서 왔어요.
       </button>
 
       <button class="answer" type="button"
-        onclick="checkAnswer(1, this, false, '커피를 좋아해요')">
-        커피가 없어요.
+        onclick="checkAnswer(1, this, false, '프랑스에서 왔어요')">
+        프랑스에 가요.
       </button>
 
       <button class="answer" type="button"
-        onclick="checkAnswer(1, this, false, '커피를 좋아해요')">
-        커피를 안 마셔요.
+        onclick="checkAnswer(1, this, false, '프랑스에서 왔어요')">
+        프랑스 사람이에요?
       </button>
 
     </div>
@@ -337,29 +338,29 @@
     </div>
 
     <h2 class="question-title">
-      ❤️ Une préférence
+      💼 Parler de son métier
     </h2>
 
     <p class="question-text">
       Que signifie :
-      <strong>뭐가 제일 좋아요?</strong>
+      <strong>무슨 일을 하세요?</strong>
     </p>
 
     <div class="answers">
 
       <button class="answer" type="button"
-        onclick="checkAnswer(2, this, false, '제일')">
-        Qu'est-ce que tu n'aimes pas ?
+        onclick="checkAnswer(2, this, false, '무슨 일을 하세요?')">
+        Où travaillez-vous ?
       </button>
 
       <button class="answer" type="button"
-        onclick="checkAnswer(2, this, true, '제일')">
-        Qu'est-ce que tu préfères ?
+        onclick="checkAnswer(2, this, true, '무슨 일을 하세요?')">
+        Quel est votre métier ?
       </button>
 
       <button class="answer" type="button"
-        onclick="checkAnswer(2, this, false, '제일')">
-        Qu'est-ce que tu veux manger ?
+        onclick="checkAnswer(2, this, false, '무슨 일을 하세요?')">
+        Quels sont vos loisirs ?
       </button>
 
     </div>
@@ -383,29 +384,29 @@
     </div>
 
     <h2 class="question-title">
-      🎵 Musique préférée
+      🏢 에 ou 에서 ?
     </h2>
 
     <p class="question-text">
       Quelle phrase signifie :
-      <strong>« Quelle musique préfères-tu ? »</strong>
+      <strong>« Je travaille dans une entreprise. »</strong>
     </p>
 
     <div class="answers">
 
       <button class="answer" type="button"
-        onclick="checkAnswer(3, this, false, '어떤 음악을 제일 좋아해요?')">
-        어떤 영화를 제일 좋아해요?
+        onclick="checkAnswer(3, this, false, '회사에서 일해요')">
+        회사에 가요.
       </button>
 
       <button class="answer" type="button"
-        onclick="checkAnswer(3, this, true, '어떤 음악을 제일 좋아해요?')">
-        어떤 음악을 제일 좋아해요?
+        onclick="checkAnswer(3, this, true, '회사에서 일해요')">
+        회사에서 일해요.
       </button>
 
       <button class="answer" type="button"
-        onclick="checkAnswer(3, this, false, '어떤 음악을 제일 좋아해요?')">
-        음악을 들어요?
+        onclick="checkAnswer(3, this, false, '회사에서 일해요')">
+        회사도 좋아해요.
       </button>
 
     </div>
@@ -429,29 +430,29 @@
     </div>
 
     <h2 class="question-title">
-      🙂 Préférence négative
+      🎨 Les loisirs
     </h2>
 
     <p class="question-text">
       Que signifie :
-      <strong>안 좋아해요.</strong>
+      <strong>취미가 뭐예요?</strong>
     </p>
 
     <div class="answers">
 
       <button class="answer" type="button"
-        onclick="checkAnswer(4, this, false, '안 좋아해요')">
-        J'adore ça.
+        onclick="checkAnswer(4, this, false, '취미가 뭐예요?')">
+        Quel est votre métier ?
       </button>
 
       <button class="answer" type="button"
-        onclick="checkAnswer(4, this, true, '안 좋아해요')">
-        Je n'aime pas / je n'aime pas trop.
+        onclick="checkAnswer(4, this, true, '취미가 뭐예요?')">
+        Quels sont vos loisirs ?
       </button>
 
       <button class="answer" type="button"
-        onclick="checkAnswer(4, this, false, '안 좋아해요')">
-        C'est mon préféré.
+        onclick="checkAnswer(4, this, false, '취미가 뭐예요?')">
+        D'où venez-vous ?
       </button>
 
     </div>
@@ -475,29 +476,29 @@
     </div>
 
     <h2 class="question-title">
-      ❓ Relancer la conversation
+      🤝 « Aussi »
     </h2>
 
     <p class="question-text">
-      Que signifie :
-      <strong>왜요?</strong>
+      Quelle phrase signifie :
+      <strong>« Moi aussi, j'aime le café. »</strong>
     </p>
 
     <div class="answers">
 
       <button class="answer" type="button"
-        onclick="checkAnswer(5, this, false, '왜요?')">
-        Quand ?
+        onclick="checkAnswer(5, this, false, '저도')">
+        커피도 좋아해요.
       </button>
 
       <button class="answer" type="button"
-        onclick="checkAnswer(5, this, true, '왜요?')">
-        Pourquoi ?
+        onclick="checkAnswer(5, this, true, '저도')">
+        저도 커피를 좋아해요.
       </button>
 
       <button class="answer" type="button"
-        onclick="checkAnswer(5, this, false, '왜요?')">
-        Avec qui ?
+        onclick="checkAnswer(5, this, false, '저도')">
+        커피를 안 좋아해요.
       </button>
 
     </div>
@@ -520,7 +521,7 @@
   >
 
     <div class="result-icon">
-      🧠❤️
+      🧠👋
     </div>
 
     <h2>
@@ -528,7 +529,7 @@
     </h2>
 
     <p>
-      Tu as terminé la révision du chapitre 18.
+      Tu as terminé la révision du chapitre 20.
     </p>
 
     <p class="result-score">
@@ -548,23 +549,23 @@
     <div class="notion-summary">
 
       <div class="notion-line">
-        ☕ <strong>커피를 좋아해요.</strong> → J'aime le café.
+        🌍 <strong>프랑스에서 왔어요.</strong> → Je viens de France.
       </div>
 
       <div class="notion-line">
-        ❤️ <strong>뭐가 제일 좋아요?</strong> → Qu'est-ce que tu préfères ?
+        💼 <strong>무슨 일을 하세요?</strong> → Quel est votre métier ?
       </div>
 
       <div class="notion-line">
-        🎵 <strong>어떤 음악을 제일 좋아해요?</strong> → Quelle musique préfères-tu ?
+        🏢 <strong>회사에서 일해요.</strong> → Je travaille dans une entreprise.
       </div>
 
       <div class="notion-line">
-        🙂 <strong>안 좋아해요.</strong> → Je n'aime pas / je n'aime pas trop.
+        🎨 <strong>취미가 뭐예요?</strong> → Quels sont vos loisirs ?
       </div>
 
       <div class="notion-line">
-        ❓ <strong>왜요?</strong> → Pourquoi ?
+        🤝 <strong>저도 커피를 좋아해요.</strong> → Moi aussi, j'aime le café.
       </div>
 
     </div>
@@ -572,7 +573,7 @@
     <button
       class="continue-button"
       type="button"
-      onclick="window.location.href='utilise-18.html'"
+      onclick="window.location.href='utilise-20.html'"
     >
       🎯 Passer à « Je l'utilise »
     </button>
@@ -580,7 +581,7 @@
     <button
       class="back-button"
       type="button"
-      onclick="window.location.href='chapitre-18.html'"
+      onclick="window.location.href='chapitre-20.html'"
     >
       Retour au chapitre
     </button>
@@ -594,38 +595,38 @@
 
 <script>
 
-  const CHAPTER = 18;
+  const CHAPTER = 20;
 
   const UNDERSTANDING_KEY =
-    "hanaKorean_chapter18_understanding";
+    "hanaKorean_chapter20_understanding";
 
   const LISTENING_EXERCISE_KEY =
-    "hanaKorean_chapter18_listeningExercise";
+    "hanaKorean_chapter20_listeningExercise";
 
   const SPEAKING_KEY =
-    "hanaKorean_chapter18_speaking";
+    "hanaKorean_chapter20_speaking";
 
   const WRITING_KEY =
-    "hanaKorean_chapter18_writing";
+    "hanaKorean_chapter20_writing";
 
   const REVISION_NOTIONS_KEY =
-    "hanaKorean_chapter18_revisionNotions";
+    "hanaKorean_chapter20_revisionNotions";
 
   const REVIEW_KEY =
-    "hanaKorean_chapter18_review";
+    "hanaKorean_chapter20_review";
 
   const REVIEW_MISTAKES_KEY =
-    "hanaKorean_chapter18_reviewMistakes";
+    "hanaKorean_chapter20_reviewMistakes";
 
   const REVIEW_WEAK_NOTIONS_KEY =
-    "hanaKorean_chapter18_reviewWeakNotions";
+    "hanaKorean_chapter20_reviewWeakNotions";
 
   function guardReviewAccess() {
     const required = [
-      [UNDERSTANDING_KEY, "chapitre-18.html"],
-      [LISTENING_EXERCISE_KEY, "ecoute-18.html"],
-      [SPEAKING_KEY, "parle-18.html"],
-      [WRITING_KEY, "ecriture-18.html"]
+      [UNDERSTANDING_KEY, "chapitre-20.html"],
+      [LISTENING_EXERCISE_KEY, "ecoute-20.html"],
+      [SPEAKING_KEY, "parle-20.html"],
+      [WRITING_KEY, "ecriture-20.html"]
     ];
 
     for (const item of required) {
@@ -693,7 +694,6 @@
   }
 
 
-
   let incorrectAttempts = 0;
 
   const weakNotions = [];
@@ -753,7 +753,7 @@
 
         feedback.innerHTML =
           "✅ <strong>Exact !</strong><br><br>" +
-          "<strong>좋아해요</strong> signifie « aimer » et se construit ici avec <strong>커피를</strong>.";
+          "<strong>프랑스에서 왔어요.</strong> signifie « Je viens de France. ».";
 
       }
 
@@ -762,7 +762,7 @@
 
         feedback.innerHTML =
           "✅ <strong>Très bien !</strong><br><br>" +
-          "<strong>제일</strong> apporte l'idée de « le plus » : on demande donc ce que la personne préfère.";
+          "<strong>무슨 일을 하세요?</strong> est une façon naturelle de demander le métier.";
 
       }
 
@@ -771,7 +771,7 @@
 
         feedback.innerHTML =
           "✅ <strong>Exact !</strong><br><br>" +
-          "<strong>어떤 음악을 제일 좋아해요?</strong> permet de demander quelle musique quelqu'un préfère.";
+          "<strong>에서</strong> indique ici le lieu où se déroule l'action : 회사에서 일해요.";
 
       }
 
@@ -780,7 +780,7 @@
 
         feedback.innerHTML =
           "✅ <strong>Très bien !</strong><br><br>" +
-          "<strong>안</strong> rend la phrase négative : <strong>안 좋아해요</strong> = ne pas aimer / ne pas trop aimer.";
+          "<strong>취미</strong> signifie « loisir » et <strong>뭐예요?</strong> demande ce que c'est.";
 
       }
 
@@ -789,7 +789,7 @@
 
         feedback.innerHTML =
           "✅ <strong>Parfait !</strong><br><br>" +
-          "<strong>왜요?</strong> signifie « Pourquoi ? » et permet de relancer facilement une conversation.";
+          "<strong>저도</strong> signifie ici « moi aussi ».";
 
       }
 
@@ -835,8 +835,8 @@
     if (number === 1) {
 
       feedback.innerHTML =
-        "❌ <strong>Repère 좋아해요.</strong><br><br>" +
-        "💡 <strong>좋아해요</strong> = aimer.";
+        "❌ <strong>Repère 왔어요.</strong><br><br>" +
+        "💡 <strong>프랑스에서 왔어요.</strong> = Je viens de France.";
 
     }
 
@@ -844,8 +844,8 @@
     if (number === 2) {
 
       feedback.innerHTML =
-        "❌ <strong>Repère 제일.</strong><br><br>" +
-        "💡 <strong>제일</strong> = le plus.";
+        "❌ <strong>Repère 일.</strong><br><br>" +
+        "💡 <strong>무슨 일을 하세요?</strong> sert à demander le métier.";
 
     }
 
@@ -853,8 +853,8 @@
     if (number === 3) {
 
       feedback.innerHTML =
-        "❌ <strong>Repère 음악.</strong><br><br>" +
-        "💡 <strong>음악</strong> = musique.";
+        "❌ <strong>Pense à 에서.</strong><br><br>" +
+        "💡 <strong>회사에서 일해요.</strong> : l'action de travailler se déroule dans l'entreprise.";
 
     }
 
@@ -862,8 +862,8 @@
     if (number === 4) {
 
       feedback.innerHTML =
-        "❌ <strong>Repère 안.</strong><br><br>" +
-        "💡 <strong>안 좋아해요</strong> = ne pas aimer / ne pas trop aimer.";
+        "❌ <strong>Repère 취미.</strong><br><br>" +
+        "💡 <strong>취미가 뭐예요?</strong> = Quels sont vos loisirs ?";
 
     }
 
@@ -871,8 +871,8 @@
     if (number === 5) {
 
       feedback.innerHTML =
-        "❌ <strong>C'est une question très courte.</strong><br><br>" +
-        "💡 <strong>왜요?</strong> = Pourquoi ?";
+        "❌ <strong>Attention à 저도.</strong><br><br>" +
+        "💡 <strong>저도</strong> = moi aussi ; <strong>커피도</strong> = le café aussi.";
 
     }
 
@@ -1016,7 +1016,9 @@
 
     localStorage.setItem(
       REVIEW_MISTAKES_KEY,
-      String(incorrectAttempts)
+      String(
+        incorrectAttempts
+      )
     );
 
 

@@ -2,6 +2,7 @@
 <html lang="fr">
 
 <head>
+
   <meta charset="UTF-8">
 
   <meta
@@ -14,18 +15,53 @@
     content="#F7F4ED"
   >
 
-  <title>Je l'utilise — Chapitre 8</title>
+  <title>
+    Chapitre 8 — Je l'utilise
+  </title>
 
   <link
     rel="stylesheet"
     href="style.css"
   >
 
+  <link
+    rel="stylesheet"
+    href="chapter-progress.css"
+  >
+
+
+  <script>
+
+    /* =====================================================
+       ACCÈS SÉQUENTIEL
+       ===================================================== */
+
+    if (
+      localStorage.getItem(
+        "hanaKorean_chapter8_review"
+      ) !== "completed"
+    ) {
+
+      window.location.replace(
+        "revision-8.html"
+      );
+
+    }
+
+  </script>
+
+
   <style>
+
+    /* =====================================================
+       EN-TÊTE
+       ===================================================== */
+
     .mission-header {
       text-align: center;
-      margin-bottom: 28px;
+      margin-bottom: 25px;
     }
+
 
     .chapter-badge {
       display: inline-block;
@@ -36,169 +72,179 @@
       font-weight: bold;
     }
 
-    .mission-header p {
+
+    .mission-intro {
+      color: var(--text-light);
       line-height: 1.7;
     }
 
-    .mission-intro {
+
+    /* =====================================================
+       HISTOIRE
+       ===================================================== */
+
+    .mission-story {
       padding: 18px;
       margin-bottom: 20px;
       background: var(--soft-green);
-      border-radius: var(--radius-medium);
+      border-radius: var(--radius-large);
       color: var(--navy);
       line-height: 1.7;
     }
 
-    .mission-progress {
-      margin-bottom: 22px;
+
+    /* =====================================================
+       PROGRESSION
+       ===================================================== */
+
+    .exercise-progress-card {
+      padding: 17px;
+      margin-bottom: 20px;
+      background: var(--white);
+      border-radius: var(--radius-large);
+      box-shadow: var(--shadow);
     }
 
-    .progress-info {
+
+    .exercise-progress-top {
       display: flex;
       justify-content: space-between;
-      margin-bottom: 8px;
+      gap: 10px;
+      margin-bottom: 9px;
       color: var(--text-light);
       font-size: 13px;
     }
 
-    .progress-bar {
-      width: 100%;
+
+    .exercise-progress-bar {
       height: 9px;
+      overflow: hidden;
       background: var(--soft-beige);
       border-radius: 20px;
-      overflow: hidden;
     }
 
-    .progress-fill {
-      width: 25%;
+
+    .exercise-progress-fill {
+      width: 20%;
       height: 100%;
       background: var(--jade);
       border-radius: 20px;
       transition: width 0.3s ease;
     }
 
+
+    /* =====================================================
+       CARTES
+       ===================================================== */
+
     .mission-card {
       padding: 20px;
       margin-bottom: 18px;
-      background: var(--white);
-      border-radius: var(--radius-large);
-      box-shadow: var(--shadow);
     }
 
+
+    .mission-card.hidden {
+      display: none;
+    }
+
+
     .step-number {
-      margin-top: 0;
+      margin-bottom: 8px;
       color: var(--jade-dark);
-      font-size: 14px;
+      font-size: 13px;
       font-weight: bold;
     }
 
-    .mission-card h2 {
-      margin-top: 8px;
-      color: var(--navy);
-    }
 
-    .scene-box {
+    /* =====================================================
+       MIN-SU
+       ===================================================== */
+
+    .npc-box {
       padding: 16px;
       margin-top: 14px;
-      background: #FBFAF6;
-      border-radius: var(--radius-medium);
-      line-height: 1.7;
-    }
-
-    .minsu-box {
-      padding: 16px;
-      margin-top: 15px;
       background: var(--soft-blue);
       border-radius: var(--radius-medium);
       color: var(--navy);
       line-height: 1.7;
     }
 
-    .minsu-name {
-      margin-bottom: 5px;
+
+    .npc-name {
       font-weight: bold;
     }
 
-    .minsu-korean {
+
+    .npc-korean {
+      margin-top: 7px;
+      color: var(--navy);
       font-size: 21px;
       font-weight: bold;
+      line-height: 1.6;
     }
 
-    .minsu-french {
+
+    .npc-translation {
       margin-top: 5px;
       color: var(--text-light);
     }
 
-    .listen-button {
+
+    .npc-audio-button {
       width: 100%;
-      margin-top: 10px;
+      margin-top: 12px;
       background: var(--soft-blue);
       color: var(--navy);
       font-weight: bold;
     }
 
-    .slow-button {
-      width: 100%;
-      margin-top: 8px;
-      background: var(--soft-beige);
-      color: var(--navy);
-    }
 
-    .your-turn {
+    /* =====================================================
+       CONSIGNE
+       ===================================================== */
+
+    .prompt-box {
       padding: 16px;
-      margin-top: 16px;
-      background: var(--soft-green);
+      margin-top: 14px;
+      background: var(--soft-beige);
       border-radius: var(--radius-medium);
+      color: var(--navy);
       line-height: 1.7;
     }
 
-    .answer-input {
-      width: 100%;
-      margin-top: 14px;
-      padding: 15px;
-      box-sizing: border-box;
-      border: 2px solid var(--border);
-      border-radius: var(--radius-medium);
-      background: white;
-      color: var(--navy);
-      font-size: 20px;
-    }
 
-    .answer-input:focus {
-      outline: none;
-      border-color: var(--jade);
-    }
+    /* =====================================================
+       MICRO
+       ===================================================== */
 
-    .validate-button {
+    .mic-button {
       width: 100%;
-      margin-top: 10px;
+      margin-top: 15px;
       background: var(--jade);
       color: white;
       font-weight: bold;
     }
 
-    .help-button {
-      width: 100%;
-      margin-top: 8px;
-      background: var(--soft-beige);
-      color: var(--navy);
+
+    .mic-button.listening {
+      background: var(--navy);
     }
 
-    .help-box {
-      display: none;
+
+    .status-box {
+      min-height: 52px;
       padding: 14px;
-      margin-top: 10px;
+      margin-top: 14px;
       background: #FBFAF6;
       border-radius: var(--radius-medium);
-      line-height: 1.7;
+      color: var(--text-light);
+      line-height: 1.6;
     }
 
-    .help-answer {
-      margin-top: 6px;
-      color: var(--navy);
-      font-size: 19px;
-      font-weight: bold;
-    }
+
+    /* =====================================================
+       FEEDBACK
+       ===================================================== */
 
     .feedback {
       display: none;
@@ -208,70 +254,105 @@
       line-height: 1.7;
     }
 
-    .feedback.correct {
+
+    .feedback.success {
       display: block;
       background: var(--success-light);
       border-left: 4px solid var(--success);
+      color: var(--navy);
     }
 
-    .feedback.wrong {
+
+    .feedback.error {
       display: block;
       background: var(--warning-light);
       border-left: 4px solid var(--warning);
+      color: var(--navy);
     }
 
-    .next-step {
+
+    .recognized-text {
+      display: block;
+      margin-top: 8px;
+      color: var(--navy);
+      font-size: 19px;
+      font-weight: bold;
+    }
+
+
+    /* =====================================================
+       AIDE
+       ===================================================== */
+
+    .help-button {
+      width: 100%;
+      margin-top: 10px;
+      background: var(--soft-beige);
+      color: var(--navy);
+      font-weight: bold;
+    }
+
+
+    /* =====================================================
+       SUIVANT
+       ===================================================== */
+
+    .next-button {
       display: none;
       width: 100%;
-      margin-top: 12px;
-      background: var(--navy);
+      margin-top: 14px;
+      background: var(--jade);
       color: white;
       font-weight: bold;
     }
 
-    .hidden {
-      display: none;
+
+    .next-button.show {
+      display: block;
     }
+
+
+    /* =====================================================
+       RÉSULTAT
+       ===================================================== */
 
     .result-card {
       display: none;
-      padding: 25px;
-      background: var(--white);
-      border-radius: var(--radius-large);
-      box-shadow: var(--shadow);
+      padding: 22px;
       text-align: center;
     }
 
-    .result-icon {
-      font-size: 60px;
+
+    .result-card.show {
+      display: block;
     }
+
+
+    .result-icon {
+      margin-bottom: 8px;
+      font-size: 48px;
+    }
+
 
     .result-score {
       color: var(--jade-dark);
-      font-size: 21px;
+      font-size: 20px;
       font-weight: bold;
     }
 
+
     .result-summary {
       padding: 16px;
-      margin-top: 18px;
-      background: #FBFAF6;
-      border-radius: var(--radius-medium);
-      text-align: left;
-      line-height: 1.6;
-    }
-
-    .mission-success {
-      padding: 16px;
-      margin-top: 18px;
+      margin-top: 16px;
       background: var(--soft-green);
       border-radius: var(--radius-medium);
       color: var(--navy);
       text-align: left;
-      line-height: 1.7;
+      line-height: 1.8;
     }
 
-    .chapter-button {
+
+    .finish-button {
       width: 100%;
       margin-top: 18px;
       background: var(--jade);
@@ -279,177 +360,223 @@
       font-weight: bold;
     }
 
-    .route-button {
-      width: 100%;
-      margin-top: 10px;
-      background: var(--soft-beige);
-      color: var(--navy);
-    }
   </style>
+
 </head>
+
 
 <body>
 
+
 <main class="app">
+
+
+  <!-- =====================================================
+       RETOUR
+       ===================================================== -->
 
   <a
     class="back-link"
-    href="chapitre-8.html"
+    href="revision-8.html"
   >
-    ← Chapitre 8
+    ← Je révise
   </a>
 
+
+
+  <!-- =====================================================
+       EN-TÊTE
+       ===================================================== -->
 
   <header class="mission-header">
 
     <span class="chapter-badge">
-      Chapitre 8 · Mission finale
+      Module 1 · Chapitre 8 · Étape 6
     </span>
 
+
     <p class="korean">
-      실제로 써 봐요 🎯
+      직접 써 봐요 🎯
     </p>
+
 
     <h1>
       Je l'utilise
     </h1>
 
-    <p>
-      Utilise maintenant les expressions du chapitre
-      pour parler de l'heure et des horaires de ta journée.
+
+    <p class="mission-intro">
+      Tu vas maintenant utiliser l'heure
+      dans une petite conversation
+      avec Min-su.
     </p>
 
   </header>
 
 
-  <section class="mission-intro">
 
-    <strong>🎯 Mission</strong>
+  <!-- =====================================================
+       PARCOURS
+       ===================================================== -->
+
+  <section
+    id="hanaChapterPath"
+    data-chapter-path
+  ></section>
+
+
+
+  <!-- =====================================================
+       HISTOIRE
+       ===================================================== -->
+
+  <section class="mission-story">
+
+    ⏰ Min-su et toi organisez votre journée.
 
     <br><br>
 
-    Min-su veut organiser la journée avec toi.
-    Réponds en coréen à ses questions
-    en donnant des heures simples
-    et l'heure de quelques activités.
+    Il te demande l'heure,
+    puis à quelle heure
+    tu te lèves,
+    tu vas au travail
+    et tu étudies.
+
+    <br><br>
+
+    À toi de répondre naturellement
+    avec les structures du chapitre.
 
   </section>
 
 
-  <div class="mission-progress">
 
-    <div class="progress-info">
-      <span>Mission finale</span>
-      <span id="progressLabel">1 / 4</span>
+  <!-- =====================================================
+       PROGRESSION
+       ===================================================== -->
+
+  <section class="exercise-progress-card">
+
+    <div class="exercise-progress-top">
+
+      <span>
+        Mission finale
+      </span>
+
+      <strong id="progressLabel">
+        1 / 5
+      </strong>
+
     </div>
 
-    <div class="progress-bar">
+
+    <div class="exercise-progress-bar">
+
       <div
-        class="progress-fill"
+        class="exercise-progress-fill"
         id="progressFill"
       ></div>
+
     </div>
 
-  </div>
+  </section>
 
 
-  <!-- ÉTAPE 1 -->
+
+  <!-- =====================================================
+       ÉTAPE 1
+       ===================================================== -->
 
   <section
     class="mission-card"
     id="step1"
   >
 
-    <p class="step-number">
-      Étape 1 / 4
-    </p>
+    <div class="step-number">
+      ÉTAPE 1 / 5
+    </div>
+
 
     <h2>
-      🕒 Donner l'heure
+      🕒 Quelle heure est-il ?
     </h2>
 
-    <div class="minsu-box">
 
-      <div class="minsu-name">
+    <div class="npc-box">
+
+      <div class="npc-name">
         💙 Min-su
       </div>
 
-      <div class="minsu-korean">
+
+      <div class="npc-korean">
         지금 몇 시예요?
       </div>
 
-      <div class="minsu-french">
+
+      <div class="npc-translation">
         Quelle heure est-il maintenant ?
       </div>
 
+
+      <button
+        class="npc-audio-button"
+        type="button"
+        onclick="speakMinsu('지금 몇 시예요?')"
+      >
+        🔊 Écouter Min-su
+      </button>
+
     </div>
 
-    <button
-      class="listen-button"
-      type="button"
-      onclick="speakKorean('지금 몇 시예요?', false)"
-    >
-      🔊 Écouter Min-su
-    </button>
 
-    <button
-      class="slow-button"
-      type="button"
-      onclick="speakKorean('지금 몇 시예요?', true)"
-    >
-      🐢 Écouter lentement
-    </button>
+    <div class="prompt-box">
+      Pour la mission,
+      réponds :
 
-    <div class="your-turn">
-      <strong>🌸 À toi :</strong>
-      réponds qu'il est 7 h.
+      <br><br>
+
+      <strong>
+        « Il est 7 h. »
+      </strong>
     </div>
 
-    <input
-      class="answer-input"
-      id="answer1"
-      type="text"
-      lang="ko"
-      autocomplete="off"
-      autocapitalize="off"
-      spellcheck="false"
-      placeholder="Écris en coréen"
-    >
 
     <button
-      class="validate-button"
+      class="mic-button"
+      id="mic1"
       type="button"
-      onclick="checkStep(1)"
+      onclick="startRecognition(1)"
     >
-      Valider ma réponse
+      🎙️ Répondre
     </button>
+
 
     <button
       class="help-button"
       type="button"
-      onclick="toggleHelp(1)"
+      onclick="showHelp(1)"
     >
-      💡 J'ai besoin d'aide
+      💡 Besoin d'aide
     </button>
 
-    <div
-      class="help-box"
-      id="help1"
-    >
-      Tu peux dire :
 
-      <div class="help-answer">
-        일곱 시예요.
-      </div>
+    <div
+      class="status-box"
+      id="status1"
+    >
+      Réponds à Min-su en coréen.
     </div>
+
 
     <div
       class="feedback"
       id="feedback1"
     ></div>
 
+
     <button
-      class="next-step"
+      class="next-button"
       id="next1"
       type="button"
       onclick="showStep(2)"
@@ -460,103 +587,100 @@
   </section>
 
 
-  <!-- ÉTAPE 2 -->
+
+  <!-- =====================================================
+       ÉTAPE 2
+       ===================================================== -->
 
   <section
     class="mission-card hidden"
     id="step2"
   >
 
-    <p class="step-number">
-      Étape 2 / 4
-    </p>
+    <div class="step-number">
+      ÉTAPE 2 / 5
+    </div>
+
 
     <h2>
-      🌅 Le début de la journée
+      🌅 Le début de ta journée
     </h2>
 
-    <div class="minsu-box">
 
-      <div class="minsu-name">
+    <div class="npc-box">
+
+      <div class="npc-name">
         💙 Min-su
       </div>
 
-      <div class="minsu-korean">
+
+      <div class="npc-korean">
         몇 시에 일어나요?
       </div>
 
-      <div class="minsu-french">
+
+      <div class="npc-translation">
         À quelle heure tu te lèves ?
       </div>
 
+
+      <button
+        class="npc-audio-button"
+        type="button"
+        onclick="speakMinsu('몇 시에 일어나요?')"
+      >
+        🔊 Écouter Min-su
+      </button>
+
     </div>
 
-    <button
-      class="listen-button"
-      type="button"
-      onclick="speakKorean('몇 시에 일어나요?', false)"
-    >
-      🔊 Écouter Min-su
-    </button>
 
-    <button
-      class="slow-button"
-      type="button"
-      onclick="speakKorean('몇 시에 일어나요?', true)"
-    >
-      🐢 Écouter lentement
-    </button>
+    <div class="prompt-box">
+      Réponds :
 
-    <div class="your-turn">
-      <strong>🌸 À toi :</strong>
-      réponds que tu te lèves à 7 h du matin.
+      <br><br>
+
+      <strong>
+        « Je me lève à 7 h du matin. »
+      </strong>
     </div>
 
-    <input
-      class="answer-input"
-      id="answer2"
-      type="text"
-      lang="ko"
-      autocomplete="off"
-      autocapitalize="off"
-      spellcheck="false"
-      placeholder="Écris en coréen"
-    >
 
     <button
-      class="validate-button"
+      class="mic-button"
+      id="mic2"
       type="button"
-      onclick="checkStep(2)"
+      onclick="startRecognition(2)"
     >
-      Valider ma réponse
+      🎙️ Répondre
     </button>
+
 
     <button
       class="help-button"
       type="button"
-      onclick="toggleHelp(2)"
+      onclick="showHelp(2)"
     >
-      💡 J'ai besoin d'aide
+      💡 Besoin d'aide
     </button>
 
-    <div
-      class="help-box"
-      id="help2"
-    >
-      Tu peux dire :
 
-      <div class="help-answer">
-        오전 일곱 시에 일어나요.
-      </div>
+    <div
+      class="status-box"
+      id="status2"
+    >
+      Réponds avec 오전.
     </div>
+
 
     <div
       class="feedback"
       id="feedback2"
     ></div>
 
+
     <button
-      class="next-step"
+      class="next-button"
       id="next2"
       type="button"
       onclick="showStep(3)"
@@ -567,106 +691,207 @@
   </section>
 
 
-  <!-- ÉTAPE 3 -->
+
+  <!-- =====================================================
+       ÉTAPE 3
+       ===================================================== -->
 
   <section
     class="mission-card hidden"
     id="step3"
   >
 
-    <p class="step-number">
-      Étape 3 / 4
-    </p>
+    <div class="step-number">
+      ÉTAPE 3 / 5
+    </div>
+
 
     <h2>
       🏢 Aller au travail
     </h2>
 
-    <div class="minsu-box">
 
-      <div class="minsu-name">
+    <div class="npc-box">
+
+      <div class="npc-name">
         💙 Min-su
       </div>
 
-      <div class="minsu-korean">
+
+      <div class="npc-korean">
         몇 시에 회사에 가요?
       </div>
 
-      <div class="minsu-french">
+
+      <div class="npc-translation">
         À quelle heure tu vas au travail ?
       </div>
 
+
+      <button
+        class="npc-audio-button"
+        type="button"
+        onclick="speakMinsu('몇 시에 회사에 가요?')"
+      >
+        🔊 Écouter Min-su
+      </button>
+
     </div>
 
-    <button
-      class="listen-button"
-      type="button"
-      onclick="speakKorean('몇 시에 회사에 가요?', false)"
-    >
-      🔊 Écouter Min-su
-    </button>
 
-    <button
-      class="slow-button"
-      type="button"
-      onclick="speakKorean('몇 시에 회사에 가요?', true)"
-    >
-      🐢 Écouter lentement
-    </button>
+    <div class="prompt-box">
+      Réponds :
 
-    <div class="your-turn">
-      <strong>🌸 À toi :</strong>
-      réponds que tu vas au travail à 8 h.
+      <br><br>
+
+      <strong>
+        « Je vais au travail à 8 h. »
+      </strong>
     </div>
 
-    <input
-      class="answer-input"
-      id="answer3"
-      type="text"
-      lang="ko"
-      autocomplete="off"
-      autocapitalize="off"
-      spellcheck="false"
-      placeholder="Écris en coréen"
-    >
 
     <button
-      class="validate-button"
+      class="mic-button"
+      id="mic3"
       type="button"
-      onclick="checkStep(3)"
+      onclick="startRecognition(3)"
     >
-      Valider ma réponse
+      🎙️ Répondre
     </button>
+
 
     <button
       class="help-button"
       type="button"
-      onclick="toggleHelp(3)"
+      onclick="showHelp(3)"
     >
-      💡 J'ai besoin d'aide
+      💡 Besoin d'aide
     </button>
 
-    <div
-      class="help-box"
-      id="help3"
-    >
-      Tu peux dire :
 
-      <div class="help-answer">
-        여덟 시에 회사에 가요.
-      </div>
+    <div
+      class="status-box"
+      id="status3"
+    >
+      Réponds à Min-su.
     </div>
+
 
     <div
       class="feedback"
       id="feedback3"
     ></div>
 
+
     <button
-      class="next-step"
+      class="next-button"
       id="next3"
       type="button"
       onclick="showStep(4)"
+    >
+      Continuer →
+    </button>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       ÉTAPE 4
+       ===================================================== -->
+
+  <section
+    class="mission-card hidden"
+    id="step4"
+  >
+
+    <div class="step-number">
+      ÉTAPE 4 / 5
+    </div>
+
+
+    <h2>
+      🌙 Étudier le soir
+    </h2>
+
+
+    <div class="npc-box">
+
+      <div class="npc-name">
+        💙 Min-su
+      </div>
+
+
+      <div class="npc-korean">
+        저녁에는 몇 시에 공부해요?
+      </div>
+
+
+      <div class="npc-translation">
+        Et le soir, à quelle heure tu étudies ?
+      </div>
+
+
+      <button
+        class="npc-audio-button"
+        type="button"
+        onclick="speakMinsu('저녁에는 몇 시에 공부해요?')"
+      >
+        🔊 Écouter Min-su
+      </button>
+
+    </div>
+
+
+    <div class="prompt-box">
+      Réponds :
+
+      <br><br>
+
+      <strong>
+        « J'étudie à 19 h 30. »
+      </strong>
+    </div>
+
+
+    <button
+      class="mic-button"
+      id="mic4"
+      type="button"
+      onclick="startRecognition(4)"
+    >
+      🎙️ Répondre
+    </button>
+
+
+    <button
+      class="help-button"
+      type="button"
+      onclick="showHelp(4)"
+    >
+      💡 Besoin d'aide
+    </button>
+
+
+    <div
+      class="status-box"
+      id="status4"
+    >
+      Pense à 오후 et 반.
+    </div>
+
+
+    <div
+      class="feedback"
+      id="feedback4"
+    ></div>
+
+
+    <button
+      class="next-button"
+      id="next4"
+      type="button"
+      onclick="showStep(5)"
     >
       Dernière étape →
     </button>
@@ -674,118 +899,99 @@
   </section>
 
 
-  <!-- ÉTAPE 4 -->
+
+  <!-- =====================================================
+       ÉTAPE 5
+       ===================================================== -->
 
   <section
     class="mission-card hidden"
-    id="step4"
+    id="step5"
   >
 
-    <p class="step-number">
-      Étape 4 / 4
-    </p>
-
-    <h2>
-      🌙 Le soir
-    </h2>
-
-    <div class="scene-box">
-      Min-su te demande à quelle heure tu étudies le soir.
+    <div class="step-number">
+      ÉTAPE 5 / 5
     </div>
 
-    <div class="minsu-box">
 
-      <div class="minsu-name">
+    <h2>
+      🎯 À ton tour de poser une question
+    </h2>
+
+
+    <div class="npc-box">
+
+      <div class="npc-name">
         💙 Min-su
       </div>
 
-      <div class="minsu-korean">
-        저녁에는 몇 시에 공부해요?
-      </div>
-
-      <div class="minsu-french">
-        Et le soir, à quelle heure tu étudies ?
-      </div>
+      Maintenant,
+      c'est toi qui veux connaître
+      son heure de réveil.
 
     </div>
 
-    <button
-      class="listen-button"
-      type="button"
-      onclick="speakKorean('저녁에는 몇 시에 공부해요?', false)"
-    >
-      🔊 Écouter Min-su
-    </button>
 
-    <button
-      class="slow-button"
-      type="button"
-      onclick="speakKorean('저녁에는 몇 시에 공부해요?', true)"
-    >
-      🐢 Écouter lentement
-    </button>
+    <div class="prompt-box">
+      Demande :
 
-    <div class="your-turn">
-      <strong>🌸 À toi :</strong>
-      réponds que tu étudies à 19 h 30.
+      <br><br>
+
+      <strong>
+        « À quelle heure tu te lèves ? »
+      </strong>
     </div>
 
-    <input
-      class="answer-input"
-      id="answer4"
-      type="text"
-      lang="ko"
-      autocomplete="off"
-      autocapitalize="off"
-      spellcheck="false"
-      placeholder="Écris en coréen"
-    >
 
     <button
-      class="validate-button"
+      class="mic-button"
+      id="mic5"
       type="button"
-      onclick="checkStep(4)"
+      onclick="startRecognition(5)"
     >
-      Valider ma réponse
+      🎙️ Poser la question
     </button>
+
 
     <button
       class="help-button"
       type="button"
-      onclick="toggleHelp(4)"
+      onclick="showHelp(5)"
     >
-      💡 J'ai besoin d'aide
+      💡 Besoin d'aide
     </button>
 
-    <div
-      class="help-box"
-      id="help4"
-    >
-      Tu peux dire :
 
-      <div class="help-answer">
-        오후 일곱 시 반에 공부해요.
-      </div>
+    <div
+      class="status-box"
+      id="status5"
+    >
+      Pose la question à Min-su.
     </div>
+
 
     <div
       class="feedback"
-      id="feedback4"
+      id="feedback5"
     ></div>
 
+
     <button
-      class="next-step"
-      id="next4"
+      class="next-button"
+      id="next5"
       type="button"
-      onclick="finishMission()"
+      onclick="showResult()"
     >
-      Terminer la mission 🎯
+      Terminer la mission →
     </button>
 
   </section>
 
 
-  <!-- RÉSULTAT -->
+
+  <!-- =====================================================
+       RÉSULTAT
+       ===================================================== -->
 
   <section
     class="result-card"
@@ -793,319 +999,578 @@
   >
 
     <div class="result-icon">
-      🎯🕒
+      🎯⏰
     </div>
 
+
     <h2>
-      미션 성공!
+      잘했어요!
     </h2>
 
+
     <p>
-      Mission réussie !
+      Tu as réussi
+      ta conversation sur les horaires.
     </p>
 
+
     <p class="result-score">
-      Chapitre 8 terminé ✅
+      Mission réussie ✅
     </p>
 
 
     <div class="result-summary">
 
       <strong>
-        📊 Ta mission
-      </strong>
-
-      <p id="sessionSummary"></p>
-
-    </div>
-
-
-    <div class="mission-success">
-
-      <strong>
-        🌿 Ce que tu sais maintenant faire
+        🌿 Tu as utilisé naturellement :
       </strong>
 
       <br><br>
 
-      Tu peux demander l'heure,
-      donner une heure simple,
-      utiliser <strong>반</strong> pour « et demie »,
-      distinguer <strong>오전 / 오후</strong>
-      et dire à quelle heure une activité a lieu.
+      🕒 <strong>몇 시예요?</strong>
+
+      <br><br>
+
+      7️⃣ <strong>일곱 시예요.</strong>
+
+      <br><br>
+
+      ❓ <strong>몇 시에 일어나요?</strong>
+
+      <br><br>
+
+      🌅 <strong>오전 일곱 시에 일어나요.</strong>
+
+      <br><br>
+
+      🏢 <strong>여덟 시에 회사에 가요.</strong>
+
+      <br><br>
+
+      🌙 <strong>오후 일곱 시 반에 공부해요.</strong>
 
     </div>
 
 
     <button
-      class="chapter-button"
+      class="finish-button"
       type="button"
-      onclick="window.location.href='chapitre-8.html'"
+      onclick="completeMission()"
     >
-      🕒 Retour au chapitre 8
-    </button>
-
-
-    <button
-      class="route-button"
-      type="button"
-      onclick="window.location.href='itineraire.html'"
-    >
-      🌿 Retour à l'itinéraire
+      ⏰ Terminer le chapitre 8
     </button>
 
   </section>
 
+
 </main>
 
 
+
+<script src="chapter-progress.js"></script>
+
+
 <script>
-  const missionAnswers = {
 
-    1: [
-      "일곱 시예요",
-      "지금 일곱 시예요"
-    ],
+  /* =====================================================
+     CONFIGURATION
+     ===================================================== */
 
-    2: [
-      "오전 일곱 시에 일어나요",
-      "일곱 시에 일어나요",
-      "저는 오전 일곱 시에 일어나요",
-      "저는 일곱 시에 일어나요"
-    ],
+  const steps = {
 
-    3: [
-      "여덟 시에 회사에 가요",
-      "저는 여덟 시에 회사에 가요"
-    ],
+    1: {
 
-    4: [
-      "오후 일곱 시 반에 공부해요",
-      "일곱 시 반에 공부해요",
-      "저는 오후 일곱 시 반에 공부해요",
-      "저는 일곱 시 반에 공부해요"
-    ]
+      accepted: [
+        "일곱 시예요",
+        "일곱시예요"
+      ],
+
+      model:
+        "일곱 시예요."
+
+    },
+
+
+    2: {
+
+      accepted: [
+        "오전 일곱 시에 일어나요",
+        "오전일곱시에일어나요"
+      ],
+
+      model:
+        "오전 일곱 시에 일어나요."
+
+    },
+
+
+    3: {
+
+      accepted: [
+        "여덟 시에 회사에 가요",
+        "여덟시에회사에가요"
+      ],
+
+      model:
+        "여덟 시에 회사에 가요."
+
+    },
+
+
+    4: {
+
+      accepted: [
+        "오후 일곱 시 반에 공부해요",
+        "오후일곱시반에공부해요"
+      ],
+
+      model:
+        "오후 일곱 시 반에 공부해요."
+
+    },
+
+
+    5: {
+
+      accepted: [
+        "몇 시에 일어나요",
+        "몇시에일어나요"
+      ],
+
+      model:
+        "몇 시에 일어나요?"
+
+    }
 
   };
 
 
-  const completedSteps = {
-    1: false,
-    2: false,
-    3: false,
-    4: false
+  const completed =
+    {};
+
+
+  const mistakes =
+    [];
+
+
+  const helpUsed =
+    [];
+
+
+  const AUDIO_SETTINGS = {
+
+    normalRate:
+      0.82
+
   };
 
 
-  let incorrectAttempts = 0;
-  let helpUses = 0;
 
+  /* =====================================================
+     NORMALISATION
+     ===================================================== */
 
-  function normalizeKorean(text) {
+  function normalize(
+    text
+  ) {
 
     return text
       .trim()
-      .replace(/[.!?。！？,，]/g, "")
-      .replace(/\s+/g, "");
+      .replace(
+        /[.,!?？！。]/g,
+        ""
+      )
+      .replace(
+        /\s+/g,
+        " "
+      );
 
   }
 
 
-  function getKoreanVoice() {
 
-    const voices =
-      window.speechSynthesis.getVoices();
+  function compact(
+    text
+  ) {
 
-
-    return voices.find(
-      voice =>
-        voice.lang &&
-        voice.lang
-          .toLowerCase()
-          .startsWith("ko")
+    return normalize(
+      text
+    ).replace(
+      /\s/g,
+      ""
     );
 
   }
 
 
-  function speakKorean(
-    text,
-    slow = false
+
+  /* =====================================================
+     AUDIO MIN-SU
+     ===================================================== */
+
+  function getKoreanVoice() {
+
+    const voices =
+      window.speechSynthesis
+        .getVoices();
+
+
+    return (
+      voices.find(
+        voice =>
+          voice.lang &&
+          voice.lang
+            .toLowerCase()
+            .startsWith("ko")
+      ) ||
+      null
+    );
+
+  }
+
+
+
+  function speakMinsu(
+    text
   ) {
-
-    if (
-      !("speechSynthesis" in window)
-    ) {
-      return;
-    }
-
 
     window.speechSynthesis.cancel();
 
 
-    const speech =
+    const utterance =
       new SpeechSynthesisUtterance(
         text
       );
 
 
-    speech.lang =
+    utterance.lang =
       "ko-KR";
 
 
-    speech.rate =
-      slow
-        ? 0.25
-        : 0.82;
+    utterance.rate =
+      AUDIO_SETTINGS.normalRate;
 
 
-    speech.pitch =
-      1;
+    utterance.pitch =
+      0.94;
 
 
     const voice =
       getKoreanVoice();
 
 
-    if (voice) {
+    if (
+      voice
+    ) {
 
-      speech.voice =
+      utterance.voice =
         voice;
 
     }
 
 
     window.speechSynthesis.speak(
-      speech
+      utterance
     );
 
   }
 
 
-  function toggleHelp(number) {
 
-    const box =
-      document.getElementById(
-        "help" + number
-      );
+  /* =====================================================
+     RECONNAISSANCE VOCALE
+     ===================================================== */
 
+  function startRecognition(
+    number
+  ) {
 
     if (
-      box.style.display ===
-      "block"
+      completed[number]
     ) {
-
-      box.style.display =
-        "none";
 
       return;
 
     }
 
 
-    helpUses++;
+    window.speechSynthesis.cancel();
 
 
-    box.style.display =
-      "block";
+    const Recognition =
+      window.SpeechRecognition ||
+      window.webkitSpeechRecognition;
+
+
+    if (
+      !Recognition
+    ) {
+
+      const feedback =
+        document.getElementById(
+          "feedback" +
+          number
+        );
+
+
+      feedback.className =
+        "feedback error";
+
+
+      feedback.innerHTML =
+        "La reconnaissance vocale n'est pas disponible ici." +
+        "<br><br>" +
+        "Teste cette mission sur ton iPhone avec Safari.";
+
+      return;
+
+    }
+
+
+    const recognition =
+      new Recognition();
+
+
+    recognition.lang =
+      "ko-KR";
+
+
+    recognition.interimResults =
+      false;
+
+
+    recognition.maxAlternatives =
+      3;
+
+
+    const button =
+      document.getElementById(
+        "mic" +
+        number
+      );
+
+
+    const status =
+      document.getElementById(
+        "status" +
+        number
+      );
+
+
+    button.classList.add(
+      "listening"
+    );
+
+
+    button.textContent =
+      "🎙️ J'écoute…";
+
+
+    status.textContent =
+      "Parle maintenant en coréen…";
+
+
+    recognition.onresult =
+      function(event) {
+
+        const alternatives =
+          [];
+
+
+        const result =
+          event.results[0];
+
+
+        for (
+          let i = 0;
+          i < result.length;
+          i++
+        ) {
+
+          alternatives.push(
+            result[i].transcript
+          );
+
+        }
+
+
+        checkRecognition(
+          number,
+          alternatives
+        );
+
+      };
+
+
+    recognition.onerror =
+      function() {
+
+        button.classList.remove(
+          "listening"
+        );
+
+
+        button.textContent =
+          number === 5
+            ? "🎙️ Poser la question"
+            : "🎙️ Réessayer";
+
+
+        status.textContent =
+          "Je n'ai pas réussi à entendre correctement. Réessaie.";
+
+      };
+
+
+    recognition.onend =
+      function() {
+
+        if (
+          !completed[number]
+        ) {
+
+          button.classList.remove(
+            "listening"
+          );
+
+
+          button.textContent =
+            number === 5
+              ? "🎙️ Poser la question"
+              : "🎙️ Répondre";
+
+        }
+
+      };
+
+
+    recognition.start();
 
   }
 
 
-  function checkStep(number) {
 
-    if (
-      completedSteps[number]
-    ) {
-      return;
-    }
+  /* =====================================================
+     VALIDATION
+     ===================================================== */
+
+  function checkRecognition(
+    number,
+    alternatives
+  ) {
+
+    const config =
+      steps[number];
 
 
-    const input =
+    const normalizedAlternatives =
+      alternatives.map(
+        text =>
+          normalize(
+            text
+          )
+      );
+
+
+    const compactAlternatives =
+      alternatives.map(
+        text =>
+          compact(
+            text
+          )
+      );
+
+
+    const success =
+      config.accepted.some(
+        accepted => {
+
+          return (
+            normalizedAlternatives.includes(
+              normalize(
+                accepted
+              )
+            ) ||
+            compactAlternatives.includes(
+              compact(
+                accepted
+              )
+            )
+          );
+
+        }
+      );
+
+
+    const status =
       document.getElementById(
-        "answer" + number
+        "status" +
+        number
       );
 
 
     const feedback =
       document.getElementById(
-        "feedback" + number
+        "feedback" +
+        number
       );
 
 
-    const value =
-      normalizeKorean(
-        input.value
+    const button =
+      document.getElementById(
+        "mic" +
+        number
       );
 
 
-    const accepted =
-      missionAnswers[number].some(
-        answer =>
-          normalizeKorean(
-            answer
-          ) === value
-      );
+    status.innerHTML =
+      "J'ai entendu :" +
+      "<span class='recognized-text'>" +
+      escapeHtml(
+        alternatives[0]
+      ) +
+      "</span>";
 
 
-    if (accepted) {
+    if (
+      success
+    ) {
 
-      completedSteps[number] =
+      completed[number] =
         true;
+
+
+      button.disabled =
+        true;
+
+
+      button.classList.remove(
+        "listening"
+      );
+
+
+      button.textContent =
+        "✅ Validé";
 
 
       feedback.className =
-        "feedback correct";
+        "feedback success";
 
 
-      if (number === 1) {
-
-        feedback.innerHTML =
-          "✅ <strong>Très bien !</strong>" +
-          "<br><br>" +
-          "Tu as correctement donné l'heure avec <strong>일곱 시예요.</strong>";
-
-      }
-
-
-      if (number === 2) {
-
-        feedback.innerHTML =
-          "✅ <strong>Exact !</strong>" +
-          "<br><br>" +
-          "Tu as bien indiqué l'heure du lever avec <strong>시에</strong>.";
-
-      }
-
-
-      if (number === 3) {
-
-        feedback.innerHTML =
-          "✅ <strong>Très bien !</strong>" +
-          "<br><br>" +
-          "<strong>여덟 시에 회사에 가요.</strong> indique bien que tu vas au travail à 8 h.";
-
-      }
-
-
-      if (number === 4) {
-
-        feedback.innerHTML =
-          "✅ <strong>Parfait !</strong>" +
-          "<br><br>" +
-          "Tu as utilisé <strong>반</strong> pour exprimer « et demie ».";
-
-      }
-
-
-      input.disabled =
-        true;
+      feedback.innerHTML =
+        "✅ <strong>Très bien !</strong>" +
+        "<br><br>" +
+        "<span class='recognized-text'>" +
+        config.model +
+        "</span>";
 
 
       document.getElementById(
-        "next" + number
-      ).style.display =
-        "block";
+        "next" +
+        number
+      ).classList.add(
+        "show"
+      );
 
 
       return;
@@ -1113,62 +1578,349 @@
     }
 
 
-    incorrectAttempts++;
+    if (
+      !mistakes.includes(
+        number
+      )
+    ) {
+
+      mistakes.push(
+        number
+      );
+
+    }
 
 
     feedback.className =
-      "feedback wrong";
+      "feedback error";
 
 
-    if (number === 1) {
-
-      feedback.innerHTML =
-        "❌ <strong>Min-su te demande l'heure.</strong>" +
-        "<br><br>" +
-        "💡 Essaie <strong>일곱 시예요.</strong>";
-
-    }
-
-
-    if (number === 2) {
-
-      feedback.innerHTML =
-        "❌ <strong>Min-su te demande à quelle heure tu te lèves.</strong>" +
-        "<br><br>" +
-        "💡 Essaie <strong>오전 일곱 시에 일어나요.</strong>";
-
-    }
-
-
-    if (number === 3) {
-
-      feedback.innerHTML =
-        "❌ <strong>Min-su te demande à quelle heure tu vas au travail.</strong>" +
-        "<br><br>" +
-        "💡 Essaie <strong>여덟 시에 회사에 가요.</strong>";
-
-    }
-
-
-    if (number === 4) {
-
-      feedback.innerHTML =
-        "❌ <strong>Il faut exprimer 19 h 30.</strong>" +
-        "<br><br>" +
-        "💡 Essaie <strong>오후 일곱 시 반에 공부해요.</strong>";
-
-    }
+    feedback.innerHTML =
+      buildErrorFeedback(
+        number,
+        compactAlternatives[0] || ""
+      );
 
   }
 
 
-  function showStep(number) {
+
+  /* =====================================================
+     FEEDBACK CIBLÉ
+     ===================================================== */
+
+  function buildErrorFeedback(
+    number,
+    answer
+  ) {
 
     if (
-      "speechSynthesis" in window
+      number === 1
     ) {
-      window.speechSynthesis.cancel();
+
+      if (
+        answer.includes(
+          "여덟"
+        )
+      ) {
+
+        return (
+          "Tu as donné 8 h." +
+          "<br><br>" +
+          "Ici, Min-su attend 7 h : <strong>일곱 시예요.</strong>"
+        );
+
+      }
+
+
+      return (
+        "💡 Pour 7 h, utilise :" +
+        "<br><br>" +
+        "<strong>일곱 시예요.</strong>"
+      );
+
     }
+
+
+    if (
+      number === 2
+    ) {
+
+      if (
+        answer.includes(
+          "일곱시에일어나요"
+        ) &&
+        !answer.includes(
+          "오전"
+        )
+      ) {
+
+        return (
+          "Ta réponse indique déjà correctement 7 h." +
+          "<br><br>" +
+          "Il manque simplement <strong>오전</strong> pour préciser le matin."
+        );
+
+      }
+
+
+      if (
+        answer.includes(
+          "오후"
+        )
+      ) {
+
+        return (
+          "<strong>오후</strong> correspond à PM." +
+          "<br><br>" +
+          "Pour le matin, utilise <strong>오전</strong>."
+        );
+
+      }
+
+
+      return (
+        "💡 Réponds :" +
+        "<br><br>" +
+        "<strong>오전 일곱 시에 일어나요.</strong>"
+      );
+
+    }
+
+
+    if (
+      number === 3
+    ) {
+
+      if (
+        answer.includes(
+          "회사에가요"
+        ) &&
+        !answer.includes(
+          "여덟시"
+        )
+      ) {
+
+        return (
+          "Tu as bien dit « je vais au travail »." +
+          "<br><br>" +
+          "Ajoute l'heure : <strong>여덟 시에</strong>."
+        );
+
+      }
+
+
+      if (
+        answer.includes(
+          "일곱시"
+        )
+      ) {
+
+        return (
+          "<strong>일곱 시</strong> correspond à 7 h." +
+          "<br><br>" +
+          "Ici, Hana va au travail à 8 h : <strong>여덟 시</strong>."
+        );
+
+      }
+
+
+      return (
+        "💡 Réponds :" +
+        "<br><br>" +
+        "<strong>여덟 시에 회사에 가요.</strong>"
+      );
+
+    }
+
+
+    if (
+      number === 4
+    ) {
+
+      if (
+        answer.includes(
+          "오전"
+        )
+      ) {
+
+        return (
+          "<strong>오전</strong> indique le matin." +
+          "<br><br>" +
+          "Pour 19 h 30, utilise <strong>오후</strong>."
+        );
+
+      }
+
+
+      if (
+        answer.includes(
+          "오후일곱시"
+        ) &&
+        !answer.includes(
+          "반"
+        )
+      ) {
+
+        return (
+          "Tu as bien indiqué 19 h." +
+          "<br><br>" +
+          "Ajoute <strong>반</strong> pour obtenir 19 h 30."
+        );
+
+      }
+
+
+      if (
+        answer.includes(
+          "오후일곱시반"
+        ) &&
+        !answer.includes(
+          "공부해요"
+        )
+      ) {
+
+        return (
+          "L'heure est correcte." +
+          "<br><br>" +
+          "Ajoute maintenant <strong>공부해요</strong>."
+        );
+
+      }
+
+
+      return (
+        "💡 Réponds :" +
+        "<br><br>" +
+        "<strong>오후 일곱 시 반에 공부해요.</strong>"
+      );
+
+    }
+
+
+    if (
+      number === 5
+    ) {
+
+      if (
+        answer ===
+        "몇시예요"
+      ) {
+
+        return (
+          "<strong>몇 시예요?</strong> demande simplement l'heure." +
+          "<br><br>" +
+          "Ici, tu demandes l'heure d'une action : ajoute <strong>에</strong> et le verbe."
+        );
+
+      }
+
+
+      if (
+        answer.includes(
+          "몇시"
+        ) &&
+        !answer.includes(
+          "에"
+        )
+      ) {
+
+        return (
+          "Tu as bien retrouvé <strong>몇 시</strong>." +
+          "<br><br>" +
+          "Ajoute <strong>에</strong> : <strong>몇 시에</strong>."
+        );
+
+      }
+
+
+      if (
+        answer.includes(
+          "몇시에"
+        ) &&
+        !answer.includes(
+          "일어나요"
+        )
+      ) {
+
+        return (
+          "La structure <strong>몇 시에</strong> est correcte." +
+          "<br><br>" +
+          "Ajoute <strong>일어나요</strong> = se lever."
+        );
+
+      }
+
+
+      return (
+        "💡 Demande :" +
+        "<br><br>" +
+        "<strong>몇 시에 일어나요?</strong>"
+      );
+
+    }
+
+
+    return (
+      "Réessaie avec les structures du chapitre."
+    );
+
+  }
+
+
+
+  /* =====================================================
+     AIDE
+     ===================================================== */
+
+  function showHelp(
+    number
+  ) {
+
+    if (
+      !helpUsed.includes(
+        number
+      )
+    ) {
+
+      helpUsed.push(
+        number
+      );
+
+    }
+
+
+    const feedback =
+      document.getElementById(
+        "feedback" +
+        number
+      );
+
+
+    feedback.className =
+      "feedback error";
+
+
+    feedback.innerHTML =
+      "💡 <strong>Modèle :</strong>" +
+      "<br><br>" +
+      "<span class='recognized-text'>" +
+      steps[number].model +
+      "</span>";
+
+  }
+
+
+
+  /* =====================================================
+     ÉTAPE SUIVANTE
+     ===================================================== */
+
+  function showStep(
+    number
+  ) {
+
+    window.speechSynthesis.cancel();
 
 
     document
@@ -1187,41 +1939,61 @@
 
 
     document.getElementById(
-      "step" + number
+      "step" +
+      number
     ).classList.remove(
       "hidden"
     );
 
 
     document.getElementById(
-      "progressFill"
-    ).style.width =
-      (number * 25) +
-      "%";
-
-
-    document.getElementById(
       "progressLabel"
     ).textContent =
       number +
-      " / 4";
+      " / 5";
+
+
+    document.getElementById(
+      "progressFill"
+    ).style.width =
+      (
+        number /
+        5 *
+        100
+      ) +
+      "%";
 
 
     window.scrollTo({
-      top: 0,
-      behavior: "smooth"
+
+      top:
+        0,
+
+      behavior:
+        "smooth"
+
     });
 
   }
 
 
-  function finishMission() {
+
+  /* =====================================================
+     RÉSULTAT
+     ===================================================== */
+
+  function showResult() {
 
     if (
-      "speechSynthesis" in window
+      !completed[5]
     ) {
-      window.speechSynthesis.cancel();
+
+      return;
+
     }
+
+
+    window.speechSynthesis.cancel();
 
 
     document
@@ -1248,72 +2020,55 @@
     document.getElementById(
       "progressLabel"
     ).textContent =
-      "4 / 4";
+      "5 / 5";
 
 
     document.getElementById(
       "resultCard"
-    ).style.display =
-      "block";
-
-
-    let summary = "";
-
-
-    if (
-      incorrectAttempts === 0 &&
-      helpUses === 0
-    ) {
-
-      summary =
-        "🌟 Mission réussie du premier coup et sans aide.";
-
-    }
-
-    else if (
-      helpUses === 0
-    ) {
-
-      summary =
-        "🌿 Mission réussie sans aide, avec " +
-        incorrectAttempts +
-        " tentative(s) incorrecte(s).";
-
-    }
-
-    else {
-
-      summary =
-        "Mission réussie avec " +
-        incorrectAttempts +
-        " tentative(s) incorrecte(s) et " +
-        helpUses +
-        " aide(s) utilisée(s).";
-
-    }
-
-
-    document.getElementById(
-      "sessionSummary"
-    ).textContent =
-      summary;
-
-
-    localStorage.setItem(
-      "hanaKorean_chapter8_mission",
-      "completed"
+    ).classList.add(
+      "show"
     );
 
 
     localStorage.setItem(
       "hanaKorean_chapter8_missionMistakes",
-      incorrectAttempts
+      JSON.stringify(
+        mistakes
+      )
     );
 
 
     localStorage.setItem(
-      "hanaKorean_chapter8_missionHints",
-      helpUses
+      "hanaKorean_chapter8_missionHelp",
+      JSON.stringify(
+        helpUsed
+      )
+    );
+
+
+    window.scrollTo({
+
+      top:
+        0,
+
+      behavior:
+        "smooth"
+
+    });
+
+  }
+
+
+
+  /* =====================================================
+     FIN DU CHAPITRE
+     ===================================================== */
+
+  function completeMission() {
+
+    localStorage.setItem(
+      "hanaKorean_chapter8_mission",
+      "completed"
     );
 
 
@@ -1323,58 +2078,81 @@
     );
 
 
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    });
+    if (
+      window.HanaChapterProgress &&
+      typeof window.HanaChapterProgress.render === "function"
+    ) {
+
+      window.HanaChapterProgress.render();
+
+    }
+
+
+    window.location.href =
+      "itineraire.html#module1";
 
   }
 
 
-  document
-    .querySelectorAll(
-      ".answer-input"
-    )
-    .forEach(
-      (input, index) => {
 
-        input.addEventListener(
-          "keydown",
-          function(event) {
+  /* =====================================================
+     SÉCURITÉ HTML
+     ===================================================== */
 
-            if (
-              event.key ===
-              "Enter"
-            ) {
-
-              event.preventDefault();
-
-              checkStep(
-                index + 1
-              );
-
-            }
-
-          }
-        );
-
-      }
-    );
-
-
-  if (
-    "speechSynthesis" in window
+  function escapeHtml(
+    text
   ) {
 
-    window.speechSynthesis.onvoiceschanged =
-      function() {
+    const div =
+      document.createElement(
+        "div"
+      );
 
-        window.speechSynthesis.getVoices();
 
-      };
+    div.textContent =
+      String(
+        text
+      );
+
+
+    return div.innerHTML;
 
   }
+
+
+
+  /* =====================================================
+     SÉCURITÉ AUDIO
+     ===================================================== */
+
+  window.addEventListener(
+    "pagehide",
+    function() {
+
+      window.speechSynthesis.cancel();
+
+    }
+  );
+
+
+  window.addEventListener(
+    "pageshow",
+    function() {
+
+      if (
+        window.HanaChapterProgress &&
+        typeof window.HanaChapterProgress.render === "function"
+      ) {
+
+        window.HanaChapterProgress.render();
+
+      }
+
+    }
+  );
+
 </script>
+
 
 </body>
 

@@ -1,1019 +1,925 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#F7F4ED">
-  <title>Chapitre 12 — Je révise</title>
-  <link rel="stylesheet" href="style.css">
 
-  <style>
-    .review-header {
-      text-align: center;
-      margin-bottom: 28px;
-    }
+<meta charset="UTF-8">
 
-    .review-header h1 {
-      margin-bottom: 8px;
-    }
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0"
+>
 
-    .review-header p {
-      color: var(--text-light);
-      line-height: 1.7;
-    }
+<meta
+name="theme-color"
+content="#F7F4ED"
+>
 
-    .review-progress {
-      margin-bottom: 20px;
-    }
+<title>
+Chapitre 12 — Révision
+</title>
 
-    .progress-info {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 8px;
-      color: var(--text-light);
-      font-size: 14px;
-    }
 
-    .progress-bar {
-      width: 100%;
-      height: 10px;
-      overflow: hidden;
-      background: var(--soft-beige);
-      border-radius: 20px;
-    }
+<link
+rel="stylesheet"
+href="style.css"
+>
 
-    .progress-fill {
-      width: 20%;
-      height: 100%;
-      background: var(--jade);
-      border-radius: 20px;
-      transition: width 0.3s ease;
-    }
-
-    .review-card {
-      padding: 20px;
-      margin-bottom: 18px;
-      background: var(--white);
-      border-radius: var(--radius-large);
-      box-shadow: var(--shadow);
-    }
-
-    .question-number {
-      margin-bottom: 8px;
-      color: var(--jade-dark);
-      font-size: 13px;
-      font-weight: bold;
-    }
-
-    .question-title {
-      margin-top: 0;
-      color: var(--navy);
-    }
-
-    .question-text {
-      line-height: 1.7;
-    }
-
-    .answers {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-top: 16px;
-    }
-
-    .answer {
-      width: 100%;
-      text-align: left;
-      background: #FBFAF6;
-      color: var(--navy);
-      border: 1px solid var(--border);
-    }
-
-    .answer.correct {
-      background: var(--success-light);
-      color: var(--success);
-      border-color: rgba(95, 146, 112, 0.35);
-    }
-
-    .answer.wrong {
-      background: var(--error-light);
-      color: var(--error);
-      border-color: rgba(200, 107, 105, 0.35);
-    }
-
-    .feedback {
-      display: none;
-      padding: 14px;
-      margin-top: 14px;
-      border-radius: var(--radius-medium);
-      line-height: 1.7;
-    }
-
-    .feedback.correct {
-      display: block;
-      background: var(--success-light);
-      color: var(--navy);
-    }
-
-    .feedback.wrong {
-      display: block;
-      background: var(--error-light);
-      color: var(--navy);
-    }
-
-    .next-question {
-      display: none;
-      width: 100%;
-      margin-top: 14px;
-      background: var(--navy);
-      color: white;
-      font-weight: bold;
-    }
-
-    .hidden {
-      display: none;
-    }
-
-    .result-card {
-      display: none;
-      padding: 24px;
-      text-align: center;
-      background: var(--white);
-      border-radius: var(--radius-large);
-      box-shadow: var(--shadow);
-    }
-
-    .result-card.show {
-      display: block;
-    }
-
-    .result-icon {
-      font-size: 58px;
-    }
-
-    .result-score {
-      color: var(--jade-dark);
-      font-size: 21px;
-      font-weight: bold;
-    }
-
-    .result-summary,
-    .weak-box,
-    .notion-summary {
-      padding: 16px;
-      margin-top: 18px;
-      border-radius: var(--radius-medium);
-      text-align: left;
-      line-height: 1.7;
-    }
-
-    .result-summary {
-      background: #FBFAF6;
-    }
-
-    .weak-box {
-      background: var(--soft-beige);
-      color: var(--navy);
-    }
-
-    .notion-summary {
-      background: var(--soft-green);
-      color: var(--navy);
-    }
-
-    .notion-line {
-      padding: 10px 0;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .notion-line:last-child {
-      border-bottom: none;
-    }
-
-    .continue-button {
-      width: 100%;
-      margin-top: 18px;
-      background: var(--jade);
-      color: white;
-      font-weight: bold;
-    }
-
-    .back-button {
-      width: 100%;
-      margin-top: 10px;
-      background: var(--soft-beige);
-      color: var(--navy);
-    }
-  </style>
-</head>
-
-<body>
-
-<main class="app">
-
-  <a
-    class="back-link"
-    href="ecriture-12.html"
-  >
-    ← J'écris
-  </a>
-
-  <header class="review-header">
-    <span class="chapter-badge">
-      Chapitre 12 · Révision
-    </span>
-
-    <p class="korean">
-      복습해 봐요 🧠
-    </p>
-
-    <h1>
-      Je révise
-    </h1>
-
-    <p>
-      Vérifie que tu sais reconnaître les mots de direction
-      et demander où se trouve un lieu.
-    </p>
-  </header>
-
-  <div class="review-progress">
-
-    <div class="progress-info">
-      <span>Révision du chapitre</span>
-      <span id="progressLabel">1 / 5</span>
-    </div>
-
-    <div class="progress-bar">
-      <div
-        class="progress-fill"
-        id="progressFill"
-      ></div>
-    </div>
-
-  </div>
-
-
-  <!-- QUESTION 1 -->
-
-  <section
-    class="review-card"
-    id="question1"
-  >
-
-    <div class="question-number">
-      Question 1 / 5
-    </div>
-
-    <h2 class="question-title">
-      📍 Demander un lieu
-    </h2>
-
-    <p class="question-text">
-      Comment demandes-tu :
-      <strong>« Où se trouve la station de métro ? »</strong>
-    </p>
-
-    <div class="answers">
-
-      <button
-        class="answer"
-        type="button"
-        onclick="checkAnswer(1, this, true, '어디에 있어요')"
-      >
-        지하철역이 어디에 있어요?
-      </button>
-
-      <button
-        class="answer"
-        type="button"
-        onclick="checkAnswer(1, this, false, '어디에 있어요')"
-      >
-        지하철역이 얼마예요?
-      </button>
-
-      <button
-        class="answer"
-        type="button"
-        onclick="checkAnswer(1, this, false, '어디에 있어요')"
-      >
-        지하철역을 주세요.
-      </button>
-
-    </div>
-
-    <div
-      class="feedback"
-      id="feedback1"
-    ></div>
-
-    <button
-      class="next-question"
-      id="next1"
-      type="button"
-      onclick="showQuestion(2)"
-    >
-      Question suivante →
-    </button>
-
-  </section>
-
-
-  <!-- QUESTION 2 -->
-
-  <section
-    class="review-card hidden"
-    id="question2"
-  >
-
-    <div class="question-number">
-      Question 2 / 5
-    </div>
-
-    <h2 class="question-title">
-      ⬆️ Comprendre une indication
-    </h2>
-
-    <p class="question-text">
-      Que signifie <strong>직진하세요.</strong> ?
-    </p>
-
-    <div class="answers">
-
-      <button
-        class="answer"
-        type="button"
-        onclick="checkAnswer(2, this, false, '직진')"
-      >
-        Tournez à gauche.
-      </button>
-
-      <button
-        class="answer"
-        type="button"
-        onclick="checkAnswer(2, this, true, '직진')"
-      >
-        Allez tout droit.
-      </button>
-
-      <button
-        class="answer"
-        type="button"
-        onclick="checkAnswer(2, this, false, '직진')"
-      >
-        C'est là-bas.
-      </button>
-
-    </div>
-
-    <div
-      class="feedback"
-      id="feedback2"
-    ></div>
-
-    <button
-      class="next-question"
-      id="next2"
-      type="button"
-      onclick="showQuestion(3)"
-    >
-      Question suivante →
-    </button>
-
-  </section>
-
-
-  <!-- QUESTION 3 -->
-
-  <section
-    class="review-card hidden"
-    id="question3"
-  >
-
-    <div class="question-number">
-      Question 3 / 5
-    </div>
-
-    <h2 class="question-title">
-      ⬅️ Gauche
-    </h2>
-
-    <p class="question-text">
-      Quel mot signifie <strong>« gauche »</strong> ?
-    </p>
-
-    <div class="answers">
-
-      <button
-        class="answer"
-        type="button"
-        onclick="checkAnswer(3, this, true, '왼쪽')"
-      >
-        왼쪽
-      </button>
-
-      <button
-        class="answer"
-        type="button"
-        onclick="checkAnswer(3, this, false, '왼쪽')"
-      >
-        오른쪽
-      </button>
-
-      <button
-        class="answer"
-        type="button"
-        onclick="checkAnswer(3, this, false, '왼쪽')"
-      >
-        건너편
-      </button>
-
-    </div>
-
-    <div
-      class="feedback"
-      id="feedback3"
-    ></div>
-
-    <button
-      class="next-question"
-      id="next3"
-      type="button"
-      onclick="showQuestion(4)"
-    >
-      Question suivante →
-    </button>
-
-  </section>
-
-
-  <!-- QUESTION 4 -->
-
-  <section
-    class="review-card hidden"
-    id="question4"
-  >
-
-    <div class="question-number">
-      Question 4 / 5
-    </div>
-
-    <h2 class="question-title">
-      ➡️ Droite
-    </h2>
-
-    <p class="question-text">
-      Quel mot signifie <strong>« droite »</strong> ?
-    </p>
-
-    <div class="answers">
-
-      <button
-        class="answer"
-        type="button"
-        onclick="checkAnswer(4, this, false, '오른쪽')"
-      >
-        여기
-      </button>
-
-      <button
-        class="answer"
-        type="button"
-        onclick="checkAnswer(4, this, false, '오른쪽')"
-      >
-        뒤
-      </button>
-
-      <button
-        class="answer"
-        type="button"
-        onclick="checkAnswer(4, this, true, '오른쪽')"
-      >
-        오른쪽
-      </button>
-
-    </div>
-
-    <div
-      class="feedback"
-      id="feedback4"
-    ></div>
-
-    <button
-      class="next-question"
-      id="next4"
-      type="button"
-      onclick="showQuestion(5)"
-    >
-      Dernière question →
-    </button>
-
-  </section>
-
-
-  <!-- QUESTION 5 -->
-
-  <section
-    class="review-card hidden"
-    id="question5"
-  >
-
-    <div class="question-number">
-      Question 5 / 5
-    </div>
-
-    <h2 class="question-title">
-      🧭 Situation réelle
-    </h2>
-
-    <p class="question-text">
-      Une personne te dit :
-      <strong>저기예요. 직진하세요. 그리고 오른쪽이에요.</strong><br><br>
-      Que dois-tu comprendre ?
-    </p>
-
-    <div class="answers">
-
-      <button
-        class="answer"
-        type="button"
-        onclick="checkAnswer(5, this, true, 'direction complète')"
-      >
-        C'est par là. Va tout droit, puis à droite.
-      </button>
-
-      <button
-        class="answer"
-        type="button"
-        onclick="checkAnswer(5, this, false, 'direction complète')"
-      >
-        C'est ici. Tourne à gauche.
-      </button>
-
-      <button
-        class="answer"
-        type="button"
-        onclick="checkAnswer(5, this, false, 'direction complète')"
-      >
-        C'est derrière toi.
-      </button>
-
-    </div>
-
-    <div
-      class="feedback"
-      id="feedback5"
-    ></div>
-
-    <button
-      class="next-question"
-      id="next5"
-      type="button"
-      onclick="finishReview()"
-    >
-      Voir mon résultat 🌿
-    </button>
-
-  </section>
-
-
-  <!-- RESULTAT -->
-
-  <section
-    class="result-card"
-    id="resultCard"
-  >
-
-    <div class="result-icon">
-      🧠🗺️
-    </div>
-
-    <h2>
-      잘했어요!
-    </h2>
-
-    <p>
-      Tu as terminé la révision du chapitre 12.
-    </p>
-
-    <p class="result-score">
-      5 notions révisées ✅
-    </p>
-
-    <div class="result-summary">
-      <strong>📊 Ta séance</strong>
-      <p id="attemptText"></p>
-    </div>
-
-    <div
-      class="weak-box"
-      id="weakBox"
-    ></div>
-
-    <div class="notion-summary">
-
-      <div class="notion-line">
-        📍 <strong>어디에 있어요?</strong> → Où se trouve… ?
-      </div>
-
-      <div class="notion-line">
-        ⬆️ <strong>직진하세요.</strong> → Allez tout droit.
-      </div>
-
-      <div class="notion-line">
-        ⬅️ <strong>왼쪽</strong> → gauche
-      </div>
-
-      <div class="notion-line">
-        ➡️ <strong>오른쪽</strong> → droite
-      </div>
-
-      <div class="notion-line">
-        👀 <strong>저기예요.</strong> → C'est là-bas.
-      </div>
-
-    </div>
-
-    <button
-      class="continue-button"
-      type="button"
-      onclick="window.location.href='utilise-12.html'"
-    >
-      🎯 Passer à « Je l'utilise »
-    </button>
-
-    <button
-      class="back-button"
-      type="button"
-      onclick="window.location.href='chapitre-12.html'"
-    >
-      Retour au chapitre
-    </button>
-
-  </section>
-
-</main>
+<link
+rel="stylesheet"
+href="chapter-progress.css"
+>
 
 
 <script>
 
-  let incorrectAttempts = 0;
-
-  const weakNotions = [];
-
-  const completedQuestions = {
-    1: false,
-    2: false,
-    3: false,
-    4: false,
-    5: false
-  };
-
-
-  function checkAnswer(
-    number,
-    button,
-    isCorrect,
-    notion
-  ) {
-
-    if (
-      completedQuestions[number]
-    ) {
-      return;
-    }
-
-    const question =
-      document.getElementById(
-        "question" + number
-      );
-
-    const answers =
-      question.querySelectorAll(
-        ".answer"
-      );
-
-    const feedback =
-      document.getElementById(
-        "feedback" + number
-      );
-
-
-    if (isCorrect) {
-
-      completedQuestions[number] =
-        true;
-
-      button.classList.add(
-        "correct"
-      );
-
-      feedback.className =
-        "feedback correct";
-
-
-      if (number === 1) {
-
-        feedback.innerHTML =
-          "✅ <strong>Exact !</strong>" +
-          "<br><br>" +
-          "<strong>어디에 있어요?</strong> sert à demander où se trouve un lieu.";
-
-      }
-
-
-      if (number === 2) {
-
-        feedback.innerHTML =
-          "✅ <strong>Très bien !</strong>" +
-          "<br><br>" +
-          "<strong>직진</strong> signifie « tout droit ».";
-
-      }
-
-
-      if (number === 3) {
-
-        feedback.innerHTML =
-          "✅ <strong>Exact !</strong>" +
-          "<br><br>" +
-          "<strong>왼쪽</strong> = gauche.";
-
-      }
-
-
-      if (number === 4) {
-
-        feedback.innerHTML =
-          "✅ <strong>Très bien !</strong>" +
-          "<br><br>" +
-          "<strong>오른쪽</strong> = droite.";
-
-      }
-
-
-      if (number === 5) {
-
-        feedback.innerHTML =
-          "✅ <strong>Parfait !</strong>" +
-          "<br><br>" +
-          "Tu as compris toute l'indication : " +
-          "<strong>là-bas → tout droit → à droite</strong>.";
-
-      }
-
-
-      answers.forEach(
-        answer => {
-          answer.disabled =
-            true;
-        }
-      );
-
-
-      document.getElementById(
-        "next" + number
-      ).style.display =
-        "block";
-
-      return;
-    }
-
-
-    incorrectAttempts++;
-
-    button.classList.add(
-      "wrong"
-    );
-
-    feedback.className =
-      "feedback wrong";
-
-
-    if (
-      !weakNotions.includes(
-        notion
-      )
-    ) {
-      weakNotions.push(
-        notion
-      );
-    }
-
-
-    if (number === 1) {
-
-      feedback.innerHTML =
-        "❌ <strong>Pas encore.</strong>" +
-        "<br><br>" +
-        "💡 Pour demander où se trouve un lieu, repère <strong>어디에 있어요?</strong>.";
-
-    }
-
-
-    if (number === 2) {
-
-      feedback.innerHTML =
-        "❌ <strong>Réessaie.</strong>" +
-        "<br><br>" +
-        "💡 <strong>직진</strong> correspond à « tout droit ».";
-
-    }
-
-
-    if (number === 3) {
-
-      feedback.innerHTML =
-        "❌ <strong>Attention.</strong>" +
-        "<br><br>" +
-        "💡 <strong>왼쪽</strong> = gauche ; <strong>오른쪽</strong> = droite.";
-
-    }
-
-
-    if (number === 4) {
-
-      feedback.innerHTML =
-        "❌ <strong>Attention.</strong>" +
-        "<br><br>" +
-        "💡 <strong>오른쪽</strong> = droite.";
-
-    }
-
-
-    if (number === 5) {
-
-      feedback.innerHTML =
-        "❌ <strong>Relis les trois éléments.</strong>" +
-        "<br><br>" +
-        "💡 <strong>저기</strong> = là-bas, <strong>직진</strong> = tout droit, " +
-        "<strong>오른쪽</strong> = droite.";
-
-    }
-
-  }
-
-
-  function showQuestion(
-    number
-  ) {
-
-    for (
-      let i = 1;
-      i <= 5;
-      i++
-    ) {
-
-      document.getElementById(
-        "question" + i
-      ).classList.add(
-        "hidden"
-      );
-
-    }
-
-
-    document.getElementById(
-      "question" + number
-    ).classList.remove(
-      "hidden"
-    );
-
-
-    document.getElementById(
-      "progressLabel"
-    ).textContent =
-      number +
-      " / 5";
-
-
-    document.getElementById(
-      "progressFill"
-    ).style.width =
-      (
-        number * 20
-      ) +
-      "%";
-
-
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    });
-
-  }
-
-
-  function finishReview() {
-
-    document.getElementById(
-      "question5"
-    ).classList.add(
-      "hidden"
-    );
-
-
-    const resultCard =
-      document.getElementById(
-        "resultCard"
-      );
-
-    resultCard.classList.add(
-      "show"
-    );
-
-
-    const attemptText =
-      document.getElementById(
-        "attemptText"
-      );
-
-
-    if (
-      incorrectAttempts === 0
-    ) {
-
-      attemptText.innerHTML =
-        "🌟 <strong>Sans erreur !</strong><br>" +
-        "Tu maîtrises très bien les notions principales de ce chapitre.";
-
-    } else {
-
-      attemptText.innerHTML =
-        "Tu as eu <strong>" +
-        incorrectAttempts +
-        "</strong> tentative" +
-        (
-          incorrectAttempts > 1
-            ? "s"
-            : ""
-        ) +
-        " incorrecte" +
-        (
-          incorrectAttempts > 1
-            ? "s"
-            : ""
-        ) +
-        ".<br>Les erreurs servent à cibler ce qu'il faut revoir.";
-
-    }
-
-
-    const weakBox =
-      document.getElementById(
-        "weakBox"
-      );
-
-
-    if (
-      weakNotions.length === 0
-    ) {
-
-      weakBox.innerHTML =
-        "🌿 <strong>Aucune notion fragile détectée.</strong>";
-
-    } else {
-
-      weakBox.innerHTML =
-        "🧠 <strong>À revoir en priorité :</strong><br><br>" +
-        weakNotions.join(
-          " · "
-        );
-
-    }
-
-
-    localStorage.setItem(
-      "hanaKorean_chapter12_review",
-      "completed"
-    );
-
-
-    localStorage.setItem(
-      "hanaKorean_chapter12_reviewMistakes",
-      String(
-        incorrectAttempts
-      )
-    );
-
-
-    localStorage.setItem(
-      "hanaKorean_chapter12_reviewWeakNotions",
-      JSON.stringify(
-        weakNotions
-      )
-    );
-
-
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    });
-
-  }
+if(
+localStorage.getItem(
+"hanaKorean_chapter12_writing"
+)!=="completed"
+){
+
+window.location.replace(
+"écriture-12.html"
+);
+
+}
 
 </script>
 
+
+
+<style>
+
+
+.chapter-header{
+
+text-align:center;
+margin-bottom:25px;
+
+}
+
+
+
+.chapter-badge{
+
+display:inline-block;
+padding:7px 14px;
+border-radius:20px;
+font-size:14px;
+font-weight:bold;
+margin-bottom:10px;
+
+}
+
+
+
+.intro{
+
+color:var(--text-light);
+line-height:1.7;
+
+}
+
+
+
+.review-card{
+
+padding:20px;
+margin-bottom:18px;
+
+}
+
+
+
+.hidden{
+
+display:none;
+
+}
+
+
+
+.word-card{
+
+padding:14px;
+margin-top:10px;
+background:#FBFAF6;
+border-radius:var(--radius-medium);
+
+}
+
+
+
+.korean{
+
+font-size:22px;
+font-weight:bold;
+color:var(--navy);
+
+}
+
+
+
+.translation{
+
+color:var(--text-light);
+margin-top:5px;
+
+}
+
+
+
+.question{
+
+padding:16px;
+background:var(--soft-green);
+border-radius:var(--radius-medium);
+margin-top:15px;
+line-height:1.7;
+
+}
+
+
+
+.choice-grid{
+
+display:grid;
+gap:10px;
+margin-top:15px;
+
+}
+
+
+
+.choice{
+
+padding:14px;
+border-radius:var(--radius-medium);
+background:#FBFAF6;
+border:1px solid var(--border);
+font-weight:bold;
+
+}
+
+
+
+.choice.correct{
+
+background:var(--success-light);
+
+}
+
+
+
+.choice.wrong{
+
+background:var(--warning-light);
+
+}
+
+
+
+.feedback{
+
+display:none;
+padding:14px;
+margin-top:14px;
+border-radius:var(--radius-medium);
+
+}
+
+
+
+.feedback.success{
+
+display:block;
+background:var(--success-light);
+
+}
+
+
+
+.feedback.error{
+
+display:block;
+background:var(--warning-light);
+
+}
+
+
+
+.next-button{
+
+display:none;
+width:100%;
+margin-top:15px;
+background:var(--jade);
+color:white;
+font-weight:bold;
+
+}
+
+
+
+.next-button.show{
+
+display:block;
+
+}
+
+
+
+.result{
+
+display:none;
+padding:20px;
+text-align:center;
+
+}
+
+
+
+.result.show{
+
+display:block;
+
+}
+
+
+
+.finish-button{
+
+width:100%;
+background:var(--jade);
+color:white;
+font-weight:bold;
+
+}
+
+
+</style>
+
+
+</head>
+
+
+
+
+<body>
+
+
+<main class="app">
+
+
+<a
+class="back-link"
+href="écriture-12.html"
+>
+← Écriture
+</a>
+
+
+
+<header class="chapter-header">
+
+
+<span class="chapter-badge">
+
+Chapitre 12 · Étape 5
+
+</span>
+
+
+<p class="korean">
+
+복습해요 🧠
+
+</p>
+
+
+<h1>
+
+Révision
+
+</h1>
+
+
+<p class="intro">
+
+Vérifie que tu connais
+les expressions essentielles
+pour demander ton chemin.
+
+</p>
+
+
+</header>
+
+
+
+
+<section
+id="hanaChapterPath"
+data-chapter-path
+>
+</section>
+
+
+
+
+
+
+
+
+<section
+class="review-card"
+id="step1"
+>
+
+
+<h2>
+
+📍 Vocabulaire
+
+</h2>
+
+
+<div class="word-card">
+
+<div class="korean">
+어디
+</div>
+
+<div class="translation">
+où
+</div>
+
+</div>
+
+
+<div class="word-card">
+
+<div class="korean">
+왼쪽
+</div>
+
+<div class="translation">
+gauche
+</div>
+
+</div>
+
+
+<div class="word-card">
+
+<div class="korean">
+오른쪽
+</div>
+
+<div class="translation">
+droite
+</div>
+
+</div>
+
+
+<div class="word-card">
+
+<div class="korean">
+직진
+</div>
+
+<div class="translation">
+tout droit
+</div>
+
+</div>
+
+
+
+<button
+class="next-button show"
+onclick="showStep(2)"
+>
+
+Continuer →
+
+</button>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<section
+class="review-card hidden"
+id="step2"
+>
+
+
+<h2>
+
+🧩 Complète la phrase
+
+</h2>
+
+
+<div class="question">
+
+Comment demander :
+
+<br><br>
+
+« Où se trouve Gyeongbokgung ? »
+
+</div>
+
+
+
+<div class="choice-grid">
+
+
+<button
+class="choice"
+onclick="answer(this,true)"
+>
+
+경복궁이 어디에 있어요?
+
+</button>
+
+
+<button
+class="choice"
+onclick="answer(this,false)"
+>
+
+경복궁이 얼마예요?
+
+</button>
+
+
+<button
+class="choice"
+onclick="answer(this,false)"
+>
+
+경복궁 주세요.
+
+</button>
+
+
+</div>
+
+
+
+<div
+class="feedback"
+id="feedback2"
+></div>
+
+
+<button
+class="next-button"
+id="next2"
+onclick="showStep(3)"
+>
+
+Continuer →
+
+</button>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<section
+class="review-card hidden"
+id="step3"
+>
+
+
+<h2>
+
+🧭 Les directions
+
+</h2>
+
+
+<div class="question">
+
+Traduis :
+
+<br><br>
+
+<strong>
+오른쪽
+</strong>
+
+</div>
+
+
+
+<div class="choice-grid">
+
+
+<button
+class="choice"
+onclick="answer(this,true)"
+>
+
+Droite
+
+</button>
+
+
+<button
+class="choice"
+onclick="answer(this,false)"
+>
+
+Gauche
+
+</button>
+
+
+<button
+class="choice"
+onclick="answer(this,false)"
+>
+
+Devant
+
+</button>
+
+
+</div>
+
+
+<div
+class="feedback"
+id="feedback3"
+></div>
+
+
+<button
+class="next-button"
+id="next3"
+onclick="showStep(4)"
+>
+
+Continuer →
+
+</button>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+
+<section
+class="review-card hidden"
+id="step4"
+>
+
+
+<h2>
+
+🙏 Petite situation
+
+</h2>
+
+
+<div class="question">
+
+Une personne t'aide.
+
+Que dis-tu ?
+
+</div>
+
+
+
+<div class="choice-grid">
+
+
+<button
+class="choice"
+onclick="answer(this,true)"
+>
+
+감사합니다
+
+</button>
+
+
+<button
+class="choice"
+onclick="answer(this,false)"
+>
+
+비싸요
+
+</button>
+
+
+<button
+class="choice"
+onclick="answer(this,false)"
+>
+
+주세요
+
+</button>
+
+
+</div>
+
+
+
+<div
+class="feedback"
+id="feedback4"
+></div>
+
+
+<button
+class="next-button"
+id="next4"
+onclick="showResult()"
+>
+
+Terminer →
+
+</button>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<section
+class="result"
+id="result"
+>
+
+
+<h2>
+
+🎉 Chapitre 12 validé !
+
+</h2>
+
+
+<p>
+
+Tu maîtrises maintenant
+les bases pour demander
+ton chemin en coréen.
+
+</p>
+
+
+<p>
+
+📍 어디에 있어요?
+
+<br>
+
+⬅️ 왼쪽
+
+<br>
+
+➡️ 오른쪽
+
+<br>
+
+⬆️ 직진
+
+<br>
+
+🙏 감사합니다
+
+</p>
+
+
+
+<button
+class="finish-button"
+onclick="complete()"
+>
+
+🎯 Passer à « Je l'utilise »
+
+</button>
+
+
+</section>
+
+
+
+
+
+
+
+</main>
+
+
+
+
+
+<script src="chapter-progress.js"></script>
+
+
+
+<script>
+
+
+let currentStep=1;
+
+
+
+function showStep(number){
+
+
+document
+.querySelectorAll(
+".review-card"
+)
+.forEach(
+card=>card.classList.add("hidden")
+);
+
+
+
+document
+.getElementById(
+"step"+number
+)
+.classList.remove(
+"hidden"
+);
+
+
+currentStep=number;
+
+
+window.scrollTo({
+
+top:0,
+
+behavior:"smooth"
+
+});
+
+
+}
+
+
+
+
+function answer(button,correct){
+
+
+const section=
+button.closest(
+".review-card"
+);
+
+
+const feedback=
+section.querySelector(
+".feedback"
+);
+
+
+if(correct){
+
+
+button.classList.add(
+"correct"
+);
+
+
+feedback.className=
+"feedback success";
+
+
+feedback.innerHTML=
+"✅ Très bien !";
+
+
+section
+.querySelector(
+".next-button"
+)
+.classList.add(
+"show"
+);
+
+
+}
+
+else{
+
+
+button.classList.add(
+"wrong"
+);
+
+
+feedback.className=
+"feedback error";
+
+
+feedback.innerHTML=
+"❌ Réessaie. Relis la leçon.";
+
+}
+
+
+}
+
+
+
+
+
+function showResult(){
+
+
+document
+.querySelectorAll(
+".review-card"
+)
+.forEach(
+card=>card.classList.add("hidden")
+);
+
+
+document
+.getElementById(
+"result"
+)
+.classList.add(
+"show"
+);
+
+
+}
+
+
+
+
+
+function complete(){
+
+
+localStorage.setItem(
+"hanaKorean_chapter12_review",
+"completed"
+);
+
+
+
+window.location.href=
+"utilise-12.html";
+
+
+}
+
+
+
+</script>
+
+
+
 </body>
+
 </html>

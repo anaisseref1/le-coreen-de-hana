@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#F7F4ED">
+<title>Chapitre 27 — Je l'utilise</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="chapter-progress.css">
+<style>
+.mission-header{text-align:center;margin-bottom:24px}
+.card{padding:20px;margin-bottom:18px;background:var(--white);border-radius:var(--radius-large);box-shadow:var(--shadow)}
+.scene{padding:15px;margin-top:12px;background:#FBFAF6;border-radius:var(--radius-medium)}
+.scene button{width:100%;margin-top:8px}
+.feedback{margin-top:8px}
+.summary-button{display:none;width:100%;margin-top:10px;background:var(--navy);color:white;font-weight:bold}
+</style>
+</head>
+<body>
+<main class="app">
+<a class="back-link" href="revision-27.html">← Révision</a>
+<section id="hanaChapterPath" data-chapter-path></section>
+
+<header class="mission-header">
+<span class="chapter-badge">Chapitre 27 · 🎯 Je l'utilise</span>
+<p class="korean">승강장이 어디예요?</p>
+<h1>Mission gare</h1>
+<p>Tu es en Corée et tu dois prendre le KTX pour Busan.</p>
+</header>
+
+<section class="card">
+<h2>🎭 Situation</h2>
+<p>Tu arrives à la gare de Séoul. Tu as ton billet mais tu dois trouver ton quai, vérifier l'heure et retrouver ton siège.</p>
+</section>
+
+<section class="card">
+<h2>💬 Choisis la bonne réponse</h2>
+
+<div class="scene" data-answer="b">
+<p><strong>Min-su :</strong> 기차표 있어요?</p>
+<p>Tu réponds : « Oui, je l'ai. »</p>
+<button data-choice="a" type="button">아니요, 부산에 가요.</button>
+<button data-choice="b" type="button">네, 있어요.</button>
+<button data-choice="c" type="button">열 시예요.</button>
+<div class="feedback"></div>
+</div>
+
+<div class="scene" data-answer="a">
+<p>Tu demandes où est le quai.</p>
+<button data-choice="a" type="button">승강장이 어디예요?</button>
+<button data-choice="b" type="button">좌석이 어디예요?</button>
+<button data-choice="c" type="button">기차가 뭐예요?</button>
+<div class="feedback"></div>
+</div>
+
+<div class="scene" data-answer="c">
+<p>Tu demandes l'heure de départ.</p>
+<button data-choice="a" type="button">몇 번 좌석이에요?</button>
+<button data-choice="b" type="button">어디에 가요?</button>
+<button data-choice="c" type="button">몇 시에 출발해요?</button>
+<div class="feedback"></div>
+</div>
+
+<div class="scene" data-answer="b">
+<p>Min-su indique : <strong>3번 승강장이에요.</strong></p>
+<p>Que signifie cette phrase ?</p>
+<button data-choice="a" type="button">C'est le siège numéro 3.</button>
+<button data-choice="b" type="button">C'est le quai numéro 3.</button>
+<button data-choice="c" type="button">C'est le train numéro 3.</button>
+<div class="feedback"></div>
+</div>
+
+<div class="scene" data-answer="a">
+<p>Tu cherches ton siège. Tu demandes :</p>
+<button data-choice="a" type="button">제 좌석은 몇 번이에요?</button>
+<button data-choice="b" type="button">제 기차는 어디예요?</button>
+<button data-choice="c" type="button">제 표가 있어요?</button>
+<div class="feedback"></div>
+</div>
+</section>
+
+<section class="card">
+<h2>🎒 Ce que tu emportes</h2>
+<p><strong>기차표 있어요.</strong><br>J'ai mon billet.</p>
+<p><strong>승강장이 어디예요?</strong><br>Où est le quai ?</p>
+<p><strong>몇 시에 출발해요?</strong><br>À quelle heure part-il ?</p>
+<p><strong>제 좌석은 몇 번이에요?</strong><br>Quel est mon siège ?</p>
+</section>
+
+<button id="next" class="summary-button" type="button">📚 Voir le résumé du chapitre</button>
+</main>
+
+<script src="chapter-progress.js"></script>
+<script>
+const UNDERSTANDING_KEY = "hanaKorean_chapter27_understanding";
+const LISTENING_EXERCISE_KEY = "hanaKorean_chapter27_listeningExercise";
+const SPEAKING_KEY = "hanaKorean_chapter27_speaking";
+const WRITING_KEY = "hanaKorean_chapter27_writing";
+const REVIEW_KEY = "hanaKorean_chapter27_review";
+const USE_KEY = "hanaKorean_chapter27_use";
+const MISSION_KEY = "hanaKorean_chapter27_mission";
+const COMPLETED_KEY = "hanaKorean_chapter27_completed";
+const MISTAKES_KEY = "hanaKorean_chapter27_missionMistakes";
+const HINTS_KEY = "hanaKorean_chapter27_missionHints";
+
+if ([UNDERSTANDING_KEY, LISTENING_EXERCISE_KEY, SPEAKING_KEY, WRITING_KEY, REVIEW_KEY]
+  .some(key => localStorage.getItem(key) !== "completed")) {
+  window.location.href = "revision-27.html";
+}
+
+function migrateLegacyMissionProgress() {
+  if (
+    localStorage.getItem(USE_KEY) !== "completed" &&
+    (localStorage.getItem(MISSION_KEY) === "completed" ||
+     localStorage.getItem(COMPLETED_KEY) === "completed")
+  ) {
+    localStorage.setItem(USE_KEY, "completed");
+  }
+}
+
+migrateLegacyMissionProgress();
+
+let done = 0;
+let mistakes = 0;
+const scenes = Array.from(document.querySelectorAll(".scene"));
+const nextButton = document.getElementById("next");
+
+scenes.forEach(scene => {
+  scene.querySelectorAll("button").forEach(button => {
+    button.addEventListener("click", () => {
+      if (scene.dataset.done) return;
+      const feedback = scene.querySelector(".feedback");
+
+      if (button.dataset.choice === scene.dataset.answer) {
+        scene.dataset.done = "true";
+        done += 1;
+        feedback.textContent = "✅ Très bien !";
+      } else {
+        mistakes += 1;
+        feedback.textContent = "❌ Réessaie.";
+      }
+
+      if (done === scenes.length) {
+        localStorage.setItem(USE_KEY, "completed");
+        localStorage.setItem(MISSION_KEY, "completed");
+        localStorage.setItem(COMPLETED_KEY, "completed");
+        localStorage.setItem(MISTAKES_KEY, String(mistakes));
+        if (localStorage.getItem(HINTS_KEY) === null) {
+          localStorage.setItem(HINTS_KEY, "0");
+        }
+        nextButton.style.display = "block";
+        if (window.HanaChapterProgress) HanaChapterProgress.render();
+      }
+    });
+  });
+});
+
+if (localStorage.getItem(USE_KEY) === "completed") {
+  nextButton.style.display = "block";
+}
+nextButton.addEventListener("click", () => {
+  window.location.href = "resume-27.html";
+});
+window.addEventListener("pageshow", () => {
+  migrateLegacyMissionProgress();
+  if (localStorage.getItem(USE_KEY) === "completed") {
+    nextButton.style.display = "block";
+  }
+  if (window.HanaChapterProgress) HanaChapterProgress.render();
+});
+if (window.HanaChapterProgress) HanaChapterProgress.render();
+</script>
+</body>
+</html>

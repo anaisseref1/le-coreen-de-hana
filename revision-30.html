@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#F7F4ED">
+  <title>Chapitre 30 — Je révise</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="chapter-progress.css">
+
+  <style>
+    .review-header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .review-card,
+    .result-card,
+    .tip-card {
+      padding: 20px;
+      margin-bottom: 18px;
+      background: var(--white);
+      border-radius: var(--radius-large);
+      box-shadow: var(--shadow);
+    }
+
+    .question {
+      padding: 16px;
+      margin-top: 14px;
+      background: #FBFAF6;
+      border-radius: var(--radius-medium);
+    }
+
+    .question-title {
+      margin-bottom: 12px;
+      color: var(--navy);
+      font-weight: bold;
+      line-height: 1.6;
+    }
+
+    .choices {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+
+    .choice-button {
+      width: 100%;
+      padding: 13px 14px;
+      background: var(--soft-beige);
+      color: var(--navy);
+      text-align: left;
+    }
+
+    .choice-button.correct {
+      background: var(--success-light);
+      color: var(--success);
+      font-weight: bold;
+    }
+
+    .choice-button.wrong {
+      background: var(--error-light);
+      color: var(--error);
+      font-weight: bold;
+    }
+
+    .feedback {
+      display: none;
+      margin-top: 12px;
+      padding: 12px 14px;
+      border-radius: var(--radius-medium);
+      line-height: 1.6;
+    }
+
+    .feedback.show {
+      display: block;
+    }
+
+    .feedback.success {
+      background: var(--success-light);
+      color: var(--success);
+    }
+
+    .feedback.error {
+      background: var(--error-light);
+      color: var(--error);
+    }
+
+    .result-card {
+      display: none;
+      text-align: center;
+    }
+
+    .result-card.show {
+      display: block;
+    }
+
+    .result-score {
+      margin: 12px 0;
+      color: var(--navy);
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .retry-button,
+    .complete-button,
+    .next-button,
+    .back-button {
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    .retry-button,
+    .back-button {
+      background: var(--soft-beige);
+      color: var(--navy);
+    }
+
+    .complete-button {
+      display: none;
+      background: var(--jade);
+      color: white;
+      font-weight: bold;
+    }
+
+    .complete-button.show {
+      display: block;
+    }
+
+    .complete-button.done {
+      background: var(--success);
+    }
+
+    .next-button {
+      display: none;
+      background: var(--navy);
+      color: white;
+      font-weight: bold;
+    }
+      .personal-review.hidden { display:none; }
+  </style>
+</head>
+
+<body>
+
+<main class="app">
+
+  <a class="back-link" href="ecriture-30.html">
+    ← Écriture
+  </a>
+
+  <section id="hanaChapterPath" data-chapter-path></section>
+
+  <header class="review-header">
+
+    <span class="chapter-badge">
+      Chapitre 30 · 🧠 Je révise
+    </span>
+
+    <p class="korean">
+      뭐 할 거예요? 🌸
+    </p>
+
+    <h1>Réviser les projets</h1>
+
+    <p>
+      Vérifie que tu reconnais la structure du futur,
+      les formes des verbes et les questions essentielles.
+    </p>
+
+  </header>
+
+
+  <section class="review-card personal-review hidden" id="personalReview">
+    <h2>🌱 À revoir en priorité</h2>
+    <p id="personalReviewText"></p>
+  </section>
+
+  <section class="review-card">
+
+    <div class="question" data-correct="b">
+
+      <div class="question-title">
+        1. Quelle phrase signifie « Je vais aller à Busan » ?
+      </div>
+
+      <div class="choices">
+        <button class="choice-button" type="button" data-answer="a">
+          부산에 갔어요.
+        </button>
+
+        <button class="choice-button" type="button" data-answer="b">
+          부산에 갈 거예요.
+        </button>
+
+        <button class="choice-button" type="button" data-answer="c">
+          부산에 가요?
+        </button>
+      </div>
+
+      <div class="feedback"></div>
+
+    </div>
+
+
+    <div class="question" data-correct="a">
+
+      <div class="question-title">
+        2. Comment transforme-t-on 먹다 avec -(으)ㄹ 거예요 ?
+      </div>
+
+      <div class="choices">
+        <button class="choice-button" type="button" data-answer="a">
+          먹을 거예요
+        </button>
+
+        <button class="choice-button" type="button" data-answer="b">
+          먹ㄹ 거예요
+        </button>
+
+        <button class="choice-button" type="button" data-answer="c">
+          먹었어요
+        </button>
+      </div>
+
+      <div class="feedback"></div>
+
+    </div>
+
+
+    <div class="question" data-correct="c">
+
+      <div class="question-title">
+        3. Que signifie 오늘 뭐 할 거예요?
+      </div>
+
+      <div class="choices">
+        <button class="choice-button" type="button" data-answer="a">
+          Qu'est-ce que tu as fait aujourd'hui ?
+        </button>
+
+        <button class="choice-button" type="button" data-answer="b">
+          Où vas-tu aujourd'hui ?
+        </button>
+
+        <button class="choice-button" type="button" data-answer="c">
+          Qu'est-ce que tu vas faire aujourd'hui ?
+        </button>
+      </div>
+
+      <div class="feedback"></div>
+
+    </div>
+
+
+    <div class="question" data-correct="b">
+
+      <div class="question-title">
+        4. Quelle forme est correcte pour 보다 ?
+      </div>
+
+      <div class="choices">
+        <button class="choice-button" type="button" data-answer="a">
+          보을 거예요
+        </button>
+
+        <button class="choice-button" type="button" data-answer="b">
+          볼 거예요
+        </button>
+
+        <button class="choice-button" type="button" data-answer="c">
+          봤을 거예요
+        </button>
+      </div>
+
+      <div class="feedback"></div>
+
+    </div>
+
+
+    <div class="question" data-correct="a">
+
+      <div class="question-title">
+        5. Quelle phrase signifie « Je vais me reposer à l'hôtel » ?
+      </div>
+
+      <div class="choices">
+        <button class="choice-button" type="button" data-answer="a">
+          호텔에서 쉴 거예요.
+        </button>
+
+        <button class="choice-button" type="button" data-answer="b">
+          호텔에 쉴 거예요.
+        </button>
+
+        <button class="choice-button" type="button" data-answer="c">
+          호텔에서 쉬었어요.
+        </button>
+      </div>
+
+      <div class="feedback"></div>
+
+    </div>
+
+
+    <div class="question" data-correct="c">
+
+      <div class="question-title">
+        6. Quelle phrase propose naturellement une activité ?
+      </div>
+
+      <div class="choices">
+        <button class="choice-button" type="button" data-answer="a">
+          같이 먹었어요.
+        </button>
+
+        <button class="choice-button" type="button" data-answer="b">
+          같이 먹을 거예요.
+        </button>
+
+        <button class="choice-button" type="button" data-answer="c">
+          같이 먹을까요?
+        </button>
+      </div>
+
+      <div class="feedback"></div>
+
+    </div>
+
+
+    <div class="question" data-correct="b">
+
+      <div class="question-title">
+        7. Quelle phrase signifie « Je vais retourner à Séoul demain » ?
+      </div>
+
+      <div class="choices">
+        <button class="choice-button" type="button" data-answer="a">
+          내일 서울에 돌아갔어요.
+        </button>
+
+        <button class="choice-button" type="button" data-answer="b">
+          내일 서울에 돌아갈 거예요.
+        </button>
+
+        <button class="choice-button" type="button" data-answer="c">
+          내일 서울에서 돌아갈 거예요.
+        </button>
+      </div>
+
+      <div class="feedback"></div>
+
+    </div>
+
+
+    <div class="question" data-correct="a">
+
+      <div class="question-title">
+        8. Quelle suite présente correctement présent → passé → projet ?
+      </div>
+
+      <div class="choices">
+        <button class="choice-button" type="button" data-answer="a">
+          해요 → 했어요 → 할 거예요
+        </button>
+
+        <button class="choice-button" type="button" data-answer="b">
+          했어요 → 해요 → 할 거예요
+        </button>
+
+        <button class="choice-button" type="button" data-answer="c">
+          할 거예요 → 해요 → 했어요
+        </button>
+      </div>
+
+      <div class="feedback"></div>
+
+    </div>
+
+  </section>
+
+
+  <section class="result-card" id="resultCard">
+
+    <h2>🌸 Résultat</h2>
+
+    <div class="result-score" id="resultScore">
+      0 / 8
+    </div>
+
+    <p id="resultMessage"></p>
+
+    <button
+      class="retry-button"
+      id="retryButton"
+      type="button"
+    >
+      🔄 Refaire la révision
+    </button>
+
+  </section>
+
+
+  <section class="tip-card">
+
+    <h2>🎒 À retenir</h2>
+
+    <strong>뭐 해요?</strong>
+    → Qu'est-ce que tu fais ?
+
+    <br><br>
+
+    <strong>뭐 했어요?</strong>
+    → Qu'est-ce que tu as fait ?
+
+    <br><br>
+
+    <strong>뭐 할 거예요?</strong>
+    → Qu'est-ce que tu vas faire ?
+
+    <br><br>
+
+    Tu peux maintenant situer une action dans le présent,
+    le passé ou dans un projet futur. 💙
+
+  </section>
+
+
+  <button
+    class="complete-button"
+    id="completeButton"
+    type="button"
+  >
+    ✅ Valider la révision
+  </button>
+
+
+  <button
+    class="next-button"
+    id="nextButton"
+    type="button"
+  >
+    🎯 Passer à la mission finale
+  </button>
+
+
+  <button
+    class="back-button"
+    type="button"
+    onclick="window.location.href='ecriture-30.html'"
+  >
+    ← Retour à l'écriture
+  </button>
+
+</main>
+
+
+<script src="chapter-progress.js"></script>
+
+<script>
+const UNDERSTANDING_KEY = "hanaKorean_chapter30_understanding";
+const LISTENING_EXERCISE_KEY = "hanaKorean_chapter30_listeningExercise";
+const SPEAKING_KEY = "hanaKorean_chapter30_speaking";
+const WRITING_KEY = "hanaKorean_chapter30_writing";
+const REVIEW_KEY = "hanaKorean_chapter30_review";
+const WRITING_NOTIONS_KEY = "hanaKorean_chapter30_revisionNotions";
+const REVIEW_MISTAKES_KEY = "hanaKorean_chapter30_reviewMistakes";
+const REVIEW_WEAK_KEY = "hanaKorean_chapter30_reviewWeakNotions";
+
+function guardReviewPage() {
+  const required = [UNDERSTANDING_KEY, LISTENING_EXERCISE_KEY, SPEAKING_KEY, WRITING_KEY];
+  if (required.some(key => localStorage.getItem(key) !== "completed")) {
+    window.location.href = "ecriture-30.html";
+    return false;
+  }
+  return true;
+}
+if (!guardReviewPage()) throw new Error("chapter30-review-guard");
+
+const questions = Array.from(document.querySelectorAll(".question"));
+const resultCard = document.getElementById("resultCard");
+const resultScore = document.getElementById("resultScore");
+const resultMessage = document.getElementById("resultMessage");
+const retryButton = document.getElementById("retryButton");
+const completeButton = document.getElementById("completeButton");
+const nextButton = document.getElementById("nextButton");
+const personalReview = document.getElementById("personalReview");
+const personalReviewText = document.getElementById("personalReviewText");
+let mistakes = Number(localStorage.getItem(REVIEW_MISTAKES_KEY) || 0);
+const weakNotions = new Set((localStorage.getItem(REVIEW_WEAK_KEY) || "").split("|").filter(Boolean));
+
+function renderPersonalReview() {
+  const notions = (localStorage.getItem(WRITING_NOTIONS_KEY) || "").split("|").map(x => x.trim()).filter(Boolean);
+  if (!notions.length) {
+    personalReview.classList.add("hidden");
+    return;
+  }
+  personalReview.classList.remove("hidden");
+  personalReviewText.innerHTML = "Pendant l'écriture, ces formes ont demandé un peu plus d'attention : <strong>" + notions.join(" · ") + "</strong>. Relis-les avant le quiz.";
+}
+
+function correctCount() { return questions.filter(q => q.dataset.correctDone === "true").length; }
+
+function showResultsIfComplete() {
+  if (correctCount() !== questions.length) return;
+  resultScore.textContent = questions.length + " / " + questions.length;
+  resultMessage.textContent = "Excellent 🌸 Tu maîtrises les formes principales pour parler de tes projets.";
+  resultCard.classList.add("show");
+  completeButton.classList.add("show");
+}
+
+questions.forEach(question => {
+  const correct = question.dataset.correct;
+  const feedback = question.querySelector(".feedback");
+  const title = question.querySelector(".question-title").textContent.trim();
+  question.querySelectorAll(".choice-button").forEach(button => {
+    button.addEventListener("click", () => {
+      if (question.dataset.correctDone === "true") return;
+      if (button.dataset.answer === correct) {
+        question.dataset.correctDone = "true";
+        button.classList.add("correct");
+        feedback.className = "feedback show success";
+        feedback.textContent = "✅ Exact !";
+        question.querySelectorAll(".choice-button").forEach(item => item.disabled = true);
+        showResultsIfComplete();
+      } else {
+        mistakes++;
+        weakNotions.add(title);
+        button.classList.add("wrong");
+        button.disabled = true;
+        feedback.className = "feedback show error";
+        feedback.innerHTML = "Pas encore 💙 Repère la forme du verbe et le sens demandé, puis essaie une autre réponse.";
+      }
+    });
+  });
+});
+
+retryButton.addEventListener("click", () => {
+  questions.forEach(question => {
+    delete question.dataset.correctDone;
+    const feedback = question.querySelector(".feedback");
+    feedback.className = "feedback";
+    feedback.textContent = "";
+    question.querySelectorAll(".choice-button").forEach(button => {
+      button.disabled = false;
+      button.classList.remove("correct", "wrong");
+    });
+  });
+  resultCard.classList.remove("show");
+  completeButton.classList.remove("show");
+});
+
+function showCompletedState() {
+  completeButton.textContent = "✅ Révision terminée";
+  completeButton.classList.add("show", "done");
+  completeButton.disabled = true;
+  nextButton.style.display = "block";
+}
+if (localStorage.getItem(REVIEW_KEY) === "completed") showCompletedState();
+
+completeButton.addEventListener("click", () => {
+  if (correctCount() !== questions.length && localStorage.getItem(REVIEW_KEY) !== "completed") return;
+  localStorage.setItem(REVIEW_KEY, "completed");
+  localStorage.setItem(REVIEW_MISTAKES_KEY, String(mistakes));
+  localStorage.setItem(REVIEW_WEAK_KEY, Array.from(weakNotions).join("|"));
+  showCompletedState();
+  if (window.HanaChapterProgress) HanaChapterProgress.render();
+});
+nextButton.addEventListener("click", () => { window.location.href = "utilise-30.html"; });
+renderPersonalReview();
+window.addEventListener("pageshow", () => {
+  if (!guardReviewPage()) return;
+  renderPersonalReview();
+  if (localStorage.getItem(REVIEW_KEY) === "completed") showCompletedState();
+  if (window.HanaChapterProgress) HanaChapterProgress.render();
+});
+if (window.HanaChapterProgress) HanaChapterProgress.render();
+</script>
+
+</body>
+</html>

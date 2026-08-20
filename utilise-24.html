@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapitre 24 — Je l'utilise</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="chapter-progress.css">
+<style>
+.use-header{text-align:center;margin-bottom:24px}
+.card{padding:20px;margin-bottom:18px;background:var(--white);border-radius:var(--radius-large);box-shadow:var(--shadow)}
+.example{padding:14px;margin-top:12px;background:#FBFAF6;border-radius:var(--radius-medium);line-height:1.7}
+.complete-button,.summary-button,.back-button{width:100%;margin-top:10px}
+.complete-button{background:var(--jade);color:white;font-weight:bold}
+.summary-button{display:none;background:var(--navy);color:white;font-weight:bold}
+.back-button{background:var(--soft-beige);color:var(--navy)}
+</style>
+</head>
+<body>
+<main class="app">
+
+<a class="back-link" href="revision-24.html">← Révision</a>
+
+<section id="hanaChapterPath" data-chapter-path></section>
+
+
+<header class="use-header">
+<span class="chapter-badge">Chapitre 24 · 🌱 Je l'utilise</span>
+<p class="korean">선물 🎁</p>
+<h1>Utiliser ce que tu as appris</h1>
+<p>Mets les expressions du chapitre dans une situation réelle.</p>
+</header>
+
+<section class="card">
+<h2>🎭 Situation 1 — Offrir un cadeau</h2>
+
+<p>Tu rencontres un ami en Corée et tu veux lui offrir un petit cadeau.</p>
+
+<div class="example">
+<strong>친구에게 선물하고 싶어요.</strong><br>
+→ J'aimerais offrir un cadeau à un ami.
+<br><br>
+<strong>차를 좋아해요?</strong><br>
+→ Tu aimes le thé ?
+<br><br>
+<strong>이걸로 할게요.</strong><br>
+→ Je vais prendre celui-ci.
+</div>
+</section>
+
+<section class="card">
+<h2>🎁 Situation 2 — Recevoir un cadeau</h2>
+
+<p>Quelqu'un t'offre un cadeau. Remercie la personne, puis décris l'action de recevoir le cadeau.</p>
+
+<div class="example">
+<strong>정말 고마워요.</strong><br>
+→ Merci beaucoup.
+<br><br>
+<strong>선물을 받아요.</strong><br>
+→ Je reçois un cadeau.
+</div>
+</section>
+
+<section class="card">
+<h2>📝 Mission finale</h2>
+
+<p>
+Écris un petit dialogue de 5 lignes entre Hana et Min-su.
+Utilise au moins trois expressions :
+</p>
+
+<ul>
+<li>에게</li>
+<li>선물</li>
+<li>주다</li>
+<li>받다</li>
+<li>고마워요</li>
+</ul>
+
+<textarea id="finalDialogue" style="width:100%;min-height:140px" placeholder="Écris ton dialogue en coréen..."></textarea>
+</section>
+
+<section class="card">
+<h2>🌸 Fin du chapitre</h2>
+
+<p>
+Tu sais maintenant offrir un cadeau, remercier quelqu'un et parler d'une attention envers une autre personne.
+</p>
+
+<p>
+Prochain chapitre : une nouvelle situation du quotidien avec Hana, Ji-soo et Min-su.
+</p>
+</section>
+
+<button class="complete-button" id="completeButton">✅ Chapitre 24 terminé</button>
+
+<button class="summary-button" id="summaryButton" type="button">📘 Ouvrir le résumé du chapitre</button>
+
+<button class="back-button" onclick="window.location.href='revision-24.html'">
+← Retour à la révision
+</button>
+
+</main>
+
+<script src="chapter-progress.js"></script>
+
+<script>
+const key="hanaKorean_chapter24_use";
+const button=document.getElementById("completeButton");
+const area=document.getElementById("finalDialogue");
+
+area.value=localStorage.getItem("hanaKorean_chapter24_finalDialogue") || "";
+
+area.addEventListener("input",()=>{
+ localStorage.setItem("hanaKorean_chapter24_finalDialogue", area.value);
+});
+
+if(localStorage.getItem(key)==="completed"){
+ button.textContent="✅ Chapitre terminé";
+}
+
+button.addEventListener("click",()=>{
+ localStorage.setItem(key,"completed");
+ button.textContent="✅ Chapitre terminé";
+});
+</script>
+
+
+<script>
+(function () {
+  const UNDERSTANDING_KEY = "hanaKorean_chapter24_understanding";
+  const LISTENING_EXERCISE_KEY = "hanaKorean_chapter24_listeningExercise";
+  const SPEAKING_KEY = "hanaKorean_chapter24_speaking";
+  const WRITING_KEY = "hanaKorean_chapter24_writing";
+  const REVIEW_KEY = "hanaKorean_chapter24_review";
+  const USE_KEY = "hanaKorean_chapter24_use";
+  const MISSION_KEY = "hanaKorean_chapter24_mission";
+  const COMPLETED_KEY = "hanaKorean_chapter24_completed";
+  const MISSION_MISTAKES_KEY = "hanaKorean_chapter24_missionMistakes";
+  const MISSION_HINTS_KEY = "hanaKorean_chapter24_missionHints";
+
+  function renderChapterProgress() {
+    if (window.HanaChapterProgress && typeof window.HanaChapterProgress.render === "function") {
+      window.HanaChapterProgress.render();
+    }
+  }
+
+  function guardUseAccess() {
+    const required = [
+      [UNDERSTANDING_KEY, "chapitre-24.html"],
+      [LISTENING_EXERCISE_KEY, "exercice-ecoute-24.html"],
+      [SPEAKING_KEY, "parle-24.html"],
+      [WRITING_KEY, "ecriture-24.html"],
+      [REVIEW_KEY, "revision-24.html"]
+    ];
+
+    for (const [key, page] of required) {
+      if (localStorage.getItem(key) !== "completed") {
+        window.location.href = page;
+        return false;
+      }
+    }
+    return true;
+  }
+
+  function migrateLegacyMissionProgress() {
+    if (
+      localStorage.getItem(USE_KEY) !== "completed" &&
+      (
+        localStorage.getItem(MISSION_KEY) === "completed" ||
+        localStorage.getItem(COMPLETED_KEY) === "completed"
+      )
+    ) {
+      localStorage.setItem(USE_KEY, "completed");
+    }
+  }
+
+  const summaryButton = document.getElementById("summaryButton");
+
+  function showSummaryButtonIfCompleted() {
+    if (!summaryButton) return;
+    if (
+      localStorage.getItem(USE_KEY) === "completed" ||
+      localStorage.getItem(COMPLETED_KEY) === "completed"
+    ) {
+      summaryButton.style.display = "block";
+    }
+  }
+
+  if (guardUseAccess()) {
+    migrateLegacyMissionProgress();
+    showSummaryButtonIfCompleted();
+    renderChapterProgress();
+  }
+
+  const button = document.getElementById("completeButton");
+  if (button) {
+    button.addEventListener("click", () => {
+      localStorage.setItem(USE_KEY, "completed");
+      localStorage.setItem(MISSION_KEY, "completed");
+      localStorage.setItem(COMPLETED_KEY, "completed");
+
+      if (localStorage.getItem(MISSION_MISTAKES_KEY) === null) {
+        localStorage.setItem(MISSION_MISTAKES_KEY, "0");
+      }
+      if (localStorage.getItem(MISSION_HINTS_KEY) === null) {
+        localStorage.setItem(MISSION_HINTS_KEY, "0");
+      }
+
+      showSummaryButtonIfCompleted();
+      renderChapterProgress();
+    });
+  }
+
+  if (summaryButton) {
+    summaryButton.addEventListener("click", () => {
+      window.location.href = "resume-24.html";
+    });
+  }
+
+  window.addEventListener("pageshow", () => {
+    if (guardUseAccess()) {
+      migrateLegacyMissionProgress();
+      showSummaryButtonIfCompleted();
+      renderChapterProgress();
+    }
+  });
+})();
+</script>
+
+</body>
+</html>

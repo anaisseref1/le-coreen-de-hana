@@ -22,6 +22,11 @@
     href="style.css"
   >
 
+  <link
+    rel="stylesheet"
+    href="chapter-progress.css"
+  >
+
 
   <style>
 
@@ -874,7 +879,65 @@
 
 
 
+<script src="chapter-progress.js"></script>
+
 <script>
+
+  const CHAPTER = 15;
+
+  const UNDERSTANDING_KEY =
+    "hanaKorean_chapter15_understanding";
+
+  const LISTENING_EXERCISE_KEY =
+    "hanaKorean_chapter15_listeningExercise";
+
+  const SPEAKING_KEY =
+    "hanaKorean_chapter15_speaking";
+
+  const WRITING_KEY =
+    "hanaKorean_chapter15_writing";
+
+  const REVIEW_KEY =
+    "hanaKorean_chapter15_review";
+
+  const USE_KEY =
+    "hanaKorean_chapter15_use";
+
+
+  function guardUseAccess() {
+
+    const required = [
+      [UNDERSTANDING_KEY, "chapitre-15.html"],
+      [LISTENING_EXERCISE_KEY, "ecoute-15.html"],
+      [SPEAKING_KEY, "parle-15.html"],
+      [WRITING_KEY, "écriture-15.html"],
+      [REVIEW_KEY, "revision-15.html"]
+    ];
+
+    for (const item of required) {
+
+      if (
+        localStorage.getItem(item[0]) !== "completed"
+      ) {
+        window.location.replace(item[1]);
+        return false;
+      }
+    }
+
+    return true;
+  }
+
+
+  function renderChapterProgress() {
+
+    if (
+      window.HanaChapterProgress &&
+      typeof window.HanaChapterProgress.render === "function"
+    ) {
+      window.HanaChapterProgress.render();
+    }
+  }
+
 
   let incorrectAttempts =
     0;
@@ -1241,6 +1304,22 @@
       behavior: "smooth"
     });
 
+  }
+
+
+
+  if (
+    guardUseAccess()
+  ) {
+
+    renderChapterProgress();
+
+    window.addEventListener(
+      "pageshow",
+      function() {
+        renderChapterProgress();
+      }
+    );
   }
 
 </script>

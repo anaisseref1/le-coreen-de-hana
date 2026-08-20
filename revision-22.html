@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="theme-color"
+    content="#F7F4ED"
+  >
+
+  <title>Chapitre 22 — Je révise</title>
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+  <link rel="stylesheet" href="chapter-progress.css">
+
+  <style>
+
+    .review-header {
+      text-align:center;
+      margin-bottom:24px;
+    }
+
+    .review-card,
+    .result-card,
+    .tip-card {
+      padding:20px;
+      margin-bottom:18px;
+      background:var(--white);
+      border-radius:var(--radius-large);
+      box-shadow:var(--shadow);
+    }
+
+    .question-block {
+      padding:16px;
+      margin-top:14px;
+      background:#FBFAF6;
+      border-radius:var(--radius-medium);
+    }
+
+    .question-title {
+      margin-bottom:12px;
+      color:var(--navy);
+      font-weight:bold;
+      line-height:1.6;
+    }
+
+    .answer-list {
+      display:flex;
+      flex-direction:column;
+      gap:9px;
+    }
+
+    .answer-button {
+      width:100%;
+      padding:13px 14px;
+      background:var(--soft-beige);
+      color:var(--navy);
+      text-align:left;
+    }
+
+    .answer-button.correct {
+      background:var(--success-light);
+      color:var(--success);
+      font-weight:bold;
+    }
+
+    .answer-button.wrong {
+      background:var(--error-light);
+      color:var(--error);
+      font-weight:bold;
+    }
+
+    .feedback {
+      display:none;
+      margin-top:12px;
+      padding:12px 14px;
+      border-radius:var(--radius-medium);
+      line-height:1.6;
+    }
+
+    .feedback.show {
+      display:block;
+    }
+
+    .feedback.success {
+      background:var(--success-light);
+      color:var(--success);
+    }
+
+    .feedback.error {
+      background:var(--error-light);
+      color:var(--error);
+    }
+
+    .result-card {
+      display:none;
+      text-align:center;
+    }
+
+    .result-card.show {
+      display:block;
+    }
+
+    .result-score {
+      margin:12px 0;
+      color:var(--navy);
+      font-size:22px;
+      font-weight:bold;
+    }
+
+    .complete-button,
+    .next-button,
+    .retry-button,
+    .back-button {
+      width:100%;
+      margin-top:10px;
+    }
+
+    .complete-button {
+      display:none;
+      background:var(--jade);
+      color:white;
+      font-weight:bold;
+    }
+
+    .complete-button.show {
+      display:block;
+    }
+
+    .complete-button.done {
+      background:var(--success);
+    }
+
+    .next-button {
+      display:none;
+      background:var(--navy);
+      color:white;
+      font-weight:bold;
+    }
+
+    .retry-button,
+    .back-button {
+      background:var(--soft-beige);
+      color:var(--navy);
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+<main class="app">
+
+
+  <a
+    class="back-link"
+    href="ecriture-22.html"
+  >
+    ← Écriture
+  </a>
+
+
+  <header class="review-header">
+
+    <span class="chapter-badge">
+      Chapitre 22 · 🧠 Je révise
+    </span>
+
+    <p class="korean">
+      오늘 날씨가 어때요? 🌦️
+    </p>
+
+    <h1>
+      Réviser le chapitre
+    </h1>
+
+    <p>
+      Vérifie que tu sais décrire la météo
+      et distinguer une réalité d'une impression.
+    </p>
+
+  </header>
+
+  <section id="hanaChapterPath" data-chapter-path></section>
+
+  <section class="tip-card" id="personalReviewBox" style="display:none;"></section>
+
+
+  <section class="review-card">
+
+    <h2>🧠 Mini-révision</h2>
+
+
+    <div
+      class="question-block"
+      data-correct="b"
+    >
+
+      <div class="question-title">
+        1. Que signifie 날씨가 어때요?
+      </div>
+
+      <div class="answer-list">
+
+        <button class="answer-button" type="button" data-answer="a">
+          A. Où est la météo ?
+        </button>
+
+        <button class="answer-button" type="button" data-answer="b">
+          B. Quel temps fait-il ?
+        </button>
+
+        <button class="answer-button" type="button" data-answer="c">
+          C. Est-ce qu'il va pleuvoir ?
+        </button>
+
+      </div>
+
+      <div class="feedback"></div>
+
+    </div>
+
+
+    <div
+      class="question-block"
+      data-correct="a"
+    >
+
+      <div class="question-title">
+        2. Que signifie 조금 더워요?
+      </div>
+
+      <div class="answer-list">
+
+        <button class="answer-button" type="button" data-answer="a">
+          A. Il fait un peu chaud.
+        </button>
+
+        <button class="answer-button" type="button" data-answer="b">
+          B. Il fait très chaud.
+        </button>
+
+        <button class="answer-button" type="button" data-answer="c">
+          C. Il fait un peu froid.
+        </button>
+
+      </div>
+
+      <div class="feedback"></div>
+
+    </div>
+
+
+    <div
+      class="question-block"
+      data-correct="c"
+    >
+
+      <div class="question-title">
+        3. Quelle phrase exprime une impression ou une prévision ?
+      </div>
+
+      <div class="answer-list">
+
+        <button class="answer-button" type="button" data-answer="a">
+          A. 비가 와요.
+        </button>
+
+        <button class="answer-button" type="button" data-answer="b">
+          B. 하늘이 흐려요.
+        </button>
+
+        <button class="answer-button" type="button" data-answer="c">
+          C. 비가 올 것 같아요.
+        </button>
+
+      </div>
+
+      <div class="feedback"></div>
+
+    </div>
+
+
+    <div
+      class="question-block"
+      data-correct="b"
+    >
+
+      <div class="question-title">
+        4. Que signifie 하늘이 흐려요?
+      </div>
+
+      <div class="answer-list">
+
+        <button class="answer-button" type="button" data-answer="a">
+          A. Le ciel est dégagé.
+        </button>
+
+        <button class="answer-button" type="button" data-answer="b">
+          B. Le ciel est couvert.
+        </button>
+
+        <button class="answer-button" type="button" data-answer="c">
+          C. Le ciel est lumineux.
+        </button>
+
+      </div>
+
+      <div class="feedback"></div>
+
+    </div>
+
+
+    <div
+      class="question-block"
+      data-correct="a"
+    >
+
+      <div class="question-title">
+        5. Quel mot signifie « parapluie » ?
+      </div>
+
+      <div class="answer-list">
+
+        <button class="answer-button" type="button" data-answer="a">
+          A. 우산
+        </button>
+
+        <button class="answer-button" type="button" data-answer="b">
+          B. 구름
+        </button>
+
+        <button class="answer-button" type="button" data-answer="c">
+          C. 바람
+        </button>
+
+      </div>
+
+      <div class="feedback"></div>
+
+    </div>
+
+
+    <div
+      class="question-block"
+      data-correct="c"
+    >
+
+      <div class="question-title">
+        6. Quelle différence est correcte ?
+      </div>
+
+      <div class="answer-list">
+
+        <button class="answer-button" type="button" data-answer="a">
+          A. 비가 와요 signifie « il va peut-être pleuvoir ».
+        </button>
+
+        <button class="answer-button" type="button" data-answer="b">
+          B. 비가 올 것 같아요 décrit toujours une pluie déjà commencée.
+        </button>
+
+        <button class="answer-button" type="button" data-answer="c">
+          C. 비가 와요 constate qu'il pleut ; 비가 올 것 같아요 exprime une impression ou une prévision.
+        </button>
+
+      </div>
+
+      <div class="feedback"></div>
+
+    </div>
+
+  </section>
+
+
+  <section
+    class="result-card"
+    id="resultCard"
+  >
+
+    <h2>🌦️ Résultat</h2>
+
+    <div
+      class="result-score"
+      id="resultScore"
+    >
+      0 / 6
+    </div>
+
+    <p id="resultMessage"></p>
+
+    <button
+      class="retry-button"
+      id="retryButton"
+      type="button"
+    >
+      🔄 Refaire la révision
+    </button>
+
+  </section>
+
+
+  <section class="tip-card">
+
+    <h2>🎒 Dans ton sac à dos</h2>
+
+    <strong>날씨가 어때요?</strong><br>
+    → Quel temps fait-il ?
+
+    <br><br>
+
+    <strong>조금 더워요.</strong><br>
+    → Il fait un peu chaud.
+
+    <br><br>
+
+    <strong>하늘이 흐려요.</strong><br>
+    → Le ciel est couvert.
+
+    <br><br>
+
+    <strong>비가 올 것 같아요.</strong><br>
+    → Je pense qu'il va pleuvoir.
+
+    <br><br>
+
+    <strong>우산 있어요?</strong><br>
+    → Tu as un parapluie ?
+
+  </section>
+
+
+  <button
+    class="complete-button"
+    id="completeButton"
+    type="button"
+  >
+    ✅ Valider la révision
+  </button>
+
+
+  <button
+    class="next-button"
+    id="nextButton"
+    type="button"
+  >
+    🎯 Je l'utilise
+  </button>
+
+
+  <button
+    class="back-button"
+    type="button"
+    onclick="window.location.href='ecriture-22.html'"
+  >
+    ← Retour à l'écriture
+  </button>
+
+
+</main>
+
+
+<script src="chapter-progress.js"></script>
+
+<script>
+
+  const progressKey =
+    "hanaKorean_chapter22_review";
+
+  const understandingKey =
+    "hanaKorean_chapter22_understanding";
+
+  const listeningExerciseKey =
+    "hanaKorean_chapter22_listeningExercise";
+
+  const speakingKey =
+    "hanaKorean_chapter22_speaking";
+
+  const writingKey =
+    "hanaKorean_chapter22_writing";
+
+  const revisionNotionsKey =
+    "hanaKorean_chapter22_revisionNotions";
+
+  const reviewMistakesKey =
+    "hanaKorean_chapter22_reviewMistakes";
+
+  const reviewWeakNotionsKey =
+    "hanaKorean_chapter22_reviewWeakNotions";
+
+  let incorrectAttempts = 0;
+
+  function renderChapterProgress() {
+    if (
+      window.HanaChapterProgress &&
+      typeof window.HanaChapterProgress.render === "function"
+    ) {
+      window.HanaChapterProgress.render();
+    }
+  }
+
+  function guardReviewAccess() {
+    const required = [
+      [understandingKey, "chapitre-22.html"],
+      [listeningExerciseKey, "exercice-ecoute-22.html"],
+      [speakingKey, "parle-22.html"],
+      [writingKey, "ecriture-22.html"]
+    ];
+
+    for (const [key, page] of required) {
+      if (localStorage.getItem(key) !== "completed") {
+        window.location.replace(page);
+        return false;
+      }
+    }
+
+    return true;
+  }
+
+  function loadPersonalReview() {
+    const box = document.getElementById("personalReviewBox");
+    if (!box) return;
+
+    let notions = [];
+    try {
+      notions = JSON.parse(localStorage.getItem(revisionNotionsKey) || "[]");
+    } catch (error) {
+      notions = [];
+    }
+
+    if (!Array.isArray(notions) || notions.length === 0) {
+      box.style.display = "none";
+      return;
+    }
+
+    box.innerHTML = "🧠 <strong>À revoir depuis J'écris :</strong><br><br>" +
+      notions.join(" · ");
+    box.style.display = "block";
+  }
+
+
+  const questionBlocks =
+    Array.from(
+      document.querySelectorAll(
+        ".question-block"
+      )
+    );
+
+
+  const resultCard =
+    document.getElementById(
+      "resultCard"
+    );
+
+
+  const resultScore =
+    document.getElementById(
+      "resultScore"
+    );
+
+
+  const resultMessage =
+    document.getElementById(
+      "resultMessage"
+    );
+
+
+  const retryButton =
+    document.getElementById(
+      "retryButton"
+    );
+
+
+  const completeButton =
+    document.getElementById(
+      "completeButton"
+    );
+
+
+  const nextButton =
+    document.getElementById(
+      "nextButton"
+    );
+
+
+  function answeredCount() {
+
+    return questionBlocks.filter(
+      block =>
+        block.dataset.answered ===
+        "true"
+    ).length;
+
+  }
+
+
+  function correctCount() {
+
+    return questionBlocks.filter(
+      block =>
+        block.dataset.isCorrect ===
+        "true"
+    ).length;
+
+  }
+
+
+  function showResultsIfComplete() {
+
+    if (
+      answeredCount() !==
+      questionBlocks.length
+    ) {
+
+      return;
+
+    }
+
+
+    const score =
+      correctCount();
+
+
+    resultScore.textContent =
+      score +
+      " / " +
+      questionBlocks.length;
+
+
+    if (
+      score === questionBlocks.length
+    ) {
+
+      resultMessage.textContent =
+        "Excellent 🌦️ Tu maîtrises très bien les expressions météo de ce chapitre.";
+
+    } else if (
+      score >= 5
+    ) {
+
+      resultMessage.textContent =
+        "Très bien 🌿 Il ne reste qu'un petit détail à consolider.";
+
+    } else {
+
+      resultMessage.textContent =
+        "Relis les points clés puis recommence. Tu peux corriger chaque erreur avant de continuer.";
+
+    }
+
+
+    resultCard
+      .classList
+      .add(
+        "show"
+      );
+
+
+    completeButton
+      .classList
+      .add(
+        "show"
+      );
+
+  }
+
+
+  questionBlocks.forEach(
+    block => {
+
+      const correct =
+        block.dataset.correct;
+
+
+      const feedback =
+        block.querySelector(
+          ".feedback"
+        );
+
+
+      const buttons =
+        block.querySelectorAll(
+          ".answer-button"
+        );
+
+
+      buttons.forEach(
+        button => {
+
+          button.addEventListener(
+            "click",
+            () => {
+
+              if (
+                block.dataset.answered ===
+                "true"
+              ) {
+
+                return;
+
+              }
+
+
+              const answer =
+                button.dataset.answer;
+
+
+              if (
+                answer === correct
+              ) {
+
+                block.dataset.answered =
+                  "true";
+
+                block.dataset.isCorrect =
+                  "true";
+
+
+                button
+                  .classList
+                  .add(
+                    "correct"
+                  );
+
+
+                feedback.className =
+                  "feedback show success";
+
+
+                feedback.textContent =
+                  "✅ Exact !";
+
+
+                buttons.forEach(
+                  item =>
+                    item.disabled =
+                      true
+                );
+
+
+                showResultsIfComplete();
+
+              } else {
+
+                incorrectAttempts++;
+
+                button
+                  .classList
+                  .add(
+                    "wrong"
+                  );
+
+
+                feedback.className =
+                  "feedback show error";
+
+
+                feedback.textContent =
+                  "Pas encore. Relis bien la nuance et essaie une autre réponse.";
+
+
+                button.disabled =
+                  true;
+
+              }
+
+            }
+          );
+
+        }
+      );
+
+    }
+  );
+
+
+  retryButton.addEventListener(
+    "click",
+    () => {
+
+      questionBlocks.forEach(
+        block => {
+
+          delete block.dataset.answered;
+          delete block.dataset.isCorrect;
+
+
+          const feedback =
+            block.querySelector(
+              ".feedback"
+            );
+
+
+          feedback.className =
+            "feedback";
+
+
+          feedback.textContent =
+            "";
+
+
+          block
+            .querySelectorAll(
+              ".answer-button"
+            )
+            .forEach(
+              button => {
+
+                button.disabled =
+                  false;
+
+
+                button
+                  .classList
+                  .remove(
+                    "correct",
+                    "wrong"
+                  );
+
+              }
+            );
+
+        }
+      );
+
+
+      resultCard
+        .classList
+        .remove(
+          "show"
+        );
+
+
+      completeButton
+        .classList
+        .remove(
+          "show"
+        );
+
+    }
+  );
+
+
+  function showCompletedState() {
+
+    completeButton.textContent =
+      "✅ Révision terminée";
+
+
+    completeButton
+      .classList
+      .add(
+        "show",
+        "done"
+      );
+
+
+    nextButton.style.display =
+      "block";
+
+  }
+
+
+  guardReviewAccess();
+  loadPersonalReview();
+  renderChapterProgress();
+
+  if (
+    localStorage.getItem(
+      progressKey
+    ) === "completed"
+  ) {
+
+    showCompletedState();
+
+  }
+
+
+  completeButton.addEventListener(
+    "click",
+    () => {
+
+      localStorage.setItem(
+        progressKey,
+        "completed"
+      );
+
+      localStorage.setItem(
+        reviewMistakesKey,
+        String(incorrectAttempts)
+      );
+
+      localStorage.setItem(
+        reviewWeakNotionsKey,
+        "[]"
+      );
+
+      renderChapterProgress();
+
+
+      showCompletedState();
+
+    }
+  );
+
+
+  nextButton.addEventListener(
+    "click",
+    () => {
+
+      window.location.href =
+        "utilise-22.html";
+
+    }
+  );
+
+
+  window.addEventListener("pageshow", () => {
+    guardReviewAccess();
+    loadPersonalReview();
+    renderChapterProgress();
+  });
+
+</script>
+
+
+</body>
+
+</html>

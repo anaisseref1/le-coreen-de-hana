@@ -22,6 +22,8 @@
     href="style.css"
   >
 
+  <link rel="stylesheet" href="chapter-progress.css">
+
 
   <style>
 
@@ -422,6 +424,11 @@
 
   </header>
 
+  <section
+    id="hanaChapterPath"
+    data-chapter-path
+  ></section>
+
 
 
   <section class="mission-intro">
@@ -736,7 +743,7 @@
 
 
     <p class="result-score">
-      Chapitre 12 terminé ✅
+      Chapitre 18 terminé ✅
     </p>
 
 
@@ -836,6 +843,15 @@
     <button
       class="route-button"
       type="button"
+      onclick="goToSummary()"
+    >
+      📘 Ouvrir le résumé du chapitre
+    </button>
+
+
+    <button
+      class="route-button"
+      type="button"
       onclick="window.location.href='itineraire.html'"
     >
       🌿 Retour à mon itinéraire
@@ -857,7 +873,95 @@
 
 
 
+<script src="chapter-progress.js"></script>
+
 <script>
+
+  const CHAPTER = 18;
+
+  const UNDERSTANDING_KEY =
+    "hanaKorean_chapter18_understanding";
+
+  const LISTENING_EXERCISE_KEY =
+    "hanaKorean_chapter18_listeningExercise";
+
+  const SPEAKING_KEY =
+    "hanaKorean_chapter18_speaking";
+
+  const WRITING_KEY =
+    "hanaKorean_chapter18_writing";
+
+  const REVIEW_KEY =
+    "hanaKorean_chapter18_review";
+
+  const USE_KEY =
+    "hanaKorean_chapter18_use";
+
+  const MISSION_KEY =
+    "hanaKorean_chapter18_mission";
+
+  const COMPLETED_KEY =
+    "hanaKorean_chapter18_completed";
+
+  const MISSION_MISTAKES_KEY =
+    "hanaKorean_chapter18_missionMistakes";
+
+  const MISSION_HINTS_KEY =
+    "hanaKorean_chapter18_missionHints";
+
+  function guardUseAccess() {
+    const required = [
+      [UNDERSTANDING_KEY, "chapitre-18.html"],
+      [LISTENING_EXERCISE_KEY, "ecoute-18.html"],
+      [SPEAKING_KEY, "parle-18.html"],
+      [WRITING_KEY, "ecriture-18.html"],
+      [REVIEW_KEY, "revision-18.html"]
+    ];
+
+    for (const item of required) {
+      if (
+        localStorage.getItem(item[0]) !==
+        "completed"
+      ) {
+        window.location.replace(item[1]);
+        return false;
+      }
+    }
+
+    return true;
+  }
+
+  function renderChapterProgress() {
+    if (
+      window.HanaChapterProgress &&
+      typeof window.HanaChapterProgress.render === "function"
+    ) {
+      window.HanaChapterProgress.render();
+    }
+  }
+
+  function migrateLegacyMissionProgress() {
+    if (
+      localStorage.getItem(USE_KEY) ===
+      "completed"
+    ) {
+      return;
+    }
+
+    if (
+      localStorage.getItem(MISSION_KEY) ===
+        "completed" ||
+      localStorage.getItem(COMPLETED_KEY) ===
+        "completed"
+    ) {
+      localStorage.setItem(
+        USE_KEY,
+        "completed"
+      );
+    }
+  }
+
+
 
   let incorrectAttempts =
     0;
@@ -1201,31 +1305,34 @@
 
 
     localStorage.setItem(
-      "hanaKorean_chapter18_mission",
+      USE_KEY,
+      "completed"
+    );
+
+    localStorage.setItem(
+      MISSION_KEY,
       "completed"
     );
 
 
     localStorage.setItem(
-      "hanaKorean_chapter18_missionMistakes",
-      String(
-        incorrectAttempts
-      )
+      MISSION_MISTAKES_KEY,
+      String(incorrectAttempts)
     );
 
 
     localStorage.setItem(
-      "hanaKorean_chapter18_missionHints",
-      String(
-        hintCount
-      )
+      MISSION_HINTS_KEY,
+      String(hintCount)
     );
 
 
     localStorage.setItem(
-      "hanaKorean_chapter18_completed",
+      COMPLETED_KEY,
       "completed"
     );
+
+    renderChapterProgress();
 
 
     window.scrollTo({
@@ -1235,6 +1342,33 @@
 
   }
 
+
+
+  function goToSummary() {
+    if (
+      localStorage.getItem(USE_KEY) !==
+      "completed"
+    ) {
+      return;
+    }
+
+    window.location.href =
+      "resume-18.html";
+  }
+
+  migrateLegacyMissionProgress();
+
+  if (guardUseAccess()) {
+    renderChapterProgress();
+
+    window.addEventListener(
+      "pageshow",
+      function() {
+        migrateLegacyMissionProgress();
+        renderChapterProgress();
+      }
+    );
+  }
 </script>
 
 

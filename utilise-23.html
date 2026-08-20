@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="theme-color"
+    content="#F7F4ED"
+  >
+
+  <title>Chapitre 23 — Je l'utilise</title>
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+  <link rel="stylesheet" href="chapter-progress.css">
+
+  <style>
+
+    .mission-header {
+      text-align:center;
+      margin-bottom:24px;
+    }
+
+    .mission-card,
+    .choice-card,
+    .result-card,
+    .tip-card {
+      padding:20px;
+      margin-bottom:18px;
+      background:var(--white);
+      border-radius:var(--radius-large);
+      box-shadow:var(--shadow);
+    }
+
+    .scene {
+      padding:16px;
+      margin-top:14px;
+      background:#FBFAF6;
+      border-radius:var(--radius-medium);
+    }
+
+    .speaker {
+      margin-bottom:8px;
+      color:var(--navy);
+      font-weight:bold;
+    }
+
+    .korean-line {
+      color:var(--navy);
+      font-size:19px;
+      font-weight:bold;
+      line-height:1.6;
+    }
+
+    .french-line {
+      margin-top:5px;
+      color:var(--text-light);
+      line-height:1.5;
+    }
+
+    .choice-list {
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      margin-top:12px;
+    }
+
+    .choice-button {
+      width:100%;
+      padding:13px 14px;
+      background:var(--soft-beige);
+      color:var(--navy);
+      text-align:left;
+    }
+
+    .choice-button.correct {
+      background:var(--success-light);
+      color:var(--success);
+      font-weight:bold;
+    }
+
+    .choice-button.wrong {
+      background:var(--error-light);
+      color:var(--error);
+      font-weight:bold;
+    }
+
+    .feedback {
+      display:none;
+      margin-top:12px;
+      padding:12px 14px;
+      border-radius:var(--radius-medium);
+      line-height:1.6;
+    }
+
+    .feedback.show {
+      display:block;
+    }
+
+    .feedback.success {
+      background:var(--success-light);
+      color:var(--success);
+    }
+
+    .feedback.error {
+      background:var(--error-light);
+      color:var(--error);
+    }
+
+    .audio-button {
+      width:100%;
+      margin-top:10px;
+      background:var(--soft-blue);
+      color:var(--navy);
+      font-weight:bold;
+    }
+
+    .audio-button.playing {
+      background:var(--navy);
+      color:white;
+    }
+
+    .result-card {
+      display:none;
+      text-align:center;
+    }
+
+    .result-card.show {
+      display:block;
+    }
+
+    .mission-complete {
+      margin:12px 0;
+      color:var(--navy);
+      font-size:22px;
+      font-weight:bold;
+    }
+
+    .complete-button,
+    .summary-button,
+    .back-button {
+      width:100%;
+      margin-top:10px;
+    }
+
+    .complete-button {
+      display:none;
+      background:var(--jade);
+      color:white;
+      font-weight:bold;
+    }
+
+    .complete-button.show {
+      display:block;
+    }
+
+    .complete-button.done {
+      background:var(--success);
+    }
+
+    .summary-button {
+      display:none;
+      background:var(--navy);
+      color:white;
+      font-weight:bold;
+    }
+
+    .back-button {
+      background:var(--soft-beige);
+      color:var(--navy);
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+<main class="app">
+
+
+  <a
+    class="back-link"
+    href="revision-23.html"
+  >
+    ← Révision
+  </a>
+
+
+  <header class="mission-header">
+
+    <span class="chapter-badge">
+      Chapitre 23 · 🎯 Je l'utilise
+    </span>
+
+    <p class="korean">
+      뭐를 사고 싶어요? 🛒
+    </p>
+
+    <h1>
+      Faire ses courses en autonomie
+    </h1>
+
+    <p>
+      Mets maintenant tout le chapitre en pratique
+      dans une mini-scène au supermarché avec Ji-soo et Min-su.
+    </p>
+
+  </header>
+
+  <section id="hanaChapterPath" data-chapter-path></section>
+
+
+  <section class="mission-card">
+
+    <h2>🎭 Mission</h2>
+
+    Tu entres dans un supermarché à Séoul.
+    Dis ce que tu veux acheter, accepte une suggestion,
+    puis trouve un produit dans le magasin.
+
+  </section>
+
+
+  <section class="choice-card">
+
+
+    <div
+      class="scene"
+      data-scene="1"
+      data-correct="b"
+    >
+
+      <div class="speaker">
+        💚 Ji-soo
+      </div>
+
+      <div class="korean-line">
+        하나 씨, 뭐를 사고 싶어요?
+      </div>
+
+      <div class="french-line">
+        Hana, qu'aimerais-tu acheter ?
+      </div>
+
+      <button
+        class="audio-button"
+        type="button"
+        data-audio="하나 씨, 뭐를 사고 싶어요?"
+      >
+        🔊 Écouter
+      </button>
+
+      <div class="choice-list">
+
+        <button
+          class="choice-button"
+          type="button"
+          data-answer="a"
+        >
+          오늘 날씨가 좋아요.
+        </button>
+
+        <button
+          class="choice-button"
+          type="button"
+          data-answer="b"
+        >
+          우유하고 딸기를 사고 싶어요.
+        </button>
+
+        <button
+          class="choice-button"
+          type="button"
+          data-answer="c"
+        >
+          두 시에 만나요.
+        </button>
+
+      </div>
+
+      <div class="feedback"></div>
+
+    </div>
+
+
+    <div
+      class="scene"
+      data-scene="2"
+      data-correct="c"
+    >
+
+      <div class="speaker">
+        💙 Min-su
+      </div>
+
+      <div class="korean-line">
+        커피도 살까요?
+      </div>
+
+      <div class="french-line">
+        Et si on achetait aussi du café ?
+      </div>
+
+      <button
+        class="audio-button"
+        type="button"
+        data-audio="커피도 살까요?"
+      >
+        🔊 Écouter
+      </button>
+
+      <div class="choice-list">
+
+        <button
+          class="choice-button"
+          type="button"
+          data-answer="a"
+        >
+          아니요. 저는 프랑스 사람이에요.
+        </button>
+
+        <button
+          class="choice-button"
+          type="button"
+          data-answer="b"
+        >
+          날씨가 추워요.
+        </button>
+
+        <button
+          class="choice-button"
+          type="button"
+          data-answer="c"
+        >
+          좋아요! 그리고 과자도 사고 싶어요.
+        </button>
+
+      </div>
+
+      <div class="feedback"></div>
+
+    </div>
+
+
+    <div
+      class="scene"
+      data-scene="3"
+      data-correct="a"
+    >
+
+      <div class="speaker">
+        🌸 Hana
+      </div>
+
+      <div class="korean-line">
+        과자는 어디에 있어요?
+      </div>
+
+      <div class="french-line">
+        Où sont les biscuits ?
+      </div>
+
+      <button
+        class="audio-button"
+        type="button"
+        data-audio="과자는 어디에 있어요?"
+      >
+        🔊 Écouter
+      </button>
+
+      <div class="choice-list">
+
+        <button
+          class="choice-button"
+          type="button"
+          data-answer="a"
+        >
+          과자는 저쪽에 있어요.
+        </button>
+
+        <button
+          class="choice-button"
+          type="button"
+          data-answer="b"
+        >
+          과자는 맛있어요.
+        </button>
+
+        <button
+          class="choice-button"
+          type="button"
+          data-answer="c"
+        >
+          과자를 좋아해요?
+        </button>
+
+      </div>
+
+      <div class="feedback"></div>
+
+    </div>
+
+
+    <div
+      class="scene"
+      data-scene="4"
+      data-correct="b"
+    >
+
+      <div class="speaker">
+        💚 Ji-soo
+      </div>
+
+      <div class="korean-line">
+        계산대는 저쪽에 있어요.
+      </div>
+
+      <div class="french-line">
+        La caisse est là-bas.
+      </div>
+
+      <button
+        class="audio-button"
+        type="button"
+        data-audio="계산대는 저쪽에 있어요."
+      >
+        🔊 Écouter
+      </button>
+
+      <div class="choice-list">
+
+        <button
+          class="choice-button"
+          type="button"
+          data-answer="a"
+        >
+          비가 올 것 같아요.
+        </button>
+
+        <button
+          class="choice-button"
+          type="button"
+          data-answer="b"
+        >
+          네! 같이 가요!
+        </button>
+
+        <button
+          class="choice-button"
+          type="button"
+          data-answer="c"
+        >
+          커피를 마시고 싶어요.
+        </button>
+
+      </div>
+
+      <div class="feedback"></div>
+
+    </div>
+
+
+  </section>
+
+
+  <section
+    class="result-card"
+    id="resultCard"
+  >
+
+    <h2>🛒 Mission réussie</h2>
+
+    <div class="mission-complete">
+      Tu viens de faire tes courses en coréen.
+    </div>
+
+    <p>
+      Tu sais maintenant dire ce que tu veux acheter,
+      proposer un produit supplémentaire
+      et comprendre où se trouve quelque chose dans le magasin.
+    </p>
+
+  </section>
+
+
+  <section class="tip-card">
+
+    <h2>🎒 Ce que tu emportes</h2>
+
+    <strong>뭐를 사고 싶어요?</strong>
+    → demander ce que quelqu'un veut acheter
+
+    <br><br>
+
+    <strong>우유를 사고 싶어요.</strong>
+    → dire ce que tu veux acheter
+
+    <br><br>
+
+    <strong>커피도 살까요?</strong>
+    → proposer d'acheter aussi quelque chose
+
+    <br><br>
+
+    <strong>과자는 어디에 있어요?</strong>
+    → demander où se trouve un produit
+
+    <br><br>
+
+    <strong>저쪽에 있어요.</strong>
+    → indiquer que c'est là-bas
+
+  </section>
+
+
+  <button
+    class="complete-button"
+    id="completeButton"
+    type="button"
+  >
+    ✅ Terminer le chapitre 23
+  </button>
+
+
+  <button
+    class="summary-button"
+    id="summaryButton"
+    type="button"
+  >
+    📖 Voir le résumé du chapitre
+  </button>
+
+
+  <button
+    class="back-button"
+    type="button"
+    onclick="window.location.href='revision-23.html'"
+  >
+    ← Retour à la révision
+  </button>
+
+
+</main>
+
+
+<script src="chapter-progress.js"></script>
+
+<script>
+
+  const AUDIO_SETTINGS = {
+    normalRate: 0.82
+  };
+
+
+  const missionKey =
+    "hanaKorean_chapter23_mission";
+
+
+  const completedKey =
+    "hanaKorean_chapter23_completed";
+
+  const understandingKey =
+    "hanaKorean_chapter23_understanding";
+
+  const listeningExerciseKey =
+    "hanaKorean_chapter23_listeningExercise";
+
+  const speakingKey =
+    "hanaKorean_chapter23_speaking";
+
+  const writingKey =
+    "hanaKorean_chapter23_writing";
+
+  const reviewKey =
+    "hanaKorean_chapter23_review";
+
+  const useKey =
+    "hanaKorean_chapter23_use";
+
+  const missionMistakesKey =
+    "hanaKorean_chapter23_missionMistakes";
+
+  const missionHintsKey =
+    "hanaKorean_chapter23_missionHints";
+
+  function renderChapterProgress() {
+    if (
+      window.HanaChapterProgress &&
+      typeof window.HanaChapterProgress.render === "function"
+    ) {
+      window.HanaChapterProgress.render();
+    }
+  }
+
+  function guardUseAccess() {
+    const required = [
+      [understandingKey, "chapitre-23.html"],
+      [listeningExerciseKey, "exercice-ecoute-23.html"],
+      [speakingKey, "parle-23.html"],
+      [writingKey, "ecriture-23.html"],
+      [reviewKey, "revision-23.html"]
+    ];
+
+    for (const [key, page] of required) {
+      if (localStorage.getItem(key) !== "completed") {
+        window.location.replace(page);
+        return false;
+      }
+    }
+
+    return true;
+  }
+
+  function migrateLegacyMissionProgress() {
+    if (localStorage.getItem(useKey) === "completed") {
+      return;
+    }
+
+    if (
+      localStorage.getItem(missionKey) === "completed" ||
+      localStorage.getItem(completedKey) === "completed"
+    ) {
+      localStorage.setItem(useKey, "completed");
+    }
+  }
+
+
+  const scenes =
+    Array.from(
+      document.querySelectorAll(
+        ".scene"
+      )
+    );
+
+
+  const resultCard =
+    document.getElementById(
+      "resultCard"
+    );
+
+
+  const completeButton =
+    document.getElementById(
+      "completeButton"
+    );
+
+
+  const summaryButton =
+    document.getElementById(
+      "summaryButton"
+    );
+
+
+  let currentAudioButton =
+    null;
+
+
+  function getKoreanVoice() {
+
+    const voices =
+      window.speechSynthesis.getVoices();
+
+
+    return voices.find(
+      voice =>
+        voice.lang &&
+        voice.lang
+          .toLowerCase()
+          .startsWith("ko")
+    ) || null;
+
+  }
+
+
+  function stopSpeech() {
+
+    window.speechSynthesis.cancel();
+
+
+    if (
+      currentAudioButton
+    ) {
+
+      currentAudioButton
+        .classList
+        .remove(
+          "playing"
+        );
+
+
+      currentAudioButton.textContent =
+        "🔊 Écouter";
+
+
+      currentAudioButton =
+        null;
+
+    }
+
+  }
+
+
+  function speak(
+    text,
+    button
+  ) {
+
+    if (
+      currentAudioButton === button &&
+      window.speechSynthesis.speaking
+    ) {
+
+      stopSpeech();
+      return;
+
+    }
+
+
+    stopSpeech();
+
+
+    const utterance =
+      new SpeechSynthesisUtterance(
+        text
+      );
+
+
+    utterance.lang =
+      "ko-KR";
+
+    utterance.rate =
+      AUDIO_SETTINGS.normalRate;
+
+    utterance.pitch =
+      1;
+
+
+    const koreanVoice =
+      getKoreanVoice();
+
+
+    if (
+      koreanVoice
+    ) {
+
+      utterance.voice =
+        koreanVoice;
+
+    }
+
+
+    currentAudioButton =
+      button;
+
+
+    button
+      .classList
+      .add(
+        "playing"
+      );
+
+
+    button.textContent =
+      "⏹️ Stop";
+
+
+    utterance.onend =
+      () => {
+
+        button
+          .classList
+          .remove(
+            "playing"
+          );
+
+
+        button.textContent =
+          "🔊 Écouter";
+
+
+        currentAudioButton =
+          null;
+
+      };
+
+
+    utterance.onerror =
+      stopSpeech;
+
+
+    window.speechSynthesis.speak(
+      utterance
+    );
+
+  }
+
+
+  document
+    .querySelectorAll(
+      "[data-audio]"
+    )
+    .forEach(
+      button => {
+
+        button.addEventListener(
+          "click",
+          () => {
+
+            speak(
+              button.dataset.audio,
+              button
+            );
+
+          }
+        );
+
+      }
+    );
+
+
+  function completedScenes() {
+
+    return scenes.filter(
+      scene =>
+        scene.dataset.completed ===
+        "true"
+    ).length;
+
+  }
+
+
+  function updateMissionState() {
+
+    if (
+      completedScenes() ===
+      scenes.length
+    ) {
+
+      resultCard
+        .classList
+        .add(
+          "show"
+        );
+
+
+      completeButton
+        .classList
+        .add(
+          "show"
+        );
+
+    }
+
+  }
+
+
+  scenes.forEach(
+    scene => {
+
+      const correct =
+        scene.dataset.correct;
+
+
+      const feedback =
+        scene.querySelector(
+          ".feedback"
+        );
+
+
+      const buttons =
+        scene.querySelectorAll(
+          ".choice-button"
+        );
+
+
+      buttons.forEach(
+        button => {
+
+          button.addEventListener(
+            "click",
+            () => {
+
+              if (
+                scene.dataset.completed ===
+                "true"
+              ) {
+
+                return;
+
+              }
+
+
+              const answer =
+                button.dataset.answer;
+
+
+              if (
+                answer === correct
+              ) {
+
+                scene.dataset.completed =
+                  "true";
+
+
+                button
+                  .classList
+                  .add(
+                    "correct"
+                  );
+
+
+                feedback.className =
+                  "feedback show success";
+
+
+                feedback.textContent =
+                  "✅ Très bien ! Cette réponse correspond naturellement à la situation.";
+
+
+                buttons.forEach(
+                  item =>
+                    item.disabled =
+                      true
+                );
+
+
+                updateMissionState();
+
+              } else {
+
+                button
+                  .classList
+                  .add(
+                    "wrong"
+                  );
+
+
+                feedback.className =
+                  "feedback show error";
+
+
+                feedback.textContent =
+                  "Cette phrase peut être correcte dans une autre situation, mais elle ne répond pas naturellement ici. Essaie encore.";
+
+
+                button.disabled =
+                  true;
+
+              }
+
+            }
+          );
+
+        }
+      );
+
+    }
+  );
+
+
+  function showCompletedState() {
+
+    resultCard
+      .classList
+      .add(
+        "show"
+      );
+
+
+    completeButton.textContent =
+      "✅ Chapitre 23 terminé";
+
+
+    completeButton
+      .classList
+      .add(
+        "show",
+        "done"
+      );
+
+
+    summaryButton.style.display =
+      "block";
+
+  }
+
+
+  guardUseAccess();
+  migrateLegacyMissionProgress();
+  renderChapterProgress();
+
+  if (
+    localStorage.getItem(useKey) === "completed" ||
+    localStorage.getItem(completedKey) === "completed"
+  ) {
+
+    showCompletedState();
+
+  }
+
+
+  completeButton.addEventListener(
+    "click",
+    () => {
+
+      localStorage.setItem(
+        missionKey,
+        "completed"
+      );
+
+      localStorage.setItem(
+        useKey,
+        "completed"
+      );
+
+
+      localStorage.setItem(
+        completedKey,
+        "completed"
+      );
+
+
+      if (localStorage.getItem(missionMistakesKey) === null) {
+        localStorage.setItem(missionMistakesKey, "0");
+      }
+
+      if (localStorage.getItem(missionHintsKey) === null) {
+        localStorage.setItem(missionHintsKey, "0");
+      }
+
+      showCompletedState();
+      renderChapterProgress();
+
+    }
+  );
+
+
+  summaryButton.addEventListener(
+    "click",
+    () => {
+
+      stopSpeech();
+
+
+      window.location.href =
+        "resume-23.html";
+
+    }
+  );
+
+
+  window.addEventListener(
+    "beforeunload",
+    stopSpeech
+  );
+
+
+  window.speechSynthesis.onvoiceschanged =
+    () => {
+      getKoreanVoice();
+    };
+
+
+  window.addEventListener("pageshow", () => {
+    guardUseAccess();
+    migrateLegacyMissionProgress();
+    renderChapterProgress();
+  });
+
+</script>
+
+
+</body>
+
+</html>

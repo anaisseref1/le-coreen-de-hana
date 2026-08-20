@@ -1,0 +1,92 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#F7F4ED">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="chapter-progress.css"><title>Chapitre 26 — Je révise</title><style>.review-header{text-align:center;margin-bottom:24px}.card{padding:20px;margin-bottom:18px;background:var(--white);border-radius:var(--radius-large);box-shadow:var(--shadow)}.quiz{padding:15px;margin-top:12px;background:#FBFAF6;border-radius:var(--radius-medium)}.quiz button,.complete-button,.next-button{width:100%;margin-top:8px}.personal-review{display:none;padding:18px;margin-bottom:18px;background:var(--soft-green);border-radius:var(--radius-large);color:var(--navy);line-height:1.7}.complete-button{display:none;background:var(--jade);color:white;font-weight:bold}.next-button{display:none;background:var(--navy);color:white;font-weight:bold}</style></head><body><main class="app">
+<a class="back-link" href="ecriture-26.html">← Écriture</a><section id="hanaChapterPath" data-chapter-path></section><header class="review-header"><span class="chapter-badge">Chapitre 26 · 🧠 Je révise</span><p class="korean">약국</p><h1>Révision pharmacie</h1><p>Vérifie que tu sais expliquer un problème simple et demander de l'aide.</p></header>
+<section class="personal-review" id="personalReviewBox"></section><section class="card"><h2>🧠 Quiz</h2>
+<div class="quiz" data-answer="b" data-notion="약국"><p><strong>1. Que signifie 약국 ?</strong></p><button data-choice="a">Hôpital</button><button data-choice="b">Pharmacie</button><button data-choice="c">Restaurant</button><div class="feedback"></div></div>
+<div class="quiz" data-answer="a" data-notion="머리가 아파요"><p><strong>2. 머리가 아파요 signifie :</strong></p><button data-choice="a">J'ai mal à la tête.</button><button data-choice="b">J'ai mal aux pieds.</button><button data-choice="c">Je suis fatigué.</button><div class="feedback"></div></div>
+<div class="quiz" data-answer="c" data-notion="어디가 아파요"><p><strong>3. Que demande le pharmacien avec 어디가 아파요?</strong></p><button data-choice="a">Quel âge avez-vous ?</button><button data-choice="b">Quel médicament voulez-vous ?</button><button data-choice="c">Où avez-vous mal ?</button><div class="feedback"></div></div>
+<div class="quiz" data-answer="b" data-notion="약이 필요해요"><p><strong>4. Comment dire « J'ai besoin d'un médicament » ?</strong></p><button data-choice="a">약국에 가요.</button><button data-choice="b">약이 필요해요.</button><button data-choice="c">약을 좋아해요.</button><div class="feedback"></div></div>
+<div class="quiz" data-answer="a" data-notion="열이 있어요"><p><strong>5. 열이 있어요 ? signifie :</strong></p><button data-choice="a">Vous avez de la fièvre ?</button><button data-choice="b">Vous avez faim ?</button><button data-choice="c">Vous allez bien ?</button><div class="feedback"></div></div>
+<div class="quiz" data-answer="c" data-notion="목이 아파요"><p><strong>6. Quelle phrase est correcte pour dire « J'ai mal à la gorge » ?</strong></p><button data-choice="a">목이 좋아요.</button><button data-choice="b">목이 필요해요.</button><button data-choice="c">목이 아파요.</button><div class="feedback"></div></div>
+</section><section class="card"><h2>🎒 À retenir</h2><p><strong>머리가 아파요.</strong> → J'ai mal à la tête.</p><p><strong>배가 아파요.</strong> → J'ai mal au ventre.</p><p><strong>목이 아파요.</strong> → J'ai mal à la gorge.</p><p><strong>열은 없어요.</strong> → Je n'ai pas de fièvre.</p><p><strong>약이 필요해요.</strong> → J'ai besoin d'un médicament.</p></section>
+<button id="completeButton" class="complete-button" type="button">✅ Valider la révision</button><button id="next" class="next-button" type="button">🎯 Passer à la mission</button>
+</main><script src="chapter-progress.js"></script><script>
+const UNDERSTANDING_KEY = "hanaKorean_chapter26_understanding";
+const LISTENING_EXERCISE_KEY = "hanaKorean_chapter26_listeningExercise";
+const SPEAKING_KEY = "hanaKorean_chapter26_speaking";
+const WRITING_KEY = "hanaKorean_chapter26_writing";
+const REVIEW_KEY = "hanaKorean_chapter26_review";
+const MISTAKES_KEY = "hanaKorean_chapter26_reviewMistakes";
+const WEAK_KEY = "hanaKorean_chapter26_reviewWeakNotions";
+const REVISION_NOTIONS_KEY = "hanaKorean_chapter26_revisionNotions";
+
+if ([UNDERSTANDING_KEY, LISTENING_EXERCISE_KEY, SPEAKING_KEY, WRITING_KEY]
+  .some(key => localStorage.getItem(key) !== "completed")) {
+  window.location.href = "ecriture-26.html";
+}
+
+const personalReview = document.getElementById("personalReviewBox");
+try {
+  const notions = JSON.parse(localStorage.getItem(REVISION_NOTIONS_KEY) || "[]");
+  if (Array.isArray(notions) && notions.length) {
+    personalReview.style.display = "block";
+    personalReview.innerHTML = "<strong>🌱 À revoir en priorité :</strong><br>" + notions.join(" · ");
+  }
+} catch (error) {
+  personalReview.style.display = "none";
+}
+
+let done = 0;
+let mistakes = 0;
+const weakNotions = new Set();
+const quizzes = Array.from(document.querySelectorAll(".quiz"));
+const completeButton = document.getElementById("completeButton");
+const nextButton = document.getElementById("next");
+
+quizzes.forEach(quiz => {
+  quiz.querySelectorAll("button").forEach(button => {
+    button.addEventListener("click", () => {
+      if (quiz.dataset.done) return;
+      const feedback = quiz.querySelector(".feedback");
+
+      if (button.dataset.choice === quiz.dataset.answer) {
+        quiz.dataset.done = "true";
+        done += 1;
+        feedback.textContent = "✅ Correct !";
+      } else {
+        mistakes += 1;
+        weakNotions.add(quiz.dataset.notion);
+        feedback.textContent = "❌ Essaie encore.";
+      }
+
+      if (done === quizzes.length) {
+        completeButton.style.display = "block";
+      }
+    });
+  });
+});
+
+function refresh() {
+  if (localStorage.getItem(REVIEW_KEY) === "completed") {
+    completeButton.style.display = "block";
+    completeButton.textContent = "✅ Révision validée";
+    nextButton.style.display = "block";
+  }
+  if (window.HanaChapterProgress) HanaChapterProgress.render();
+}
+
+completeButton.addEventListener("click", () => {
+  localStorage.setItem(REVIEW_KEY, "completed");
+  localStorage.setItem(MISTAKES_KEY, String(mistakes));
+  localStorage.setItem(WEAK_KEY, JSON.stringify(Array.from(weakNotions)));
+  refresh();
+});
+nextButton.addEventListener("click", () => {
+  window.location.href = "utilise-26.html";
+});
+window.addEventListener("pageshow", refresh);
+refresh();
+</script></body></html>

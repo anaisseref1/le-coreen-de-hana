@@ -4,8 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#F7F4ED">
+
   <title>Chapitre 13 — Je révise</title>
+
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="chapter-progress.css">
 
   <style>
     .review-header {
@@ -57,6 +60,19 @@
       background: var(--white);
       border-radius: var(--radius-large);
       box-shadow: var(--shadow);
+    }
+
+    .personal-review {
+      padding: 18px;
+      margin-bottom: 18px;
+      background: var(--soft-green);
+      border-radius: var(--radius-large);
+      color: var(--navy);
+      line-height: 1.7;
+    }
+
+    .personal-review.hidden {
+      display: none;
     }
 
     .question-number {
@@ -214,7 +230,7 @@
 
   <a
     class="back-link"
-    href="ecriture-13.html"
+    href="écriture-13.html"
   >
     ← J'écris
   </a>
@@ -238,6 +254,19 @@
     </p>
   </header>
 
+  <section
+    id="hanaChapterPath"
+    data-chapter-path
+  ></section>
+
+  <section
+    class="personal-review hidden"
+    id="personalReview"
+  >
+    <strong>🌿 Révision personnalisée</strong>
+    <div id="personalReviewContent"></div>
+  </section>
+
   <div class="review-progress">
 
     <div class="progress-info">
@@ -254,14 +283,15 @@
 
   </div>
 
-
-  <!-- QUESTION 1 -->
-
   <section class="review-card" id="question1">
 
-    <div class="question-number">Question 1 / 5</div>
+    <div class="question-number">
+      Question 1 / 5
+    </div>
 
-    <h2 class="question-title">🚇 Demander une ligne</h2>
+    <h2 class="question-title">
+      🚇 Demander une ligne
+    </h2>
 
     <p class="question-text">
       Comment demandes-tu :
@@ -270,18 +300,27 @@
 
     <div class="answers">
 
-      <button class="answer" type="button"
-        onclick="checkAnswer(1, this, true, '몇 호선')">
+      <button
+        class="answer"
+        type="button"
+        onclick="checkAnswer(1, this, true, '몇 호선')"
+      >
         몇 호선이에요?
       </button>
 
-      <button class="answer" type="button"
-        onclick="checkAnswer(1, this, false, '몇 호선')">
+      <button
+        class="answer"
+        type="button"
+        onclick="checkAnswer(1, this, false, '몇 호선')"
+      >
         몇 번 출구예요?
       </button>
 
-      <button class="answer" type="button"
-        onclick="checkAnswer(1, this, false, '몇 호선')">
+      <button
+        class="answer"
+        type="button"
+        onclick="checkAnswer(1, this, false, '몇 호선')"
+      >
         다음 역이에요?
       </button>
 
@@ -289,21 +328,29 @@
 
     <div class="feedback" id="feedback1"></div>
 
-    <button class="next-question" id="next1" type="button"
-      onclick="showQuestion(2)">
+    <button
+      class="next-question"
+      id="next1"
+      type="button"
+      onclick="showQuestion(2)"
+    >
       Question suivante →
     </button>
 
   </section>
 
+  <section
+    class="review-card hidden"
+    id="question2"
+  >
 
-  <!-- QUESTION 2 -->
+    <div class="question-number">
+      Question 2 / 5
+    </div>
 
-  <section class="review-card hidden" id="question2">
-
-    <div class="question-number">Question 2 / 5</div>
-
-    <h2 class="question-title">🔁 Faire une correspondance</h2>
+    <h2 class="question-title">
+      🔁 Faire une correspondance
+    </h2>
 
     <p class="question-text">
       Que signifie :
@@ -312,18 +359,27 @@
 
     <div class="answers">
 
-      <button class="answer" type="button"
-        onclick="checkAnswer(2, this, false, '갈아타다')">
+      <button
+        class="answer"
+        type="button"
+        onclick="checkAnswer(2, this, false, '갈아타다')"
+      >
         Descendez à Seoul Station.
       </button>
 
-      <button class="answer" type="button"
-        onclick="checkAnswer(2, this, true, '갈아타다')">
+      <button
+        class="answer"
+        type="button"
+        onclick="checkAnswer(2, this, true, '갈아타다')"
+      >
         Changez à Seoul Station.
       </button>
 
-      <button class="answer" type="button"
-        onclick="checkAnswer(2, this, false, '갈아타다')">
+      <button
+        class="answer"
+        type="button"
+        onclick="checkAnswer(2, this, false, '갈아타다')"
+      >
         Prenez le bus à Seoul Station.
       </button>
 
@@ -331,21 +387,29 @@
 
     <div class="feedback" id="feedback2"></div>
 
-    <button class="next-question" id="next2" type="button"
-      onclick="showQuestion(3)">
+    <button
+      class="next-question"
+      id="next2"
+      type="button"
+      onclick="showQuestion(3)"
+    >
       Question suivante →
     </button>
 
   </section>
 
+  <section
+    class="review-card hidden"
+    id="question3"
+  >
 
-  <!-- QUESTION 3 -->
+    <div class="question-number">
+      Question 3 / 5
+    </div>
 
-  <section class="review-card hidden" id="question3">
-
-    <div class="question-number">Question 3 / 5</div>
-
-    <h2 class="question-title">🚪 La sortie</h2>
+    <h2 class="question-title">
+      🚪 La sortie
+    </h2>
 
     <p class="question-text">
       Quel mot signifie :
@@ -354,18 +418,27 @@
 
     <div class="answers">
 
-      <button class="answer" type="button"
-        onclick="checkAnswer(3, this, false, '출구')">
+      <button
+        class="answer"
+        type="button"
+        onclick="checkAnswer(3, this, false, '출구')"
+      >
         호선
       </button>
 
-      <button class="answer" type="button"
-        onclick="checkAnswer(3, this, true, '출구')">
+      <button
+        class="answer"
+        type="button"
+        onclick="checkAnswer(3, this, true, '출구')"
+      >
         출구
       </button>
 
-      <button class="answer" type="button"
-        onclick="checkAnswer(3, this, false, '출구')">
+      <button
+        class="answer"
+        type="button"
+        onclick="checkAnswer(3, this, false, '출구')"
+      >
         다음 역
       </button>
 
@@ -373,21 +446,29 @@
 
     <div class="feedback" id="feedback3"></div>
 
-    <button class="next-question" id="next3" type="button"
-      onclick="showQuestion(4)">
+    <button
+      class="next-question"
+      id="next3"
+      type="button"
+      onclick="showQuestion(4)"
+    >
       Question suivante →
     </button>
 
   </section>
 
+  <section
+    class="review-card hidden"
+    id="question4"
+  >
 
-  <!-- QUESTION 4 -->
+    <div class="question-number">
+      Question 4 / 5
+    </div>
 
-  <section class="review-card hidden" id="question4">
-
-    <div class="question-number">Question 4 / 5</div>
-
-    <h2 class="question-title">📢 Comprendre une annonce</h2>
+    <h2 class="question-title">
+      📢 Comprendre une annonce
+    </h2>
 
     <p class="question-text">
       Que signifie :
@@ -396,18 +477,27 @@
 
     <div class="answers">
 
-      <button class="answer" type="button"
-        onclick="checkAnswer(4, this, true, '다음 역')">
+      <button
+        class="answer"
+        type="button"
+        onclick="checkAnswer(4, this, true, '다음 역')"
+      >
         La prochaine station est Seoul Station.
       </button>
 
-      <button class="answer" type="button"
-        onclick="checkAnswer(4, this, false, '다음 역')">
+      <button
+        class="answer"
+        type="button"
+        onclick="checkAnswer(4, this, false, '다음 역')"
+      >
         Cette station est Seoul Station.
       </button>
 
-      <button class="answer" type="button"
-        onclick="checkAnswer(4, this, false, '다음 역')">
+      <button
+        class="answer"
+        type="button"
+        onclick="checkAnswer(4, this, false, '다음 역')"
+      >
         Changez à Seoul Station.
       </button>
 
@@ -415,57 +505,75 @@
 
     <div class="feedback" id="feedback4"></div>
 
-    <button class="next-question" id="next4" type="button"
-      onclick="showQuestion(5)">
+    <button
+      class="next-question"
+      id="next4"
+      type="button"
+      onclick="showQuestion(5)"
+    >
       Dernière question →
     </button>
 
   </section>
 
+  <section
+    class="review-card hidden"
+    id="question5"
+  >
 
-  <!-- QUESTION 5 -->
+    <div class="question-number">
+      Question 5 / 5
+    </div>
 
-  <section class="review-card hidden" id="question5">
-
-    <div class="question-number">Question 5 / 5</div>
-
-    <h2 class="question-title">📍 Phrase utile</h2>
+    <h2 class="question-title">
+      📍 Phrase complète
+    </h2>
 
     <p class="question-text">
-      Comment demandes-tu :
+      Quelle phrase demande :
       <strong>« Quelle ligne dois-je prendre pour aller à Myeong-dong ? »</strong>
     </p>
 
     <div class="answers">
 
-      <button class="answer" type="button"
-        onclick="checkAnswer(5, this, false, '가려면 / 타야 해요')">
-        명동에서 어디에 있어요?
-      </button>
-
-      <button class="answer" type="button"
-        onclick="checkAnswer(5, this, true, '가려면 / 타야 해요')">
+      <button
+        class="answer"
+        type="button"
+        onclick="checkAnswer(5, this, true, '가려면 / 타야 해요')"
+      >
         명동에 가려면 몇 호선을 타야 해요?
       </button>
 
-      <button class="answer" type="button"
-        onclick="checkAnswer(5, this, false, '가려면 / 타야 해요')">
-        명동에 몇 번 출구예요?
+      <button
+        class="answer"
+        type="button"
+        onclick="checkAnswer(5, this, false, '가려면 / 타야 해요')"
+      >
+        명동이 어디에 있어요?
+      </button>
+
+      <button
+        class="answer"
+        type="button"
+        onclick="checkAnswer(5, this, false, '가려면 / 타야 해요')"
+      >
+        명동에서 내려요?
       </button>
 
     </div>
 
     <div class="feedback" id="feedback5"></div>
 
-    <button class="next-question" id="next5" type="button"
-      onclick="finishReview()">
-      Voir mon résultat 🌿
+    <button
+      class="next-question"
+      id="next5"
+      type="button"
+      onclick="finishReview()"
+    >
+      Voir mon résultat →
     </button>
 
   </section>
-
-
-  <!-- RESULTAT -->
 
   <section
     class="result-card"
@@ -480,18 +588,12 @@
       잘했어요!
     </h2>
 
-    <p>
-      Tu as terminé la révision du chapitre 13.
-    </p>
+    <p class="result-score" id="resultScore"></p>
 
-    <p class="result-score">
-      5 notions révisées ✅
-    </p>
-
-    <div class="result-summary">
-      <strong>📊 Ta séance</strong>
-      <p id="attemptText"></p>
-    </div>
+    <div
+      class="result-summary"
+      id="resultSummary"
+    ></div>
 
     <div
       class="weak-box"
@@ -500,20 +602,38 @@
 
     <div class="notion-summary">
 
+      <strong>
+        🌿 À retenir
+      </strong>
+
       <div class="notion-line">
-        🚇 <strong>몇 호선이에요?</strong> → Quelle ligne est-ce ?
+        🚇 <strong>몇 호선이에요?</strong>
+        → Quelle ligne est-ce ?
       </div>
 
       <div class="notion-line">
-        🔁 <strong>갈아타다</strong> → faire une correspondance
+        4️⃣ <strong>사호선을 타세요.</strong>
+        → Prenez la ligne 4.
       </div>
 
       <div class="notion-line">
-        🚪 <strong>출구</strong> → sortie
+        🔁 <strong>서울역에서 갈아타세요.</strong>
+        → Changez à Seoul Station.
       </div>
 
       <div class="notion-line">
-        📢 <strong>다음 역</strong> → station suivante
+        🚪 <strong>출구</strong>
+        → sortie
+      </div>
+
+      <div class="notion-line">
+        📢 <strong>다음 역</strong>
+        → station suivante
+      </div>
+
+      <div class="notion-line">
+        📢 <strong>이번 역</strong>
+        → cette station
       </div>
 
       <div class="notion-line">
@@ -526,7 +646,7 @@
     <button
       class="continue-button"
       type="button"
-      onclick="window.location.href='utilise-13.html'"
+      onclick="goToMission()"
     >
       🎯 Passer à « Je l'utilise »
     </button>
@@ -543,196 +663,305 @@
 
 </main>
 
+<script src="chapter-progress.js"></script>
 
 <script>
+  const CHAPTER = 13;
 
+  const UNDERSTANDING_KEY =
+    "hanaKorean_chapter13_understanding";
+
+  const LISTENING_EXERCISE_KEY =
+    "hanaKorean_chapter13_listeningExercise";
+
+  const SPEAKING_KEY =
+    "hanaKorean_chapter13_speaking";
+
+  const WRITING_KEY =
+    "hanaKorean_chapter13_writing";
+
+  const REVIEW_KEY =
+    "hanaKorean_chapter13_review";
+
+  const REVISION_NOTIONS_KEY =
+    "hanaKorean_chapter13_revisionNotions";
+
+  const REVIEW_MISTAKES_KEY =
+    "hanaKorean_chapter13_reviewMistakes";
+
+  const REVIEW_WEAK_NOTIONS_KEY =
+    "hanaKorean_chapter13_reviewWeakNotions";
+
+
+  let score = 0;
   let incorrectAttempts = 0;
-
   const weakNotions = [];
+  const answeredQuestions =
+    new Set();
 
-  const completedQuestions = {
-    1: false,
-    2: false,
-    3: false,
-    4: false,
-    5: false
+
+  function guardReviewAccess() {
+
+    if (
+      localStorage.getItem(
+        UNDERSTANDING_KEY
+      ) !== "completed"
+    ) {
+      window.location.replace(
+        "chapitre-13.html"
+      );
+      return false;
+    }
+
+    if (
+      localStorage.getItem(
+        LISTENING_EXERCISE_KEY
+      ) !== "completed"
+    ) {
+      window.location.replace(
+        "ecoute-13.html"
+      );
+      return false;
+    }
+
+    if (
+      localStorage.getItem(
+        SPEAKING_KEY
+      ) !== "completed"
+    ) {
+      window.location.replace(
+        "parle-13.html"
+      );
+      return false;
+    }
+
+    if (
+      localStorage.getItem(
+        WRITING_KEY
+      ) !== "completed"
+    ) {
+      window.location.replace(
+        "écriture-13.html"
+      );
+      return false;
+    }
+
+    return true;
+  }
+
+
+  function renderChapterProgress() {
+
+    if (
+      window.HanaChapterProgress &&
+      typeof window.HanaChapterProgress.render ===
+        "function"
+    ) {
+      window.HanaChapterProgress.render();
+    }
+  }
+
+
+  function loadPersonalReview() {
+
+    let notions = [];
+
+    try {
+      notions =
+        JSON.parse(
+          localStorage.getItem(
+            REVISION_NOTIONS_KEY
+          ) || "[]"
+        );
+    }
+    catch (error) {
+      notions = [];
+    }
+
+    if (
+      !Array.isArray(notions) ||
+      notions.length === 0
+    ) {
+      return;
+    }
+
+    const box =
+      document.getElementById(
+        "personalReview"
+      );
+
+    const content =
+      document.getElementById(
+        "personalReviewContent"
+      );
+
+    content.innerHTML =
+      "<br>À partir de ton exercice d'écriture, pense particulièrement à revoir : <strong>" +
+      notions.join(", ") +
+      "</strong>.";
+
+    box.classList.remove(
+      "hidden"
+    );
+  }
+
+
+  const feedbackMessages = {
+    1: {
+      correct:
+        "✅ Exact. <strong>몇 호선이에요?</strong> sert à demander quelle ligne de métro prendre ou identifier.",
+      wrong:
+        "❌ Regarde le mot <strong>호선</strong> : il signifie « ligne de métro ». La question recherchée contient donc <strong>몇 호선</strong>."
+    },
+
+    2: {
+      correct:
+        "✅ Exact. <strong>갈아타세요</strong> signifie « changez / faites une correspondance ».",
+      wrong:
+        "❌ Repère <strong>갈아타다</strong> : ce verbe signifie « faire une correspondance ». Ici, <strong>서울역에서</strong> indique l'endroit où changer."
+    },
+
+    3: {
+      correct:
+        "✅ Oui. <strong>출구</strong> signifie « sortie ».",
+      wrong:
+        "❌ <strong>호선</strong> = ligne de métro et <strong>다음 역</strong> = station suivante. Le mot pour « sortie » est <strong>출구</strong>."
+    },
+
+    4: {
+      correct:
+        "✅ Exact. <strong>다음 역</strong> signifie « station suivante » : l'annonce indique que la prochaine station est Seoul Station.",
+      wrong:
+        "❌ Écoute le groupe <strong>다음 역</strong> : <strong>다음</strong> signifie « suivant » et <strong>역</strong> signifie « station »."
+    },
+
+    5: {
+      correct:
+        "✅ Très bien. <strong>명동에 가려면 몇 호선을 타야 해요?</strong> est le modèle complet pour demander quelle ligne prendre afin d'aller à Myeong-dong.",
+      wrong:
+        "❌ Cherche le modèle avec <strong>가려면</strong> (« pour aller / si je veux aller ») et <strong>타야 해요</strong> (« dois prendre »)."
+    }
   };
 
 
   function checkAnswer(
-    number,
+    questionNumber,
     button,
     isCorrect,
     notion
   ) {
 
     if (
-      completedQuestions[number]
+      answeredQuestions.has(
+        questionNumber
+      )
     ) {
       return;
     }
 
-    const question =
+    const section =
       document.getElementById(
-        "question" + number
-      );
-
-    const answers =
-      question.querySelectorAll(
-        ".answer"
+        "question" +
+        questionNumber
       );
 
     const feedback =
       document.getElementById(
-        "feedback" + number
+        "feedback" +
+        questionNumber
       );
 
+    const buttons =
+      section.querySelectorAll(
+        ".answer"
+      );
 
-    if (isCorrect) {
+    buttons.forEach(
+      item => {
+        item.disabled = true;
+      }
+    );
 
-      completedQuestions[number] =
-        true;
+    if (
+      isCorrect
+    ) {
 
       button.classList.add(
         "correct"
       );
 
+      score++;
+
       feedback.className =
         "feedback correct";
 
+      feedback.innerHTML =
+        feedbackMessages[
+          questionNumber
+        ].correct;
 
-      if (number === 1) {
+    }
+    else {
 
-        feedback.innerHTML =
-          "✅ <strong>Exact !</strong><br><br>" +
-          "<strong>몇 호선이에요?</strong> demande quelle ligne de métro il s'agit.";
+      button.classList.add(
+        "wrong"
+      );
 
+      incorrectAttempts++;
+
+      if (
+        !weakNotions.includes(
+          notion
+        )
+      ) {
+        weakNotions.push(
+          notion
+        );
       }
 
+      feedback.className =
+        "feedback wrong";
 
-      if (number === 2) {
+      feedback.innerHTML =
+        feedbackMessages[
+          questionNumber
+        ].wrong;
 
-        feedback.innerHTML =
-          "✅ <strong>Très bien !</strong><br><br>" +
-          "<strong>갈아타세요</strong> indique qu'il faut faire une correspondance.";
+      buttons.forEach(
+        item => {
 
-      }
+          const onclick =
+            item.getAttribute(
+              "onclick"
+            ) || "";
 
-
-      if (number === 3) {
-
-        feedback.innerHTML =
-          "✅ <strong>Exact !</strong><br><br>" +
-          "<strong>출구</strong> signifie « sortie ».";
-
-      }
-
-
-      if (number === 4) {
-
-        feedback.innerHTML =
-          "✅ <strong>Très bien !</strong><br><br>" +
-          "<strong>다음 역</strong> signifie « station suivante ».";
-
-      }
-
-
-      if (number === 5) {
-
-        feedback.innerHTML =
-          "✅ <strong>Parfait !</strong><br><br>" +
-          "Le modèle <strong>명동에 가려면 몇 호선을 타야 해요?</strong> permet de demander quelle ligne prendre pour aller à Myeong-dong.";
-
-      }
-
-
-      answers.forEach(
-        answer => {
-          answer.disabled =
-            true;
+          if (
+            onclick.includes(
+              "true"
+            )
+          ) {
+            item.classList.add(
+              "correct"
+            );
+          }
         }
       );
-
-
-      document.getElementById(
-        "next" + number
-      ).style.display =
-        "block";
-
-      return;
     }
 
-
-    incorrectAttempts++;
-
-    button.classList.add(
-      "wrong"
+    answeredQuestions.add(
+      questionNumber
     );
 
-    feedback.className =
-      "feedback wrong";
-
-
-    if (
-      !weakNotions.includes(
-        notion
-      )
-    ) {
-      weakNotions.push(
-        notion
-      );
-    }
-
-
-    if (number === 1) {
-
-      feedback.innerHTML =
-        "❌ <strong>Regarde le mot-clé 호선.</strong><br><br>" +
-        "💡 <strong>몇 호선</strong> sert à demander quelle ligne de métro.";
-
-    }
-
-
-    if (number === 2) {
-
-      feedback.innerHTML =
-        "❌ <strong>Repère 갈아타세요.</strong><br><br>" +
-        "💡 Ce verbe signifie qu'il faut changer de ligne / faire une correspondance.";
-
-    }
-
-
-    if (number === 3) {
-
-      feedback.innerHTML =
-        "❌ <strong>Repère 출구.</strong><br><br>" +
-        "💡 <strong>출구</strong> = sortie.";
-
-    }
-
-
-    if (number === 4) {
-
-      feedback.innerHTML =
-        "❌ <strong>Observe le début de la phrase.</strong><br><br>" +
-        "💡 <strong>다음 역</strong> = la station suivante.";
-
-    }
-
-
-    if (number === 5) {
-
-      feedback.innerHTML =
-        "❌ <strong>Retrouve le modèle du chapitre.</strong><br><br>" +
-        "💡 Destination + <strong>에 가려면 몇 호선을 타야 해요?</strong>";
-
-    }
-
+    document.getElementById(
+      "next" +
+      questionNumber
+    ).style.display =
+      "block";
   }
 
 
   function showQuestion(
-    number
+    questionNumber
   ) {
 
     for (
@@ -746,149 +975,163 @@
       ).classList.add(
         "hidden"
       );
-
     }
 
-
     document.getElementById(
-      "question" + number
+      "question" +
+      questionNumber
     ).classList.remove(
       "hidden"
     );
 
-
     document.getElementById(
       "progressLabel"
     ).textContent =
-      number +
+      questionNumber +
       " / 5";
-
 
     document.getElementById(
       "progressFill"
     ).style.width =
       (
-        number * 20
+        (questionNumber / 5) *
+        100
       ) +
       "%";
-
 
     window.scrollTo({
       top: 0,
       behavior: "smooth"
     });
-
   }
 
 
   function finishReview() {
 
-    document.getElementById(
-      "question5"
-    ).classList.add(
-      "hidden"
+    localStorage.setItem(
+      REVIEW_KEY,
+      "completed"
     );
 
+    localStorage.setItem(
+      REVIEW_MISTAKES_KEY,
+      String(
+        incorrectAttempts
+      )
+    );
 
-    const resultCard =
+    localStorage.setItem(
+      REVIEW_WEAK_NOTIONS_KEY,
+      JSON.stringify(
+        weakNotions
+      )
+    );
+
+    renderChapterProgress();
+
+    for (
+      let i = 1;
+      i <= 5;
+      i++
+    ) {
       document.getElementById(
-        "resultCard"
+        "question" + i
+      ).classList.add(
+        "hidden"
       );
+    }
 
-    resultCard.classList.add(
+    document.getElementById(
+      "resultCard"
+    ).classList.add(
       "show"
     );
 
+    document.getElementById(
+      "resultScore"
+    ).textContent =
+      score +
+      " / 5";
 
-    const attemptText =
-      document.getElementById(
-        "attemptText"
-      );
-
+    let summary = "";
 
     if (
-      incorrectAttempts === 0
+      score === 5
     ) {
-
-      attemptText.innerHTML =
-        "🌟 <strong>Sans erreur !</strong><br>" +
-        "Tu maîtrises très bien les notions principales de ce chapitre.";
-
-    } else {
-
-      attemptText.innerHTML =
-        "Tu as eu <strong>" +
-        incorrectAttempts +
-        "</strong> tentative" +
-        (
-          incorrectAttempts > 1
-            ? "s"
-            : ""
-        ) +
-        " incorrecte" +
-        (
-          incorrectAttempts > 1
-            ? "s"
-            : ""
-        ) +
-        ".<br>Les erreurs servent à cibler ce qu'il faut revoir.";
-
+      summary =
+        "🌟 Excellent : tu as reconnu toutes les notions du chapitre.";
+    }
+    else if (
+      score >= 3
+    ) {
+      summary =
+        "🌿 Bon travail. Les bases sont là ; relis surtout les notions signalées juste en dessous.";
+    }
+    else {
+      summary =
+        "💡 Cette révision t'a permis d'identifier les points à renforcer avant la mission finale.";
     }
 
+    document.getElementById(
+      "resultSummary"
+    ).innerHTML =
+      summary;
 
     const weakBox =
       document.getElementById(
         "weakBox"
       );
 
-
     if (
       weakNotions.length === 0
     ) {
-
       weakBox.innerHTML =
-        "🌿 <strong>Aucune notion fragile détectée.</strong>";
-
-    } else {
-
+        "✅ Aucun point faible détecté pendant cette révision.";
+    }
+    else {
       weakBox.innerHTML =
-        "🧠 <strong>À revoir en priorité :</strong><br><br>" +
+        "<strong>🧠 À revoir :</strong><br><br>" +
         weakNotions.join(
           " · "
         );
-
     }
-
-
-    localStorage.setItem(
-      "hanaKorean_chapter13_review",
-      "completed"
-    );
-
-
-    localStorage.setItem(
-      "hanaKorean_chapter13_reviewMistakes",
-      String(
-        incorrectAttempts
-      )
-    );
-
-
-    localStorage.setItem(
-      "hanaKorean_chapter13_reviewWeakNotions",
-      JSON.stringify(
-        weakNotions
-      )
-    );
-
 
     window.scrollTo({
       top: 0,
       behavior: "smooth"
     });
-
   }
 
+
+  function goToMission() {
+
+    if (
+      localStorage.getItem(
+        REVIEW_KEY
+      ) !== "completed"
+    ) {
+      return;
+    }
+
+    window.location.href =
+      "utilise-13.html";
+  }
+
+
+  if (
+    guardReviewAccess()
+  ) {
+
+    loadPersonalReview();
+    renderChapterProgress();
+
+    window.addEventListener(
+      "pageshow",
+      function() {
+        renderChapterProgress();
+      }
+    );
+  }
 </script>
 
 </body>
