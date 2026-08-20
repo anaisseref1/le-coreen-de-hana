@@ -1,0 +1,1470 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#F7F4ED">
+  <title>Mon sac à dos coréen</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .memo-hero {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .memo-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 13px;
+      margin-bottom: 10px;
+      border-radius: 999px;
+      background: var(--soft-blue);
+      color: var(--navy);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .memo-hero h1 {
+      margin-bottom: 8px;
+    }
+
+    .memo-hero p {
+      max-width: 720px;
+      margin: 0 auto;
+      color: var(--text-light);
+      line-height: 1.7;
+    }
+
+    .memo-progress,
+    .memo-toolbar,
+    .memo-section {
+      margin-bottom: 18px;
+      padding: 18px;
+      background: var(--white);
+      border-radius: var(--radius-large);
+      box-shadow: var(--shadow);
+    }
+
+    .progress-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 9px;
+      color: var(--navy);
+      font-weight: 800;
+    }
+
+    .progress-track {
+      width: 100%;
+      height: 10px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: var(--soft-beige);
+    }
+
+    .progress-fill {
+      width: 0%;
+      height: 100%;
+      border-radius: inherit;
+      background: var(--jade);
+      transition: width .3s ease;
+    }
+
+    .progress-note {
+      margin-top: 10px;
+      color: var(--text-light);
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .memo-toolbar {
+      position: sticky;
+      top: 8px;
+      z-index: 20;
+      padding: 14px;
+    }
+
+    .memo-search {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 13px 14px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-medium);
+      background: #FBFAF6;
+      color: var(--navy);
+      font: inherit;
+      outline: none;
+    }
+
+    .memo-search:focus {
+      border-color: var(--jade);
+      box-shadow: 0 0 0 3px rgba(111,159,146,.12);
+    }
+
+    .category-nav {
+      display: flex;
+      gap: 8px;
+      margin-top: 12px;
+      overflow-x: auto;
+      padding-bottom: 2px;
+      scrollbar-width: thin;
+    }
+
+    .category-chip {
+      flex: 0 0 auto;
+      padding: 8px 11px;
+      border: 0;
+      border-radius: 999px;
+      background: var(--soft-beige);
+      color: var(--navy);
+      font-size: 13px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .category-chip.active {
+      background: var(--jade);
+      color: #fff;
+    }
+
+    .memo-section[hidden] {
+      display: none !important;
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .section-heading h2 {
+      margin: 0;
+      font-size: 21px;
+    }
+
+    .section-count {
+      flex: 0 0 auto;
+      padding: 5px 9px;
+      border-radius: 999px;
+      background: var(--soft-green);
+      color: var(--jade-dark);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .memo-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 11px;
+    }
+
+    .memo-card {
+      position: relative;
+      padding: 15px;
+      border: 1px solid var(--border);
+      border-left: 5px solid var(--jade);
+      border-radius: var(--radius-medium);
+      background: #FBFAF6;
+      line-height: 1.55;
+    }
+
+    .memo-card.locked {
+      border-left-color: #C9C5BD;
+      background: #F3F1EC;
+      opacity: .64;
+    }
+
+    .memo-card.filtered-out {
+      display: none;
+    }
+
+    .memo-card-title {
+      margin: 0 0 7px;
+      color: var(--navy);
+      font-weight: 900;
+      font-size: 16px;
+    }
+
+    .memo-card-subtitle {
+      margin-bottom: 7px;
+      color: var(--text-light);
+      font-size: 13px;
+    }
+
+    .memo-card-content {
+      color: var(--navy);
+    }
+
+    .memo-card.locked .memo-card-content {
+      display: none;
+    }
+
+    .lock-message {
+      display: none;
+      color: var(--text-light);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .memo-card.locked .lock-message {
+      display: block;
+    }
+
+    .unlock-badge {
+      display: inline-block;
+      margin-top: 9px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: var(--soft-green);
+      color: var(--jade-dark);
+      font-size: 11px;
+      font-weight: 900;
+    }
+
+    .memo-card.locked .unlock-badge {
+      background: #E6E2DA;
+      color: var(--text-light);
+    }
+
+    .ko {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--navy);
+    }
+
+    .mini-example {
+      margin: 6px 0 0;
+    }
+
+    .mini-muted {
+      color: var(--text-light);
+      font-size: 13px;
+    }
+
+    .pair {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 6px 10px;
+      align-items: start;
+      margin-top: 6px;
+    }
+
+    .pair strong {
+      color: var(--navy);
+    }
+
+    .tiny-list {
+      margin: 7px 0 0;
+      padding-left: 19px;
+    }
+
+    .tiny-list li {
+      margin-bottom: 4px;
+    }
+
+    .why-box {
+      padding: 10px 11px;
+      margin-top: 8px;
+      border-radius: 10px;
+      background: #FFF8D9;
+      color: var(--navy);
+      font-size: 13px;
+    }
+
+    .pron-box {
+      padding: 10px 11px;
+      margin-top: 8px;
+      border-radius: 10px;
+      background: var(--soft-blue);
+      color: var(--navy);
+      font-size: 13px;
+    }
+
+    .situation-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 7px;
+    }
+
+    .situation-tags span {
+      padding: 5px 8px;
+      border-radius: 999px;
+      background: var(--soft-beige);
+      color: var(--navy);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .empty-state {
+      display: none;
+      padding: 20px;
+      text-align: center;
+      color: var(--text-light);
+    }
+
+    .quick-memo {
+      background: var(--soft-green);
+    }
+
+    .quick-line {
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(38,54,74,.08);
+      color: var(--navy);
+      line-height: 1.5;
+    }
+
+    .quick-line:last-child {
+      border-bottom: 0;
+    }
+
+    .quick-line.locked {
+      opacity: .45;
+    }
+
+    .quick-line.locked .quick-content {
+      display: none;
+    }
+
+    .quick-line .quick-lock {
+      display: none;
+      font-size: 13px;
+      color: var(--text-light);
+    }
+
+    .quick-line.locked .quick-lock {
+      display: inline;
+    }
+
+    @media (min-width: 700px) {
+      .memo-grid {
+        grid-template-columns: repeat(2, minmax(0,1fr));
+      }
+    }
+  </style>
+</head>
+
+<body>
+<main class="app">
+
+  <a class="back-link" href="index.html">← Accueil</a>
+
+  <header class="memo-hero">
+    <div class="memo-kicker">🎒 Fiche mémo évolutive</div>
+    <p class="korean">내 한국어 배낭</p>
+    <h1>Mon sac à dos coréen</h1>
+    <p>
+      Toutes les notions utiles déjà rencontrées sont regroupées ici.
+      Chaque fiche se débloque quand le chapitre correspondant est terminé,
+      puis reste disponible définitivement.
+    </p>
+  </header>
+
+  <section class="memo-progress">
+    <div class="progress-row">
+      <span>🌱 Mes acquis</span>
+      <span id="memoProgressText">0 / 30 chapitres</span>
+    </div>
+
+    <div class="progress-track">
+      <div class="progress-fill" id="memoProgressFill"></div>
+    </div>
+
+    <div class="progress-note" id="memoProgressNote">
+      Ton sac à dos se remplira au fil du voyage.
+    </div>
+  </section>
+
+  <section class="memo-toolbar">
+    <input
+      class="memo-search"
+      id="memoSearch"
+      type="search"
+      placeholder="🔎 Rechercher : particule, passé, hôtel, train…"
+      autocomplete="off"
+    >
+
+    <div class="category-nav" id="categoryNav">
+      <button class="category-chip active" data-filter="all">Tout</button>
+      <button class="category-chip" data-filter="particles">💙 Particules</button>
+      <button class="category-chip" data-filter="grammar">🧩 Grammaire</button>
+      <button class="category-chip" data-filter="verbs">🗣️ Verbes</button>
+      <button class="category-chip" data-filter="adjectives">🌸 Adjectifs</button>
+      <button class="category-chip" data-filter="numbers">🔢 Nombres</button>
+      <button class="category-chip" data-filter="pronunciation">🩵 Prononciation</button>
+      <button class="category-chip" data-filter="why">🟨 Pourquoi ?</button>
+      <button class="category-chip" data-filter="situations">🗺️ Situations</button>
+      <button class="category-chip" data-filter="vocab">🟩 Vocabulaire</button>
+    </div>
+  </section>
+
+  <!-- PARTICULES -->
+  <section class="memo-section" data-category="particles">
+    <div class="section-heading">
+      <h2>💙 Particules</h2>
+      <span class="section-count" data-count-for="particles"></span>
+    </div>
+
+    <div class="memo-grid">
+      <article class="memo-card locked" data-unlock-chapter="2" data-search="은 는 thème sujet présentation">
+        <h3 class="memo-card-title">은 / 는 — le thème</h3>
+        <div class="memo-card-content">
+          <div class="pair">
+            <strong>은/는</strong><span>annonce de quoi on parle.</span>
+          </div>
+          <p class="mini-example"><span class="ko">저는 하나예요.</span><br><span class="mini-muted">Moi, je suis Hana.</span></p>
+        </div>
+        <div class="lock-message">🔒 Se débloque après le chapitre 2.</div>
+        <span class="unlock-badge">Chapitre 2</span>
+      </article>
+
+      <article class="memo-card locked" data-unlock-chapter="3" data-search="이 가 sujet état caractéristique">
+        <h3 class="memo-card-title">이 / 가 — le sujet</h3>
+        <div class="memo-card-content">
+          <div class="pair">
+            <strong>이/가</strong><span>marque l'élément dont on décrit l'état, la caractéristique ou qui réalise l'action.</span>
+          </div>
+          <p class="mini-example"><span class="ko">고양이가 귀여워요.</span><br><span class="mini-muted">Le chat est mignon.</span></p>
+        </div>
+        <div class="lock-message">🔒 Se débloque après le chapitre 3.</div>
+        <span class="unlock-badge">Chapitre 3</span>
+      </article>
+
+      <article class="memo-card locked" data-unlock-chapter="4" data-search="을 를 complément objet COD aimer">
+        <h3 class="memo-card-title">을 / 를 — le complément d'objet</h3>
+        <div class="memo-card-content">
+          <p class="mini-example"><span class="ko">커피를 마셔요.</span><br><span class="mini-muted">Je bois un café.</span></p>
+          <p class="mini-example"><span class="ko">사진을 찍어요.</span><br><span class="mini-muted">Je prends une photo.</span></p>
+        </div>
+        <div class="lock-message">🔒 Se débloque après le chapitre 4.</div>
+        <span class="unlock-badge">Chapitre 4</span>
+      </article>
+
+      <article class="memo-card locked" data-unlock-chapter="8" data-search="에 destination moment heure lieu">
+        <h3 class="memo-card-title">에 — destination ou moment</h3>
+        <div class="memo-card-content">
+          <p class="mini-example"><span class="ko">학교에 가요.</span><br><span class="mini-muted">Je vais à l'école.</span></p>
+          <p class="mini-example"><span class="ko">세 시에 만나요.</span><br><span class="mini-muted">On se retrouve à trois heures.</span></p>
+        </div>
+        <div class="lock-message">🔒 Se débloque après le chapitre 8.</div>
+        <span class="unlock-badge">Chapitre 8</span>
+      </article>
+
+      <article class="memo-card locked" data-unlock-chapter="12" data-search="에서 lieu action endroit">
+        <h3 class="memo-card-title">에서 — lieu de l'action</h3>
+        <div class="memo-card-content">
+          <p class="mini-example"><span class="ko">카페에서 공부해요.</span><br><span class="mini-muted">J'étudie au café.</span></p>
+          <p class="mini-example"><span class="ko">호텔에서 쉬어요.</span><br><span class="mini-muted">Je me repose à l'hôtel.</span></p>
+          <div class="why-box"><strong>Astuce :</strong> 에 = destination / moment · 에서 = endroit où l'action se déroule.</div>
+        </div>
+        <div class="lock-message">🔒 Se débloque après le chapitre 12.</div>
+        <span class="unlock-badge">Chapitre 12</span>
+      </article>
+
+      <article class="memo-card locked" data-unlock-chapter="18" data-search="도 aussi">
+        <h3 class="memo-card-title">도 — aussi</h3>
+        <div class="memo-card-content">
+          <p class="mini-example"><span class="ko">저도 커피를 좋아해요.</span><br><span class="mini-muted">Moi aussi, j'aime le café.</span></p>
+        </div>
+        <div class="lock-message">🔒 Se débloque après le chapitre 18.</div>
+        <span class="unlock-badge">Chapitre 18</span>
+      </article>
+
+      <article class="memo-card locked" data-unlock-chapter="15" data-search="만 seulement">
+        <h3 class="memo-card-title">만 — seulement</h3>
+        <div class="memo-card-content">
+          <p class="mini-example"><span class="ko">물만 주세요.</span><br><span class="mini-muted">Seulement de l'eau, s'il vous plaît.</span></p>
+        </div>
+        <div class="lock-message">🔒 Se débloque après le chapitre 15.</div>
+        <span class="unlock-badge">Chapitre 15</span>
+      </article>
+
+      <article class="memo-card locked" data-unlock-chapter="24" data-search="에게 에게서 à quelqu'un de quelqu'un cadeau donner recevoir">
+        <h3 class="memo-card-title">에게 / 에게서 — à / de quelqu'un</h3>
+        <div class="memo-card-content">
+          <p class="mini-example"><span class="ko">친구에게 선물을 줘요.</span><br><span class="mini-muted">Je donne un cadeau à un ami.</span></p>
+          <p class="mini-example"><span class="ko">친구에게서 선물을 받아요.</span><br><span class="mini-muted">Je reçois un cadeau d'un ami.</span></p>
+        </div>
+        <div class="lock-message">🔒 Se débloque après le chapitre 24.</div>
+        <span class="unlock-badge">Chapitre 24</span>
+      </article>
+
+      <article class="memo-card locked" data-unlock-chapter="25" data-search="으로 로 direction destination envoyer france corée">
+        <h3 class="memo-card-title">-(으)로 — direction / destination</h3>
+        <div class="memo-card-content">
+          <p class="mini-example"><span class="ko">프랑스로 보내요.</span><br><span class="mini-muted">Je l'envoie en France.</span></p>
+        </div>
+        <div class="lock-message">🔒 Se débloque après le chapitre 25.</div>
+        <span class="unlock-badge">Chapitre 25</span>
+      </article>
+    </div>
+  </section>
+
+  <!-- GRAMMAIRE -->
+  <section class="memo-section" data-category="grammar">
+    <div class="section-heading">
+      <h2>🧩 Grammaire & structures</h2>
+      <span class="section-count" data-count-for="grammar"></span>
+    </div>
+
+    <div class="memo-grid">
+      <article class="memo-card locked" data-unlock-chapter="7" data-search="présent conjugaison 아요 어요 해요">
+        <h3 class="memo-card-title">Présent poli</h3>
+        <div class="memo-card-content">
+          <p><span class="ko">먹어요 · 가요 · 마셔요 · 해요</span></p>
+          <p class="mini-muted">La forme polie courante utilisée dans les conversations du quotidien.</p>
+        </div>
+        <div class="lock-message">🔒 Se débloque après le chapitre 7.</div>
+        <span class="unlock-badge">Chapitre 7</span>
+      </article>
+
+      <article class="memo-card locked" data-unlock-chapter="19" data-search="passé 았어요 었어요 했어요 raconter souvenirs">
+        <h3 class="memo-card-title">Passé — -았어요 / -었어요</h3>
+        <div class="memo-card-content">
+          <p><span class="ko">가다 → 갔어요</span></p>
+          <p><span class="ko">먹다 → 먹었어요</span></p>
+          <p><span class="ko">보다 → 봤어요</span></p>
+          <p><span class="ko">하다 → 했어요</span></p>
+        </div>
+        <div class="lock-message">🔒 Se débloque après le chapitre 19.</div>
+        <span class="unlock-badge">Chapitre 19</span>
+      </article>
+
+      <article class="memo-card locked" data-unlock-chapter="21" data-search="갈래요 으ㄹ래요 envie interlocuteur proposer sortie">
+        <h3 class="memo-card-title">-(으)ㄹ래요? — demander une envie</h3>
+        <div class="memo-card-content">
+          <p class="mini-example"><span class="ko">같이 갈래요?</span><br><span class="mini-muted">Tu veux y aller ensemble ?</span></p>
+          <p class="mini-example"><span class="ko">커피 마실래요?</span><br><span class="mini-muted">Tu veux boire un café ?</span></p>
+        </div>
+        <div class="lock-message">🔒 Se débloque après le chapitre 21.</div>
+        <span class="unlock-badge">Chapitre 21</span>
+      </article>
+
+      <article class="memo-card locked" data-unlock-chapter="21" data-search="까요 suggestion décider ensemble">
+        <h3 class="memo-card-title">-까요? — proposer / décider ensemble</h3>
+        <div class="memo-card-content">
+          <p class="mini-example"><span class="ko">어디에 갈까요?</span><br><span class="mini-muted">Où allons-nous ? / Et si on y allait ?</span></p>
+          <p class="mini-example"><span class="ko">뭐 먹을까요?</span><br><span class="mini-muted">Qu'est-ce qu'on mange ?</span></p>
+        </div>
+        <div class="lock-message">🔒 Se débloque après le chapitre 21.</div>
+        <span class="unlock-badge">Chapitre 21</span>
+      </article>
+
+      <article class="memo-card locked" data-unlock-chapter="22" data-search="것 같아요 impression prévision météo penser avoir l'air">
+        <h3 class="memo-card-title">-(으)ㄹ 것 같아요 — impression / prévision</h3>
+        <div class="memo-card-content">
+          <p class="mini-example"><span class="ko">비가 올 것 같아요.</span><br><span class="mini-muted">Je pense qu'il va pleuvoir.</span></p>
+          <p class="mini-example"><span class="ko">맛있을 것 같아요.</span><br><span class="mini-muted">Ça a l'air bon.</span></p>
+        </div>
+        <div class="lock-message">🔒 Se débloque après le chapitre 22.</div>
+        <span class="unlock-badge">Chapitre 22</span>
+      </article>
+
+      <article class="memo-card locked" data-unlock-chapter="23" data-search="고 싶어요 vouloir aimer faire envie">
+        <h3 class="memo-card-title">-고 싶어요 — vouloir faire</h3>
+        <div class="memo-card-content">
+          <p class="mini-example"><span class="ko">우유를 사고 싶어요.</span><br><span class="mini-muted">Je voudrais acheter du lait.</span></p>
+          <p class="mini-example"><span class="ko">바다를 보고 싶어요.</span><br><span class="mini-muted">Je veux voir la mer.</span></p>
+        </div>
+        <div class="lock-message">🔒 Se débloque après le chapitre 23.</div>
+        <span class="unlock-badge">Chapitre 23</span>
+      </article>
+
+      <article class="memo-card locked" data-unlock-chapter="23" data-search="그리고 et puis ensuite">
+        <h3 class="memo-card-title">그리고 — et / puis</h3>
+        <div class="memo-card-content">
+          <p class="mini-example"><span class="ko">커피를 샀어요. 그리고 우유도 샀어요.</span></p>
+          <p class="mini-muted">J'ai acheté du café. Puis j'ai aussi acheté du lait.</p>
+        </div>
+        <div class="lock-message">🔒 Se débloque après le chapitre 23.</div>
+        <span class="unlock-badge">Chapitre 23</span>
+      </article>
+
+      <article class="memo-card locked" data-unlock-chapter="25" data-search="얼마 얼마나 걸려요 prix durée combien">
+        <h3 class="memo-card-title">얼마예요? vs 얼마나 걸려요?</h3>
+        <div class="memo-card-content">
+          <p><span class="ko">얼마예요?</span> → Combien ça coûte ?</p>
+          <p><span class="ko">얼마나 걸려요?</span> → Combien de temps cela prend-il ?</p>
+        </div>
+        <div class="lock-message">🔒 Se débloque après le chapitre 25.</div>
+        <span class="unlock-badge">Chapitre 25</span>
+      </article>
+
+      <article class="memo-card locked" data-unlock-chapter="26" data-search="아파요 partie corps douleur 이 가 pharmacie">
+        <h3 class="memo-card-title">[partie du corps] + 이/가 아파요</h3>
+        <div class="memo-card-content">
+          <p><span class="ko">머리가 아파요.</span> → J'ai mal à la tête.</p>
+          <p><span class="ko">배가 아파요.</span> → J'ai mal au ventre.</p>
+          <p><span class="ko">목이 아파요.</span> → J'ai mal à la gorge.</p>
+        </div>
+        <div class="lock-message">🔒 Se débloque après le chapitre 26.</div>
+        <span class="unlock-badge">Chapitre 26</span>
+      </article>
+
+      <article class="memo-card locked" data-unlock-chapter="27" data-search="A에서 B에 가요 de à trajet train">
+        <h3 class="memo-card-title">A에서 B에 가요 — aller de A à B</h3>
+        <div class="memo-card-content">
+          <p class="mini-example"><span class="ko">서울에서 부산에 가요.</span><br><span class="mini-muted">Je vais de Séoul à Busan.</span></p>
+        </div>
+        <div class="lock-message">🔒 Se débloque après le chapitre 27.</div>
+        <span class="unlock-badge">Chapitre 27</span>
+      </article>
+
+      <article class="memo-card locked" data-unlock-chapter="30" data-search="futur projet 으ㄹ 거예요 demain programme">
+        <h3 class="memo-card-title">-(으)ㄹ 거예요 — projet / futur</h3>
+        <div class="memo-card-content">
+          <p><span class="ko">가다 → 갈 거예요</span></p>
+          <p><span class="ko">먹다 → 먹을 거예요</span></p>
+          <p><span class="ko">하다 → 할 거예요</span></p>
+          <p class="mini-example"><span class="ko">내일 뭐 할 거예요?</span><br><span class="mini-muted">Qu'est-ce que tu vas faire demain ?</span></p>
+        </div>
+        <div class="lock-message">🔒 Se débloque après le chapitre 30.</div>
+        <span class="unlock-badge">Chapitre 30</span>
+      </article>
+    </div>
+  </section>
+
+  <!-- VERBES -->
+  <section class="memo-section" data-category="verbs">
+    <div class="section-heading">
+      <h2>🗣️ Verbes essentiels</h2>
+      <span class="section-count" data-count-for="verbs"></span>
+    </div>
+
+    <div class="memo-grid">
+      <article class="memo-card locked" data-unlock-chapter="7" data-search="verbe radical dictionnaire 먹다 가다 보다 마시다">
+        <h3 class="memo-card-title">Forme dictionnaire → radical</h3>
+        <div class="memo-card-content">
+          <p><span class="ko">먹다 → 먹</span> · manger</p>
+          <p><span class="ko">가다 → 가</span> · aller</p>
+          <p><span class="ko">보다 → 보</span> · voir</p>
+          <p><span class="ko">마시다 → 마시</span> · boire</p>
+          <p class="mini-muted">On enlève 다 avant d'ajouter une terminaison.</p>
+        </div>
+        <div class="lock-message">🔒 Se débloque après le chapitre 7.</div>
+        <span class="unlock-badge">Chapitre 7</span>
+      </article>
+
+      <article class="memo-card locked" data-unlock-chapter="24" data-search="주다 받다 donner recevoir cadeau">
+        <h3 class="memo-card-title">Donner / recevoir</h3>
+        <div class="memo-card-content">
+          <p><span class="ko">주다 → 줘요</span> · donner</p>
+          <p><span class="ko">받다 → 받아요</span> · recevoir</p>
+          <p><span class="ko">고르다</span> · choisir</p>
+          <p><span class="ko">선물하다</span> · offrir un cadeau</p>
+        </div>
+        <div class="lock-message">🔒 Se débloque après le chapitre 24.</div>
+        <span class="unlock-badge">Chapitre 24</span>
+      </article>
+
+      <article class="memo-card locked" data-unlock-chapter="25" data-search="보내다 걸리다 필요하다 envoyer prendre temps avoir besoin poste">
+        <h3 class="memo-card-title">À la poste</h3>
+        <div class="memo-card-content">
+          <p><span class="ko">보내다</span> · envoyer</p>
+          <p><span class="ko">걸리다</span> · prendre du temps</p>
+          <p><span class="ko">필요하다</span> · avoir besoin</p>
+        </div>
+        <div class="lock-message">🔒 Se débloque après le chapitre 25.</div>
+        <span class="unlock-badge">Chapitre 25</span>
+      </article>
+
+      <article class="memo-card locked" data-unlock-chapter="27" data-search="타다 내리다 prendre monter descendre train">
+        <h3 class="memo-card-title">Transports</h3>
+        <div class="memo-card-content">
+          <p><span class="ko">타다 → 타요</span> · prendre / monter</p>
+          <p><span class="ko">내리다 → 내려요</span> · descendre</p>
+        </div>
+        <div class="lock-message">🔒 Se débloque après le chapitre 27.</div>
+        <span class="unlock-badge">Chapitre 27</span>
+      </article>
+
+      <article class="memo-card locked" data-unlock-chapter="29" data-search="raconter journée passé verbes 갔어요 먹었어요 봤어요 마셨어요 찍었어요 했어요">
+        <h3 class="memo-card-title">Les verbes du récit</h3>
+        <div class="memo-card-content">
+          <p><span class="ko">갔어요</span> · je suis allé(e)</p>
+          <p><span class="ko">봤어요</span> · j'ai vu</p>
+          <p><span class="ko">먹었어요</span> · j'ai mangé</p>
+          <p><span class="ko">마셨어요</span> · j'ai bu</p>
+          <p><span class="ko">찍었어요</span> · j'ai pris une photo</p>
+          <p><span class="ko">했어요</span> · j'ai fait</p>
+        </div>
+        <div class="lock-message">🔒 Se débloque après le chapitre 29.</div>
+        <span class="unlock-badge">Chapitre 29</span>
+      </article>
+    </div>
+  </section>
+
+  <!-- ADJECTIFS -->
+  <section class="memo-section" data-category="adjectives">
+    <div class="section-heading">
+      <h2>🌸 Adjectifs</h2>
+      <span class="section-count" data-count-for="adjectives"></span>
+    </div>
+
+    <div class="memo-grid">
+      <article class="memo-card locked" data-unlock-chapter="4" data-search="adjectifs 맛있어요 비싸요 싸요 예뻐요 좋아요">
+        <h3 class="memo-card-title">Adjectifs du quotidien</h3>
+        <div class="memo-card-content">
+          <p><span class="ko">맛있어요</span> · c'est bon / délicieux</p>
+          <p><span class="ko">비싸요</span> · c'est cher</p>
+          <p><span class="ko">싸요</span> · c'est bon marché</p>
+          <p><span class="ko">예뻐요</span> · c'est joli</p>
+          <p><span class="ko">좋아요</span> · c'est bien / j'aime bien</p>
+          <p class="mini-muted">En coréen, les adjectifs se conjuguent comme des verbes descriptifs.</p>
+        </div>
+        <div class="lock-message">🔒 Se débloque après le chapitre 4.</div>
+        <span class="unlock-badge">Chapitre 4</span>
+      </article>
+
+      <article class="memo-card locked" data-unlock-chapter="22" data-search="météo 더워요 추워요 흐려요 맑다 chaud froid nuageux">
+        <h3 class="memo-card-title">Décrire la météo</h3>
+        <div class="memo-card-content">
+          <p><span class="ko">더워요</span> · il fait chaud</p>
+          <p><span class="ko">추워요</span> · il fait froid</p>
+          <p><span class="ko">흐려요</span> · le ciel est couvert</p>
+          <p><span class="ko">맑아요</span> · le temps est clair / dégagé</p>
+        </div>
+        <div class="lock-message">🔒 Se débloque après le chapitre 22.</div>
+        <span class="unlock-badge">Chapitre 22</span>
+      </article>
+    </div>
+  </section>
+
+  <!-- NOMBRES -->
+  <section class="memo-section" data-category="numbers">
+    <div class="section-heading">
+      <h2>🔢 Nombres, heures & quantités</h2>
+      <span class="section-count" data-count-for="numbers"></span>
+    </div>
+
+    <div class="memo-grid">
+      <article class="memo-card locked" data-unlock-chapter="8" data-search="nombres coréens hana dul set net heures objets âge">
+        <h3 class="memo-card-title">Nombres coréens</h3>
+        <div class="memo-card-content">
+          <p class="ko">하나 · 둘 · 셋 · 넷 · 다섯</p>
+          <p class="mini-muted">Utilisés notamment pour les heures, certains compteurs et l'âge selon le contexte.</p>
+        </div>
+        <div class="lock-message">🔒 Se débloque après le chapitre 8.</div>
+        <span class="unlock-badge">Chapitre 8</span>
+      </article>
+
+      <article class="memo-card locked" data-unlock-chapter="8" data-search="nombres sino coréens 일 이 삼 사 오 minutes prix dates étages">
+        <h3 class="memo-card-title">Nombres sino-coréens</h3>
+        <div class="memo-card-content">
+          <p class="ko">일 · 이 · 삼 · 사 · 오</p>
+          <p class="mini-muted">Utilisés notamment pour les minutes, dates, prix, étages et numéros.</p>
+        </div>
+        <div class="lock-message">🔒 Se débloque après le chapitre 8.</div>
+        <span class="unlock-badge">Chapitre 8</span>
+      </article>
+
+      <article class="memo-card locked" data-unlock-chapter="8" data-search="heure 시 분 8h 10h30 12h">
+        <h3 class="memo-card-title">Dire l'heure</h3>
+        <div class="memo-card-content">
+          <p><span class="ko">여덟 시</span> · 8 h</p>
+          <p><span class="ko">여덟 시 오 분</span> · 8 h 05</p>
+          <p><span class="ko">열 시 삼십 분</span> · 10 h 30</p>
+          <p><span class="ko">열두 시</span> · 12 h</p>
+        </div>
+        <div class="lock-message">🔒 Se débloque après le chapitre 8.</div>
+        <span class="unlock-badge">Chapitre 8</span>
+      </article>
+
+      <article class="memo-card locked" data-unlock-chapter="27" data-search="heure départ train 오전 열 시에 출발해요">
+        <h3 class="memo-card-title">Heure d'un départ</h3>
+        <div class="memo-card-content">
+          <p class="mini-example"><span class="ko">오전 열 시에 출발해요.</span><br><span class="mini-muted">Le train part à 10 h du matin.</span></p>
+          <p class="mini-example"><span class="ko">몇 시에 출발해요?</span><br><span class="mini-muted">À quelle heure part-il ?</span></p>
+        </div>
+        <div class="lock-message">🔒 Se débloque après le chapitre 27.</div>
+        <span class="unlock-badge">Chapitre 27</span>
+      </article>
+    </div>
+  </section>
+
+  <!-- PRONONCIATION -->
+  <section class="memo-section" data-category="pronunciation">
+    <div class="section-heading">
+      <h2>🩵 Prononciation</h2>
+      <span class="section-count" data-count-for="pronunciation"></span>
+    </div>
+
+    <div class="memo-grid">
+      <article class="memo-card locked" data-unlock-chapter="4" data-search="좋아요 조아요 h prononciation">
+        <h3 class="memo-card-title">좋아요</h3>
+        <div class="memo-card-content">
+          <div class="pron-box"><span class="ko">좋아요</span> peut sonner proche de <strong>조아요</strong> dans la prononciation courante.</div>
+        </div>
+        <div class="lock-message">🔒 Se débloque après le chapitre 4.</div>
+        <span class="unlock-badge">Chapitre 4</span>
+      </article>
+
+      <article class="memo-card locked" data-unlock-chapter="10" data-search="batchim liaison contractions doubles consonnes">
+        <h3 class="memo-card-title">Rappels rencontrés</h3>
+        <div class="memo-card-content">
+          <div class="situation-tags">
+            <span>Batchim</span>
+            <span>Liaisons</span>
+            <span>Contractions</span>
+            <span>Doubles consonnes</span>
+          </div>
+        </div>
+        <div class="lock-message">🔒 Se débloque après le chapitre 10.</div>
+        <span class="unlock-badge">Chapitre 10</span>
+      </article>
+
+      <article class="memo-card locked" data-unlock-chapter="21" data-search="같이 가치 prononciation gachi">
+        <h3 class="memo-card-title">같이 → proche de 가치</h3>
+        <div class="memo-card-content">
+          <div class="pron-box">Dans <span class="ko">같이</span>, la prononciation se rapproche de <strong>가치</strong>.</div>
+        </div>
+        <div class="lock-message">🔒 Se débloque après le chapitre 21.</div>
+        <span class="unlock-badge">Chapitre 21</span>
+      </article>
+
+      <article class="memo-card locked" data-unlock-chapter="22" data-search="날씨 ss double consonne météo">
+        <h3 class="memo-card-title">날씨 — ㅆ bien marqué</h3>
+        <div class="memo-card-content">
+          <div class="pron-box"><span class="ko">날씨</span> : le double ㅆ se prononce comme un <strong>s tendu et bien marqué</strong>.</div>
+        </div>
+        <div class="lock-message">🔒 Se débloque après le chapitre 22.</div>
+        <span class="unlock-badge">Chapitre 22</span>
+      </article>
+
+      <article class="memo-card locked" data-unlock-chapter="23" data-search="딸기 consonne tendue ttalgi">
+        <h3 class="memo-card-title">딸기 — ㄸ tendu</h3>
+        <div class="memo-card-content">
+          <div class="pron-box"><span class="ko">딸기</span> commence par une consonne tendue ㄸ.</div>
+        </div>
+        <div class="lock-message">🔒 Se débloque après le chapitre 23.</div>
+        <span class="unlock-badge">Chapitre 23</span>
+      </article>
+
+      <article class="memo-card locked" data-unlock-chapter="30" data-search="거예요 꺼예요 prononciation futur">
+        <h3 class="memo-card-title">거예요 à l'oral</h3>
+        <div class="memo-card-content">
+          <div class="pron-box">Dans la parole naturelle, <span class="ko">할 거예요</span> peut sonner proche de <strong>할 꺼예요</strong>. L'orthographe reste <strong>거예요</strong>.</div>
+        </div>
+        <div class="lock-message">🔒 Se débloque après le chapitre 30.</div>
+        <span class="unlock-badge">Chapitre 30</span>
+      </article>
+    </div>
+  </section>
+
+  <!-- POURQUOI -->
+  <section class="memo-section" data-category="why">
+    <div class="section-heading">
+      <h2>🟨 Les « Pourquoi ? »</h2>
+      <span class="section-count" data-count-for="why"></span>
+    </div>
+
+    <div class="memo-grid">
+      <article class="memo-card locked" data-unlock-chapter="12" data-search="pourquoi 에 에서 destination action">
+        <h3 class="memo-card-title">Pourquoi 에 mais parfois 에서 ?</h3>
+        <div class="memo-card-content">
+          <div class="why-box"><strong>에</strong> = destination / moment.<br><strong>에서</strong> = lieu où une action se déroule.</div>
+        </div>
+        <div class="lock-message">🔒 Se débloque après le chapitre 12.</div>
+        <span class="unlock-badge">Chapitre 12</span>
+      </article>
+
+      <article class="memo-card locked" data-unlock-chapter="19" data-search="pourquoi 갔어요 contraction 가 았어요">
+        <h3 class="memo-card-title">Pourquoi 갔어요 ?</h3>
+        <div class="memo-card-content">
+          <div class="why-box"><span class="ko">가 + 았어요 → 갔어요</span><br>La forme se contracte naturellement.</div>
+        </div>
+        <div class="lock-message">🔒 Se débloque après le chapitre 19.</div>
+        <span class="unlock-badge">Chapitre 19</span>
+      </article>
+
+      <article class="memo-card locked" data-unlock-chapter="21" data-search="갈래요 갈까요 différence envie suggestion">
+        <h3 class="memo-card-title">갈래요? ≠ 갈까요?</h3>
+        <div class="memo-card-content">
+          <div class="why-box"><span class="ko">갈래요?</span> → Tu veux y aller ?<br><span class="ko">갈까요?</span> → Et si on y allait ?</div>
+        </div>
+        <div class="lock-message">🔒 Se débloque après le chapitre 21.</div>
+        <span class="unlock-badge">Chapitre 21</span>
+      </article>
+
+      <article class="memo-card locked" data-unlock-chapter="22" data-search="비가 와요 올 것 같아요 différence pleut va pleuvoir">
+        <h3 class="memo-card-title">비가 와요 ≠ 비가 올 것 같아요</h3>
+        <div class="memo-card-content">
+          <div class="why-box"><span class="ko">비가 와요.</span> = il pleut maintenant.<br><span class="ko">비가 올 것 같아요.</span> = je pense qu'il va pleuvoir.</div>
+        </div>
+        <div class="lock-message">🔒 Se débloque après le chapitre 22.</div>
+        <span class="unlock-badge">Chapitre 22</span>
+      </article>
+
+      <article class="memo-card locked" data-unlock-chapter="25" data-search="얼마 얼마나 différence prix durée">
+        <h3 class="memo-card-title">Pourquoi 얼마 et 얼마나 ?</h3>
+        <div class="memo-card-content">
+          <div class="why-box"><strong>얼마예요?</strong> demande un prix.<br><strong>얼마나 걸려요?</strong> demande une durée.</div>
+        </div>
+        <div class="lock-message">🔒 Se débloque après le chapitre 25.</div>
+        <span class="unlock-badge">Chapitre 25</span>
+      </article>
+
+      <article class="memo-card locked" data-unlock-chapter="30" data-search="으ㄹ 거예요 voyelle consonne futur">
+        <h3 class="memo-card-title">Pourquoi -ㄹ ou -을 거예요 ?</h3>
+        <div class="memo-card-content">
+          <div class="why-box">Radical terminé par une voyelle → <strong>-ㄹ 거예요</strong>.<br>Radical terminé par une consonne → <strong>-을 거예요</strong>.<br><span class="ko">가다 → 갈 거예요</span> · <span class="ko">먹다 → 먹을 거예요</span></div>
+        </div>
+        <div class="lock-message">🔒 Se débloque après le chapitre 30.</div>
+        <span class="unlock-badge">Chapitre 30</span>
+      </article>
+    </div>
+  </section>
+
+  <!-- SITUATIONS -->
+  <section class="memo-section" data-category="situations">
+    <div class="section-heading">
+      <h2>🗺️ Situations pratiques</h2>
+      <span class="section-count" data-count-for="situations"></span>
+    </div>
+
+    <div class="memo-grid">
+      <article class="memo-card locked" data-unlock-chapter="2" data-search="présenter bonjour prénom france">
+        <h3 class="memo-card-title">👋 Se présenter</h3>
+        <div class="memo-card-content">
+          <p><span class="ko">저는 하나예요.</span> · Je suis Hana.</p>
+          <p><span class="ko">저는 프랑스 사람이에요.</span> · Je suis Française.</p>
+        </div>
+        <div class="lock-message">🔒 Se débloque après le chapitre 2.</div>
+        <span class="unlock-badge">Chapitre 2</span>
+      </article>
+
+      <article class="memo-card locked" data-unlock-chapter="12" data-search="chemin où 어디 direction">
+        <h3 class="memo-card-title">🗺️ Demander son chemin</h3>
+        <div class="memo-card-content">
+          <p><span class="ko">어디예요?</span> · Où est-ce ?</p>
+          <p><span class="ko">어디에 있어요?</span> · Où se trouve… ?</p>
+        </div>
+        <div class="lock-message">🔒 Se débloque après le chapitre 12.</div>
+        <span class="unlock-badge">Chapitre 12</span>
+      </article>
+
+      <article class="memo-card locked" data-unlock-chapter="13" data-search="métro transport sortie 출구">
+        <h3 class="memo-card-title">🚇 Métro & transports</h3>
+        <div class="memo-card-content">
+          <p><span class="ko">몇 번 출구예요?</span> · C'est quelle sortie ?</p>
+          <div class="situation-tags"><span>지하철</span><span>버스</span><span>역</span><span>길</span></div>
+        </div>
+        <div class="lock-message">🔒 Se débloque après le chapitre 13.</div>
+        <span class="unlock-badge">Chapitre 13</span>
+      </article>
+
+      <article class="memo-card locked" data-unlock-chapter="14" data-search="café commander 주세요 eau café thé">
+        <h3 class="memo-card-title">☕ Au café</h3>
+        <div class="memo-card-content">
+          <p><span class="ko">커피 주세요.</span> · Un café, s'il vous plaît.</p>
+          <div class="situation-tags"><span>커피</span><span>물</span><span>차</span><span>주세요</span></div>
+        </div>
+        <div class="lock-message">🔒 Se débloque après le chapitre 14.</div>
+        <span class="unlock-badge">Chapitre 14</span>
+      </article>
+
+      <article class="memo-card locked" data-unlock-chapter="15" data-search="restaurant calcul addition recommandation 돼지고기 porc">
+        <h3 class="memo-card-title">🍜 Au restaurant</h3>
+        <div class="memo-card-content">
+          <p><span class="ko">계산해 주세요.</span> · L'addition, s'il vous plaît.</p>
+          <p><span class="ko">추천해 주세요.</span> · Recommandez-moi quelque chose, s'il vous plaît.</p>
+          <p><span class="ko">돼지고기를 안 먹어요.</span> · Je ne mange pas de porc.</p>
+        </div>
+        <div class="lock-message">🔒 Se débloque après le chapitre 15.</div>
+        <span class="unlock-badge">Chapitre 15</span>
+      </article>
+
+      <article class="memo-card locked" data-unlock-chapter="16" data-search="hôtel réservation wifi chambre">
+        <h3 class="memo-card-title">🏨 À l'hôtel</h3>
+        <div class="memo-card-content">
+          <p><span class="ko">예약했어요.</span> · J'ai réservé.</p>
+          <p><span class="ko">와이파이 있어요?</span> · Il y a du Wi-Fi ?</p>
+          <div class="situation-tags"><span>호텔</span><span>방</span><span>열쇠</span><span>예약</span><span>와이파이</span></div>
+        </div>
+        <div class="lock-message">🔒 Se débloque après le chapitre 16.</div>
+        <span class="unlock-badge">Chapitre 16</span>
+      </article>
+
+      <article class="memo-card locked" data-unlock-chapter="20" data-search="faire connaissance enchanté pays travail loisirs">
+        <h3 class="memo-card-title">👋 Faire connaissance</h3>
+        <div class="memo-card-content">
+          <p><span class="ko">처음 뵙겠습니다.</span> · Enchanté(e) de vous rencontrer.</p>
+          <p><span class="ko">어느 나라에서 왔어요?</span> · De quel pays venez-vous ?</p>
+          <p><span class="ko">무슨 일을 하세요?</span> · Quel est votre métier ?</p>
+          <p><span class="ko">취미가 뭐예요?</span> · Quels sont vos loisirs ?</p>
+        </div>
+        <div class="lock-message">🔒 Se débloque après le chapitre 20.</div>
+        <span class="unlock-badge">Chapitre 20</span>
+      </article>
+
+      <article class="memo-card locked" data-unlock-chapter="21" data-search="sortie proposer rendez-vous heure ensemble">
+        <h3 class="memo-card-title">🌸 Proposer une sortie</h3>
+        <div class="memo-card-content">
+          <p><span class="ko">같이 갈래요?</span> · Tu veux y aller ensemble ?</p>
+          <p><span class="ko">몇 시에 만날까요?</span> · À quelle heure se retrouve-t-on ?</p>
+          <p><span class="ko">그때 봬요!</span> · À tout à l'heure !</p>
+        </div>
+        <div class="lock-message">🔒 Se débloque après le chapitre 21.</div>
+        <span class="unlock-badge">Chapitre 21</span>
+      </article>
+
+      <article class="memo-card locked" data-unlock-chapter="22" data-search="météo pluie parapluie temps">
+        <h3 class="memo-card-title">🌦️ La météo</h3>
+        <div class="memo-card-content">
+          <p><span class="ko">오늘 날씨가 어때요?</span> · Quel temps fait-il aujourd'hui ?</p>
+          <p><span class="ko">비가 와요.</span> · Il pleut.</p>
+          <p><span class="ko">우산 있어요?</span> · Tu as un parapluie ?</p>
+        </div>
+        <div class="lock-message">🔒 Se débloque après le chapitre 22.</div>
+        <span class="unlock-badge">Chapitre 22</span>
+      </article>
+
+      <article class="memo-card locked" data-unlock-chapter="23" data-search="courses supermarché acheter caisse lait fraises">
+        <h3 class="memo-card-title">🛒 Faire les courses</h3>
+        <div class="memo-card-content">
+          <p><span class="ko">뭐를 사고 싶어요?</span> · Qu'aimerais-tu acheter ?</p>
+          <p><span class="ko">계산대는 어디에 있어요?</span> · Où est la caisse ?</p>
+          <p><span class="ko">과자는 저쪽에 있어요.</span> · Les biscuits sont là-bas.</p>
+        </div>
+        <div class="lock-message">🔒 Se débloque après le chapitre 23.</div>
+        <span class="unlock-badge">Chapitre 23</span>
+      </article>
+
+      <article class="memo-card locked" data-unlock-chapter="24" data-search="cadeau offrir choisir remercier">
+        <h3 class="memo-card-title">🎁 Offrir un cadeau</h3>
+        <div class="memo-card-content">
+          <p><span class="ko">선물이에요.</span> · C'est un cadeau.</p>
+          <p><span class="ko">이걸로 할게요.</span> · Je vais prendre celui-ci.</p>
+          <p><span class="ko">정말 고마워요.</span> · Merci beaucoup.</p>
+        </div>
+        <div class="lock-message">🔒 Se débloque après le chapitre 24.</div>
+        <span class="unlock-badge">Chapitre 24</span>
+      </article>
+
+      <article class="memo-card locked" data-unlock-chapter="25" data-search="poste colis timbre adresse envoyer durée">
+        <h3 class="memo-card-title">📮 À la poste</h3>
+        <div class="memo-card-content">
+          <p><span class="ko">소포를 보내고 싶어요.</span> · Je voudrais envoyer un colis.</p>
+          <p><span class="ko">주소가 있어요?</span> · Vous avez l'adresse ?</p>
+          <p><span class="ko">우표가 필요해요.</span> · J'ai besoin d'un timbre.</p>
+        </div>
+        <div class="lock-message">🔒 Se débloque après le chapitre 25.</div>
+        <span class="unlock-badge">Chapitre 25</span>
+      </article>
+
+      <article class="memo-card locked" data-unlock-chapter="26" data-search="pharmacie mal tête ventre gorge médicament">
+        <h3 class="memo-card-title">💊 À la pharmacie</h3>
+        <div class="memo-card-content">
+          <p><span class="ko">어디가 아파요?</span> · Où avez-vous mal ?</p>
+          <p><span class="ko">머리가 아파요.</span> · J'ai mal à la tête.</p>
+          <p><span class="ko">약이 필요해요.</span> · J'ai besoin d'un médicament.</p>
+        </div>
+        <div class="lock-message">🔒 Se débloque après le chapitre 26.</div>
+        <span class="unlock-badge">Chapitre 26</span>
+      </article>
+
+      <article class="memo-card locked" data-unlock-chapter="27" data-search="train gare quai billet siège départ busan">
+        <h3 class="memo-card-title">🚄 Prendre le train</h3>
+        <div class="memo-card-content">
+          <p><span class="ko">승강장이 어디예요?</span> · Où est le quai ?</p>
+          <p><span class="ko">몇 시에 출발해요?</span> · À quelle heure part-il ?</p>
+          <p><span class="ko">제 좌석은 몇 번이에요?</span> · Quel est mon siège ?</p>
+        </div>
+        <div class="lock-message">🔒 Se débloque après le chapitre 27.</div>
+        <span class="unlock-badge">Chapitre 27</span>
+      </article>
+
+      <article class="memo-card locked" data-unlock-chapter="28" data-search="busan plage mer photo envie">
+        <h3 class="memo-card-title">🌊 Une journée à Busan</h3>
+        <div class="memo-card-content">
+          <p><span class="ko">부산에서 뭐 하고 싶어요?</span> · Qu'est-ce que tu veux faire à Busan ?</p>
+          <p><span class="ko">바다를 보고 싶어요.</span> · Je veux voir la mer.</p>
+          <p><span class="ko">해변에 갈까요?</span> · On va à la plage ?</p>
+        </div>
+        <div class="lock-message">🔒 Se débloque après le chapitre 28.</div>
+        <span class="unlock-badge">Chapitre 28</span>
+      </article>
+
+      <article class="memo-card locked" data-unlock-chapter="29" data-search="raconter journée aujourd'hui quoi fait passé">
+        <h3 class="memo-card-title">📖 Raconter sa journée</h3>
+        <div class="memo-card-content">
+          <p><span class="ko">오늘 뭐 했어요?</span> · Qu'est-ce que tu as fait aujourd'hui ?</p>
+          <p><span class="ko">부산에 갔어요.</span> · Je suis allé(e) à Busan.</p>
+          <p><span class="ko">사진을 많이 찍었어요.</span> · J'ai pris beaucoup de photos.</p>
+        </div>
+        <div class="lock-message">🔒 Se débloque après le chapitre 29.</div>
+        <span class="unlock-badge">Chapitre 29</span>
+      </article>
+
+      <article class="memo-card locked" data-unlock-chapter="30" data-search="projets futur demain semaine prochaine programme">
+        <h3 class="memo-card-title">🔮 Parler de ses projets</h3>
+        <div class="memo-card-content">
+          <p><span class="ko">내일 뭐 할 거예요?</span> · Qu'est-ce que tu vas faire demain ?</p>
+          <p><span class="ko">부산에 갈 거예요.</span> · Je vais aller à Busan.</p>
+          <p><span class="ko">호텔에서 쉴 거예요.</span> · Je vais me reposer à l'hôtel.</p>
+        </div>
+        <div class="lock-message">🔒 Se débloque après le chapitre 30.</div>
+        <span class="unlock-badge">Chapitre 30</span>
+      </article>
+    </div>
+  </section>
+
+  <!-- VOCAB -->
+  <section class="memo-section" data-category="vocab">
+    <div class="section-heading">
+      <h2>🟩 Vocabulaire essentiel</h2>
+      <span class="section-count" data-count-for="vocab"></span>
+    </div>
+
+    <div class="memo-grid">
+      <article class="memo-card locked" data-unlock-chapter="1" data-search="saluer 안녕하세요 감사합니다 죄송합니다 괜찮아요">
+        <h3 class="memo-card-title">👋 Saluer & être poli</h3>
+        <div class="memo-card-content">
+          <p><span class="ko">안녕하세요</span> · Bonjour</p>
+          <p><span class="ko">감사합니다</span> · Merci</p>
+          <p><span class="ko">죄송합니다</span> · Désolé(e) / Excusez-moi</p>
+          <p><span class="ko">괜찮아요</span> · Ça va / Ce n'est pas grave</p>
+        </div>
+        <div class="lock-message">🔒 Se débloque après le chapitre 1.</div>
+        <span class="unlock-badge">Chapitre 1</span>
+      </article>
+
+      <article class="memo-card locked" data-unlock-chapter="14" data-search="café 커피 물 차">
+        <h3 class="memo-card-title">☕ Café</h3>
+        <div class="memo-card-content">
+          <div class="situation-tags"><span>커피 · café</span><span>물 · eau</span><span>차 · thé</span></div>
+        </div>
+        <div class="lock-message">🔒 Se débloque après le chapitre 14.</div>
+        <span class="unlock-badge">Chapitre 14</span>
+      </article>
+
+      <article class="memo-card locked" data-unlock-chapter="15" data-search="restaurant 메뉴 비빔밥 김치 계산 추천">
+        <h3 class="memo-card-title">🍜 Restaurant</h3>
+        <div class="memo-card-content">
+          <div class="situation-tags"><span>메뉴</span><span>비빔밥</span><span>김치</span><span>계산</span><span>추천</span></div>
+        </div>
+        <div class="lock-message">🔒 Se débloque après le chapitre 15.</div>
+        <span class="unlock-badge">Chapitre 15</span>
+      </article>
+
+      <article class="memo-card locked" data-unlock-chapter="23" data-search="supermarché 마트 우유 딸기 과자 라면 빵 과일 채소 계산대">
+        <h3 class="memo-card-title">🛒 Courses</h3>
+        <div class="memo-card-content">
+          <div class="situation-tags"><span>마트</span><span>우유</span><span>딸기</span><span>과자</span><span>라면</span><span>빵</span><span>과일</span><span>채소</span><span>계산대</span></div>
+        </div>
+        <div class="lock-message">🔒 Se débloque après le chapitre 23.</div>
+        <span class="unlock-badge">Chapitre 23</span>
+      </article>
+
+      <article class="memo-card locked" data-unlock-chapter="25" data-search="poste 우체국 소포 주소 우표">
+        <h3 class="memo-card-title">📮 Poste</h3>
+        <div class="memo-card-content">
+          <div class="situation-tags"><span>우체국 · poste</span><span>소포 · colis</span><span>주소 · adresse</span><span>우표 · timbre</span></div>
+        </div>
+        <div class="lock-message">🔒 Se débloque après le chapitre 25.</div>
+        <span class="unlock-badge">Chapitre 25</span>
+      </article>
+
+      <article class="memo-card locked" data-unlock-chapter="26" data-search="pharmacie 약국 약 열 기침 콧물">
+        <h3 class="memo-card-title">💊 Pharmacie</h3>
+        <div class="memo-card-content">
+          <div class="situation-tags"><span>약국 · pharmacie</span><span>약 · médicament</span><span>열 · fièvre</span><span>기침 · toux</span><span>콧물 · nez qui coule</span></div>
+        </div>
+        <div class="lock-message">🔒 Se débloque après le chapitre 26.</div>
+        <span class="unlock-badge">Chapitre 26</span>
+      </article>
+
+      <article class="memo-card locked" data-unlock-chapter="27" data-search="train 기차 기차역 역 기차표 승강장 좌석 출발 도착">
+        <h3 class="memo-card-title">🚄 Train</h3>
+        <div class="memo-card-content">
+          <div class="situation-tags"><span>기차</span><span>기차역</span><span>기차표</span><span>승강장</span><span>좌석</span><span>출발</span><span>도착</span></div>
+        </div>
+        <div class="lock-message">🔒 Se débloque après le chapitre 27.</div>
+        <span class="unlock-badge">Chapitre 27</span>
+      </article>
+
+      <article class="memo-card locked" data-unlock-chapter="28" data-search="busan 부산 바다 해변 사진 걷다">
+        <h3 class="memo-card-title">🌊 Busan</h3>
+        <div class="memo-card-content">
+          <div class="situation-tags"><span>부산</span><span>바다 · mer</span><span>해변 · plage</span><span>사진 · photo</span><span>걷다 · marcher</span></div>
+        </div>
+        <div class="lock-message">🔒 Se débloque après le chapitre 28.</div>
+        <span class="unlock-badge">Chapitre 28</span>
+      </article>
+
+      <article class="memo-card locked" data-unlock-chapter="30" data-search="temps aujourd'hui demain semaine prochaine 계획">
+        <h3 class="memo-card-title">📅 Se repérer dans le temps</h3>
+        <div class="memo-card-content">
+          <p><span class="ko">오늘</span> · aujourd'hui</p>
+          <p><span class="ko">내일</span> · demain</p>
+          <p><span class="ko">다음 주</span> · la semaine prochaine</p>
+          <p><span class="ko">계획</span> · projet / plan</p>
+        </div>
+        <div class="lock-message">🔒 Se débloque après le chapitre 30.</div>
+        <span class="unlock-badge">Chapitre 30</span>
+      </article>
+    </div>
+  </section>
+
+  <!-- MÉMO EXPRESS -->
+  <section class="memo-section quick-memo" data-category="all">
+    <div class="section-heading">
+      <h2>🎒 Mémo express</h2>
+    </div>
+
+    <div class="quick-line locked" data-quick-chapter="12">
+      <span class="quick-content">💙 <strong>Particules :</strong> 은/는 · 이/가 · 을/를 · 에 · 에서</span>
+      <span class="quick-lock">🔒 Les particules principales apparaîtront au fil des premiers chapitres.</span>
+    </div>
+
+    <div class="quick-line locked" data-quick-chapter="8">
+      <span class="quick-content">🕒 <strong>Heure :</strong> heures = nombres coréens · minutes = nombres sino-coréens</span>
+      <span class="quick-lock">🔒 Se débloque après le chapitre 8.</span>
+    </div>
+
+    <div class="quick-line locked" data-quick-chapter="15">
+      <span class="quick-content">🍜 <strong>Restaurant :</strong> 주세요 · 계산해 주세요 · 추천해 주세요</span>
+      <span class="quick-lock">🔒 Se débloque après le chapitre 15.</span>
+    </div>
+
+    <div class="quick-line locked" data-quick-chapter="16">
+      <span class="quick-content">🏨 <strong>Hôtel :</strong> 예약했어요 · 와이파이 있어요?</span>
+      <span class="quick-lock">🔒 Se débloque après le chapitre 16.</span>
+    </div>
+
+    <div class="quick-line locked" data-quick-chapter="19">
+      <span class="quick-content">📖 <strong>Passé :</strong> 갔어요 · 먹었어요 · 봤어요 · 했어요</span>
+      <span class="quick-lock">🔒 Se débloque après le chapitre 19.</span>
+    </div>
+
+    <div class="quick-line locked" data-quick-chapter="21">
+      <span class="quick-content">🌸 <strong>Proposer :</strong> -(으)ㄹ래요? · -까요?</span>
+      <span class="quick-lock">🔒 Se débloque après le chapitre 21.</span>
+    </div>
+
+    <div class="quick-line locked" data-quick-chapter="23">
+      <span class="quick-content">🛒 <strong>Envie :</strong> -고 싶어요</span>
+      <span class="quick-lock">🔒 Se débloque après le chapitre 23.</span>
+    </div>
+
+    <div class="quick-line locked" data-quick-chapter="25">
+      <span class="quick-content">📮 <strong>Durée :</strong> 얼마나 걸려요?</span>
+      <span class="quick-lock">🔒 Se débloque après le chapitre 25.</span>
+    </div>
+
+    <div class="quick-line locked" data-quick-chapter="26">
+      <span class="quick-content">💊 <strong>Pharmacie :</strong> 머리가 아파요 · 약이 필요해요</span>
+      <span class="quick-lock">🔒 Se débloque après le chapitre 26.</span>
+    </div>
+
+    <div class="quick-line locked" data-quick-chapter="27">
+      <span class="quick-content">🚄 <strong>Train :</strong> 승강장이 어디예요? · 몇 시에 출발해요?</span>
+      <span class="quick-lock">🔒 Se débloque après le chapitre 27.</span>
+    </div>
+
+    <div class="quick-line locked" data-quick-chapter="30">
+      <span class="quick-content">🔮 <strong>Projets :</strong> -(으)ㄹ 거예요</span>
+      <span class="quick-lock">🔒 Se débloque après le chapitre 30.</span>
+    </div>
+  </section>
+
+  <div class="empty-state" id="emptyState">
+    Aucun mémo ne correspond à ta recherche.
+  </div>
+
+</main>
+
+<script>
+(function () {
+  "use strict";
+
+  const FIRST_CHAPTER = 1;
+  const LAST_CHAPTER = 30;
+
+  const searchInput = document.getElementById("memoSearch");
+  const categoryNav = document.getElementById("categoryNav");
+  const progressText = document.getElementById("memoProgressText");
+  const progressFill = document.getElementById("memoProgressFill");
+  const progressNote = document.getElementById("memoProgressNote");
+  const emptyState = document.getElementById("emptyState");
+
+  let activeFilter = "all";
+
+  function originalChapterCompleted(chapterNumber) {
+    return localStorage.getItem(
+      "hanaKorean_chapter" + chapterNumber + "_completed"
+    ) === "completed";
+  }
+
+  function permanentKey(chapterNumber) {
+    return "hanaKorean_backpack_chapter" + chapterNumber + "_unlocked";
+  }
+
+  function syncPermanentUnlocks() {
+    for (let n = FIRST_CHAPTER; n <= LAST_CHAPTER; n++) {
+      if (originalChapterCompleted(n)) {
+        localStorage.setItem(permanentKey(n), "true");
+      }
+    }
+  }
+
+  function chapterUnlocked(chapterNumber) {
+    return localStorage.getItem(permanentKey(chapterNumber)) === "true";
+  }
+
+  function renderLocks() {
+    document.querySelectorAll("[data-unlock-chapter]").forEach(card => {
+      const chapter = Number(card.dataset.unlockChapter);
+      const unlocked = chapterUnlocked(chapter);
+
+      card.classList.toggle("locked", !unlocked);
+
+      const badge = card.querySelector(".unlock-badge");
+      if (badge) {
+        badge.textContent = unlocked
+          ? "✅ Débloqué"
+          : "🔒 Chapitre " + chapter;
+      }
+    });
+
+    document.querySelectorAll("[data-quick-chapter]").forEach(line => {
+      const chapter = Number(line.dataset.quickChapter);
+      line.classList.toggle("locked", !chapterUnlocked(chapter));
+    });
+  }
+
+  function renderProgress() {
+    let unlocked = 0;
+
+    for (let n = FIRST_CHAPTER; n <= LAST_CHAPTER; n++) {
+      if (chapterUnlocked(n)) unlocked++;
+    }
+
+    const total = LAST_CHAPTER - FIRST_CHAPTER + 1;
+    const percent = Math.round((unlocked / total) * 100);
+
+    progressText.textContent = unlocked + " / " + total + " chapitres";
+    progressFill.style.width = percent + "%";
+
+    if (unlocked === 0) {
+      progressNote.textContent =
+        "Ton sac à dos se remplira dès que tu termineras les premiers chapitres.";
+    } else if (unlocked === total) {
+      progressNote.textContent =
+        "🌸 Ton sac à dos contient maintenant les acquis des chapitres 1 à 30.";
+    } else {
+      progressNote.textContent =
+        "🌿 Les notions déjà apprises restent disponibles définitivement.";
+    }
+  }
+
+  function normalizeText(value) {
+    return value
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "");
+  }
+
+  function applyFilters() {
+    const query = normalizeText(searchInput.value.trim());
+    let visibleCards = 0;
+
+    document.querySelectorAll(".memo-section[data-category]").forEach(section => {
+      const category = section.dataset.category;
+
+      if (category === "all") {
+        section.hidden = activeFilter !== "all" || query.length > 0;
+        return;
+      }
+
+      const categoryAllowed =
+        activeFilter === "all" || activeFilter === category;
+
+      let sectionHasVisibleCard = false;
+
+      section.querySelectorAll(".memo-card").forEach(card => {
+        const searchable = normalizeText(
+          (card.dataset.search || "") + " " + card.textContent
+        );
+
+        const matchesQuery =
+          query === "" || searchable.includes(query);
+
+        const visible = categoryAllowed && matchesQuery;
+
+        card.classList.toggle("filtered-out", !visible);
+
+        if (visible) {
+          visibleCards++;
+          sectionHasVisibleCard = true;
+        }
+      });
+
+      section.hidden = !sectionHasVisibleCard;
+    });
+
+    emptyState.style.display =
+      visibleCards === 0 && (query !== "" || activeFilter !== "all")
+        ? "block"
+        : "none";
+  }
+
+  function renderCounts() {
+    document.querySelectorAll("[data-count-for]").forEach(label => {
+      const category = label.dataset.countFor;
+      const section = document.querySelector(
+        '.memo-section[data-category="' + category + '"]'
+      );
+
+      if (!section) return;
+
+      const cards = [...section.querySelectorAll(".memo-card")];
+      const unlocked = cards.filter(card => {
+        const chapter = Number(card.dataset.unlockChapter);
+        return chapterUnlocked(chapter);
+      }).length;
+
+      label.textContent = unlocked + " / " + cards.length;
+    });
+  }
+
+  function render() {
+    syncPermanentUnlocks();
+    renderLocks();
+    renderProgress();
+    renderCounts();
+    applyFilters();
+  }
+
+  categoryNav.addEventListener("click", event => {
+    const button = event.target.closest("[data-filter]");
+    if (!button) return;
+
+    activeFilter = button.dataset.filter;
+
+    categoryNav.querySelectorAll(".category-chip").forEach(chip => {
+      chip.classList.toggle(
+        "active",
+        chip.dataset.filter === activeFilter
+      );
+    });
+
+    applyFilters();
+  });
+
+  searchInput.addEventListener("input", applyFilters);
+
+  window.addEventListener("pageshow", render);
+  window.addEventListener("storage", render);
+
+  render();
+})();
+</script>
+
+</body>
+</html>
