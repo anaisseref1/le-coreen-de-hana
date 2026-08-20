@@ -1,0 +1,84 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#F7F4ED">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="chapter-progress.css"><title>Chapitre 26 — Exercice d'écoute</title>
+<style>.exercise-header{text-align:center;margin-bottom:24px}.card{padding:20px;margin-bottom:18px;background:var(--white);border-radius:var(--radius-large);box-shadow:var(--shadow)}.question{padding:16px;margin-top:14px;background:#FBFAF6;border-radius:var(--radius-medium)}.question button,.audio-button{width:100%;margin-top:8px}.feedback{margin-top:8px}.next-button{display:none;width:100%;background:var(--navy);color:white;font-weight:bold}</style></head><body><main class="app">
+<a class="back-link" href="ecoute-26.html">← Écoute</a><section id="hanaChapterPath" data-chapter-path></section>
+<header class="exercise-header"><span class="chapter-badge">Chapitre 26 · 🎧 Je vérifie mon écoute</span><p class="korean">머리가 아파요.</p><h1>À la pharmacie</h1><p>Écoute chaque phrase et reconnais les expressions importantes.</p></header>
+<section class="card"><h2>🎧 Compréhension</h2>
+<div class="question" data-answer="b" data-audio="약국에 갈까요?"><p><strong>1. Où propose d'aller Min-su avec Hana ?</strong></p><button class="audio-button" type="button">🔊 Écouter</button><button data-choice="a">Au supermarché</button><button data-choice="b">À la pharmacie</button><button data-choice="c">À la poste</button><div class="feedback"></div></div>
+<div class="question" data-answer="a" data-audio="머리가 아파요."><p><strong>2. Que signifie 머리가 아파요 ?</strong></p><button class="audio-button" type="button">🔊 Écouter</button><button data-choice="a">J'ai mal à la tête.</button><button data-choice="b">J'ai mal au ventre.</button><button data-choice="c">J'ai faim.</button><div class="feedback"></div></div>
+<div class="question" data-answer="c" data-audio="어디가 아파요?"><p><strong>3. Que demande le pharmacien ?</strong></p><button class="audio-button" type="button">🔊 Écouter</button><button data-choice="a">Quel est votre nom ?</button><button data-choice="b">Où habitez-vous ?</button><button data-choice="c">Où avez-vous mal ?</button><div class="feedback"></div></div>
+<div class="question" data-answer="b" data-audio="열이 있어요?"><p><strong>4. Que signifie 열이 있어요?</strong></p><button class="audio-button" type="button">🔊 Écouter</button><button data-choice="a">Vous toussez ?</button><button data-choice="b">Vous avez de la fièvre ?</button><button data-choice="c">Vous avez besoin d'eau ?</button><div class="feedback"></div></div>
+<div class="question" data-answer="a" data-audio="하루에 세 번 드세요."><p><strong>5. Que doit faire Hana avec le médicament ?</strong></p><button class="audio-button" type="button">🔊 Écouter</button><button data-choice="a">Le prendre trois fois par jour.</button><button data-choice="b">Le jeter.</button><button data-choice="c">Le donner à quelqu'un.</button><div class="feedback"></div></div>
+</section>
+<section class="card"><h2>💡 Mots entendus</h2><p><strong>약국</strong> → pharmacie</p><p><strong>아파요</strong> → j'ai mal / je suis malade</p><p><strong>약</strong> → médicament</p><p><strong>열</strong> → fièvre</p></section>
+<button id="next" class="next-button" type="button">🗣️ Passer à l'oral</button>
+</main><script src="chapter-progress.js"></script><script>
+const UNDERSTANDING_KEY = "hanaKorean_chapter26_understanding";
+const LISTENING_KEY = "hanaKorean_chapter26_listening";
+const LISTENING_EXERCISE_KEY = "hanaKorean_chapter26_listeningExercise";
+const MISTAKES_KEY = "hanaKorean_chapter26_listeningMistakes";
+
+if (localStorage.getItem(UNDERSTANDING_KEY) !== "completed") {
+  window.location.href = "chapitre-26.html";
+}
+if (!localStorage.getItem(LISTENING_KEY)) {
+  window.location.href = "ecoute-26.html";
+}
+
+let done = 0;
+let mistakes = 0;
+const questions = Array.from(document.querySelectorAll(".question"));
+const nextButton = document.getElementById("next");
+
+function speak(text) {
+  const utterance = new SpeechSynthesisUtterance(text);
+  utterance.lang = "ko-KR";
+  utterance.rate = 0.8;
+  speechSynthesis.cancel();
+  speechSynthesis.speak(utterance);
+}
+
+questions.forEach(question => {
+  question.querySelector(".audio-button").addEventListener("click", () => {
+    speak(question.dataset.audio);
+  });
+
+  question.querySelectorAll("button[data-choice]").forEach(button => {
+    button.addEventListener("click", () => {
+      if (question.dataset.done) return;
+      const feedback = question.querySelector(".feedback");
+
+      if (button.dataset.choice === question.dataset.answer) {
+        question.dataset.done = "true";
+        feedback.textContent = "✅ Correct !";
+        done += 1;
+      } else {
+        mistakes += 1;
+        feedback.textContent = "❌ Essaie encore.";
+      }
+
+      if (done === questions.length) {
+        localStorage.setItem(LISTENING_KEY, "completed");
+        localStorage.setItem(LISTENING_EXERCISE_KEY, "completed");
+        localStorage.setItem(MISTAKES_KEY, String(mistakes));
+        nextButton.style.display = "block";
+        if (window.HanaChapterProgress) HanaChapterProgress.render();
+      }
+    });
+  });
+});
+
+if (localStorage.getItem(LISTENING_EXERCISE_KEY) === "completed") {
+  nextButton.style.display = "block";
+}
+nextButton.addEventListener("click", () => {
+  window.location.href = "parle-26.html";
+});
+window.addEventListener("pageshow", () => {
+  if (window.HanaChapterProgress) HanaChapterProgress.render();
+});
+if (window.HanaChapterProgress) HanaChapterProgress.render();
+</script></body></html>

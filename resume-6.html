@@ -1,0 +1,1590 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="theme-color"
+    content="#F7F4ED"
+  >
+
+  <title>
+    Chapitre 6 — Résumé
+  </title>
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="chapter-progress.css"
+  >
+
+
+  <script>
+
+    /* =====================================================
+       GARDE — LE CHAPITRE DOIT ÊTRE TERMINÉ
+       ===================================================== */
+
+    if (
+      localStorage.getItem(
+        "hanaKorean_chapter6_completed"
+      ) !== "completed"
+    ) {
+
+      window.location.replace(
+        "chapitre-6.html"
+      );
+
+    }
+
+  </script>
+
+
+  <style>
+
+    /* =====================================================
+       EN-TÊTE
+       ===================================================== */
+
+    .summary-header {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+
+    .chapter-badge {
+      display: inline-block;
+      padding: 7px 14px;
+      margin-bottom: 10px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+
+    .summary-intro {
+      color: var(--text-light);
+      line-height: 1.7;
+    }
+
+
+    /* =====================================================
+       FÉLICITATION
+       ===================================================== */
+
+    .success-card {
+      padding: 20px;
+      margin-bottom: 20px;
+      background: var(--soft-green);
+      border-radius: var(--radius-large);
+      color: var(--navy);
+      text-align: center;
+      line-height: 1.7;
+    }
+
+
+    .success-icon {
+      margin-bottom: 8px;
+      font-size: 42px;
+    }
+
+
+    .success-card h2 {
+      margin: 0 0 8px;
+    }
+
+
+    /* =====================================================
+       CARTES
+       ===================================================== */
+
+    .summary-card {
+      padding: 20px;
+      margin-bottom: 18px;
+    }
+
+
+    .summary-card h2 {
+      margin-top: 0;
+    }
+
+
+    /* =====================================================
+       VOCABULAIRE
+       ===================================================== */
+
+    .vocab-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+
+    .vocab-item {
+      padding: 14px;
+      background: #FBFAF6;
+      border-radius: var(--radius-medium);
+    }
+
+
+    .vocab-korean {
+      color: var(--navy);
+      font-size: 19px;
+      font-weight: bold;
+    }
+
+
+    .vocab-french {
+      margin-top: 4px;
+      color: var(--text-light);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+
+    /* =====================================================
+       PHRASES
+       ===================================================== */
+
+    .phrase {
+      padding: 15px;
+      margin-top: 11px;
+      background: #FBFAF6;
+      border-radius: var(--radius-medium);
+      line-height: 1.7;
+    }
+
+
+    .phrase-korean {
+      color: var(--navy);
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+
+    .phrase-french {
+      display: block;
+      margin-top: 4px;
+      color: var(--text-light);
+    }
+
+
+    /* =====================================================
+       STRUCTURES
+       ===================================================== */
+
+    .structure-box {
+      padding: 17px;
+      margin-top: 14px;
+      background: var(--soft-beige);
+      border-radius: var(--radius-medium);
+      color: var(--navy);
+      text-align: center;
+      font-size: 19px;
+      font-weight: bold;
+      line-height: 1.8;
+    }
+
+
+    .tip-box {
+      padding: 16px;
+      margin-top: 14px;
+      background: var(--soft-blue);
+      border-radius: var(--radius-medium);
+      color: var(--navy);
+      line-height: 1.7;
+    }
+
+
+    .culture-box {
+      padding: 16px;
+      margin-top: 14px;
+      background: var(--soft-green);
+      border-radius: var(--radius-medium);
+      color: var(--navy);
+      line-height: 1.7;
+    }
+
+
+    /* =====================================================
+       COMPARAISON
+       ===================================================== */
+
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+
+    .comparison-item {
+      padding: 15px;
+      background: #FBFAF6;
+      border-radius: var(--radius-medium);
+      text-align: center;
+    }
+
+
+    .comparison-korean {
+      color: var(--navy);
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+
+    .comparison-french {
+      margin-top: 5px;
+      color: var(--text-light);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+
+    /* =====================================================
+       DIALOGUE
+       ===================================================== */
+
+    .dialogue-line {
+      padding: 14px;
+      margin-top: 10px;
+      background: #FBFAF6;
+      border-radius: var(--radius-medium);
+      line-height: 1.7;
+    }
+
+
+    .speaker {
+      margin-bottom: 5px;
+      color: var(--navy);
+      font-weight: bold;
+    }
+
+
+    /* =====================================================
+       AUDIO
+       ===================================================== */
+
+    .audio-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 9px;
+      margin-top: 11px;
+    }
+
+
+    .audio-button,
+    .slow-button {
+      width: 100%;
+      font-weight: bold;
+    }
+
+
+    .audio-button {
+      background: var(--soft-blue);
+      color: var(--navy);
+    }
+
+
+    .slow-button {
+      background: var(--soft-beige);
+      color: var(--navy);
+    }
+
+
+    /* =====================================================
+       ACTIONS
+       ===================================================== */
+
+    .summary-actions {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+
+    .primary-button {
+      width: 100%;
+      background: var(--jade);
+      color: white;
+      font-weight: bold;
+    }
+
+
+    .secondary-button {
+      width: 100%;
+      background: var(--soft-beige);
+      color: var(--navy);
+      font-weight: bold;
+    }
+
+
+    @media (max-width: 480px) {
+
+      .vocab-grid {
+        grid-template-columns: 1fr;
+      }
+
+
+      .comparison-grid {
+        grid-template-columns: 1fr;
+      }
+
+
+      .audio-row {
+        grid-template-columns: 1fr;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+<main class="app">
+
+
+  <!-- =====================================================
+       RETOUR
+       ===================================================== -->
+
+  <a
+    class="back-link"
+    href="itineraire.html#module1"
+  >
+    ← Mon itinéraire
+  </a>
+
+
+
+  <!-- =====================================================
+       EN-TÊTE
+       ===================================================== -->
+
+  <header class="summary-header">
+
+    <span class="chapter-badge">
+      Module 1 · Chapitre 6
+    </span>
+
+
+    <p class="korean">
+      가족을 소개해 봐요 👨‍👩‍👧
+    </p>
+
+
+    <h1>
+      Résumé du chapitre
+    </h1>
+
+
+    <p class="summary-intro">
+      Retrouve ici les mots
+      et les structures essentielles
+      pour présenter ta famille
+      et demander qui est une personne.
+    </p>
+
+  </header>
+
+
+
+  <!-- =====================================================
+       FÉLICITATION
+       ===================================================== -->
+
+  <section class="success-card">
+
+    <div class="success-icon">
+      👨‍👩‍👧
+    </div>
+
+
+    <h2>
+      Tu sais présenter ta famille !
+    </h2>
+
+
+    <p>
+      Tu peux maintenant parler
+      de plusieurs membres de ta famille,
+      utiliser <strong>제</strong>
+      et comprendre une petite conversation
+      autour d'une photo.
+    </p>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       VOCABULAIRE
+       ===================================================== -->
+
+  <section class="summary-card">
+
+    <h2>
+      🌱 Vocabulaire essentiel
+    </h2>
+
+
+    <div class="vocab-grid">
+
+
+      <div class="vocab-item">
+
+        <div class="vocab-korean">
+          가족
+        </div>
+
+        <div class="vocab-french">
+          famille
+        </div>
+
+      </div>
+
+
+      <div class="vocab-item">
+
+        <div class="vocab-korean">
+          엄마
+        </div>
+
+        <div class="vocab-french">
+          maman
+        </div>
+
+      </div>
+
+
+      <div class="vocab-item">
+
+        <div class="vocab-korean">
+          아빠
+        </div>
+
+        <div class="vocab-french">
+          papa
+        </div>
+
+      </div>
+
+
+      <div class="vocab-item">
+
+        <div class="vocab-korean">
+          어머니
+        </div>
+
+        <div class="vocab-french">
+          mère · forme plus polie
+        </div>
+
+      </div>
+
+
+      <div class="vocab-item">
+
+        <div class="vocab-korean">
+          아버지
+        </div>
+
+        <div class="vocab-french">
+          père · forme plus polie
+        </div>
+
+      </div>
+
+
+      <div class="vocab-item">
+
+        <div class="vocab-korean">
+          언니
+        </div>
+
+        <div class="vocab-french">
+          grande sœur · quand une femme parle
+        </div>
+
+      </div>
+
+
+      <div class="vocab-item">
+
+        <div class="vocab-korean">
+          오빠
+        </div>
+
+        <div class="vocab-french">
+          grand frère · quand une femme parle
+        </div>
+
+      </div>
+
+
+      <div class="vocab-item">
+
+        <div class="vocab-korean">
+          동생
+        </div>
+
+        <div class="vocab-french">
+          petit frère / petite sœur
+        </div>
+
+      </div>
+
+
+      <div class="vocab-item">
+
+        <div class="vocab-korean">
+          부모님
+        </div>
+
+        <div class="vocab-french">
+          parents
+        </div>
+
+      </div>
+
+
+      <div class="vocab-item">
+
+        <div class="vocab-korean">
+          친구
+        </div>
+
+        <div class="vocab-french">
+          ami(e)
+        </div>
+
+      </div>
+
+
+      <div class="vocab-item">
+
+        <div class="vocab-korean">
+          사진
+        </div>
+
+        <div class="vocab-french">
+          photo
+        </div>
+
+      </div>
+
+
+      <div class="vocab-item">
+
+        <div class="vocab-korean">
+          누구
+        </div>
+
+        <div class="vocab-french">
+          qui
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       PARENTS
+       ===================================================== -->
+
+  <section class="summary-card">
+
+    <h2>
+      👨‍👩‍👧 Deux façons de parler de ses parents
+    </h2>
+
+
+    <div class="comparison-grid">
+
+
+      <div class="comparison-item">
+
+        <div class="comparison-korean">
+          엄마
+        </div>
+
+        <div class="comparison-french">
+          maman
+          <br>
+          courant et familial
+        </div>
+
+      </div>
+
+
+      <div class="comparison-item">
+
+        <div class="comparison-korean">
+          어머니
+        </div>
+
+        <div class="comparison-french">
+          mère
+          <br>
+          plus poli / respectueux
+        </div>
+
+      </div>
+
+
+      <div class="comparison-item">
+
+        <div class="comparison-korean">
+          아빠
+        </div>
+
+        <div class="comparison-french">
+          papa
+          <br>
+          courant et familial
+        </div>
+
+      </div>
+
+
+      <div class="comparison-item">
+
+        <div class="comparison-korean">
+          아버지
+        </div>
+
+        <div class="comparison-french">
+          père
+          <br>
+          plus poli / respectueux
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       제
+       ===================================================== -->
+
+  <section class="summary-card">
+
+    <h2>
+      🌿 제 — mon / ma / mes
+    </h2>
+
+
+    <div class="structure-box">
+
+      저의 → 제
+
+      <br>
+
+      mon / ma / mes
+
+    </div>
+
+
+    <p>
+      <strong>제</strong>
+      est la contraction très courante
+      de <strong>저의</strong>.
+    </p>
+
+
+    <div class="phrase">
+
+      <div class="phrase-korean">
+        제 엄마
+      </div>
+
+      <span class="phrase-french">
+        ma mère / ma maman
+      </span>
+
+    </div>
+
+
+    <div class="phrase">
+
+      <div class="phrase-korean">
+        제 아빠
+      </div>
+
+      <span class="phrase-french">
+        mon père / mon papa
+      </span>
+
+    </div>
+
+
+    <div class="phrase">
+
+      <div class="phrase-korean">
+        제 가족
+      </div>
+
+      <span class="phrase-french">
+        ma famille
+      </span>
+
+    </div>
+
+
+    <div class="phrase">
+
+      <div class="phrase-korean">
+        제 친구
+      </div>
+
+      <span class="phrase-french">
+        mon ami(e)
+      </span>
+
+    </div>
+
+
+    <div class="tip-box">
+
+      En coréen,
+      <strong>제</strong>
+      reste le même.
+
+      <br><br>
+
+      Il n'y a pas une forme différente
+      pour « mon », « ma » et « mes ».
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       PRÉSENTER
+       ===================================================== -->
+
+  <section class="summary-card">
+
+    <h2>
+      💬 Présenter quelqu'un
+    </h2>
+
+
+    <div class="structure-box">
+
+      personne + 이에요 / 예요
+
+    </div>
+
+
+    <div class="phrase">
+
+      <div class="phrase-korean">
+        제 엄마예요.
+      </div>
+
+      <span class="phrase-french">
+        C'est ma mère.
+      </span>
+
+
+      <div class="audio-row">
+
+        <button
+          class="audio-button"
+          type="button"
+          onclick="speakKorean('제 엄마예요.', 'hana')"
+        >
+          🔊 Écouter
+        </button>
+
+
+        <button
+          class="slow-button"
+          type="button"
+          onclick="speakKoreanSlow('제 엄마예요.', 'hana')"
+        >
+          🐢 Lentement
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="phrase">
+
+      <div class="phrase-korean">
+        제 아빠예요.
+      </div>
+
+      <span class="phrase-french">
+        C'est mon père.
+      </span>
+
+
+      <div class="audio-row">
+
+        <button
+          class="audio-button"
+          type="button"
+          onclick="speakKorean('제 아빠예요.', 'hana')"
+        >
+          🔊 Écouter
+        </button>
+
+
+        <button
+          class="slow-button"
+          type="button"
+          onclick="speakKoreanSlow('제 아빠예요.', 'hana')"
+        >
+          🐢 Lentement
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="phrase">
+
+      <div class="phrase-korean">
+        제 가족이에요.
+      </div>
+
+      <span class="phrase-french">
+        C'est ma famille.
+      </span>
+
+    </div>
+
+
+    <div class="tip-box">
+
+      Observe :
+
+      <br><br>
+
+      엄마 se termine par une voyelle
+
+      <br>
+
+      → 엄마<strong>예요</strong>
+
+      <br><br>
+
+      가족 se termine par une consonne
+
+      <br>
+
+      → 가족<strong>이에요</strong>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       QUI ?
+       ===================================================== -->
+
+  <section class="summary-card">
+
+    <h2>
+      👤 Demander qui est une personne
+    </h2>
+
+
+    <div class="phrase">
+
+      <div class="phrase-korean">
+        누구예요?
+      </div>
+
+      <span class="phrase-french">
+        Qui est-ce ?
+      </span>
+
+    </div>
+
+
+    <div class="phrase">
+
+      <div class="phrase-korean">
+        이 사람은 누구예요?
+      </div>
+
+      <span class="phrase-french">
+        Cette personne, qui est-ce ?
+      </span>
+
+
+      <div class="audio-row">
+
+        <button
+          class="audio-button"
+          type="button"
+          onclick="speakKorean('이 사람은 누구예요?', 'minsu')"
+        >
+          🔊 Écouter
+        </button>
+
+
+        <button
+          class="slow-button"
+          type="button"
+          onclick="speakKoreanSlow('이 사람은 누구예요?', 'minsu')"
+        >
+          🐢 Lentement
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="tip-box">
+
+      Tu connaissais déjà
+      <strong>누구</strong>
+      grâce au chapitre 5.
+
+      <br><br>
+
+      Dans ce chapitre,
+      tu l'as simplement réutilisé
+      dans une nouvelle situation :
+      parler des personnes sur une photo.
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       PHOTO
+       ===================================================== -->
+
+  <section class="summary-card">
+
+    <h2>
+      📷 Parler d'une photo de famille
+    </h2>
+
+
+    <div class="phrase">
+
+      <div class="phrase-korean">
+        제 가족 사진이에요.
+      </div>
+
+      <span class="phrase-french">
+        C'est une photo de ma famille.
+      </span>
+
+
+      <div class="audio-row">
+
+        <button
+          class="audio-button"
+          type="button"
+          onclick="speakKorean('제 가족 사진이에요.', 'hana')"
+        >
+          🔊 Écouter
+        </button>
+
+
+        <button
+          class="slow-button"
+          type="button"
+          onclick="speakKoreanSlow('제 가족 사진이에요.', 'hana')"
+        >
+          🐢 Lentement
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="tip-box">
+
+      <strong>가족 사진</strong>
+
+      <br>
+
+      = photo de famille
+
+      <br><br>
+
+      En ajoutant
+      <strong>제</strong> :
+
+      <br><br>
+
+      <strong>제 가족 사진</strong>
+
+      <br>
+
+      = ma photo de famille /
+      une photo de ma famille
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       DIALOGUE
+       ===================================================== -->
+
+  <section class="summary-card">
+
+    <h2>
+      💬 Mini dialogue
+    </h2>
+
+
+    <div class="dialogue-line">
+
+      <div class="speaker">
+        💙 Min-su
+      </div>
+
+      이 사진은 뭐예요?
+
+      <br>
+
+      <span class="phrase-french">
+        Cette photo, qu'est-ce que c'est ?
+      </span>
+
+    </div>
+
+
+    <div class="dialogue-line">
+
+      <div class="speaker">
+        🌸 Hana
+      </div>
+
+      제 가족 사진이에요.
+
+      <br>
+
+      <span class="phrase-french">
+        C'est une photo de ma famille.
+      </span>
+
+    </div>
+
+
+    <div class="dialogue-line">
+
+      <div class="speaker">
+        💙 Min-su
+      </div>
+
+      이 사람은 누구예요?
+
+      <br>
+
+      <span class="phrase-french">
+        Cette personne, qui est-ce ?
+      </span>
+
+    </div>
+
+
+    <div class="dialogue-line">
+
+      <div class="speaker">
+        🌸 Hana
+      </div>
+
+      제 엄마예요.
+
+      <br>
+
+      <span class="phrase-french">
+        C'est ma mère.
+      </span>
+
+    </div>
+
+
+    <div class="dialogue-line">
+
+      <div class="speaker">
+        💙 Min-su
+      </div>
+
+      그리고 이 사람은요?
+
+      <br>
+
+      <span class="phrase-french">
+        Et cette personne ?
+      </span>
+
+    </div>
+
+
+    <div class="dialogue-line">
+
+      <div class="speaker">
+        🌸 Hana
+      </div>
+
+      제 아빠예요.
+
+      <br>
+
+      <span class="phrase-french">
+        C'est mon père.
+      </span>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       CULTURE
+       ===================================================== -->
+
+  <section class="summary-card">
+
+    <h2>
+      🇰🇷 Petite note culturelle — 우리
+    </h2>
+
+
+    <div class="culture-box">
+
+      En coréen,
+      tu entendras très souvent :
+
+      <br><br>
+
+      <strong>
+        우리 엄마
+      </strong>
+
+      <br>
+
+      littéralement :
+      « notre maman »
+
+      <br><br>
+
+      et :
+
+      <br><br>
+
+      <strong>
+        우리 아빠
+      </strong>
+
+      <br>
+
+      littéralement :
+      « notre papa »
+
+      <br><br>
+
+      même lorsqu'une personne
+      parle de sa propre mère
+      ou de son propre père.
+
+      <br><br>
+
+      Pour l'instant,
+      retiens surtout que cette manière
+      de parler est très naturelle.
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       MINI MÉMO
+       ===================================================== -->
+
+  <section class="summary-card">
+
+    <h2>
+      📓 Mini mémo
+    </h2>
+
+
+    <div class="phrase">
+
+      🌿
+
+      <div class="phrase-korean">
+        제
+      </div>
+
+      <span class="phrase-french">
+        mon / ma / mes
+      </span>
+
+    </div>
+
+
+    <div class="phrase">
+
+      👩
+
+      <div class="phrase-korean">
+        제 엄마예요.
+      </div>
+
+      <span class="phrase-french">
+        C'est ma mère.
+      </span>
+
+    </div>
+
+
+    <div class="phrase">
+
+      👨
+
+      <div class="phrase-korean">
+        제 아빠예요.
+      </div>
+
+      <span class="phrase-french">
+        C'est mon père.
+      </span>
+
+    </div>
+
+
+    <div class="phrase">
+
+      👨‍👩‍👧
+
+      <div class="phrase-korean">
+        제 가족이에요.
+      </div>
+
+      <span class="phrase-french">
+        C'est ma famille.
+      </span>
+
+    </div>
+
+
+    <div class="phrase">
+
+      👤
+
+      <div class="phrase-korean">
+        이 사람은 누구예요?
+      </div>
+
+      <span class="phrase-french">
+        Cette personne, qui est-ce ?
+      </span>
+
+    </div>
+
+
+    <div class="phrase">
+
+      📷
+
+      <div class="phrase-korean">
+        제 가족 사진이에요.
+      </div>
+
+      <span class="phrase-french">
+        C'est une photo de ma famille.
+      </span>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       ACTIONS
+       ===================================================== -->
+
+  <div class="summary-actions">
+
+    <button
+      class="primary-button"
+      type="button"
+      onclick="goToItinerary()"
+    >
+      🗺️ Retour au Module 1
+    </button>
+
+
+    <button
+      class="secondary-button"
+      type="button"
+      onclick="reviewAgain()"
+    >
+      🧠 Refaire la révision
+    </button>
+
+  </div>
+
+
+</main>
+
+
+
+<script src="chapter-progress.js"></script>
+
+
+<script>
+
+  /* =====================================================
+     AUDIO
+     ===================================================== */
+
+  const AUDIO_SETTINGS = {
+
+    normalRate:
+      0.82,
+
+    slowRate:
+      0.25
+
+  };
+
+
+  function getKoreanVoice() {
+
+    const voices =
+      window.speechSynthesis
+        .getVoices();
+
+
+    return (
+      voices.find(
+        voice =>
+          voice.lang &&
+          voice.lang
+            .toLowerCase()
+            .startsWith("ko")
+      ) ||
+      null
+    );
+
+  }
+
+
+
+  function characterPitch(
+    character
+  ) {
+
+    const pitches = {
+
+      hana:
+        1.06,
+
+      minsu:
+        0.94
+
+    };
+
+
+    return (
+      pitches[
+        character
+      ] ||
+      1
+    );
+
+  }
+
+
+
+  function speak(
+    text,
+    character,
+    rate
+  ) {
+
+    window.speechSynthesis.cancel();
+
+
+    const utterance =
+      new SpeechSynthesisUtterance(
+        text
+      );
+
+
+    utterance.lang =
+      "ko-KR";
+
+
+    utterance.rate =
+      rate;
+
+
+    utterance.pitch =
+      characterPitch(
+        character
+      );
+
+
+    const voice =
+      getKoreanVoice();
+
+
+    if (voice) {
+
+      utterance.voice =
+        voice;
+
+    }
+
+
+    window.speechSynthesis.speak(
+      utterance
+    );
+
+  }
+
+
+
+  function speakKorean(
+    text,
+    character
+  ) {
+
+    speak(
+      text,
+      character,
+      AUDIO_SETTINGS.normalRate
+    );
+
+  }
+
+
+
+  function speakKoreanSlow(
+    text,
+    character
+  ) {
+
+    speak(
+      text,
+      character,
+      AUDIO_SETTINGS.slowRate
+    );
+
+  }
+
+
+
+  /* =====================================================
+     NAVIGATION
+     ===================================================== */
+
+  function goToItinerary() {
+
+    window.speechSynthesis.cancel();
+
+
+    window.location.href =
+      "itineraire.html#module1";
+
+  }
+
+
+
+  function reviewAgain() {
+
+    window.speechSynthesis.cancel();
+
+
+    window.location.href =
+      "revision-6.html";
+
+  }
+
+
+
+  /* =====================================================
+     SÉCURITÉ AUDIO
+     ===================================================== */
+
+  window.addEventListener(
+    "pagehide",
+    function() {
+
+      window.speechSynthesis.cancel();
+
+    }
+  );
+
+
+  window.addEventListener(
+    "pageshow",
+    function() {
+
+      if (
+        window.HanaChapterProgress &&
+        typeof window.HanaChapterProgress.render === "function"
+      ) {
+
+        window.HanaChapterProgress.render();
+
+      }
+
+    }
+  );
+
+</script>
+
+
+</body>
+
+</html>

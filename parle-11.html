@@ -2,6 +2,7 @@
 <html lang="fr">
 
 <head>
+
   <meta charset="UTF-8">
 
   <meta
@@ -14,18 +15,53 @@
     content="#F7F4ED"
   >
 
-  <title>Je parle — Chapitre 11</title>
+  <title>
+    Chapitre 11 — Je parle
+  </title>
 
   <link
     rel="stylesheet"
     href="style.css"
   >
 
+  <link
+    rel="stylesheet"
+    href="chapter-progress.css"
+  >
+
+
+  <script>
+
+    /* =====================================================
+       ACCÈS SÉQUENTIEL
+       ===================================================== */
+
+    if (
+      localStorage.getItem(
+        "hanaKorean_chapter11_listeningExercise"
+      ) !== "completed"
+    ) {
+
+      window.location.replace(
+        "ecoute-11.html"
+      );
+
+    }
+
+  </script>
+
+
   <style>
+
+    /* =====================================================
+       EN-TÊTE
+       ===================================================== */
+
     .speak-header {
       text-align: center;
-      margin-bottom: 28px;
+      margin-bottom: 25px;
     }
+
 
     .chapter-badge {
       display: inline-block;
@@ -36,43 +72,45 @@
       font-weight: bold;
     }
 
-    .intro-card,
-    .practice-card,
-    .result-card {
-      padding: 20px;
-      margin-bottom: 18px;
+
+    .speak-intro {
+      color: var(--text-light);
+      line-height: 1.7;
+    }
+
+
+    /* =====================================================
+       PROGRESSION
+       ===================================================== */
+
+    .exercise-progress-card {
+      padding: 17px;
+      margin-bottom: 20px;
       background: var(--white);
       border-radius: var(--radius-large);
       box-shadow: var(--shadow);
     }
 
-    .intro-card {
-      background: var(--soft-green);
-      color: var(--navy);
-      line-height: 1.7;
-    }
 
-    .step-progress {
-      margin-bottom: 20px;
-    }
-
-    .progress-info {
+    .exercise-progress-top {
       display: flex;
       justify-content: space-between;
-      margin-bottom: 8px;
+      gap: 10px;
+      margin-bottom: 9px;
       color: var(--text-light);
       font-size: 13px;
     }
 
-    .progress-bar {
-      width: 100%;
+
+    .exercise-progress-bar {
       height: 9px;
       overflow: hidden;
       background: var(--soft-beige);
       border-radius: 20px;
     }
 
-    .progress-fill {
+
+    .exercise-progress-fill {
       width: 10%;
       height: 100%;
       background: var(--jade);
@@ -80,412 +118,396 @@
       transition: width 0.3s ease;
     }
 
-    .step-label {
+
+    /* =====================================================
+       CARTES
+       ===================================================== */
+
+    .speak-card {
+      padding: 20px;
+      margin-bottom: 18px;
+    }
+
+
+    .speak-card.hidden {
+      display: none;
+    }
+
+
+    .step-number {
+      margin-bottom: 8px;
       color: var(--jade-dark);
-      font-size: 14px;
+      font-size: 13px;
       font-weight: bold;
     }
+
+
+    /* =====================================================
+       CONSIGNE
+       ===================================================== */
 
     .prompt-box {
-      padding: 18px;
-      margin: 16px 0;
-      background: #FBFAF6;
+      padding: 16px;
+      margin-top: 14px;
+      background: var(--soft-green);
       border-radius: var(--radius-medium);
-      text-align: center;
-    }
-
-    .prompt-korean {
       color: var(--navy);
-      font-size: 25px;
-      font-weight: bold;
-      line-height: 1.5;
+      line-height: 1.7;
     }
 
-    .prompt-french {
+
+    .npc-box {
+      padding: 16px;
+      margin-top: 14px;
+      background: var(--soft-blue);
+      border-radius: var(--radius-medium);
+      color: var(--navy);
+      line-height: 1.7;
+    }
+
+
+    .npc-name {
+      font-weight: bold;
+    }
+
+
+    .npc-korean {
       margin-top: 7px;
-      color: var(--text-light);
+      color: var(--navy);
+      font-size: 21px;
+      font-weight: bold;
       line-height: 1.6;
     }
 
-    .audio-buttons button,
-    .mic-button,
-    .retry-button,
-    .next-button,
-    .help-button,
-    .continue-button,
-    .back-button {
-      width: 100%;
+
+    .npc-french {
+      margin-top: 5px;
+      color: var(--text-light);
     }
 
-    .audio-buttons .slow {
-      margin-top: 8px;
+
+    .npc-audio-button {
+      width: 100%;
+      margin-top: 12px;
+      background: var(--soft-blue);
+      color: var(--navy);
+      font-weight: bold;
     }
+
+
+    /* =====================================================
+       MICRO
+       ===================================================== */
 
     .mic-button {
-      margin-top: 12px;
+      width: 100%;
+      margin-top: 15px;
       background: var(--jade);
       color: white;
       font-weight: bold;
     }
 
+
     .mic-button.listening {
-      background: var(--error);
+      background: var(--navy);
     }
 
-    .recognition-box {
-      display: none;
-      padding: 16px;
-      margin-top: 15px;
-      background: var(--soft-blue);
-      border-radius: var(--radius-medium);
-      line-height: 1.7;
-    }
 
-    .recognition-box.show {
-      display: block;
-    }
-
-    .heard-text {
-      margin-top: 8px;
+    .help-button {
+      width: 100%;
+      margin-top: 10px;
+      background: var(--soft-beige);
       color: var(--navy);
-      font-size: 20px;
       font-weight: bold;
     }
 
+
+    .status-box {
+      min-height: 52px;
+      padding: 14px;
+      margin-top: 14px;
+      background: #FBFAF6;
+      border-radius: var(--radius-medium);
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+
+
+    /* =====================================================
+       FEEDBACK
+       ===================================================== */
+
     .feedback {
       display: none;
-      padding: 16px;
+      padding: 15px;
       margin-top: 14px;
       border-radius: var(--radius-medium);
       line-height: 1.7;
     }
 
-    .feedback.show {
+
+    .feedback.success {
       display: block;
-    }
-
-    .help-box {
-      display: none;
-      padding: 15px;
-      margin-top: 12px;
-      background: var(--soft-beige);
-      border-radius: var(--radius-medium);
-      color: var(--navy);
-      line-height: 1.7;
-    }
-
-    .help-box.show {
-      display: block;
-    }
-
-    .help-button {
-      margin-top: 10px;
-      background: var(--soft-beige);
+      background: var(--success-light);
+      border-left: 4px solid var(--success);
       color: var(--navy);
     }
+
+
+    .feedback.error {
+      display: block;
+      background: var(--warning-light);
+      border-left: 4px solid var(--warning);
+      color: var(--navy);
+    }
+
+
+    .recognized-text {
+      display: block;
+      margin-top: 8px;
+      color: var(--navy);
+      font-size: 19px;
+      font-weight: bold;
+    }
+
+
+    /* =====================================================
+       NAVIGATION
+       ===================================================== */
 
     .next-button {
       display: none;
-      margin-top: 12px;
-      background: var(--navy);
+      width: 100%;
+      margin-top: 14px;
+      background: var(--jade);
       color: white;
       font-weight: bold;
     }
+
 
     .next-button.show {
       display: block;
     }
 
-    .retry-button {
-      display: none;
-      margin-top: 10px;
-    }
 
-    .retry-button.show {
-      display: block;
-    }
-
-    .scenario-card {
-      padding: 16px;
-      margin: 15px 0;
-      border-radius: var(--radius-medium);
-      background: var(--soft-blue);
-      line-height: 1.7;
-    }
-
-    .seller-line {
-      padding: 15px;
-      margin: 14px 0;
-      background: var(--soft-blue);
-      border-radius: var(--radius-medium);
-      line-height: 1.7;
-    }
-
-    .seller-name {
-      font-weight: bold;
-    }
-
-    .seller-korean {
-      margin-top: 4px;
-      color: var(--navy);
-      font-size: 20px;
-      font-weight: bold;
-    }
+    /* =====================================================
+       RÉSULTAT
+       ===================================================== */
 
     .result-card {
       display: none;
+      padding: 22px;
       text-align: center;
     }
+
 
     .result-card.show {
       display: block;
     }
 
+
     .result-icon {
-      font-size: 58px;
+      margin-bottom: 8px;
+      font-size: 48px;
     }
 
-    .summary-box {
+
+    .result-score {
+      color: var(--jade-dark);
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+
+    .skills-summary {
       padding: 16px;
       margin-top: 18px;
-      background: #FBFAF6;
+      background: var(--soft-green);
       border-radius: var(--radius-medium);
+      color: var(--navy);
       text-align: left;
-      line-height: 1.7;
+      line-height: 1.8;
     }
 
-    .continue-button {
+
+    .finish-button {
+      width: 100%;
       margin-top: 18px;
       background: var(--jade);
       color: white;
       font-weight: bold;
     }
 
-    .back-button {
-      margin-top: 10px;
-      background: var(--soft-beige);
-      color: var(--navy);
-    }
   </style>
+
 </head>
+
 
 <body>
 
+
 <main class="app">
+
+
+  <!-- =====================================================
+       RETOUR
+       ===================================================== -->
 
   <a
     class="back-link"
-    href="exercice-ecoute-11.html"
+    href="ecoute-11.html"
   >
-    ← Mini défi d'écoute
+    ← J'écoute
   </a>
 
+
+
+  <!-- =====================================================
+       EN-TÊTE
+       ===================================================== -->
 
   <header class="speak-header">
 
     <span class="chapter-badge">
-      Chapitre 11 · Expression orale
+      Module 2 · Chapitre 11 · Étape 3
     </span>
+
 
     <p class="korean">
       말해 봐요 🗣️
     </p>
 
+
     <h1>
       Je parle
     </h1>
 
-    <p>
-      Répète les mots essentiels,
-      puis réponds dans une petite situation d'achat.
+
+    <p class="speak-intro">
+      Entraîne-toi à demander un prix,
+      réagir au montant,
+      choisir un objet
+      et utiliser les mots utiles
+      pendant un achat.
     </p>
 
   </header>
 
 
-  <section class="intro-card">
 
-    <strong>🎯 Objectif</strong>
+  <!-- =====================================================
+       PARCOURS
+       ===================================================== -->
 
-    <br><br>
+  <section
+    id="hanaChapterPath"
+    data-chapter-path
+  ></section>
 
-    Savoir demander un prix,
-    réagir avec <strong>비싸요 / 싸요</strong>,
-    demander un objet avec <strong>주세요</strong>
-    et terminer poliment avec <strong>감사합니다</strong>.
+
+
+  <!-- =====================================================
+       PROGRESSION
+       ===================================================== -->
+
+  <section class="exercise-progress-card">
+
+    <div class="exercise-progress-top">
+
+      <span>
+        Expression orale
+      </span>
+
+      <strong id="progressLabel">
+        1 / 10
+      </strong>
+
+    </div>
+
+
+    <div class="exercise-progress-bar">
+
+      <div
+        class="exercise-progress-fill"
+        id="progressFill"
+      ></div>
+
+    </div>
 
   </section>
 
 
-  <div class="step-progress">
 
-    <div class="progress-info">
-      <span>Expression orale</span>
-      <span id="progressLabel">1 / 10</span>
-    </div>
-
-    <div class="progress-bar">
-      <div
-        class="progress-fill"
-        id="progressFill"
-      ></div>
-    </div>
-
-  </div>
-
+  <!-- =====================================================
+       ÉTAPE 1
+       ===================================================== -->
 
   <section
-    class="practice-card"
-    id="practiceCard"
+    class="speak-card"
+    id="step1"
   >
 
-    <div
-      class="step-label"
-      id="stepLabel"
-    >
-      Étape 1 / 10
+    <div class="step-number">
+      ÉTAPE 1 / 10
     </div>
 
-    <h2 id="stepTitle">
-      💰 Mot 1
+
+    <h2>
+      💰 Demande le prix
     </h2>
 
-    <div
-      class="scenario-card"
-      id="scenarioCard"
-      style="display:none;"
-    ></div>
-
-    <div
-      class="seller-line"
-      id="sellerLine"
-      style="display:none;"
-    >
-
-      <div class="seller-name">
-        💙 Vendeur
-      </div>
-
-      <div
-        class="seller-korean"
-        id="sellerKorean"
-      ></div>
-
-      <div
-        id="sellerFrench"
-      ></div>
-
-      <button
-        type="button"
-        onclick="playSellerLine()"
-      >
-        🔊 Écouter le vendeur
-      </button>
-
-    </div>
 
     <div class="prompt-box">
 
-      <div
-        class="prompt-korean"
-        id="promptKorean"
-      >
-        얼마예요?
-      </div>
+      Dis simplement :
 
-      <div
-        class="prompt-french"
-        id="promptFrench"
-      >
-        Combien ça coûte ?
-      </div>
+      <br><br>
 
-    </div>
-
-
-    <div class="audio-buttons">
-
-      <button
-        type="button"
-        onclick="playTarget(false)"
-      >
-        🔊 Écouter
-      </button>
-
-      <button
-        class="slow"
-        type="button"
-        onclick="playTarget(true)"
-      >
-        🐢 Écouter lentement
-      </button>
+      <strong>
+        « Combien ça coûte ? »
+      </strong>
 
     </div>
 
 
     <button
       class="mic-button"
-      id="micButton"
+      id="mic1"
       type="button"
-      onclick="startRecognition()"
+      onclick="startRecognition(1)"
     >
       🎙️ Parler
     </button>
 
 
-    <div
-      class="recognition-box"
-      id="recognitionBox"
+    <button
+      class="help-button"
+      type="button"
+      onclick="showHelp(1)"
     >
+      💡 Besoin d'aide
+    </button>
 
-      <strong>
-        J'ai entendu :
-      </strong>
 
-      <div
-        class="heard-text"
-        id="heardText"
-      ></div>
-
+    <div
+      class="status-box"
+      id="status1"
+    >
+      Pose la question en coréen.
     </div>
 
 
     <div
       class="feedback"
-      id="feedback"
+      id="feedback1"
     ></div>
-
-
-    <button
-      class="help-button"
-      type="button"
-      onclick="toggleHelp()"
-    >
-      💡 Besoin d'aide ?
-    </button>
-
-
-    <div
-      class="help-box"
-      id="helpBox"
-    ></div>
-
-
-    <button
-      class="retry-button"
-      id="retryButton"
-      type="button"
-      onclick="startRecognition()"
-    >
-      🎙️ Réessayer
-    </button>
 
 
     <button
       class="next-button"
-      id="nextButton"
+      id="next1"
       type="button"
-      onclick="nextStep()"
+      onclick="showStep(2)"
     >
       Continuer →
     </button>
@@ -493,593 +515,1176 @@
   </section>
 
 
+
+  <!-- =====================================================
+       ÉTAPE 2
+       ===================================================== -->
+
+  <section
+    class="speak-card hidden"
+    id="step2"
+  >
+
+    <div class="step-number">
+      ÉTAPE 2 / 10
+    </div>
+
+
+    <h2>
+      👉 Demande le prix de celui-ci
+    </h2>
+
+
+    <div class="prompt-box">
+
+      Dis :
+
+      <br><br>
+
+      <strong>
+        « Combien coûte celui-ci ? »
+      </strong>
+
+    </div>
+
+
+    <button
+      class="mic-button"
+      id="mic2"
+      type="button"
+      onclick="startRecognition(2)"
+    >
+      🎙️ Parler
+    </button>
+
+
+    <button
+      class="help-button"
+      type="button"
+      onclick="showHelp(2)"
+    >
+      💡 Besoin d'aide
+    </button>
+
+
+    <div
+      class="status-box"
+      id="status2"
+    >
+      Utilise 이거 + 얼마예요?
+    </div>
+
+
+    <div
+      class="feedback"
+      id="feedback2"
+    ></div>
+
+
+    <button
+      class="next-button"
+      id="next2"
+      type="button"
+      onclick="showStep(3)"
+    >
+      Continuer →
+    </button>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       ÉTAPE 3
+       ===================================================== -->
+
+  <section
+    class="speak-card hidden"
+    id="step3"
+  >
+
+    <div class="step-number">
+      ÉTAPE 3 / 10
+    </div>
+
+
+    <h2>
+      🇰🇷 Dis le prix du dialogue
+    </h2>
+
+
+    <div class="prompt-box">
+
+      Dis :
+
+      <br><br>
+
+      <strong>
+        « C'est 15 000 wons. »
+      </strong>
+
+      <br><br>
+
+      Reprends le prix
+      entendu dans le dialogue.
+    </div>
+
+
+    <button
+      class="mic-button"
+      id="mic3"
+      type="button"
+      onclick="startRecognition(3)"
+    >
+      🎙️ Parler
+    </button>
+
+
+    <button
+      class="help-button"
+      type="button"
+      onclick="showHelp(3)"
+    >
+      💡 Besoin d'aide
+    </button>
+
+
+    <div
+      class="status-box"
+      id="status3"
+    >
+      Termine le montant avec 원이에요.
+    </div>
+
+
+    <div
+      class="feedback"
+      id="feedback3"
+    ></div>
+
+
+    <button
+      class="next-button"
+      id="next3"
+      type="button"
+      onclick="showStep(4)"
+    >
+      Continuer →
+    </button>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       ÉTAPE 4
+       ===================================================== -->
+
+  <section
+    class="speak-card hidden"
+    id="step4"
+  >
+
+    <div class="step-number">
+      ÉTAPE 4 / 10
+    </div>
+
+
+    <h2>
+      💸 Réagis au prix
+    </h2>
+
+
+    <div class="prompt-box">
+
+      Dis :
+
+      <br><br>
+
+      <strong>
+        « C'est cher. »
+      </strong>
+
+    </div>
+
+
+    <button
+      class="mic-button"
+      id="mic4"
+      type="button"
+      onclick="startRecognition(4)"
+    >
+      🎙️ Parler
+    </button>
+
+
+    <button
+      class="help-button"
+      type="button"
+      onclick="showHelp(4)"
+    >
+      💡 Besoin d'aide
+    </button>
+
+
+    <div
+      class="status-box"
+      id="status4"
+    >
+      Utilise l'expression du chapitre.
+    </div>
+
+
+    <div
+      class="feedback"
+      id="feedback4"
+    ></div>
+
+
+    <button
+      class="next-button"
+      id="next4"
+      type="button"
+      onclick="showStep(5)"
+    >
+      Continuer →
+    </button>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       ÉTAPE 5
+       ===================================================== -->
+
+  <section
+    class="speak-card hidden"
+    id="step5"
+  >
+
+    <div class="step-number">
+      ÉTAPE 5 / 10
+    </div>
+
+
+    <h2>
+      🛍️ Cette fois, le prix est intéressant
+    </h2>
+
+
+    <div class="prompt-box">
+
+      Dis :
+
+      <br><br>
+
+      <strong>
+        « C'est bon marché. »
+      </strong>
+
+    </div>
+
+
+    <button
+      class="mic-button"
+      id="mic5"
+      type="button"
+      onclick="startRecognition(5)"
+    >
+      🎙️ Parler
+    </button>
+
+
+    <button
+      class="help-button"
+      type="button"
+      onclick="showHelp(5)"
+    >
+      💡 Besoin d'aide
+    </button>
+
+
+    <div
+      class="status-box"
+      id="status5"
+    >
+      Attention au ㅆ de 싸요.
+    </div>
+
+
+    <div
+      class="feedback"
+      id="feedback5"
+    ></div>
+
+
+    <button
+      class="next-button"
+      id="next5"
+      type="button"
+      onclick="showStep(6)"
+    >
+      Continuer →
+    </button>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       ÉTAPE 6
+       ===================================================== -->
+
+  <section
+    class="speak-card hidden"
+    id="step6"
+  >
+
+    <div class="step-number">
+      ÉTAPE 6 / 10
+    </div>
+
+
+    <h2>
+      👉 Choisis celui-ci
+    </h2>
+
+
+    <div class="prompt-box">
+
+      Dis :
+
+      <br><br>
+
+      <strong>
+        « Je voudrais celui-ci. »
+      </strong>
+
+      <br><br>
+
+      Utilise
+      <strong>이것</strong>.
+    </div>
+
+
+    <button
+      class="mic-button"
+      id="mic6"
+      type="button"
+      onclick="startRecognition(6)"
+    >
+      🎙️ Parler
+    </button>
+
+
+    <button
+      class="help-button"
+      type="button"
+      onclick="showHelp(6)"
+    >
+      💡 Besoin d'aide
+    </button>
+
+
+    <div
+      class="status-box"
+      id="status6"
+    >
+      Utilise 이것 + 주세요.
+    </div>
+
+
+    <div
+      class="feedback"
+      id="feedback6"
+    ></div>
+
+
+    <button
+      class="next-button"
+      id="next6"
+      type="button"
+      onclick="showStep(7)"
+    >
+      Continuer →
+    </button>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       ÉTAPE 7
+       ===================================================== -->
+
+  <section
+    class="speak-card hidden"
+    id="step7"
+  >
+
+    <div class="step-number">
+      ÉTAPE 7 / 10
+    </div>
+
+
+    <h2>
+      🗣️ Utilise la forme parlée
+    </h2>
+
+
+    <div class="prompt-box">
+
+      Dis encore :
+
+      <br><br>
+
+      <strong>
+        « Je voudrais celui-ci. »
+      </strong>
+
+      <br><br>
+
+      Cette fois,
+      utilise la forme parlée
+      <strong>이거</strong>.
+    </div>
+
+
+    <button
+      class="mic-button"
+      id="mic7"
+      type="button"
+      onclick="startRecognition(7)"
+    >
+      🎙️ Parler
+    </button>
+
+
+    <button
+      class="help-button"
+      type="button"
+      onclick="showHelp(7)"
+    >
+      💡 Besoin d'aide
+    </button>
+
+
+    <div
+      class="status-box"
+      id="status7"
+    >
+      Dis 이거 주세요.
+    </div>
+
+
+    <div
+      class="feedback"
+      id="feedback7"
+    ></div>
+
+
+    <button
+      class="next-button"
+      id="next7"
+      type="button"
+      onclick="showStep(8)"
+    >
+      Continuer →
+    </button>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       ÉTAPE 8
+       ===================================================== -->
+
+  <section
+    class="speak-card hidden"
+    id="step8"
+  >
+
+    <div class="step-number">
+      ÉTAPE 8 / 10
+    </div>
+
+
+    <h2>
+      💳 Dis « carte bancaire »
+    </h2>
+
+
+    <div class="prompt-box">
+
+      Dis simplement :
+
+      <br><br>
+
+      <strong>
+        « carte bancaire »
+      </strong>
+    </div>
+
+
+    <button
+      class="mic-button"
+      id="mic8"
+      type="button"
+      onclick="startRecognition(8)"
+    >
+      🎙️ Parler
+    </button>
+
+
+    <button
+      class="help-button"
+      type="button"
+      onclick="showHelp(8)"
+    >
+      💡 Besoin d'aide
+    </button>
+
+
+    <div
+      class="status-box"
+      id="status8"
+    >
+      Prononce le mot coréen.
+    </div>
+
+
+    <div
+      class="feedback"
+      id="feedback8"
+    ></div>
+
+
+    <button
+      class="next-button"
+      id="next8"
+      type="button"
+      onclick="showStep(9)"
+    >
+      Continuer →
+    </button>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       ÉTAPE 9
+       ===================================================== -->
+
+  <section
+    class="speak-card hidden"
+    id="step9"
+  >
+
+    <div class="step-number">
+      ÉTAPE 9 / 10
+    </div>
+
+
+    <h2>
+      💵 Dis « espèces »
+    </h2>
+
+
+    <div class="prompt-box">
+
+      Dis simplement :
+
+      <br><br>
+
+      <strong>
+        « espèces »
+      </strong>
+    </div>
+
+
+    <button
+      class="mic-button"
+      id="mic9"
+      type="button"
+      onclick="startRecognition(9)"
+    >
+      🎙️ Parler
+    </button>
+
+
+    <button
+      class="help-button"
+      type="button"
+      onclick="showHelp(9)"
+    >
+      💡 Besoin d'aide
+    </button>
+
+
+    <div
+      class="status-box"
+      id="status9"
+    >
+      Prononce le mot coréen.
+    </div>
+
+
+    <div
+      class="feedback"
+      id="feedback9"
+    ></div>
+
+
+    <button
+      class="next-button"
+      id="next9"
+      type="button"
+      onclick="showStep(10)"
+    >
+      Dernière étape →
+    </button>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       ÉTAPE 10
+       ===================================================== -->
+
+  <section
+    class="speak-card hidden"
+    id="step10"
+  >
+
+    <div class="step-number">
+      ÉTAPE 10 / 10
+    </div>
+
+
+    <h2>
+      🛍️ Termine ton achat
+    </h2>
+
+
+    <div class="npc-box">
+
+      <div class="npc-name">
+        💙 Vendeur
+      </div>
+
+
+      <div class="npc-korean">
+        만오천 원이에요.
+      </div>
+
+
+      <div class="npc-french">
+        15 000 wons.
+      </div>
+
+
+      <button
+        class="npc-audio-button"
+        type="button"
+        onclick="speakSeller('만오천 원이에요.')"
+      >
+        🔊 Écouter le vendeur
+      </button>
+
+    </div>
+
+
+    <div class="prompt-box">
+
+      Tu décides de l'acheter.
+
+      <br><br>
+
+      Dis :
+
+      <strong>
+        « Je voudrais celui-ci. Merci ! »
+      </strong>
+
+      <br><br>
+
+      Utilise la forme parlée
+      <strong>이거</strong>.
+    </div>
+
+
+    <button
+      class="mic-button"
+      id="mic10"
+      type="button"
+      onclick="startRecognition(10)"
+    >
+      🎙️ Répondre
+    </button>
+
+
+    <button
+      class="help-button"
+      type="button"
+      onclick="showHelp(10)"
+    >
+      💡 Besoin d'aide
+    </button>
+
+
+    <div
+      class="status-box"
+      id="status10"
+    >
+      Termine l'achat poliment.
+    </div>
+
+
+    <div
+      class="feedback"
+      id="feedback10"
+    ></div>
+
+
+    <button
+      class="next-button"
+      id="next10"
+      type="button"
+      onclick="showResult()"
+    >
+      Voir mon résultat →
+    </button>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       RÉSULTAT
+       ===================================================== -->
+
   <section
     class="result-card"
     id="resultCard"
   >
 
     <div class="result-icon">
-      🛍️🗣️
+      🗣️🛍️
     </div>
+
 
     <h2>
       잘했어요!
     </h2>
 
+
     <p>
-      Tu as terminé l'expression orale du chapitre 11.
+      Tu as terminé
+      l'expression orale du chapitre 11.
     </p>
 
-    <div class="summary-box">
+
+    <p class="result-score">
+      10 étapes validées ✅
+    </p>
+
+
+    <div class="skills-summary">
 
       <strong>
-        🌿 Ce que tu sais maintenant dire
+        🌿 Tu sais maintenant :
       </strong>
 
       <br><br>
 
-      💰 <strong>얼마예요?</strong>
-
-      <br>
-
-      💸 <strong>비싸요.</strong>
-
-      <br>
-
-      🛍️ <strong>싸요.</strong>
-
-      <br>
-
-      👉 <strong>이거 주세요.</strong>
-
-      <br>
-
-      🙏 <strong>감사합니다.</strong>
+      💰 demander un prix avec
+      <strong>얼마예요?</strong>
 
       <br><br>
 
-      <span id="mistakeSummary"></span>
+      🇰🇷 reconnaître et dire
+      un prix simple en
+      <strong>원</strong>
+
+      <br><br>
+
+      💸 dire
+      <strong>비싸요</strong>
+
+      <br><br>
+
+      🛍️ dire
+      <strong>싸요</strong>
+
+      <br><br>
+
+      👉 demander un objet avec
+      <strong>주세요</strong>
+
+      <br><br>
+
+      💳 reconnaître
+      <strong>카드</strong>
+
+      <br><br>
+
+      💵 reconnaître
+      <strong>현금</strong>
+
+      <br><br>
+
+      🙏 terminer poliment avec
+      <strong>감사합니다</strong>
 
     </div>
 
 
     <button
-      class="continue-button"
+      class="finish-button"
       type="button"
-      onclick="window.location.href='ecriture-11.html'"
+      onclick="completeSpeaking()"
     >
-      ✍️ Passer à « J'écris »
-    </button>
-
-
-    <button
-      class="back-button"
-      type="button"
-      onclick="window.location.href='chapitre-11.html'"
-    >
-      Retour au chapitre
+      ✅ Valider « Je parle » · Passer à « J'écris »
     </button>
 
   </section>
 
+
 </main>
 
 
+
+<script src="chapter-progress.js"></script>
+
+
 <script>
-  const AUDIO_SETTINGS = {
-    normalRate: 0.82,
-    slowRate: 0.25
-  };
 
+  /* =====================================================
+     CONFIGURATION
+     ===================================================== */
 
-  const steps = [
+  const steps = {
 
-    {
-      title: "💰 Mot 1",
-      target: "얼마예요?",
-      french: "Combien ça coûte ?",
+    1: {
+
       accepted: [
-        "얼마예요",
-        "얼마에요"
+        "얼마예요"
       ],
-      help:
-        "Écoute bien les trois blocs : 얼마 + 예 + 요."
+
+      model:
+        "얼마예요?"
+
     },
 
-    {
-      title: "💸 Mot 2",
-      target: "비싸요",
-      french: "C'est cher.",
+
+    2: {
+
+      accepted: [
+        "이거 얼마예요",
+        "이거얼마예요",
+        "이것 얼마예요",
+        "이것얼마예요"
+      ],
+
+      model:
+        "이거 얼마예요?"
+
+    },
+
+
+    3: {
+
+      accepted: [
+        "만오천 원이에요",
+        "만오천원이에요"
+      ],
+
+      model:
+        "만오천 원이에요."
+
+    },
+
+
+    4: {
+
       accepted: [
         "비싸요"
       ],
-      help:
-        "Attention au ㅆ tendu : 비-싸-요."
+
+      model:
+        "비싸요."
+
     },
 
-    {
-      title: "🛍️ Mot 3",
-      target: "싸요",
-      french: "C'est bon marché.",
+
+    5: {
+
       accepted: [
         "싸요"
       ],
-      help:
-        "Commence directement avec le son tendu ㅆ : 싸요."
+
+      model:
+        "싸요."
+
     },
 
-    {
-      title: "👉 Phrase 1",
-      target: "이거 얼마예요?",
-      french: "Combien coûte celui-ci ?",
-      accepted: [
-        "이거얼마예요",
-        "이거얼마에요",
-        "이것얼마예요",
-        "이것얼마에요"
-      ],
-      help:
-        "Commence par 이거, puis ajoute 얼마예요?"
-    },
 
-    {
-      title: "🛍️ Phrase 2",
-      target: "이거 주세요.",
-      french: "Je voudrais celui-ci.",
+    6: {
+
       accepted: [
-        "이거주세요",
+        "이것 주세요",
         "이것주세요"
       ],
-      help:
-        "이거 = celui-ci ; 주세요 = donnez-moi / s'il vous plaît."
+
+      model:
+        "이것 주세요."
+
     },
 
-    {
-      title: "🙏 Phrase 3",
-      target: "감사합니다.",
-      french: "Merci.",
+
+    7: {
+
       accepted: [
-        "감사합니다"
+        "이거 주세요",
+        "이거주세요"
       ],
-      help:
-        "Prononce la formule entière : 감사합니다."
+
+      model:
+        "이거 주세요."
+
     },
 
-    {
-      title: "💬 Situation 1",
-      target: "이거 얼마예요?",
-      french: "Demande le prix de l'objet.",
+
+    8: {
+
       accepted: [
-        "이거얼마예요",
-        "이거얼마에요",
-        "이것얼마예요",
-        "이것얼마에요"
+        "카드"
       ],
-      scenario:
-        "🛍️ Tu vois un objet qui te plaît dans une boutique.",
-      seller:
-        null,
-      help:
-        "Utilise 이거 + 얼마예요?"
+
+      model:
+        "카드"
+
     },
 
-    {
-      title: "💬 Situation 2",
-      target: "비싸요.",
-      french: "Dis que c'est cher.",
+
+    9: {
+
       accepted: [
-        "비싸요"
+        "현금"
       ],
-      scenario:
-        "💰 Le prix te paraît élevé.",
-      seller:
-        {
-          korean: "만오천 원이에요.",
-          french: "C'est 15 000 wons."
-        },
-      help:
-        "Pour dire « c'est cher », utilise 비싸요."
+
+      model:
+        "현금"
+
     },
 
-    {
-      title: "💬 Situation 3",
-      target: "이거 주세요.",
-      french: "Dis que tu veux celui-ci.",
-      accepted: [
-        "이거주세요",
-        "이것주세요"
-      ],
-      scenario:
-        "🛍️ Finalement, tu décides de l'acheter.",
-      seller:
-        null,
-      help:
-        "Montre l'objet avec 이거 puis ajoute 주세요."
-    },
 
-    {
-      title: "💬 Situation 4",
-      target: "감사합니다.",
-      french: "Remercie le vendeur.",
+    10: {
+
       accepted: [
-        "감사합니다"
+        "이거 주세요 감사합니다",
+        "이거주세요감사합니다",
+        "이것 주세요 감사합니다",
+        "이것주세요감사합니다"
       ],
-      scenario:
-        "🌿 Le vendeur te remet ton achat.",
-      seller:
-        {
-          korean: "여기 있습니다.",
-          french: "Voilà."
-        },
-      help:
-        "Termine simplement avec 감사합니다."
+
+      model:
+        "이거 주세요. 감사합니다!"
+
     }
 
-  ];
+  };
 
 
-  let currentStep = 0;
-  let mistakes = 0;
-  let helpCount = 0;
-  let recognition = null;
-  let isListening = false;
+  const completed =
+    {};
 
 
-  function normalizeKorean(text) {
+  const mistakes =
+    [];
+
+
+  const helpUsed =
+    [];
+
+
+  const AUDIO_SETTINGS = {
+
+    normalRate:
+      0.82
+
+  };
+
+
+
+  /* =====================================================
+     NORMALISATION
+     ===================================================== */
+
+  function normalize(
+    text
+  ) {
 
     return text
-      .replace(/[.,!?~…'"]/g, "")
-      .replace(/\s+/g, "")
-      .trim();
+      .trim()
+      .replace(
+        /[.,!?？！。]/g,
+        ""
+      )
+      .replace(
+        /\s+/g,
+        " "
+      );
 
   }
 
 
-  function getKoreanVoice() {
 
-    const voices =
-      window.speechSynthesis.getVoices();
+  function compact(
+    text
+  ) {
 
-
-    return voices.find(
-      voice =>
-        voice.lang &&
-        voice.lang
-          .toLowerCase()
-          .startsWith("ko")
+    return normalize(
+      text
+    ).replace(
+      /\s/g,
+      ""
     );
 
   }
 
 
-  function speakKorean(
-    text,
-    slow = false
+
+  /* =====================================================
+     VOIX
+     ===================================================== */
+
+  function getKoreanVoice() {
+
+    const voices =
+      window.speechSynthesis
+        .getVoices();
+
+
+    return (
+      voices.find(
+        voice =>
+          voice.lang &&
+          voice.lang
+            .toLowerCase()
+            .startsWith("ko")
+      ) ||
+      null
+    );
+
+  }
+
+
+
+  function speakSeller(
+    text
   ) {
-
-    if (
-      !("speechSynthesis" in window)
-    ) {
-      return;
-    }
-
 
     window.speechSynthesis.cancel();
 
 
-    const speech =
+    const utterance =
       new SpeechSynthesisUtterance(
         text
       );
 
 
-    speech.lang =
+    utterance.lang =
       "ko-KR";
 
 
-    speech.rate =
-      slow
-        ? AUDIO_SETTINGS.slowRate
-        : AUDIO_SETTINGS.normalRate;
+    utterance.rate =
+      AUDIO_SETTINGS.normalRate;
 
 
-    speech.pitch =
-      1;
+    utterance.pitch =
+      0.98;
 
 
     const voice =
       getKoreanVoice();
 
 
-    if (voice) {
-      speech.voice = voice;
+    if (
+      voice
+    ) {
+
+      utterance.voice =
+        voice;
+
     }
 
 
     window.speechSynthesis.speak(
-      speech
+      utterance
     );
 
   }
 
 
-  function playTarget(slow) {
 
-    const step =
-      steps[currentStep];
+  /* =====================================================
+     RECONNAISSANCE VOCALE
+     ===================================================== */
 
-
-    speakKorean(
-      step.target,
-      slow
-    );
-
-  }
-
-
-  function playSellerLine() {
-
-    const step =
-      steps[currentStep];
-
+  function startRecognition(
+    number
+  ) {
 
     if (
-      step.seller
+      completed[number]
     ) {
 
-      speakKorean(
-        step.seller.korean,
-        false
-      );
-
-    }
-
-  }
-
-
-  function renderStep() {
-
-    const step =
-      steps[currentStep];
-
-
-    document.getElementById(
-      "stepLabel"
-    ).textContent =
-      "Étape " +
-      (currentStep + 1) +
-      " / " +
-      steps.length;
-
-
-    document.getElementById(
-      "stepTitle"
-    ).textContent =
-      step.title;
-
-
-    document.getElementById(
-      "promptKorean"
-    ).textContent =
-      step.target;
-
-
-    document.getElementById(
-      "promptFrench"
-    ).textContent =
-      step.french;
-
-
-    document.getElementById(
-      "progressLabel"
-    ).textContent =
-      (currentStep + 1) +
-      " / " +
-      steps.length;
-
-
-    document.getElementById(
-      "progressFill"
-    ).style.width =
-      (
-        ((currentStep + 1) /
-          steps.length) *
-        100
-      ) +
-      "%";
-
-
-    const scenarioCard =
-      document.getElementById(
-        "scenarioCard"
-      );
-
-
-    if (
-      step.scenario
-    ) {
-
-      scenarioCard.style.display =
-        "block";
-
-
-      scenarioCard.textContent =
-        step.scenario;
-
-    }
-
-    else {
-
-      scenarioCard.style.display =
-        "none";
-
-    }
-
-
-    const sellerLine =
-      document.getElementById(
-        "sellerLine"
-      );
-
-
-    if (
-      step.seller
-    ) {
-
-      sellerLine.style.display =
-        "block";
-
-
-      document.getElementById(
-        "sellerKorean"
-      ).textContent =
-        step.seller.korean;
-
-
-      document.getElementById(
-        "sellerFrench"
-      ).textContent =
-        step.seller.french;
-
-    }
-
-    else {
-
-      sellerLine.style.display =
-        "none";
-
-    }
-
-
-    document.getElementById(
-      "helpBox"
-    ).textContent =
-      "💡 " +
-      step.help;
-
-
-    document.getElementById(
-      "helpBox"
-    ).classList.remove(
-      "show"
-    );
-
-
-    document.getElementById(
-      "recognitionBox"
-    ).classList.remove(
-      "show"
-    );
-
-
-    document.getElementById(
-      "feedback"
-    ).className =
-      "feedback";
-
-
-    document.getElementById(
-      "feedback"
-    ).innerHTML =
-      "";
-
-
-    document.getElementById(
-      "nextButton"
-    ).classList.remove(
-      "show"
-    );
-
-
-    document.getElementById(
-      "retryButton"
-    ).classList.remove(
-      "show"
-    );
-
-
-    document.getElementById(
-      "micButton"
-    ).disabled =
-      false;
-
-
-    document.getElementById(
-      "micButton"
-    ).textContent =
-      "🎙️ Parler";
-
-
-    document.getElementById(
-      "micButton"
-    ).classList.remove(
-      "listening"
-    );
-
-  }
-
-
-  function toggleHelp() {
-
-    helpCount++;
-
-
-    document.getElementById(
-      "helpBox"
-    ).classList.toggle(
-      "show"
-    );
-
-  }
-
-
-  function startRecognition() {
-
-    if (
-      isListening
-    ) {
       return;
+
     }
 
 
-    const SpeechRecognition =
+    window.speechSynthesis.cancel();
+
+
+    const Recognition =
       window.SpeechRecognition ||
       window.webkitSpeechRecognition;
 
 
     if (
-      !SpeechRecognition
+      !Recognition
     ) {
 
       const feedback =
         document.getElementById(
-          "feedback"
+          "feedback" +
+          number
         );
 
 
       feedback.className =
-        "feedback show wrong";
+        "feedback error";
 
 
       feedback.innerHTML =
-        "🎙️ La reconnaissance vocale n'est pas disponible dans ce navigateur.<br><br>" +
-        "Tu peux tout de même écouter et répéter la phrase à voix haute.";
+        "La reconnaissance vocale n'est pas disponible ici." +
+        "<br><br>" +
+        "Teste cette étape sur ton iPhone avec Safari.";
+
 
       return;
-    }
-
-
-    if (
-      "speechSynthesis" in window
-    ) {
-
-      window.speechSynthesis.cancel();
 
     }
 
 
-    recognition =
-      new SpeechRecognition();
+    const recognition =
+      new Recognition();
 
 
     recognition.lang =
@@ -1090,58 +1695,63 @@
       false;
 
 
-    recognition.continuous =
-      false;
-
-
     recognition.maxAlternatives =
-      5;
+      3;
 
 
-    recognition.onstart =
-      function() {
-
-        isListening =
-          true;
-
-
-        const micButton =
-          document.getElementById(
-            "micButton"
-          );
+    const button =
+      document.getElementById(
+        "mic" +
+        number
+      );
 
 
-        micButton.textContent =
-          "🎙️ J'écoute…";
+    const status =
+      document.getElementById(
+        "status" +
+        number
+      );
 
 
-        micButton.classList.add(
-          "listening"
-        );
+    button.classList.add(
+      "listening"
+    );
 
-      };
+
+    button.textContent =
+      "🎙️ J'écoute…";
+
+
+    status.textContent =
+      "Parle maintenant en coréen…";
 
 
     recognition.onresult =
       function(event) {
 
-        const alternatives = [];
+        const alternatives =
+          [];
+
+
+        const result =
+          event.results[0];
 
 
         for (
           let i = 0;
-          i < event.results[0].length;
+          i < result.length;
           i++
         ) {
 
           alternatives.push(
-            event.results[0][i].transcript
+            result[i].transcript
           );
 
         }
 
 
-        evaluateRecognition(
+        checkRecognition(
+          number,
           alternatives
         );
 
@@ -1151,25 +1761,19 @@
     recognition.onerror =
       function() {
 
-        const feedback =
-          document.getElementById(
-            "feedback"
-          );
-
-
-        feedback.className =
-          "feedback show wrong";
-
-
-        feedback.innerHTML =
-          "Je n'ai pas réussi à t'entendre correctement. Réessaie en parlant clairement et assez près du micro.";
-
-
-        document.getElementById(
-          "retryButton"
-        ).classList.add(
-          "show"
+        button.classList.remove(
+          "listening"
         );
+
+
+        button.textContent =
+          number === 10
+            ? "🎙️ Répondre"
+            : "🎙️ Réessayer";
+
+
+        status.textContent =
+          "Je n'ai pas réussi à entendre correctement. Réessaie.";
 
       };
 
@@ -1177,23 +1781,21 @@
     recognition.onend =
       function() {
 
-        isListening =
-          false;
+        if (
+          !completed[number]
+        ) {
 
-
-        const micButton =
-          document.getElementById(
-            "micButton"
+          button.classList.remove(
+            "listening"
           );
 
 
-        micButton.textContent =
-          "🎙️ Parler";
+          button.textContent =
+            number === 10
+              ? "🎙️ Répondre"
+              : "🎙️ Parler";
 
-
-        micButton.classList.remove(
-          "listening"
-        );
+        }
 
       };
 
@@ -1203,160 +1805,129 @@
   }
 
 
-  function evaluateRecognition(
+
+  /* =====================================================
+     VÉRIFICATION
+     ===================================================== */
+
+  function checkRecognition(
+    number,
     alternatives
   ) {
 
-    const step =
-      steps[currentStep];
+    const config =
+      steps[number];
 
 
-    const normalizedAccepted =
-      step.accepted.map(
-        answer =>
-          normalizeKorean(answer)
+    const normalizedAlternatives =
+      alternatives.map(
+        text =>
+          normalize(
+            text
+          )
       );
 
 
-    let matched = false;
-    let bestTranscript =
-      alternatives[0] || "";
+    const compactAlternatives =
+      alternatives.map(
+        text =>
+          compact(
+            text
+          )
+      );
 
 
-    for (
-      const transcript of alternatives
-    ) {
+    const success =
+      config.accepted.some(
+        accepted => {
 
-      const normalized =
-        normalizeKorean(
-          transcript
-        );
+          return (
+            normalizedAlternatives.includes(
+              normalize(
+                accepted
+              )
+            ) ||
+            compactAlternatives.includes(
+              compact(
+                accepted
+              )
+            )
+          );
 
-
-      if (
-        normalizedAccepted.includes(
-          normalized
-        )
-      ) {
-
-        matched =
-          true;
-
-
-        bestTranscript =
-          transcript;
+        }
+      );
 
 
-        break;
-
-      }
-
-    }
-
-
-    const recognitionBox =
+    const status =
       document.getElementById(
-        "recognitionBox"
+        "status" +
+        number
       );
-
-
-    recognitionBox.classList.add(
-      "show"
-    );
-
-
-    document.getElementById(
-      "heardText"
-    ).textContent =
-      bestTranscript;
 
 
     const feedback =
       document.getElementById(
-        "feedback"
+        "feedback" +
+        number
       );
+
+
+    const button =
+      document.getElementById(
+        "mic" +
+        number
+      );
+
+
+    status.innerHTML =
+      "J'ai entendu :" +
+      "<span class='recognized-text'>" +
+      escapeHtml(
+        alternatives[0]
+      ) +
+      "</span>";
 
 
     if (
-      matched
+      success
     ) {
 
-      feedback.className =
-        "feedback show correct";
-
-
-      feedback.innerHTML =
-        "✅ <strong>Très bien !</strong><br><br>" +
-        "La phrase attendue était : <strong>" +
-        step.target +
-        "</strong>";
-
-
-      document.getElementById(
-        "nextButton"
-      ).classList.add(
-        "show"
-      );
-
-
-      document.getElementById(
-        "retryButton"
-      ).classList.remove(
-        "show"
-      );
-
-
-      document.getElementById(
-        "micButton"
-      ).disabled =
+      completed[number] =
         true;
 
-    }
 
-    else {
+      button.disabled =
+        true;
 
-      mistakes++;
+
+      button.classList.remove(
+        "listening"
+      );
+
+
+      button.textContent =
+        "✅ Validé";
 
 
       feedback.className =
-        "feedback show wrong";
+        "feedback success";
 
 
       feedback.innerHTML =
-        "❌ <strong>Pas encore.</strong><br><br>" +
-        "Réécoute la phrase et essaie de te rapprocher de : <strong>" +
-        step.target +
-        "</strong>";
+        "✅ <strong>Très bien !</strong>" +
+        "<br><br>" +
+        "Phrase attendue :" +
+        "<span class='recognized-text'>" +
+        config.model +
+        "</span>";
 
 
       document.getElementById(
-        "retryButton"
+        "next" +
+        number
       ).classList.add(
         "show"
       );
-
-    }
-
-  }
-
-
-  function nextStep() {
-
-    if (
-      currentStep <
-      steps.length - 1
-    ) {
-
-      currentStep++;
-
-
-      renderStep();
-
-
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
 
 
       return;
@@ -1364,17 +1935,559 @@
     }
 
 
-    finishSpeaking();
+    if (
+      !mistakes.includes(
+        number
+      )
+    ) {
+
+      mistakes.push(
+        number
+      );
+
+    }
+
+
+    feedback.className =
+      "feedback error";
+
+
+    feedback.innerHTML =
+      buildErrorFeedback(
+        number,
+        compactAlternatives[0] || ""
+      );
 
   }
 
 
-  function finishSpeaking() {
+
+  /* =====================================================
+     FEEDBACK CIBLÉ
+     ===================================================== */
+
+  function buildErrorFeedback(
+    number,
+    answer
+  ) {
+
+    if (
+      number === 1
+    ) {
+
+      return (
+        "Cherche le mot du chapitre qui signifie <strong>« combien »</strong>." +
+        "<br><br>" +
+        "💡 <strong>얼마예요?</strong>"
+      );
+
+    }
+
+
+    if (
+      number === 2
+    ) {
+
+      if (
+        answer.includes(
+          "얼마예요"
+        ) &&
+        !answer.includes(
+          "이거"
+        ) &&
+        !answer.includes(
+          "이것"
+        )
+      ) {
+
+        return (
+          "La question <strong>얼마예요?</strong> est correcte." +
+          "<br><br>" +
+          "Il manque simplement l'objet : <strong>이거</strong>."
+        );
+
+      }
+
+
+      if (
+        answer.includes(
+          "이거"
+        ) &&
+        !answer.includes(
+          "얼마예요"
+        )
+      ) {
+
+        return (
+          "Tu as bien utilisé <strong>이거</strong>." +
+          "<br><br>" +
+          "Ajoute maintenant <strong>얼마예요?</strong>"
+        );
+
+      }
+
+
+      return (
+        "💡 Dis :" +
+        "<br><br>" +
+        "<strong>이거 얼마예요?</strong>"
+      );
+
+    }
+
+
+    if (
+      number === 3
+    ) {
+
+      if (
+        answer.includes(
+          "만오천"
+        ) &&
+        !answer.includes(
+          "원"
+        )
+      ) {
+
+        return (
+          "Le montant est correct : <strong>만오천</strong>." +
+          "<br><br>" +
+          "Ajoute <strong>원이에요</strong>."
+        );
+
+      }
+
+
+      if (
+        answer.includes(
+          "원"
+        ) &&
+        !answer.includes(
+          "만오천"
+        )
+      ) {
+
+        return (
+          "Tu as bien utilisé <strong>원</strong>." +
+          "<br><br>" +
+          "Le prix du dialogue est <strong>만오천</strong> = 15 000."
+        );
+
+      }
+
+
+      return (
+        "💡 Reprends la réponse du vendeur :" +
+        "<br><br>" +
+        "<strong>만오천 원이에요.</strong>"
+      );
+
+    }
+
+
+    if (
+      number === 4
+    ) {
+
+      if (
+        answer ===
+        "싸요"
+      ) {
+
+        return (
+          "<strong>싸요</strong> signifie « C'est bon marché »." +
+          "<br><br>" +
+          "Ici, tu dois dire que c'est <strong>cher</strong>."
+        );
+
+      }
+
+
+      return (
+        "💡 Dis :" +
+        "<br><br>" +
+        "<strong>비싸요.</strong>"
+      );
+
+    }
+
+
+    if (
+      number === 5
+    ) {
+
+      if (
+        answer ===
+        "비싸요"
+      ) {
+
+        return (
+          "<strong>비싸요</strong> signifie « C'est cher »." +
+          "<br><br>" +
+          "Ici, tu dois dire le contraire."
+        );
+
+      }
+
+
+      return (
+        "💡 Dis :" +
+        "<br><br>" +
+        "<strong>싸요.</strong>"
+      );
+
+    }
+
+
+    if (
+      number === 6
+    ) {
+
+      if (
+        answer.includes(
+          "이것"
+        ) &&
+        !answer.includes(
+          "주세요"
+        )
+      ) {
+
+        return (
+          "Tu as bien utilisé <strong>이것</strong>." +
+          "<br><br>" +
+          "Ajoute <strong>주세요</strong>."
+        );
+
+      }
+
+
+      if (
+        answer ===
+        "이거주세요"
+      ) {
+
+        return (
+          "<strong>이거 주세요.</strong> est correct et très naturel." +
+          "<br><br>" +
+          "Mais cette étape te fait pratiquer la forme <strong>이것</strong>."
+        );
+
+      }
+
+
+      return (
+        "💡 Dis :" +
+        "<br><br>" +
+        "<strong>이것 주세요.</strong>"
+      );
+
+    }
+
+
+    if (
+      number === 7
+    ) {
+
+      if (
+        answer ===
+        "이것주세요"
+      ) {
+
+        return (
+          "<strong>이것 주세요.</strong> est correct." +
+          "<br><br>" +
+          "Cette fois, pratique la forme parlée <strong>이거</strong>."
+        );
+
+      }
+
+
+      if (
+        answer.includes(
+          "이거"
+        ) &&
+        !answer.includes(
+          "주세요"
+        )
+      ) {
+
+        return (
+          "Tu as bien utilisé <strong>이거</strong>." +
+          "<br><br>" +
+          "Ajoute <strong>주세요</strong>."
+        );
+
+      }
+
+
+      return (
+        "💡 Dis :" +
+        "<br><br>" +
+        "<strong>이거 주세요.</strong>"
+      );
+
+    }
+
+
+    if (
+      number === 8
+    ) {
+
+      if (
+        answer ===
+        "현금"
+      ) {
+
+        return (
+          "<strong>현금</strong> signifie « espèces »." +
+          "<br><br>" +
+          "Ici, on demande « carte bancaire »."
+        );
+
+      }
+
+
+      return (
+        "💡 Le mot est :" +
+        "<br><br>" +
+        "<strong>카드</strong>"
+      );
+
+    }
+
+
+    if (
+      number === 9
+    ) {
+
+      if (
+        answer ===
+        "카드"
+      ) {
+
+        return (
+          "<strong>카드</strong> signifie « carte bancaire »." +
+          "<br><br>" +
+          "Ici, on demande « espèces »."
+        );
+
+      }
+
+
+      return (
+        "💡 Le mot est :" +
+        "<br><br>" +
+        "<strong>현금</strong>"
+      );
+
+    }
+
+
+    if (
+      number === 10
+    ) {
+
+      if (
+        answer ===
+        "이거주세요"
+      ) {
+
+        return (
+          "Tu as correctement dit « Je voudrais celui-ci »." +
+          "<br><br>" +
+          "Il manque seulement <strong>감사합니다</strong> pour terminer poliment."
+        );
+
+      }
+
+
+      if (
+        answer.includes(
+          "감사합니다"
+        ) &&
+        !answer.includes(
+          "주세요"
+        )
+      ) {
+
+        return (
+          "Tu as bien remercié le vendeur." +
+          "<br><br>" +
+          "Ajoute d'abord <strong>이거 주세요.</strong>"
+        );
+
+      }
+
+
+      return (
+        "💡 Dis :" +
+        "<br><br>" +
+        "<strong>이거 주세요. 감사합니다!</strong>"
+      );
+
+    }
+
+
+    return (
+      "Réessaie avec les expressions du chapitre."
+    );
+
+  }
+
+
+
+  /* =====================================================
+     AIDE
+     ===================================================== */
+
+  function showHelp(
+    number
+  ) {
+
+    if (
+      !helpUsed.includes(
+        number
+      )
+    ) {
+
+      helpUsed.push(
+        number
+      );
+
+    }
+
+
+    const feedback =
+      document.getElementById(
+        "feedback" +
+        number
+      );
+
+
+    feedback.className =
+      "feedback error";
+
+
+    feedback.innerHTML =
+      "💡 <strong>Modèle :</strong>" +
+      "<br><br>" +
+      "<span class='recognized-text'>" +
+      steps[number].model +
+      "</span>";
+
+  }
+
+
+
+  /* =====================================================
+     ÉTAPE SUIVANTE
+     ===================================================== */
+
+  function showStep(
+    number
+  ) {
+
+    window.speechSynthesis.cancel();
+
+
+    document
+      .querySelectorAll(
+        ".speak-card"
+      )
+      .forEach(
+        card => {
+
+          card.classList.add(
+            "hidden"
+          );
+
+        }
+      );
+
 
     document.getElementById(
-      "practiceCard"
-    ).style.display =
-      "none";
+      "step" +
+      number
+    ).classList.remove(
+      "hidden"
+    );
+
+
+    document.getElementById(
+      "progressLabel"
+    ).textContent =
+      number +
+      " / 10";
+
+
+    document.getElementById(
+      "progressFill"
+    ).style.width =
+      (
+        number /
+        10 *
+        100
+      ) +
+      "%";
+
+
+    window.scrollTo({
+
+      top:
+        0,
+
+      behavior:
+        "smooth"
+
+    });
+
+  }
+
+
+
+  /* =====================================================
+     RÉSULTAT
+     ===================================================== */
+
+  function showResult() {
+
+    if (
+      !completed[10]
+    ) {
+
+      return;
+
+    }
+
+
+    window.speechSynthesis.cancel();
+
+
+    document
+      .querySelectorAll(
+        ".speak-card"
+      )
+      .forEach(
+        card => {
+
+          card.classList.add(
+            "hidden"
+          );
+
+        }
+      );
+
+
+    document.getElementById(
+      "progressFill"
+    ).style.width =
+      "100%";
+
+
+    document.getElementById(
+      "progressLabel"
+    ).textContent =
+      "10 / 10";
 
 
     document.getElementById(
@@ -1384,54 +2497,41 @@
     );
 
 
-    let summary = "";
+    localStorage.setItem(
+      "hanaKorean_chapter11_speakingMistakes",
+      JSON.stringify(
+        mistakes
+      )
+    );
 
 
-    if (
-      mistakes === 0
-    ) {
-
-      summary =
-        "🌟 Toutes les étapes ont été reconnues sans erreur.";
-
-    }
-
-    else if (
-      mistakes === 1
-    ) {
-
-      summary =
-        "💡 Tu as eu 1 tentative incorrecte pendant la séance.";
-
-    }
-
-    else {
-
-      summary =
-        "💡 Tu as eu " +
-        mistakes +
-        " tentatives incorrectes pendant la séance.";
-
-    }
+    localStorage.setItem(
+      "hanaKorean_chapter11_speakingHelp",
+      JSON.stringify(
+        helpUsed
+      )
+    );
 
 
-    if (
-      helpCount > 0
-    ) {
+    window.scrollTo({
 
-      summary +=
-        "<br><br>Tu as utilisé l'aide " +
-        helpCount +
-        " fois.";
+      top:
+        0,
 
-    }
+      behavior:
+        "smooth"
+
+    });
+
+  }
 
 
-    document.getElementById(
-      "mistakeSummary"
-    ).innerHTML =
-      summary;
 
+  /* =====================================================
+     VALIDATION DE « JE PARLE »
+     ===================================================== */
+
+  function completeSpeaking() {
 
     localStorage.setItem(
       "hanaKorean_chapter11_speaking",
@@ -1439,68 +2539,81 @@
     );
 
 
-    localStorage.setItem(
-      "hanaKorean_chapter11_speakingMistakes",
-      mistakes
-    );
+    if (
+      window.HanaChapterProgress &&
+      typeof window.HanaChapterProgress.render === "function"
+    ) {
+
+      window.HanaChapterProgress.render();
+
+    }
 
 
-    localStorage.setItem(
-      "hanaKorean_chapter11_speakingHelp",
-      helpCount
-    );
-
-
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    });
+    window.location.href =
+      "ecriture-11.html";
 
   }
 
 
-  if (
-    "speechSynthesis" in window
+
+  /* =====================================================
+     SÉCURITÉ HTML
+     ===================================================== */
+
+  function escapeHtml(
+    text
   ) {
 
-    window.speechSynthesis.onvoiceschanged =
-      function() {
+    const div =
+      document.createElement(
+        "div"
+      );
 
-        window.speechSynthesis.getVoices();
 
-      };
+    div.textContent =
+      String(
+        text
+      );
+
+
+    return div.innerHTML;
 
   }
 
+
+
+  /* =====================================================
+     SÉCURITÉ AUDIO
+     ===================================================== */
 
   window.addEventListener(
     "pagehide",
     function() {
 
+      window.speechSynthesis.cancel();
+
+    }
+  );
+
+
+  window.addEventListener(
+    "pageshow",
+    function() {
+
       if (
-        "speechSynthesis" in window
+        window.HanaChapterProgress &&
+        typeof window.HanaChapterProgress.render === "function"
       ) {
 
-        window.speechSynthesis.cancel();
-
-      }
-
-
-      if (
-        recognition &&
-        isListening
-      ) {
-
-        recognition.abort();
+        window.HanaChapterProgress.render();
 
       }
 
     }
   );
 
-
-  renderStep();
 </script>
+
 
 </body>
 

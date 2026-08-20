@@ -14,11 +14,16 @@
     content="#F7F4ED"
   >
 
-  <title>Mini défi d'écoute — Chapitre 11</title>
+  <title>Mini défi d'écoute — Chapitre 15</title>
 
   <link
     rel="stylesheet"
     href="style.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="chapter-progress.css"
   >
 
   <style>
@@ -102,14 +107,19 @@
       font-size: 14px;
     }
 
-    .audio-main {
+    .audio-main,
+    .slow-button {
       width: 100%;
+    }
+
+    .audio-main {
       font-weight: bold;
     }
 
     .slow-button {
-      width: 100%;
       margin-top: 8px;
+      background: var(--soft-beige);
+      color: var(--navy);
     }
 
     .answers {
@@ -123,7 +133,19 @@
       width: 100%;
       padding: 15px;
       text-align: left;
-      border: 2px solid transparent;
+      background: #FBFAF6;
+      color: var(--navy);
+      border: 1px solid var(--border);
+    }
+
+    .answer.correct {
+      background: var(--success-light);
+      color: var(--success);
+    }
+
+    .answer.wrong {
+      background: var(--error-light);
+      color: var(--error);
     }
 
     .feedback {
@@ -134,9 +156,16 @@
       line-height: 1.7;
     }
 
-    .feedback.correct,
+    .feedback.correct {
+      display: block;
+      background: var(--success-light);
+      color: var(--navy);
+    }
+
     .feedback.wrong {
       display: block;
+      background: var(--error-light);
+      color: var(--navy);
     }
 
     .heard-question {
@@ -153,7 +182,7 @@
       display: none;
       width: 100%;
       margin-top: 15px;
-      background: var(--jade);
+      background: var(--navy);
       color: white;
       font-weight: bold;
     }
@@ -171,6 +200,10 @@
       text-align: center;
     }
 
+    .result-card.show {
+      display: block;
+    }
+
     .result-icon {
       font-size: 60px;
     }
@@ -181,13 +214,17 @@
       font-weight: bold;
     }
 
-    .result-summary {
+    .result-summary,
+    .strategy-box {
       padding: 16px;
       margin-top: 18px;
-      background: #FBFAF6;
       border-radius: var(--radius-medium);
       text-align: left;
-      line-height: 1.6;
+      line-height: 1.7;
+    }
+
+    .result-summary {
+      background: #FBFAF6;
     }
 
     .notion-summary {
@@ -205,17 +242,17 @@
     }
 
     .strategy-box {
-      padding: 16px;
-      margin-top: 18px;
       background: var(--soft-green);
-      border-radius: var(--radius-medium);
       color: var(--navy);
-      text-align: left;
-      line-height: 1.7;
+    }
+
+    .next-step-button,
+    .chapter-button {
+      width: 100%;
+      margin-top: 10px;
     }
 
     .next-step-button {
-      width: 100%;
       margin-top: 18px;
       background: var(--jade);
       color: white;
@@ -223,8 +260,6 @@
     }
 
     .chapter-button {
-      width: 100%;
-      margin-top: 10px;
       background: var(--soft-beige);
       color: var(--navy);
     }
@@ -242,7 +277,6 @@
     ← J'écoute
   </a>
 
-
   <header class="exercise-header">
 
     <span class="chapter-badge">
@@ -254,16 +288,21 @@
     </p>
 
     <h1>
-      Commander un café
+      Commander au restaurant
     </h1>
 
     <p>
-      Écoute chaque phrase et repère
-      l'intention : recommandation, restriction alimentaire, niveau de piment ou paiement.
+      Écoute chaque phrase et repère l'intention :
+      recommandation, restriction alimentaire,
+      niveau de piment, commande ou paiement.
     </p>
 
   </header>
 
+  <section
+    id="hanaChapterPath"
+    data-chapter-path
+  ></section>
 
   <div class="exercise-progress">
 
@@ -742,7 +781,7 @@
   </section>
 
 
-  <!-- RÉSULTAT -->
+  <!-- RESULTAT -->
 
   <section
     class="result-card"
@@ -765,7 +804,6 @@
       5 intentions du restaurant reconnues ✅
     </p>
 
-
     <div class="result-summary">
 
       <strong>
@@ -776,31 +814,34 @@
 
     </div>
 
-
     <div class="notion-summary">
 
       <div class="notion-line">
-        ⭐ <strong>추천해 주세요.</strong> → Recommandez-moi quelque chose.
+        ⭐ <strong>추천해 주세요.</strong>
+        → Recommandez-moi quelque chose.
       </div>
 
       <div class="notion-line">
-        🐷 <strong>돼지고기를 안 먹어요.</strong> → Je ne mange pas de porc.
+        🐷 <strong>돼지고기를 안 먹어요.</strong>
+        → Je ne mange pas de porc.
       </div>
 
       <div class="notion-line">
-        🌶️ <strong>많이 안 매워요.</strong> → Ce n'est pas très épicé.
+        🌶️ <strong>비빔밥은 많이 안 매워요.</strong>
+        → Le bibimbap n'est pas très épicé.
       </div>
 
       <div class="notion-line">
-        🍚 <strong>비빔밥 하나 주세요.</strong> → Un bibimbap, s'il vous plaît.
+        🍚 <strong>비빔밥 하나 주세요.</strong>
+        → Un bibimbap, s'il vous plaît.
       </div>
 
       <div class="notion-line">
-        💳 <strong>계산해 주세요.</strong> → L'addition, s'il vous plaît.
+        💳 <strong>계산해 주세요.</strong>
+        → L'addition, s'il vous plaît.
       </div>
 
     </div>
-
 
     <div class="strategy-box">
 
@@ -814,35 +855,21 @@
 
       <br><br>
 
-      <strong>추천</strong> → recommandation
-
-      <br>
-
-      <strong>돼지고기</strong> → porc
-
-      <br>
-
-      <strong>매워요</strong> → épicé
-
-      <br>
-
-      <strong>하나 주세요</strong> → une unité, s'il vous plaît
-
-      <br>
-
+      <strong>추천</strong> → recommandation<br>
+      <strong>돼지고기</strong> → porc<br>
+      <strong>매워요</strong> → épicé<br>
+      <strong>하나 주세요</strong> → une unité, s'il vous plaît<br>
       <strong>계산</strong> → addition / paiement
 
     </div>
 
-
     <button
       class="next-step-button"
       type="button"
-      onclick="window.location.href='parle-15.html'"
+      onclick="goToSpeaking()"
     >
       🗣️ Passer à « Je parle »
     </button>
-
 
     <button
       class="chapter-button"
@@ -857,9 +884,34 @@
 </main>
 
 
+<script src="chapter-progress.js"></script>
+
 <script>
+  const CHAPTER = 15;
+
+  const UNDERSTANDING_KEY =
+    "hanaKorean_chapter15_understanding";
+
+  const LISTENING_KEY =
+    "hanaKorean_chapter15_listening";
+
+  const LISTENING_EXERCISE_KEY =
+    "hanaKorean_chapter15_listeningExercise";
+
+  const LISTENING_MISTAKES_KEY =
+    "hanaKorean_chapter15_listeningMistakes";
+
+  const LISTENING_INCORRECT_ATTEMPTS_KEY =
+    "hanaKorean_chapter15_listeningIncorrectAttempts";
+
+  const AUDIO_SETTINGS = {
+    normalRate: 0.82,
+    slowRate: 0.25
+  };
+
   let incorrectAttempts = 0;
 
+  const weakNotions = [];
 
   const completedQuestions = {
     1: false,
@@ -870,20 +922,66 @@
   };
 
 
+  function guardExerciseAccess() {
+
+    if (
+      localStorage.getItem(
+        UNDERSTANDING_KEY
+      ) !== "completed"
+    ) {
+      window.location.replace(
+        "chapitre-15.html"
+      );
+
+      return false;
+    }
+
+    if (
+      localStorage.getItem(
+        LISTENING_EXERCISE_KEY
+      ) !== "completed"
+    ) {
+      localStorage.setItem(
+        LISTENING_EXERCISE_KEY,
+        "in_progress"
+      );
+    }
+
+    return true;
+  }
+
+
+  function renderChapterProgress() {
+
+    if (
+      window.HanaChapterProgress &&
+      typeof window.HanaChapterProgress.render === "function"
+    ) {
+      window.HanaChapterProgress.render();
+    }
+  }
+
+
   function getKoreanVoice() {
+
+    if (
+      !("speechSynthesis" in window)
+    ) {
+      return null;
+    }
 
     const voices =
       window.speechSynthesis.getVoices();
 
-
-    return voices.find(
-      voice =>
-        voice.lang &&
-        voice.lang
-          .toLowerCase()
-          .startsWith("ko")
+    return (
+      voices.find(
+        voice =>
+          voice.lang &&
+          voice.lang
+            .toLowerCase()
+            .startsWith("ko")
+      ) || null
     );
-
   }
 
 
@@ -898,208 +996,37 @@
       return;
     }
 
-
     window.speechSynthesis.cancel();
-
 
     const speech =
       new SpeechSynthesisUtterance(
         text
       );
 
-
     speech.lang =
       "ko-KR";
 
-
     speech.rate =
       slow
-        ? 0.25
-        : 0.82;
-
+        ? AUDIO_SETTINGS.slowRate
+        : AUDIO_SETTINGS.normalRate;
 
     speech.pitch =
       1;
 
-
     const voice =
       getKoreanVoice();
 
-
-    if (voice) {
-
+    if (
+      voice
+    ) {
       speech.voice =
         voice;
-
     }
-
 
     window.speechSynthesis.speak(
       speech
     );
-
-  }
-
-
-  function playOriginalMetroChime() {
-
-    return new Promise(
-      resolve => {
-
-        try {
-
-          const AudioContext =
-            window.AudioContext ||
-            window.webkitAudioContext;
-
-
-          if (!AudioContext) {
-
-            resolve();
-
-            return;
-
-          }
-
-
-          const context =
-            new AudioContext();
-
-
-          const notes = [
-            {
-              frequency: 659.25,
-              start: 0,
-              duration: 0.18
-            },
-            {
-              frequency: 783.99,
-              start: 0.20,
-              duration: 0.22
-            }
-          ];
-
-
-          notes.forEach(
-            note => {
-
-              const oscillator =
-                context.createOscillator();
-
-
-              const gain =
-                context.createGain();
-
-
-              oscillator.type =
-                "sine";
-
-
-              oscillator.frequency.value =
-                note.frequency;
-
-
-              gain.gain.setValueAtTime(
-                0.0001,
-                context.currentTime +
-                  note.start
-              );
-
-
-              gain.gain.exponentialRampToValueAtTime(
-                0.12,
-                context.currentTime +
-                  note.start +
-                  0.02
-              );
-
-
-              gain.gain.exponentialRampToValueAtTime(
-                0.0001,
-                context.currentTime +
-                  note.start +
-                  note.duration
-              );
-
-
-              oscillator.connect(
-                gain
-              );
-
-
-              gain.connect(
-                context.destination
-              );
-
-
-              oscillator.start(
-                context.currentTime +
-                  note.start
-              );
-
-
-              oscillator.stop(
-                context.currentTime +
-                  note.start +
-                  note.duration +
-                  0.02
-              );
-
-            }
-          );
-
-
-          window.setTimeout(
-            function() {
-
-              try {
-                context.close();
-              }
-              catch (error) {
-              }
-
-              resolve();
-
-            },
-            520
-          );
-
-        }
-
-        catch (error) {
-
-          resolve();
-
-        }
-
-      }
-    );
-
-  }
-
-
-  async function playMetroAnnouncement(
-    text,
-    slow = false
-  ) {
-
-    if (
-      "speechSynthesis" in window
-    ) {
-
-      window.speechSynthesis.cancel();
-
-    }
-
-
-    await playOriginalMetroChime();
-
-
-    speakKorean(
-      text,
-      slow
-    );
-
   }
 
 
@@ -1115,18 +1042,26 @@
       return;
     }
 
+    const notions = {
+      1: "추천해 주세요",
+      2: "돼지고기 / 안 먹어요",
+      3: "안 매워요",
+      4: "하나 / 주세요",
+      5: "계산해 주세요"
+    };
+
+    const notion =
+      notions[number];
 
     const feedback =
       document.getElementById(
         "feedback" + number
       );
 
-
     const question =
       document.getElementById(
         "question" + number
       );
-
 
     const answers =
       question.querySelectorAll(
@@ -1134,188 +1069,192 @@
       );
 
 
-    if (isCorrect) {
+    if (
+      isCorrect
+    ) {
 
       completedQuestions[number] =
         true;
 
+      button.classList.remove(
+        "wrong"
+      );
 
       button.classList.add(
         "correct"
       );
 
-
       feedback.className =
         "feedback correct";
 
 
-      if (number === 1) {
-
+      if (
+        number === 1
+      ) {
         feedback.innerHTML =
           "✅ <strong>Exact !</strong>" +
           "<br><br>" +
           "Tu as entendu :" +
           "<div class='heard-question'>추천해 주세요.</div>" +
           "<strong>추천</strong> renvoie à une recommandation.";
-
       }
 
 
-      if (number === 2) {
-
+      if (
+        number === 2
+      ) {
         feedback.innerHTML =
           "✅ <strong>Très bien !</strong>" +
           "<br><br>" +
           "Tu as entendu :" +
           "<div class='heard-question'>돼지고기를 안 먹어요.</div>" +
           "<strong>안 먹어요</strong> signifie ici « je ne mange pas ».";
-
       }
 
 
-      if (number === 3) {
-
+      if (
+        number === 3
+      ) {
         feedback.innerHTML =
           "✅ <strong>Exact !</strong>" +
           "<br><br>" +
           "Tu as entendu :" +
           "<div class='heard-question'>비빔밥은 많이 안 매워요.</div>" +
-          "<strong>안 매워요</strong> = ce n'est pas épicé.";
-
+          "<strong>많이 안 매워요</strong> signifie « ce n'est pas très épicé ».";
       }
 
 
-      if (number === 4) {
-
+      if (
+        number === 4
+      ) {
         feedback.innerHTML =
           "✅ <strong>Très bien !</strong>" +
           "<br><br>" +
           "Tu as entendu :" +
           "<div class='heard-question'>비빔밥 하나 주세요.</div>" +
-          "Hana commande un bibimbap.";
-
+          "<strong>하나 주세요</strong> indique ici qu'Hana commande un bibimbap.";
       }
 
 
-      if (number === 5) {
-
+      if (
+        number === 5
+      ) {
         feedback.innerHTML =
           "✅ <strong>Parfait !</strong>" +
           "<br><br>" +
           "Tu as entendu :" +
           "<div class='heard-question'>계산해 주세요.</div>" +
           "Cette expression permet de demander l'addition.";
-
       }
 
 
       answers.forEach(
         answer => {
-
           answer.disabled =
             true;
-
         }
       );
-
 
       document.getElementById(
         "next" + number
       ).style.display =
         "block";
 
-
       return;
-
     }
 
 
     incorrectAttempts++;
 
+    if (
+      notion &&
+      !weakNotions.includes(
+        notion
+      )
+    ) {
+      weakNotions.push(
+        notion
+      );
+    }
 
     button.classList.add(
       "wrong"
     );
 
-
     feedback.className =
       "feedback wrong";
 
 
-    if (number === 1) {
-
+    if (
+      number === 1
+    ) {
       feedback.innerHTML =
         "❌ <strong>Repère 추천.</strong>" +
         "<br><br>" +
         "💡 <strong>추천</strong> = recommandation.";
-
     }
 
 
-    if (number === 2) {
-
+    if (
+      number === 2
+    ) {
       feedback.innerHTML =
         "❌ <strong>Repère 안 먹어요.</strong>" +
         "<br><br>" +
-        "💡 Cela signifie ici « je ne mange pas ».";
-
+        "💡 <strong>안 먹어요</strong> signifie ici « je ne mange pas ».";
     }
 
 
-    if (number === 3) {
-
+    if (
+      number === 3
+    ) {
       feedback.innerHTML =
-        "❌ <strong>Repère 안 매워요.</strong>" +
+        "❌ <strong>Repère 많이 안 매워요.</strong>" +
         "<br><br>" +
-        "💡 <strong>안 매워요</strong> = ce n'est pas épicé.";
-
+        "💡 Le mot <strong>안</strong> apporte ici la négation : le bibimbap n'est pas très épicé.";
     }
 
 
-    if (number === 4) {
-
+    if (
+      number === 4
+    ) {
       feedback.innerHTML =
         "❌ <strong>Repère 비빔밥 et 하나 주세요.</strong>" +
         "<br><br>" +
-        "💡 Hana commande un bibimbap.";
-
+        "💡 Hana commande <strong>un bibimbap</strong>.";
     }
 
 
-    if (number === 5) {
-
+    if (
+      number === 5
+    ) {
       feedback.innerHTML =
         "❌ <strong>Repère 계산.</strong>" +
         "<br><br>" +
         "💡 <strong>계산해 주세요</strong> sert à demander l'addition.";
-
     }
 
 
-    setTimeout(
-      () => {
-
+    window.setTimeout(
+      function() {
         button.classList.remove(
           "wrong"
         );
-
       },
       800
     );
-
   }
 
 
-  function showQuestion(number) {
+  function showQuestion(
+    number
+  ) {
 
     if (
       "speechSynthesis" in window
     ) {
-
       window.speechSynthesis.cancel();
-
     }
-
 
     document
       .querySelectorAll(
@@ -1323,14 +1262,11 @@
       )
       .forEach(
         card => {
-
           card.classList.add(
             "hidden"
           );
-
         }
       );
-
 
     document.getElementById(
       "question" + number
@@ -1338,22 +1274,11 @@
       "hidden"
     );
 
-
-    const percentages = {
-      1: 20,
-      2: 40,
-      3: 60,
-      4: 80,
-      5: 100
-    };
-
-
     document.getElementById(
       "progressFill"
     ).style.width =
-      percentages[number] +
+      (number * 20) +
       "%";
-
 
     document.getElementById(
       "progressLabel"
@@ -1361,25 +1286,26 @@
       number +
       " / 5";
 
-
     window.scrollTo({
       top: 0,
       behavior: "smooth"
     });
-
   }
 
 
   function finishExercise() {
 
     if (
-      "speechSynthesis" in window
+      !completedQuestions[5]
     ) {
-
-      window.speechSynthesis.cancel();
-
+      return;
     }
 
+    if (
+      "speechSynthesis" in window
+    ) {
+      window.speechSynthesis.cancel();
+    }
 
     document
       .querySelectorAll(
@@ -1387,31 +1313,27 @@
       )
       .forEach(
         card => {
-
           card.classList.add(
             "hidden"
           );
-
         }
       );
-
 
     document.getElementById(
       "progressFill"
     ).style.width =
       "100%";
 
-
     document.getElementById(
       "progressLabel"
     ).textContent =
       "5 / 5";
 
-
     document.getElementById(
       "resultCard"
-    ).style.display =
-      "block";
+    ).classList.add(
+      "show"
+    );
 
 
     let message = "";
@@ -1420,28 +1342,22 @@
     if (
       incorrectAttempts === 0
     ) {
-
       message =
         "🌟 Tu as reconnu les 5 éléments du premier coup.";
-
     }
 
     else if (
       incorrectAttempts === 1
     ) {
-
       message =
         "💡 1 tentative incorrecte, puis les 5 éléments ont été reconnus.";
-
     }
 
     else {
-
       message =
         "💡 " +
         incorrectAttempts +
         " tentatives incorrectes. Les 5 éléments ont malgré tout été validés.";
-
     }
 
 
@@ -1452,39 +1368,77 @@
 
 
     localStorage.setItem(
-      "hanaKorean_chapter15_listening",
+      LISTENING_KEY,
       "completed"
     );
 
-
     localStorage.setItem(
-      "hanaKorean_chapter15_listeningMistakes",
-      incorrectAttempts
+      LISTENING_EXERCISE_KEY,
+      "completed"
     );
 
+    localStorage.setItem(
+      LISTENING_MISTAKES_KEY,
+      JSON.stringify(
+        weakNotions
+      )
+    );
+
+    localStorage.setItem(
+      LISTENING_INCORRECT_ATTEMPTS_KEY,
+      String(
+        incorrectAttempts
+      )
+    );
+
+    renderChapterProgress();
 
     window.scrollTo({
       top: 0,
       behavior: "smooth"
     });
+  }
 
+
+  function goToSpeaking() {
+
+    if (
+      localStorage.getItem(
+        LISTENING_EXERCISE_KEY
+      ) !== "completed"
+    ) {
+      return;
+    }
+
+    window.location.href =
+      "parle-15.html";
   }
 
 
   if (
     "speechSynthesis" in window
   ) {
-
     window.speechSynthesis.onvoiceschanged =
       function() {
-
         window.speechSynthesis.getVoices();
-
       };
+  }
 
+
+  if (
+    guardExerciseAccess()
+  ) {
+
+    renderChapterProgress();
+
+    window.addEventListener(
+      "pageshow",
+      function() {
+        renderChapterProgress();
+      }
+    );
   }
 </script>
 
 </body>
-
 </html>

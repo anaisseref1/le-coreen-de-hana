@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#F7F4ED">
+<title>Résumé — Chapitre 17</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="chapter-progress.css">
+</head>
+<body>
+<main class="app">
+
+<a class="back-link" href="utilise-17.html">← Mission chapitre 17</a>
+
+<header style="text-align:center">
+<span class="chapter-badge">Module 2 · Chapitre 17</span>
+<p class="korean">📱 와이파이 있어요?</p>
+<h1>Résumé</h1>
+<p>Le téléphone et Internet en Corée.</p>
+</header>
+
+<section id="hanaChapterPath" data-chapter-path></section>
+
+<section class="summary-card">
+<h2>🎯 Objectif</h2>
+<p>Savoir demander le Wi-Fi et son mot de passe, parler de ta batterie, demander un chargeur, trouver où recharger ton téléphone et signaler un problème de connexion.</p>
+</section>
+
+<section class="summary-card">
+<h2>📱 Vocabulaire essentiel</h2>
+<p><strong>휴대폰</strong> → téléphone portable — terme standard</p>
+<p><strong>핸드폰</strong> → téléphone — très courant à l'oral</p>
+<p><strong>배터리</strong> → batterie</p>
+<p><strong>충전기</strong> → chargeur</p>
+<p><strong>충전</strong> → recharge</p>
+<p><strong>인터넷</strong> → Internet</p>
+<p><strong>와이파이</strong> → Wi-Fi</p>
+<p><strong>비밀번호</strong> → mot de passe</p>
+<p><strong>있어요</strong> → il y a / j'ai</p>
+<p><strong>없어요</strong> → il n'y a pas / je n'ai pas</p>
+</section>
+
+<section class="summary-card">
+<h2>🧩 Structures importantes</h2>
+<p><strong>N + 있어요?</strong><br>와이파이 있어요? → Il y a du Wi-Fi ?<br>충전기 있어요? → Vous avez un chargeur ?</p>
+<p><strong>N이/가 + 없어요</strong><br>배터리가 없어요. → Je n'ai plus de batterie.</p>
+<p><strong>N이/가 + 안 돼요</strong><br>인터넷이 안 돼요. → Internet ne fonctionne pas.<br>와이파이가 안 돼요. → Le Wi-Fi ne fonctionne pas.</p>
+<p><strong>어디에서 + 충전할 수 있어요?</strong><br>어디에서 충전할 수 있어요? → Où est-ce que je peux recharger ?</p>
+</section>
+
+<section class="summary-card">
+<h2>💬 Phrases à retenir</h2>
+<p class="korean">와이파이 있어요?</p>
+<p class="korean">와이파이 비밀번호가 뭐예요?</p>
+<p class="korean">배터리가 없어요.</p>
+<p class="korean">충전기 있어요?</p>
+<p class="korean">충전할 수 있어요?</p>
+<p class="korean">어디에서 충전할 수 있어요?</p>
+<p class="korean">인터넷이 안 돼요.</p>
+<p class="korean">와이파이가 안 돼요.</p>
+</section>
+
+<section class="summary-card">
+<h2>🌿 Récapitulatif</h2>
+<p>Tu sais maintenant gérer les situations essentielles liées à ton téléphone et à Internet : te connecter au Wi-Fi, demander un mot de passe ou un chargeur, parler de ta batterie et demander où recharger.</p>
+</section>
+
+<script src="chapter-progress.js"></script>
+<script>
+const CHAPTER=17;
+const REQUIRED_KEY="hanaKorean_chapter17_use";
+const LEGACY_MISSION_KEY="hanaKorean_chapter17_mission";
+const LEGACY_COMPLETED_KEY="hanaKorean_chapter17_completed";
+const SUMMARY_KEY="hanaKorean_chapter17_resume";
+
+function migrateMissionProgress(){
+  if(localStorage.getItem(REQUIRED_KEY)==="completed"){
+    return;
+  }
+
+  if(
+    localStorage.getItem(LEGACY_MISSION_KEY)==="completed" ||
+    localStorage.getItem(LEGACY_COMPLETED_KEY)==="completed"
+  ){
+    localStorage.setItem(REQUIRED_KEY,"completed");
+  }
+}
+
+function renderChapterProgress(){
+  if(
+    window.HanaChapterProgress &&
+    typeof window.HanaChapterProgress.render==="function"
+  ){
+    window.HanaChapterProgress.render();
+  }
+}
+
+migrateMissionProgress();
+
+if(localStorage.getItem(REQUIRED_KEY)!=="completed"){
+  window.location.replace("utilise-17.html");
+}else{
+  localStorage.setItem(SUMMARY_KEY,"completed");
+  renderChapterProgress();
+}
+
+window.addEventListener("pageshow",function(){
+  migrateMissionProgress();
+
+  if(localStorage.getItem(REQUIRED_KEY)!=="completed"){
+    window.location.replace("utilise-17.html");
+    return;
+  }
+
+  localStorage.setItem(SUMMARY_KEY,"completed");
+  renderChapterProgress();
+});
+</script>
+
+</main>
+</body>
+</html>

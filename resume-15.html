@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Résumé — Chapitre 15</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="chapter-progress.css">
+</head>
+<body>
+<main class="app">
+
+<a class="back-link" href="utilise-15.html">← Mission chapitre 15</a>
+
+<header style="text-align:center">
+<span class="chapter-badge">Module 2 · Chapitre 15</span>
+<p class="korean">🍜 식당에서 주문하기</p>
+<h1>Résumé</h1>
+<p>Commander dans un restaurant coréen.</p>
+</header>
+
+<section id="hanaChapterPath" data-chapter-path></section>
+
+<section class="summary-card">
+<h2>🎯 Objectif</h2>
+<p>Savoir commander, demander une recommandation, préciser une restriction alimentaire, demander si un plat est épicé et demander l'addition.</p>
+</section>
+
+<section class="summary-card">
+<h2>🍜 Vocabulaire essentiel</h2>
+<p><strong>메뉴</strong> → menu</p>
+<p><strong>추천</strong> → recommandation</p>
+<p><strong>돼지고기</strong> → porc</p>
+<p><strong>비빔밥</strong> → bibimbap</p>
+<p><strong>계산</strong> → addition</p>
+<p><strong>매워요</strong> → être épicé</p>
+</section>
+
+<section class="summary-card">
+<h2>🧩 Structures importantes</h2>
+<p><strong>N + 주세요</strong><br>메뉴 주세요. → Le menu, s'il vous plaît.</p>
+<p><strong>추천해 주세요</strong><br>Recommandez-moi quelque chose.</p>
+<p><strong>안 + verbe</strong><br>돼지고기를 안 먹어요. → Je ne mange pas de porc.</p>
+<p><strong>-(으)ㄹ게요</strong><br>카드로 할게요. → Je vais payer par carte.</p>
+</section>
+
+<section class="summary-card">
+<h2>💬 Phrases à retenir</h2>
+<p class="korean">메뉴 주세요.</p>
+<p class="korean">추천해 주세요.</p>
+<p class="korean">돼지고기를 안 먹어요.</p>
+<p class="korean">돼지고기 들어가요?</p>
+<p class="korean">돼지고기 빼 주세요.</p>
+<p class="korean">많이 매워요?</p>
+<p class="korean">비빔밥 하나 주세요.</p>
+<p class="korean">계산해 주세요.</p>
+</section>
+
+<section class="summary-card">
+<h2>🌿 Récapitulatif</h2>
+<p>Tu sais maintenant commander dans un restaurant coréen avec des expressions polies et naturelles.</p>
+</section>
+
+<script src="chapter-progress.js"></script>
+<script>
+const REQUIRED_KEY="hanaKorean_chapter15_use";
+const SUMMARY_KEY="hanaKorean_chapter15_resume";
+
+if(localStorage.getItem(REQUIRED_KEY)!=="completed"){
+window.location.replace("utilise-15.html");
+}
+
+localStorage.setItem(SUMMARY_KEY,"completed");
+
+if(window.HanaChapterProgress &&
+typeof window.HanaChapterProgress.render==="function"){
+window.HanaChapterProgress.render();
+}
+</script>
+
+</main>
+</body>
+</html>

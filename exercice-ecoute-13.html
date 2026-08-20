@@ -14,11 +14,16 @@
     content="#F7F4ED"
   >
 
-  <title>Mini défi d'écoute — Chapitre 11</title>
+  <title>Mini défi d'écoute — Chapitre 13</title>
 
   <link
     rel="stylesheet"
     href="style.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="chapter-progress.css"
   >
 
   <style>
@@ -234,6 +239,8 @@
 <body>
 
 <main class="app">
+
+  <section id="hanaChapterPath" data-chapter-path></section>
 
   <a
     class="back-link"
@@ -850,7 +857,35 @@
 </main>
 
 
+<script src="chapter-progress.js"></script>
+
 <script>
+  const understandingState = localStorage.getItem(
+    "hanaKorean_chapter13_understanding"
+  );
+
+  if (understandingState !== "completed") {
+    window.location.href = "chapitre-13.html";
+  }
+
+  if (
+    localStorage.getItem(
+      "hanaKorean_chapter13_listeningExercise"
+    ) !== "completed"
+  ) {
+    localStorage.setItem(
+      "hanaKorean_chapter13_listeningExercise",
+      "in_progress"
+    );
+  }
+
+  if (
+    window.HanaChapterProgress &&
+    typeof window.HanaChapterProgress.render === "function"
+  ) {
+    window.HanaChapterProgress.render();
+  }
+
   let incorrectAttempts = 0;
 
 
@@ -1451,6 +1486,20 @@
 
 
     localStorage.setItem(
+      "hanaKorean_chapter13_listeningExercise",
+      "completed"
+    );
+
+
+    if (
+      window.HanaChapterProgress &&
+      typeof window.HanaChapterProgress.render === "function"
+    ) {
+      window.HanaChapterProgress.render();
+    }
+
+
+    localStorage.setItem(
       "hanaKorean_chapter13_listeningMistakes",
       incorrectAttempts
     );
@@ -1476,6 +1525,19 @@
       };
 
   }
+
+
+  window.addEventListener(
+    "pageshow",
+    function() {
+      if (
+        window.HanaChapterProgress &&
+        typeof window.HanaChapterProgress.render === "function"
+      ) {
+        window.HanaChapterProgress.render();
+      }
+    }
+  );
 </script>
 
 </body>

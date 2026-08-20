@@ -14,14 +14,16 @@
     content="#F7F4ED"
   >
 
-  <title>Je parle — Chapitre 12</title>
+  <title>Je parle — Chapitre 17</title>
 
   <link
     rel="stylesheet"
     href="style.css"
   >
 
-  <style>
+    <link rel="stylesheet" href="chapter-progress.css">
+
+<style>
     .speak-header {
       text-align: center;
       margin-bottom: 28px;
@@ -296,11 +298,16 @@
     </h1>
 
     <p>
-      Répète les mots essentiels,
-      puis réponds dans de petites situations pour demander ton chemin.
+      Répète les mots et expressions essentiels du téléphone et d'Internet,
+      puis réponds à Ji-eun dans de petites situations au café.
     </p>
 
   </header>
+
+  <section
+    id="hanaChapterPath"
+    data-chapter-path
+  ></section>
 
 
   <section class="intro-card">
@@ -309,10 +316,10 @@
 
     <br><br>
 
-    Savoir demander où se trouve un lieu,
-    comprendre et utiliser <strong>직진</strong>,
-    <strong>왼쪽</strong> et <strong>오른쪽</strong>,
-    puis remercier poliment avec <strong>감사합니다</strong>.
+    Savoir demander le Wi-Fi et son mot de passe,
+    dire que tu n'as plus de batterie, demander un chargeur,
+    demander où recharger ton téléphone
+    et signaler qu'Internet ne fonctionne pas.
 
   </section>
 
@@ -569,8 +576,62 @@
 </main>
 
 
+<script src="chapter-progress.js"></script>
+
 <script>
-  const AUDIO_SETTINGS = {
+  const CHAPTER = 17;
+
+  const UNDERSTANDING_KEY =
+    "hanaKorean_chapter17_understanding";
+
+  const LISTENING_EXERCISE_KEY =
+    "hanaKorean_chapter17_listeningExercise";
+
+  const SPEAKING_KEY =
+    "hanaKorean_chapter17_speaking";
+
+  const SPEAKING_MISTAKES_KEY =
+    "hanaKorean_chapter17_speakingMistakes";
+
+  const SPEAKING_HELP_KEY =
+    "hanaKorean_chapter17_speakingHelp";
+
+  function guardSpeakingAccess() {
+    if (
+      localStorage.getItem(
+        UNDERSTANDING_KEY
+      ) !== "completed"
+    ) {
+      window.location.replace(
+        "chapitre-17.html"
+      );
+      return false;
+    }
+
+    if (
+      localStorage.getItem(
+        LISTENING_EXERCISE_KEY
+      ) !== "completed"
+    ) {
+      window.location.replace(
+        "ecoute-17.html"
+      );
+      return false;
+    }
+
+    return true;
+  }
+
+  function renderChapterProgress() {
+    if (
+      window.HanaChapterProgress &&
+      typeof window.HanaChapterProgress.render === "function"
+    ) {
+      window.HanaChapterProgress.render();
+    }
+  }
+
+const AUDIO_SETTINGS = {
     normalRate: 0.82,
     slowRate: 0.25
   };
@@ -1438,21 +1499,23 @@
 
 
     localStorage.setItem(
-      "hanaKorean_chapter17_speaking",
+      SPEAKING_KEY,
       "completed"
     );
 
 
     localStorage.setItem(
-      "hanaKorean_chapter17_speakingMistakes",
-      mistakes
+      SPEAKING_MISTAKES_KEY,
+      String(mistakes)
     );
 
 
     localStorage.setItem(
-      "hanaKorean_chapter17_speakingHelp",
-      helpCount
+      SPEAKING_HELP_KEY,
+      String(helpCount)
     );
+
+    renderChapterProgress();
 
 
     window.scrollTo({
@@ -1503,7 +1566,17 @@
   );
 
 
-  renderStep();
+  if (guardSpeakingAccess()) {
+    renderChapterProgress();
+    renderStep();
+
+    window.addEventListener(
+      "pageshow",
+      function() {
+        renderChapterProgress();
+      }
+    );
+  }
 </script>
 
 </body>

@@ -1,0 +1,1596 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="theme-color"
+    content="#F7F4ED"
+  >
+
+  <title>
+    Chapitre 3 — Résumé
+  </title>
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="chapter-progress.css"
+  >
+
+
+  <script>
+
+    /* =====================================================
+       GARDE — LE CHAPITRE DOIT ÊTRE TERMINÉ
+       ===================================================== */
+
+    if (
+      localStorage.getItem(
+        "hanaKorean_chapter3_completed"
+      ) !== "completed"
+    ) {
+
+      window.location.replace(
+        "chapitre-3.html"
+      );
+
+    }
+
+  </script>
+
+
+  <style>
+
+    /* =====================================================
+       EN-TÊTE
+       ===================================================== */
+
+    .summary-header {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+
+    .chapter-badge {
+      display: inline-block;
+      padding: 7px 14px;
+      margin-bottom: 10px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+
+    .summary-intro {
+      color: var(--text-light);
+      line-height: 1.7;
+    }
+
+
+    /* =====================================================
+       FÉLICITATION
+       ===================================================== */
+
+    .success-card {
+      padding: 20px;
+      margin-bottom: 20px;
+      background: var(--soft-green);
+      border-radius: var(--radius-large);
+      color: var(--navy);
+      text-align: center;
+      line-height: 1.7;
+    }
+
+
+    .success-icon {
+      margin-bottom: 8px;
+      font-size: 42px;
+    }
+
+
+    .success-card h2 {
+      margin: 0 0 8px;
+    }
+
+
+    /* =====================================================
+       CARTES
+       ===================================================== */
+
+    .summary-card {
+      padding: 20px;
+      margin-bottom: 18px;
+    }
+
+
+    .summary-card h2 {
+      margin-top: 0;
+    }
+
+
+    /* =====================================================
+       VOCABULAIRE
+       ===================================================== */
+
+    .vocab-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+
+    .vocab-item {
+      padding: 14px;
+      background: #FBFAF6;
+      border-radius: var(--radius-medium);
+    }
+
+
+    .vocab-korean {
+      color: var(--navy);
+      font-size: 19px;
+      font-weight: bold;
+    }
+
+
+    .vocab-french {
+      margin-top: 4px;
+      color: var(--text-light);
+      font-size: 13px;
+    }
+
+
+    /* =====================================================
+       PHRASES
+       ===================================================== */
+
+    .phrase {
+      padding: 15px;
+      margin-top: 11px;
+      background: #FBFAF6;
+      border-radius: var(--radius-medium);
+      line-height: 1.7;
+    }
+
+
+    .phrase-korean {
+      color: var(--navy);
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+
+    .phrase-french {
+      display: block;
+      margin-top: 4px;
+      color: var(--text-light);
+    }
+
+
+    /* =====================================================
+       STRUCTURES
+       ===================================================== */
+
+    .structure-box {
+      padding: 17px;
+      margin-top: 14px;
+      background: var(--soft-beige);
+      border-radius: var(--radius-medium);
+      color: var(--navy);
+      text-align: center;
+      font-size: 19px;
+      font-weight: bold;
+      line-height: 1.8;
+    }
+
+
+    .tip-box {
+      padding: 16px;
+      margin-top: 14px;
+      background: var(--soft-blue);
+      border-radius: var(--radius-medium);
+      color: var(--navy);
+      line-height: 1.7;
+    }
+
+
+    .culture-box {
+      padding: 16px;
+      margin-top: 14px;
+      background: var(--soft-green);
+      border-radius: var(--radius-medium);
+      color: var(--navy);
+      line-height: 1.7;
+    }
+
+
+    /* =====================================================
+       TROIS VERBES
+       ===================================================== */
+
+    .verb-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+
+    .verb-item {
+      padding: 15px 8px;
+      background: var(--soft-green);
+      border-radius: var(--radius-medium);
+      text-align: center;
+    }
+
+
+    .verb-korean {
+      color: var(--navy);
+      font-size: 21px;
+      font-weight: bold;
+    }
+
+
+    .verb-french {
+      margin-top: 5px;
+      color: var(--text-light);
+      font-size: 13px;
+    }
+
+
+    /* =====================================================
+       DIALOGUE
+       ===================================================== */
+
+    .dialogue-line {
+      padding: 14px;
+      margin-top: 10px;
+      background: #FBFAF6;
+      border-radius: var(--radius-medium);
+      line-height: 1.7;
+    }
+
+
+    .speaker {
+      margin-bottom: 5px;
+      color: var(--navy);
+      font-weight: bold;
+    }
+
+
+    /* =====================================================
+       AUDIO
+       ===================================================== */
+
+    .audio-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 9px;
+      margin-top: 11px;
+    }
+
+
+    .audio-button,
+    .slow-button {
+      width: 100%;
+      font-weight: bold;
+    }
+
+
+    .audio-button {
+      background: var(--soft-blue);
+      color: var(--navy);
+    }
+
+
+    .slow-button {
+      background: var(--soft-beige);
+      color: var(--navy);
+    }
+
+
+    /* =====================================================
+       ACTIONS
+       ===================================================== */
+
+    .summary-actions {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+
+    .primary-button {
+      width: 100%;
+      background: var(--jade);
+      color: white;
+      font-weight: bold;
+    }
+
+
+    .secondary-button {
+      width: 100%;
+      background: var(--soft-beige);
+      color: var(--navy);
+      font-weight: bold;
+    }
+
+
+    @media (max-width: 480px) {
+
+      .vocab-grid {
+        grid-template-columns: 1fr;
+      }
+
+
+      .verb-grid {
+        grid-template-columns: 1fr;
+      }
+
+
+      .audio-row {
+        grid-template-columns: 1fr;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+<main class="app">
+
+
+  <!-- =====================================================
+       RETOUR
+       ===================================================== -->
+
+  <a
+    class="back-link"
+    href="itineraire.html#module1"
+  >
+    ← Mon itinéraire
+  </a>
+
+
+
+  <!-- =====================================================
+       EN-TÊTE
+       ===================================================== -->
+
+  <header class="summary-header">
+
+    <span class="chapter-badge">
+      Module 1 · Chapitre 3
+    </span>
+
+
+    <p class="korean">
+      어디에 있어요? 📍
+    </p>
+
+
+    <h1>
+      Résumé du chapitre
+    </h1>
+
+
+    <p class="summary-intro">
+      Retrouve ici les structures
+      pour dire où tu es,
+      où tu vas et où tu habites.
+    </p>
+
+  </header>
+
+
+
+  <!-- =====================================================
+       FÉLICITATION
+       ===================================================== -->
+
+  <section class="success-card">
+
+    <div class="success-icon">
+      📍
+    </div>
+
+
+    <h2>
+      Tu peux maintenant parler des lieux !
+    </h2>
+
+
+    <p>
+      Tu sais distinguer
+      <strong>être quelque part</strong>,
+      <strong>aller quelque part</strong>
+      et <strong>habiter quelque part</strong>.
+    </p>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       VOCABULAIRE
+       ===================================================== -->
+
+  <section class="summary-card">
+
+    <h2>
+      🌱 Vocabulaire essentiel
+    </h2>
+
+
+    <div class="vocab-grid">
+
+
+      <div class="vocab-item">
+
+        <div class="vocab-korean">
+          집
+        </div>
+
+        <div class="vocab-french">
+          Maison / chez soi
+        </div>
+
+      </div>
+
+
+      <div class="vocab-item">
+
+        <div class="vocab-korean">
+          카페
+        </div>
+
+        <div class="vocab-french">
+          Café
+        </div>
+
+      </div>
+
+
+      <div class="vocab-item">
+
+        <div class="vocab-korean">
+          학교
+        </div>
+
+        <div class="vocab-french">
+          École
+        </div>
+
+      </div>
+
+
+      <div class="vocab-item">
+
+        <div class="vocab-korean">
+          호텔
+        </div>
+
+        <div class="vocab-french">
+          Hôtel
+        </div>
+
+      </div>
+
+
+      <div class="vocab-item">
+
+        <div class="vocab-korean">
+          프랑스
+        </div>
+
+        <div class="vocab-french">
+          France
+        </div>
+
+      </div>
+
+
+      <div class="vocab-item">
+
+        <div class="vocab-korean">
+          한국
+        </div>
+
+        <div class="vocab-french">
+          Corée
+        </div>
+
+      </div>
+
+
+      <div class="vocab-item">
+
+        <div class="vocab-korean">
+          서울
+        </div>
+
+        <div class="vocab-french">
+          Séoul
+        </div>
+
+      </div>
+
+
+      <div class="vocab-item">
+
+        <div class="vocab-korean">
+          어디
+        </div>
+
+        <div class="vocab-french">
+          Où
+        </div>
+
+      </div>
+
+
+      <div class="vocab-item">
+
+        <div class="vocab-korean">
+          있다
+        </div>
+
+        <div class="vocab-french">
+          Être / se trouver / il y a
+        </div>
+
+      </div>
+
+
+      <div class="vocab-item">
+
+        <div class="vocab-korean">
+          가다
+        </div>
+
+        <div class="vocab-french">
+          Aller
+        </div>
+
+      </div>
+
+
+      <div class="vocab-item">
+
+        <div class="vocab-korean">
+          살다
+        </div>
+
+        <div class="vocab-french">
+          Habiter / vivre
+        </div>
+
+      </div>
+
+
+      <div class="vocab-item">
+
+        <div class="vocab-korean">
+          지금
+        </div>
+
+        <div class="vocab-french">
+          Maintenant
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       TROIS VERBES
+       ===================================================== -->
+
+  <section class="summary-card">
+
+    <h2>
+      🧩 Les trois verbes à distinguer
+    </h2>
+
+
+    <div class="verb-grid">
+
+
+      <div class="verb-item">
+
+        <div class="verb-korean">
+          있어요
+        </div>
+
+        <div class="verb-french">
+          être / se trouver
+        </div>
+
+      </div>
+
+
+      <div class="verb-item">
+
+        <div class="verb-korean">
+          가요
+        </div>
+
+        <div class="verb-french">
+          aller
+        </div>
+
+      </div>
+
+
+      <div class="verb-item">
+
+        <div class="verb-korean">
+          살아요
+        </div>
+
+        <div class="verb-french">
+          habiter / vivre
+        </div>
+
+      </div>
+
+
+    </div>
+
+
+    <div class="tip-box">
+
+      Le lieu peut être exactement le même.
+
+      <br><br>
+
+      C'est surtout le
+      <strong>verbe</strong>
+      qui change le sens de la phrase.
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       PARTICULE 에
+       ===================================================== -->
+
+  <section class="summary-card">
+
+    <h2>
+      📍 La particule 에
+    </h2>
+
+
+    <p>
+      <strong>에</strong>
+      s'attache à un lieu.
+    </p>
+
+
+    <div class="structure-box">
+
+      lieu + 에
+
+    </div>
+
+
+    <div class="phrase">
+
+      <div class="phrase-korean">
+        집에
+      </div>
+
+      <span class="phrase-french">
+        à la maison / chez moi
+      </span>
+
+    </div>
+
+
+    <div class="phrase">
+
+      <div class="phrase-korean">
+        카페에
+      </div>
+
+      <span class="phrase-french">
+        au café / vers le café
+      </span>
+
+    </div>
+
+
+    <div class="phrase">
+
+      <div class="phrase-korean">
+        한국에
+      </div>
+
+      <span class="phrase-french">
+        en Corée
+      </span>
+
+    </div>
+
+
+    <div class="tip-box">
+
+      Imagine <strong>에</strong>
+      comme un petit repère
+      placé après le lieu.
+
+      <br><br>
+
+      Le verbe qui suit indique
+      ensuite ce que tu fais
+      par rapport à cet endroit.
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       ÊTRE
+       ===================================================== -->
+
+  <section class="summary-card">
+
+    <h2>
+      📍 Dire où tu es
+    </h2>
+
+
+    <div class="structure-box">
+
+      있다 → 있어요
+
+      <br><br>
+
+      저는 + lieu + 에 + 있어요
+
+    </div>
+
+
+    <div class="phrase">
+
+      <div class="phrase-korean">
+        저는 집에 있어요.
+      </div>
+
+      <span class="phrase-french">
+        Je suis à la maison.
+      </span>
+
+    </div>
+
+
+    <div class="phrase">
+
+      <div class="phrase-korean">
+        저는 호텔에 있어요.
+      </div>
+
+      <span class="phrase-french">
+        Je suis à l'hôtel.
+      </span>
+
+
+      <div class="audio-row">
+
+        <button
+          class="audio-button"
+          type="button"
+          onclick="speakKorean('저는 호텔에 있어요.', 'hana')"
+        >
+          🔊 Écouter
+        </button>
+
+
+        <button
+          class="slow-button"
+          type="button"
+          onclick="speakKoreanSlow('저는 호텔에 있어요.', 'hana')"
+        >
+          🐢 Lentement
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="phrase">
+
+      <div class="phrase-korean">
+        어디에 있어요?
+      </div>
+
+      <span class="phrase-french">
+        Où êtes-vous ? / Où es-tu ?
+      </span>
+
+
+      <div class="audio-row">
+
+        <button
+          class="audio-button"
+          type="button"
+          onclick="speakKorean('어디에 있어요?', 'minsu')"
+        >
+          🔊 Écouter
+        </button>
+
+
+        <button
+          class="slow-button"
+          type="button"
+          onclick="speakKoreanSlow('어디에 있어요?', 'minsu')"
+        >
+          🐢 Lentement
+        </button>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       ALLER
+       ===================================================== -->
+
+  <section class="summary-card">
+
+    <h2>
+      🚶 Dire où tu vas
+    </h2>
+
+
+    <div class="structure-box">
+
+      가다 → 가요
+
+      <br><br>
+
+      저는 + lieu + 에 + 가요
+
+    </div>
+
+
+    <div class="phrase">
+
+      <div class="phrase-korean">
+        저는 카페에 가요.
+      </div>
+
+      <span class="phrase-french">
+        Je vais au café.
+      </span>
+
+
+      <div class="audio-row">
+
+        <button
+          class="audio-button"
+          type="button"
+          onclick="speakKorean('저는 카페에 가요.', 'hana')"
+        >
+          🔊 Écouter
+        </button>
+
+
+        <button
+          class="slow-button"
+          type="button"
+          onclick="speakKoreanSlow('저는 카페에 가요.', 'hana')"
+        >
+          🐢 Lentement
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="phrase">
+
+      <div class="phrase-korean">
+        저는 한국에 가요.
+      </div>
+
+      <span class="phrase-french">
+        Je vais en Corée.
+      </span>
+
+    </div>
+
+
+    <div class="tip-box">
+
+      Compare :
+
+      <br><br>
+
+      <strong>카페에 있어요.</strong>
+
+      <br>
+
+      Je suis au café.
+
+      <br><br>
+
+      <strong>카페에 가요.</strong>
+
+      <br>
+
+      Je vais au café.
+
+      <br><br>
+
+      Le lieu reste
+      <strong>카페에</strong>.
+
+      <br><br>
+
+      C'est le verbe
+      qui change complètement le sens.
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       HABITER
+       ===================================================== -->
+
+  <section class="summary-card">
+
+    <h2>
+      🏠 Dire où tu habites
+    </h2>
+
+
+    <div class="structure-box">
+
+      살다 → 살아요
+
+      <br><br>
+
+      저는 + lieu + 에 + 살아요
+
+    </div>
+
+
+    <div class="phrase">
+
+      <div class="phrase-korean">
+        저는 프랑스에 살아요.
+      </div>
+
+      <span class="phrase-french">
+        J'habite en France.
+      </span>
+
+
+      <div class="audio-row">
+
+        <button
+          class="audio-button"
+          type="button"
+          onclick="speakKorean('저는 프랑스에 살아요.', 'hana')"
+        >
+          🔊 Écouter
+        </button>
+
+
+        <button
+          class="slow-button"
+          type="button"
+          onclick="speakKoreanSlow('저는 프랑스에 살아요.', 'hana')"
+        >
+          🐢 Lentement
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="phrase">
+
+      <div class="phrase-korean">
+        저는 서울에 살아요.
+      </div>
+
+      <span class="phrase-french">
+        J'habite à Séoul.
+      </span>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       TROIS STRUCTURES
+       ===================================================== -->
+
+  <section class="summary-card">
+
+    <h2>
+      🧠 Trois structures à retenir
+    </h2>
+
+
+    <div class="phrase">
+
+      📍
+
+      <div class="phrase-korean">
+        저는 호텔에 있어요.
+      </div>
+
+      <span class="phrase-french">
+        Je suis à l'hôtel.
+      </span>
+
+    </div>
+
+
+    <div class="phrase">
+
+      🚶
+
+      <div class="phrase-korean">
+        저는 카페에 가요.
+      </div>
+
+      <span class="phrase-french">
+        Je vais au café.
+      </span>
+
+    </div>
+
+
+    <div class="phrase">
+
+      🏠
+
+      <div class="phrase-korean">
+        저는 프랑스에 살아요.
+      </div>
+
+      <span class="phrase-french">
+        J'habite en France.
+      </span>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       지금
+       ===================================================== -->
+
+  <section class="summary-card">
+
+    <h2>
+      ⏰ 지금 — maintenant
+    </h2>
+
+
+    <div class="phrase">
+
+      <div class="phrase-korean">
+        지금
+      </div>
+
+      <span class="phrase-french">
+        Maintenant
+      </span>
+
+    </div>
+
+
+    <div class="phrase">
+
+      <div class="phrase-korean">
+        저는 지금 카페에 가요.
+      </div>
+
+      <span class="phrase-french">
+        Je vais au café maintenant.
+      </span>
+
+
+      <div class="audio-row">
+
+        <button
+          class="audio-button"
+          type="button"
+          onclick="speakKorean('저는 지금 카페에 가요.', 'hana')"
+        >
+          🔊 Écouter
+        </button>
+
+
+        <button
+          class="slow-button"
+          type="button"
+          onclick="speakKoreanSlow('저는 지금 카페에 가요.', 'hana')"
+        >
+          🐢 Lentement
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="culture-box">
+
+      <strong>지금</strong>
+      est un mot très utile
+      dans les conversations quotidiennes.
+
+      <br><br>
+
+      En l'ajoutant simplement,
+      tu précises que l'action
+      se déroule ou se fait maintenant.
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       DIALOGUE
+       ===================================================== -->
+
+  <section class="summary-card">
+
+    <h2>
+      💬 Mini dialogue
+    </h2>
+
+
+    <div class="dialogue-line">
+
+      <div class="speaker">
+        💙 Min-su
+      </div>
+
+      하나 씨, 어디에 있어요?
+
+      <br>
+
+      <span class="phrase-french">
+        Hana, où es-tu ?
+      </span>
+
+    </div>
+
+
+    <div class="dialogue-line">
+
+      <div class="speaker">
+        🌸 Hana
+      </div>
+
+      저는 호텔에 있어요.
+
+      <br>
+
+      <span class="phrase-french">
+        Je suis à l'hôtel.
+      </span>
+
+    </div>
+
+
+    <div class="dialogue-line">
+
+      <div class="speaker">
+        💙 Min-su
+      </div>
+
+      카페에 가요?
+
+      <br>
+
+      <span class="phrase-french">
+        Tu vas au café ?
+      </span>
+
+    </div>
+
+
+    <div class="dialogue-line">
+
+      <div class="speaker">
+        🌸 Hana
+      </div>
+
+      네! 저는 지금 카페에 가요.
+
+      <br>
+
+      <span class="phrase-french">
+        Oui ! Je vais au café maintenant.
+      </span>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       MINI MÉMO
+       ===================================================== -->
+
+  <section class="summary-card">
+
+    <h2>
+      📓 Mini mémo
+    </h2>
+
+
+    <div class="phrase">
+
+      ❓
+
+      <div class="phrase-korean">
+        어디에 있어요?
+      </div>
+
+      <span class="phrase-french">
+        Où êtes-vous ? / Où es-tu ?
+      </span>
+
+    </div>
+
+
+    <div class="phrase">
+
+      📍
+
+      <div class="phrase-korean">
+        저는 호텔에 있어요.
+      </div>
+
+      <span class="phrase-french">
+        Je suis à l'hôtel.
+      </span>
+
+    </div>
+
+
+    <div class="phrase">
+
+      🚶
+
+      <div class="phrase-korean">
+        저는 카페에 가요.
+      </div>
+
+      <span class="phrase-french">
+        Je vais au café.
+      </span>
+
+    </div>
+
+
+    <div class="phrase">
+
+      🏠
+
+      <div class="phrase-korean">
+        저는 프랑스에 살아요.
+      </div>
+
+      <span class="phrase-french">
+        J'habite en France.
+      </span>
+
+    </div>
+
+
+    <div class="phrase">
+
+      ⏰
+
+      <div class="phrase-korean">
+        저는 지금 카페에 가요.
+      </div>
+
+      <span class="phrase-french">
+        Je vais au café maintenant.
+      </span>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       ACTIONS
+       ===================================================== -->
+
+  <div class="summary-actions">
+
+    <button
+      class="primary-button"
+      type="button"
+      onclick="goToItinerary()"
+    >
+      🗺️ Retour au Module 1
+    </button>
+
+
+    <button
+      class="secondary-button"
+      type="button"
+      onclick="reviewAgain()"
+    >
+      🧠 Refaire la révision
+    </button>
+
+  </div>
+
+
+</main>
+
+
+
+<script src="chapter-progress.js"></script>
+
+
+<script>
+
+  /* =====================================================
+     AUDIO
+     ===================================================== */
+
+  const AUDIO_SETTINGS = {
+
+    normalRate:
+      0.82,
+
+    slowRate:
+      0.25
+
+  };
+
+
+  function getKoreanVoice() {
+
+    const voices =
+      window.speechSynthesis
+        .getVoices();
+
+
+    return (
+      voices.find(
+        voice =>
+          voice.lang &&
+          voice.lang
+            .toLowerCase()
+            .startsWith("ko")
+      ) ||
+      null
+    );
+
+  }
+
+
+
+  function characterPitch(
+    character
+  ) {
+
+    const pitches = {
+
+      hana:
+        1.06,
+
+      minsu:
+        0.94
+
+    };
+
+
+    return (
+      pitches[
+        character
+      ] ||
+      1
+    );
+
+  }
+
+
+
+  function speak(
+    text,
+    character,
+    rate
+  ) {
+
+    window.speechSynthesis.cancel();
+
+
+    const utterance =
+      new SpeechSynthesisUtterance(
+        text
+      );
+
+
+    utterance.lang =
+      "ko-KR";
+
+
+    utterance.rate =
+      rate;
+
+
+    utterance.pitch =
+      characterPitch(
+        character
+      );
+
+
+    const voice =
+      getKoreanVoice();
+
+
+    if (voice) {
+
+      utterance.voice =
+        voice;
+
+    }
+
+
+    window.speechSynthesis.speak(
+      utterance
+    );
+
+  }
+
+
+
+  function speakKorean(
+    text,
+    character
+  ) {
+
+    speak(
+      text,
+      character,
+      AUDIO_SETTINGS.normalRate
+    );
+
+  }
+
+
+
+  function speakKoreanSlow(
+    text,
+    character
+  ) {
+
+    speak(
+      text,
+      character,
+      AUDIO_SETTINGS.slowRate
+    );
+
+  }
+
+
+
+  /* =====================================================
+     NAVIGATION
+     ===================================================== */
+
+  function goToItinerary() {
+
+    window.speechSynthesis.cancel();
+
+
+    window.location.href =
+      "itineraire.html#module1";
+
+  }
+
+
+
+  function reviewAgain() {
+
+    window.speechSynthesis.cancel();
+
+
+    window.location.href =
+      "revision-3.html";
+
+  }
+
+
+
+  /* =====================================================
+     SÉCURITÉ AUDIO
+     ===================================================== */
+
+  window.addEventListener(
+    "pagehide",
+    function() {
+
+      window.speechSynthesis.cancel();
+
+    }
+  );
+
+
+  window.addEventListener(
+    "pageshow",
+    function() {
+
+      if (
+        window.HanaChapterProgress &&
+        typeof window.HanaChapterProgress.render === "function"
+      ) {
+
+        window.HanaChapterProgress.render();
+
+      }
+
+    }
+  );
+
+</script>
+
+
+</body>
+
+</html>

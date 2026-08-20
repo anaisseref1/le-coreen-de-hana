@@ -14,11 +14,16 @@
     content="#F7F4ED"
   >
 
-  <title>Je parle — Chapitre 12</title>
+  <title>Je parle — Chapitre 14</title>
 
   <link
     rel="stylesheet"
     href="style.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="chapter-progress.css"
   >
 
   <style>
@@ -296,11 +301,17 @@
     </h1>
 
     <p>
-      Répète les mots essentiels,
-      puis réponds dans de petites situations pour demander ton chemin.
+      Répète les expressions essentielles du café,
+      puis réponds à Ji-eun dans de petites situations de commande.
     </p>
 
   </header>
+
+
+  <section
+    id="hanaChapterPath"
+    data-chapter-path
+  ></section>
 
 
   <section class="intro-card">
@@ -309,10 +320,11 @@
 
     <br><br>
 
-    Savoir demander où se trouve un lieu,
-    comprendre et utiliser <strong>직진</strong>,
-    <strong>왼쪽</strong> et <strong>오른쪽</strong>,
-    puis remercier poliment avec <strong>감사합니다</strong>.
+    Savoir commander une boisson,
+    préciser <strong>뜨거운</strong> ou <strong>아이스</strong>,
+    répondre pour <strong>sur place ou à emporter</strong>,
+    indiquer un paiement par carte
+    et remercier poliment avec <strong>감사합니다</strong>.
 
   </section>
 
@@ -546,7 +558,7 @@
     <button
       class="continue-button"
       type="button"
-      onclick="window.location.href='ecriture-14.html'"
+      onclick="goToWriting()"
     >
       ✍️ Passer à « J'écris »
     </button>
@@ -565,7 +577,66 @@
 </main>
 
 
+<script src="chapter-progress.js"></script>
+
 <script>
+  const CHAPTER = 14;
+
+  const UNDERSTANDING_KEY =
+    "hanaKorean_chapter14_understanding";
+
+  const LISTENING_EXERCISE_KEY =
+    "hanaKorean_chapter14_listeningExercise";
+
+  const SPEAKING_KEY =
+    "hanaKorean_chapter14_speaking";
+
+  const SPEAKING_MISTAKES_KEY =
+    "hanaKorean_chapter14_speakingMistakes";
+
+  const SPEAKING_HELP_KEY =
+    "hanaKorean_chapter14_speakingHelp";
+
+
+  function guardSpeakingAccess() {
+
+    if (
+      localStorage.getItem(
+        UNDERSTANDING_KEY
+      ) !== "completed"
+    ) {
+      window.location.replace(
+        "chapitre-14.html"
+      );
+      return false;
+    }
+
+    if (
+      localStorage.getItem(
+        LISTENING_EXERCISE_KEY
+      ) !== "completed"
+    ) {
+      window.location.replace(
+        "ecoute-14.html"
+      );
+      return false;
+    }
+
+    return true;
+  }
+
+
+  function renderChapterProgress() {
+
+    if (
+      window.HanaChapterProgress &&
+      typeof window.HanaChapterProgress.render === "function"
+    ) {
+      window.HanaChapterProgress.render();
+    }
+  }
+
+
   const AUDIO_SETTINGS = {
     normalRate: 0.82,
     slowRate: 0.25
@@ -1090,7 +1161,7 @@
 
 
     recognition.maxAlternatives =
-      5;
+      3;
 
 
     recognition.onstart =
@@ -1429,21 +1500,24 @@
 
 
     localStorage.setItem(
-      "hanaKorean_chapter14_speaking",
+      SPEAKING_KEY,
       "completed"
     );
 
 
     localStorage.setItem(
-      "hanaKorean_chapter14_speakingMistakes",
-      mistakes
+      SPEAKING_MISTAKES_KEY,
+      String(mistakes)
     );
 
 
     localStorage.setItem(
-      "hanaKorean_chapter14_speakingHelp",
-      helpCount
+      SPEAKING_HELP_KEY,
+      String(helpCount)
     );
+
+
+    renderChapterProgress();
 
 
     window.scrollTo({
@@ -1451,6 +1525,21 @@
       behavior: "smooth"
     });
 
+  }
+
+
+  function goToWriting() {
+
+    if (
+      localStorage.getItem(
+        SPEAKING_KEY
+      ) !== "completed"
+    ) {
+      return;
+    }
+
+    window.location.href =
+      "écriture-14.html";
   }
 
 
@@ -1494,7 +1583,20 @@
   );
 
 
-  renderStep();
+  if (
+    guardSpeakingAccess()
+  ) {
+
+    renderChapterProgress();
+    renderStep();
+
+    window.addEventListener(
+      "pageshow",
+      function() {
+        renderChapterProgress();
+      }
+    );
+  }
 </script>
 
 </body>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#F7F4ED">
+<title>Chapitre 27 — Résumé</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="chapter-progress.css">
+<style>
+.summary-header{text-align:center;margin-bottom:24px}
+.card{padding:20px;margin-bottom:18px;background:var(--white);border-radius:var(--radius-large);box-shadow:var(--shadow)}
+.primary-link{display:block;width:100%;box-sizing:border-box;padding:14px 16px;margin-top:10px;text-align:center;text-decoration:none;background:var(--jade);color:white;border-radius:var(--radius-medium);font-weight:bold}
+</style>
+</head>
+<body>
+<main class="app">
+<a class="back-link" href="utilise-27.html">← Je l'utilise</a>
+<section id="hanaChapterPath" data-chapter-path></section>
+
+<header class="summary-header">
+<span class="chapter-badge">Chapitre 27 · 📚 Résumé</span>
+<p class="korean">기차를 타요 🚄</p>
+<h1>Prendre le train</h1>
+<p>Les phrases indispensables pour voyager en train en Corée.</p>
+</header>
+
+<section class="card">
+<h2>🚄 Expressions essentielles</h2>
+<p><strong>기차표 있어요.</strong><br>J'ai mon billet de train.</p>
+<p><strong>기차를 타요.</strong><br>Je prends le train.</p>
+<p><strong>부산에 가요.</strong><br>Je vais à Busan.</p>
+<p><strong>승강장이 어디예요?</strong><br>Où est le quai ?</p>
+<p><strong>몇 시에 출발해요?</strong><br>À quelle heure part-il ?</p>
+<p><strong>제 좌석은 몇 번이에요?</strong><br>Quel est mon siège ?</p>
+</section>
+
+<section class="card">
+<h2>🧠 Grammaire</h2>
+<p><strong>A에서 B에 가요</strong><br>Je vais de A à B.</p>
+<p><strong>서울에서 부산에 가요.</strong><br>Je vais de Séoul à Busan.</p>
+<p><strong>에</strong> indique aussi le moment :<br>오전 열 시에 출발해요.<br>→ Il part à 10 heures.</p>
+<p><strong>타다</strong> → prendre / monter dans<br>기차를 타요.</p>
+<p><strong>내리다</strong> → descendre<br>기차에서 내려요.</p>
+</section>
+
+<section class="card">
+<h2>🧳 Vocabulaire à retenir</h2>
+<p>기차 → train</p>
+<p>기차역 → gare</p>
+<p>역 → station / gare</p>
+<p>기차표 → billet de train</p>
+<p>승강장 → quai</p>
+<p>좌석 → siège / place</p>
+<p>출발 → départ</p>
+<p>도착 → arrivée</p>
+<p>KTX → train à grande vitesse coréen</p>
+</section>
+
+<section class="card">
+<h2>🌸 Point culture</h2>
+<p>Le KTX permet de relier rapidement les grandes villes coréennes. À la gare, commence simplement par reconnaître :</p>
+<p>출발 → départ<br>도착 → arrivée<br>승강장 → quai</p>
+</section>
+
+<section class="card">
+<h2>🎒 À mettre dans mon sac à dos</h2>
+<p>🎫 기차표 → billet</p>
+<p>📍 승강장 → quai</p>
+<p>🚄 기차를 타요 → je prends le train</p>
+<p>⏰ 몇 시에 출발해요? → à quelle heure part-il ?</p>
+<p>💺 좌석 → siège</p>
+</section>
+
+<a class="primary-link" href="chapitre-28.html">➡️ Chapitre 28</a>
+</main>
+
+<script src="chapter-progress.js"></script>
+<script>
+const REQUIRED_KEY = "hanaKorean_chapter27_use";
+const LEGACY_MISSION_KEY = "hanaKorean_chapter27_mission";
+const LEGACY_COMPLETED_KEY = "hanaKorean_chapter27_completed";
+const SUMMARY_KEY = "hanaKorean_chapter27_resume";
+
+function migrateLegacyProgress() {
+  if (
+    localStorage.getItem(REQUIRED_KEY) !== "completed" &&
+    (localStorage.getItem(LEGACY_MISSION_KEY) === "completed" ||
+     localStorage.getItem(LEGACY_COMPLETED_KEY) === "completed")
+  ) {
+    localStorage.setItem(REQUIRED_KEY, "completed");
+  }
+}
+
+function guardAndCompleteSummary() {
+  migrateLegacyProgress();
+  if (localStorage.getItem(REQUIRED_KEY) !== "completed") {
+    window.location.href = "utilise-27.html";
+    return false;
+  }
+  localStorage.setItem(SUMMARY_KEY, "completed");
+  if (window.HanaChapterProgress) HanaChapterProgress.render();
+  return true;
+}
+
+window.addEventListener("pageshow", guardAndCompleteSummary);
+guardAndCompleteSummary();
+</script>
+</body>
+</html>

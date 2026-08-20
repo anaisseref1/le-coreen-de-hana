@@ -14,11 +14,16 @@
     content="#F7F4ED"
   >
 
-  <title>Mini défi d'écoute — Chapitre 11</title>
+  <title>Mini défi d'écoute — Chapitre 16</title>
 
   <link
     rel="stylesheet"
     href="style.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="chapter-progress.css"
   >
 
   <style>
@@ -254,7 +259,7 @@
     </p>
 
     <h1>
-      Commander un café
+      À l'hôtel
     </h1>
 
     <p>
@@ -263,6 +268,12 @@
     </p>
 
   </header>
+
+
+  <section
+    id="hanaChapterPath"
+    data-chapter-path
+  ></section>
 
 
   <div class="exercise-progress">
@@ -802,7 +813,7 @@
     <button
       class="next-step-button"
       type="button"
-      onclick="window.location.href='parle-16.html'"
+      onclick="goToSpeaking()"
     >
       🗣️ Passer à « Je parle »
     </button>
@@ -821,8 +832,70 @@
 </main>
 
 
+<script src="chapter-progress.js"></script>
+
 <script>
+  const CHAPTER = 16;
+
+  const UNDERSTANDING_KEY =
+    "hanaKorean_chapter16_understanding";
+
+  const LISTENING_KEY =
+    "hanaKorean_chapter16_listening";
+
+  const LISTENING_EXERCISE_KEY =
+    "hanaKorean_chapter16_listeningExercise";
+
+  const LISTENING_MISTAKES_KEY =
+    "hanaKorean_chapter16_listeningMistakes";
+
+  const LISTENING_INCORRECT_ATTEMPTS_KEY =
+    "hanaKorean_chapter16_listeningIncorrectAttempts";
+
+
+  function guardExerciseAccess() {
+
+    if (
+      localStorage.getItem(
+        UNDERSTANDING_KEY
+      ) !== "completed"
+    ) {
+      window.location.replace(
+        "chapitre-16.html"
+      );
+
+      return false;
+    }
+
+    if (
+      localStorage.getItem(
+        LISTENING_EXERCISE_KEY
+      ) !== "completed"
+    ) {
+      localStorage.setItem(
+        LISTENING_EXERCISE_KEY,
+        "in_progress"
+      );
+    }
+
+    return true;
+  }
+
+
+  function renderChapterProgress() {
+
+    if (
+      window.HanaChapterProgress &&
+      typeof window.HanaChapterProgress.render === "function"
+    ) {
+      window.HanaChapterProgress.render();
+    }
+  }
+
+
   let incorrectAttempts = 0;
+
+  const weakNotions = [];
 
 
   const completedQuestions = {
@@ -905,173 +978,22 @@
   }
 
 
-  function playOriginalMetroChime() {
-
-    return new Promise(
-      resolve => {
-
-        try {
-
-          const AudioContext =
-            window.AudioContext ||
-            window.webkitAudioContext;
-
-
-          if (!AudioContext) {
-
-            resolve();
-
-            return;
-
-          }
-
-
-          const context =
-            new AudioContext();
-
-
-          const notes = [
-            {
-              frequency: 659.25,
-              start: 0,
-              duration: 0.18
-            },
-            {
-              frequency: 783.99,
-              start: 0.20,
-              duration: 0.22
-            }
-          ];
-
-
-          notes.forEach(
-            note => {
-
-              const oscillator =
-                context.createOscillator();
-
-
-              const gain =
-                context.createGain();
-
-
-              oscillator.type =
-                "sine";
-
-
-              oscillator.frequency.value =
-                note.frequency;
-
-
-              gain.gain.setValueAtTime(
-                0.0001,
-                context.currentTime +
-                  note.start
-              );
-
-
-              gain.gain.exponentialRampToValueAtTime(
-                0.12,
-                context.currentTime +
-                  note.start +
-                  0.02
-              );
-
-
-              gain.gain.exponentialRampToValueAtTime(
-                0.0001,
-                context.currentTime +
-                  note.start +
-                  note.duration
-              );
-
-
-              oscillator.connect(
-                gain
-              );
-
-
-              gain.connect(
-                context.destination
-              );
-
-
-              oscillator.start(
-                context.currentTime +
-                  note.start
-              );
-
-
-              oscillator.stop(
-                context.currentTime +
-                  note.start +
-                  note.duration +
-                  0.02
-              );
-
-            }
-          );
-
-
-          window.setTimeout(
-            function() {
-
-              try {
-                context.close();
-              }
-              catch (error) {
-              }
-
-              resolve();
-
-            },
-            520
-          );
-
-        }
-
-        catch (error) {
-
-          resolve();
-
-        }
-
-      }
-    );
-
-  }
-
-
-  async function playMetroAnnouncement(
-    text,
-    slow = false
-  ) {
-
-    if (
-      "speechSynthesis" in window
-    ) {
-
-      window.speechSynthesis.cancel();
-
-    }
-
-
-    await playOriginalMetroChime();
-
-
-    speakKorean(
-      text,
-      slow
-    );
-
-  }
-
-
   function checkAnswer(
     number,
     button,
     isCorrect
   ) {
+
+    const notions = {
+      1: "예약했어요",
+      2: "성함이 어떻게 되세요?",
+      3: "제 방이 어디예요?",
+      4: "와이파이 비밀번호가 뭐예요?",
+      5: "안 돼요 / 도와주세요"
+    };
+
+    const notion =
+      notions[number];
 
     if (
       completedQuestions[number]
@@ -1195,6 +1117,17 @@
 
 
     incorrectAttempts++;
+
+    if (
+      notion &&
+      !weakNotions.includes(
+        notion
+      )
+    ) {
+      weakNotions.push(
+        notion
+      );
+    }
 
 
     button.classList.add(
@@ -1416,15 +1349,34 @@
 
 
     localStorage.setItem(
-      "hanaKorean_chapter16_listening",
+      LISTENING_KEY,
       "completed"
     );
 
 
     localStorage.setItem(
-      "hanaKorean_chapter16_listeningMistakes",
-      incorrectAttempts
+      LISTENING_EXERCISE_KEY,
+      "completed"
     );
+
+
+    localStorage.setItem(
+      LISTENING_MISTAKES_KEY,
+      JSON.stringify(
+        weakNotions
+      )
+    );
+
+
+    localStorage.setItem(
+      LISTENING_INCORRECT_ATTEMPTS_KEY,
+      String(
+        incorrectAttempts
+      )
+    );
+
+
+    renderChapterProgress();
 
 
     window.scrollTo({
@@ -1432,6 +1384,21 @@
       behavior: "smooth"
     });
 
+  }
+
+
+  function goToSpeaking() {
+
+    if (
+      localStorage.getItem(
+        LISTENING_EXERCISE_KEY
+      ) !== "completed"
+    ) {
+      return;
+    }
+
+    window.location.href =
+      "parle-16.html";
   }
 
 
@@ -1446,6 +1413,21 @@
 
       };
 
+  }
+
+
+  if (
+    guardExerciseAccess()
+  ) {
+
+    renderChapterProgress();
+
+    window.addEventListener(
+      "pageshow",
+      function() {
+        renderChapterProgress();
+      }
+    );
   }
 </script>
 

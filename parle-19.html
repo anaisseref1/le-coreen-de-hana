@@ -14,12 +14,13 @@
     content="#F7F4ED"
   >
 
-  <title>Je parle — Chapitre 12</title>
+  <title>Je parle — Chapitre 19</title>
 
   <link
     rel="stylesheet"
     href="style.css"
   >
+  <link rel="stylesheet" href="chapter-progress.css">
 
   <style>
     .speak-header {
@@ -296,11 +297,16 @@
     </h1>
 
     <p>
-      Répète les mots essentiels,
-      puis réponds dans de petites situations pour demander ton chemin.
+      Répète les formes essentielles du passé,
+      puis raconte de petites expériences et réponds à Min-su.
     </p>
 
   </header>
+
+  <section
+    id="hanaChapterPath"
+    data-chapter-path
+  ></section>
 
 
   <section class="intro-card">
@@ -309,10 +315,9 @@
 
     <br><br>
 
-    Savoir demander où se trouve un lieu,
-    comprendre et utiliser <strong>직진</strong>,
-    <strong>왼쪽</strong> et <strong>오른쪽</strong>,
-    puis remercier poliment avec <strong>감사합니다</strong>.
+    Savoir dire où tu es allé(e), ce que tu as mangé ou photographié,
+    donner une impression au passé
+    et demander <strong>어땠어요?</strong>.
 
   </section>
 
@@ -569,7 +574,64 @@
 </main>
 
 
+<script src="chapter-progress.js"></script>
+
 <script>
+
+  const CHAPTER = 19;
+
+  const UNDERSTANDING_KEY =
+    "hanaKorean_chapter19_understanding";
+
+  const LISTENING_EXERCISE_KEY =
+    "hanaKorean_chapter19_listeningExercise";
+
+  const SPEAKING_KEY =
+    "hanaKorean_chapter19_speaking";
+
+  const SPEAKING_MISTAKES_KEY =
+    "hanaKorean_chapter19_speakingMistakes";
+
+  const SPEAKING_HELP_KEY =
+    "hanaKorean_chapter19_speakingHelp";
+
+  function guardSpeakingAccess() {
+    if (
+      localStorage.getItem(
+        UNDERSTANDING_KEY
+      ) !== "completed"
+    ) {
+      window.location.replace(
+        "chapitre-19.html"
+      );
+      return false;
+    }
+
+    if (
+      localStorage.getItem(
+        LISTENING_EXERCISE_KEY
+      ) !== "completed"
+    ) {
+      window.location.replace(
+        "ecoute-19.html"
+      );
+      return false;
+    }
+
+    return true;
+  }
+
+  function renderChapterProgress() {
+    if (
+      window.HanaChapterProgress &&
+      typeof window.HanaChapterProgress.render === "function"
+    ) {
+      window.HanaChapterProgress.render();
+    }
+  }
+
+
+
   const AUDIO_SETTINGS = {
     normalRate: 0.82,
     slowRate: 0.25
@@ -1440,21 +1502,23 @@
 
 
     localStorage.setItem(
-      "hanaKorean_chapter19_speaking",
+      SPEAKING_KEY,
       "completed"
     );
 
 
     localStorage.setItem(
-      "hanaKorean_chapter19_speakingMistakes",
-      mistakes
+      SPEAKING_MISTAKES_KEY,
+      String(mistakes)
     );
 
 
     localStorage.setItem(
-      "hanaKorean_chapter19_speakingHelp",
-      helpCount
+      SPEAKING_HELP_KEY,
+      String(helpCount)
     );
+
+    renderChapterProgress();
 
 
     window.scrollTo({
@@ -1505,7 +1569,17 @@
   );
 
 
-  renderStep();
+  if (guardSpeakingAccess()) {
+    renderChapterProgress();
+    renderStep();
+
+    window.addEventListener(
+      "pageshow",
+      function() {
+        renderChapterProgress();
+      }
+    );
+  }
 </script>
 
 </body>

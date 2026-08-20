@@ -1,0 +1,1569 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="theme-color"
+    content="#F7F4ED"
+  >
+
+  <title>
+    Chapitre 7 — Résumé
+  </title>
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="chapter-progress.css"
+  >
+
+
+  <script>
+
+    /* =====================================================
+       GARDE — CHAPITRE TERMINÉ
+       ===================================================== */
+
+    if (
+      localStorage.getItem(
+        "hanaKorean_chapter7_completed"
+      ) !== "completed"
+    ) {
+
+      window.location.replace(
+        "chapitre-7.html"
+      );
+
+    }
+
+  </script>
+
+
+  <style>
+
+    /* =====================================================
+       EN-TÊTE
+       ===================================================== */
+
+    .summary-header {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+
+    .chapter-badge {
+      display: inline-block;
+      padding: 7px 14px;
+      margin-bottom: 10px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+
+    .summary-intro {
+      color: var(--text-light);
+      line-height: 1.7;
+    }
+
+
+    /* =====================================================
+       FÉLICITATION
+       ===================================================== */
+
+    .success-card {
+      padding: 20px;
+      margin-bottom: 20px;
+      background: var(--soft-green);
+      border-radius: var(--radius-large);
+      color: var(--navy);
+      text-align: center;
+      line-height: 1.7;
+    }
+
+
+    .success-icon {
+      margin-bottom: 8px;
+      font-size: 42px;
+    }
+
+
+    .success-card h2 {
+      margin: 0 0 8px;
+    }
+
+
+    /* =====================================================
+       CARTES
+       ===================================================== */
+
+    .summary-card {
+      padding: 20px;
+      margin-bottom: 18px;
+    }
+
+
+    .summary-card h2 {
+      margin-top: 0;
+    }
+
+
+    /* =====================================================
+       VOCABULAIRE
+       ===================================================== */
+
+    .vocab-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+
+    .vocab-item {
+      padding: 14px;
+      background: #FBFAF6;
+      border-radius: var(--radius-medium);
+    }
+
+
+    .vocab-korean {
+      color: var(--navy);
+      font-size: 19px;
+      font-weight: bold;
+    }
+
+
+    .vocab-french {
+      margin-top: 4px;
+      color: var(--text-light);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+
+    /* =====================================================
+       STRUCTURES
+       ===================================================== */
+
+    .structure-box {
+      padding: 17px;
+      margin-top: 14px;
+      background: var(--soft-beige);
+      border-radius: var(--radius-medium);
+      color: var(--navy);
+      text-align: center;
+      font-size: 19px;
+      font-weight: bold;
+      line-height: 1.8;
+    }
+
+
+    .tip-box {
+      padding: 16px;
+      margin-top: 14px;
+      background: var(--soft-blue);
+      border-radius: var(--radius-medium);
+      color: var(--navy);
+      line-height: 1.7;
+    }
+
+
+    /* =====================================================
+       PHRASES
+       ===================================================== */
+
+    .phrase {
+      padding: 15px;
+      margin-top: 11px;
+      background: #FBFAF6;
+      border-radius: var(--radius-medium);
+      line-height: 1.7;
+    }
+
+
+    .phrase-korean {
+      color: var(--navy);
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+
+    .phrase-french {
+      display: block;
+      margin-top: 4px;
+      color: var(--text-light);
+    }
+
+
+    /* =====================================================
+       AUDIO
+       ===================================================== */
+
+    .audio-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 9px;
+      margin-top: 11px;
+    }
+
+
+    .audio-button,
+    .slow-button {
+      width: 100%;
+      font-weight: bold;
+    }
+
+
+    .audio-button {
+      background: var(--soft-blue);
+      color: var(--navy);
+    }
+
+
+    .slow-button {
+      background: var(--soft-beige);
+      color: var(--navy);
+    }
+
+
+    /* =====================================================
+       DIALOGUE
+       ===================================================== */
+
+    .dialogue-line {
+      padding: 14px;
+      margin-top: 10px;
+      border-radius: var(--radius-medium);
+      line-height: 1.7;
+    }
+
+
+    .dialogue-line.minsu {
+      background: var(--soft-blue);
+    }
+
+
+    .dialogue-line.hana {
+      background: var(--soft-green);
+    }
+
+
+    .speaker {
+      margin-bottom: 5px;
+      color: var(--navy);
+      font-weight: bold;
+    }
+
+
+    /* =====================================================
+       ACTIONS
+       ===================================================== */
+
+    .summary-actions {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+
+    .primary-button {
+      width: 100%;
+      background: var(--jade);
+      color: white;
+      font-weight: bold;
+    }
+
+
+    .secondary-button {
+      width: 100%;
+      background: var(--soft-beige);
+      color: var(--navy);
+      font-weight: bold;
+    }
+
+
+    @media (max-width: 480px) {
+
+      .vocab-grid {
+        grid-template-columns: 1fr;
+      }
+
+
+      .audio-row {
+        grid-template-columns: 1fr;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+<main class="app">
+
+
+  <!-- =====================================================
+       RETOUR
+       ===================================================== -->
+
+  <a
+    class="back-link"
+    href="itineraire.html#module1"
+  >
+    ← Mon itinéraire
+  </a>
+
+
+
+  <!-- =====================================================
+       EN-TÊTE
+       ===================================================== -->
+
+  <header class="summary-header">
+
+    <span class="chapter-badge">
+      Module 1 · Chapitre 7
+    </span>
+
+
+    <p class="korean">
+      하루를 이야기해 봐요 ☀️
+    </p>
+
+
+    <h1>
+      Résumé du chapitre
+    </h1>
+
+
+    <p class="summary-intro">
+      Retrouve ici les mots
+      et les structures essentielles
+      pour parler simplement
+      de ta journée.
+    </p>
+
+  </header>
+
+
+
+  <!-- =====================================================
+       FÉLICITATION
+       ===================================================== -->
+
+  <section class="success-card">
+
+    <div class="success-icon">
+      ☀️
+    </div>
+
+
+    <h2>
+      Tu sais parler d'une journée simple !
+    </h2>
+
+
+    <p>
+      Tu peux maintenant situer des actions
+      le matin, à midi et le soir,
+      poser des questions sur la routine
+      et enchaîner plusieurs actions.
+    </p>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       MOMENTS DE LA JOURNÉE
+       ===================================================== -->
+
+  <section class="summary-card">
+
+    <h2>
+      ☀️ Les moments de la journée
+    </h2>
+
+
+    <div class="vocab-grid">
+
+
+      <div class="vocab-item">
+
+        <div class="vocab-korean">
+          아침
+        </div>
+
+        <div class="vocab-french">
+          matin
+        </div>
+
+      </div>
+
+
+      <div class="vocab-item">
+
+        <div class="vocab-korean">
+          점심
+        </div>
+
+        <div class="vocab-french">
+          midi / déjeuner
+        </div>
+
+      </div>
+
+
+      <div class="vocab-item">
+
+        <div class="vocab-korean">
+          저녁
+        </div>
+
+        <div class="vocab-french">
+          soir / dîner
+        </div>
+
+      </div>
+
+
+      <div class="vocab-item">
+
+        <div class="vocab-korean">
+          오늘
+        </div>
+
+        <div class="vocab-french">
+          aujourd'hui
+        </div>
+
+      </div>
+
+
+      <div class="vocab-item">
+
+        <div class="vocab-korean">
+          매일
+        </div>
+
+        <div class="vocab-french">
+          tous les jours
+        </div>
+
+      </div>
+
+
+      <div class="vocab-item">
+
+        <div class="vocab-korean">
+          집
+        </div>
+
+        <div class="vocab-french">
+          maison
+        </div>
+
+      </div>
+
+
+      <div class="vocab-item">
+
+        <div class="vocab-korean">
+          회사
+        </div>
+
+        <div class="vocab-french">
+          entreprise / travail
+        </div>
+
+      </div>
+
+
+      <div class="vocab-item">
+
+        <div class="vocab-korean">
+          학교
+        </div>
+
+        <div class="vocab-french">
+          école
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       VERBES
+       ===================================================== -->
+
+  <section class="summary-card">
+
+    <h2>
+      🌿 Les verbes de la routine
+    </h2>
+
+
+    <div class="vocab-grid">
+
+
+      <div class="vocab-item">
+
+        <div class="vocab-korean">
+          일어나요
+        </div>
+
+        <div class="vocab-french">
+          se lever
+        </div>
+
+      </div>
+
+
+      <div class="vocab-item">
+
+        <div class="vocab-korean">
+          먹어요
+        </div>
+
+        <div class="vocab-french">
+          manger
+        </div>
+
+      </div>
+
+
+      <div class="vocab-item">
+
+        <div class="vocab-korean">
+          마셔요
+        </div>
+
+        <div class="vocab-french">
+          boire
+        </div>
+
+      </div>
+
+
+      <div class="vocab-item">
+
+        <div class="vocab-korean">
+          가요
+        </div>
+
+        <div class="vocab-french">
+          aller
+        </div>
+
+      </div>
+
+
+      <div class="vocab-item">
+
+        <div class="vocab-korean">
+          와요
+        </div>
+
+        <div class="vocab-french">
+          venir / revenir
+        </div>
+
+      </div>
+
+
+      <div class="vocab-item">
+
+        <div class="vocab-korean">
+          자요
+        </div>
+
+        <div class="vocab-french">
+          dormir
+        </div>
+
+      </div>
+
+
+      <div class="vocab-item">
+
+        <div class="vocab-korean">
+          공부해요
+        </div>
+
+        <div class="vocab-french">
+          étudier
+        </div>
+
+      </div>
+
+
+      <div class="vocab-item">
+
+        <div class="vocab-korean">
+          일해요
+        </div>
+
+        <div class="vocab-french">
+          travailler
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       에
+       ===================================================== -->
+
+  <section class="summary-card">
+
+    <h2>
+      🕘 Situer une action avec 에
+    </h2>
+
+
+    <div class="structure-box">
+
+      moment + 에 + action
+
+    </div>
+
+
+    <div class="phrase">
+
+      <div class="phrase-korean">
+        아침에
+      </div>
+
+      <span class="phrase-french">
+        le matin
+      </span>
+
+    </div>
+
+
+    <div class="phrase">
+
+      <div class="phrase-korean">
+        점심에
+      </div>
+
+      <span class="phrase-french">
+        à midi
+      </span>
+
+    </div>
+
+
+    <div class="phrase">
+
+      <div class="phrase-korean">
+        저녁에
+      </div>
+
+      <span class="phrase-french">
+        le soir
+      </span>
+
+    </div>
+
+
+    <div class="phrase">
+
+      <div class="phrase-korean">
+        아침에 커피를 마셔요.
+      </div>
+
+      <span class="phrase-french">
+        Je bois du café le matin.
+      </span>
+
+
+      <div class="audio-row">
+
+        <button
+          class="audio-button"
+          type="button"
+          onclick="speakKorean('아침에 커피를 마셔요.', 'hana')"
+        >
+          🔊 Écouter
+        </button>
+
+
+        <button
+          class="slow-button"
+          type="button"
+          onclick="speakKoreanSlow('아침에 커피를 마셔요.', 'hana')"
+        >
+          🐢 Lentement
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="tip-box">
+
+      Tu avais déjà rencontré
+      <strong>에</strong>
+      avec les lieux.
+
+      <br><br>
+
+      Dans ce chapitre,
+      il sert aussi à situer
+      une action dans le temps.
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       뭐 해요?
+       ===================================================== -->
+
+  <section class="summary-card">
+
+    <h2>
+      ❓ Demander ce que quelqu'un fait
+    </h2>
+
+
+    <div class="structure-box">
+
+      뭐 해요?
+
+      <br>
+
+      Qu'est-ce que tu fais ?
+
+    </div>
+
+
+    <div class="phrase">
+
+      <div class="phrase-korean">
+        아침에 뭐 해요?
+      </div>
+
+      <span class="phrase-french">
+        Qu'est-ce que tu fais le matin ?
+      </span>
+
+
+      <div class="audio-row">
+
+        <button
+          class="audio-button"
+          type="button"
+          onclick="speakKorean('아침에 뭐 해요?', 'minsu')"
+        >
+          🔊 Écouter
+        </button>
+
+
+        <button
+          class="slow-button"
+          type="button"
+          onclick="speakKoreanSlow('아침에 뭐 해요?', 'minsu')"
+        >
+          🐢 Lentement
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="phrase">
+
+      <div class="phrase-korean">
+        저녁에 뭐 해요?
+      </div>
+
+      <span class="phrase-french">
+        Qu'est-ce que tu fais le soir ?
+      </span>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       ET / PUIS
+       ===================================================== -->
+
+  <section class="summary-card">
+
+    <h2>
+      ➕ Relier deux actions avec 그리고
+    </h2>
+
+
+    <div class="structure-box">
+
+      action 1
+
+      <br>
+
+      그리고
+
+      <br>
+
+      action 2
+
+    </div>
+
+
+    <div class="phrase">
+
+      <div class="phrase-korean">
+        커피를 마셔요. 그리고 회사에 가요.
+      </div>
+
+      <span class="phrase-french">
+        Je bois du café.
+        Puis je vais au travail.
+      </span>
+
+
+      <div class="audio-row">
+
+        <button
+          class="audio-button"
+          type="button"
+          onclick="speakKorean('커피를 마셔요. 그리고 회사에 가요.', 'hana')"
+        >
+          🔊 Écouter
+        </button>
+
+
+        <button
+          class="slow-button"
+          type="button"
+          onclick="speakKoreanSlow('커피를 마셔요. 그리고 회사에 가요.', 'hana')"
+        >
+          🐢 Lentement
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="phrase">
+
+      <div class="phrase-korean">
+        집에 와요. 그리고 공부해요.
+      </div>
+
+      <span class="phrase-french">
+        Je rentre à la maison.
+        Puis j'étudie.
+      </span>
+
+
+      <div class="audio-row">
+
+        <button
+          class="audio-button"
+          type="button"
+          onclick="speakKorean('집에 와요. 그리고 공부해요.', 'hana')"
+        >
+          🔊 Écouter
+        </button>
+
+
+        <button
+          class="slow-button"
+          type="button"
+          onclick="speakKoreanSlow('집에 와요. 그리고 공부해요.', 'hana')"
+        >
+          🐢 Lentement
+        </button>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       매일
+       ===================================================== -->
+
+  <section class="summary-card">
+
+    <h2>
+      🔁 Parler d'une habitude avec 매일
+    </h2>
+
+
+    <div class="structure-box">
+
+      매일
+
+      <br>
+
+      tous les jours
+
+    </div>
+
+
+    <div class="phrase">
+
+      <div class="phrase-korean">
+        매일 공부해요.
+      </div>
+
+      <span class="phrase-french">
+        J'étudie tous les jours.
+      </span>
+
+
+      <div class="audio-row">
+
+        <button
+          class="audio-button"
+          type="button"
+          onclick="speakKorean('매일 공부해요.', 'hana')"
+        >
+          🔊 Écouter
+        </button>
+
+
+        <button
+          class="slow-button"
+          type="button"
+          onclick="speakKoreanSlow('매일 공부해요.', 'hana')"
+        >
+          🐢 Lentement
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="phrase">
+
+      <div class="phrase-korean">
+        매일 공부해요?
+      </div>
+
+      <span class="phrase-french">
+        Tu étudies tous les jours ?
+      </span>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       DIALOGUE
+       ===================================================== -->
+
+  <section class="summary-card">
+
+    <h2>
+      💬 Mini dialogue
+    </h2>
+
+
+    <div class="dialogue-line minsu">
+
+      <div class="speaker">
+        💙 Min-su
+      </div>
+
+      아침에 뭐 해요?
+
+      <br>
+
+      <span class="phrase-french">
+        Qu'est-ce que tu fais le matin ?
+      </span>
+
+    </div>
+
+
+    <div class="dialogue-line hana">
+
+      <div class="speaker">
+        🌸 Hana
+      </div>
+
+      커피를 마셔요. 그리고 회사에 가요.
+
+      <br>
+
+      <span class="phrase-french">
+        Je bois du café.
+        Puis je vais au travail.
+      </span>
+
+    </div>
+
+
+    <div class="dialogue-line minsu">
+
+      <div class="speaker">
+        💙 Min-su
+      </div>
+
+      점심에는요?
+
+      <br>
+
+      <span class="phrase-french">
+        Et à midi ?
+      </span>
+
+    </div>
+
+
+    <div class="dialogue-line hana">
+
+      <div class="speaker">
+        🌸 Hana
+      </div>
+
+      점심을 먹어요.
+
+      <br>
+
+      <span class="phrase-french">
+        Je déjeune.
+      </span>
+
+    </div>
+
+
+    <div class="dialogue-line minsu">
+
+      <div class="speaker">
+        💙 Min-su
+      </div>
+
+      저녁에는 뭐 해요?
+
+      <br>
+
+      <span class="phrase-french">
+        Et le soir, qu'est-ce que tu fais ?
+      </span>
+
+    </div>
+
+
+    <div class="dialogue-line hana">
+
+      <div class="speaker">
+        🌸 Hana
+      </div>
+
+      집에 와요. 그리고 공부해요.
+
+      <br>
+
+      <span class="phrase-french">
+        Je rentre à la maison.
+        Puis j'étudie.
+      </span>
+
+    </div>
+
+
+    <div class="dialogue-line minsu">
+
+      <div class="speaker">
+        💙 Min-su
+      </div>
+
+      매일 공부해요?
+
+      <br>
+
+      <span class="phrase-french">
+        Tu étudies tous les jours ?
+      </span>
+
+    </div>
+
+
+    <div class="dialogue-line hana">
+
+      <div class="speaker">
+        🌸 Hana
+      </div>
+
+      네, 매일 공부해요!
+
+      <br>
+
+      <span class="phrase-french">
+        Oui, j'étudie tous les jours !
+      </span>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       MINI MÉMO
+       ===================================================== -->
+
+  <section class="summary-card">
+
+    <h2>
+      📓 Mini mémo
+    </h2>
+
+
+    <div class="phrase">
+
+      ☀️
+
+      <div class="phrase-korean">
+        아침에
+      </div>
+
+      <span class="phrase-french">
+        le matin
+      </span>
+
+    </div>
+
+
+    <div class="phrase">
+
+      🍱
+
+      <div class="phrase-korean">
+        점심에
+      </div>
+
+      <span class="phrase-french">
+        à midi
+      </span>
+
+    </div>
+
+
+    <div class="phrase">
+
+      🌙
+
+      <div class="phrase-korean">
+        저녁에
+      </div>
+
+      <span class="phrase-french">
+        le soir
+      </span>
+
+    </div>
+
+
+    <div class="phrase">
+
+      ❓
+
+      <div class="phrase-korean">
+        뭐 해요?
+      </div>
+
+      <span class="phrase-french">
+        Qu'est-ce que tu fais ?
+      </span>
+
+    </div>
+
+
+    <div class="phrase">
+
+      ☕
+
+      <div class="phrase-korean">
+        커피를 마셔요.
+      </div>
+
+      <span class="phrase-french">
+        Je bois du café.
+      </span>
+
+    </div>
+
+
+    <div class="phrase">
+
+      🏢
+
+      <div class="phrase-korean">
+        회사에 가요.
+      </div>
+
+      <span class="phrase-french">
+        Je vais au travail.
+      </span>
+
+    </div>
+
+
+    <div class="phrase">
+
+      ➕
+
+      <div class="phrase-korean">
+        그리고
+      </div>
+
+      <span class="phrase-french">
+        et / puis
+      </span>
+
+    </div>
+
+
+    <div class="phrase">
+
+      🔁
+
+      <div class="phrase-korean">
+        매일
+      </div>
+
+      <span class="phrase-french">
+        tous les jours
+      </span>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       CHAPITRE SUIVANT
+       ===================================================== -->
+
+  <section class="summary-card">
+
+    <h2>
+      🌿 Et ensuite ?
+    </h2>
+
+
+    <p>
+      Dans ce chapitre,
+      tu as parlé des grands moments
+      de ta journée.
+    </p>
+
+
+    <div class="tip-box">
+
+      Au chapitre 8,
+      tu apprendras à ajouter
+      quelque chose qui manque encore :
+
+      <br><br>
+
+      🕒 <strong>l'heure précise.</strong>
+
+      <br><br>
+
+      Tu pourras alors dire
+      non seulement ce que tu fais,
+      mais aussi <strong>à quelle heure</strong>
+      tu le fais.
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       ACTIONS
+       ===================================================== -->
+
+  <div class="summary-actions">
+
+    <button
+      class="primary-button"
+      type="button"
+      onclick="goToItinerary()"
+    >
+      🗺️ Retour au Module 1
+    </button>
+
+
+    <button
+      class="secondary-button"
+      type="button"
+      onclick="reviewAgain()"
+    >
+      🧠 Refaire la révision
+    </button>
+
+  </div>
+
+
+</main>
+
+
+
+<script src="chapter-progress.js"></script>
+
+
+<script>
+
+  /* =====================================================
+     AUDIO
+     ===================================================== */
+
+  const AUDIO_SETTINGS = {
+
+    normalRate:
+      0.82,
+
+    slowRate:
+      0.25
+
+  };
+
+
+  function getKoreanVoice() {
+
+    const voices =
+      window.speechSynthesis
+        .getVoices();
+
+
+    return (
+      voices.find(
+        voice =>
+          voice.lang &&
+          voice.lang
+            .toLowerCase()
+            .startsWith("ko")
+      ) ||
+      null
+    );
+
+  }
+
+
+
+  function characterPitch(
+    character
+  ) {
+
+    const pitches = {
+
+      hana:
+        1.06,
+
+      minsu:
+        0.94
+
+    };
+
+
+    return (
+      pitches[
+        character
+      ] ||
+      1
+    );
+
+  }
+
+
+
+  function speak(
+    text,
+    character,
+    rate
+  ) {
+
+    window.speechSynthesis.cancel();
+
+
+    const utterance =
+      new SpeechSynthesisUtterance(
+        text
+      );
+
+
+    utterance.lang =
+      "ko-KR";
+
+
+    utterance.rate =
+      rate;
+
+
+    utterance.pitch =
+      characterPitch(
+        character
+      );
+
+
+    const voice =
+      getKoreanVoice();
+
+
+    if (
+      voice
+    ) {
+
+      utterance.voice =
+        voice;
+
+    }
+
+
+    window.speechSynthesis.speak(
+      utterance
+    );
+
+  }
+
+
+
+  function speakKorean(
+    text,
+    character
+  ) {
+
+    speak(
+      text,
+      character,
+      AUDIO_SETTINGS.normalRate
+    );
+
+  }
+
+
+
+  function speakKoreanSlow(
+    text,
+    character
+  ) {
+
+    speak(
+      text,
+      character,
+      AUDIO_SETTINGS.slowRate
+    );
+
+  }
+
+
+
+  /* =====================================================
+     NAVIGATION
+     ===================================================== */
+
+  function goToItinerary() {
+
+    window.speechSynthesis.cancel();
+
+
+    window.location.href =
+      "itineraire.html#module1";
+
+  }
+
+
+
+  function reviewAgain() {
+
+    window.speechSynthesis.cancel();
+
+
+    window.location.href =
+      "revision-7.html";
+
+  }
+
+
+
+  /* =====================================================
+     SÉCURITÉ AUDIO
+     ===================================================== */
+
+  window.addEventListener(
+    "pagehide",
+    function() {
+
+      window.speechSynthesis.cancel();
+
+    }
+  );
+
+
+  window.addEventListener(
+    "pageshow",
+    function() {
+
+      if (
+        window.HanaChapterProgress &&
+        typeof window.HanaChapterProgress.render === "function"
+      ) {
+
+        window.HanaChapterProgress.render();
+
+      }
+
+    }
+  );
+
+</script>
+
+
+</body>
+
+</html>

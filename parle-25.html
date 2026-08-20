@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="theme-color"
+    content="#F7F4ED"
+  >
+
+  <title>Chapitre 25 — Je parle</title>
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+<link rel="stylesheet" href="chapter-progress.css">
+
+  <style>
+
+    .speak-header {
+      text-align:center;
+      margin-bottom:24px;
+    }
+
+    .scenario-card,
+    .speech-card,
+    .tip-card {
+      padding:20px;
+      margin-bottom:18px;
+      background:var(--white);
+      border-radius:var(--radius-large);
+      box-shadow:var(--shadow);
+    }
+
+    .speech-step {
+      padding:16px;
+      margin-top:14px;
+      background:#FBFAF6;
+      border-radius:var(--radius-medium);
+    }
+
+    .speaker {
+      margin-bottom:8px;
+      color:var(--navy);
+      font-weight:bold;
+    }
+
+    .prompt-korean {
+      color:var(--navy);
+      font-size:19px;
+      font-weight:bold;
+      line-height:1.6;
+    }
+
+    .prompt-french {
+      margin-top:5px;
+      color:var(--text-light);
+      line-height:1.5;
+    }
+
+    .listen-button,
+    .mic-button {
+      width:100%;
+      margin-top:10px;
+    }
+
+    .listen-button {
+      background:var(--soft-blue);
+      color:var(--navy);
+    }
+
+    .mic-button {
+      background:var(--jade);
+      color:white;
+      font-weight:bold;
+    }
+
+    .mic-button.listening {
+      background:var(--navy);
+    }
+
+    .speech-feedback {
+      display:none;
+      margin-top:12px;
+      padding:12px 14px;
+      border-radius:var(--radius-medium);
+      line-height:1.6;
+    }
+
+    .speech-feedback.show {
+      display:block;
+    }
+
+    .speech-feedback.success {
+      background:var(--success-light);
+      color:var(--success);
+    }
+
+    .speech-feedback.error {
+      background:var(--error-light);
+      color:var(--error);
+    }
+
+    .transcript {
+      margin-top:8px;
+      color:var(--text-light);
+      font-size:14px;
+    }
+
+    .complete-button,
+    .next-button,
+    .back-button {
+      width:100%;
+      margin-top:10px;
+    }
+
+    .complete-button {
+      display:none;
+      background:var(--jade);
+      color:white;
+      font-weight:bold;
+    }
+
+    .complete-button.show {
+      display:block;
+    }
+
+    .complete-button.done {
+      background:var(--success);
+    }
+
+    .next-button {
+      display:none;
+      background:var(--navy);
+      color:white;
+      font-weight:bold;
+    }
+
+    .back-button {
+      background:var(--soft-beige);
+      color:var(--navy);
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+<main class="app">
+
+  <a
+    class="back-link"
+    href="exercice-ecoute-25.html"
+  >
+    ← Exercice d'écoute
+  </a>
+
+<section id="hanaChapterPath" data-chapter-path></section>
+
+  <header class="speak-header">
+
+    <span class="chapter-badge">
+      Chapitre 25 · 🗣️ Je parle
+    </span>
+
+    <p class="korean">
+      소포를 보내고 싶어요. 📮
+    </p>
+
+    <h1>
+      Parler à la poste
+    </h1>
+
+    <p>
+      Réponds à l'employée comme si tu étais au guichet
+      pour envoyer un colis en France.
+    </p>
+
+  </header>
+
+
+  <section class="scenario-card">
+
+    <h2>🎭 Situation</h2>
+
+    Tu es dans un bureau de poste à Séoul.
+    Tu veux envoyer un colis en France.
+    Il faut expliquer ce que tu veux faire,
+    donner la destination et demander le prix et la durée.
+
+  </section>
+
+
+  <section class="speech-card">
+
+    <h2>💬 Conversation guidée</h2>
+
+
+    <div
+      class="speech-step"
+      data-step="1"
+      data-expected="소포를 보내고 싶어요"
+    >
+
+      <div class="speaker">
+        👩 Employée
+      </div>
+
+      <div class="prompt-korean">
+        무엇을 도와드릴까요?
+      </div>
+
+      <div class="prompt-french">
+        Que puis-je faire pour vous ?
+      </div>
+
+      <button
+        class="listen-button"
+        type="button"
+        data-audio="무엇을 도와드릴까요?"
+      >
+        🔊 Écouter l'employée
+      </button>
+
+      <div class="prompt-french" style="margin-top:12px;">
+        Réponds : « Je voudrais envoyer un colis. »
+      </div>
+
+      <button
+        class="mic-button"
+        type="button"
+      >
+        🎤 Répondre
+      </button>
+
+      <div class="speech-feedback"></div>
+
+    </div>
+
+
+    <div
+      class="speech-step"
+      data-step="2"
+      data-expected="프랑스로 보내요"
+    >
+
+      <div class="speaker">
+        👩 Employée
+      </div>
+
+      <div class="prompt-korean">
+        어디로 보내세요?
+      </div>
+
+      <div class="prompt-french">
+        Où souhaitez-vous l'envoyer ?
+      </div>
+
+      <button
+        class="listen-button"
+        type="button"
+        data-audio="어디로 보내세요?"
+      >
+        🔊 Écouter l'employée
+      </button>
+
+      <div class="prompt-french" style="margin-top:12px;">
+        Réponds : « Je l'envoie en France. »
+      </div>
+
+      <button
+        class="mic-button"
+        type="button"
+      >
+        🎤 Répondre
+      </button>
+
+      <div class="speech-feedback"></div>
+
+    </div>
+
+
+    <div
+      class="speech-step"
+      data-step="3"
+      data-expected="네 여기 있어요"
+    >
+
+      <div class="speaker">
+        👩 Employée
+      </div>
+
+      <div class="prompt-korean">
+        주소가 있어요?
+      </div>
+
+      <div class="prompt-french">
+        Vous avez l'adresse ?
+      </div>
+
+      <button
+        class="listen-button"
+        type="button"
+        data-audio="주소가 있어요?"
+      >
+        🔊 Écouter l'employée
+      </button>
+
+      <div class="prompt-french" style="margin-top:12px;">
+        Réponds : « Oui, la voici. »
+      </div>
+
+      <button
+        class="mic-button"
+        type="button"
+      >
+        🎤 Répondre
+      </button>
+
+      <div class="speech-feedback"></div>
+
+    </div>
+
+
+    <div
+      class="speech-step"
+      data-step="4"
+      data-expected="얼마예요"
+    >
+
+      <div class="speaker">
+        🌸 À toi
+      </div>
+
+      <div class="prompt-french">
+        Demande : « Combien ça coûte ? »
+      </div>
+
+      <button
+        class="listen-button"
+        type="button"
+        data-audio="얼마예요?"
+      >
+        🔊 Écouter le modèle
+      </button>
+
+      <button
+        class="mic-button"
+        type="button"
+      >
+        🎤 Dire la phrase
+      </button>
+
+      <div class="speech-feedback"></div>
+
+    </div>
+
+
+    <div
+      class="speech-step"
+      data-step="5"
+      data-expected="얼마나 걸려요"
+    >
+
+      <div class="speaker">
+        🌸 À toi
+      </div>
+
+      <div class="prompt-french">
+        Demande : « Combien de temps cela prend-il ? »
+      </div>
+
+      <button
+        class="listen-button"
+        type="button"
+        data-audio="얼마나 걸려요?"
+      >
+        🔊 Écouter le modèle
+      </button>
+
+      <button
+        class="mic-button"
+        type="button"
+      >
+        🎤 Dire la phrase
+      </button>
+
+      <div class="speech-feedback"></div>
+
+    </div>
+
+
+    <div
+      class="speech-step"
+      data-step="6"
+      data-expected="네 알겠습니다 감사합니다"
+    >
+
+      <div class="speaker">
+        👩 Employée
+      </div>
+
+      <div class="prompt-korean">
+        이만 원이에요. 일주일 정도 걸려요.
+      </div>
+
+      <div class="prompt-french">
+        C'est 20 000 wons. Cela prend environ une semaine.
+      </div>
+
+      <button
+        class="listen-button"
+        type="button"
+        data-audio="이만 원이에요. 일주일 정도 걸려요."
+      >
+        🔊 Écouter l'employée
+      </button>
+
+      <div class="prompt-french" style="margin-top:12px;">
+        Termine poliment : « D'accord, j'ai compris. Merci. »
+      </div>
+
+      <button
+        class="mic-button"
+        type="button"
+      >
+        🎤 Répondre
+      </button>
+
+      <div class="speech-feedback"></div>
+
+    </div>
+
+  </section>
+
+
+  <section class="tip-card">
+
+    <h2>💡 Petit rappel</h2>
+
+    Essaie de bien distinguer :
+
+    <br><br>
+
+    <strong>얼마예요?</strong>
+    → le prix
+
+    <br><br>
+
+    <strong>얼마나 걸려요?</strong>
+    → la durée
+
+    <br><br>
+
+    Et dans
+    <strong>프랑스로 보내요</strong>,
+    <strong>-로</strong> indique ici la destination de l'envoi.
+
+  </section>
+
+
+  <button
+    class="complete-button"
+    id="completeButton"
+    type="button"
+  >
+    ✅ Valider l'oral
+  </button>
+
+
+  <button
+    class="next-button"
+    id="nextButton"
+    type="button"
+  >
+    ✍️ Passer à l'écriture
+  </button>
+
+
+  <button
+    class="back-button"
+    type="button"
+    onclick="window.location.href='exercice-ecoute-25.html'"
+  >
+    ← Retour à l'exercice d'écoute
+  </button>
+
+</main>
+
+
+<script>
+
+  const AUDIO_SETTINGS = {
+    normalRate: 0.82
+  };
+
+
+  const progressKey =
+    "hanaKorean_chapter25_speaking";
+
+
+  const completeButton =
+    document.getElementById(
+      "completeButton"
+    );
+
+
+  const nextButton =
+    document.getElementById(
+      "nextButton"
+    );
+
+
+  const speechSteps =
+    Array.from(
+      document.querySelectorAll(
+        ".speech-step"
+      )
+    );
+
+
+  function getKoreanVoice() {
+
+    const voices =
+      window.speechSynthesis.getVoices();
+
+
+    return voices.find(
+      voice =>
+        voice.lang &&
+        voice.lang
+          .toLowerCase()
+          .startsWith("ko")
+    ) || null;
+
+  }
+
+
+  function speak(
+    text
+  ) {
+
+    window.speechSynthesis.cancel();
+
+
+    const utterance =
+      new SpeechSynthesisUtterance(
+        text
+      );
+
+
+    utterance.lang =
+      "ko-KR";
+
+    utterance.rate =
+      AUDIO_SETTINGS.normalRate;
+
+    utterance.pitch =
+      1;
+
+
+    const koreanVoice =
+      getKoreanVoice();
+
+
+    if (
+      koreanVoice
+    ) {
+
+      utterance.voice =
+        koreanVoice;
+
+    }
+
+
+    window.speechSynthesis.speak(
+      utterance
+    );
+
+  }
+
+
+  document
+    .querySelectorAll(
+      "[data-audio]"
+    )
+    .forEach(
+      button => {
+
+        button.addEventListener(
+          "click",
+          () => {
+
+            speak(
+              button.dataset.audio
+            );
+
+          }
+        );
+
+      }
+    );
+
+
+  function normalizeText(
+    value
+  ) {
+
+    return value
+      .replace(
+        /[?.!,]/g,
+        ""
+      )
+      .replace(
+        /\s+/g,
+        " "
+      )
+      .trim();
+
+  }
+
+
+  function isAcceptable(
+    transcript,
+    expected,
+    stepNumber
+  ) {
+
+    const cleanTranscript =
+      normalizeText(
+        transcript
+      );
+
+
+    const cleanExpected =
+      normalizeText(
+        expected
+      );
+
+
+    if (
+      cleanTranscript.includes(
+        cleanExpected
+      )
+    ) {
+
+      return true;
+
+    }
+
+
+    const alternatives = {
+
+      1: [
+        "소포를 보내고 싶어요",
+        "네 소포를 보내고 싶어요"
+      ],
+
+      2: [
+        "프랑스로 보내요",
+        "프랑스로 보내고 싶어요"
+      ],
+
+      3: [
+        "네 여기 있어요",
+        "여기 있어요"
+      ],
+
+      4: [
+        "얼마예요"
+      ],
+
+      5: [
+        "얼마나 걸려요"
+      ],
+
+      6: [
+        "네 알겠습니다 감사합니다",
+        "알겠습니다 감사합니다",
+        "네 감사합니다"
+      ]
+
+    };
+
+
+    return (
+      alternatives[
+        stepNumber
+      ] || []
+    ).some(
+      alternative =>
+        cleanTranscript.includes(
+          normalizeText(
+            alternative
+          )
+        )
+    );
+
+  }
+
+
+  function completedCount() {
+
+    return speechSteps.filter(
+      step =>
+        step.dataset.completed ===
+        "true"
+    ).length;
+
+  }
+
+
+  function updateCompletion() {
+
+    if (
+      completedCount() ===
+      speechSteps.length
+    ) {
+
+      completeButton
+        .classList
+        .add(
+          "show"
+        );
+
+    }
+
+  }
+
+
+  const SpeechRecognition =
+    window.SpeechRecognition ||
+    window.webkitSpeechRecognition;
+
+
+  speechSteps.forEach(
+    step => {
+
+      const micButton =
+        step.querySelector(
+          ".mic-button"
+        );
+
+
+      const feedback =
+        step.querySelector(
+          ".speech-feedback"
+        );
+
+
+      const expected =
+        step.dataset.expected;
+
+
+      const stepNumber =
+        Number(
+          step.dataset.step
+        );
+
+
+      micButton.addEventListener(
+        "click",
+        () => {
+
+          if (
+            !SpeechRecognition
+          ) {
+
+            feedback.className =
+              "speech-feedback show error";
+
+
+            feedback.innerHTML =
+              "La reconnaissance vocale n'est pas disponible dans ce navigateur. Répète la phrase à voix haute pour t'entraîner.";
+
+
+            step.dataset.completed =
+              "true";
+
+
+            micButton.textContent =
+              "✅ Répété à voix haute";
+
+
+            updateCompletion();
+
+            return;
+
+          }
+
+
+          const recognition =
+            new SpeechRecognition();
+
+
+          recognition.lang =
+            "ko-KR";
+
+          recognition.interimResults =
+            false;
+
+          recognition.maxAlternatives =
+            3;
+
+
+          micButton
+            .classList
+            .add(
+              "listening"
+            );
+
+
+          micButton.textContent =
+            "🎙️ J'écoute…";
+
+
+          recognition.onresult =
+            event => {
+
+              const transcripts =
+                Array.from(
+                  event.results[0]
+                ).map(
+                  result =>
+                    result.transcript
+                );
+
+
+              const accepted =
+                transcripts.some(
+                  transcript =>
+                    isAcceptable(
+                      transcript,
+                      expected,
+                      stepNumber
+                    )
+                );
+
+
+              const firstTranscript =
+                transcripts[0] || "";
+
+
+              if (
+                accepted
+              ) {
+
+                feedback.className =
+                  "speech-feedback show success";
+
+
+                feedback.innerHTML =
+                  "✅ Très bien !<div class='transcript'>Le téléphone a compris : " +
+                  firstTranscript +
+                  "</div>";
+
+
+                step.dataset.completed =
+                  "true";
+
+
+                micButton.textContent =
+                  "✅ Réussi";
+
+
+                micButton.disabled =
+                  true;
+
+
+                updateCompletion();
+
+              } else {
+
+                feedback.className =
+                  "speech-feedback show error";
+
+
+                feedback.innerHTML =
+                  "Pas encore. Réécoute le modèle puis réessaie.<div class='transcript'>Le téléphone a compris : " +
+                  firstTranscript +
+                  "</div>";
+
+
+                micButton.textContent =
+                  "🎤 Réessayer";
+
+              }
+
+
+              micButton
+                .classList
+                .remove(
+                  "listening"
+                );
+
+            };
+
+
+          recognition.onerror =
+            () => {
+
+              feedback.className =
+                "speech-feedback show error";
+
+
+              feedback.textContent =
+                "Je n'ai pas réussi à entendre correctement. Réessaie en parlant un peu plus près du téléphone.";
+
+
+              micButton
+                .classList
+                .remove(
+                  "listening"
+                );
+
+
+              micButton.textContent =
+                "🎤 Réessayer";
+
+            };
+
+
+          recognition.onend =
+            () => {
+
+              if (
+                micButton.textContent ===
+                "🎙️ J'écoute…"
+              ) {
+
+                micButton.textContent =
+                  "🎤 Réessayer";
+
+              }
+
+
+              micButton
+                .classList
+                .remove(
+                  "listening"
+                );
+
+            };
+
+
+          recognition.start();
+
+        }
+      );
+
+    }
+  );
+
+
+  function showCompletedState() {
+
+    completeButton.textContent =
+      "✅ Oral terminé";
+
+
+    completeButton
+      .classList
+      .add(
+        "show",
+        "done"
+      );
+
+
+    nextButton.style.display =
+      "block";
+
+  }
+
+
+  if (
+    localStorage.getItem(
+      progressKey
+    ) === "completed"
+  ) {
+
+    showCompletedState();
+
+  }
+
+
+  completeButton.addEventListener(
+    "click",
+    () => {
+
+      localStorage.setItem(
+        progressKey,
+        "completed"
+      );
+
+
+      showCompletedState();
+
+    }
+  );
+
+
+  nextButton.addEventListener(
+    "click",
+    () => {
+
+      window.speechSynthesis.cancel();
+
+
+      window.location.href =
+        "ecriture-25.html";
+
+    }
+  );
+
+
+  window.addEventListener(
+    "beforeunload",
+    () => {
+
+      window.speechSynthesis.cancel();
+
+    }
+  );
+
+
+  window.speechSynthesis.onvoiceschanged =
+    () => {
+      getKoreanVoice();
+    };
+
+</script>
+
+
+
+<script src="chapter-progress.js"></script>
+<script>
+
+(function () {
+  const UNDERSTANDING_KEY = "hanaKorean_chapter25_understanding";
+  const LISTENING_EXERCISE_KEY = "hanaKorean_chapter25_listeningExercise";
+  const SPEAKING_KEY = "hanaKorean_chapter25_speaking";
+  const SPEAKING_MISTAKES_KEY = "hanaKorean_chapter25_speakingMistakes";
+  const SPEAKING_HELP_KEY = "hanaKorean_chapter25_speakingHelp";
+  let mistakeCount = Number(localStorage.getItem(SPEAKING_MISTAKES_KEY) || "0");
+  let helpCount = Number(localStorage.getItem(SPEAKING_HELP_KEY) || "0");
+  function renderChapterProgress() {
+    if (window.HanaChapterProgress && typeof window.HanaChapterProgress.render === "function") {
+      window.HanaChapterProgress.render();
+    }
+  }
+  function guardSpeakingAccess() {
+    if (localStorage.getItem(UNDERSTANDING_KEY) !== "completed") {
+      window.location.href = "chapitre-25.html";
+      return false;
+    }
+    if (localStorage.getItem(LISTENING_EXERCISE_KEY) !== "completed") {
+      window.location.href = "exercice-ecoute-25.html";
+      return false;
+    }
+    return true;
+  }
+  if (guardSpeakingAccess()) renderChapterProgress();
+  document.querySelectorAll(".speech-feedback").forEach(feedback => {
+    let lastWasError = false;
+    const observer = new MutationObserver(() => {
+      const isError = feedback.classList.contains("error");
+      if (isError && !lastWasError) {
+        mistakeCount += 1;
+        localStorage.setItem(SPEAKING_MISTAKES_KEY, String(mistakeCount));
+        if ((feedback.textContent || "").includes("pas disponible")) {
+          helpCount += 1;
+          localStorage.setItem(SPEAKING_HELP_KEY, String(helpCount));
+        }
+      }
+      lastWasError = isError;
+    });
+    observer.observe(feedback, {attributes:true, childList:true, subtree:true, characterData:true});
+  });
+  const completeButton = document.getElementById("completeButton");
+  if (completeButton) {
+    completeButton.addEventListener("click", () => {
+      localStorage.setItem(SPEAKING_KEY, "completed");
+      localStorage.setItem(SPEAKING_MISTAKES_KEY, String(mistakeCount));
+      localStorage.setItem(SPEAKING_HELP_KEY, String(helpCount));
+      renderChapterProgress();
+    });
+  }
+  window.addEventListener("pageshow", () => {
+    if (guardSpeakingAccess()) renderChapterProgress();
+  });
+})();
+
+</script>
+
+</body>
+
+</html>

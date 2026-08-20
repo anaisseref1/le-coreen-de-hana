@@ -14,11 +14,16 @@
     content="#F7F4ED"
   >
 
-  <title>Je parle — Chapitre 12</title>
+  <title>Je parle — Chapitre 15</title>
 
   <link
     rel="stylesheet"
     href="style.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="chapter-progress.css"
   >
 
   <style>
@@ -280,7 +285,6 @@
     ← Mini défi d'écoute
   </a>
 
-
   <header class="speak-header">
 
     <span class="chapter-badge">
@@ -296,12 +300,16 @@
     </h1>
 
     <p>
-      Répète les mots essentiels,
-      puis réponds dans de petites situations pour demander ton chemin.
+      Répète les mots et expressions essentiels du restaurant,
+      puis réponds à Madame Kim dans de petites situations de commande.
     </p>
 
   </header>
 
+  <section
+    id="hanaChapterPath"
+    data-chapter-path
+  ></section>
 
   <section class="intro-card">
 
@@ -309,13 +317,15 @@
 
     <br><br>
 
-    Savoir demander où se trouve un lieu,
-    comprendre et utiliser <strong>직진</strong>,
-    <strong>왼쪽</strong> et <strong>오른쪽</strong>,
-    puis remercier poliment avec <strong>감사합니다</strong>.
+    Savoir demander le menu,
+    demander une recommandation,
+    préciser que tu ne manges pas de porc,
+    demander si un plat est très épicé,
+    commander un bibimbap,
+    demander l'addition
+    et répondre pour le paiement par carte.
 
   </section>
-
 
   <div class="step-progress">
 
@@ -333,7 +343,6 @@
 
   </div>
 
-
   <section
     class="practice-card"
     id="practiceCard"
@@ -347,7 +356,7 @@
     </div>
 
     <h2 id="stepTitle">
-      📍 Mot 1
+      📖 Mot 1
     </h2>
 
     <div
@@ -390,18 +399,17 @@
         class="prompt-korean"
         id="promptKorean"
       >
-        어디예요?
+        메뉴
       </div>
 
       <div
         class="prompt-french"
         id="promptFrench"
       >
-        Où est… ?
+        menu
       </div>
 
     </div>
-
 
     <div class="audio-buttons">
 
@@ -422,7 +430,6 @@
 
     </div>
 
-
     <button
       class="mic-button"
       id="micButton"
@@ -431,7 +438,6 @@
     >
       🎙️ Parler
     </button>
-
 
     <div
       class="recognition-box"
@@ -449,12 +455,10 @@
 
     </div>
 
-
     <div
       class="feedback"
       id="feedback"
     ></div>
-
 
     <button
       class="help-button"
@@ -464,12 +468,10 @@
       💡 Besoin d'aide ?
     </button>
 
-
     <div
       class="help-box"
       id="helpBox"
     ></div>
-
 
     <button
       class="retry-button"
@@ -479,7 +481,6 @@
     >
       🎙️ Réessayer
     </button>
-
 
     <button
       class="next-button"
@@ -491,7 +492,6 @@
     </button>
 
   </section>
-
 
   <section
     class="result-card"
@@ -546,15 +546,13 @@
 
     </div>
 
-
     <button
       class="continue-button"
       type="button"
-      onclick="window.location.href='ecriture-15.html'"
+      onclick="goToWriting()"
     >
       ✍️ Passer à « J'écris »
     </button>
-
 
     <button
       class="back-button"
@@ -568,8 +566,68 @@
 
 </main>
 
+<script src="chapter-progress.js"></script>
 
 <script>
+  const CHAPTER = 15;
+
+  const UNDERSTANDING_KEY =
+    "hanaKorean_chapter15_understanding";
+
+  const LISTENING_EXERCISE_KEY =
+    "hanaKorean_chapter15_listeningExercise";
+
+  const SPEAKING_KEY =
+    "hanaKorean_chapter15_speaking";
+
+  const SPEAKING_MISTAKES_KEY =
+    "hanaKorean_chapter15_speakingMistakes";
+
+  const SPEAKING_HELP_KEY =
+    "hanaKorean_chapter15_speakingHelp";
+
+
+  function guardSpeakingAccess() {
+
+    if (
+      localStorage.getItem(
+        UNDERSTANDING_KEY
+      ) !== "completed"
+    ) {
+      window.location.replace(
+        "chapitre-15.html"
+      );
+
+      return false;
+    }
+
+    if (
+      localStorage.getItem(
+        LISTENING_EXERCISE_KEY
+      ) !== "completed"
+    ) {
+      window.location.replace(
+        "ecoute-15.html"
+      );
+
+      return false;
+    }
+
+    return true;
+  }
+
+
+  function renderChapterProgress() {
+
+    if (
+      window.HanaChapterProgress &&
+      typeof window.HanaChapterProgress.render === "function"
+    ) {
+      window.HanaChapterProgress.render();
+    }
+  }
+
+
   const AUDIO_SETTINGS = {
     normalRate: 0.82,
     slowRate: 0.25
@@ -625,7 +683,8 @@
     {
       title: "⭐ Phrase 2",
       target: "추천해 주세요.",
-      french: "Recommandez-moi quelque chose, s'il vous plaît.",
+      french:
+        "Recommandez-moi quelque chose, s'il vous plaît.",
       accepted: [
         "추천해주세요"
       ],
@@ -654,11 +713,12 @@
       ],
       scenario:
         "🍜 Madame Kim te recommande un plat que tu ne connais pas.",
-      seller:
-        {
-          korean: "그럼 비빔밥하고 닭갈비는 어때요?",
-          french: "Alors, que pensez-vous du bibimbap ou du dakgalbi ?"
-        },
+      seller: {
+        korean:
+          "그럼 비빔밥하고 닭갈비는 어때요?",
+        french:
+          "Alors, que pensez-vous du bibimbap ou du dakgalbi ?"
+      },
       help:
         "Pour demander si c'est très épicé, utilise 많이 매워요?"
     },
@@ -672,11 +732,12 @@
       ],
       scenario:
         "🌶️ Madame Kim t'explique que le bibimbap n'est pas très épicé.",
-      seller:
-        {
-          korean: "비빔밥은 많이 안 매워요.",
-          french: "Le bibimbap n'est pas très épicé."
-        },
+      seller: {
+        korean:
+          "비빔밥은 많이 안 매워요.",
+        french:
+          "Le bibimbap n'est pas très épicé."
+      },
       help:
         "Utilise 비빔밥 하나 주세요."
     },
@@ -698,19 +759,22 @@
 
     {
       title: "💬 Situation 4",
-      target: "네, 카드로 할게요. 감사합니다.",
-      french: "Réponds que tu paieras par carte et remercie.",
+      target:
+        "네, 카드로 할게요. 감사합니다.",
+      french:
+        "Réponds que tu paieras par carte et remercie.",
       accepted: [
         "네카드로할게요감사합니다",
         "카드로할게요감사합니다"
       ],
       scenario:
         "💳 Madame Kim te demande comment tu veux payer.",
-      seller:
-        {
-          korean: "카드로 하시겠어요?",
-          french: "Vous payez par carte ?"
-        },
+      seller: {
+        korean:
+          "카드로 하시겠어요?",
+        french:
+          "Vous payez par carte ?"
+      },
       help:
         "Réponds 네, 카드로 할게요. 감사합니다."
     }
@@ -725,30 +789,44 @@
   let isListening = false;
 
 
-  function normalizeKorean(text) {
+  function normalizeKorean(
+    text
+  ) {
 
     return text
-      .replace(/[.,!?~…'"]/g, "")
-      .replace(/\s+/g, "")
+      .replace(
+        /[.,!?~…'"]/g,
+        ""
+      )
+      .replace(
+        /\s+/g,
+        ""
+      )
       .trim();
-
   }
 
 
   function getKoreanVoice() {
 
+    if (
+      !("speechSynthesis" in window)
+    ) {
+      return null;
+    }
+
     const voices =
-      window.speechSynthesis.getVoices();
+      window.speechSynthesis
+        .getVoices();
 
-
-    return voices.find(
-      voice =>
-        voice.lang &&
-        voice.lang
-          .toLowerCase()
-          .startsWith("ko")
+    return (
+      voices.find(
+        voice =>
+          voice.lang &&
+          voice.lang
+            .toLowerCase()
+            .startsWith("ko")
+      ) || null
     );
-
   }
 
 
@@ -763,57 +841,51 @@
       return;
     }
 
-
     window.speechSynthesis.cancel();
-
 
     const speech =
       new SpeechSynthesisUtterance(
         text
       );
 
-
     speech.lang =
       "ko-KR";
-
 
     speech.rate =
       slow
         ? AUDIO_SETTINGS.slowRate
         : AUDIO_SETTINGS.normalRate;
 
-
     speech.pitch =
       1;
-
 
     const voice =
       getKoreanVoice();
 
-
-    if (voice) {
-      speech.voice = voice;
+    if (
+      voice
+    ) {
+      speech.voice =
+        voice;
     }
-
 
     window.speechSynthesis.speak(
       speech
     );
-
   }
 
 
-  function playTarget(slow) {
+  function playTarget(
+    slow
+  ) {
 
     const step =
       steps[currentStep];
-
 
     speakKorean(
       step.target,
       slow
     );
-
   }
 
 
@@ -822,18 +894,14 @@
     const step =
       steps[currentStep];
 
-
     if (
       step.seller
     ) {
-
       speakKorean(
         step.seller.korean,
         false
       );
-
     }
-
   }
 
 
@@ -841,7 +909,6 @@
 
     const step =
       steps[currentStep];
-
 
     document.getElementById(
       "stepLabel"
@@ -851,24 +918,20 @@
       " / " +
       steps.length;
 
-
     document.getElementById(
       "stepTitle"
     ).textContent =
       step.title;
-
 
     document.getElementById(
       "promptKorean"
     ).textContent =
       step.target;
 
-
     document.getElementById(
       "promptFrench"
     ).textContent =
       step.french;
-
 
     document.getElementById(
       "progressLabel"
@@ -876,7 +939,6 @@
       (currentStep + 1) +
       " / " +
       steps.length;
-
 
     document.getElementById(
       "progressFill"
@@ -894,25 +956,22 @@
         "scenarioCard"
       );
 
-
     if (
       step.scenario
     ) {
-
       scenarioCard.style.display =
         "block";
 
-
       scenarioCard.textContent =
         step.scenario;
-
     }
 
     else {
-
       scenarioCard.style.display =
         "none";
 
+      scenarioCard.textContent =
+        "";
     }
 
 
@@ -921,33 +980,36 @@
         "sellerLine"
       );
 
-
     if (
       step.seller
     ) {
-
       sellerLine.style.display =
         "block";
-
 
       document.getElementById(
         "sellerKorean"
       ).textContent =
         step.seller.korean;
 
-
       document.getElementById(
         "sellerFrench"
       ).textContent =
         step.seller.french;
-
     }
 
     else {
-
       sellerLine.style.display =
         "none";
 
+      document.getElementById(
+        "sellerKorean"
+      ).textContent =
+        "";
+
+      document.getElementById(
+        "sellerFrench"
+      ).textContent =
+        "";
     }
 
 
@@ -957,13 +1019,11 @@
       "💡 " +
       step.help;
 
-
     document.getElementById(
       "helpBox"
     ).classList.remove(
       "show"
     );
-
 
     document.getElementById(
       "recognitionBox"
@@ -971,18 +1031,20 @@
       "show"
     );
 
+    document.getElementById(
+      "heardText"
+    ).textContent =
+      "";
 
     document.getElementById(
       "feedback"
     ).className =
       "feedback";
 
-
     document.getElementById(
       "feedback"
     ).innerHTML =
       "";
-
 
     document.getElementById(
       "nextButton"
@@ -990,32 +1052,27 @@
       "show"
     );
 
-
     document.getElementById(
       "retryButton"
     ).classList.remove(
       "show"
     );
 
-
     document.getElementById(
       "micButton"
     ).disabled =
       false;
-
 
     document.getElementById(
       "micButton"
     ).textContent =
       "🎙️ Parler";
 
-
     document.getElementById(
       "micButton"
     ).classList.remove(
       "listening"
     );
-
   }
 
 
@@ -1023,13 +1080,11 @@
 
     helpCount++;
 
-
     document.getElementById(
       "helpBox"
     ).classList.toggle(
       "show"
     );
-
   }
 
 
@@ -1041,25 +1096,20 @@
       return;
     }
 
-
     const SpeechRecognition =
       window.SpeechRecognition ||
       window.webkitSpeechRecognition;
 
-
     if (
       !SpeechRecognition
     ) {
-
       const feedback =
         document.getElementById(
           "feedback"
         );
 
-
       feedback.className =
         "feedback show wrong";
-
 
       feedback.innerHTML =
         "🎙️ La reconnaissance vocale n'est pas disponible dans ce navigateur.<br><br>" +
@@ -1068,34 +1118,26 @@
       return;
     }
 
-
     if (
       "speechSynthesis" in window
     ) {
-
       window.speechSynthesis.cancel();
-
     }
-
 
     recognition =
       new SpeechRecognition();
 
-
     recognition.lang =
       "ko-KR";
-
 
     recognition.interimResults =
       false;
 
-
     recognition.continuous =
       false;
 
-
     recognition.maxAlternatives =
-      5;
+      3;
 
 
     recognition.onstart =
@@ -1104,47 +1146,40 @@
         isListening =
           true;
 
-
         const micButton =
           document.getElementById(
             "micButton"
           );
 
-
         micButton.textContent =
           "🎙️ J'écoute…";
-
 
         micButton.classList.add(
           "listening"
         );
-
       };
 
 
     recognition.onresult =
       function(event) {
 
-        const alternatives = [];
-
+        const alternatives =
+          [];
 
         for (
           let i = 0;
           i < event.results[0].length;
           i++
         ) {
-
           alternatives.push(
-            event.results[0][i].transcript
+            event.results[0][i]
+              .transcript
           );
-
         }
-
 
         evaluateRecognition(
           alternatives
         );
-
       };
 
 
@@ -1156,21 +1191,17 @@
             "feedback"
           );
 
-
         feedback.className =
           "feedback show wrong";
 
-
         feedback.innerHTML =
           "Je n'ai pas réussi à t'entendre correctement. Réessaie en parlant clairement et assez près du micro.";
-
 
         document.getElementById(
           "retryButton"
         ).classList.add(
           "show"
         );
-
       };
 
 
@@ -1180,26 +1211,21 @@
         isListening =
           false;
 
-
         const micButton =
           document.getElementById(
             "micButton"
           );
 
-
         micButton.textContent =
           "🎙️ Parler";
-
 
         micButton.classList.remove(
           "listening"
         );
-
       };
 
 
     recognition.start();
-
   }
 
 
@@ -1210,21 +1236,24 @@
     const step =
       steps[currentStep];
 
-
     const normalizedAccepted =
       step.accepted.map(
         answer =>
-          normalizeKorean(answer)
+          normalizeKorean(
+            answer
+          )
       );
 
+    let matched =
+      false;
 
-    let matched = false;
     let bestTranscript =
       alternatives[0] || "";
 
 
     for (
-      const transcript of alternatives
+      const transcript
+      of alternatives
     ) {
 
       const normalized =
@@ -1232,25 +1261,20 @@
           transcript
         );
 
-
       if (
-        normalizedAccepted.includes(
-          normalized
-        )
+        normalizedAccepted
+          .includes(
+            normalized
+          )
       ) {
-
         matched =
           true;
-
 
         bestTranscript =
           transcript;
 
-
         break;
-
       }
-
     }
 
 
@@ -1259,11 +1283,9 @@
         "recognitionBox"
       );
 
-
     recognitionBox.classList.add(
       "show"
     );
-
 
     document.getElementById(
       "heardText"
@@ -1284,13 +1306,11 @@
       feedback.className =
         "feedback show correct";
 
-
       feedback.innerHTML =
         "✅ <strong>Très bien !</strong><br><br>" +
         "La phrase attendue était : <strong>" +
         step.target +
         "</strong>";
-
 
       document.getElementById(
         "nextButton"
@@ -1298,45 +1318,37 @@
         "show"
       );
 
-
       document.getElementById(
         "retryButton"
       ).classList.remove(
         "show"
       );
 
-
       document.getElementById(
         "micButton"
       ).disabled =
         true;
 
+      return;
     }
 
-    else {
 
-      mistakes++;
+    mistakes++;
 
+    feedback.className =
+      "feedback show wrong";
 
-      feedback.className =
-        "feedback show wrong";
+    feedback.innerHTML =
+      "❌ <strong>Pas encore.</strong><br><br>" +
+      "Réécoute la phrase et essaie de te rapprocher de : <strong>" +
+      step.target +
+      "</strong>";
 
-
-      feedback.innerHTML =
-        "❌ <strong>Pas encore.</strong><br><br>" +
-        "Réécoute la phrase et essaie de te rapprocher de : <strong>" +
-        step.target +
-        "</strong>";
-
-
-      document.getElementById(
-        "retryButton"
-      ).classList.add(
-        "show"
-      );
-
-    }
-
+    document.getElementById(
+      "retryButton"
+    ).classList.add(
+      "show"
+    );
   }
 
 
@@ -1346,26 +1358,19 @@
       currentStep <
       steps.length - 1
     ) {
-
       currentStep++;
 
-
       renderStep();
-
 
       window.scrollTo({
         top: 0,
         behavior: "smooth"
       });
 
-
       return;
-
     }
 
-
     finishSpeaking();
-
   }
 
 
@@ -1376,54 +1381,45 @@
     ).style.display =
       "none";
 
-
     document.getElementById(
       "resultCard"
     ).classList.add(
       "show"
     );
 
-
-    let summary = "";
+    let summary =
+      "";
 
 
     if (
       mistakes === 0
     ) {
-
       summary =
         "🌟 Toutes les étapes ont été reconnues sans erreur.";
-
     }
 
     else if (
       mistakes === 1
     ) {
-
       summary =
         "💡 Tu as eu 1 tentative incorrecte pendant la séance.";
-
     }
 
     else {
-
       summary =
         "💡 Tu as eu " +
         mistakes +
         " tentatives incorrectes pendant la séance.";
-
     }
 
 
     if (
       helpCount > 0
     ) {
-
       summary +=
         "<br><br>Tu as utilisé l'aide " +
         helpCount +
         " fois.";
-
     }
 
 
@@ -1434,28 +1430,45 @@
 
 
     localStorage.setItem(
-      "hanaKorean_chapter15_speaking",
+      SPEAKING_KEY,
       "completed"
     );
 
-
     localStorage.setItem(
-      "hanaKorean_chapter15_speakingMistakes",
-      mistakes
+      SPEAKING_MISTAKES_KEY,
+      String(
+        mistakes
+      )
     );
 
-
     localStorage.setItem(
-      "hanaKorean_chapter15_speakingHelp",
-      helpCount
+      SPEAKING_HELP_KEY,
+      String(
+        helpCount
+      )
     );
 
+    renderChapterProgress();
 
     window.scrollTo({
       top: 0,
       behavior: "smooth"
     });
+  }
 
+
+  function goToWriting() {
+
+    if (
+      localStorage.getItem(
+        SPEAKING_KEY
+      ) !== "completed"
+    ) {
+      return;
+    }
+
+    window.location.href =
+      "écriture-15.html";
   }
 
 
@@ -1463,13 +1476,12 @@
     "speechSynthesis" in window
   ) {
 
-    window.speechSynthesis.onvoiceschanged =
+    window.speechSynthesis
+      .onvoiceschanged =
       function() {
-
-        window.speechSynthesis.getVoices();
-
+        window.speechSynthesis
+          .getVoices();
       };
-
   }
 
 
@@ -1480,28 +1492,36 @@
       if (
         "speechSynthesis" in window
       ) {
-
-        window.speechSynthesis.cancel();
-
+        window.speechSynthesis
+          .cancel();
       }
-
 
       if (
         recognition &&
         isListening
       ) {
-
         recognition.abort();
-
       }
-
     }
   );
 
 
-  renderStep();
+  if (
+    guardSpeakingAccess()
+  ) {
+
+    renderChapterProgress();
+
+    renderStep();
+
+    window.addEventListener(
+      "pageshow",
+      function() {
+        renderChapterProgress();
+      }
+    );
+  }
 </script>
 
 </body>
-
 </html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#F7F4ED">
+<title>Résumé — Chapitre 19</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="chapter-progress.css">
+</head>
+<body>
+<main class="app">
+
+<a class="back-link" href="utilise-19.html">← Mission chapitre 19</a>
+
+<header style="text-align:center">
+<span class="chapter-badge">Module 2 · Chapitre 19</span>
+<p class="korean">📸 어땠어요?</p>
+<h1>Résumé</h1>
+<p>Parler du passé et raconter une expérience.</p>
+</header>
+
+<section id="hanaChapterPath" data-chapter-path></section>
+
+<section class="summary-card">
+<h2>🎯 Objectif</h2>
+<p>Savoir raconter une expérience passée, dire où tu es allé(e), ce que tu as mangé, vu ou photographié, ajouter un repère temporel et demander comment une expérience s'est passée.</p>
+</section>
+
+<section class="summary-card">
+<h2>📸 Vocabulaire essentiel</h2>
+<p><strong>갔어요</strong> → je suis allé(e)</p>
+<p><strong>먹었어요</strong> → j'ai mangé</p>
+<p><strong>봤어요</strong> → j'ai vu / regardé</p>
+<p><strong>찍었어요</strong> → j'ai pris, par exemple une photo</p>
+<p><strong>했어요</strong> → j'ai fait</p>
+<p><strong>여행</strong> → voyage</p>
+<p><strong>사진</strong> → photo</p>
+<p><strong>처음</strong> → pour la première fois / début selon le contexte</p>
+<p><strong>다시</strong> → de nouveau</p>
+<p><strong>정말</strong> → vraiment</p>
+<p><strong>어제</strong> → hier</p>
+<p><strong>지난주</strong> → la semaine dernière</p>
+</section>
+
+<section class="summary-card">
+<h2>🧩 Structures importantes</h2>
+<p><strong>Passé en -았어요 / -었어요</strong><br>가요 → 갔어요 · 먹어요 → 먹었어요 · 봐요 → 봤어요 · 찍어요 → 찍었어요 · 해요 → 했어요</p>
+<p><strong>처음 + verbe au passé</strong><br>한국에 처음 갔어요. → Je suis allé(e) en Corée pour la première fois.</p>
+<p><strong>Repère temporel + action passée</strong><br>어제 비빔밥을 먹었어요. → Hier, j'ai mangé un bibimbap.</p>
+<p><strong>N + 어땠어요?</strong><br>여행 어땠어요? → Comment était le voyage ?</p>
+<p><strong>정말 + impression au passé</strong><br>정말 좋았어요. → C'était vraiment bien.</p>
+</section>
+
+<section class="summary-card">
+<h2>💬 Phrases à retenir</h2>
+<p class="korean">서울에 갔어요.</p>
+<p class="korean">비빔밥을 먹었어요.</p>
+<p class="korean">사진을 많이 찍었어요.</p>
+<p class="korean">한국에 처음 갔어요.</p>
+<p class="korean">어제 비빔밥을 먹었어요.</p>
+<p class="korean">정말 즐거웠어요.</p>
+<p class="korean">정말 좋았어요.</p>
+<p class="korean">어땠어요?</p>
+</section>
+
+<section class="summary-card">
+<h2>🌿 À reconnaître</h2>
+<p><strong>제일 좋았던 건 뭐예요?</strong> → Qu'est-ce que tu as préféré ?</p>
+<p><strong>한강이 제일 좋았어요.</strong> → Ce que j'ai préféré, c'était le fleuve Han.</p>
+<p><strong>첫 여행</strong> / <strong>첫 번째 여행</strong> → premier voyage.</p>
+</section>
+
+<section class="summary-card">
+<h2>🌿 Récapitulatif</h2>
+<p>Tu sais maintenant construire un petit récit au passé en coréen avec quelques actions simples, un repère temporel et une impression. Tu peux aussi demander à quelqu'un comment s'est passée une expérience avec <strong>어땠어요?</strong>.</p>
+</section>
+
+<script src="chapter-progress.js"></script>
+<script>
+const CHAPTER=19;
+const REQUIRED_KEY="hanaKorean_chapter19_use";
+const LEGACY_MISSION_KEY="hanaKorean_chapter19_mission";
+const LEGACY_COMPLETED_KEY="hanaKorean_chapter19_completed";
+const SUMMARY_KEY="hanaKorean_chapter19_resume";
+
+function migrateMissionProgress(){
+  if(localStorage.getItem(REQUIRED_KEY)==="completed"){
+    return;
+  }
+
+  if(
+    localStorage.getItem(LEGACY_MISSION_KEY)==="completed" ||
+    localStorage.getItem(LEGACY_COMPLETED_KEY)==="completed"
+  ){
+    localStorage.setItem(REQUIRED_KEY,"completed");
+  }
+}
+
+function renderChapterProgress(){
+  if(
+    window.HanaChapterProgress &&
+    typeof window.HanaChapterProgress.render==="function"
+  ){
+    window.HanaChapterProgress.render();
+  }
+}
+
+migrateMissionProgress();
+
+if(localStorage.getItem(REQUIRED_KEY)!=="completed"){
+  window.location.replace("utilise-19.html");
+}else{
+  localStorage.setItem(SUMMARY_KEY,"completed");
+  renderChapterProgress();
+}
+
+window.addEventListener("pageshow",function(){
+  migrateMissionProgress();
+
+  if(localStorage.getItem(REQUIRED_KEY)!=="completed"){
+    window.location.replace("utilise-19.html");
+    return;
+  }
+
+  localStorage.setItem(SUMMARY_KEY,"completed");
+  renderChapterProgress();
+});
+</script>
+
+</main>
+</body>
+</html>

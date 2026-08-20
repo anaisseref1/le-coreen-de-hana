@@ -2,6 +2,7 @@
 <html lang="fr">
 
 <head>
+
   <meta charset="UTF-8">
 
   <meta
@@ -14,18 +15,71 @@
     content="#F7F4ED"
   >
 
-  <title>Mini défi d'écoute — Chapitre 7</title>
+  <title>
+    Chapitre 7 — Exercice d'écoute
+  </title>
 
   <link
     rel="stylesheet"
     href="style.css"
   >
 
+  <link
+    rel="stylesheet"
+    href="chapter-progress.css"
+  >
+
+
+  <script>
+
+    /* =====================================================
+       ACCÈS SÉQUENTIEL
+       ===================================================== */
+
+    if (
+      localStorage.getItem(
+        "hanaKorean_chapter7_understanding"
+      ) !== "completed"
+    ) {
+
+      window.location.replace(
+        "chapitre-7.html"
+      );
+
+    }
+
+
+    /* =====================================================
+       ÉTAT DE L'EXERCICE D'ÉCOUTE
+       ===================================================== */
+
+    if (
+      localStorage.getItem(
+        "hanaKorean_chapter7_listeningExercise"
+      ) !== "completed"
+    ) {
+
+      localStorage.setItem(
+        "hanaKorean_chapter7_listeningExercise",
+        "in_progress"
+      );
+
+    }
+
+  </script>
+
+
   <style>
+
+    /* =====================================================
+       EN-TÊTE
+       ===================================================== */
+
     .exercise-header {
       text-align: center;
-      margin-bottom: 30px;
+      margin-bottom: 25px;
     }
+
 
     .chapter-badge {
       display: inline-block;
@@ -36,27 +90,46 @@
       font-weight: bold;
     }
 
-    .exercise-progress {
-      margin-bottom: 22px;
+
+    .exercise-intro {
+      color: var(--text-light);
+      line-height: 1.7;
     }
 
-    .progress-info {
+
+    /* =====================================================
+       PROGRESSION
+       ===================================================== */
+
+    .exercise-progress-card {
+      padding: 17px;
+      margin-bottom: 20px;
+      background: var(--white);
+      border-radius: var(--radius-large);
+      box-shadow: var(--shadow);
+    }
+
+
+    .exercise-progress-top {
       display: flex;
+      align-items: center;
       justify-content: space-between;
-      margin-bottom: 8px;
+      gap: 10px;
+      margin-bottom: 9px;
       color: var(--text-light);
       font-size: 13px;
     }
 
-    .progress-bar {
-      width: 100%;
+
+    .exercise-progress-bar {
       height: 9px;
+      overflow: hidden;
       background: var(--soft-beige);
       border-radius: 20px;
-      overflow: hidden;
     }
 
-    .progress-fill {
+
+    .exercise-progress-fill {
       width: 20%;
       height: 100%;
       background: var(--jade);
@@ -64,176 +137,236 @@
       transition: width 0.3s ease;
     }
 
+
+    /* =====================================================
+       CARTES
+       ===================================================== */
+
     .exercise-card {
       padding: 20px;
       margin-bottom: 18px;
-      background: var(--white);
-      border-radius: var(--radius-large);
-      box-shadow: var(--shadow);
     }
+
+
+    .exercise-card.hidden {
+      display: none;
+    }
+
 
     .question-number {
-      margin-top: 0;
+      margin-bottom: 8px;
       color: var(--jade-dark);
-      font-size: 14px;
+      font-size: 13px;
       font-weight: bold;
     }
+
+
+    .exercise-card h2 {
+      margin-top: 0;
+    }
+
 
     .question-text {
-      line-height: 1.6;
-    }
-
-    .audio-zone {
-      padding: 18px;
-      margin: 15px 0;
-      background: var(--soft-blue);
-      border-radius: var(--radius-medium);
-      text-align: center;
-    }
-
-    .audio-icon {
-      margin-bottom: 8px;
-      font-size: 38px;
-    }
-
-    .audio-note {
-      margin-bottom: 14px;
       color: var(--text-light);
-      font-size: 14px;
+      line-height: 1.7;
     }
 
-    .audio-main {
-      width: 100%;
-      font-weight: bold;
+
+    /* =====================================================
+       AUDIO
+       ===================================================== */
+
+    .audio-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 9px;
+      margin-top: 15px;
     }
 
+
+    .audio-button,
     .slow-button {
       width: 100%;
-      margin-top: 8px;
+      font-weight: bold;
     }
 
-    .answers {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-top: 15px;
-    }
 
-    .answer {
-      width: 100%;
-      padding: 15px;
-      text-align: left;
-      border: 2px solid transparent;
-    }
-
-    .feedback {
-      display: none;
-      margin-top: 16px;
-      padding: 15px;
-      border-radius: var(--radius-medium);
-      line-height: 1.7;
-    }
-
-    .feedback.correct,
-    .feedback.wrong {
-      display: block;
-    }
-
-    .heard-question {
-      margin-top: 10px;
-      padding: 12px;
-      background: rgba(255, 255, 255, 0.65);
-      border-radius: var(--radius-small);
+    .audio-button {
+      background: var(--soft-blue);
       color: var(--navy);
-      font-size: 19px;
-      font-weight: bold;
     }
 
-    .next-question {
-      display: none;
-      width: 100%;
-      margin-top: 15px;
-      background: var(--jade);
-      color: white;
-      font-weight: bold;
-    }
 
-    .hidden {
-      display: none;
-    }
-
-    .result-card {
-      display: none;
-      padding: 25px;
-      background: var(--white);
-      border-radius: var(--radius-large);
-      box-shadow: var(--shadow);
-      text-align: center;
-    }
-
-    .result-icon {
-      font-size: 60px;
-    }
-
-    .result-score {
-      color: var(--jade-dark);
-      font-size: 21px;
-      font-weight: bold;
-    }
-
-    .result-summary {
-      padding: 16px;
-      margin-top: 18px;
-      background: #FBFAF6;
-      border-radius: var(--radius-medium);
-      text-align: left;
-      line-height: 1.6;
-    }
-
-    .notion-summary {
-      margin-top: 18px;
-      text-align: left;
-    }
-
-    .notion-line {
-      padding: 11px 0;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .notion-line:last-child {
-      border-bottom: none;
-    }
-
-    .strategy-box {
-      padding: 16px;
-      margin-top: 18px;
-      background: var(--soft-green);
-      border-radius: var(--radius-medium);
-      color: var(--navy);
-      text-align: left;
-      line-height: 1.7;
-    }
-
-    .next-step-button {
-      width: 100%;
-      margin-top: 18px;
-      background: var(--jade);
-      color: white;
-      font-weight: bold;
-    }
-
-    .chapter-button {
-      width: 100%;
-      margin-top: 10px;
+    .slow-button {
       background: var(--soft-beige);
       color: var(--navy);
     }
+
+
+    /* =====================================================
+       CHOIX
+       ===================================================== */
+
+    .choices {
+      display: grid;
+      gap: 10px;
+      margin-top: 17px;
+    }
+
+
+    .choice-button {
+      width: 100%;
+      padding: 14px 15px;
+      background: #FBFAF6;
+      color: var(--navy);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-medium);
+      text-align: left;
+      line-height: 1.5;
+      font-weight: 600;
+    }
+
+
+    .choice-button.correct {
+      background: var(--success-light);
+      border-color: var(--success);
+    }
+
+
+    .choice-button.wrong {
+      background: var(--error-light);
+      border-color: var(--error);
+    }
+
+
+    /* =====================================================
+       FEEDBACK
+       ===================================================== */
+
+    .feedback {
+      display: none;
+      padding: 15px;
+      margin-top: 15px;
+      border-radius: var(--radius-medium);
+      line-height: 1.7;
+    }
+
+
+    .feedback.correct {
+      display: block;
+      background: var(--success-light);
+      border-left: 4px solid var(--success);
+      color: var(--navy);
+    }
+
+
+    .feedback.wrong {
+      display: block;
+      background: var(--warning-light);
+      border-left: 4px solid var(--warning);
+      color: var(--navy);
+    }
+
+
+    .heard-question {
+      margin: 10px 0;
+      color: var(--navy);
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+
+    /* =====================================================
+       SUIVANT
+       ===================================================== */
+
+    .next-question-button {
+      display: none;
+      width: 100%;
+      margin-top: 14px;
+      background: var(--jade);
+      color: white;
+      font-weight: bold;
+    }
+
+
+    .next-question-button.show {
+      display: block;
+    }
+
+
+    /* =====================================================
+       RÉSULTAT
+       ===================================================== */
+
+    .result-card {
+      display: none;
+      padding: 22px;
+      margin-bottom: 18px;
+      text-align: center;
+    }
+
+
+    .result-card.show {
+      display: block;
+    }
+
+
+    .result-icon {
+      margin-bottom: 10px;
+      font-size: 48px;
+    }
+
+
+    .result-score {
+      color: var(--jade-dark);
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+
+    .result-summary {
+      padding: 16px;
+      margin-top: 16px;
+      background: var(--soft-green);
+      border-radius: var(--radius-medium);
+      color: var(--navy);
+      line-height: 1.8;
+      text-align: left;
+    }
+
+
+    .finish-button {
+      width: 100%;
+      margin-top: 18px;
+      background: var(--jade);
+      color: white;
+      font-weight: bold;
+    }
+
+
+    @media (max-width: 480px) {
+
+      .audio-row {
+        grid-template-columns: 1fr;
+      }
+
+    }
+
   </style>
+
 </head>
+
 
 <body>
 
+
 <main class="app">
+
+
+  <!-- =====================================================
+       RETOUR
+       ===================================================== -->
 
   <a
     class="back-link"
@@ -242,52 +375,80 @@
     ← J'écoute
   </a>
 
+
+
+  <!-- =====================================================
+       EN-TÊTE
+       ===================================================== -->
+
   <header class="exercise-header">
 
     <span class="chapter-badge">
-      Chapitre 7 · Mini défi
+      Module 1 · Chapitre 7 · Exercice d'écoute
     </span>
 
+
     <p class="korean">
-      잘 들어 보세요 🎧
+      잘 들어 보세요 👂
     </p>
 
+
     <h1>
-      Ma journée
+      Qu'as-tu entendu ?
     </h1>
 
-    <p>
+
+    <p class="exercise-intro">
       Écoute chaque phrase
-      et repère le moment de la journée
-      ou l'action principale.
+      sans voir le coréen,
+      puis choisis la bonne signification.
     </p>
 
   </header>
 
-  <div class="exercise-progress">
 
-    <div class="progress-info">
+
+  <!-- =====================================================
+       PARCOURS
+       ===================================================== -->
+
+  <section
+    id="hanaChapterPath"
+    data-chapter-path
+  ></section>
+
+
+
+  <!-- =====================================================
+       PROGRESSION
+       ===================================================== -->
+
+  <section class="exercise-progress-card">
+
+    <div class="exercise-progress-top">
 
       <span>
-        Compréhension orale
+        Exercice d'écoute
       </span>
 
-      <span id="progressLabel">
+      <strong id="progressLabel">
         1 / 5
-      </span>
+      </strong>
 
     </div>
 
-    <div class="progress-bar">
+
+    <div class="exercise-progress-bar">
 
       <div
-        class="progress-fill"
+        class="exercise-progress-fill"
         id="progressFill"
       ></div>
 
     </div>
 
-  </div>
+  </section>
+
 
 
   <!-- =====================================================
@@ -299,81 +460,82 @@
     id="question1"
   >
 
-    <p class="question-number">
-      Question 1 / 5
-    </p>
+    <div class="question-number">
+      QUESTION 1 / 5
+    </div>
+
 
     <h2>
-      ☀️ Écoute
+      ☀️ De quel moment parle Min-su ?
     </h2>
 
-    <div class="audio-zone">
 
-      <div class="audio-icon">
-        🎧
-      </div>
+    <p class="question-text">
+      Écoute la question.
+    </p>
 
-      <div class="audio-note">
-        Repère le moment de la journée.
-      </div>
+
+    <div class="audio-row">
 
       <button
-        class="audio-main"
+        class="audio-button"
         type="button"
-        onclick="speakKorean('아침에 뭐 해요?', false)"
+        onclick="speakQuestion(1, false)"
       >
-        🔊 Écouter la question
+        🔊 Écouter
       </button>
+
 
       <button
         class="slow-button"
         type="button"
-        onclick="speakKorean('아침에 뭐 해요?', true)"
+        onclick="speakQuestion(1, true)"
       >
-        🐢 Écouter lentement
+        🐢 Lentement
       </button>
 
     </div>
 
-    <p class="question-text">
-      À quel moment de la journée Min-su fait-il référence ?
-    </p>
 
-    <div class="answers">
+    <div class="choices">
 
       <button
-        class="answer"
+        class="choice-button"
         type="button"
         onclick="checkAnswer(1, this, true)"
       >
-        ☀️ Le matin
+        Il demande ce que Hana fait le matin.
       </button>
 
+
       <button
-        class="answer"
+        class="choice-button"
         type="button"
         onclick="checkAnswer(1, this, false)"
       >
-        🍱 À midi
+        Il demande ce que Hana fait le soir.
       </button>
 
+
       <button
-        class="answer"
+        class="choice-button"
         type="button"
         onclick="checkAnswer(1, this, false)"
       >
-        🌙 Le soir
+        Il demande où Hana habite.
       </button>
 
     </div>
+
 
     <div
       class="feedback"
       id="feedback1"
     ></div>
 
+
     <button
-      class="next-question"
+      class="next-question-button"
       id="next1"
       type="button"
       onclick="showQuestion(2)"
@@ -382,6 +544,7 @@
     </button>
 
   </section>
+
 
 
   <!-- =====================================================
@@ -393,81 +556,82 @@
     id="question2"
   >
 
-    <p class="question-number">
-      Question 2 / 5
-    </p>
+    <div class="question-number">
+      QUESTION 2 / 5
+    </div>
+
 
     <h2>
-      ☕ Écoute l'action
+      ☕ Que fait Hana ?
     </h2>
 
-    <div class="audio-zone">
 
-      <div class="audio-icon">
-        🎧
-      </div>
+    <p class="question-text">
+      Écoute bien le verbe.
+    </p>
 
-      <div class="audio-note">
-        Concentre-toi sur le verbe.
-      </div>
+
+    <div class="audio-row">
 
       <button
-        class="audio-main"
+        class="audio-button"
         type="button"
-        onclick="speakKorean('커피를 마셔요.', false)"
+        onclick="speakQuestion(2, false)"
       >
-        🔊 Écouter la phrase
+        🔊 Écouter
       </button>
+
 
       <button
         class="slow-button"
         type="button"
-        onclick="speakKorean('커피를 마셔요.', true)"
+        onclick="speakQuestion(2, true)"
       >
-        🐢 Écouter lentement
+        🐢 Lentement
       </button>
 
     </div>
 
-    <p class="question-text">
-      Que fait Hana ?
-    </p>
 
-    <div class="answers">
+    <div class="choices">
 
       <button
-        class="answer"
+        class="choice-button"
         type="button"
         onclick="checkAnswer(2, this, false)"
       >
         Elle mange.
       </button>
 
+
       <button
-        class="answer"
+        class="choice-button"
         type="button"
         onclick="checkAnswer(2, this, true)"
       >
         Elle boit du café.
       </button>
 
+
       <button
-        class="answer"
+        class="choice-button"
         type="button"
         onclick="checkAnswer(2, this, false)"
       >
-        Elle travaille.
+        Elle étudie.
       </button>
 
     </div>
+
 
     <div
       class="feedback"
       id="feedback2"
     ></div>
 
+
     <button
-      class="next-question"
+      class="next-question-button"
       id="next2"
       type="button"
       onclick="showQuestion(3)"
@@ -476,6 +640,7 @@
     </button>
 
   </section>
+
 
 
   <!-- =====================================================
@@ -487,81 +652,84 @@
     id="question3"
   >
 
-    <p class="question-number">
-      Question 3 / 5
-    </p>
+    <div class="question-number">
+      QUESTION 3 / 5
+    </div>
+
 
     <h2>
-      🏢 Écoute la destination
+      ➕ Quel mot relie les deux actions ?
     </h2>
 
-    <div class="audio-zone">
 
-      <div class="audio-icon">
-        🎧
-      </div>
+    <p class="question-text">
+      Écoute la phrase complète
+      et repère le mot
+      qui signifie « et / puis ».
+    </p>
 
-      <div class="audio-note">
-        Repère le mot avant 가요.
-      </div>
+
+    <div class="audio-row">
 
       <button
-        class="audio-main"
+        class="audio-button"
         type="button"
-        onclick="speakKorean('회사에 가요.', false)"
+        onclick="speakQuestion(3, false)"
       >
-        🔊 Écouter la phrase
+        🔊 Écouter
       </button>
+
 
       <button
         class="slow-button"
         type="button"
-        onclick="speakKorean('회사에 가요.', true)"
+        onclick="speakQuestion(3, true)"
       >
-        🐢 Écouter lentement
+        🐢 Lentement
       </button>
 
     </div>
 
-    <p class="question-text">
-      Où va Hana ?
-    </p>
 
-    <div class="answers">
+    <div class="choices">
 
       <button
-        class="answer"
+        class="choice-button"
+        type="button"
+        onclick="checkAnswer(3, this, false)"
+      >
+        매일
+      </button>
+
+
+      <button
+        class="choice-button"
         type="button"
         onclick="checkAnswer(3, this, true)"
       >
-        🏢 Au travail
+        그리고
       </button>
 
+
       <button
-        class="answer"
+        class="choice-button"
         type="button"
         onclick="checkAnswer(3, this, false)"
       >
-        🏠 À la maison
-      </button>
-
-      <button
-        class="answer"
-        type="button"
-        onclick="checkAnswer(3, this, false)"
-      >
-        🏫 À l'école
+        오늘
       </button>
 
     </div>
+
 
     <div
       class="feedback"
       id="feedback3"
     ></div>
 
+
     <button
-      class="next-question"
+      class="next-question-button"
       id="next3"
       type="button"
       onclick="showQuestion(4)"
@@ -570,6 +738,7 @@
     </button>
 
   </section>
+
 
 
   <!-- =====================================================
@@ -581,81 +750,83 @@
     id="question4"
   >
 
-    <p class="question-number">
-      Question 4 / 5
-    </p>
+    <div class="question-number">
+      QUESTION 4 / 5
+    </div>
+
 
     <h2>
-      📚 Écoute
+      🌙 Que demande Min-su ?
     </h2>
 
-    <div class="audio-zone">
 
-      <div class="audio-icon">
-        🎧
-      </div>
+    <p class="question-text">
+      Écoute le début
+      et la fin de la question.
+    </p>
 
-      <div class="audio-note">
-        Repère 매일 et 공부해요.
-      </div>
+
+    <div class="audio-row">
 
       <button
-        class="audio-main"
+        class="audio-button"
         type="button"
-        onclick="speakKorean('매일 공부해요?', false)"
+        onclick="speakQuestion(4, false)"
       >
-        🔊 Écouter la question
+        🔊 Écouter
       </button>
+
 
       <button
         class="slow-button"
         type="button"
-        onclick="speakKorean('매일 공부해요?', true)"
+        onclick="speakQuestion(4, true)"
       >
-        🐢 Écouter lentement
+        🐢 Lentement
       </button>
 
     </div>
 
-    <p class="question-text">
-      Que demande Min-su ?
-    </p>
 
-    <div class="answers">
+    <div class="choices">
 
       <button
-        class="answer"
+        class="choice-button"
         type="button"
         onclick="checkAnswer(4, this, false)"
       >
-        Est-ce que tu travailles le soir ?
+        Qu'est-ce que tu fais à midi ?
       </button>
 
+
       <button
-        class="answer"
+        class="choice-button"
         type="button"
         onclick="checkAnswer(4, this, true)"
       >
-        Est-ce que tu étudies tous les jours ?
+        Et le soir, qu'est-ce que tu fais ?
       </button>
 
+
       <button
-        class="answer"
+        class="choice-button"
         type="button"
         onclick="checkAnswer(4, this, false)"
       >
-        Est-ce que tu vas au travail tous les jours ?
+        Tu vas au travail le matin ?
       </button>
 
     </div>
+
 
     <div
       class="feedback"
       id="feedback4"
     ></div>
 
+
     <button
-      class="next-question"
+      class="next-question-button"
       id="next4"
       type="button"
       onclick="showQuestion(5)"
@@ -664,6 +835,7 @@
     </button>
 
   </section>
+
 
 
   <!-- =====================================================
@@ -675,89 +847,92 @@
     id="question5"
   >
 
-    <p class="question-number">
-      Question 5 / 5
-    </p>
+    <div class="question-number">
+      QUESTION 5 / 5
+    </div>
+
 
     <h2>
-      🌙 Écoute deux actions
+      🔁 À quelle fréquence Hana étudie-t-elle ?
     </h2>
 
-    <div class="audio-zone">
 
-      <div class="audio-icon">
-        🎧
-      </div>
+    <p class="question-text">
+      Écoute le mot placé
+      avant 공부해요.
+    </p>
 
-      <div class="audio-note">
-        Écoute bien les deux verbes.
-      </div>
+
+    <div class="audio-row">
 
       <button
-        class="audio-main"
+        class="audio-button"
         type="button"
-        onclick="speakKorean('집에 와요. 그리고 공부해요.', false)"
+        onclick="speakQuestion(5, false)"
       >
-        🔊 Écouter la phrase
+        🔊 Écouter
       </button>
+
 
       <button
         class="slow-button"
         type="button"
-        onclick="speakKorean('집에 와요. 그리고 공부해요.', true)"
+        onclick="speakQuestion(5, true)"
       >
-        🐢 Écouter lentement
+        🐢 Lentement
       </button>
 
     </div>
 
-    <p class="question-text">
-      Que fait Hana ?
-    </p>
 
-    <div class="answers">
+    <div class="choices">
 
       <button
-        class="answer"
-        type="button"
-        onclick="checkAnswer(5, this, false)"
-      >
-        Elle va au travail puis elle mange.
-      </button>
-
-      <button
-        class="answer"
+        class="choice-button"
         type="button"
         onclick="checkAnswer(5, this, true)"
       >
-        Elle rentre à la maison puis elle étudie.
+        Tous les jours.
       </button>
 
+
       <button
-        class="answer"
+        class="choice-button"
         type="button"
         onclick="checkAnswer(5, this, false)"
       >
-        Elle se lève puis elle dort.
+        Aujourd'hui seulement.
+      </button>
+
+
+      <button
+        class="choice-button"
+        type="button"
+        onclick="checkAnswer(5, this, false)"
+      >
+        Le matin seulement.
       </button>
 
     </div>
+
 
     <div
       class="feedback"
       id="feedback5"
     ></div>
 
+
     <button
-      class="next-question"
+      class="next-question-button"
       id="next5"
       type="button"
-      onclick="finishExercise()"
+      onclick="showResult()"
     >
-      Voir mon résultat 🌿
+      Voir mon résultat →
     </button>
 
   </section>
+
 
 
   <!-- =====================================================
@@ -773,218 +948,345 @@
       🎧☀️
     </div>
 
+
     <h2>
       잘했어요!
     </h2>
 
+
     <p>
-      Tu as terminé le mini défi d'écoute du chapitre 7.
+      Tu as terminé
+      l'exercice d'écoute du chapitre 7.
     </p>
 
+
     <p class="result-score">
-      5 éléments reconnus ✅
+      5 / 5 validées ✅
     </p>
 
 
     <div class="result-summary">
 
       <strong>
-        📊 Ta séance
-      </strong>
-
-      <p id="attemptText"></p>
-
-    </div>
-
-
-    <div class="notion-summary">
-
-      <div class="notion-line">
-        ☀️ <strong>아침에 뭐 해요?</strong> → Qu'est-ce que tu fais le matin ?
-      </div>
-
-      <div class="notion-line">
-        ☕ <strong>커피를 마셔요.</strong> → Je bois du café.
-      </div>
-
-      <div class="notion-line">
-        🏢 <strong>회사에 가요.</strong> → Je vais au travail.
-      </div>
-
-      <div class="notion-line">
-        🔁 <strong>매일 공부해요?</strong> → Tu étudies tous les jours ?
-      </div>
-
-      <div class="notion-line">
-        🏠📚 <strong>집에 와요. 그리고 공부해요.</strong> → Je rentre à la maison. Puis j'étudie.
-      </div>
-
-    </div>
-
-
-    <div class="strategy-box">
-
-      <strong>
-        🧠 Stratégie d'écoute
+        👂 Tu sais maintenant reconnaître :
       </strong>
 
       <br><br>
 
-      Dans une phrase de routine,
-      essaie de repérer d'abord
-      <strong>le moment ou le lieu</strong>,
-      puis <strong>le verbe à la fin</strong>.
+      ☀️ <strong>아침에 뭐 해요?</strong>
+
+      <br>
+
+      Qu'est-ce que tu fais le matin ?
 
       <br><br>
 
-      Exemple :
-      <strong>회사에 + 가요</strong>
-      ou
-      <strong>매일 + 공부해요</strong>.
+      ☕ <strong>커피를 마셔요.</strong>
+
+      <br>
+
+      Je bois du café.
+
+      <br><br>
+
+      ➕ <strong>그리고</strong>
+
+      <br>
+
+      et / puis
+
+      <br><br>
+
+      🌙 <strong>저녁에는 뭐 해요?</strong>
+
+      <br>
+
+      Et le soir, qu'est-ce que tu fais ?
+
+      <br><br>
+
+      🔁 <strong>매일 공부해요.</strong>
+
+      <br>
+
+      J'étudie tous les jours.
 
     </div>
 
 
     <button
-      class="next-step-button"
+      class="finish-button"
       type="button"
-      onclick="window.location.href='parle-7.html'"
+      onclick="completeListening()"
     >
-      🗣️ Passer à « Je parle »
-    </button>
-
-
-    <button
-      class="chapter-button"
-      type="button"
-      onclick="window.location.href='chapitre-7.html'"
-    >
-      Retour au chapitre
+      ✅ Valider « J'écoute » · Passer à « Je parle »
     </button>
 
   </section>
 
+
 </main>
 
 
+
+<script src="chapter-progress.js"></script>
+
+
 <script>
-  let incorrectAttempts = 0;
 
+  /* =====================================================
+     AUDIO
+     ===================================================== */
 
-  const completedQuestions = {
-    1: false,
-    2: false,
-    3: false,
-    4: false,
-    5: false
+  const AUDIO_SETTINGS = {
+
+    normalRate:
+      0.82,
+
+    slowRate:
+      0.25
+
   };
+
+
+  const questions = {
+
+    1: {
+
+      text:
+        "아침에 뭐 해요?",
+
+      character:
+        "minsu"
+
+    },
+
+
+    2: {
+
+      text:
+        "커피를 마셔요.",
+
+      character:
+        "hana"
+
+    },
+
+
+    3: {
+
+      text:
+        "집에 와요. 그리고 공부해요.",
+
+      character:
+        "hana"
+
+    },
+
+
+    4: {
+
+      text:
+        "저녁에는 뭐 해요?",
+
+      character:
+        "minsu"
+
+    },
+
+
+    5: {
+
+      text:
+        "매일 공부해요.",
+
+      character:
+        "hana"
+
+    }
+
+  };
+
 
 
   function getKoreanVoice() {
 
     const voices =
-      window.speechSynthesis.getVoices();
+      window.speechSynthesis
+        .getVoices();
 
 
-    return voices.find(
-      voice =>
-        voice.lang &&
-        voice.lang
-          .toLowerCase()
-          .startsWith("ko")
+    return (
+      voices.find(
+        voice =>
+          voice.lang &&
+          voice.lang
+            .toLowerCase()
+            .startsWith("ko")
+      ) ||
+      null
     );
 
   }
 
 
-  function speakKorean(
-    text,
-    slow = false
+
+  function characterPitch(
+    character
   ) {
 
-    if (
-      !("speechSynthesis" in window)
-    ) {
-      return;
-    }
+    const pitches = {
 
+      hana:
+        1.06,
+
+      minsu:
+        0.94
+
+    };
+
+
+    return (
+      pitches[
+        character
+      ] ||
+      1
+    );
+
+  }
+
+
+
+  function speakQuestion(
+    number,
+    slow
+  ) {
 
     window.speechSynthesis.cancel();
 
 
-    const speech =
+    const question =
+      questions[
+        number
+      ];
+
+
+    const utterance =
       new SpeechSynthesisUtterance(
-        text
+        question.text
       );
 
 
-    speech.lang =
+    utterance.lang =
       "ko-KR";
 
 
-    speech.rate =
+    utterance.rate =
       slow
-        ? 0.25
-        : 0.82;
+        ? AUDIO_SETTINGS.slowRate
+        : AUDIO_SETTINGS.normalRate;
 
 
-    speech.pitch =
-      1;
+    utterance.pitch =
+      characterPitch(
+        question.character
+      );
 
 
     const voice =
       getKoreanVoice();
 
 
-    if (voice) {
+    if (
+      voice
+    ) {
 
-      speech.voice =
+      utterance.voice =
         voice;
 
     }
 
 
     window.speechSynthesis.speak(
-      speech
+      utterance
     );
 
   }
 
 
+
+  /* =====================================================
+     ÉTAT
+     ===================================================== */
+
+  const completed = {
+
+    1: false,
+    2: false,
+    3: false,
+    4: false,
+    5: false
+
+  };
+
+
+  let incorrectAttempts =
+    0;
+
+
+  const mistakeQuestions =
+    [];
+
+
+
+  /* =====================================================
+     RÉPONSES
+     ===================================================== */
+
   function checkAnswer(
     number,
     button,
-    isCorrect
+    correct
   ) {
 
     if (
-      completedQuestions[number]
+      completed[number]
     ) {
+
       return;
+
     }
+
+
+    const questionCard =
+      document.getElementById(
+        "question" +
+        number
+      );
+
+
+    const choices =
+      questionCard.querySelectorAll(
+        ".choice-button"
+      );
 
 
     const feedback =
       document.getElementById(
-        "feedback" + number
+        "feedback" +
+        number
       );
 
 
-    const question =
-      document.getElementById(
-        "question" + number
-      );
+    /* ===================================================
+       BONNE RÉPONSE
+       =================================================== */
 
+    if (
+      correct
+    ) {
 
-    const answers =
-      question.querySelectorAll(
-        ".answer"
-      );
-
-
-    if (isCorrect) {
-
-      completedQuestions[number] =
+      completed[number] =
         true;
 
 
@@ -993,84 +1295,96 @@
       );
 
 
-      feedback.className =
-        "feedback correct";
+      choices.forEach(
+        choice => {
 
-
-      if (number === 1) {
-
-        feedback.innerHTML =
-          "✅ <strong>Exact !</strong>" +
-          "<br><br>" +
-          "Tu as entendu :" +
-          "<div class='heard-question'>아침에 뭐 해요?</div>" +
-          "<strong>아침</strong> signifie « matin ».";
-
-      }
-
-
-      if (number === 2) {
-
-        feedback.innerHTML =
-          "✅ <strong>Très bien !</strong>" +
-          "<br><br>" +
-          "La phrase était :" +
-          "<div class='heard-question'>커피를 마셔요.</div>" +
-          "<strong>마셔요</strong> signifie « boire ».";
-
-      }
-
-
-      if (number === 3) {
-
-        feedback.innerHTML =
-          "✅ <strong>Exact !</strong>" +
-          "<br><br>" +
-          "Tu as entendu :" +
-          "<div class='heard-question'>회사에 가요.</div>" +
-          "<strong>회사</strong> signifie « entreprise / travail ».";
-
-      }
-
-
-      if (number === 4) {
-
-        feedback.innerHTML =
-          "✅ <strong>Très bien !</strong>" +
-          "<br><br>" +
-          "La question était :" +
-          "<div class='heard-question'>매일 공부해요?</div>" +
-          "<strong>매일</strong> = tous les jours et <strong>공부해요</strong> = étudier.";
-
-      }
-
-
-      if (number === 5) {
-
-        feedback.innerHTML =
-          "✅ <strong>Parfait !</strong>" +
-          "<br><br>" +
-          "Tu as entendu :" +
-          "<div class='heard-question'>집에 와요. 그리고 공부해요.</div>" +
-          "Hana rentre à la maison puis elle étudie.";
-
-      }
-
-
-      answers.forEach(
-        answer => {
-
-          answer.disabled =
+          choice.disabled =
             true;
 
         }
       );
 
 
+      feedback.className =
+        "feedback correct";
+
+
+      if (
+        number === 1
+      ) {
+
+        feedback.innerHTML =
+          "✅ <strong>Exact !</strong>" +
+          "<br><br>" +
+          "Tu as entendu :" +
+          "<div class='heard-question'>아침에 뭐 해요?</div>" +
+          "<strong>아침</strong> signifie « matin » et <strong>뭐 해요?</strong> signifie « qu'est-ce que tu fais ? ».";
+
+      }
+
+
+      if (
+        number === 2
+      ) {
+
+        feedback.innerHTML =
+          "✅ <strong>Très bien !</strong>" +
+          "<br><br>" +
+          "La phrase était :" +
+          "<div class='heard-question'>커피를 마셔요.</div>" +
+          "Le verbe <strong>마셔요</strong> signifie « boire ».";
+
+      }
+
+
+      if (
+        number === 3
+      ) {
+
+        feedback.innerHTML =
+          "✅ <strong>Parfait !</strong>" +
+          "<br><br>" +
+          "Tu as entendu :" +
+          "<div class='heard-question'>집에 와요. 그리고 공부해요.</div>" +
+          "<strong>그리고</strong> relie ici les deux actions avec le sens de « puis ».";
+
+      }
+
+
+      if (
+        number === 4
+      ) {
+
+        feedback.innerHTML =
+          "✅ <strong>Exact !</strong>" +
+          "<br><br>" +
+          "Min-su demande :" +
+          "<div class='heard-question'>저녁에는 뭐 해요?</div>" +
+          "<strong>저녁</strong> signifie « soir ».";
+
+      }
+
+
+      if (
+        number === 5
+      ) {
+
+        feedback.innerHTML =
+          "✅ <strong>Très bien !</strong>" +
+          "<br><br>" +
+          "Tu as entendu :" +
+          "<div class='heard-question'>매일 공부해요.</div>" +
+          "<strong>매일</strong> signifie « tous les jours ».";
+
+      }
+
+
       document.getElementById(
-        "next" + number
-      ).style.display =
-        "block";
+        "next" +
+        number
+      ).classList.add(
+        "show"
+      );
 
 
       return;
@@ -1078,7 +1392,24 @@
     }
 
 
+    /* ===================================================
+       MAUVAISE RÉPONSE
+       =================================================== */
+
     incorrectAttempts++;
+
+
+    if (
+      !mistakeQuestions.includes(
+        number
+      )
+    ) {
+
+      mistakeQuestions.push(
+        number
+      );
+
+    }
 
 
     button.classList.add(
@@ -1090,58 +1421,68 @@
       "feedback wrong";
 
 
-    if (number === 1) {
+    if (
+      number === 1
+    ) {
 
       feedback.innerHTML =
-        "❌ <strong>Réécoute le premier mot.</strong>" +
+        "Tu n'as pas encore identifié le bon moment de la journée." +
         "<br><br>" +
-        "💡 Tu dois reconnaître <strong>아침</strong>.";
+        "💡 Réécoute le tout premier mot : <strong>아침</strong>.";
 
     }
 
 
-    if (number === 2) {
+    if (
+      number === 2
+    ) {
 
       feedback.innerHTML =
-        "❌ <strong>Concentre-toi sur le verbe final.</strong>" +
+        "Le mot <strong>커피</strong> devrait t'aider à comprendre l'action." +
         "<br><br>" +
-        "💡 <strong>마셔요</strong> signifie « boire ».";
+        "💡 Écoute surtout la fin : <strong>마셔요</strong> = boire.";
 
     }
 
 
-    if (number === 3) {
+    if (
+      number === 3
+    ) {
 
       feedback.innerHTML =
-        "❌ <strong>Repère le mot avant 가요.</strong>" +
+        "Cherche le mot placé entre les deux actions." +
         "<br><br>" +
-        "💡 Tu entends <strong>회사</strong>.";
+        "💡 <strong>그리고</strong> signifie « et / puis ».";
 
     }
 
 
-    if (number === 4) {
+    if (
+      number === 4
+    ) {
 
       feedback.innerHTML =
-        "❌ <strong>Écoute 매일 et 공부해요.</strong>" +
+        "Réécoute le début de la question." +
         "<br><br>" +
-        "💡 La question parle d'une habitude quotidienne d'étude.";
+        "💡 <strong>저녁</strong> signifie « soir ».";
 
     }
 
 
-    if (number === 5) {
+    if (
+      number === 5
+    ) {
 
       feedback.innerHTML =
-        "❌ <strong>Écoute les deux verbes.</strong>" +
+        "Écoute le mot juste avant <strong>공부해요</strong>." +
         "<br><br>" +
-        "💡 <strong>와요</strong> = venir / revenir et <strong>공부해요</strong> = étudier.";
+        "💡 <strong>매일</strong> indique une habitude qui se répète tous les jours.";
 
     }
 
 
     setTimeout(
-      () => {
+      function() {
 
         button.classList.remove(
           "wrong"
@@ -1154,13 +1495,16 @@
   }
 
 
-  function showQuestion(number) {
 
-    if (
-      "speechSynthesis" in window
-    ) {
-      window.speechSynthesis.cancel();
-    }
+  /* =====================================================
+     QUESTION SUIVANTE
+     ===================================================== */
+
+  function showQuestion(
+    number
+  ) {
+
+    window.speechSynthesis.cancel();
 
 
     document
@@ -1179,25 +1523,21 @@
 
 
     document.getElementById(
-      "question" + number
+      "question" +
+      number
     ).classList.remove(
       "hidden"
     );
 
 
-    const percentages = {
-      1: 20,
-      2: 40,
-      3: 60,
-      4: 80,
-      5: 100
-    };
-
-
     document.getElementById(
       "progressFill"
     ).style.width =
-      percentages[number] +
+      (
+        number /
+        5 *
+        100
+      ) +
       "%";
 
 
@@ -1209,20 +1549,35 @@
 
 
     window.scrollTo({
-      top: 0,
-      behavior: "smooth"
+
+      top:
+        0,
+
+      behavior:
+        "smooth"
+
     });
 
   }
 
 
-  function finishExercise() {
+
+  /* =====================================================
+     RÉSULTAT
+     ===================================================== */
+
+  function showResult() {
 
     if (
-      "speechSynthesis" in window
+      !completed[5]
     ) {
-      window.speechSynthesis.cancel();
+
+      return;
+
     }
+
+
+    window.speechSynthesis.cancel();
 
 
     document
@@ -1254,46 +1609,46 @@
 
     document.getElementById(
       "resultCard"
-    ).style.display =
-      "block";
+    ).classList.add(
+      "show"
+    );
 
 
-    let message = "";
+    localStorage.setItem(
+      "hanaKorean_chapter7_listeningMistakes",
+      JSON.stringify(
+        mistakeQuestions
+      )
+    );
 
 
-    if (
-      incorrectAttempts === 0
-    ) {
-
-      message =
-        "🌟 Tu as reconnu les 5 éléments du premier coup.";
-
-    }
-
-    else if (
-      incorrectAttempts === 1
-    ) {
-
-      message =
-        "💡 1 tentative incorrecte, puis les 5 éléments ont été reconnus.";
-
-    }
-
-    else {
-
-      message =
-        "💡 " +
-        incorrectAttempts +
-        " tentatives incorrectes. Les 5 éléments ont malgré tout été validés.";
-
-    }
+    localStorage.setItem(
+      "hanaKorean_chapter7_listeningIncorrectAttempts",
+      String(
+        incorrectAttempts
+      )
+    );
 
 
-    document.getElementById(
-      "attemptText"
-    ).textContent =
-      message;
+    window.scrollTo({
 
+      top:
+        0,
+
+      behavior:
+        "smooth"
+
+    });
+
+  }
+
+
+
+  /* =====================================================
+     VALIDATION DE « J'ÉCOUTE »
+     ===================================================== */
+
+  function completeListening() {
 
     localStorage.setItem(
       "hanaKorean_chapter7_listening",
@@ -1302,32 +1657,60 @@
 
 
     localStorage.setItem(
-      "hanaKorean_chapter7_listeningMistakes",
-      incorrectAttempts
+      "hanaKorean_chapter7_listeningExercise",
+      "completed"
     );
 
 
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    });
+    if (
+      window.HanaChapterProgress &&
+      typeof window.HanaChapterProgress.render === "function"
+    ) {
+
+      window.HanaChapterProgress.render();
+
+    }
+
+
+    window.location.href =
+      "parle-7.html";
 
   }
 
 
-  if (
-    "speechSynthesis" in window
-  ) {
 
-    window.speechSynthesis.onvoiceschanged =
-      function() {
+  /* =====================================================
+     SÉCURITÉ AUDIO
+     ===================================================== */
 
-        window.speechSynthesis.getVoices();
+  window.addEventListener(
+    "pagehide",
+    function() {
 
-      };
+      window.speechSynthesis.cancel();
 
-  }
+    }
+  );
+
+
+  window.addEventListener(
+    "pageshow",
+    function() {
+
+      if (
+        window.HanaChapterProgress &&
+        typeof window.HanaChapterProgress.render === "function"
+      ) {
+
+        window.HanaChapterProgress.render();
+
+      }
+
+    }
+  );
+
 </script>
+
 
 </body>
 

@@ -1,0 +1,1540 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="theme-color"
+    content="#F7F4ED"
+  >
+
+  <title>
+    Chapitre 9 — Résumé
+  </title>
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="chapter-progress.css"
+  >
+
+
+  <script>
+
+    /* =====================================================
+       GARDE — CHAPITRE TERMINÉ
+       ===================================================== */
+
+    if (
+      localStorage.getItem(
+        "hanaKorean_chapter9_completed"
+      ) !== "completed"
+    ) {
+
+      window.location.replace(
+        "chapitre-9.html"
+      );
+
+    }
+
+  </script>
+
+
+  <style>
+
+    /* =====================================================
+       EN-TÊTE
+       ===================================================== */
+
+    .summary-header {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+
+    .chapter-badge {
+      display: inline-block;
+      padding: 7px 14px;
+      margin-bottom: 10px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+
+    .summary-intro {
+      color: var(--text-light);
+      line-height: 1.7;
+    }
+
+
+    /* =====================================================
+       FÉLICITATION
+       ===================================================== */
+
+    .success-card {
+      padding: 20px;
+      margin-bottom: 20px;
+      background: var(--soft-green);
+      border-radius: var(--radius-large);
+      color: var(--navy);
+      text-align: center;
+      line-height: 1.7;
+    }
+
+
+    .success-icon {
+      margin-bottom: 8px;
+      font-size: 42px;
+    }
+
+
+    .success-card h2 {
+      margin: 0 0 8px;
+    }
+
+
+    /* =====================================================
+       CARTES
+       ===================================================== */
+
+    .summary-card {
+      padding: 20px;
+      margin-bottom: 18px;
+    }
+
+
+    .summary-card h2 {
+      margin-top: 0;
+    }
+
+
+    /* =====================================================
+       VOCABULAIRE
+       ===================================================== */
+
+    .vocab-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+
+    .vocab-item {
+      padding: 14px;
+      background: #FBFAF6;
+      border-radius: var(--radius-medium);
+    }
+
+
+    .vocab-korean {
+      color: var(--navy);
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+
+    .vocab-french {
+      margin-top: 4px;
+      color: var(--text-light);
+      line-height: 1.5;
+    }
+
+
+    /* =====================================================
+       STRUCTURES
+       ===================================================== */
+
+    .structure-box {
+      padding: 17px;
+      margin-top: 14px;
+      background: var(--soft-beige);
+      border-radius: var(--radius-medium);
+      color: var(--navy);
+      text-align: center;
+      font-size: 19px;
+      font-weight: bold;
+      line-height: 1.8;
+    }
+
+
+    .tip-box {
+      padding: 16px;
+      margin-top: 14px;
+      background: var(--soft-blue);
+      border-radius: var(--radius-medium);
+      color: var(--navy);
+      line-height: 1.7;
+    }
+
+
+    /* =====================================================
+       PHRASES
+       ===================================================== */
+
+    .phrase {
+      padding: 15px;
+      margin-top: 11px;
+      background: #FBFAF6;
+      border-radius: var(--radius-medium);
+      line-height: 1.7;
+    }
+
+
+    .phrase-korean {
+      color: var(--navy);
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+
+    .phrase-french {
+      display: block;
+      margin-top: 4px;
+      color: var(--text-light);
+    }
+
+
+    /* =====================================================
+       AUDIO
+       ===================================================== */
+
+    .audio-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 9px;
+      margin-top: 11px;
+    }
+
+
+    .audio-button,
+    .slow-button {
+      width: 100%;
+      font-weight: bold;
+    }
+
+
+    .audio-button {
+      background: var(--soft-blue);
+      color: var(--navy);
+    }
+
+
+    .slow-button {
+      background: var(--soft-beige);
+      color: var(--navy);
+    }
+
+
+    /* =====================================================
+       COMPARAISON
+       ===================================================== */
+
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+
+    .comparison-item {
+      padding: 15px;
+      background: #FBFAF6;
+      border-radius: var(--radius-medium);
+      text-align: center;
+    }
+
+
+    .comparison-korean {
+      color: var(--navy);
+      font-size: 19px;
+      font-weight: bold;
+    }
+
+
+    .comparison-french {
+      margin-top: 5px;
+      color: var(--text-light);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+
+    /* =====================================================
+       DIALOGUE
+       ===================================================== */
+
+    .dialogue-line {
+      padding: 14px;
+      margin-top: 10px;
+      border-radius: var(--radius-medium);
+      line-height: 1.7;
+    }
+
+
+    .dialogue-line.minsu {
+      background: var(--soft-blue);
+    }
+
+
+    .dialogue-line.hana {
+      background: var(--soft-green);
+    }
+
+
+    .speaker {
+      margin-bottom: 5px;
+      color: var(--navy);
+      font-weight: bold;
+    }
+
+
+    /* =====================================================
+       ACTIONS
+       ===================================================== */
+
+    .summary-actions {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+
+    .primary-button {
+      width: 100%;
+      background: var(--jade);
+      color: white;
+      font-weight: bold;
+    }
+
+
+    .secondary-button {
+      width: 100%;
+      background: var(--soft-beige);
+      color: var(--navy);
+      font-weight: bold;
+    }
+
+
+    @media (min-width: 620px) {
+
+      .vocab-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+    }
+
+
+    @media (max-width: 480px) {
+
+      .comparison-grid,
+      .audio-row {
+        grid-template-columns: 1fr;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+<main class="app">
+
+
+  <!-- =====================================================
+       RETOUR
+       ===================================================== -->
+
+  <a
+    class="back-link"
+    href="itineraire.html#module1"
+  >
+    ← Mon itinéraire
+  </a>
+
+
+
+  <!-- =====================================================
+       EN-TÊTE
+       ===================================================== -->
+
+  <header class="summary-header">
+
+    <span class="chapter-badge">
+      Module 1 · Chapitre 9
+    </span>
+
+
+    <p class="korean">
+      어떻게 가요? 🚇
+    </p>
+
+
+    <h1>
+      Résumé du chapitre
+    </h1>
+
+
+    <p class="summary-intro">
+      Retrouve ici les mots
+      et les structures essentielles
+      pour parler des transports,
+      demander comment aller quelque part
+      et savoir où descendre.
+    </p>
+
+  </header>
+
+
+
+  <!-- =====================================================
+       FÉLICITATION
+       ===================================================== -->
+
+  <section class="success-card">
+
+    <div class="success-icon">
+      🚇
+    </div>
+
+
+    <h2>
+      Tu sais parler d'un trajet simple !
+    </h2>
+
+
+    <p>
+      Tu peux maintenant demander
+      comment aller quelque part,
+      dire quel transport tu utilises
+      et demander où descendre.
+    </p>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       VOCABULAIRE
+       ===================================================== -->
+
+  <section class="summary-card">
+
+    <h2>
+      🚇 Les transports
+    </h2>
+
+
+    <div class="vocab-grid">
+
+
+      <div class="vocab-item">
+
+        <div class="vocab-korean">
+          지하철
+        </div>
+
+        <div class="vocab-french">
+          métro
+        </div>
+
+      </div>
+
+
+      <div class="vocab-item">
+
+        <div class="vocab-korean">
+          버스
+        </div>
+
+        <div class="vocab-french">
+          bus
+        </div>
+
+      </div>
+
+
+      <div class="vocab-item">
+
+        <div class="vocab-korean">
+          택시
+        </div>
+
+        <div class="vocab-french">
+          taxi
+        </div>
+
+      </div>
+
+
+      <div class="vocab-item">
+
+        <div class="vocab-korean">
+          기차
+        </div>
+
+        <div class="vocab-french">
+          train
+        </div>
+
+      </div>
+
+
+      <div class="vocab-item">
+
+        <div class="vocab-korean">
+          역
+        </div>
+
+        <div class="vocab-french">
+          gare / station
+        </div>
+
+      </div>
+
+
+      <div class="vocab-item">
+
+        <div class="vocab-korean">
+          버스 정류장
+        </div>
+
+        <div class="vocab-french">
+          arrêt de bus
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       COMMENT Y ALLER
+       ===================================================== -->
+
+  <section class="summary-card">
+
+    <h2>
+      ❓ Demander comment aller quelque part
+    </h2>
+
+
+    <div class="structure-box">
+
+      어떻게 가요?
+
+      <br>
+
+      Comment on y va ?
+
+    </div>
+
+
+    <div class="phrase">
+
+      <div class="phrase-korean">
+        어떻게 가요?
+      </div>
+
+      <span class="phrase-french">
+        Comment on y va ?
+      </span>
+
+
+      <div class="audio-row">
+
+        <button
+          class="audio-button"
+          type="button"
+          onclick="speakKorean('어떻게 가요?', 'hana')"
+        >
+          🔊 Écouter
+        </button>
+
+
+        <button
+          class="slow-button"
+          type="button"
+          onclick="speakKoreanSlow('어떻게 가요?', 'hana')"
+        >
+          🐢 Lentement
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="phrase">
+
+      <div class="phrase-korean">
+        서울역에 어떻게 가요?
+      </div>
+
+      <span class="phrase-french">
+        Comment aller à la gare de Séoul ?
+      </span>
+
+
+      <div class="audio-row">
+
+        <button
+          class="audio-button"
+          type="button"
+          onclick="speakKorean('서울역에 어떻게 가요?', 'hana')"
+        >
+          🔊 Écouter
+        </button>
+
+
+        <button
+          class="slow-button"
+          type="button"
+          onclick="speakKoreanSlow('서울역에 어떻게 가요?', 'hana')"
+        >
+          🐢 Lentement
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="tip-box">
+
+      <strong>어떻게</strong>
+      signifie « comment ».
+
+      <br><br>
+
+      Pour préciser une destination :
+
+      <br><br>
+
+      <strong>
+        lieu + 에 + 어떻게 가요?
+      </strong>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       MOYEN DE TRANSPORT
+       ===================================================== -->
+
+  <section class="summary-card">
+
+    <h2>
+      🚌 Dire quel transport on utilise
+    </h2>
+
+
+    <div class="structure-box">
+
+      transport + (으)로 + 가요
+
+    </div>
+
+
+    <div class="phrase">
+
+      <div class="phrase-korean">
+        지하철로 가요.
+      </div>
+
+      <span class="phrase-french">
+        J'y vais en métro.
+      </span>
+
+
+      <div class="audio-row">
+
+        <button
+          class="audio-button"
+          type="button"
+          onclick="speakKorean('지하철로 가요.', 'minsu')"
+        >
+          🔊 Écouter
+        </button>
+
+
+        <button
+          class="slow-button"
+          type="button"
+          onclick="speakKoreanSlow('지하철로 가요.', 'minsu')"
+        >
+          🐢 Lentement
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="phrase">
+
+      <div class="phrase-korean">
+        버스로 가요.
+      </div>
+
+      <span class="phrase-french">
+        J'y vais en bus.
+      </span>
+
+    </div>
+
+
+    <div class="phrase">
+
+      <div class="phrase-korean">
+        택시로 가요.
+      </div>
+
+      <span class="phrase-french">
+        J'y vais en taxi.
+      </span>
+
+    </div>
+
+
+    <div class="tip-box">
+
+      Pour l'instant,
+      retiens surtout
+      <strong>지하철로 가요</strong>,
+      <strong>버스로 가요</strong>
+      et <strong>택시로 가요</strong>
+      comme des expressions utiles.
+
+      <br><br>
+
+      La règle complète de
+      <strong>(으)로</strong>
+      pourra être approfondie plus tard.
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       타요
+       ===================================================== -->
+
+  <section class="summary-card">
+
+    <h2>
+      🚉 Prendre un transport
+    </h2>
+
+
+    <div class="structure-box">
+
+      transport + 을 / 를 + 타요
+
+    </div>
+
+
+    <div class="phrase">
+
+      <div class="phrase-korean">
+        지하철을 타요.
+      </div>
+
+      <span class="phrase-french">
+        Je prends le métro.
+      </span>
+
+
+      <div class="audio-row">
+
+        <button
+          class="audio-button"
+          type="button"
+          onclick="speakKorean('지하철을 타요.', 'minsu')"
+        >
+          🔊 Écouter
+        </button>
+
+
+        <button
+          class="slow-button"
+          type="button"
+          onclick="speakKoreanSlow('지하철을 타요.', 'minsu')"
+        >
+          🐢 Lentement
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="phrase">
+
+      <div class="phrase-korean">
+        버스를 타요.
+      </div>
+
+      <span class="phrase-french">
+        Je prends le bus.
+      </span>
+
+    </div>
+
+
+    <div class="tip-box">
+
+      <strong>타요</strong>
+      signifie ici
+      prendre / monter dans un transport.
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       COMPARAISON
+       ===================================================== -->
+
+  <section class="summary-card">
+
+    <h2>
+      🔎 Une différence importante
+    </h2>
+
+
+    <div class="comparison-grid">
+
+
+      <div class="comparison-item">
+
+        <div class="comparison-korean">
+          지하철로 가요.
+        </div>
+
+        <div class="comparison-french">
+          J'y vais en métro.
+          <br><br>
+          Le métro est le moyen utilisé.
+        </div>
+
+      </div>
+
+
+      <div class="comparison-item">
+
+        <div class="comparison-korean">
+          지하철을 타요.
+        </div>
+
+        <div class="comparison-french">
+          Je prends le métro.
+          <br><br>
+          On parle de l'action de prendre le métro.
+        </div>
+
+      </div>
+
+
+    </div>
+
+
+    <div class="tip-box">
+
+      🧠 À retenir :
+
+      <br><br>
+
+      <strong>로 가요</strong>
+      → aller avec / en utilisant ce moyen
+
+      <br><br>
+
+      <strong>을 / 를 타요</strong>
+      → prendre ce transport
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       DESCENDRE
+       ===================================================== -->
+
+  <section class="summary-card">
+
+    <h2>
+      📍 Demander où descendre
+    </h2>
+
+
+    <div class="structure-box">
+
+      어디에서 내려요?
+
+      <br>
+
+      Où est-ce que je descends ?
+
+    </div>
+
+
+    <div class="phrase">
+
+      <div class="phrase-korean">
+        어디에서 내려요?
+      </div>
+
+      <span class="phrase-french">
+        Où est-ce que je descends ?
+      </span>
+
+
+      <div class="audio-row">
+
+        <button
+          class="audio-button"
+          type="button"
+          onclick="speakKorean('어디에서 내려요?', 'hana')"
+        >
+          🔊 Écouter
+        </button>
+
+
+        <button
+          class="slow-button"
+          type="button"
+          onclick="speakKoreanSlow('어디에서 내려요?', 'hana')"
+        >
+          🐢 Lentement
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="phrase">
+
+      <div class="phrase-korean">
+        서울역에서 내려요.
+      </div>
+
+      <span class="phrase-french">
+        Je descends à la gare de Séoul.
+      </span>
+
+
+      <div class="audio-row">
+
+        <button
+          class="audio-button"
+          type="button"
+          onclick="speakKorean('서울역에서 내려요.', 'minsu')"
+        >
+          🔊 Écouter
+        </button>
+
+
+        <button
+          class="slow-button"
+          type="button"
+          onclick="speakKoreanSlow('서울역에서 내려요.', 'minsu')"
+        >
+          🐢 Lentement
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="tip-box">
+
+      Ici,
+      <strong>에서</strong>
+      marque le lieu
+      où l'action de descendre
+      se produit.
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       DIALOGUE
+       ===================================================== -->
+
+  <section class="summary-card">
+
+    <h2>
+      💬 Dialogue — Aller à la gare
+    </h2>
+
+
+    <div class="dialogue-line hana">
+
+      <div class="speaker">
+        🌸 Hana
+      </div>
+
+      서울역에 어떻게 가요?
+
+      <br>
+
+      <span class="phrase-french">
+        Comment aller à la gare de Séoul ?
+      </span>
+
+    </div>
+
+
+    <div class="dialogue-line minsu">
+
+      <div class="speaker">
+        💙 Min-su
+      </div>
+
+      지하철로 가요.
+
+      <br>
+
+      <span class="phrase-french">
+        On y va en métro.
+      </span>
+
+    </div>
+
+
+    <div class="dialogue-line hana">
+
+      <div class="speaker">
+        🌸 Hana
+      </div>
+
+      지하철을 타요?
+
+      <br>
+
+      <span class="phrase-french">
+        Je prends le métro ?
+      </span>
+
+    </div>
+
+
+    <div class="dialogue-line minsu">
+
+      <div class="speaker">
+        💙 Min-su
+      </div>
+
+      네, 지하철을 타요.
+
+      <br>
+
+      <span class="phrase-french">
+        Oui, prends le métro.
+      </span>
+
+    </div>
+
+
+    <div class="dialogue-line hana">
+
+      <div class="speaker">
+        🌸 Hana
+      </div>
+
+      어디에서 내려요?
+
+      <br>
+
+      <span class="phrase-french">
+        Où est-ce que je descends ?
+      </span>
+
+    </div>
+
+
+    <div class="dialogue-line minsu">
+
+      <div class="speaker">
+        💙 Min-su
+      </div>
+
+      서울역에서 내려요.
+
+      <br>
+
+      <span class="phrase-french">
+        Descends à la gare de Séoul.
+      </span>
+
+    </div>
+
+
+    <div class="dialogue-line hana">
+
+      <div class="speaker">
+        🌸 Hana
+      </div>
+
+      감사합니다!
+
+      <br>
+
+      <span class="phrase-french">
+        Merci !
+      </span>
+
+    </div>
+
+
+    <div class="dialogue-line minsu">
+
+      <div class="speaker">
+        💙 Min-su
+      </div>
+
+      천만에요!
+
+      <br>
+
+      <span class="phrase-french">
+        De rien !
+      </span>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       MINI MÉMO
+       ===================================================== -->
+
+  <section class="summary-card">
+
+    <h2>
+      📓 Mini mémo
+    </h2>
+
+
+    <div class="phrase">
+
+      ❓
+
+      <div class="phrase-korean">
+        어떻게 가요?
+      </div>
+
+      <span class="phrase-french">
+        Comment on y va ?
+      </span>
+
+    </div>
+
+
+    <div class="phrase">
+
+      🚉
+
+      <div class="phrase-korean">
+        서울역에 어떻게 가요?
+      </div>
+
+      <span class="phrase-french">
+        Comment aller à la gare de Séoul ?
+      </span>
+
+    </div>
+
+
+    <div class="phrase">
+
+      🚇
+
+      <div class="phrase-korean">
+        지하철로 가요.
+      </div>
+
+      <span class="phrase-french">
+        J'y vais en métro.
+      </span>
+
+    </div>
+
+
+    <div class="phrase">
+
+      🚉
+
+      <div class="phrase-korean">
+        지하철을 타요.
+      </div>
+
+      <span class="phrase-french">
+        Je prends le métro.
+      </span>
+
+    </div>
+
+
+    <div class="phrase">
+
+      📍
+
+      <div class="phrase-korean">
+        어디에서 내려요?
+      </div>
+
+      <span class="phrase-french">
+        Où est-ce que je descends ?
+      </span>
+
+    </div>
+
+
+    <div class="phrase">
+
+      🚉
+
+      <div class="phrase-korean">
+        서울역에서 내려요.
+      </div>
+
+      <span class="phrase-french">
+        Je descends à la gare de Séoul.
+      </span>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       À RETENIR
+       ===================================================== -->
+
+  <section class="summary-card">
+
+    <h2>
+      🌿 À retenir
+    </h2>
+
+
+    <div class="tip-box">
+
+      Dans ce chapitre,
+      les éléments les plus importants sont :
+
+      <br><br>
+
+      ❓ <strong>어떻게 가요?</strong>
+
+      <br>
+
+      🚇 les noms des transports
+
+      <br>
+
+      🚌 <strong>(으)로 가요</strong>
+
+      <br>
+
+      🚉 <strong>타요</strong>
+
+      <br>
+
+      📍 <strong>내려요</strong>
+
+      <br>
+
+      📌 <strong>에서</strong>
+      avec le lieu où l'action se produit
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       ACTIONS
+       ===================================================== -->
+
+  <div class="summary-actions">
+
+    <button
+      class="primary-button"
+      type="button"
+      onclick="goToItinerary()"
+    >
+      🗺️ Retour au Module 1
+    </button>
+
+
+    <button
+      class="secondary-button"
+      type="button"
+      onclick="reviewAgain()"
+    >
+      🧠 Refaire la révision
+    </button>
+
+  </div>
+
+
+</main>
+
+
+
+<script src="chapter-progress.js"></script>
+
+
+<script>
+
+  /* =====================================================
+     AUDIO
+     ===================================================== */
+
+  const AUDIO_SETTINGS = {
+
+    normalRate:
+      0.82,
+
+    slowRate:
+      0.25
+
+  };
+
+
+  function getKoreanVoice() {
+
+    const voices =
+      window.speechSynthesis
+        .getVoices();
+
+
+    return (
+      voices.find(
+        voice =>
+          voice.lang &&
+          voice.lang
+            .toLowerCase()
+            .startsWith("ko")
+      ) ||
+      null
+    );
+
+  }
+
+
+
+  function characterPitch(
+    character
+  ) {
+
+    const pitches = {
+
+      hana:
+        1.06,
+
+      minsu:
+        0.94
+
+    };
+
+
+    return (
+      pitches[
+        character
+      ] ||
+      1
+    );
+
+  }
+
+
+
+  function speak(
+    text,
+    character,
+    rate
+  ) {
+
+    window.speechSynthesis.cancel();
+
+
+    const utterance =
+      new SpeechSynthesisUtterance(
+        text
+      );
+
+
+    utterance.lang =
+      "ko-KR";
+
+
+    utterance.rate =
+      rate;
+
+
+    utterance.pitch =
+      characterPitch(
+        character
+      );
+
+
+    const voice =
+      getKoreanVoice();
+
+
+    if (
+      voice
+    ) {
+
+      utterance.voice =
+        voice;
+
+    }
+
+
+    window.speechSynthesis.speak(
+      utterance
+    );
+
+  }
+
+
+
+  function speakKorean(
+    text,
+    character
+  ) {
+
+    speak(
+      text,
+      character,
+      AUDIO_SETTINGS.normalRate
+    );
+
+  }
+
+
+
+  function speakKoreanSlow(
+    text,
+    character
+  ) {
+
+    speak(
+      text,
+      character,
+      AUDIO_SETTINGS.slowRate
+    );
+
+  }
+
+
+
+  /* =====================================================
+     NAVIGATION
+     ===================================================== */
+
+  function goToItinerary() {
+
+    window.speechSynthesis.cancel();
+
+
+    window.location.href =
+      "itineraire.html#module1";
+
+  }
+
+
+
+  function reviewAgain() {
+
+    window.speechSynthesis.cancel();
+
+
+    window.location.href =
+      "revision-9.html";
+
+  }
+
+
+
+  /* =====================================================
+     SÉCURITÉ AUDIO
+     ===================================================== */
+
+  window.addEventListener(
+    "pagehide",
+    function() {
+
+      window.speechSynthesis.cancel();
+
+    }
+  );
+
+
+  window.addEventListener(
+    "pageshow",
+    function() {
+
+      if (
+        window.HanaChapterProgress &&
+        typeof window.HanaChapterProgress.render === "function"
+      ) {
+
+        window.HanaChapterProgress.render();
+
+      }
+
+    }
+  );
+
+</script>
+
+
+</body>
+
+</html>

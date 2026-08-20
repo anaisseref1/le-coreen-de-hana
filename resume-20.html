@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#F7F4ED">
+<title>Résumé — Chapitre 20</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="chapter-progress.css">
+</head>
+<body>
+<main class="app">
+
+<a class="back-link" href="utilise-20.html">← Mission chapitre 20</a>
+
+<header style="text-align:center">
+<span class="chapter-badge">Module 2 · Chapitre 20</span>
+<p class="korean">👋 처음 뵙겠습니다</p>
+<h1>Résumé</h1>
+<p>Faire connaissance et parler simplement de soi.</p>
+</header>
+
+<section id="hanaChapterPath" data-chapter-path></section>
+
+<section class="summary-card">
+<h2>🎯 Objectif</h2>
+<p>Savoir parler un peu plus de toi, demander d'où vient quelqu'un, parler de ton métier et de tes loisirs, poser quelques questions simples et trouver un point commun.</p>
+</section>
+
+<section class="summary-card">
+<h2>👋 Vocabulaire essentiel</h2>
+<p><strong>취미</strong> → loisir</p>
+<p><strong>회사</strong> → entreprise</p>
+<p><strong>일하다</strong> → travailler</p>
+<p><strong>사진 찍다</strong> → prendre des photos</p>
+<p><strong>음악</strong> → musique</p>
+<p><strong>영화</strong> → film</p>
+<p><strong>운동</strong> → sport</p>
+<p><strong>독서</strong> → lecture</p>
+<p><strong>여행</strong> → voyage</p>
+<p><strong>처음 뵙겠습니다</strong> → Enchanté(e) de vous rencontrer</p>
+</section>
+
+<section class="summary-card">
+<h2>🧩 Structures importantes</h2>
+<p><strong>무슨 + nom</strong><br>무슨 일을 하세요? → Quel est votre métier ?<br>무슨 음악을 좋아해요? → Quel type de musique aimez-vous ?</p>
+<p><strong>에서</strong> indique le lieu où une action se déroule.<br>회사에서 일해요. → Je travaille dans une entreprise.<br><strong>에</strong> peut indiquer une destination : 회사에 가요. → Je vais à l'entreprise.</p>
+<p><strong>어느 나라에서 왔어요?</strong><br>→ De quel pays venez-vous ?<br><strong>프랑스에서 왔어요.</strong> → Je viens de France.</p>
+<p><strong>취미가 뭐예요?</strong><br>→ Quels sont vos loisirs ?</p>
+<p><strong>도</strong> → « aussi ».<br>커피도 좋아해요. → J'aime aussi le café.<br>저도 커피를 좋아해요. → Moi aussi, j'aime le café.</p>
+</section>
+
+<section class="summary-card">
+<h2>💬 Phrases à retenir</h2>
+<p class="korean">처음 뵙겠습니다.</p>
+<p class="korean">어느 나라에서 왔어요?</p>
+<p class="korean">프랑스에서 왔어요.</p>
+<p class="korean">무슨 일을 하세요?</p>
+<p class="korean">회사에서 일해요.</p>
+<p class="korean">취미가 뭐예요?</p>
+<p class="korean">사진 찍는 것을 좋아해요.</p>
+<p class="korean">커피도 좋아해요.</p>
+<p class="korean">저도 커피를 좋아해요.</p>
+</section>
+
+<section class="summary-card">
+<h2>🌿 À reconnaître</h2>
+<p><strong>제 취미는 사진 찍기예요.</strong> → Mon loisir est la photographie / prendre des photos.</p>
+<p><strong>프랑스 사람이에요?</strong> → Vous êtes français(e) ?</p>
+<p><strong>사진 찍는 걸 좋아해요.</strong> est une forme orale courante de <strong>사진 찍는 것을 좋아해요.</strong></p>
+</section>
+
+<section class="summary-card">
+<h2>🌿 Récapitulatif</h2>
+<p>Tu peux maintenant tenir une petite première conversation : dire d'où tu viens, parler de ton travail et de tes loisirs, demander les mêmes informations à ton interlocuteur et utiliser <strong>도</strong> ou <strong>저도</strong> pour signaler un point commun.</p>
+</section>
+
+<script src="chapter-progress.js"></script>
+<script>
+const CHAPTER=20;
+const REQUIRED_KEY="hanaKorean_chapter20_use";
+const LEGACY_MISSION_KEY="hanaKorean_chapter20_mission";
+const LEGACY_COMPLETED_KEY="hanaKorean_chapter20_completed";
+const SUMMARY_KEY="hanaKorean_chapter20_resume";
+
+function migrateMissionProgress(){
+  if(localStorage.getItem(REQUIRED_KEY)==="completed"){
+    return;
+  }
+
+  if(
+    localStorage.getItem(LEGACY_MISSION_KEY)==="completed" ||
+    localStorage.getItem(LEGACY_COMPLETED_KEY)==="completed"
+  ){
+    localStorage.setItem(REQUIRED_KEY,"completed");
+  }
+}
+
+function renderChapterProgress(){
+  if(
+    window.HanaChapterProgress &&
+    typeof window.HanaChapterProgress.render==="function"
+  ){
+    window.HanaChapterProgress.render();
+  }
+}
+
+migrateMissionProgress();
+
+if(localStorage.getItem(REQUIRED_KEY)!=="completed"){
+  window.location.replace("utilise-20.html");
+}else{
+  localStorage.setItem(SUMMARY_KEY,"completed");
+  renderChapterProgress();
+}
+
+window.addEventListener("pageshow",function(){
+  migrateMissionProgress();
+
+  if(localStorage.getItem(REQUIRED_KEY)!=="completed"){
+    window.location.replace("utilise-20.html");
+    return;
+  }
+
+  localStorage.setItem(SUMMARY_KEY,"completed");
+  renderChapterProgress();
+});
+</script>
+
+</main>
+</body>
+</html>

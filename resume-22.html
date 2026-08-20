@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="theme-color"
+    content="#F7F4ED"
+  >
+
+  <title>Chapitre 22 — Résumé</title>
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+  <link rel="stylesheet" href="chapter-progress.css">
+
+  <style>
+
+    .summary-header {
+      text-align:center;
+      margin-bottom:24px;
+    }
+
+    .summary-header h1 {
+      margin-bottom:8px;
+    }
+
+    .summary-header p {
+      color:var(--text-light);
+      line-height:1.7;
+    }
+
+    .summary-card,
+    .grammar-card,
+    .vocab-card,
+    .bag-card,
+    .tip-card {
+      padding:20px;
+      margin-bottom:18px;
+      background:var(--white);
+      border-radius:var(--radius-large);
+      box-shadow:var(--shadow);
+    }
+
+    .intro-card {
+      padding:18px;
+      margin-bottom:18px;
+      background:var(--soft-green);
+      border-radius:var(--radius-large);
+      color:var(--navy);
+      line-height:1.7;
+    }
+
+    .romanization-control {
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      padding:9px 12px;
+      margin-bottom:16px;
+      background:var(--soft-beige);
+      border-radius:14px;
+    }
+
+    .romanization-control-text {
+      line-height:1.35;
+      font-size:13px;
+    }
+
+    .romanization-control-text strong {
+      color:var(--navy);
+      font-size:13px;
+    }
+
+    .toggle-button {
+      flex-shrink:0;
+      min-width:78px;
+      padding:7px 10px;
+      background:var(--jade);
+      color:white;
+      border-radius:12px;
+      font-size:12px;
+      font-weight:600;
+    }
+
+    .expression-item {
+      padding:16px;
+      margin-top:12px;
+      background:#FBFAF6;
+      border-radius:var(--radius-medium);
+      border-left:4px solid var(--jade);
+    }
+
+    .expression-top {
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:12px;
+    }
+
+    .expression-korean {
+      color:var(--navy);
+      font-size:20px;
+      font-weight:bold;
+      line-height:1.45;
+    }
+
+    .romanization {
+      margin-top:4px;
+      color:var(--jade-dark);
+      font-size:14px;
+      line-height:1.5;
+    }
+
+    .romanization.hidden {
+      display:none;
+    }
+
+    .expression-french {
+      margin-top:7px;
+      color:var(--text-light);
+      line-height:1.5;
+    }
+
+    .audio-button {
+      flex-shrink:0;
+      width:44px;
+      min-width:44px;
+      height:44px;
+      padding:0;
+      border-radius:50%;
+      background:var(--soft-blue);
+      color:var(--navy);
+      font-size:18px;
+    }
+
+    .playing {
+      background:var(--navy) !important;
+      color:white !important;
+    }
+
+    .grammar-item {
+      padding:15px;
+      margin-top:12px;
+      background:var(--soft-beige);
+      border-radius:var(--radius-medium);
+      color:var(--navy);
+      line-height:1.7;
+    }
+
+    .grammar-pattern {
+      display:inline-block;
+      margin-bottom:7px;
+      color:var(--jade-dark);
+      font-size:18px;
+      font-weight:bold;
+    }
+
+    .question-list {
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      margin-top:12px;
+    }
+
+    .question-item {
+      padding:14px;
+      background:var(--soft-blue);
+      border-radius:var(--radius-medium);
+    }
+
+    .question-item strong {
+      display:block;
+      color:var(--navy);
+      font-size:18px;
+      line-height:1.45;
+    }
+
+    .question-item span {
+      display:block;
+      margin-top:4px;
+      color:var(--text-light);
+    }
+
+    .vocab-grid {
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0, 1fr));
+      gap:10px;
+      margin-top:12px;
+    }
+
+    .vocab-item {
+      padding:13px;
+      background:#FBFAF6;
+      border-radius:var(--radius-medium);
+    }
+
+    .vocab-korean {
+      color:var(--navy);
+      font-weight:bold;
+    }
+
+    .vocab-french {
+      margin-top:3px;
+      color:var(--text-light);
+      font-size:14px;
+    }
+
+    .bag-card {
+      background:var(--soft-green);
+      color:var(--navy);
+    }
+
+    .bag-list {
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      margin-top:12px;
+    }
+
+    .bag-item {
+      padding:13px 14px;
+      background:rgba(255,255,255,0.72);
+      border-radius:var(--radius-medium);
+      line-height:1.6;
+    }
+
+    .tip-card {
+      background:var(--soft-beige);
+      color:var(--navy);
+      line-height:1.7;
+    }
+
+    .bottom-actions {
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      margin-top:18px;
+    }
+
+    .primary-link,
+    .secondary-link {
+      display:block;
+      width:100%;
+      padding:14px 16px;
+      box-sizing:border-box;
+      border-radius:var(--radius-medium);
+      text-align:center;
+      text-decoration:none;
+      font-weight:bold;
+    }
+
+    .primary-link {
+      background:var(--jade);
+      color:white;
+    }
+
+    .secondary-link {
+      background:var(--soft-beige);
+      color:var(--navy);
+    }
+
+    @media (max-width:430px) {
+      .vocab-grid {
+        grid-template-columns:1fr;
+      }
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+<main class="app">
+
+
+  <a
+    class="back-link"
+    href="utilise-22.html"
+  >
+    ← Je l'utilise
+  </a>
+
+
+  <header class="summary-header">
+
+    <span class="chapter-badge">
+      Chapitre 22 · Résumé
+    </span>
+
+    <p class="korean">
+      오늘 날씨가 어때요? 🌦️
+    </p>
+
+    <h1>
+      Parler de la météo
+    </h1>
+
+    <p>
+      Retrouve ici les expressions, questions,
+      structures et mots essentiels du chapitre.
+    </p>
+
+  </header>
+
+  <section id="hanaChapterPath" data-chapter-path></section>
+
+
+  <section class="intro-card">
+
+    <strong>📖 Ta fiche du chapitre</strong>
+
+    <br><br>
+
+    Cette page te permet de revoir rapidement
+    comment demander quel temps il fait,
+    décrire la météo et exprimer une impression ou une prévision.
+
+  </section>
+
+
+  <section
+    class="romanization-control"
+    aria-label="Réglage de la romanisation"
+  >
+
+    <div class="romanization-control-text">
+
+      <strong>가나다 Romanisation</strong>
+
+      <br>
+
+      <span id="romanizationStatus">
+        Affichée
+      </span>
+
+    </div>
+
+    <button
+      class="toggle-button"
+      id="romanizationToggle"
+      type="button"
+    >
+      Masquer
+    </button>
+
+  </section>
+
+
+  <section class="summary-card">
+
+    <h2>🎧 Expressions essentielles</h2>
+
+
+    <div class="expression-item">
+      <div class="expression-top">
+        <div>
+          <div class="expression-korean">오늘 날씨가 어때요?</div>
+          <div class="romanization">oneul nalssiga eottaeyo?</div>
+          <div class="expression-french">Quel temps fait-il aujourd'hui ?</div>
+        </div>
+        <button class="audio-button" type="button" data-text="오늘 날씨가 어때요?" aria-label="Écouter 오늘 날씨가 어때요">🔊</button>
+      </div>
+    </div>
+
+
+    <div class="expression-item">
+      <div class="expression-top">
+        <div>
+          <div class="expression-korean">조금 더워요.</div>
+          <div class="romanization">jogeum deowoyo</div>
+          <div class="expression-french">Il fait un peu chaud.</div>
+        </div>
+        <button class="audio-button" type="button" data-text="조금 더워요." aria-label="Écouter 조금 더워요">🔊</button>
+      </div>
+    </div>
+
+
+    <div class="expression-item">
+      <div class="expression-top">
+        <div>
+          <div class="expression-korean">조금 추워요.</div>
+          <div class="romanization">jogeum chuwoyo</div>
+          <div class="expression-french">Il fait un peu froid.</div>
+        </div>
+        <button class="audio-button" type="button" data-text="조금 추워요." aria-label="Écouter 조금 추워요">🔊</button>
+      </div>
+    </div>
+
+
+    <div class="expression-item">
+      <div class="expression-top">
+        <div>
+          <div class="expression-korean">비가 와요.</div>
+          <div class="romanization">biga wayo</div>
+          <div class="expression-french">Il pleut.</div>
+        </div>
+        <button class="audio-button" type="button" data-text="비가 와요." aria-label="Écouter 비가 와요">🔊</button>
+      </div>
+    </div>
+
+
+    <div class="expression-item">
+      <div class="expression-top">
+        <div>
+          <div class="expression-korean">비가 올 것 같아요.</div>
+          <div class="romanization">biga ol geot gatayo</div>
+          <div class="expression-french">Je pense qu'il va pleuvoir.</div>
+        </div>
+        <button class="audio-button" type="button" data-text="비가 올 것 같아요." aria-label="Écouter 비가 올 것 같아요">🔊</button>
+      </div>
+    </div>
+
+
+    <div class="expression-item">
+      <div class="expression-top">
+        <div>
+          <div class="expression-korean">하늘이 흐려요.</div>
+          <div class="romanization">haneuri heuryeoyo</div>
+          <div class="expression-french">Le ciel est couvert.</div>
+        </div>
+        <button class="audio-button" type="button" data-text="하늘이 흐려요." aria-label="Écouter 하늘이 흐려요">🔊</button>
+      </div>
+    </div>
+
+
+    <div class="expression-item">
+      <div class="expression-top">
+        <div>
+          <div class="expression-korean">우산 있어요?</div>
+          <div class="romanization">usan isseoyo?</div>
+          <div class="expression-french">Tu as un parapluie ?</div>
+        </div>
+        <button class="audio-button" type="button" data-text="우산 있어요?" aria-label="Écouter 우산 있어요">🔊</button>
+      </div>
+    </div>
+
+  </section>
+
+
+  <section class="grammar-card">
+
+    <h2>🧠 Grammaire essentielle</h2>
+
+
+    <div class="grammar-item">
+      <span class="grammar-pattern">날씨가 어때요?</span>
+      <br>
+      <strong>날씨</strong> = la météo
+      <br>
+      <strong>어때요?</strong> = comment est... ?
+      <br><br>
+      → « Quel temps fait-il ? »
+    </div>
+
+
+    <div class="grammar-item">
+      <span class="grammar-pattern">조금</span>
+      <br>
+      Signifie <strong>« un peu »</strong>.
+      <br><br>
+      <strong>조금 더워요.</strong>
+      → Il fait un peu chaud.
+      <br>
+      <strong>조금 추워요.</strong>
+      → Il fait un peu froid.
+    </div>
+
+
+    <div class="grammar-item">
+      <span class="grammar-pattern">-(으)ㄹ 것 같아요</span>
+      <br>
+      Sert à exprimer une impression ou une prévision :
+      <strong>« Je pense que... / On dirait que... »</strong>
+      <br><br>
+      <strong>비가 올 것 같아요.</strong>
+      → Je pense qu'il va pleuvoir.
+      <br><br>
+      <strong>좋을 것 같아요.</strong>
+      → Je pense que ce sera bien.
+      <br><br>
+      <strong>맛있을 것 같아요.</strong>
+      → Ça a l'air bon.
+    </div>
+
+
+    <div class="grammar-item">
+      <span class="grammar-pattern">비가 와요 ≠ 비가 올 것 같아요</span>
+      <br>
+      <strong>비가 와요.</strong>
+      → on constate qu'il pleut.
+      <br><br>
+      <strong>비가 올 것 같아요.</strong>
+      → on exprime une impression ou une prévision.
+    </div>
+
+
+    <div class="grammar-item">
+      <span class="grammar-pattern">날씨</span>
+      <br>
+      Le double <strong>ㅆ</strong> se prononce comme un
+      <strong>s bien marqué</strong>.
+      <br><br>
+      Prononciation : <strong>nal-ssi</strong>.
+    </div>
+
+  </section>
+
+
+  <section class="summary-card">
+
+    <h2>❓ Questions utiles du chapitre</h2>
+
+    <div class="question-list">
+
+      <div class="question-item">
+        <strong>오늘 날씨가 어때요?</strong>
+        <span>Quel temps fait-il aujourd'hui ?</span>
+      </div>
+
+      <div class="question-item">
+        <strong>우산 있어요?</strong>
+        <span>Tu as un parapluie ?</span>
+      </div>
+
+      <div class="question-item">
+        <strong>비를 좋아해요?</strong>
+        <span>Tu aimes la pluie ?</span>
+      </div>
+
+      <div class="question-item">
+        <strong>여름을 좋아해요?</strong>
+        <span>Tu aimes l'été ?</span>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="vocab-card">
+
+    <h2>🧳 Vocabulaire essentiel</h2>
+
+    <div class="vocab-grid">
+
+      <div class="vocab-item"><div class="vocab-korean">날씨</div><div class="vocab-french">météo</div></div>
+      <div class="vocab-item"><div class="vocab-korean">덥다</div><div class="vocab-french">faire chaud</div></div>
+      <div class="vocab-item"><div class="vocab-korean">춥다</div><div class="vocab-french">faire froid</div></div>
+      <div class="vocab-item"><div class="vocab-korean">비</div><div class="vocab-french">pluie</div></div>
+      <div class="vocab-item"><div class="vocab-korean">눈</div><div class="vocab-french">neige</div></div>
+      <div class="vocab-item"><div class="vocab-korean">바람</div><div class="vocab-french">vent</div></div>
+      <div class="vocab-item"><div class="vocab-korean">맑다</div><div class="vocab-french">être dégagé</div></div>
+      <div class="vocab-item"><div class="vocab-korean">흐리다</div><div class="vocab-french">être nuageux</div></div>
+      <div class="vocab-item"><div class="vocab-korean">우산</div><div class="vocab-french">parapluie</div></div>
+      <div class="vocab-item"><div class="vocab-korean">하늘</div><div class="vocab-french">ciel</div></div>
+      <div class="vocab-item"><div class="vocab-korean">햇빛</div><div class="vocab-french">soleil (rayons)</div></div>
+      <div class="vocab-item"><div class="vocab-korean">구름</div><div class="vocab-french">nuage</div></div>
+
+    </div>
+
+  </section>
+
+
+  <section class="tip-card">
+
+    <h2>💚 Le conseil de Ji-soo</h2>
+
+    Observe les affiches et les applications météo en coréen
+    et essaie de reconnaître directement les symboles et les mots :
+
+    <br><br>
+
+    ☀️ <strong>맑아요</strong>
+    &nbsp; ☁️ <strong>흐려요</strong>
+    &nbsp; 🌧️ <strong>비</strong>
+    &nbsp; ❄️ <strong>눈</strong>
+
+  </section>
+
+
+  <section class="bag-card">
+
+    <h2>🎒 À mettre dans mon sac à dos</h2>
+
+    <div class="bag-list">
+
+      <div class="bag-item">
+        🌦️ <strong>날씨가 어때요?</strong><br>
+        Pour demander quel temps il fait.
+      </div>
+
+      <div class="bag-item">
+        🌡️ <strong>조금 더워요 / 조금 추워요</strong><br>
+        Pour décrire simplement la température.
+      </div>
+
+      <div class="bag-item">
+        🌧️ <strong>비가 올 것 같아요.</strong><br>
+        Pour exprimer une prévision.
+      </div>
+
+      <div class="bag-item">
+        ☁️ <strong>하늘이 흐려요.</strong><br>
+        Pour dire que le ciel est couvert.
+      </div>
+
+      <div class="bag-item">
+        ☂️ <strong>우산 있어요?</strong><br>
+        Pour demander si quelqu'un a un parapluie.
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <div class="bottom-actions">
+
+    <a
+      class="primary-link"
+      href="utilise-22.html"
+    >
+      🎯 Refaire la mission du chapitre
+    </a>
+
+    <a
+      class="secondary-link"
+      href="boite-outils.html"
+    >
+      🎒 Ouvrir la boîte à outils
+    </a>
+
+    <a
+      class="secondary-link"
+      href="chapitre-22.html"
+    >
+      ← Retour au chapitre 22
+    </a>
+
+  </div>
+
+
+</main>
+
+
+<script src="chapter-progress.js"></script>
+
+<script>
+
+  const requiredUseKey =
+    "hanaKorean_chapter22_use";
+
+  const legacyMissionKey =
+    "hanaKorean_chapter22_mission";
+
+  const legacyCompletedKey =
+    "hanaKorean_chapter22_completed";
+
+  const summaryKey =
+    "hanaKorean_chapter22_resume";
+
+  function renderChapterProgress() {
+    if (
+      window.HanaChapterProgress &&
+      typeof window.HanaChapterProgress.render === "function"
+    ) {
+      window.HanaChapterProgress.render();
+    }
+  }
+
+  function migrateMissionProgress() {
+    if (localStorage.getItem(requiredUseKey) === "completed") {
+      return;
+    }
+
+    if (
+      localStorage.getItem(legacyMissionKey) === "completed" ||
+      localStorage.getItem(legacyCompletedKey) === "completed"
+    ) {
+      localStorage.setItem(requiredUseKey, "completed");
+    }
+  }
+
+  function guardSummaryAccess() {
+    migrateMissionProgress();
+
+    if (localStorage.getItem(requiredUseKey) !== "completed") {
+      window.location.replace("utilise-22.html");
+      return false;
+    }
+
+    localStorage.setItem(summaryKey, "completed");
+    renderChapterProgress();
+    return true;
+  }
+
+  guardSummaryAccess();
+
+
+  const AUDIO_SETTINGS = {
+    normalRate: 0.82,
+    slowRate: 0.25
+  };
+
+
+  const ROMANIZATION_KEY =
+    "hanaKorean_showRomanization";
+
+
+  let currentAudioButton =
+    null;
+
+
+  function getKoreanVoice() {
+
+    const voices =
+      window.speechSynthesis.getVoices();
+
+
+    return voices.find(
+      voice =>
+        voice.lang &&
+        voice.lang
+          .toLowerCase()
+          .startsWith("ko")
+    ) || null;
+
+  }
+
+
+  function stopSpeech() {
+
+    window.speechSynthesis.cancel();
+
+
+    if (
+      currentAudioButton
+    ) {
+
+      currentAudioButton
+        .classList
+        .remove(
+          "playing"
+        );
+
+
+      currentAudioButton =
+        null;
+
+    }
+
+  }
+
+
+  function speakKorean(
+    text,
+    button
+  ) {
+
+    if (
+      currentAudioButton === button &&
+      window.speechSynthesis.speaking
+    ) {
+
+      stopSpeech();
+      return;
+
+    }
+
+
+    stopSpeech();
+
+
+    const utterance =
+      new SpeechSynthesisUtterance(
+        text
+      );
+
+
+    utterance.lang =
+      "ko-KR";
+
+    utterance.rate =
+      AUDIO_SETTINGS.normalRate;
+
+    utterance.pitch =
+      1;
+
+
+    const koreanVoice =
+      getKoreanVoice();
+
+
+    if (
+      koreanVoice
+    ) {
+
+      utterance.voice =
+        koreanVoice;
+
+    }
+
+
+    currentAudioButton =
+      button;
+
+
+    button
+      .classList
+      .add(
+        "playing"
+      );
+
+
+    utterance.onend =
+      () => {
+
+        button
+          .classList
+          .remove(
+            "playing"
+          );
+
+
+        currentAudioButton =
+          null;
+
+      };
+
+
+    utterance.onerror =
+      () => {
+
+        button
+          .classList
+          .remove(
+            "playing"
+          );
+
+
+        currentAudioButton =
+          null;
+
+      };
+
+
+    window.speechSynthesis.speak(
+      utterance
+    );
+
+  }
+
+
+  function getRomanizationPreference() {
+
+    const stored =
+      localStorage.getItem(
+        ROMANIZATION_KEY
+      );
+
+
+    if (
+      stored === null
+    ) {
+
+      return true;
+
+    }
+
+
+    return stored === "true";
+
+  }
+
+
+  function applyRomanizationPreference(
+    show
+  ) {
+
+    document
+      .querySelectorAll(
+        ".romanization"
+      )
+      .forEach(
+        item => {
+
+          item.classList.toggle(
+            "hidden",
+            !show
+          );
+
+        }
+      );
+
+
+    document
+      .getElementById(
+        "romanizationStatus"
+      )
+      .textContent =
+        show
+          ? "Affichée"
+          : "Masquée";
+
+
+    document
+      .getElementById(
+        "romanizationToggle"
+      )
+      .textContent =
+        show
+          ? "Masquer"
+          : "Afficher";
+
+  }
+
+
+  document
+    .getElementById(
+      "romanizationToggle"
+    )
+    .addEventListener(
+      "click",
+      () => {
+
+        const next =
+          !getRomanizationPreference();
+
+
+        localStorage.setItem(
+          ROMANIZATION_KEY,
+          String(next)
+        );
+
+
+        applyRomanizationPreference(
+          next
+        );
+
+      }
+    );
+
+
+  document
+    .querySelectorAll(
+      "[data-text]"
+    )
+    .forEach(
+      button => {
+
+        button.addEventListener(
+          "click",
+          () => {
+
+            speakKorean(
+              button.dataset.text,
+              button
+            );
+
+          }
+        );
+
+      }
+    );
+
+
+  window.speechSynthesis.onvoiceschanged =
+    () => {
+      getKoreanVoice();
+    };
+
+
+  applyRomanizationPreference(
+    getRomanizationPreference()
+  );
+
+
+  window.addEventListener("pageshow", () => {
+    guardSummaryAccess();
+  });
+
+</script>
+
+
+</body>
+
+</html>

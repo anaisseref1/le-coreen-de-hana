@@ -1,0 +1,1724 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="theme-color"
+    content="#F7F4ED"
+  >
+
+  <title>
+    Chapitre 10 — Résumé
+  </title>
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="chapter-progress.css"
+  >
+
+
+  <script>
+
+    /* =====================================================
+       GARDE — CHAPITRE TERMINÉ
+       ===================================================== */
+
+    if (
+      localStorage.getItem(
+        "hanaKorean_chapter10_completed"
+      ) !== "completed"
+    ) {
+
+      window.location.replace(
+        "chapitre-10.html"
+      );
+
+    }
+
+  </script>
+
+
+  <style>
+
+    /* =====================================================
+       EN-TÊTE
+       ===================================================== */
+
+    .summary-header {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+
+    .chapter-badge {
+      display: inline-block;
+      padding: 7px 14px;
+      margin-bottom: 10px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+
+    .summary-intro {
+      color: var(--text-light);
+      line-height: 1.7;
+    }
+
+
+    /* =====================================================
+       FÉLICITATION
+       ===================================================== */
+
+    .success-card {
+      padding: 20px;
+      margin-bottom: 20px;
+      background: var(--soft-green);
+      border-radius: var(--radius-large);
+      color: var(--navy);
+      text-align: center;
+      line-height: 1.7;
+    }
+
+
+    .success-icon {
+      margin-bottom: 8px;
+      font-size: 42px;
+    }
+
+
+    .success-card h2 {
+      margin: 0 0 8px;
+    }
+
+
+    /* =====================================================
+       CARTES
+       ===================================================== */
+
+    .summary-card {
+      padding: 20px;
+      margin-bottom: 18px;
+    }
+
+
+    .summary-card h2 {
+      margin-top: 0;
+    }
+
+
+    /* =====================================================
+       VOCABULAIRE
+       ===================================================== */
+
+    .vocab-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+
+    .vocab-item {
+      padding: 14px;
+      background: #FBFAF6;
+      border-radius: var(--radius-medium);
+    }
+
+
+    .vocab-korean {
+      color: var(--navy);
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+
+    .vocab-french {
+      margin-top: 4px;
+      color: var(--text-light);
+      line-height: 1.5;
+    }
+
+
+    /* =====================================================
+       STRUCTURES
+       ===================================================== */
+
+    .structure-box {
+      padding: 17px;
+      margin-top: 14px;
+      background: var(--soft-beige);
+      border-radius: var(--radius-medium);
+      color: var(--navy);
+      text-align: center;
+      font-size: 19px;
+      font-weight: bold;
+      line-height: 1.8;
+    }
+
+
+    .tip-box {
+      padding: 16px;
+      margin-top: 14px;
+      background: var(--soft-blue);
+      border-radius: var(--radius-medium);
+      color: var(--navy);
+      line-height: 1.7;
+    }
+
+
+    /* =====================================================
+       PHRASES
+       ===================================================== */
+
+    .phrase {
+      padding: 15px;
+      margin-top: 11px;
+      background: #FBFAF6;
+      border-radius: var(--radius-medium);
+      line-height: 1.7;
+    }
+
+
+    .phrase-korean {
+      color: var(--navy);
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+
+    .phrase-french {
+      display: block;
+      margin-top: 4px;
+      color: var(--text-light);
+    }
+
+
+    /* =====================================================
+       AUDIO
+       ===================================================== */
+
+    .audio-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 9px;
+      margin-top: 11px;
+    }
+
+
+    .audio-button,
+    .slow-button {
+      width: 100%;
+      font-weight: bold;
+    }
+
+
+    .audio-button {
+      background: var(--soft-blue);
+      color: var(--navy);
+    }
+
+
+    .slow-button {
+      background: var(--soft-beige);
+      color: var(--navy);
+    }
+
+
+    /* =====================================================
+       COMPARAISON
+       ===================================================== */
+
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+
+    .comparison-item {
+      padding: 15px;
+      background: #FBFAF6;
+      border-radius: var(--radius-medium);
+      text-align: center;
+    }
+
+
+    .comparison-korean {
+      color: var(--navy);
+      font-size: 19px;
+      font-weight: bold;
+    }
+
+
+    .comparison-french {
+      margin-top: 5px;
+      color: var(--text-light);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+
+    /* =====================================================
+       DIALOGUE
+       ===================================================== */
+
+    .dialogue-line {
+      padding: 14px;
+      margin-top: 10px;
+      border-radius: var(--radius-medium);
+      line-height: 1.7;
+    }
+
+
+    .dialogue-line.jieun {
+      background: var(--soft-blue);
+    }
+
+
+    .dialogue-line.hana {
+      background: var(--soft-green);
+    }
+
+
+    .speaker {
+      margin-bottom: 5px;
+      color: var(--navy);
+      font-weight: bold;
+    }
+
+
+    /* =====================================================
+       NOTE
+       ===================================================== */
+
+    .note-card {
+      padding: 16px;
+      margin-top: 14px;
+      background: var(--soft-beige);
+      border-radius: var(--radius-medium);
+      color: var(--navy);
+      line-height: 1.7;
+    }
+
+
+    /* =====================================================
+       ACTIONS
+       ===================================================== */
+
+    .summary-actions {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+
+    .primary-button {
+      width: 100%;
+      background: var(--jade);
+      color: white;
+      font-weight: bold;
+    }
+
+
+    .secondary-button {
+      width: 100%;
+      background: var(--soft-beige);
+      color: var(--navy);
+      font-weight: bold;
+    }
+
+
+    @media (min-width: 620px) {
+
+      .vocab-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+    }
+
+
+    @media (max-width: 480px) {
+
+      .comparison-grid,
+      .audio-row {
+        grid-template-columns: 1fr;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+<main class="app">
+
+
+  <!-- =====================================================
+       RETOUR
+       ===================================================== -->
+
+  <a
+    class="back-link"
+    href="itineraire.html#module1"
+  >
+    ← Mon itinéraire
+  </a>
+
+
+
+  <!-- =====================================================
+       EN-TÊTE
+       ===================================================== -->
+
+  <header class="summary-header">
+
+    <span class="chapter-badge">
+      Module 1 · Chapitre 10
+    </span>
+
+
+    <p class="korean">
+      주문할게요! 🍽️
+    </p>
+
+
+    <h1>
+      Résumé du chapitre
+    </h1>
+
+
+    <p class="summary-intro">
+      Retrouve ici les mots
+      et les expressions essentielles
+      pour commander simplement,
+      ajouter quelque chose,
+      réagir à ton repas
+      et demander l'addition.
+    </p>
+
+  </header>
+
+
+
+  <!-- =====================================================
+       FÉLICITATION
+       ===================================================== -->
+
+  <section class="success-card">
+
+    <div class="success-icon">
+      🍜
+    </div>
+
+
+    <h2>
+      Tu sais gérer une commande simple !
+    </h2>
+
+
+    <p>
+      Tu peux maintenant commander un plat,
+      demander une boisson,
+      dire que ton repas est délicieux
+      et demander l'addition.
+    </p>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       VOCABULAIRE
+       ===================================================== -->
+
+  <section class="summary-card">
+
+    <h2>
+      🍚 Les mots utiles
+    </h2>
+
+
+    <div class="vocab-grid">
+
+
+      <div class="vocab-item">
+
+        <div class="vocab-korean">
+          메뉴
+        </div>
+
+        <div class="vocab-french">
+          menu
+        </div>
+
+      </div>
+
+
+      <div class="vocab-item">
+
+        <div class="vocab-korean">
+          음식
+        </div>
+
+        <div class="vocab-french">
+          nourriture / plat
+        </div>
+
+      </div>
+
+
+      <div class="vocab-item">
+
+        <div class="vocab-korean">
+          물
+        </div>
+
+        <div class="vocab-french">
+          eau
+        </div>
+
+      </div>
+
+
+      <div class="vocab-item">
+
+        <div class="vocab-korean">
+          비빔밥
+        </div>
+
+        <div class="vocab-french">
+          bibimbap
+        </div>
+
+      </div>
+
+
+      <div class="vocab-item">
+
+        <div class="vocab-korean">
+          불고기
+        </div>
+
+        <div class="vocab-french">
+          bulgogi
+        </div>
+
+      </div>
+
+
+      <div class="vocab-item">
+
+        <div class="vocab-korean">
+          김치
+        </div>
+
+        <div class="vocab-french">
+          kimchi
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       주세요
+       ===================================================== -->
+
+  <section class="summary-card">
+
+    <h2>
+      🙏 Commander avec 주세요
+    </h2>
+
+
+    <div class="structure-box">
+
+      chose demandée + 주세요
+
+    </div>
+
+
+    <div class="phrase">
+
+      <div class="phrase-korean">
+        비빔밥 주세요.
+      </div>
+
+      <span class="phrase-french">
+        Un bibimbap,
+        s'il vous plaît.
+      </span>
+
+
+      <div class="audio-row">
+
+        <button
+          class="audio-button"
+          type="button"
+          onclick="speakKorean('비빔밥 주세요.', 'hana')"
+        >
+          🔊 Écouter
+        </button>
+
+
+        <button
+          class="slow-button"
+          type="button"
+          onclick="speakKoreanSlow('비빔밥 주세요.', 'hana')"
+        >
+          🐢 Lentement
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="phrase">
+
+      <div class="phrase-korean">
+        물 주세요.
+      </div>
+
+      <span class="phrase-french">
+        De l'eau,
+        s'il vous plaît.
+      </span>
+
+
+      <div class="audio-row">
+
+        <button
+          class="audio-button"
+          type="button"
+          onclick="speakKorean('물 주세요.', 'hana')"
+        >
+          🔊 Écouter
+        </button>
+
+
+        <button
+          class="slow-button"
+          type="button"
+          onclick="speakKoreanSlow('물 주세요.', 'hana')"
+        >
+          🐢 Lentement
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="tip-box">
+
+      <strong>주세요</strong>
+      permet de demander
+      quelque chose poliment.
+
+      <br><br>
+
+      Au restaurant,
+      cette structure simple
+      peut déjà être utilisée
+      dans beaucoup de situations.
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       하나
+       ===================================================== -->
+
+  <section class="summary-card">
+
+    <h2>
+      1️⃣ Commander « un » plat
+    </h2>
+
+
+    <div class="structure-box">
+
+      plat + 하나 + 주세요
+
+    </div>
+
+
+    <div class="phrase">
+
+      <div class="phrase-korean">
+        비빔밥 하나 주세요.
+      </div>
+
+      <span class="phrase-french">
+        Un bibimbap,
+        s'il vous plaît.
+      </span>
+
+
+      <div class="audio-row">
+
+        <button
+          class="audio-button"
+          type="button"
+          onclick="speakKorean('비빔밥 하나 주세요.', 'hana')"
+        >
+          🔊 Écouter
+        </button>
+
+
+        <button
+          class="slow-button"
+          type="button"
+          onclick="speakKoreanSlow('비빔밥 하나 주세요.', 'hana')"
+        >
+          🐢 Lentement
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="phrase">
+
+      <div class="phrase-korean">
+        불고기 하나 주세요.
+      </div>
+
+      <span class="phrase-french">
+        Un bulgogi,
+        s'il vous plaît.
+      </span>
+
+
+      <div class="audio-row">
+
+        <button
+          class="audio-button"
+          type="button"
+          onclick="speakKorean('불고기 하나 주세요.', 'hana')"
+        >
+          🔊 Écouter
+        </button>
+
+
+        <button
+          class="slow-button"
+          type="button"
+          onclick="speakKoreanSlow('불고기 하나 주세요.', 'hana')"
+        >
+          🐢 Lentement
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="tip-box">
+
+      Dans ce chapitre,
+      <strong>하나</strong>
+      est utilisé simplement
+      pour dire « un / une »
+      dans une commande.
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       COMPARAISON 주세요 / 하나 주세요
+       ===================================================== -->
+
+  <section class="summary-card">
+
+    <h2>
+      🔎 Deux façons de commander
+    </h2>
+
+
+    <div class="comparison-grid">
+
+
+      <div class="comparison-item">
+
+        <div class="comparison-korean">
+          비빔밥 주세요.
+        </div>
+
+        <div class="comparison-french">
+          Un bibimbap,
+          s'il vous plaît.
+          <br><br>
+          Commande simple.
+        </div>
+
+      </div>
+
+
+      <div class="comparison-item">
+
+        <div class="comparison-korean">
+          비빔밥 하나 주세요.
+        </div>
+
+        <div class="comparison-french">
+          Un bibimbap,
+          s'il vous plaît.
+          <br><br>
+          On précise « un » avec 하나.
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       도
+       ===================================================== -->
+
+  <section class="summary-card">
+
+    <h2>
+      ➕ Ajouter quelque chose avec 도
+    </h2>
+
+
+    <div class="structure-box">
+
+      chose + 도 + 주세요
+
+    </div>
+
+
+    <div class="phrase">
+
+      <div class="phrase-korean">
+        물도 주세요.
+      </div>
+
+      <span class="phrase-french">
+        De l'eau aussi,
+        s'il vous plaît.
+      </span>
+
+
+      <div class="audio-row">
+
+        <button
+          class="audio-button"
+          type="button"
+          onclick="speakKorean('물도 주세요.', 'hana')"
+        >
+          🔊 Écouter
+        </button>
+
+
+        <button
+          class="slow-button"
+          type="button"
+          onclick="speakKoreanSlow('물도 주세요.', 'hana')"
+        >
+          🐢 Lentement
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="phrase">
+
+      <div class="phrase-korean">
+        김치도 주세요.
+      </div>
+
+      <span class="phrase-french">
+        Du kimchi aussi,
+        s'il vous plaît.
+      </span>
+
+    </div>
+
+
+    <div class="comparison-grid">
+
+
+      <div class="comparison-item">
+
+        <div class="comparison-korean">
+          물 주세요.
+        </div>
+
+        <div class="comparison-french">
+          De l'eau,
+          s'il vous plaît.
+        </div>
+
+      </div>
+
+
+      <div class="comparison-item">
+
+        <div class="comparison-korean">
+          물도 주세요.
+        </div>
+
+        <div class="comparison-french">
+          De l'eau
+          <strong>aussi</strong>,
+          s'il vous plaît.
+        </div>
+
+      </div>
+
+
+    </div>
+
+
+    <div class="tip-box">
+
+      🧠
+
+      <strong>도</strong>
+      signifie ici
+      « aussi ».
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       맛있어요
+       ===================================================== -->
+
+  <section class="summary-card">
+
+    <h2>
+      😋 Dire que c'est bon
+    </h2>
+
+
+    <div class="phrase">
+
+      <div class="phrase-korean">
+        맛있어요.
+      </div>
+
+      <span class="phrase-french">
+        C'est bon /
+        C'est délicieux.
+      </span>
+
+
+      <div class="audio-row">
+
+        <button
+          class="audio-button"
+          type="button"
+          onclick="speakKorean('맛있어요.', 'hana')"
+        >
+          🔊 Écouter
+        </button>
+
+
+        <button
+          class="slow-button"
+          type="button"
+          onclick="speakKoreanSlow('맛있어요.', 'hana')"
+        >
+          🐢 Lentement
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="phrase">
+
+      <div class="phrase-korean">
+        정말 맛있어요!
+      </div>
+
+      <span class="phrase-french">
+        C'est vraiment délicieux !
+      </span>
+
+
+      <div class="audio-row">
+
+        <button
+          class="audio-button"
+          type="button"
+          onclick="speakKorean('정말 맛있어요!', 'hana')"
+        >
+          🔊 Écouter
+        </button>
+
+
+        <button
+          class="slow-button"
+          type="button"
+          onclick="speakKoreanSlow('정말 맛있어요!', 'hana')"
+        >
+          🐢 Lentement
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="tip-box">
+
+      <strong>정말</strong>
+      = vraiment
+
+      <br><br>
+
+      Donc :
+
+      <br><br>
+
+      <strong>
+        정말 맛있어요!
+      </strong>
+
+      <br>
+
+      C'est vraiment délicieux !
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       ADDITION
+       ===================================================== -->
+
+  <section class="summary-card">
+
+    <h2>
+      💳 Demander l'addition
+    </h2>
+
+
+    <div class="structure-box">
+
+      계산해 주세요.
+
+      <br>
+
+      L'addition,
+      s'il vous plaît.
+
+    </div>
+
+
+    <div class="phrase">
+
+      <div class="phrase-korean">
+        계산해 주세요.
+      </div>
+
+      <span class="phrase-french">
+        L'addition,
+        s'il vous plaît.
+        / Je voudrais payer.
+      </span>
+
+
+      <div class="audio-row">
+
+        <button
+          class="audio-button"
+          type="button"
+          onclick="speakKorean('계산해 주세요.', 'hana')"
+        >
+          🔊 Écouter
+        </button>
+
+
+        <button
+          class="slow-button"
+          type="button"
+          onclick="speakKoreanSlow('계산해 주세요.', 'hana')"
+        >
+          🐢 Lentement
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="tip-box">
+
+      Pour l'instant,
+      retiens
+      <strong>계산해 주세요</strong>
+      comme une expression complète.
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       DIALOGUE
+       ===================================================== -->
+
+  <section class="summary-card">
+
+    <h2>
+      💬 Dialogue — Au restaurant avec Ji-eun
+    </h2>
+
+
+    <div class="dialogue-line jieun">
+
+      <div class="speaker">
+        💛 Ji-eun
+      </div>
+
+      <div class="phrase-korean">
+        안녕하세요! 주문하시겠어요?
+      </div>
+
+      <span class="phrase-french">
+        Bonjour !
+        Vous souhaitez commander ?
+      </span>
+
+    </div>
+
+
+    <div class="dialogue-line hana">
+
+      <div class="speaker">
+        🌸 Hana
+      </div>
+
+      <div class="phrase-korean">
+        네, 비빔밥 하나 주세요.
+      </div>
+
+      <span class="phrase-french">
+        Oui,
+        un bibimbap s'il vous plaît.
+      </span>
+
+    </div>
+
+
+    <div class="dialogue-line jieun">
+
+      <div class="speaker">
+        💛 Ji-eun
+      </div>
+
+      <div class="phrase-korean">
+        네. 또 뭐 드릴까요?
+      </div>
+
+      <span class="phrase-french">
+        D'accord.
+        Autre chose ?
+      </span>
+
+    </div>
+
+
+    <div class="dialogue-line hana">
+
+      <div class="speaker">
+        🌸 Hana
+      </div>
+
+      <div class="phrase-korean">
+        물도 주세요.
+      </div>
+
+      <span class="phrase-french">
+        De l'eau aussi,
+        s'il vous plaît.
+      </span>
+
+    </div>
+
+
+    <div class="dialogue-line jieun">
+
+      <div class="speaker">
+        💛 Ji-eun
+      </div>
+
+      <div class="phrase-korean">
+        네, 알겠습니다.
+      </div>
+
+      <span class="phrase-french">
+        Très bien.
+      </span>
+
+    </div>
+
+
+    <div class="dialogue-line hana">
+
+      <div class="speaker">
+        🌸 Hana
+      </div>
+
+      <div class="phrase-korean">
+        정말 맛있어요!
+      </div>
+
+      <span class="phrase-french">
+        C'est vraiment délicieux !
+      </span>
+
+    </div>
+
+
+    <div class="dialogue-line hana">
+
+      <div class="speaker">
+        🌸 Hana
+      </div>
+
+      <div class="phrase-korean">
+        계산해 주세요.
+      </div>
+
+      <span class="phrase-french">
+        L'addition,
+        s'il vous plaît.
+      </span>
+
+    </div>
+
+
+    <div class="dialogue-line jieun">
+
+      <div class="speaker">
+        💛 Ji-eun
+      </div>
+
+      <div class="phrase-korean">
+        네!
+      </div>
+
+      <span class="phrase-french">
+        Bien sûr !
+      </span>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       RECONNAISSANCE
+       ===================================================== -->
+
+  <section class="summary-card">
+
+    <h2>
+      👂 À reconnaître seulement
+    </h2>
+
+
+    <div class="note-card">
+
+      Dans le dialogue,
+      Ji-eun utilise :
+
+      <br><br>
+
+      <strong>
+        주문하시겠어요?
+      </strong>
+
+      <br>
+
+      Vous souhaitez commander ?
+
+      <br><br>
+
+      <strong>
+        또 뭐 드릴까요?
+      </strong>
+
+      <br>
+
+      Autre chose ?
+
+      <br><br>
+
+      Tu n'as pas besoin
+      de savoir construire
+      ces formes maintenant.
+
+      <br><br>
+
+      L'objectif est simplement
+      de les
+      <strong>reconnaître</strong>
+      et de savoir y répondre
+      avec les expressions que tu connais.
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       MINI MÉMO
+       ===================================================== -->
+
+  <section class="summary-card">
+
+    <h2>
+      📓 Mini mémo
+    </h2>
+
+
+    <div class="phrase">
+
+      🙏
+
+      <div class="phrase-korean">
+        비빔밥 주세요.
+      </div>
+
+      <span class="phrase-french">
+        Un bibimbap,
+        s'il vous plaît.
+      </span>
+
+    </div>
+
+
+    <div class="phrase">
+
+      1️⃣
+
+      <div class="phrase-korean">
+        비빔밥 하나 주세요.
+      </div>
+
+      <span class="phrase-french">
+        Un bibimbap,
+        s'il vous plaît.
+      </span>
+
+    </div>
+
+
+    <div class="phrase">
+
+      💧
+
+      <div class="phrase-korean">
+        물도 주세요.
+      </div>
+
+      <span class="phrase-french">
+        De l'eau aussi,
+        s'il vous plaît.
+      </span>
+
+    </div>
+
+
+    <div class="phrase">
+
+      😋
+
+      <div class="phrase-korean">
+        맛있어요.
+      </div>
+
+      <span class="phrase-french">
+        C'est délicieux.
+      </span>
+
+    </div>
+
+
+    <div class="phrase">
+
+      ✨
+
+      <div class="phrase-korean">
+        정말 맛있어요!
+      </div>
+
+      <span class="phrase-french">
+        C'est vraiment délicieux !
+      </span>
+
+    </div>
+
+
+    <div class="phrase">
+
+      💳
+
+      <div class="phrase-korean">
+        계산해 주세요.
+      </div>
+
+      <span class="phrase-french">
+        L'addition,
+        s'il vous plaît.
+      </span>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       À RETENIR
+       ===================================================== -->
+
+  <section class="summary-card">
+
+    <h2>
+      🌿 À retenir
+    </h2>
+
+
+    <div class="tip-box">
+
+      Les éléments essentiels
+      du chapitre 10 sont :
+
+      <br><br>
+
+      🙏 <strong>주세요</strong>
+      → demander poliment
+
+      <br><br>
+
+      1️⃣ <strong>하나</strong>
+      → « un » dans les commandes simples du chapitre
+
+      <br><br>
+
+      ➕ <strong>도</strong>
+      → aussi
+
+      <br><br>
+
+      😋 <strong>맛있어요</strong>
+      → c'est délicieux
+
+      <br><br>
+
+      ✨ <strong>정말</strong>
+      → vraiment
+
+      <br><br>
+
+      💳 <strong>계산해 주세요</strong>
+      → demander l'addition
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       ACTIONS
+       ===================================================== -->
+
+  <div class="summary-actions">
+
+    <button
+      class="primary-button"
+      type="button"
+      onclick="goToItinerary()"
+    >
+      🗺️ Retour au Module 1
+    </button>
+
+
+    <button
+      class="secondary-button"
+      type="button"
+      onclick="reviewAgain()"
+    >
+      🧠 Refaire la révision
+    </button>
+
+  </div>
+
+
+</main>
+
+
+
+<script src="chapter-progress.js"></script>
+
+
+<script>
+
+  /* =====================================================
+     AUDIO
+     ===================================================== */
+
+  const AUDIO_SETTINGS = {
+
+    normalRate:
+      0.82,
+
+    slowRate:
+      0.25
+
+  };
+
+
+
+  function getKoreanVoice() {
+
+    const voices =
+      window.speechSynthesis
+        .getVoices();
+
+
+    return (
+      voices.find(
+        voice =>
+          voice.lang &&
+          voice.lang
+            .toLowerCase()
+            .startsWith("ko")
+      ) ||
+      null
+    );
+
+  }
+
+
+
+  function characterPitch(
+    character
+  ) {
+
+    const pitches = {
+
+      hana:
+        1.06,
+
+      jieun:
+        1.02
+
+    };
+
+
+    return (
+      pitches[
+        character
+      ] ||
+      1
+    );
+
+  }
+
+
+
+  function speak(
+    text,
+    character,
+    rate
+  ) {
+
+    window.speechSynthesis.cancel();
+
+
+    const utterance =
+      new SpeechSynthesisUtterance(
+        text
+      );
+
+
+    utterance.lang =
+      "ko-KR";
+
+
+    utterance.rate =
+      rate;
+
+
+    utterance.pitch =
+      characterPitch(
+        character
+      );
+
+
+    const voice =
+      getKoreanVoice();
+
+
+    if (
+      voice
+    ) {
+
+      utterance.voice =
+        voice;
+
+    }
+
+
+    window.speechSynthesis.speak(
+      utterance
+    );
+
+  }
+
+
+
+  function speakKorean(
+    text,
+    character
+  ) {
+
+    speak(
+      text,
+      character,
+      AUDIO_SETTINGS.normalRate
+    );
+
+  }
+
+
+
+  function speakKoreanSlow(
+    text,
+    character
+  ) {
+
+    speak(
+      text,
+      character,
+      AUDIO_SETTINGS.slowRate
+    );
+
+  }
+
+
+
+  /* =====================================================
+     NAVIGATION
+     ===================================================== */
+
+  function goToItinerary() {
+
+    window.speechSynthesis.cancel();
+
+
+    window.location.href =
+      "itineraire.html#module1";
+
+  }
+
+
+
+  function reviewAgain() {
+
+    window.speechSynthesis.cancel();
+
+
+    window.location.href =
+      "revision-10.html";
+
+  }
+
+
+
+  /* =====================================================
+     SÉCURITÉ AUDIO
+     ===================================================== */
+
+  window.addEventListener(
+    "pagehide",
+    function() {
+
+      window.speechSynthesis.cancel();
+
+    }
+  );
+
+
+  window.addEventListener(
+    "pageshow",
+    function() {
+
+      if (
+        window.HanaChapterProgress &&
+        typeof window.HanaChapterProgress.render === "function"
+      ) {
+
+        window.HanaChapterProgress.render();
+
+      }
+
+    }
+  );
+
+</script>
+
+
+</body>
+
+</html>

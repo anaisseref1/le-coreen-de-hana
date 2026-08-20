@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="theme-color"
+    content="#F7F4ED"
+  >
+
+  <title>Chapitre 13 — Résumé</title>
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="chapter-progress.css"
+  >
+
+  <style>
+    .summary-header {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .summary-header h1 {
+      margin-bottom: 8px;
+    }
+
+    .summary-header p {
+      color: var(--text-light);
+      line-height: 1.7;
+    }
+
+    .summary-card,
+    .dialogue-card,
+    .culture-card,
+    .phrase-card {
+      padding: 20px;
+      margin-bottom: 18px;
+      background: var(--white);
+      border-radius: var(--radius-large);
+      box-shadow: var(--shadow);
+      line-height: 1.7;
+    }
+
+    .summary-card h2,
+    .dialogue-card h2,
+    .culture-card h2,
+    .phrase-card h2 {
+      margin-top: 0;
+      color: var(--navy);
+    }
+
+    .vocab-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .vocab-item {
+      padding: 14px;
+      background: #FBFAF6;
+      border-radius: var(--radius-medium);
+    }
+
+    .vocab-korean {
+      color: var(--navy);
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .vocab-french {
+      margin-top: 4px;
+      color: var(--text-light);
+    }
+
+    .audio-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .audio-buttons button {
+      flex: 1;
+      min-width: 130px;
+    }
+
+    .slow-button {
+      background: var(--soft-beige);
+      color: var(--navy);
+    }
+
+    .grammar-box,
+    .recognition-box {
+      padding: 16px;
+      margin-top: 14px;
+      background: var(--soft-green);
+      border-radius: var(--radius-medium);
+      color: var(--navy);
+    }
+
+    .pronunciation-box {
+      padding: 16px;
+      margin-top: 14px;
+      background: var(--soft-blue);
+      border-radius: var(--radius-medium);
+      color: var(--navy);
+    }
+
+    .example {
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .example:last-child {
+      border-bottom: none;
+    }
+
+    .korean-example {
+      color: var(--navy);
+      font-size: 19px;
+      font-weight: bold;
+    }
+
+    .dialogue-line {
+      padding: 15px;
+      margin-top: 12px;
+      border-radius: var(--radius-medium);
+    }
+
+    .dialogue-line.hana {
+      background: var(--soft-green);
+    }
+
+    .dialogue-line.park {
+      background: var(--soft-blue);
+    }
+
+    .speaker {
+      margin-bottom: 4px;
+      font-weight: bold;
+    }
+
+    .dialogue-korean {
+      color: var(--navy);
+      font-size: 19px;
+      font-weight: bold;
+    }
+
+    .dialogue-french {
+      margin-top: 5px;
+      color: var(--text-light);
+    }
+
+    .recap-line {
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .recap-line:last-child {
+      border-bottom: none;
+    }
+
+    .culture-card {
+      background: var(--soft-beige);
+      color: var(--navy);
+    }
+
+    .phrase-card {
+      background: var(--soft-green);
+      color: var(--navy);
+      text-align: center;
+    }
+
+    .route-button,
+    .chapter-button {
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    .route-button {
+      background: var(--jade);
+      color: white;
+      font-weight: bold;
+    }
+
+    .chapter-button {
+      background: var(--soft-beige);
+      color: var(--navy);
+    }
+
+    @media (max-width: 700px) {
+      .vocab-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<main class="app">
+
+  <a
+    class="back-link"
+    href="utilise-13.html"
+  >
+    ← Mission finale
+  </a>
+
+  <header class="summary-header">
+
+    <span class="chapter-badge">
+      Module 2 · Chapitre 13
+    </span>
+
+    <p class="korean">
+      복습 노트 🚇
+    </p>
+
+    <h1>
+      Résumé du chapitre
+    </h1>
+
+    <p>
+      Retrouve ici les mots, structures et phrases essentielles
+      pour prendre les transports et te repérer dans le métro.
+    </p>
+
+  </header>
+
+  <section
+    id="hanaChapterPath"
+    data-chapter-path
+  ></section>
+
+  <section class="summary-card">
+
+    <h2>
+      🚇 Vocabulaire essentiel
+    </h2>
+
+    <div class="vocab-grid">
+
+      <div class="vocab-item">
+        <div class="vocab-korean">지하철</div>
+        <div class="vocab-french">métro</div>
+        <div class="audio-buttons">
+          <button type="button" onclick="speakKorean('지하철', false)">🔊 Écouter</button>
+          <button class="slow-button" type="button" onclick="speakKorean('지하철', true)">🐢 Lentement</button>
+        </div>
+      </div>
+
+      <div class="vocab-item">
+        <div class="vocab-korean">버스</div>
+        <div class="vocab-french">bus</div>
+        <div class="audio-buttons">
+          <button type="button" onclick="speakKorean('버스', false)">🔊 Écouter</button>
+          <button class="slow-button" type="button" onclick="speakKorean('버스', true)">🐢 Lentement</button>
+        </div>
+      </div>
+
+      <div class="vocab-item">
+        <div class="vocab-korean">몇 번</div>
+        <div class="vocab-french">quel numéro</div>
+        <div class="audio-buttons">
+          <button type="button" onclick="speakKorean('몇 번', false)">🔊 Écouter</button>
+          <button class="slow-button" type="button" onclick="speakKorean('몇 번', true)">🐢 Lentement</button>
+        </div>
+      </div>
+
+      <div class="vocab-item">
+        <div class="vocab-korean">호선</div>
+        <div class="vocab-french">ligne de métro</div>
+        <div class="audio-buttons">
+          <button type="button" onclick="speakKorean('호선', false)">🔊 Écouter</button>
+          <button class="slow-button" type="button" onclick="speakKorean('호선', true)">🐢 Lentement</button>
+        </div>
+      </div>
+
+      <div class="vocab-item">
+        <div class="vocab-korean">타다</div>
+        <div class="vocab-french">prendre / monter dans un transport</div>
+        <div class="audio-buttons">
+          <button type="button" onclick="speakKorean('타다', false)">🔊 Écouter</button>
+          <button class="slow-button" type="button" onclick="speakKorean('타다', true)">🐢 Lentement</button>
+        </div>
+      </div>
+
+      <div class="vocab-item">
+        <div class="vocab-korean">내리다</div>
+        <div class="vocab-french">descendre</div>
+        <div class="audio-buttons">
+          <button type="button" onclick="speakKorean('내리다', false)">🔊 Écouter</button>
+          <button class="slow-button" type="button" onclick="speakKorean('내리다', true)">🐢 Lentement</button>
+        </div>
+      </div>
+
+      <div class="vocab-item">
+        <div class="vocab-korean">갈아타다</div>
+        <div class="vocab-french">faire une correspondance</div>
+        <div class="audio-buttons">
+          <button type="button" onclick="speakKorean('갈아타다', false)">🔊 Écouter</button>
+          <button class="slow-button" type="button" onclick="speakKorean('갈아타다', true)">🐢 Lentement</button>
+        </div>
+      </div>
+
+      <div class="vocab-item">
+        <div class="vocab-korean">다음 역</div>
+        <div class="vocab-french">station suivante</div>
+        <div class="audio-buttons">
+          <button type="button" onclick="speakKorean('다음 역', false)">🔊 Écouter</button>
+          <button class="slow-button" type="button" onclick="speakKorean('다음 역', true)">🐢 Lentement</button>
+        </div>
+      </div>
+
+      <div class="vocab-item">
+        <div class="vocab-korean">이번 역</div>
+        <div class="vocab-french">cette station</div>
+        <div class="audio-buttons">
+          <button type="button" onclick="speakKorean('이번 역', false)">🔊 Écouter</button>
+          <button class="slow-button" type="button" onclick="speakKorean('이번 역', true)">🐢 Lentement</button>
+        </div>
+      </div>
+
+      <div class="vocab-item">
+        <div class="vocab-korean">출구</div>
+        <div class="vocab-french">sortie</div>
+        <div class="audio-buttons">
+          <button type="button" onclick="speakKorean('출구', false)">🔊 Écouter</button>
+          <button class="slow-button" type="button" onclick="speakKorean('출구', true)">🐢 Lentement</button>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="summary-card">
+
+    <h2>
+      🩵 Prononciation — 왼쪽
+    </h2>
+
+    <div class="pronunciation-box">
+      <div class="korean-example">왼쪽</div>
+      <br>
+      Le <strong>ㄴ</strong> et le <strong>ㅉ</strong>
+      s'enchaînent rapidement.
+      <br><br>
+      Prononciation du manuel :
+      <strong>« ouène-tchok »</strong>.
+    </div>
+
+  </section>
+
+  <section class="summary-card">
+
+    <h2>
+      💙 -에 있어요
+    </h2>
+
+    <div class="grammar-box">
+      Cette structure permet de dire qu'un lieu ou un objet
+      se trouve à un endroit.
+    </div>
+
+    <div class="example">
+      <div class="korean-example">
+        화장실이 어디에 있어요?
+      </div>
+      Où sont les toilettes ?
+    </div>
+
+    <div class="example">
+      <div class="korean-example">
+        지하철역이 저기에 있어요.
+      </div>
+      La station de métro est là-bas.
+    </div>
+
+  </section>
+
+  <section class="dialogue-card">
+
+    <h2>
+      💬 Dialogue
+    </h2>
+
+    <div class="dialogue-line hana">
+      <div class="speaker">🌸 Hana</div>
+      <div class="dialogue-korean">
+        실례합니다. 명동에 가려면 몇 호선을 타야 해요?
+      </div>
+      <div class="dialogue-french">
+        Excusez-moi. Quelle ligne dois-je prendre pour aller à Myeong-dong ?
+      </div>
+    </div>
+
+    <div class="dialogue-line park">
+      <div class="speaker">👨 Monsieur Park</div>
+      <div class="dialogue-korean">
+        사호선을 타세요. 서울역에서 갈아타세요.
+      </div>
+      <div class="dialogue-french">
+        Prenez la ligne 4. Changez à Seoul Station.
+      </div>
+    </div>
+
+    <div class="dialogue-line hana">
+      <div class="speaker">🌸 Hana</div>
+      <div class="dialogue-korean">
+        감사합니다.
+      </div>
+      <div class="dialogue-french">
+        Merci beaucoup.
+      </div>
+    </div>
+
+    <div class="audio-buttons">
+      <button
+        type="button"
+        onclick="playDialogue(false)"
+      >
+        🔊 Écouter le dialogue
+      </button>
+
+      <button
+        class="slow-button"
+        type="button"
+        onclick="playDialogue(true)"
+      >
+        🐢 Dialogue lent
+      </button>
+
+      <button
+        type="button"
+        onclick="stopAudio()"
+      >
+        ⏹️ Stop
+      </button>
+    </div>
+
+  </section>
+
+  <section class="summary-card">
+
+    <h2>
+      🌿 À reconnaître
+    </h2>
+
+    <div class="recognition-box">
+      <strong>몇 호선</strong>,
+      <strong>타세요</strong>,
+      <strong>내려요</strong>,
+      <strong>갈아타세요</strong>,
+      <strong>다음 역</strong>,
+      <strong>이번 역</strong>.
+      <br><br>
+      Les structures <strong>가려면</strong> et
+      <strong>타야 해요</strong> sont introduites comme
+      des modèles utiles : tu peux les réutiliser sans devoir
+      encore analyser toute leur grammaire.
+    </div>
+
+  </section>
+
+  <section class="culture-card">
+
+    <h2>
+      🌸 Point culture
+    </h2>
+
+    Le métro de Séoul est très simple à utiliser grâce aux
+    indications visuelles et aux annonces multilingues.
+    <br><br>
+    Pour apprendre, essaie progressivement de repérer les mots
+    coréens avant de lire l'anglais :
+    numéro de ligne, prochaine station, correspondance et sortie.
+
+  </section>
+
+  <section class="summary-card">
+
+    <h2>
+      🧠 À retenir
+    </h2>
+
+    <div class="recap-line">
+      🚇 <strong>지하철</strong> → métro
+    </div>
+
+    <div class="recap-line">
+      🚌 <strong>버스</strong> → bus
+    </div>
+
+    <div class="recap-line">
+      🔢 <strong>몇 번</strong> → quel numéro
+    </div>
+
+    <div class="recap-line">
+      🚇 <strong>몇 호선이에요?</strong> → Quelle ligne ?
+    </div>
+
+    <div class="recap-line">
+      ⬆️ <strong>타다</strong> → prendre / monter
+    </div>
+
+    <div class="recap-line">
+      ⬇️ <strong>내리다</strong> → descendre
+    </div>
+
+    <div class="recap-line">
+      🔁 <strong>갈아타다</strong> → faire une correspondance
+    </div>
+
+    <div class="recap-line">
+      📢 <strong>다음 역</strong> → station suivante
+    </div>
+
+    <div class="recap-line">
+      📢 <strong>이번 역</strong> → cette station
+    </div>
+
+    <div class="recap-line">
+      🚪 <strong>출구</strong> → sortie
+    </div>
+
+    <div class="recap-line">
+      🌿 <strong>명동에 가려면 몇 호선을 타야 해요?</strong>
+      → Quelle ligne dois-je prendre pour aller à Myeong-dong ?
+    </div>
+
+  </section>
+
+  <section class="phrase-card">
+    <h2>🌟 Phrase du chapitre</h2>
+
+    « Se perdre n'est jamais un problème quand on sait demander son chemin.
+    Chaque question te rapproche un peu plus de la Corée. » 🌸
+  </section>
+
+  <section class="phrase-card">
+    <h2>🌟 Phrase du chapitre</h2>
+
+    « Chaque station est une nouvelle étape de ton voyage.
+    En apprenant à te déplacer, tu découvres la Corée en toute liberté. » 🌸
+  </section>
+
+  <button
+    class="route-button"
+    type="button"
+    onclick="window.location.href='itineraire.html#module2'"
+  >
+    🌿 Retour à mon itinéraire
+  </button>
+
+  <button
+    class="chapter-button"
+    type="button"
+    onclick="window.location.href='chapitre-13.html'"
+  >
+    📖 Revoir le chapitre
+  </button>
+
+</main>
+
+<script src="chapter-progress.js"></script>
+
+<script>
+  const CHAPTER = 13;
+
+  const COMPLETED_KEY =
+    "hanaKorean_chapter13_completed";
+
+  const AUDIO_SETTINGS = {
+    normalRate: 0.82,
+    slowRate: 0.25
+  };
+
+
+  function guardSummaryAccess() {
+
+    if (
+      localStorage.getItem(
+        COMPLETED_KEY
+      ) !== "completed"
+    ) {
+      window.location.replace(
+        "utilise-13.html"
+      );
+      return false;
+    }
+
+    return true;
+  }
+
+
+  function renderChapterProgress() {
+
+    if (
+      window.HanaChapterProgress &&
+      typeof window.HanaChapterProgress.render ===
+        "function"
+    ) {
+      window.HanaChapterProgress.render();
+    }
+  }
+
+
+  function getKoreanVoice() {
+
+    const voices =
+      window.speechSynthesis
+        .getVoices();
+
+    return (
+      voices.find(
+        voice =>
+          voice.lang &&
+          voice.lang
+            .toLowerCase()
+            .startsWith("ko")
+      ) || null
+    );
+  }
+
+
+  function speakKorean(
+    text,
+    slow
+  ) {
+
+    window.speechSynthesis.cancel();
+
+    const utterance =
+      new SpeechSynthesisUtterance(
+        text
+      );
+
+    utterance.lang =
+      "ko-KR";
+
+    utterance.rate =
+      slow
+        ? AUDIO_SETTINGS.slowRate
+        : AUDIO_SETTINGS.normalRate;
+
+    utterance.pitch =
+      1.06;
+
+    const voice =
+      getKoreanVoice();
+
+    if (
+      voice
+    ) {
+      utterance.voice =
+        voice;
+    }
+
+    window.speechSynthesis.speak(
+      utterance
+    );
+  }
+
+
+  const dialogue = [
+    {
+      text:
+        "실례합니다. 명동에 가려면 몇 호선을 타야 해요?",
+      pitch:
+        1.06
+    },
+    {
+      text:
+        "사호선을 타세요. 서울역에서 갈아타세요.",
+      pitch:
+        0.94
+    },
+    {
+      text:
+        "감사합니다.",
+      pitch:
+        1.06
+    }
+  ];
+
+
+  function playDialogue(
+    slow
+  ) {
+
+    window.speechSynthesis.cancel();
+
+    const voice =
+      getKoreanVoice();
+
+    dialogue.forEach(
+      line => {
+
+        const utterance =
+          new SpeechSynthesisUtterance(
+            line.text
+          );
+
+        utterance.lang =
+          "ko-KR";
+
+        utterance.rate =
+          slow
+            ? AUDIO_SETTINGS.slowRate
+            : AUDIO_SETTINGS.normalRate;
+
+        utterance.pitch =
+          line.pitch;
+
+        if (
+          voice
+        ) {
+          utterance.voice =
+            voice;
+        }
+
+        window.speechSynthesis.speak(
+          utterance
+        );
+      }
+    );
+  }
+
+
+  function stopAudio() {
+    window.speechSynthesis.cancel();
+  }
+
+
+  if (
+    guardSummaryAccess()
+  ) {
+
+    renderChapterProgress();
+
+    window.addEventListener(
+      "pageshow",
+      function() {
+        renderChapterProgress();
+      }
+    );
+  }
+</script>
+
+</body>
+</html>

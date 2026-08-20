@@ -1,0 +1,1745 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="theme-color"
+    content="#F7F4ED"
+  >
+
+  <title>
+    Chapitre 4 — Résumé
+  </title>
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="chapter-progress.css"
+  >
+
+
+  <script>
+
+    /* =====================================================
+       GARDE — LE CHAPITRE DOIT ÊTRE TERMINÉ
+       ===================================================== */
+
+    if (
+      localStorage.getItem(
+        "hanaKorean_chapter4_completed"
+      ) !== "completed"
+    ) {
+
+      window.location.replace(
+        "chapitre-4.html"
+      );
+
+    }
+
+  </script>
+
+
+  <style>
+
+    /* =====================================================
+       EN-TÊTE
+       ===================================================== */
+
+    .summary-header {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+
+    .chapter-badge {
+      display: inline-block;
+      padding: 7px 14px;
+      margin-bottom: 10px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+
+    .summary-intro {
+      color: var(--text-light);
+      line-height: 1.7;
+    }
+
+
+    /* =====================================================
+       FÉLICITATION
+       ===================================================== */
+
+    .success-card {
+      padding: 20px;
+      margin-bottom: 20px;
+      background: var(--soft-green);
+      border-radius: var(--radius-large);
+      color: var(--navy);
+      text-align: center;
+      line-height: 1.7;
+    }
+
+
+    .success-icon {
+      margin-bottom: 8px;
+      font-size: 42px;
+    }
+
+
+    .success-card h2 {
+      margin: 0 0 8px;
+    }
+
+
+    /* =====================================================
+       CARTES
+       ===================================================== */
+
+    .summary-card {
+      padding: 20px;
+      margin-bottom: 18px;
+    }
+
+
+    .summary-card h2 {
+      margin-top: 0;
+    }
+
+
+    /* =====================================================
+       VOCABULAIRE
+       ===================================================== */
+
+    .vocab-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+
+    .vocab-item {
+      padding: 14px;
+      background: #FBFAF6;
+      border-radius: var(--radius-medium);
+    }
+
+
+    .vocab-korean {
+      color: var(--navy);
+      font-size: 19px;
+      font-weight: bold;
+    }
+
+
+    .vocab-french {
+      margin-top: 4px;
+      color: var(--text-light);
+      font-size: 13px;
+    }
+
+
+    /* =====================================================
+       PHRASES
+       ===================================================== */
+
+    .phrase {
+      padding: 15px;
+      margin-top: 11px;
+      background: #FBFAF6;
+      border-radius: var(--radius-medium);
+      line-height: 1.7;
+    }
+
+
+    .phrase-korean {
+      color: var(--navy);
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+
+    .phrase-french {
+      display: block;
+      margin-top: 4px;
+      color: var(--text-light);
+    }
+
+
+    /* =====================================================
+       STRUCTURES
+       ===================================================== */
+
+    .structure-box {
+      padding: 17px;
+      margin-top: 14px;
+      background: var(--soft-beige);
+      border-radius: var(--radius-medium);
+      color: var(--navy);
+      text-align: center;
+      font-size: 19px;
+      font-weight: bold;
+      line-height: 1.8;
+    }
+
+
+    .tip-box {
+      padding: 16px;
+      margin-top: 14px;
+      background: var(--soft-blue);
+      border-radius: var(--radius-medium);
+      color: var(--navy);
+      line-height: 1.7;
+    }
+
+
+    .culture-box {
+      padding: 16px;
+      margin-top: 14px;
+      background: var(--soft-green);
+      border-radius: var(--radius-medium);
+      color: var(--navy);
+      line-height: 1.7;
+    }
+
+
+    /* =====================================================
+       COMPARAISON
+       ===================================================== */
+
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+
+    .comparison-item {
+      padding: 15px;
+      background: #FBFAF6;
+      border-radius: var(--radius-medium);
+      text-align: center;
+    }
+
+
+    .comparison-korean {
+      color: var(--navy);
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+
+    .comparison-french {
+      margin-top: 5px;
+      color: var(--text-light);
+      font-size: 13px;
+    }
+
+
+    /* =====================================================
+       DIALOGUE
+       ===================================================== */
+
+    .dialogue-line {
+      padding: 14px;
+      margin-top: 10px;
+      background: #FBFAF6;
+      border-radius: var(--radius-medium);
+      line-height: 1.7;
+    }
+
+
+    .speaker {
+      margin-bottom: 5px;
+      color: var(--navy);
+      font-weight: bold;
+    }
+
+
+    /* =====================================================
+       AUDIO
+       ===================================================== */
+
+    .audio-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 9px;
+      margin-top: 11px;
+    }
+
+
+    .audio-button,
+    .slow-button {
+      width: 100%;
+      font-weight: bold;
+    }
+
+
+    .audio-button {
+      background: var(--soft-blue);
+      color: var(--navy);
+    }
+
+
+    .slow-button {
+      background: var(--soft-beige);
+      color: var(--navy);
+    }
+
+
+    /* =====================================================
+       ACTIONS
+       ===================================================== */
+
+    .summary-actions {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+
+    .primary-button {
+      width: 100%;
+      background: var(--jade);
+      color: white;
+      font-weight: bold;
+    }
+
+
+    .secondary-button {
+      width: 100%;
+      background: var(--soft-beige);
+      color: var(--navy);
+      font-weight: bold;
+    }
+
+
+    @media (max-width: 480px) {
+
+      .vocab-grid {
+        grid-template-columns: 1fr;
+      }
+
+
+      .comparison-grid {
+        grid-template-columns: 1fr;
+      }
+
+
+      .audio-row {
+        grid-template-columns: 1fr;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+<main class="app">
+
+
+  <!-- =====================================================
+       RETOUR
+       ===================================================== -->
+
+  <a
+    class="back-link"
+    href="itineraire.html#module1"
+  >
+    ← Mon itinéraire
+  </a>
+
+
+
+  <!-- =====================================================
+       EN-TÊTE
+       ===================================================== -->
+
+  <header class="summary-header">
+
+    <span class="chapter-badge">
+      Module 1 · Chapitre 4
+    </span>
+
+
+    <p class="korean">
+      좋아해요! 🍓
+    </p>
+
+
+    <h1>
+      Résumé du chapitre
+    </h1>
+
+
+    <p class="summary-intro">
+      Retrouve ici les structures essentielles
+      pour parler de ce que tu aimes,
+      de ce que tu n'aimes pas
+      et faire continuer la conversation.
+    </p>
+
+  </header>
+
+
+
+  <!-- =====================================================
+       FÉLICITATION
+       ===================================================== -->
+
+  <section class="success-card">
+
+    <div class="success-icon">
+      🍓
+    </div>
+
+
+    <h2>
+      Tu peux maintenant parler de tes goûts !
+    </h2>
+
+
+    <p>
+      Tu sais dire ce que tu aimes,
+      ce que tu n'aimes pas,
+      renforcer une réponse
+      et demander l'avis de l'autre personne.
+    </p>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       VOCABULAIRE
+       ===================================================== -->
+
+  <section class="summary-card">
+
+    <h2>
+      🌱 Vocabulaire essentiel
+    </h2>
+
+
+    <div class="vocab-grid">
+
+
+      <div class="vocab-item">
+
+        <div class="vocab-korean">
+          좋아하다
+        </div>
+
+        <div class="vocab-french">
+          Aimer
+        </div>
+
+      </div>
+
+
+      <div class="vocab-item">
+
+        <div class="vocab-korean">
+          좋아해요
+        </div>
+
+        <div class="vocab-french">
+          J'aime / vous aimez
+        </div>
+
+      </div>
+
+
+      <div class="vocab-item">
+
+        <div class="vocab-korean">
+          싫어하다
+        </div>
+
+        <div class="vocab-french">
+          Ne pas aimer / détester
+        </div>
+
+      </div>
+
+
+      <div class="vocab-item">
+
+        <div class="vocab-korean">
+          싫어해요
+        </div>
+
+        <div class="vocab-french">
+          Je n'aime pas / je déteste
+        </div>
+
+      </div>
+
+
+      <div class="vocab-item">
+
+        <div class="vocab-korean">
+          딸기
+        </div>
+
+        <div class="vocab-french">
+          Fraise
+        </div>
+
+      </div>
+
+
+      <div class="vocab-item">
+
+        <div class="vocab-korean">
+          커피
+        </div>
+
+        <div class="vocab-french">
+          Café
+        </div>
+
+      </div>
+
+
+      <div class="vocab-item">
+
+        <div class="vocab-korean">
+          고양이
+        </div>
+
+        <div class="vocab-french">
+          Chat
+        </div>
+
+      </div>
+
+
+      <div class="vocab-item">
+
+        <div class="vocab-korean">
+          케이크
+        </div>
+
+        <div class="vocab-french">
+          Gâteau
+        </div>
+
+      </div>
+
+
+      <div class="vocab-item">
+
+        <div class="vocab-korean">
+          정말
+        </div>
+
+        <div class="vocab-french">
+          Vraiment
+        </div>
+
+      </div>
+
+
+      <div class="vocab-item">
+
+        <div class="vocab-korean">
+          도
+        </div>
+
+        <div class="vocab-french">
+          Aussi
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       AIMER
+       ===================================================== -->
+
+  <section class="summary-card">
+
+    <h2>
+      ❤️ Dire ce que tu aimes
+    </h2>
+
+
+    <div class="structure-box">
+
+      좋아하다 → 좋아해요
+
+      <br><br>
+
+      저는 + chose + 을 / 를 + 좋아해요
+
+    </div>
+
+
+    <div class="phrase">
+
+      <div class="phrase-korean">
+        저는 딸기를 좋아해요.
+      </div>
+
+      <span class="phrase-french">
+        J'aime les fraises.
+      </span>
+
+
+      <div class="audio-row">
+
+        <button
+          class="audio-button"
+          type="button"
+          onclick="speakKorean('저는 딸기를 좋아해요.', 'hana')"
+        >
+          🔊 Écouter
+        </button>
+
+
+        <button
+          class="slow-button"
+          type="button"
+          onclick="speakKoreanSlow('저는 딸기를 좋아해요.', 'hana')"
+        >
+          🐢 Lentement
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="phrase">
+
+      <div class="phrase-korean">
+        저는 커피를 좋아해요.
+      </div>
+
+      <span class="phrase-french">
+        J'aime le café.
+      </span>
+
+    </div>
+
+
+    <div class="phrase">
+
+      <div class="phrase-korean">
+        저는 고양이를 좋아해요.
+      </div>
+
+      <span class="phrase-french">
+        J'aime les chats.
+      </span>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       을 / 를
+       ===================================================== -->
+
+  <section class="summary-card">
+
+    <h2>
+      🧩 La particule 을 / 를
+    </h2>
+
+
+    <p>
+      Ici,
+      <strong>을 / 를</strong>
+      indique ce que tu aimes
+      ou ce que tu n'aimes pas.
+    </p>
+
+
+    <div class="comparison-grid">
+
+
+      <div class="comparison-item">
+
+        <div class="comparison-korean">
+          을
+        </div>
+
+        <div class="comparison-french">
+          après une consonne
+        </div>
+
+      </div>
+
+
+      <div class="comparison-item">
+
+        <div class="comparison-korean">
+          를
+        </div>
+
+        <div class="comparison-french">
+          après une voyelle
+        </div>
+
+      </div>
+
+
+    </div>
+
+
+    <div class="phrase">
+
+      <div class="phrase-korean">
+        딸기 + 를 → 딸기를
+      </div>
+
+    </div>
+
+
+    <div class="phrase">
+
+      <div class="phrase-korean">
+        커피 + 를 → 커피를
+      </div>
+
+    </div>
+
+
+    <div class="phrase">
+
+      <div class="phrase-korean">
+        고양이 + 를 → 고양이를
+      </div>
+
+    </div>
+
+
+    <div class="tip-box">
+
+      딸기, 커피 et 고양이
+      se terminent par une voyelle.
+
+      <br><br>
+
+      On utilise donc
+      <strong>를</strong>.
+
+      <br><br>
+
+      Avec un mot terminé
+      par une consonne,
+      on utilisera
+      <strong>을</strong>.
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       QUESTIONS
+       ===================================================== -->
+
+  <section class="summary-card">
+
+    <h2>
+      ❓ Demander ce que quelqu'un aime
+    </h2>
+
+
+    <p>
+      Une phrase affirmative
+      peut devenir une question
+      grâce au contexte et à l'intonation.
+    </p>
+
+
+    <div class="phrase">
+
+      <div class="phrase-korean">
+        딸기를 좋아해요.
+      </div>
+
+      <span class="phrase-french">
+        Vous aimez les fraises.
+      </span>
+
+    </div>
+
+
+    <div class="phrase">
+
+      <div class="phrase-korean">
+        딸기를 좋아해요?
+      </div>
+
+      <span class="phrase-french">
+        Vous aimez les fraises ?
+      </span>
+
+
+      <div class="audio-row">
+
+        <button
+          class="audio-button"
+          type="button"
+          onclick="speakKorean('딸기를 좋아해요?', 'minsu')"
+        >
+          🔊 Écouter
+        </button>
+
+
+        <button
+          class="slow-button"
+          type="button"
+          onclick="speakKoreanSlow('딸기를 좋아해요?', 'minsu')"
+        >
+          🐢 Lentement
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="phrase">
+
+      <div class="phrase-korean">
+        커피를 좋아해요?
+      </div>
+
+      <span class="phrase-french">
+        Vous aimez le café ?
+      </span>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       정말
+       ===================================================== -->
+
+  <section class="summary-card">
+
+    <h2>
+      ✨ 정말 — vraiment
+    </h2>
+
+
+    <div class="phrase">
+
+      <div class="phrase-korean">
+        네, 정말 좋아해요!
+      </div>
+
+      <span class="phrase-french">
+        Oui, j'aime vraiment ça !
+      </span>
+
+
+      <div class="audio-row">
+
+        <button
+          class="audio-button"
+          type="button"
+          onclick="speakKorean('네, 정말 좋아해요!', 'hana')"
+        >
+          🔊 Écouter
+        </button>
+
+
+        <button
+          class="slow-button"
+          type="button"
+          onclick="speakKoreanSlow('네, 정말 좋아해요!', 'hana')"
+        >
+          🐢 Lentement
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="tip-box">
+
+      <strong>정말</strong>
+      renforce ce que tu dis.
+
+      <br><br>
+
+      C'est une façon simple
+      de rendre ta réponse
+      plus expressive et naturelle.
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       도
+       ===================================================== -->
+
+  <section class="summary-card">
+
+    <h2>
+      ➕ 도 — aussi
+    </h2>
+
+
+    <div class="phrase">
+
+      <div class="phrase-korean">
+        커피도 좋아해요.
+      </div>
+
+      <span class="phrase-french">
+        J'aime aussi le café.
+      </span>
+
+
+      <div class="audio-row">
+
+        <button
+          class="audio-button"
+          type="button"
+          onclick="speakKorean('커피도 좋아해요.', 'hana')"
+        >
+          🔊 Écouter
+        </button>
+
+
+        <button
+          class="slow-button"
+          type="button"
+          onclick="speakKoreanSlow('커피도 좋아해요.', 'hana')"
+        >
+          🐢 Lentement
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="phrase">
+
+      <div class="phrase-korean">
+        고양이도 좋아해요.
+      </div>
+
+      <span class="phrase-french">
+        J'aime aussi les chats.
+      </span>
+
+    </div>
+
+
+    <div class="tip-box">
+
+      Compare :
+
+      <br><br>
+
+      <strong>딸기를 좋아해요.</strong>
+
+      <br>
+
+      J'aime les fraises.
+
+      <br><br>
+
+      <strong>커피도 좋아해요.</strong>
+
+      <br>
+
+      J'aime <strong>aussi</strong> le café.
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       NE PAS AIMER
+       ===================================================== -->
+
+  <section class="summary-card">
+
+    <h2>
+      💭 Dire ce que tu n'aimes pas
+    </h2>
+
+
+    <div class="structure-box">
+
+      싫어하다 → 싫어해요
+
+    </div>
+
+
+    <div class="phrase">
+
+      <div class="phrase-korean">
+        저는 커피를 싫어해요.
+      </div>
+
+      <span class="phrase-french">
+        Je n'aime pas le café.
+      </span>
+
+
+      <div class="audio-row">
+
+        <button
+          class="audio-button"
+          type="button"
+          onclick="speakKorean('저는 커피를 싫어해요.', 'hana')"
+        >
+          🔊 Écouter
+        </button>
+
+
+        <button
+          class="slow-button"
+          type="button"
+          onclick="speakKoreanSlow('저는 커피를 싫어해요.', 'hana')"
+        >
+          🐢 Lentement
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="culture-box">
+
+      <strong>싫어해요</strong>
+      peut être plus fort
+      que le simple français
+      « je n'aime pas ».
+
+      <br><br>
+
+      Selon le contexte,
+      il peut se rapprocher de
+      « je déteste »
+      ou « je n'apprécie pas ».
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       RELANCER
+       ===================================================== -->
+
+  <section class="summary-card">
+
+    <h2>
+      💬 Renvoyer la question
+    </h2>
+
+
+    <div class="phrase">
+
+      <div class="phrase-korean">
+        민수 씨는요?
+      </div>
+
+      <span class="phrase-french">
+        Et toi, Min-su ?
+      </span>
+
+
+      <div class="audio-row">
+
+        <button
+          class="audio-button"
+          type="button"
+          onclick="speakKorean('민수 씨는요?', 'hana')"
+        >
+          🔊 Écouter
+        </button>
+
+
+        <button
+          class="slow-button"
+          type="button"
+          onclick="speakKoreanSlow('민수 씨는요?', 'hana')"
+        >
+          🐢 Lentement
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="tip-box">
+
+      Tu n'as pas besoin
+      de répéter toute la question.
+
+      <br><br>
+
+      💙 Min-su :
+
+      <br>
+
+      <strong>딸기를 좋아해요?</strong>
+
+      <br><br>
+
+      🌸 Hana :
+
+      <br>
+
+      <strong>
+        네, 정말 좋아해요! 민수 씨는요?
+      </strong>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       DIALOGUE
+       ===================================================== -->
+
+  <section class="summary-card">
+
+    <h2>
+      ☕ Au café avec Min-su
+    </h2>
+
+
+    <div class="dialogue-line">
+
+      <div class="speaker">
+        💙 Min-su
+      </div>
+
+      딸기를 좋아해요?
+
+      <br>
+
+      <span class="phrase-french">
+        Tu aimes les fraises ?
+      </span>
+
+    </div>
+
+
+    <div class="dialogue-line">
+
+      <div class="speaker">
+        🌸 Hana
+      </div>
+
+      네, 정말 좋아해요! 민수 씨는요?
+
+      <br>
+
+      <span class="phrase-french">
+        Oui, j'aime vraiment ça !
+        Et toi, Min-su ?
+      </span>
+
+    </div>
+
+
+    <div class="dialogue-line">
+
+      <div class="speaker">
+        💙 Min-su
+      </div>
+
+      네, 저도 좋아해요. 커피도 좋아해요?
+
+      <br>
+
+      <span class="phrase-french">
+        Oui, moi aussi.
+        Tu aimes aussi le café ?
+      </span>
+
+    </div>
+
+
+    <div class="dialogue-line">
+
+      <div class="speaker">
+        🌸 Hana
+      </div>
+
+      네, 커피도 좋아해요.
+
+      <br>
+
+      <span class="phrase-french">
+        Oui, j'aime aussi le café.
+      </span>
+
+    </div>
+
+
+    <div class="dialogue-line">
+
+      <div class="speaker">
+        💙 Min-su
+      </div>
+
+      고양이도 좋아해요?
+
+      <br>
+
+      <span class="phrase-french">
+        Tu aimes aussi les chats ?
+      </span>
+
+    </div>
+
+
+    <div class="dialogue-line">
+
+      <div class="speaker">
+        🌸 Hana
+      </div>
+
+      네! 정말 좋아해요!
+
+      <br>
+
+      <span class="phrase-french">
+        Oui ! J'aime vraiment beaucoup !
+      </span>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       JI-EUN
+       ===================================================== -->
+
+  <section class="summary-card">
+
+    <h2>
+      💚 Rencontre avec Ji-eun
+    </h2>
+
+
+    <div class="dialogue-line">
+
+      <div class="speaker">
+        💚 Ji-eun
+      </div>
+
+      안녕하세요! 주문하시겠어요?
+
+      <br>
+
+      <span class="phrase-french">
+        Bonjour ! Vous souhaitez commander ?
+      </span>
+
+    </div>
+
+
+    <div class="dialogue-line">
+
+      <div class="speaker">
+        💙 Min-su
+      </div>
+
+      딸기 케이크 하나 주세요.
+
+      <br>
+
+      <span class="phrase-french">
+        Un gâteau à la fraise, s'il vous plaît.
+      </span>
+
+    </div>
+
+
+    <div class="dialogue-line">
+
+      <div class="speaker">
+        💙 Min-su
+      </div>
+
+      제 친구 지은 씨예요.
+
+      <br>
+
+      <span class="phrase-french">
+        C'est mon amie Ji-eun.
+      </span>
+
+    </div>
+
+
+    <div class="dialogue-line">
+
+      <div class="speaker">
+        💙 Min-su
+      </div>
+
+      이쪽은 하나 씨예요.
+
+      <br>
+
+      <span class="phrase-french">
+        Et voici Hana.
+      </span>
+
+    </div>
+
+
+    <div class="dialogue-line">
+
+      <div class="speaker">
+        💚 Ji-eun
+      </div>
+
+      안녕하세요. 저는 지은이에요. 반가워요!
+
+      <br>
+
+      <span class="phrase-french">
+        Bonjour. Je suis Ji-eun.
+        Ravie de te rencontrer !
+      </span>
+
+    </div>
+
+
+    <div class="dialogue-line">
+
+      <div class="speaker">
+        🌸 Hana
+      </div>
+
+      안녕하세요. 저는 하나예요. 저도 반가워요!
+
+      <br>
+
+      <span class="phrase-french">
+        Bonjour. Je suis Hana.
+        Moi aussi, ravie de te rencontrer !
+      </span>
+
+    </div>
+
+
+    <div class="culture-box">
+
+      Ji-eun travaille au café
+      et connaît déjà Min-su.
+
+      <br><br>
+
+      Elle reviendra dans d'autres
+      situations du quotidien.
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       MINI MÉMO
+       ===================================================== -->
+
+  <section class="summary-card">
+
+    <h2>
+      📓 Mini mémo
+    </h2>
+
+
+    <div class="phrase">
+
+      🍓
+
+      <div class="phrase-korean">
+        저는 딸기를 좋아해요.
+      </div>
+
+      <span class="phrase-french">
+        J'aime les fraises.
+      </span>
+
+    </div>
+
+
+    <div class="phrase">
+
+      ☕
+
+      <div class="phrase-korean">
+        커피도 좋아해요.
+      </div>
+
+      <span class="phrase-french">
+        J'aime aussi le café.
+      </span>
+
+    </div>
+
+
+    <div class="phrase">
+
+      💭
+
+      <div class="phrase-korean">
+        저는 커피를 싫어해요.
+      </div>
+
+      <span class="phrase-french">
+        Je n'aime pas le café.
+      </span>
+
+    </div>
+
+
+    <div class="phrase">
+
+      ✨
+
+      <div class="phrase-korean">
+        네, 정말 좋아해요!
+      </div>
+
+      <span class="phrase-french">
+        Oui, j'aime vraiment ça !
+      </span>
+
+    </div>
+
+
+    <div class="phrase">
+
+      ❓
+
+      <div class="phrase-korean">
+        딸기를 좋아해요?
+      </div>
+
+      <span class="phrase-french">
+        Tu aimes les fraises ?
+      </span>
+
+    </div>
+
+
+    <div class="phrase">
+
+      💬
+
+      <div class="phrase-korean">
+        민수 씨는요?
+      </div>
+
+      <span class="phrase-french">
+        Et toi, Min-su ?
+      </span>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       ACTIONS
+       ===================================================== -->
+
+  <div class="summary-actions">
+
+    <button
+      class="primary-button"
+      type="button"
+      onclick="goToItinerary()"
+    >
+      🗺️ Retour au Module 1
+    </button>
+
+
+    <button
+      class="secondary-button"
+      type="button"
+      onclick="reviewAgain()"
+    >
+      🧠 Refaire la révision
+    </button>
+
+  </div>
+
+
+</main>
+
+
+
+<script src="chapter-progress.js"></script>
+
+
+<script>
+
+  /* =====================================================
+     AUDIO
+     ===================================================== */
+
+  const AUDIO_SETTINGS = {
+
+    normalRate:
+      0.82,
+
+    slowRate:
+      0.25
+
+  };
+
+
+  function getKoreanVoice() {
+
+    const voices =
+      window.speechSynthesis
+        .getVoices();
+
+
+    return (
+      voices.find(
+        voice =>
+          voice.lang &&
+          voice.lang
+            .toLowerCase()
+            .startsWith("ko")
+      ) ||
+      null
+    );
+
+  }
+
+
+
+  function characterPitch(
+    character
+  ) {
+
+    const pitches = {
+
+      hana:
+        1.06,
+
+      minsu:
+        0.94,
+
+      jieun:
+        1.02
+
+    };
+
+
+    return (
+      pitches[
+        character
+      ] ||
+      1
+    );
+
+  }
+
+
+
+  function speak(
+    text,
+    character,
+    rate
+  ) {
+
+    window.speechSynthesis.cancel();
+
+
+    const utterance =
+      new SpeechSynthesisUtterance(
+        text
+      );
+
+
+    utterance.lang =
+      "ko-KR";
+
+
+    utterance.rate =
+      rate;
+
+
+    utterance.pitch =
+      characterPitch(
+        character
+      );
+
+
+    const voice =
+      getKoreanVoice();
+
+
+    if (voice) {
+
+      utterance.voice =
+        voice;
+
+    }
+
+
+    window.speechSynthesis.speak(
+      utterance
+    );
+
+  }
+
+
+
+  function speakKorean(
+    text,
+    character
+  ) {
+
+    speak(
+      text,
+      character,
+      AUDIO_SETTINGS.normalRate
+    );
+
+  }
+
+
+
+  function speakKoreanSlow(
+    text,
+    character
+  ) {
+
+    speak(
+      text,
+      character,
+      AUDIO_SETTINGS.slowRate
+    );
+
+  }
+
+
+
+  /* =====================================================
+     NAVIGATION
+     ===================================================== */
+
+  function goToItinerary() {
+
+    window.speechSynthesis.cancel();
+
+
+    window.location.href =
+      "itineraire.html#module1";
+
+  }
+
+
+
+  function reviewAgain() {
+
+    window.speechSynthesis.cancel();
+
+
+    window.location.href =
+      "revision-4.html";
+
+  }
+
+
+
+  /* =====================================================
+     SÉCURITÉ AUDIO
+     ===================================================== */
+
+  window.addEventListener(
+    "pagehide",
+    function() {
+
+      window.speechSynthesis.cancel();
+
+    }
+  );
+
+
+  window.addEventListener(
+    "pageshow",
+    function() {
+
+      if (
+        window.HanaChapterProgress &&
+        typeof window.HanaChapterProgress.render === "function"
+      ) {
+
+        window.HanaChapterProgress.render();
+
+      }
+
+    }
+  );
+
+</script>
+
+
+</body>
+
+</html>

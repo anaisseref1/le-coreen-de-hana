@@ -1,0 +1,1581 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="theme-color"
+    content="#F7F4ED"
+  >
+
+  <title>
+    Chapitre 2 — Résumé
+  </title>
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="chapter-progress.css"
+  >
+
+
+  <script>
+
+    /* =====================================================
+       GARDE — LE CHAPITRE DOIT ÊTRE TERMINÉ
+       ===================================================== */
+
+    if (
+      localStorage.getItem(
+        "hanaKorean_chapter2_completed"
+      ) !== "completed"
+    ) {
+
+      window.location.replace(
+        "chapitre-2.html"
+      );
+
+    }
+
+  </script>
+
+
+  <style>
+
+    /* =====================================================
+       EN-TÊTE
+       ===================================================== */
+
+    .summary-header {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+
+    .chapter-badge {
+      display: inline-block;
+      padding: 7px 14px;
+      margin-bottom: 10px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+
+    .summary-intro {
+      color: var(--text-light);
+      line-height: 1.7;
+    }
+
+
+    /* =====================================================
+       FÉLICITATION
+       ===================================================== */
+
+    .success-card {
+      padding: 20px;
+      margin-bottom: 20px;
+      background: var(--soft-green);
+      border-radius: var(--radius-large);
+      color: var(--navy);
+      text-align: center;
+      line-height: 1.7;
+    }
+
+
+    .success-icon {
+      margin-bottom: 8px;
+      font-size: 42px;
+    }
+
+
+    .success-card h2 {
+      margin: 0 0 8px;
+    }
+
+
+    /* =====================================================
+       CARTES
+       ===================================================== */
+
+    .summary-card {
+      padding: 20px;
+      margin-bottom: 18px;
+    }
+
+
+    .summary-card h2 {
+      margin-top: 0;
+    }
+
+
+    /* =====================================================
+       VOCABULAIRE
+       ===================================================== */
+
+    .vocab-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+
+    .vocab-item {
+      padding: 14px;
+      background: #FBFAF6;
+      border-radius: var(--radius-medium);
+    }
+
+
+    .vocab-korean {
+      color: var(--navy);
+      font-size: 19px;
+      font-weight: bold;
+    }
+
+
+    .vocab-french {
+      margin-top: 4px;
+      color: var(--text-light);
+      font-size: 13px;
+    }
+
+
+    /* =====================================================
+       PHRASES
+       ===================================================== */
+
+    .phrase {
+      padding: 15px;
+      margin-top: 11px;
+      background: #FBFAF6;
+      border-radius: var(--radius-medium);
+      line-height: 1.7;
+    }
+
+
+    .phrase-korean {
+      color: var(--navy);
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+
+    .phrase-french {
+      display: block;
+      margin-top: 4px;
+      color: var(--text-light);
+    }
+
+
+    /* =====================================================
+       STRUCTURES
+       ===================================================== */
+
+    .structure-box {
+      padding: 17px;
+      margin-top: 14px;
+      background: var(--soft-beige);
+      border-radius: var(--radius-medium);
+      color: var(--navy);
+      text-align: center;
+      font-size: 19px;
+      font-weight: bold;
+      line-height: 1.8;
+    }
+
+
+    .tip-box {
+      padding: 16px;
+      margin-top: 14px;
+      background: var(--soft-blue);
+      border-radius: var(--radius-medium);
+      color: var(--navy);
+      line-height: 1.7;
+    }
+
+
+    .culture-box {
+      padding: 16px;
+      margin-top: 14px;
+      background: var(--soft-green);
+      border-radius: var(--radius-medium);
+      color: var(--navy);
+      line-height: 1.7;
+    }
+
+
+    /* =====================================================
+       DIALOGUE
+       ===================================================== */
+
+    .dialogue-line {
+      padding: 14px;
+      margin-top: 10px;
+      background: #FBFAF6;
+      border-radius: var(--radius-medium);
+      line-height: 1.7;
+    }
+
+
+    .speaker {
+      margin-bottom: 5px;
+      color: var(--navy);
+      font-weight: bold;
+    }
+
+
+    /* =====================================================
+       AUDIO
+       ===================================================== */
+
+    .audio-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 9px;
+      margin-top: 11px;
+    }
+
+
+    .audio-button,
+    .slow-button {
+      width: 100%;
+      font-weight: bold;
+    }
+
+
+    .audio-button {
+      background: var(--soft-blue);
+      color: var(--navy);
+    }
+
+
+    .slow-button {
+      background: var(--soft-beige);
+      color: var(--navy);
+    }
+
+
+    /* =====================================================
+       ACTIONS
+       ===================================================== */
+
+    .summary-actions {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+
+    .primary-button {
+      width: 100%;
+      background: var(--jade);
+      color: white;
+      font-weight: bold;
+    }
+
+
+    .secondary-button {
+      width: 100%;
+      background: var(--soft-beige);
+      color: var(--navy);
+      font-weight: bold;
+    }
+
+
+    @media (max-width: 480px) {
+
+      .vocab-grid {
+        grid-template-columns: 1fr;
+      }
+
+
+      .audio-row {
+        grid-template-columns: 1fr;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+<main class="app">
+
+
+  <!-- =====================================================
+       RETOUR
+       ===================================================== -->
+
+  <a
+    class="back-link"
+    href="itineraire.html#module1"
+  >
+    ← Mon itinéraire
+  </a>
+
+
+
+  <!-- =====================================================
+       EN-TÊTE
+       ===================================================== -->
+
+  <header class="summary-header">
+
+    <span class="chapter-badge">
+      Module 1 · Chapitre 2
+    </span>
+
+
+    <p class="korean">
+      자기소개 😊
+    </p>
+
+
+    <h1>
+      Résumé du chapitre
+    </h1>
+
+
+    <p class="summary-intro">
+      Retrouve ici les questions
+      et les réponses essentielles
+      pour faire une présentation simple.
+    </p>
+
+  </header>
+
+
+
+  <!-- =====================================================
+       FÉLICITATION
+       ===================================================== -->
+
+  <section class="success-card">
+
+    <div class="success-icon">
+      😊
+    </div>
+
+
+    <h2>
+      Tu sais te présenter !
+    </h2>
+
+
+    <p>
+      Tu peux maintenant donner
+      plusieurs informations sur toi,
+      mais aussi poser les questions
+      nécessaires à une première rencontre.
+    </p>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       VOCABULAIRE
+       ===================================================== -->
+
+  <section class="summary-card">
+
+    <h2>
+      🌱 Vocabulaire essentiel
+    </h2>
+
+
+    <div class="vocab-grid">
+
+
+      <div class="vocab-item">
+
+        <div class="vocab-korean">
+          이름
+        </div>
+
+        <div class="vocab-french">
+          Nom / prénom
+        </div>
+
+      </div>
+
+
+      <div class="vocab-item">
+
+        <div class="vocab-korean">
+          뭐
+        </div>
+
+        <div class="vocab-french">
+          Quoi / que
+        </div>
+
+      </div>
+
+
+      <div class="vocab-item">
+
+        <div class="vocab-korean">
+          뭐예요?
+        </div>
+
+        <div class="vocab-french">
+          Qu'est-ce que c'est ? / C'est quoi ?
+        </div>
+
+      </div>
+
+
+      <div class="vocab-item">
+
+        <div class="vocab-korean">
+          나라
+        </div>
+
+        <div class="vocab-french">
+          Pays
+        </div>
+
+      </div>
+
+
+      <div class="vocab-item">
+
+        <div class="vocab-korean">
+          어느 나라
+        </div>
+
+        <div class="vocab-french">
+          Quel pays
+        </div>
+
+      </div>
+
+
+      <div class="vocab-item">
+
+        <div class="vocab-korean">
+          사람
+        </div>
+
+        <div class="vocab-french">
+          Personne
+        </div>
+
+      </div>
+
+
+      <div class="vocab-item">
+
+        <div class="vocab-korean">
+          프랑스
+        </div>
+
+        <div class="vocab-french">
+          France
+        </div>
+
+      </div>
+
+
+      <div class="vocab-item">
+
+        <div class="vocab-korean">
+          한국
+        </div>
+
+        <div class="vocab-french">
+          Corée
+        </div>
+
+      </div>
+
+
+      <div class="vocab-item">
+
+        <div class="vocab-korean">
+          프랑스 사람
+        </div>
+
+        <div class="vocab-french">
+          Français(e)
+        </div>
+
+      </div>
+
+
+      <div class="vocab-item">
+
+        <div class="vocab-korean">
+          한국 사람
+        </div>
+
+        <div class="vocab-french">
+          Coréen(ne)
+        </div>
+
+      </div>
+
+
+      <div class="vocab-item">
+
+        <div class="vocab-korean">
+          직업
+        </div>
+
+        <div class="vocab-french">
+          Métier / profession
+        </div>
+
+      </div>
+
+
+      <div class="vocab-item">
+
+        <div class="vocab-korean">
+          회사원
+        </div>
+
+        <div class="vocab-french">
+          Employé(e) de bureau
+        </div>
+
+      </div>
+
+
+      <div class="vocab-item">
+
+        <div class="vocab-korean">
+          학생
+        </div>
+
+        <div class="vocab-french">
+          Étudiant(e)
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       STRUCTURE DE PRÉSENTATION
+       ===================================================== -->
+
+  <section class="summary-card">
+
+    <h2>
+      🙋 Dire qui l'on est
+    </h2>
+
+
+    <div class="structure-box">
+
+      저는 + information + 이에요 / 예요
+
+    </div>
+
+
+    <div class="phrase">
+
+      <div class="phrase-korean">
+        저는 하나예요.
+      </div>
+
+      <span class="phrase-french">
+        Je suis Hana.
+      </span>
+
+
+      <div class="audio-row">
+
+        <button
+          class="audio-button"
+          type="button"
+          onclick="speakKorean('저는 하나예요.', 'hana')"
+        >
+          🔊 Écouter
+        </button>
+
+
+        <button
+          class="slow-button"
+          type="button"
+          onclick="speakKoreanSlow('저는 하나예요.', 'hana')"
+        >
+          🐢 Lentement
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="phrase">
+
+      <div class="phrase-korean">
+        저는 프랑스 사람이에요.
+      </div>
+
+      <span class="phrase-french">
+        Je suis française.
+      </span>
+
+    </div>
+
+
+    <div class="phrase">
+
+      <div class="phrase-korean">
+        저는 회사원이에요.
+      </div>
+
+      <span class="phrase-french">
+        Je suis employée de bureau.
+      </span>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       PRÉNOM
+       ===================================================== -->
+
+  <section class="summary-card">
+
+    <h2>
+      ❓ Demander le prénom
+    </h2>
+
+
+    <div class="structure-box">
+
+      이름이 뭐예요?
+
+    </div>
+
+
+    <div class="phrase">
+
+      <div class="phrase-korean">
+        이름이 뭐예요?
+      </div>
+
+      <span class="phrase-french">
+        Comment vous appelez-vous ?
+      </span>
+
+
+      <div class="audio-row">
+
+        <button
+          class="audio-button"
+          type="button"
+          onclick="speakKorean('이름이 뭐예요?', 'minsu')"
+        >
+          🔊 Écouter
+        </button>
+
+
+        <button
+          class="slow-button"
+          type="button"
+          onclick="speakKoreanSlow('이름이 뭐예요?', 'minsu')"
+        >
+          🐢 Lentement
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="tip-box">
+
+      Littéralement :
+
+      <br><br>
+
+      <strong>이름</strong> = nom
+
+      <br>
+
+      <strong>뭐예요?</strong> = c'est quoi ?
+
+      <br><br>
+
+      Dans ce chapitre,
+      retiens surtout l'expression complète :
+
+      <br><br>
+
+      <strong>이름이 뭐예요?</strong>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       NATIONALITÉ
+       ===================================================== -->
+
+  <section class="summary-card">
+
+    <h2>
+      🌍 Demander la nationalité
+    </h2>
+
+
+    <div class="structure-box">
+
+      어느 나라 사람이에요?
+
+    </div>
+
+
+    <div class="phrase">
+
+      <div class="phrase-korean">
+        어느 나라 사람이에요?
+      </div>
+
+      <span class="phrase-french">
+        De quel pays êtes-vous ?
+        / Quelle est votre nationalité ?
+      </span>
+
+
+      <div class="audio-row">
+
+        <button
+          class="audio-button"
+          type="button"
+          onclick="speakKorean('어느 나라 사람이에요?', 'minsu')"
+        >
+          🔊 Écouter
+        </button>
+
+
+        <button
+          class="slow-button"
+          type="button"
+          onclick="speakKoreanSlow('어느 나라 사람이에요?', 'minsu')"
+        >
+          🐢 Lentement
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="phrase">
+
+      <div class="phrase-korean">
+        저는 프랑스 사람이에요.
+      </div>
+
+      <span class="phrase-french">
+        Je suis française.
+      </span>
+
+    </div>
+
+
+    <div class="tip-box">
+
+      Une manière simple d'exprimer
+      la nationalité est :
+
+      <br><br>
+
+      <strong>pays + 사람</strong>
+
+      <br><br>
+
+      프랑스 + 사람
+
+      <br>
+
+      → <strong>프랑스 사람</strong>
+
+      <br><br>
+
+      한국 + 사람
+
+      <br>
+
+      → <strong>한국 사람</strong>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       PROFESSION
+       ===================================================== -->
+
+  <section class="summary-card">
+
+    <h2>
+      💼 Demander la profession
+    </h2>
+
+
+    <div class="structure-box">
+
+      직업이 뭐예요?
+
+    </div>
+
+
+    <div class="phrase">
+
+      <div class="phrase-korean">
+        직업이 뭐예요?
+      </div>
+
+      <span class="phrase-french">
+        Quel est votre métier ?
+      </span>
+
+
+      <div class="audio-row">
+
+        <button
+          class="audio-button"
+          type="button"
+          onclick="speakKorean('직업이 뭐예요?', 'minsu')"
+        >
+          🔊 Écouter
+        </button>
+
+
+        <button
+          class="slow-button"
+          type="button"
+          onclick="speakKoreanSlow('직업이 뭐예요?', 'minsu')"
+        >
+          🐢 Lentement
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="phrase">
+
+      <div class="phrase-korean">
+        저는 회사원이에요.
+      </div>
+
+      <span class="phrase-french">
+        Je suis employée de bureau.
+      </span>
+
+    </div>
+
+
+    <div class="phrase">
+
+      <div class="phrase-korean">
+        저는 학생이에요.
+      </div>
+
+      <span class="phrase-french">
+        Je suis étudiante.
+      </span>
+
+    </div>
+
+
+    <div class="tip-box">
+
+      Observe :
+
+      <br><br>
+
+      이름이 <strong>뭐예요?</strong>
+
+      <br>
+
+      직업이 <strong>뭐예요?</strong>
+
+      <br><br>
+
+      Tu commences déjà à reconnaître
+      une structure réutilisable
+      pour demander :
+
+      <br><br>
+
+      <strong>« qu'est-ce que… ? / quel est… ? »</strong>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       TROIS QUESTIONS
+       ===================================================== -->
+
+  <section class="summary-card">
+
+    <h2>
+      🧩 Les trois questions à retenir
+    </h2>
+
+
+    <div class="phrase">
+
+      <div class="phrase-korean">
+        이름이 뭐예요?
+      </div>
+
+      <span class="phrase-french">
+        Comment vous appelez-vous ?
+      </span>
+
+    </div>
+
+
+    <div class="phrase">
+
+      <div class="phrase-korean">
+        어느 나라 사람이에요?
+      </div>
+
+      <span class="phrase-french">
+        De quel pays êtes-vous ?
+      </span>
+
+    </div>
+
+
+    <div class="phrase">
+
+      <div class="phrase-korean">
+        직업이 뭐예요?
+      </div>
+
+      <span class="phrase-french">
+        Quel est votre métier ?
+      </span>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       DIALOGUE
+       ===================================================== -->
+
+  <section class="summary-card">
+
+    <h2>
+      💬 Mini dialogue
+    </h2>
+
+
+    <div class="dialogue-line">
+
+      <div class="speaker">
+        🌸 Hana
+      </div>
+
+      안녕하세요.
+
+      <br>
+
+      <span class="phrase-french">
+        Bonjour.
+      </span>
+
+    </div>
+
+
+    <div class="dialogue-line">
+
+      <div class="speaker">
+        💙 Min-su
+      </div>
+
+      안녕하세요. 이름이 뭐예요?
+
+      <br>
+
+      <span class="phrase-french">
+        Bonjour. Comment vous appelez-vous ?
+      </span>
+
+    </div>
+
+
+    <div class="dialogue-line">
+
+      <div class="speaker">
+        🌸 Hana
+      </div>
+
+      저는 하나예요.
+
+      <br>
+
+      <span class="phrase-french">
+        Je suis Hana.
+      </span>
+
+    </div>
+
+
+    <div class="dialogue-line">
+
+      <div class="speaker">
+        💙 Min-su
+      </div>
+
+      어느 나라 사람이에요?
+
+      <br>
+
+      <span class="phrase-french">
+        De quel pays êtes-vous ?
+      </span>
+
+    </div>
+
+
+    <div class="dialogue-line">
+
+      <div class="speaker">
+        🌸 Hana
+      </div>
+
+      저는 프랑스 사람이에요.
+
+      <br>
+
+      <span class="phrase-french">
+        Je suis française.
+      </span>
+
+    </div>
+
+
+    <div class="dialogue-line">
+
+      <div class="speaker">
+        💙 Min-su
+      </div>
+
+      직업이 뭐예요?
+
+      <br>
+
+      <span class="phrase-french">
+        Quel est votre métier ?
+      </span>
+
+    </div>
+
+
+    <div class="dialogue-line">
+
+      <div class="speaker">
+        🌸 Hana
+      </div>
+
+      저는 회사원이에요.
+
+      <br>
+
+      <span class="phrase-french">
+        Je suis employée de bureau.
+      </span>
+
+    </div>
+
+
+    <div class="dialogue-line">
+
+      <div class="speaker">
+        💙 Min-su
+      </div>
+
+      반가워요!
+
+      <br>
+
+      <span class="phrase-french">
+        Ravi de vous rencontrer !
+      </span>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       PRONONCIATION
+       ===================================================== -->
+
+  <section class="summary-card">
+
+    <h2>
+      👂 À l'écoute
+    </h2>
+
+
+    <p>
+      Quand tu entends une question,
+      prête attention à l'intonation finale.
+    </p>
+
+
+    <div class="phrase">
+
+      <div class="phrase-korean">
+        이름이 뭐예요?
+      </div>
+
+      <span class="phrase-french">
+        i-reu-mi mwo-ye-yo ?
+      </span>
+
+    </div>
+
+
+    <div class="phrase">
+
+      <div class="phrase-korean">
+        직업이 뭐예요?
+      </div>
+
+      <span class="phrase-french">
+        ji-geo-bi mwo-ye-yo ?
+      </span>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       CULTURE
+       ===================================================== -->
+
+  <section class="summary-card">
+
+    <h2>
+      🇰🇷 Petit point culture
+    </h2>
+
+
+    <div class="culture-box">
+
+      Lors d'une première rencontre en Corée,
+      certaines informations comme le prénom,
+      la profession ou le statut
+      peuvent naturellement apparaître
+      dans la conversation.
+
+      <br><br>
+
+      Cela aide notamment à comprendre
+      la situation sociale
+      et à choisir une façon appropriée
+      de s'adresser à l'autre personne.
+
+      <br><br>
+
+      Dans l'application,
+      on apprend d'abord
+      des formulations polies et neutres.
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       MINI MÉMO
+       ===================================================== -->
+
+  <section class="summary-card">
+
+    <h2>
+      📓 Mini mémo
+    </h2>
+
+
+    <div class="phrase">
+
+      ❓
+
+      <div class="phrase-korean">
+        이름이 뭐예요?
+      </div>
+
+      <span class="phrase-french">
+        Comment vous appelez-vous ?
+      </span>
+
+    </div>
+
+
+    <div class="phrase">
+
+      🙋
+
+      <div class="phrase-korean">
+        저는 하나예요.
+      </div>
+
+      <span class="phrase-french">
+        Je suis Hana.
+      </span>
+
+    </div>
+
+
+    <div class="phrase">
+
+      🌍
+
+      <div class="phrase-korean">
+        어느 나라 사람이에요?
+      </div>
+
+      <span class="phrase-french">
+        De quel pays êtes-vous ?
+      </span>
+
+    </div>
+
+
+    <div class="phrase">
+
+      🇫🇷
+
+      <div class="phrase-korean">
+        저는 프랑스 사람이에요.
+      </div>
+
+      <span class="phrase-french">
+        Je suis française.
+      </span>
+
+    </div>
+
+
+    <div class="phrase">
+
+      💼
+
+      <div class="phrase-korean">
+        직업이 뭐예요?
+      </div>
+
+      <span class="phrase-french">
+        Quel est votre métier ?
+      </span>
+
+    </div>
+
+
+    <div class="phrase">
+
+      🏢
+
+      <div class="phrase-korean">
+        저는 회사원이에요.
+      </div>
+
+      <span class="phrase-french">
+        Je suis employée de bureau.
+      </span>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       ACTIONS
+       ===================================================== -->
+
+  <div class="summary-actions">
+
+    <button
+      class="primary-button"
+      type="button"
+      onclick="goToItinerary()"
+    >
+      🗺️ Retour au Module 1
+    </button>
+
+
+    <button
+      class="secondary-button"
+      type="button"
+      onclick="reviewAgain()"
+    >
+      🧠 Refaire la révision
+    </button>
+
+  </div>
+
+
+</main>
+
+
+
+<script src="chapter-progress.js"></script>
+
+
+<script>
+
+  /* =====================================================
+     AUDIO
+     ===================================================== */
+
+  const AUDIO_SETTINGS = {
+
+    normalRate:
+      0.82,
+
+    slowRate:
+      0.25
+
+  };
+
+
+  function getKoreanVoice() {
+
+    const voices =
+      window.speechSynthesis
+        .getVoices();
+
+
+    return (
+      voices.find(
+        voice =>
+          voice.lang &&
+          voice.lang
+            .toLowerCase()
+            .startsWith("ko")
+      ) ||
+      null
+    );
+
+  }
+
+
+
+  function characterPitch(
+    character
+  ) {
+
+    const pitches = {
+
+      hana:
+        1.06,
+
+      minsu:
+        0.94
+
+    };
+
+
+    return (
+      pitches[
+        character
+      ] ||
+      1
+    );
+
+  }
+
+
+
+  function speak(
+    text,
+    character,
+    rate
+  ) {
+
+    window.speechSynthesis.cancel();
+
+
+    const utterance =
+      new SpeechSynthesisUtterance(
+        text
+      );
+
+
+    utterance.lang =
+      "ko-KR";
+
+
+    utterance.rate =
+      rate;
+
+
+    utterance.pitch =
+      characterPitch(
+        character
+      );
+
+
+    const voice =
+      getKoreanVoice();
+
+
+    if (voice) {
+
+      utterance.voice =
+        voice;
+
+    }
+
+
+    window.speechSynthesis.speak(
+      utterance
+    );
+
+  }
+
+
+
+  function speakKorean(
+    text,
+    character
+  ) {
+
+    speak(
+      text,
+      character,
+      AUDIO_SETTINGS.normalRate
+    );
+
+  }
+
+
+
+  function speakKoreanSlow(
+    text,
+    character
+  ) {
+
+    speak(
+      text,
+      character,
+      AUDIO_SETTINGS.slowRate
+    );
+
+  }
+
+
+
+  /* =====================================================
+     NAVIGATION
+     ===================================================== */
+
+  function goToItinerary() {
+
+    window.speechSynthesis.cancel();
+
+
+    window.location.href =
+      "itineraire.html#module1";
+
+  }
+
+
+
+  function reviewAgain() {
+
+    window.speechSynthesis.cancel();
+
+
+    window.location.href =
+      "revision-2.html";
+
+  }
+
+
+
+  /* =====================================================
+     SÉCURITÉ AUDIO
+     ===================================================== */
+
+  window.addEventListener(
+    "pagehide",
+    function() {
+
+      window.speechSynthesis.cancel();
+
+    }
+  );
+
+
+  window.addEventListener(
+    "pageshow",
+    function() {
+
+      if (
+        window.HanaChapterProgress &&
+        typeof window.HanaChapterProgress.render === "function"
+      ) {
+
+        window.HanaChapterProgress.render();
+
+      }
+
+    }
+  );
+
+</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#F7F4ED">
+  <title>Chapitre 30 — Résumé</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="chapter-progress.css">
+
+  <style>
+    .summary-header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .summary-card,
+    .tip-card,
+    .bag-card,
+    .ending-card {
+      padding: 20px;
+      margin-bottom: 18px;
+      background: var(--white);
+      border-radius: var(--radius-large);
+      box-shadow: var(--shadow);
+    }
+
+    .summary-item {
+      padding: 14px;
+      margin-top: 10px;
+      background: #FBFAF6;
+      border-radius: var(--radius-medium);
+      line-height: 1.65;
+    }
+
+    .korean-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .korean-text {
+      color: var(--navy);
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .audio-button {
+      flex: 0 0 auto;
+      padding: 9px 11px;
+      background: var(--soft-blue);
+      color: var(--navy);
+      font-weight: bold;
+    }
+
+    .audio-button.playing {
+      background: var(--navy);
+      color: white;
+    }
+
+    .romanization {
+      margin-top: 5px;
+      color: var(--jade-dark);
+      font-size: 13px;
+    }
+
+    .translation {
+      margin-top: 5px;
+      color: var(--text-light);
+    }
+
+    .grammar-box {
+      padding: 14px;
+      margin-top: 12px;
+      background: var(--soft-beige);
+      border-radius: var(--radius-medium);
+      line-height: 1.7;
+    }
+
+    .toggle-button,
+    .toolbox-button,
+    .route-button {
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    .toggle-button {
+      background: var(--soft-green);
+      color: var(--jade-dark);
+      font-weight: bold;
+    }
+
+    .toolbox-button {
+      background: var(--soft-beige);
+      color: var(--navy);
+    }
+
+    .route-button {
+      background: var(--navy);
+      color: white;
+      font-weight: bold;
+    }
+
+    .ending-card {
+      background: var(--soft-green);
+      color: var(--navy);
+      line-height: 1.75;
+    }
+
+    .bag-card {
+      background: var(--soft-blue);
+    }
+
+    .bag-card p {
+      line-height: 1.65;
+    }
+
+    .tip-card {
+      line-height: 1.75;
+    }
+  </style>
+</head>
+
+<body>
+
+<main class="app">
+
+  <a class="back-link" href="utilise-30.html">
+    ← Mission finale
+  </a>
+
+  <section id="hanaChapterPath" data-chapter-path></section>
+
+  <header class="summary-header">
+
+    <span class="chapter-badge">
+      Chapitre 30 · 📚 Résumé
+    </span>
+
+    <p class="korean">
+      내일 뭐 할 거예요?
+    </p>
+
+    <h1>Parler de ses projets</h1>
+
+    <p>
+      Retrouve ici les expressions et la grammaire essentielles du chapitre.
+    </p>
+
+    <button
+      id="romanizationToggle"
+      class="toggle-button"
+      type="button"
+    >
+      🔤 Masquer la romanisation
+    </button>
+
+  </header>
+
+
+  <section class="summary-card">
+
+    <h2>💬 Expressions essentielles</h2>
+
+
+    <div class="summary-item">
+
+      <div class="korean-row">
+        <div class="korean-text">오늘 뭐 할 거예요?</div>
+
+        <button
+          class="audio-button"
+          type="button"
+          data-audio="오늘 뭐 할 거예요?"
+        >
+          🔊
+        </button>
+      </div>
+
+      <div class="romanization">
+        oneul mwo hal geoyeyo?
+      </div>
+
+      <div class="translation">
+        Qu'est-ce que tu vas faire aujourd'hui ?
+      </div>
+
+    </div>
+
+
+    <div class="summary-item">
+
+      <div class="korean-row">
+        <div class="korean-text">내일 뭐 할 거예요?</div>
+
+        <button
+          class="audio-button"
+          type="button"
+          data-audio="내일 뭐 할 거예요?"
+        >
+          🔊
+        </button>
+      </div>
+
+      <div class="romanization">
+        naeil mwo hal geoyeyo?
+      </div>
+
+      <div class="translation">
+        Qu'est-ce que tu vas faire demain ?
+      </div>
+
+    </div>
+
+
+    <div class="summary-item">
+
+      <div class="korean-row">
+        <div class="korean-text">부산에 갈 거예요.</div>
+
+        <button
+          class="audio-button"
+          type="button"
+          data-audio="부산에 갈 거예요."
+        >
+          🔊
+        </button>
+      </div>
+
+      <div class="romanization">
+        busane gal geoyeyo.
+      </div>
+
+      <div class="translation">
+        Je vais aller à Busan.
+      </div>
+
+    </div>
+
+
+    <div class="summary-item">
+
+      <div class="korean-row">
+        <div class="korean-text">사진을 많이 찍을 거예요.</div>
+
+        <button
+          class="audio-button"
+          type="button"
+          data-audio="사진을 많이 찍을 거예요."
+        >
+          🔊
+        </button>
+      </div>
+
+      <div class="romanization">
+        sajineul mani jjigeul geoyeyo.
+      </div>
+
+      <div class="translation">
+        Je vais prendre beaucoup de photos.
+      </div>
+
+    </div>
+
+
+    <div class="summary-item">
+
+      <div class="korean-row">
+        <div class="korean-text">맛있는 음식을 먹을 거예요.</div>
+
+        <button
+          class="audio-button"
+          type="button"
+          data-audio="맛있는 음식을 먹을 거예요."
+        >
+          🔊
+        </button>
+      </div>
+
+      <div class="romanization">
+        masinneun eumsigeul meogeul geoyeyo.
+      </div>
+
+      <div class="translation">
+        Je vais manger quelque chose de délicieux.
+      </div>
+
+    </div>
+
+
+    <div class="summary-item">
+
+      <div class="korean-row">
+        <div class="korean-text">호텔에서 쉴 거예요.</div>
+
+        <button
+          class="audio-button"
+          type="button"
+          data-audio="호텔에서 쉴 거예요."
+        >
+          🔊
+        </button>
+      </div>
+
+      <div class="romanization">
+        hotereseo swil geoyeyo.
+      </div>
+
+      <div class="translation">
+        Je vais me reposer à l'hôtel.
+      </div>
+
+    </div>
+
+
+    <div class="summary-item">
+
+      <div class="korean-row">
+        <div class="korean-text">서울에 돌아갈 거예요.</div>
+
+        <button
+          class="audio-button"
+          type="button"
+          data-audio="서울에 돌아갈 거예요."
+        >
+          🔊
+        </button>
+      </div>
+
+      <div class="romanization">
+        seoure doragal geoyeyo.
+      </div>
+
+      <div class="translation">
+        Je vais retourner à Séoul.
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="summary-card">
+
+    <h2>🧠 Grammaire — -(으)ㄹ 거예요</h2>
+
+    <p>
+      Cette structure permet de parler d'un
+      <strong>projet, d'une intention ou de ce qu'on prévoit de faire</strong>.
+    </p>
+
+    <div class="grammar-box">
+      <strong>Radical terminé par une voyelle → -ㄹ 거예요</strong><br><br>
+      가다 → <strong>갈 거예요</strong><br>
+      보다 → <strong>볼 거예요</strong><br>
+      쉬다 → <strong>쉴 거예요</strong>
+    </div>
+
+    <div class="grammar-box">
+      <strong>Radical terminé par une consonne → -을 거예요</strong><br><br>
+      먹다 → <strong>먹을 거예요</strong><br>
+      찍다 → <strong>찍을 거예요</strong>
+    </div>
+
+    <div class="grammar-box">
+      <strong>하다 → 할 거예요</strong><br><br>
+      공부하다 → <strong>공부할 거예요</strong><br>
+      쇼핑하다 → <strong>쇼핑할 거예요</strong>
+    </div>
+
+  </section>
+
+
+  <section class="summary-card">
+
+    <h2>❓ Questions utiles</h2>
+
+    <div class="summary-item">
+
+      <div class="korean-row">
+        <div class="korean-text">뭐 할 거예요?</div>
+
+        <button
+          class="audio-button"
+          type="button"
+          data-audio="뭐 할 거예요?"
+        >
+          🔊
+        </button>
+      </div>
+
+      <div class="romanization">
+        mwo hal geoyeyo?
+      </div>
+
+      <div class="translation">
+        Qu'est-ce que tu vas faire ?
+      </div>
+
+    </div>
+
+
+    <div class="summary-item">
+
+      <div class="korean-row">
+        <div class="korean-text">어디에 갈 거예요?</div>
+
+        <button
+          class="audio-button"
+          type="button"
+          data-audio="어디에 갈 거예요?"
+        >
+          🔊
+        </button>
+      </div>
+
+      <div class="romanization">
+        eodie gal geoyeyo?
+      </div>
+
+      <div class="translation">
+        Où vas-tu aller ?
+      </div>
+
+    </div>
+
+
+    <div class="summary-item">
+
+      <div class="korean-row">
+        <div class="korean-text">주말에 뭐 할 거예요?</div>
+
+        <button
+          class="audio-button"
+          type="button"
+          data-audio="주말에 뭐 할 거예요?"
+        >
+          🔊
+        </button>
+      </div>
+
+      <div class="romanization">
+        jumare mwo hal geoyeyo?
+      </div>
+
+      <div class="translation">
+        Qu'est-ce que tu vas faire ce week-end ?
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="summary-card">
+
+    <h2>🌿 Proposer une activité</h2>
+
+    <div class="summary-item">
+
+      <div class="korean-row">
+        <div class="korean-text">같이 갈까요?</div>
+
+        <button
+          class="audio-button"
+          type="button"
+          data-audio="같이 갈까요?"
+        >
+          🔊
+        </button>
+      </div>
+
+      <div class="romanization">
+        gachi galkkayo?
+      </div>
+
+      <div class="translation">
+        On y va ensemble ?
+      </div>
+
+    </div>
+
+
+    <div class="summary-item">
+
+      <div class="korean-row">
+        <div class="korean-text">같이 먹을까요?</div>
+
+        <button
+          class="audio-button"
+          type="button"
+          data-audio="같이 먹을까요?"
+        >
+          🔊
+        </button>
+      </div>
+
+      <div class="romanization">
+        gachi meogeulkkayo?
+      </div>
+
+      <div class="translation">
+        On mange ensemble ?
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="summary-card">
+
+    <h2>🩵 Présent · passé · projet</h2>
+
+    <div class="grammar-box">
+      <strong>뭐 해요?</strong><br>
+      → Qu'est-ce que tu fais ?
+    </div>
+
+    <div class="grammar-box">
+      <strong>뭐 했어요?</strong><br>
+      → Qu'est-ce que tu as fait ?
+    </div>
+
+    <div class="grammar-box">
+      <strong>뭐 할 거예요?</strong><br>
+      → Qu'est-ce que tu vas faire ?
+    </div>
+
+  </section>
+
+
+  <section class="bag-card">
+
+    <h2>🎒 À mettre dans mon sac à dos</h2>
+
+    <p>📅 <strong>오늘</strong> → aujourd'hui</p>
+    <p>🌅 <strong>내일</strong> → demain</p>
+    <p>🗓️ <strong>다음 주</strong> → la semaine prochaine</p>
+    <p>🧭 <strong>계획이 있어요.</strong> → J'ai un projet / un plan.</p>
+    <p>🚶 <strong>갈 거예요</strong> → je vais aller</p>
+    <p>🍚 <strong>먹을 거예요</strong> → je vais manger</p>
+    <p>📸 <strong>찍을 거예요</strong> → je vais prendre des photos</p>
+    <p>🛏️ <strong>쉴 거예요</strong> → je vais me reposer</p>
+
+  </section>
+
+
+  <section class="tip-card">
+
+    <h2>💚 Le conseil de Ji-soo</h2>
+
+    Tu peux déjà construire beaucoup de conversations
+    simplement en changeant le moment :
+
+    <br><br>
+
+    <strong>어제</strong> → hier<br>
+    <strong>오늘</strong> → aujourd'hui<br>
+    <strong>내일</strong> → demain
+
+    <br><br>
+
+    Puis choisis la bonne forme du verbe :
+    passé, présent ou projet. 🌸
+
+  </section>
+
+
+  <section class="ending-card">
+
+    <h2>🌸 Chapitre 30 terminé</h2>
+
+    Hana sait maintenant parler de ce qu'elle fait,
+    raconter ce qu'elle a fait
+    et expliquer ce qu'elle prévoit de faire.
+
+    <br><br>
+
+    C'est la fin de cette étape de son voyage.
+
+    <br><br>
+
+    Dans le prochain module,
+    elle apprendra à aller plus loin :
+    <strong>parler de ses habitudes, donner son opinion,
+    expliquer pourquoi, comparer, exprimer ses émotions
+    et tenir de vraies petites conversations.</strong>
+
+    <br><br>
+
+    💙 Le voyage continue.
+
+  </section>
+
+
+  <button
+    class="toolbox-button"
+    type="button"
+    onclick="window.location.href='boite-outils.html'"
+  >
+    🎒 Ouvrir la boîte à outils
+  </button>
+
+
+  <button
+    class="route-button"
+    type="button"
+    onclick="window.location.href='itineraire.html'"
+  >
+    🗺️ Retour à l'itinéraire
+  </button>
+
+</main>
+
+
+<script src="chapter-progress.js"></script>
+
+<script>
+  const REQUIRED_KEY = "hanaKorean_chapter30_use";
+  const LEGACY_MISSION_KEY = "hanaKorean_chapter30_mission";
+  const LEGACY_COMPLETED_KEY = "hanaKorean_chapter30_completed";
+  const SUMMARY_KEY = "hanaKorean_chapter30_resume";
+
+  function guardAndCompleteSummary() {
+    if (localStorage.getItem(REQUIRED_KEY) !== "completed" &&
+        (localStorage.getItem(LEGACY_MISSION_KEY) === "completed" || localStorage.getItem(LEGACY_COMPLETED_KEY) === "completed")) {
+      localStorage.setItem(REQUIRED_KEY, "completed");
+    }
+    if (localStorage.getItem(REQUIRED_KEY) !== "completed") {
+      window.location.href = "utilise-30.html";
+      return false;
+    }
+    localStorage.setItem(SUMMARY_KEY, "completed");
+    if (window.HanaChapterProgress) HanaChapterProgress.render();
+    return true;
+  }
+
+  if (!guardAndCompleteSummary()) throw new Error("chapter30-summary-guard");
+
+
+  const AUDIO_SETTINGS = {
+    normalRate: 0.82
+  };
+
+
+  const romanizationKey =
+    "hanaKorean_showRomanization";
+
+
+  const toggleButton =
+    document.getElementById(
+      "romanizationToggle"
+    );
+
+
+  let currentAudioButton =
+    null;
+
+
+  function getKoreanVoice() {
+
+    const voices =
+      window.speechSynthesis.getVoices();
+
+
+    return voices.find(
+      voice =>
+        voice.lang &&
+        voice.lang
+          .toLowerCase()
+          .startsWith("ko")
+    ) || null;
+
+  }
+
+
+  function stopAudio() {
+
+    window.speechSynthesis.cancel();
+
+
+    if (
+      currentAudioButton
+    ) {
+
+      currentAudioButton
+        .classList
+        .remove(
+          "playing"
+        );
+
+
+      currentAudioButton.textContent =
+        "🔊";
+
+
+      currentAudioButton =
+        null;
+
+    }
+
+  }
+
+
+  function speakText(
+    text,
+    button
+  ) {
+
+    if (
+      currentAudioButton === button &&
+      window.speechSynthesis.speaking
+    ) {
+
+      stopAudio();
+      return;
+
+    }
+
+
+    stopAudio();
+
+
+    const utterance =
+      new SpeechSynthesisUtterance(
+        text
+      );
+
+
+    utterance.lang =
+      "ko-KR";
+
+    utterance.rate =
+      AUDIO_SETTINGS.normalRate;
+
+    utterance.pitch =
+      1;
+
+
+    const koreanVoice =
+      getKoreanVoice();
+
+
+    if (
+      koreanVoice
+    ) {
+
+      utterance.voice =
+        koreanVoice;
+
+    }
+
+
+    currentAudioButton =
+      button;
+
+
+    button
+      .classList
+      .add(
+        "playing"
+      );
+
+
+    button.textContent =
+      "⏹️";
+
+
+    utterance.onend =
+      stopAudio;
+
+
+    utterance.onerror =
+      stopAudio;
+
+
+    window.speechSynthesis.speak(
+      utterance
+    );
+
+  }
+
+
+  document
+    .querySelectorAll(
+      ".audio-button"
+    )
+    .forEach(
+      button => {
+
+        button.addEventListener(
+          "click",
+          () => {
+
+            speakText(
+              button.dataset.audio,
+              button
+            );
+
+          }
+        );
+
+      }
+    );
+
+
+  function romanizationIsVisible() {
+
+    const saved =
+      localStorage.getItem(
+        romanizationKey
+      );
+
+
+    if (
+      saved === null
+    ) {
+
+      return true;
+
+    }
+
+
+    return saved ===
+      "true";
+
+  }
+
+
+  function applyRomanizationPreference() {
+
+    const visible =
+      romanizationIsVisible();
+
+
+    document
+      .querySelectorAll(
+        ".romanization"
+      )
+      .forEach(
+        item => {
+
+          item.style.display =
+            visible
+              ? "block"
+              : "none";
+
+        }
+      );
+
+
+    toggleButton.textContent =
+      visible
+        ? "🔤 Masquer la romanisation"
+        : "🔤 Afficher la romanisation";
+
+  }
+
+
+  toggleButton.addEventListener(
+    "click",
+    () => {
+
+      const newValue =
+        !romanizationIsVisible();
+
+
+      localStorage.setItem(
+        romanizationKey,
+        String(
+          newValue
+        )
+      );
+
+
+      applyRomanizationPreference();
+
+    }
+  );
+
+
+  applyRomanizationPreference();
+
+
+  window.addEventListener(
+    "beforeunload",
+    stopAudio
+  );
+
+
+  window.speechSynthesis.onvoiceschanged =
+    () => {
+      getKoreanVoice();
+    };
+
+
+
+  window.addEventListener("pageshow", guardAndCompleteSummary);
+  if (window.HanaChapterProgress) HanaChapterProgress.render();
+</script>
+
+</body>
+</html>

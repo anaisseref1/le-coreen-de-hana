@@ -14,12 +14,14 @@
     content="#F7F4ED"
   >
 
-  <title>Mini défi d'écoute — Chapitre 11</title>
+  <title>Mini défi d'écoute — Chapitre 18</title>
 
   <link
     rel="stylesheet"
     href="style.css"
   >
+
+  <link rel="stylesheet" href="chapter-progress.css">
 
   <style>
     .exercise-header {
@@ -254,7 +256,7 @@
     </p>
 
     <h1>
-      Commander un café
+      Mini défi d'écoute
     </h1>
 
     <p>
@@ -263,6 +265,11 @@
     </p>
 
   </header>
+
+  <section
+    id="hanaChapterPath"
+    data-chapter-path
+  ></section>
 
 
   <div class="exercise-progress">
@@ -817,7 +824,60 @@
 </main>
 
 
+<script src="chapter-progress.js"></script>
+
 <script>
+
+  const CHAPTER = 18;
+
+  const UNDERSTANDING_KEY =
+    "hanaKorean_chapter18_understanding";
+
+  const LISTENING_KEY =
+    "hanaKorean_chapter18_listening";
+
+  const LISTENING_EXERCISE_KEY =
+    "hanaKorean_chapter18_listeningExercise";
+
+  const LISTENING_MISTAKES_KEY =
+    "hanaKorean_chapter18_listeningMistakes";
+
+  function guardListeningExerciseAccess() {
+    if (
+      localStorage.getItem(
+        UNDERSTANDING_KEY
+      ) !== "completed"
+    ) {
+      window.location.replace(
+        "chapitre-18.html"
+      );
+      return false;
+    }
+
+    if (
+      localStorage.getItem(
+        LISTENING_KEY
+      ) === null
+    ) {
+      window.location.replace(
+        "ecoute-18.html"
+      );
+      return false;
+    }
+
+    return true;
+  }
+
+  function renderChapterProgress() {
+    if (
+      window.HanaChapterProgress &&
+      typeof window.HanaChapterProgress.render === "function"
+    ) {
+      window.HanaChapterProgress.render();
+    }
+  }
+
+
   let incorrectAttempts = 0;
 
 
@@ -1411,16 +1471,22 @@
       message;
 
 
-    localStorage.setItem(
-      "hanaKorean_chapter18_listening",
+        localStorage.setItem(
+      LISTENING_KEY,
       "completed"
     );
 
+    localStorage.setItem(
+      LISTENING_EXERCISE_KEY,
+      "completed"
+    );
 
     localStorage.setItem(
-      "hanaKorean_chapter18_listeningMistakes",
-      incorrectAttempts
+      LISTENING_MISTAKES_KEY,
+      String(incorrectAttempts)
     );
+
+    renderChapterProgress();
 
 
     window.scrollTo({
@@ -1442,6 +1508,18 @@
 
       };
 
+  }
+
+
+  if (guardListeningExerciseAccess()) {
+    renderChapterProgress();
+
+    window.addEventListener(
+      "pageshow",
+      function() {
+        renderChapterProgress();
+      }
+    );
   }
 </script>
 

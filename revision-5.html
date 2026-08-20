@@ -15,12 +15,40 @@
     content="#F7F4ED"
   >
 
-  <title>Je révise — Chapitre 5</title>
+  <title>
+    Chapitre 5 — Je révise
+  </title>
 
   <link
     rel="stylesheet"
     href="style.css"
   >
+
+  <link
+    rel="stylesheet"
+    href="chapter-progress.css"
+  >
+
+
+  <script>
+
+    /* =====================================================
+       GARDE — J'ÉCRIS DOIT ÊTRE VALIDÉ
+       ===================================================== */
+
+    if (
+      localStorage.getItem(
+        "hanaKorean_chapter5_writing"
+      ) !== "completed"
+    ) {
+
+      window.location.replace(
+        "chapitre-5.html"
+      );
+
+    }
+
+  </script>
 
 
   <style>
@@ -31,7 +59,7 @@
 
     .review-header {
       text-align: center;
-      margin-bottom: 30px;
+      margin-bottom: 25px;
     }
 
 
@@ -49,51 +77,55 @@
     }
 
 
+    .review-intro {
+      color: var(--text-light);
+      line-height: 1.7;
+    }
+
+
     /* =====================================================
-       RÉVISION PERSONNALISÉE
+       CARTE PERSONNALISÉE
        ===================================================== */
 
     .personal-card {
-      padding: 20px;
+      padding: 18px;
 
-      margin-bottom: 22px;
+      margin-bottom: 20px;
 
-      background: var(--white);
+      background: var(--soft-green);
 
-      border-left: 5px solid var(--jade);
+      border-left: 4px solid var(--jade);
 
-      border-radius: var(--radius-large);
+      border-radius: var(--radius-medium);
 
-      box-shadow: var(--shadow);
+      color: var(--navy);
+
+      line-height: 1.7;
     }
 
 
-    .personal-card h2 {
-      margin-top: 0;
-    }
-
-
-    .notion-tags {
+    .notion-list {
       display: flex;
+
       flex-wrap: wrap;
 
       gap: 8px;
 
-      margin-top: 14px;
+      margin-top: 12px;
     }
 
 
     .notion-tag {
-      padding: 8px 12px;
+      padding: 7px 10px;
 
-      background: var(--soft-green);
+      background: var(--white);
 
       border-radius: 20px;
 
       color: var(--jade-dark);
 
-      font-size: 14px;
-      font-weight: 500;
+      font-size: 12px;
+      font-weight: bold;
     }
 
 
@@ -101,16 +133,28 @@
        PROGRESSION
        ===================================================== */
 
-    .review-progress {
-      margin-bottom: 22px;
+    .review-progress-card {
+      padding: 17px;
+
+      margin-bottom: 20px;
+
+      background: var(--white);
+
+      border-radius: var(--radius-large);
+
+      box-shadow: var(--shadow);
     }
 
 
-    .progress-info {
+    .review-progress-top {
       display: flex;
+
+      align-items: center;
       justify-content: space-between;
 
-      margin-bottom: 8px;
+      gap: 10px;
+
+      margin-bottom: 9px;
 
       color: var(--text-light);
 
@@ -118,20 +162,20 @@
     }
 
 
-    .progress-bar {
-      width: 100%;
-      height: 10px;
+    .review-progress-bar {
+      height: 9px;
+
+      overflow: hidden;
 
       background: var(--soft-beige);
 
       border-radius: 20px;
-
-      overflow: hidden;
     }
 
 
-    .progress-fill {
-      width: 20%;
+    .review-progress-fill {
+      width: 0%;
+
       height: 100%;
 
       background: var(--jade);
@@ -143,13 +187,30 @@
 
 
     /* =====================================================
-       CARTES
+       QUESTIONS
        ===================================================== */
 
     .review-card {
+      display: none;
+
       padding: 20px;
 
       margin-bottom: 18px;
+    }
+
+
+    .review-card.active {
+      display: block;
+    }
+
+
+    .question-number {
+      margin-bottom: 7px;
+
+      color: var(--jade-dark);
+
+      font-size: 13px;
+      font-weight: bold;
     }
 
 
@@ -158,36 +219,10 @@
     }
 
 
-    .question-number {
-      margin-top: 0;
+    .instruction {
+      color: var(--text-light);
 
-      color: var(--jade-dark);
-
-      font-size: 14px;
-      font-weight: bold;
-    }
-
-
-    .question {
       line-height: 1.7;
-    }
-
-
-    .korean-question {
-      padding: 17px;
-
-      margin: 15px 0;
-
-      background: #FBFAF6;
-
-      border-radius: var(--radius-medium);
-
-      color: var(--navy);
-
-      font-size: 21px;
-      font-weight: 600;
-
-      text-align: center;
     }
 
 
@@ -196,23 +231,82 @@
        ===================================================== */
 
     .answers {
-      display: flex;
-      flex-direction: column;
+      display: grid;
+
+      grid-template-columns: 1fr;
 
       gap: 10px;
 
-      margin-top: 15px;
+      margin-top: 17px;
     }
 
 
     .answer-button {
       width: 100%;
 
-      padding: 15px;
+      min-height: 54px;
+
+      padding: 13px;
+
+      background: #FBFAF6;
+
+      color: var(--navy);
 
       border: 2px solid transparent;
 
       text-align: left;
+
+      font-weight: 600;
+    }
+
+
+    .answer-button.correct {
+      background: var(--success-light) !important;
+
+      border-color: var(--success) !important;
+    }
+
+
+    .answer-button.wrong {
+      background: var(--error-light) !important;
+
+      border-color: var(--error) !important;
+    }
+
+
+    /* =====================================================
+       INPUT
+       ===================================================== */
+
+    .korean-input {
+      width: 100%;
+
+      min-height: 54px;
+
+      margin-top: 15px;
+
+      padding: 13px 14px;
+
+      background: var(--white);
+
+      color: var(--text);
+
+      border: 2px solid var(--border);
+
+      border-radius: var(--radius-medium);
+
+      font-family: inherit;
+      font-size: 18px;
+
+      outline: none;
+    }
+
+
+    .korean-input:focus {
+      border-color: var(--jade);
+
+      box-shadow:
+        0 0 0 3px rgba(111, 159, 146, 0.12);
     }
 
 
@@ -223,39 +317,65 @@
     .feedback {
       display: none;
 
-      padding: 16px;
+      padding: 15px;
 
-      margin-top: 15px;
+      margin-top: 14px;
 
       border-radius: var(--radius-medium);
 
-      line-height: 1.7;
+      line-height: 1.65;
     }
 
 
-    .feedback.correct,
-    .feedback.wrong {
+    .feedback.show {
       display: block;
     }
 
 
+    .feedback.correct {
+      background: var(--success-light);
+
+      border-left: 4px solid var(--success);
+
+      color: var(--navy);
+    }
+
+
+    .feedback.wrong {
+      background: var(--warning-light);
+
+      border-left: 4px solid var(--warning);
+
+      color: var(--navy);
+    }
+
+
     /* =====================================================
-       SUIVANT
+       BOUTONS
        ===================================================== */
 
-    .next-button {
-      display: none;
-
+    .check-button,
+    .next-button,
+    .finish-button {
       width: 100%;
 
-      margin-top: 15px;
+      margin-top: 14px;
+
+      background: var(--jade);
+
+      color: white;
 
       font-weight: bold;
     }
 
 
-    .hidden {
+    .next-button {
       display: none;
+    }
+
+
+    .next-button.show {
+      display: block;
     }
 
 
@@ -266,29 +386,40 @@
     .result-card {
       display: none;
 
-      padding: 25px;
+      padding: 22px;
+
+      margin-bottom: 18px;
 
       text-align: center;
     }
 
 
-    .result-icon {
-      font-size: 60px;
+    .result-card.show {
+      display: block;
     }
 
 
     .result-score {
+      margin: 14px 0 8px;
+
       color: var(--jade-dark);
 
-      font-size: 21px;
+      font-size: 34px;
       font-weight: bold;
     }
 
 
-    .summary-box {
-      padding: 16px;
+    .result-message {
+      color: var(--text-light);
 
+      line-height: 1.7;
+    }
+
+
+    .mistake-summary {
       margin-top: 18px;
+
+      padding: 15px;
 
       background: #FBFAF6;
 
@@ -297,58 +428,6 @@
       text-align: left;
 
       line-height: 1.7;
-    }
-
-
-    .mastery-box {
-      padding: 16px;
-
-      margin-top: 18px;
-
-      background: var(--soft-green);
-
-      border-radius: var(--radius-medium);
-
-      color: var(--navy);
-
-      text-align: left;
-
-      line-height: 1.7;
-    }
-
-
-    .garden-info {
-      padding: 14px;
-
-      margin-top: 18px;
-
-      background: var(--soft-blue);
-
-      border-radius: var(--radius-medium);
-
-      color: var(--navy);
-
-      line-height: 1.6;
-    }
-
-
-    .finish-button {
-      width: 100%;
-
-      margin-top: 18px;
-
-      font-weight: bold;
-    }
-
-
-    .chapter-button {
-      width: 100%;
-
-      margin-top: 10px;
-
-      background: var(--soft-beige);
-
-      color: var(--navy);
     }
 
   </style>
@@ -368,9 +447,9 @@
 
   <a
     class="back-link"
-    href="chapitre-5.html"
+    href="ecriture-5.html"
   >
-    ← Chapitre 5
+    ← J'écris
   </a>
 
 
@@ -382,12 +461,12 @@
   <header class="review-header">
 
     <span class="chapter-badge">
-      Chapitre 5 · Révisions
+      Module 1 · Chapitre 5
     </span>
 
 
     <p class="korean">
-      질문을 복습해요 🧠
+      복습해요 🧠
     </p>
 
 
@@ -396,9 +475,10 @@
     </h1>
 
 
-    <p>
+    <p class="review-intro">
       Vérifie que tu sais reconnaître
-      et construire les bonnes questions.
+      et construire les questions essentielles
+      du chapitre.
     </p>
 
   </header>
@@ -406,24 +486,39 @@
 
 
   <!-- =====================================================
-       RÉVISION PERSONNALISÉE
+       PARCOURS
        ===================================================== -->
 
-  <section class="personal-card">
+  <section
+    id="hanaChapterPath"
+    data-chapter-path
+  ></section>
 
-    <h2>
-      🧠 Tes révisions
-    </h2>
 
 
-    <p id="reviewIntro">
-      Analyse de tes exercices…
-    </p>
+  <!-- =====================================================
+       PERSONNALISATION
+       ===================================================== -->
+
+  <section
+    class="personal-card"
+    id="personalReviewCard"
+  >
+
+    <strong>
+      🌿 Ta révision
+    </strong>
+
+    <br><br>
+
+    <span id="personalReviewText">
+      Cette révision reprend les points essentiels du chapitre.
+    </span>
 
 
     <div
-      class="notion-tags"
-      id="notionTags"
+      class="notion-list"
+      id="personalNotions"
     ></div>
 
   </section>
@@ -434,32 +529,31 @@
        PROGRESSION
        ===================================================== -->
 
-  <div class="review-progress">
+  <section class="review-progress-card">
 
-    <div class="progress-info">
+    <div class="review-progress-top">
 
       <span>
-        Révision du chapitre
+        Révision
       </span>
 
-
-      <span id="progressLabel">
+      <strong id="reviewProgressText">
         1 / 5
-      </span>
+      </strong>
 
     </div>
 
 
-    <div class="progress-bar">
+    <div class="review-progress-bar">
 
       <div
-        class="progress-fill"
-        id="progressFill"
+        class="review-progress-fill"
+        id="reviewProgressFill"
       ></div>
 
     </div>
 
-  </div>
+  </section>
 
 
 
@@ -468,23 +562,23 @@
        ===================================================== -->
 
   <section
-    class="review-card review-question"
+    class="review-card active"
     id="question1"
   >
 
-    <p class="question-number">
-      Révision 1 / 5
-    </p>
+    <div class="question-number">
+      QUESTION 1 / 5
+    </div>
 
 
     <h2>
-      🧐 Qu'est-ce que c'est ?
+      🧐 Comment demandes-tu ce que c'est ?
     </h2>
 
 
-    <p class="question">
-      Quelle question permet de demander
-      ce qu'est un objet ?
+    <p class="instruction">
+      Choisis la phrase la plus naturelle
+      dans une conversation.
     </p>
 
 
@@ -493,27 +587,27 @@
       <button
         class="answer-button"
         type="button"
-        onclick="checkAnswer(1, this, false)"
+        onclick="checkChoice(1, this, 'correct')"
       >
-        누구예요?
+        이거 뭐예요?
       </button>
 
 
       <button
         class="answer-button"
         type="button"
-        onclick="checkAnswer(1, this, true)"
+        onclick="checkChoice(1, this, 'wrong')"
       >
-        뭐예요?
+        이거 어디예요?
       </button>
 
 
       <button
         class="answer-button"
         type="button"
-        onclick="checkAnswer(1, this, false)"
+        onclick="checkChoice(1, this, 'wrong')"
       >
-        어디에 가요?
+        누구 가요?
       </button>
 
     </div>
@@ -529,9 +623,9 @@
       class="next-button"
       id="next1"
       type="button"
-      onclick="showQuestion(2)"
+      onclick="nextQuestion()"
     >
-      Continuer →
+      Question suivante →
     </button>
 
   </section>
@@ -543,28 +637,18 @@
        ===================================================== -->
 
   <section
-    class="review-card review-question hidden"
+    class="review-card"
     id="question2"
   >
 
-    <p class="question-number">
-      Révision 2 / 5
-    </p>
-
-
-    <h2>
-      👤 Une personne
-    </h2>
-
-
-    <div class="korean-question">
-      누구예요?
+    <div class="question-number">
+      QUESTION 2 / 5
     </div>
 
 
-    <p class="question">
-      Que cherche à savoir la personne ?
-    </p>
+    <h2>
+      📍 Quel mot signifie « où » ?
+    </h2>
 
 
     <div class="answers">
@@ -572,27 +656,27 @@
       <button
         class="answer-button"
         type="button"
-        onclick="checkAnswer(2, this, false)"
+        onclick="checkChoice(2, this, 'wrong')"
       >
-        Où quelqu'un habite
+        뭐
       </button>
 
 
       <button
         class="answer-button"
         type="button"
-        onclick="checkAnswer(2, this, true)"
+        onclick="checkChoice(2, this, 'correct')"
       >
-        Qui est la personne
+        어디
       </button>
 
 
       <button
         class="answer-button"
         type="button"
-        onclick="checkAnswer(2, this, false)"
+        onclick="checkChoice(2, this, 'wrong')"
       >
-        Ce qu'est un objet
+        누구
       </button>
 
     </div>
@@ -608,9 +692,9 @@
       class="next-button"
       id="next2"
       type="button"
-      onclick="showQuestion(3)"
+      onclick="nextQuestion()"
     >
-      Continuer →
+      Question suivante →
     </button>
 
   </section>
@@ -622,57 +706,30 @@
        ===================================================== -->
 
   <section
-    class="review-card review-question hidden"
+    class="review-card"
     id="question3"
   >
 
-    <p class="question-number">
-      Révision 3 / 5
-    </p>
+    <div class="question-number">
+      QUESTION 3 / 5
+    </div>
 
 
     <h2>
-      📍 Même 어디, autre verbe
+      👤 Écris « Qui est-ce ? »
     </h2>
 
 
-    <p class="question">
-      Quelle question signifie :
-      <br><br>
-
-      <strong>« Où habites-tu ? »</strong>
-    </p>
-
-
-    <div class="answers">
-
-      <button
-        class="answer-button"
-        type="button"
-        onclick="checkAnswer(3, this, false)"
-      >
-        어디에 있어요?
-      </button>
-
-
-      <button
-        class="answer-button"
-        type="button"
-        onclick="checkAnswer(3, this, false)"
-      >
-        어디에 가요?
-      </button>
-
-
-      <button
-        class="answer-button"
-        type="button"
-        onclick="checkAnswer(3, this, true)"
-      >
-        어디에 살아요?
-      </button>
-
-    </div>
+    <input
+      class="korean-input"
+      id="input3"
+      type="text"
+      lang="ko"
+      autocomplete="off"
+      autocapitalize="off"
+      spellcheck="false"
+      placeholder="Écris en coréen"
+    >
 
 
     <div
@@ -682,12 +739,21 @@
 
 
     <button
+      class="check-button"
+      type="button"
+      onclick="checkText(3)"
+    >
+      Vérifier
+    </button>
+
+
+    <button
       class="next-button"
       id="next3"
       type="button"
-      onclick="showQuestion(4)"
+      onclick="nextQuestion()"
     >
-      Continuer →
+      Question suivante →
     </button>
 
   </section>
@@ -699,24 +765,32 @@
        ===================================================== -->
 
   <section
-    class="review-card review-question hidden"
+    class="review-card"
     id="question4"
   >
 
-    <p class="question-number">
-      Révision 4 / 5
-    </p>
+    <div class="question-number">
+      QUESTION 4 / 5
+    </div>
 
 
     <h2>
-      ❤️ Une phrase devient une question
+      ❤️ Transforme en question
     </h2>
 
 
-    <p class="question">
-      Min-su veut demander à Hana :
+    <p class="instruction">
+      Tu connais :
+
       <br><br>
 
+      <strong>
+        커피를 좋아해요.
+      </strong>
+
+      <br><br>
+
+      Quelle phrase signifie :
       <strong>« Tu aimes le café ? »</strong>
     </p>
 
@@ -726,7 +800,7 @@
       <button
         class="answer-button"
         type="button"
-        onclick="checkAnswer(4, this, true)"
+        onclick="checkChoice(4, this, 'correct')"
       >
         커피를 좋아해요?
       </button>
@@ -735,18 +809,18 @@
       <button
         class="answer-button"
         type="button"
-        onclick="checkAnswer(4, this, false)"
+        onclick="checkChoice(4, this, 'wrong')"
       >
-        커피를 싫어해요.
+        커피가 누구예요?
       </button>
 
 
       <button
         class="answer-button"
         type="button"
-        onclick="checkAnswer(4, this, false)"
+        onclick="checkChoice(4, this, 'wrong')"
       >
-        커피가 어디예요?
+        커피를 어디에 가요?
       </button>
 
     </div>
@@ -762,9 +836,9 @@
       class="next-button"
       id="next4"
       type="button"
-      onclick="showQuestion(5)"
+      onclick="nextQuestion()"
     >
-      Dernière révision →
+      Question suivante →
     </button>
 
   </section>
@@ -776,38 +850,33 @@
        ===================================================== -->
 
   <section
-    class="review-card review-question hidden"
+    class="review-card"
     id="question5"
   >
 
-    <p class="question-number">
-      Révision 5 / 5
-    </p>
-
-
-    <h2>
-      💬 À toi de choisir la bonne question
-    </h2>
-
-
-    <p>
-      Min-su dit :
-    </p>
-
-
-    <div class="korean-question">
-      저는 지금 가요.
+    <div class="question-number">
+      QUESTION 5 / 5
     </div>
 
 
-    <p class="question">
-      « Je pars maintenant. »
+    <h2>
+      💬 Fais continuer la conversation
+    </h2>
+
+
+    <p class="instruction">
+      Min-su demande :
 
       <br><br>
 
-      Tu veux savoir où il va.
+      <strong>
+        커피를 좋아해요?
+      </strong>
 
-      Quelle question est la plus adaptée ?
+      <br><br>
+
+      Quelle réponse permet à Hana
+      de répondre puis de relancer Min-su ?
     </p>
 
 
@@ -816,27 +885,27 @@
       <button
         class="answer-button"
         type="button"
-        onclick="checkAnswer(5, this, false)"
+        onclick="checkChoice(5, this, 'wrong')"
       >
-        민수 씨는 어디에 살아요?
+        네, 커피예요.
       </button>
 
 
       <button
         class="answer-button"
         type="button"
-        onclick="checkAnswer(5, this, true)"
+        onclick="checkChoice(5, this, 'correct')"
       >
-        민수 씨는 어디에 가요?
+        네, 정말 좋아해요. 민수 씨는요?
       </button>
 
 
       <button
         class="answer-button"
         type="button"
-        onclick="checkAnswer(5, this, false)"
+        onclick="checkChoice(5, this, 'wrong')"
       >
-        민수 씨는 누구예요?
+        누구예요?
       </button>
 
     </div>
@@ -854,7 +923,7 @@
       type="button"
       onclick="finishReview()"
     >
-      Voir mon résultat 🌿
+      Voir mon résultat →
     </button>
 
   </section>
@@ -870,81 +939,37 @@
     id="resultCard"
   >
 
-    <div class="result-icon">
-      🧠❓
-    </div>
-
-
     <h2>
-      복습 완료!
+      🧠 Révision terminée
     </h2>
 
 
-    <p>
-      Révision terminée !
-    </p>
-
-
-    <p class="result-score">
-      5 notions validées ✅
-    </p>
-
-
-
-    <div class="summary-box">
-
-      <strong>
-        📊 Ta séance
-      </strong>
-
-
-      <p id="resultMessage"></p>
-
+    <div
+      class="result-score"
+      id="resultScore"
+    >
+      0 / 5
     </div>
 
 
-
-    <div class="mastery-box">
-
-      <strong>
-        🌿 Ce que tu consolides
-      </strong>
+    <p
+      class="result-message"
+      id="resultMessage"
+    ></p>
 
 
-      <p id="masteryText"></p>
-
-    </div>
-
-
-
-    <div class="garden-info">
-
-      💧 Activité terminée !
-
-      <br><br>
-
-      Il ne reste plus que
-      <strong>la mission finale 🎯</strong>
-      du chapitre 5.
-    </div>
-
+    <div
+      class="mistake-summary"
+      id="mistakeSummary"
+    ></div>
 
 
     <button
       class="finish-button"
       type="button"
-      onclick="window.location.href='utilise-5.html'"
+      onclick="completeReviewAndGo()"
     >
-      🎯 Passer à « Je l'utilise »
-    </button>
-
-
-    <button
-      class="chapter-button"
-      type="button"
-      onclick="window.location.href='chapitre-5.html'"
-    >
-      Retour au chapitre
+      ✅ J'ai terminé · Passer à « Je l'utilise »
     </button>
 
   </section>
@@ -954,159 +979,209 @@
 
 
 
+<script src="chapter-progress.js"></script>
+
+
 <script>
 
   /* =====================================================
-     VARIABLES
+     FEEDBACK
      ===================================================== */
 
-  let incorrectAttempts =
-    0;
+  const correctFeedback = {
+
+    1:
+      "Exact ✓ 이거 뭐예요? est la formulation naturelle pour demander « Qu'est-ce que c'est, ça ? ».",
+
+    2:
+      "Exact ✓ 어디 signifie « où ».",
+
+    3:
+      "Exact ✓ 누구예요? signifie « Qui est-ce ? ».",
+
+    4:
+      "Exact ✓ La structure reste 커피를 좋아해요 et l'intonation en fait une question.",
+
+    5:
+      "Exact ✓ Hana répond avec 정말 좋아해요 puis relance Min-su avec 민수 씨는요?."
+
+  };
 
 
-  const mistakesDuringReview =
-    new Set();
+  const wrongFeedback = {
 
+    1:
+      "Pour demander « quoi ? », cherche le mot 뭐. La phrase attendue est 이거 뭐예요?.",
 
-  const completed = {
+    2:
+      "뭐 signifie « quoi » et 누구 signifie « qui ». Le mot pour « où » est 어디.",
 
-    1: false,
-    2: false,
-    3: false,
-    4: false,
-    5: false
+    3:
+      "Le mot interrogatif pour « qui » est 누구. Ajoute 예요? : 누구예요?",
+
+    4:
+      "Ici on ne change pas la structure. 커피를 좋아해요 devient simplement 커피를 좋아해요?.",
+
+    5:
+      "Pour faire continuer la conversation, Hana doit répondre puis renvoyer la question avec 민수 씨는요?."
 
   };
 
 
 
   /* =====================================================
-     CHARGER LES DIFFICULTÉS DE J'ÉCRIS
+     ÉTAT
+     ===================================================== */
+
+  let currentQuestion =
+    1;
+
+
+  const TOTAL_QUESTIONS =
+    5;
+
+
+  let correctCount =
+    0;
+
+
+  const completedQuestions =
+    new Set();
+
+
+  const reviewMistakes =
+    [];
+
+
+
+  /* =====================================================
+     PERSONNALISATION
      ===================================================== */
 
   function loadPersonalReview() {
-
-    const saved =
-      localStorage.getItem(
-        "hanaKorean_chapter5_revisionNotions"
-      );
-
 
     let notions =
       [];
 
 
-    if (saved) {
+    try {
 
-      try {
+      notions =
+        JSON.parse(
+          localStorage.getItem(
+            "hanaKorean_chapter5_revisionNotions"
+          ) ||
+          "[]"
+        );
 
-        notions =
-          JSON.parse(
-            saved
-          );
+    }
 
-      }
+    catch (error) {
 
-      catch (error) {
-
-        notions =
-          [];
-
-      }
+      notions =
+        [];
 
     }
 
 
-
-    const intro =
+    const text =
       document.getElementById(
-        "reviewIntro"
+        "personalReviewText"
       );
 
 
-    const tags =
+    const container =
       document.getElementById(
-        "notionTags"
+        "personalNotions"
       );
-
 
 
     if (
+      !Array.isArray(
+        notions
+      ) ||
       notions.length === 0
     ) {
 
-      intro.textContent =
-        "Aucune difficulté particulière n'a été enregistrée. Voici une révision générale du chapitre.";
+      text.textContent =
+        "Tu n'as pas de difficulté particulière enregistrée. On revoit donc les cinq points essentiels du chapitre.";
 
-
-      notions = [
-
-        "뭐",
-        "어디",
-        "누구",
-        "있어요 / 가요 / 살아요",
-        "좋아해요?",
-        "poser une question spontanément"
-
-      ];
-
-    }
-
-    else {
-
-      intro.textContent =
-        "Pendant l'écriture, l'application a repéré ces notions à renforcer :";
+      return;
 
     }
 
 
+    text.textContent =
+      "Pendant l'écriture, certains points t'ont demandé davantage d'attention. Ils réapparaissent dans cette révision :";
 
-    tags.innerHTML =
-      notions
-        .map(
-          notion =>
-            "<span class='notion-tag'>" +
-            notion +
-            "</span>"
-        )
-        .join("");
+
+    notions.forEach(
+      notion => {
+
+        const tag =
+          document.createElement(
+            "span"
+          );
+
+
+        tag.className =
+          "notion-tag";
+
+
+        tag.textContent =
+          notion;
+
+
+        container.appendChild(
+          tag
+        );
+
+      }
+    );
 
   }
 
 
 
   /* =====================================================
-     VÉRIFIER UNE RÉPONSE
+     CHOIX
      ===================================================== */
 
-  function checkAnswer(
-    number,
+  function checkChoice(
+    questionNumber,
     button,
-    isCorrect
+    answer
   ) {
 
     if (
-      completed[number]
+      completedQuestions.has(
+        questionNumber
+      )
     ) {
+
       return;
+
     }
 
 
     const feedback =
       document.getElementById(
-        "feedback" + number
+        "feedback" +
+        questionNumber
       );
 
 
+    if (
+      answer ===
+      "correct"
+    ) {
 
-    /* ===================================================
-       BONNE RÉPONSE
-       =================================================== */
+      completedQuestions.add(
+        questionNumber
+      );
 
-    if (isCorrect) {
 
-      completed[number] =
-        true;
+      correctCount++;
 
 
       button.classList.add(
@@ -1115,116 +1190,31 @@
 
 
       feedback.className =
-        "feedback correct";
+        "feedback correct show";
 
 
-
-      if (
-        number === 1
-      ) {
-
-        feedback.innerHTML =
-          "✅ <strong>Exact !</strong>" +
-          "<br><br>" +
-          "<strong>뭐</strong> signifie « quoi / que »." +
-          "<br><br>" +
-          "→ <strong>뭐예요?</strong> = Qu'est-ce que c'est ?";
-
-      }
-
-
-
-      if (
-        number === 2
-      ) {
-
-        feedback.innerHTML =
-          "✅ <strong>Très bien !</strong>" +
-          "<br><br>" +
-          "<strong>누구</strong> signifie « qui » : la question porte sur l'identité d'une personne.";
-
-      }
-
-
-
-      if (
-        number === 3
-      ) {
-
-        feedback.innerHTML =
-          "✅ <strong>Exact !</strong>" +
-          "<br><br>" +
-          "<strong>살아요</strong> signifie « habiter / vivre »." +
-          "<br><br>" +
-          "→ 어디에 살아요?";
-
-      }
-
-
-
-      if (
-        number === 4
-      ) {
-
-        feedback.innerHTML =
-          "✅ <strong>Très bien !</strong>" +
-          "<br><br>" +
-          "La structure <strong>커피를 좋아해요</strong> devient une question grâce à l'intonation." +
-          "<br><br>" +
-          "→ 커피를 좋아해요?";
-
-      }
-
-
-
-      if (
-        number === 5
-      ) {
-
-        feedback.innerHTML =
-          "✅ <strong>Parfait !</strong>" +
-          "<br><br>" +
-          "Min-su dit qu'il part : tu veux donc connaître sa destination." +
-          "<br><br>" +
-          "→ <strong>민수 씨는 어디에 가요?</strong>";
-
-      }
-
-
-
-      document
-        .querySelectorAll(
-          "#question" +
-          number +
-          " .answer-button"
-        )
-        .forEach(
-          answer => {
-
-            answer.disabled =
-              true;
-
-          }
-        );
+      feedback.textContent =
+        correctFeedback[
+          questionNumber
+        ];
 
 
       document.getElementById(
-        "next" + number
-      ).style.display =
-        "block";
+        "next" +
+        questionNumber
+      ).classList.add(
+        "show"
+      );
+
+
+      disableAnswers(
+        questionNumber
+      );
 
 
       return;
 
     }
-
-
-
-    /* ===================================================
-       MAUVAISE RÉPONSE
-       =================================================== */
-
-    incorrectAttempts++;
 
 
     button.classList.add(
@@ -1233,183 +1223,479 @@
 
 
     feedback.className =
-      "feedback wrong";
+      "feedback wrong show";
 
+
+    feedback.textContent =
+      wrongFeedback[
+        questionNumber
+      ];
 
 
     if (
-      number === 1
+      !reviewMistakes.includes(
+        questionNumber
+      )
     ) {
 
-      mistakesDuringReview.add(
-        "뭐 / 어디 / 누구"
+      reviewMistakes.push(
+        questionNumber
       );
-
-
-      feedback.innerHTML =
-        "❌ <strong>Tu veux demander ce qu'est une chose.</strong>" +
-        "<br><br>" +
-        "💡 <strong>뭐</strong> = quoi" +
-        "<br>" +
-        "<strong>누구</strong> = qui" +
-        "<br>" +
-        "<strong>어디</strong> = où";
 
     }
 
 
-
-    if (
-      number === 2
-    ) {
-
-      mistakesDuringReview.add(
-        "누구"
-      );
-
-
-      feedback.innerHTML =
-        "❌ <strong>Observe le mot 누구.</strong>" +
-        "<br><br>" +
-        "💡 Il sert à demander <strong>qui</strong> est une personne.";
-
-    }
-
-
-
-    if (
-      number === 3
-    ) {
-
-      mistakesDuringReview.add(
-        "있어요 / 가요 / 살아요"
-      );
-
-
-      feedback.innerHTML =
-        "❌ <strong>어디 indique bien « où », mais le verbe change le sens.</strong>" +
-        "<br><br>" +
-        "📍 있어요 → être / se trouver" +
-        "<br>" +
-        "🚶 가요 → aller" +
-        "<br>" +
-        "🏠 살아요 → habiter";
-
-    }
-
-
-
-    if (
-      number === 4
-    ) {
-
-      mistakesDuringReview.add(
-        "question avec 좋아해요"
-      );
-
-
-      feedback.innerHTML =
-        "❌ <strong>La question porte sur le fait d'aimer le café.</strong>" +
-        "<br><br>" +
-        "💡 Réutilise simplement <strong>커피를 좋아해요</strong> avec une intonation interrogative.";
-
-    }
-
-
-
-    if (
-      number === 5
-    ) {
-
-      mistakesDuringReview.add(
-        "poser une question spontanément"
-      );
-
-
-      feedback.innerHTML =
-        "❌ <strong>Min-su dit qu'il part maintenant.</strong>" +
-        "<br><br>" +
-        "Tu veux savoir sa destination." +
-        "<br><br>" +
-        "💡 Pense à <strong>어디</strong> + <strong>가요</strong>.";
-
-    }
-
-
-
-    setTimeout(
-      () => {
+    window.setTimeout(
+      function() {
 
         button.classList.remove(
           "wrong"
         );
 
       },
-      800
+      700
     );
 
   }
 
 
 
-  /* =====================================================
-     QUESTION SUIVANTE
-     ===================================================== */
-
-  function showQuestion(number) {
+  function disableAnswers(
+    questionNumber
+  ) {
 
     document
+      .getElementById(
+        "question" +
+        questionNumber
+      )
       .querySelectorAll(
-        ".review-question"
+        ".answer-button"
       )
       .forEach(
-        card => {
+        button => {
 
-          card.classList.add(
-            "hidden"
-          );
+          button.disabled =
+            true;
 
         }
       );
 
+  }
+
+
+
+  /* =====================================================
+     TEXTE
+     ===================================================== */
+
+  function normalizeKorean(
+    text
+  ) {
+
+    return text
+      .replace(
+        /[.,!?？！。，]/g,
+        ""
+      )
+      .replace(
+        /\s+/g,
+        " "
+      )
+      .trim();
+
+  }
+
+
+
+  function checkText(
+    questionNumber
+  ) {
+
+    if (
+      completedQuestions.has(
+        questionNumber
+      )
+    ) {
+
+      return;
+
+    }
+
+
+    const input =
+      document.getElementById(
+        "input" +
+        questionNumber
+      );
+
+
+    const feedback =
+      document.getElementById(
+        "feedback" +
+        questionNumber
+      );
+
+
+    const answer =
+      normalizeKorean(
+        input.value
+      );
+
+
+    if (
+      answer ===
+      normalizeKorean(
+        "누구예요?"
+      )
+    ) {
+
+      completedQuestions.add(
+        questionNumber
+      );
+
+
+      correctCount++;
+
+
+      input.disabled =
+        true;
+
+
+      feedback.className =
+        "feedback correct show";
+
+
+      feedback.textContent =
+        correctFeedback[
+          questionNumber
+        ];
+
+
+      document.getElementById(
+        "next" +
+        questionNumber
+      ).classList.add(
+        "show"
+      );
+
+
+      return;
+
+    }
+
+
+    feedback.className =
+      "feedback wrong show";
+
+
+    feedback.textContent =
+      wrongFeedback[
+        questionNumber
+      ];
+
+
+    if (
+      !reviewMistakes.includes(
+        questionNumber
+      )
+    ) {
+
+      reviewMistakes.push(
+        questionNumber
+      );
+
+    }
+
+  }
+
+
+
+  /* =====================================================
+     NAVIGATION
+     ===================================================== */
+
+  function nextQuestion() {
+
+    if (
+      !completedQuestions.has(
+        currentQuestion
+      )
+    ) {
+
+      return;
+
+    }
+
 
     document.getElementById(
-      "question" + number
+      "question" +
+      currentQuestion
     ).classList.remove(
-      "hidden"
+      "active"
     );
 
 
-    const percentages = {
-
-      1: 20,
-      2: 40,
-      3: 60,
-      4: 80,
-      5: 100
-
-    };
+    currentQuestion++;
 
 
     document.getElementById(
-      "progressFill"
-    ).style.width =
-      percentages[number] +
-      "%";
+      "question" +
+      currentQuestion
+    ).classList.add(
+      "active"
+    );
 
 
-    document.getElementById(
-      "progressLabel"
-    ).textContent =
-      number +
-      " / 5";
+    updateReviewProgress();
 
 
     window.scrollTo({
+      top:
+        0,
+      behavior:
+        "smooth"
+    });
 
-      top: 0,
-      behavior: "smooth"
+  }
 
+
+
+  function updateReviewProgress() {
+
+    const percentage =
+      currentQuestion /
+      TOTAL_QUESTIONS *
+      100;
+
+
+    document.getElementById(
+      "reviewProgressText"
+    ).textContent =
+      currentQuestion +
+      " / " +
+      TOTAL_QUESTIONS;
+
+
+    document.getElementById(
+      "reviewProgressFill"
+    ).style.width =
+      percentage +
+      "%";
+
+  }
+
+
+
+  /* =====================================================
+     RÉSULTAT
+     ===================================================== */
+
+  function finishReview() {
+
+    if (
+      !completedQuestions.has(
+        5
+      )
+    ) {
+
+      return;
+
+    }
+
+
+    document.getElementById(
+      "question5"
+    ).classList.remove(
+      "active"
+    );
+
+
+    document.getElementById(
+      "reviewProgressText"
+    ).textContent =
+      "5 / 5";
+
+
+    document.getElementById(
+      "reviewProgressFill"
+    ).style.width =
+      "100%";
+
+
+    document.getElementById(
+      "resultCard"
+    ).classList.add(
+      "show"
+    );
+
+
+    document.getElementById(
+      "resultScore"
+    ).textContent =
+      correctCount +
+      " / 5";
+
+
+    const message =
+      document.getElementById(
+        "resultMessage"
+      );
+
+
+    if (
+      reviewMistakes.length === 0
+    ) {
+
+      message.textContent =
+        "Bravo 🌿 Les questions essentielles du chapitre sont bien acquises.";
+
+    }
+
+    else if (
+      reviewMistakes.length <= 2
+    ) {
+
+      message.textContent =
+        "Très bien 🌿 Quelques points ont demandé une deuxième tentative, mais tu as corrigé tes erreurs.";
+
+    }
+
+    else {
+
+      message.textContent =
+        "Révision terminée 🌱 Tu sais maintenant précisément quelles structures méritent encore un peu d'entraînement.";
+
+    }
+
+
+    const notions =
+      [];
+
+
+    if (
+      reviewMistakes.includes(
+        1
+      )
+    ) {
+
+      notions.push(
+        "이거 뭐예요? → demander ce qu'est quelque chose"
+      );
+
+    }
+
+
+    if (
+      reviewMistakes.includes(
+        2
+      )
+    ) {
+
+      notions.push(
+        "어디 → où"
+      );
+
+    }
+
+
+    if (
+      reviewMistakes.includes(
+        3
+      )
+    ) {
+
+      notions.push(
+        "누구예요? → Qui est-ce ?"
+      );
+
+    }
+
+
+    if (
+      reviewMistakes.includes(
+        4
+      )
+    ) {
+
+      notions.push(
+        "transformer une affirmation en question"
+      );
+
+    }
+
+
+    if (
+      reviewMistakes.includes(
+        5
+      )
+    ) {
+
+      notions.push(
+        "민수 씨는요? → relancer la conversation"
+      );
+
+    }
+
+
+    const summary =
+      document.getElementById(
+        "mistakeSummary"
+      );
+
+
+    if (
+      notions.length === 0
+    ) {
+
+      summary.innerHTML =
+        "<strong>✅ Rien de particulier à revoir.</strong>";
+
+    }
+
+    else {
+
+      summary.innerHTML =
+        "<strong>🧠 À garder en tête :</strong><br><br>" +
+        notions
+          .map(
+            notion =>
+              "• " +
+              notion
+          )
+          .join(
+            "<br>"
+          );
+
+    }
+
+
+    /*
+      On sauvegarde les difficultés,
+      mais JE RÉVISE n'est PAS encore validé.
+    */
+
+    localStorage.setItem(
+      "hanaKorean_chapter5_reviewMistakes",
+      JSON.stringify(
+        reviewMistakes
+      )
+    );
+
+
+    localStorage.setItem(
+      "hanaKorean_chapter5_reviewWeakNotions",
+      JSON.stringify(
+        notions
+      )
+    );
+
+
+    window.scrollTo({
+      top:
+        0,
+      behavior:
+        "smooth"
     });
 
   }
@@ -1417,137 +1703,10 @@
 
 
   /* =====================================================
-     FIN DE LA RÉVISION
+     VALIDATION FINALE
      ===================================================== */
 
-  function finishReview() {
-
-    document
-      .querySelectorAll(
-        ".review-question"
-      )
-      .forEach(
-        card => {
-
-          card.classList.add(
-            "hidden"
-          );
-
-        }
-      );
-
-
-    document.getElementById(
-      "progressFill"
-    ).style.width =
-      "100%";
-
-
-    document.getElementById(
-      "progressLabel"
-    ).textContent =
-      "5 / 5";
-
-
-    document.getElementById(
-      "resultCard"
-    ).style.display =
-      "block";
-
-
-
-    let resultMessage =
-      "";
-
-
-    if (
-      incorrectAttempts === 0
-    ) {
-
-      resultMessage =
-        "🌟 Les 5 réponses ont été trouvées du premier coup.";
-
-    }
-
-    else if (
-      incorrectAttempts === 1
-    ) {
-
-      resultMessage =
-        "💡 1 tentative incorrecte, puis toutes les notions ont été validées.";
-
-    }
-
-    else {
-
-      resultMessage =
-        "💡 " +
-        incorrectAttempts +
-        " tentatives incorrectes pendant la révision. Toutes les notions ont néanmoins été validées.";
-
-    }
-
-
-    document.getElementById(
-      "resultMessage"
-    ).textContent =
-      resultMessage;
-
-
-
-    const weakNotions =
-      Array.from(
-        mistakesDuringReview
-      );
-
-
-
-    if (
-      weakNotions.length === 0
-    ) {
-
-      document.getElementById(
-        "masteryText"
-      ).innerHTML =
-        "Tu distingues correctement :" +
-        "<br><br>" +
-        "🧐 <strong>뭐</strong> — quoi" +
-        "<br>" +
-        "👤 <strong>누구</strong> — qui" +
-        "<br>" +
-        "📍 <strong>어디</strong> — où" +
-        "<br>" +
-        "📍 <strong>있어요</strong> — être / se trouver" +
-        "<br>" +
-        "🚶 <strong>가요</strong> — aller" +
-        "<br>" +
-        "🏠 <strong>살아요</strong> — habiter" +
-        "<br>" +
-        "❤️ <strong>좋아해요?</strong> — demander si quelqu'un aime quelque chose";
-
-    }
-
-    else {
-
-      document.getElementById(
-        "masteryText"
-      ).innerHTML =
-        "Ces notions pourront revenir dans les prochaines révisions :" +
-        "<br><br>" +
-        weakNotions
-          .map(
-            notion =>
-              "• " + notion
-          )
-          .join("<br>");
-
-    }
-
-
-
-    /* ===================================================
-       VALIDATION DE 🧠 JE RÉVISE
-       =================================================== */
+  function completeReviewAndGo() {
 
     localStorage.setItem(
       "hanaKorean_chapter5_review",
@@ -1555,26 +1714,18 @@
     );
 
 
-    localStorage.setItem(
-      "hanaKorean_chapter5_reviewMistakes",
-      incorrectAttempts
-    );
+    if (
+      window.HanaChapterProgress &&
+      typeof window.HanaChapterProgress.render === "function"
+    ) {
+
+      window.HanaChapterProgress.render();
+
+    }
 
 
-    localStorage.setItem(
-      "hanaKorean_chapter5_reviewWeakNotions",
-      JSON.stringify(
-        weakNotions
-      )
-    );
-
-
-    window.scrollTo({
-
-      top: 0,
-      behavior: "smooth"
-
-    });
+    window.location.href =
+      "utilise-5.html";
 
   }
 
@@ -1585,6 +1736,26 @@
      ===================================================== */
 
   loadPersonalReview();
+
+
+  updateReviewProgress();
+
+
+  window.addEventListener(
+    "pageshow",
+    function() {
+
+      if (
+        window.HanaChapterProgress &&
+        typeof window.HanaChapterProgress.render === "function"
+      ) {
+
+        window.HanaChapterProgress.render();
+
+      }
+
+    }
+  );
 
 </script>
 

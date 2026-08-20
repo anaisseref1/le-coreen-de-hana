@@ -14,11 +14,16 @@
     content="#F7F4ED"
   >
 
-  <title>Mini défi d'écoute — Chapitre 11</title>
+  <title>Mini défi d'écoute — Chapitre 14</title>
 
   <link
     rel="stylesheet"
     href="style.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="chapter-progress.css"
   >
 
   <style>
@@ -263,6 +268,12 @@
     </p>
 
   </header>
+
+
+  <section
+    id="hanaChapterPath"
+    data-chapter-path
+  ></section>
 
 
   <div class="exercise-progress">
@@ -1441,9 +1452,16 @@
 
 
     localStorage.setItem(
-      "hanaKorean_chapter14_listening",
+      LISTENING_KEY,
       "completed"
     );
+
+    localStorage.setItem(
+      LISTENING_EXERCISE_KEY,
+      "completed"
+    );
+
+    renderChapterProgress();
 
 
     localStorage.setItem(
@@ -1472,6 +1490,25 @@
       };
 
   }
+
+
+  if (
+    guardExerciseAccess()
+  ) {
+
+    renderChapterProgress();
+
+    window.addEventListener(
+      "pageshow",
+      function() {
+
+        renderChapterProgress();
+
+      }
+    );
+
+  }
+
 </script>
 
 </body>

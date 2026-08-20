@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="theme-color"
+    content="#F7F4ED"
+  >
+
+  <title>Chapitre 23 — Je parle</title>
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+  <link rel="stylesheet" href="chapter-progress.css">
+
+  <style>
+
+    .speak-header {
+      text-align:center;
+      margin-bottom:24px;
+    }
+
+    .scenario-card,
+    .speech-card,
+    .tip-card {
+      padding:20px;
+      margin-bottom:18px;
+      background:var(--white);
+      border-radius:var(--radius-large);
+      box-shadow:var(--shadow);
+    }
+
+    .speech-step {
+      padding:16px;
+      margin-top:14px;
+      background:#FBFAF6;
+      border-radius:var(--radius-medium);
+    }
+
+    .speaker {
+      margin-bottom:8px;
+      color:var(--navy);
+      font-weight:bold;
+    }
+
+    .prompt-korean {
+      color:var(--navy);
+      font-size:19px;
+      font-weight:bold;
+      line-height:1.6;
+    }
+
+    .prompt-french {
+      margin-top:5px;
+      color:var(--text-light);
+      line-height:1.5;
+    }
+
+    .listen-button,
+    .mic-button {
+      width:100%;
+      margin-top:10px;
+    }
+
+    .listen-button {
+      background:var(--soft-blue);
+      color:var(--navy);
+    }
+
+    .mic-button {
+      background:var(--jade);
+      color:white;
+      font-weight:bold;
+    }
+
+    .mic-button.listening {
+      background:var(--navy);
+    }
+
+    .speech-feedback {
+      display:none;
+      margin-top:12px;
+      padding:12px 14px;
+      border-radius:var(--radius-medium);
+      line-height:1.6;
+    }
+
+    .speech-feedback.show {
+      display:block;
+    }
+
+    .speech-feedback.success {
+      background:var(--success-light);
+      color:var(--success);
+    }
+
+    .speech-feedback.error {
+      background:var(--error-light);
+      color:var(--error);
+    }
+
+    .transcript {
+      margin-top:8px;
+      color:var(--text-light);
+      font-size:14px;
+    }
+
+    .complete-button,
+    .next-button,
+    .back-button {
+      width:100%;
+      margin-top:10px;
+    }
+
+    .complete-button {
+      display:none;
+      background:var(--jade);
+      color:white;
+      font-weight:bold;
+    }
+
+    .complete-button.show {
+      display:block;
+    }
+
+    .complete-button.done {
+      background:var(--success);
+    }
+
+    .next-button {
+      display:none;
+      background:var(--navy);
+      color:white;
+      font-weight:bold;
+    }
+
+    .back-button {
+      background:var(--soft-beige);
+      color:var(--navy);
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+<main class="app">
+
+  <a
+    class="back-link"
+    href="exercice-ecoute-23.html"
+  >
+    ← Exercice d'écoute
+  </a>
+
+  <header class="speak-header">
+
+    <span class="chapter-badge">
+      Chapitre 23 · 🗣️ Je parle
+    </span>
+
+    <p class="korean">
+      뭐를 사고 싶어요? 🛒
+    </p>
+
+    <h1>
+      Faire les courses à l'oral
+    </h1>
+
+    <p>
+      Réponds à Ji-soo et Min-su comme dans un vrai supermarché.
+      L'objectif est de dire ce que tu veux acheter
+      et de comprendre où se trouvent les produits.
+    </p>
+
+  </header>
+
+  <section id="hanaChapterPath" data-chapter-path></section>
+
+
+  <section class="scenario-card">
+
+    <h2>🎭 Situation</h2>
+
+    Tu es dans un supermarché avec Ji-soo et Min-su.
+    Tu dois dire ce que tu veux acheter,
+    accepter une suggestion et demander où se trouve un produit.
+
+  </section>
+
+
+  <section class="speech-card">
+
+    <h2>💬 Conversation guidée</h2>
+
+
+    <div
+      class="speech-step"
+      data-step="1"
+      data-expected="우유하고 딸기를 사고 싶어요"
+    >
+
+      <div class="speaker">
+        💚 Ji-soo
+      </div>
+
+      <div class="prompt-korean">
+        하나 씨, 뭐를 사고 싶어요?
+      </div>
+
+      <div class="prompt-french">
+        Hana, qu'aimerais-tu acheter ?
+      </div>
+
+      <button
+        class="listen-button"
+        type="button"
+        data-audio="하나 씨, 뭐를 사고 싶어요?"
+      >
+        🔊 Écouter Ji-soo
+      </button>
+
+      <button
+        class="mic-button"
+        type="button"
+      >
+        🎤 Répondre
+      </button>
+
+      <div class="speech-feedback"></div>
+
+    </div>
+
+
+    <div
+      class="speech-step"
+      data-step="2"
+      data-expected="좋아요"
+    >
+
+      <div class="speaker">
+        💙 Min-su
+      </div>
+
+      <div class="prompt-korean">
+        커피도 살까요?
+      </div>
+
+      <div class="prompt-french">
+        Et si on achetait aussi du café ?
+      </div>
+
+      <button
+        class="listen-button"
+        type="button"
+        data-audio="커피도 살까요?"
+      >
+        🔊 Écouter Min-su
+      </button>
+
+      <button
+        class="mic-button"
+        type="button"
+      >
+        🎤 Répondre
+      </button>
+
+      <div class="speech-feedback"></div>
+
+    </div>
+
+
+    <div
+      class="speech-step"
+      data-step="3"
+      data-expected="과자도 사고 싶어요"
+    >
+
+      <div class="speaker">
+        🌸 À toi
+      </div>
+
+      <div class="prompt-french">
+        Ajoute : « Et j'aimerais aussi acheter des biscuits. »
+      </div>
+
+      <button
+        class="listen-button"
+        type="button"
+        data-audio="그리고 과자도 사고 싶어요."
+      >
+        🔊 Écouter le modèle
+      </button>
+
+      <button
+        class="mic-button"
+        type="button"
+      >
+        🎤 Dire la phrase
+      </button>
+
+      <div class="speech-feedback"></div>
+
+    </div>
+
+
+    <div
+      class="speech-step"
+      data-step="4"
+      data-expected="과자는 어디에 있어요"
+    >
+
+      <div class="speaker">
+        🌸 À toi
+      </div>
+
+      <div class="prompt-french">
+        Demande : « Où sont les biscuits ? »
+      </div>
+
+      <button
+        class="listen-button"
+        type="button"
+        data-audio="과자는 어디에 있어요?"
+      >
+        🔊 Écouter le modèle
+      </button>
+
+      <button
+        class="mic-button"
+        type="button"
+      >
+        🎤 Dire la phrase
+      </button>
+
+      <div class="speech-feedback"></div>
+
+    </div>
+
+
+    <div
+      class="speech-step"
+      data-step="5"
+      data-expected="같이 가요"
+    >
+
+      <div class="speaker">
+        💚 Ji-soo
+      </div>
+
+      <div class="prompt-korean">
+        과자는 저쪽에 있어요.
+      </div>
+
+      <div class="prompt-french">
+        Les biscuits sont de ce côté-là.
+      </div>
+
+      <button
+        class="listen-button"
+        type="button"
+        data-audio="과자는 저쪽에 있어요."
+      >
+        🔊 Écouter Ji-soo
+      </button>
+
+      <div class="prompt-french" style="margin-top:12px;">
+        Réponds naturellement : « Allons-y ensemble ! »
+      </div>
+
+      <button
+        class="mic-button"
+        type="button"
+      >
+        🎤 Répondre
+      </button>
+
+      <div class="speech-feedback"></div>
+
+    </div>
+
+  </section>
+
+
+  <section class="tip-card">
+
+    <h2>💡 Petit rappel</h2>
+
+    La reconnaissance vocale vérifie surtout
+    les mots qu'elle a compris.
+
+    <br><br>
+
+    Elle ne mesure pas précisément ta prononciation.
+    Si ton téléphone transcrit mal
+    <strong>딸기</strong> ou une autre phrase,
+    réécoute le modèle et essaie de nouveau.
+
+  </section>
+
+
+  <button
+    class="complete-button"
+    id="completeButton"
+    type="button"
+  >
+    ✅ Valider l'oral
+  </button>
+
+
+  <button
+    class="next-button"
+    id="nextButton"
+    type="button"
+  >
+    ✍️ Passer à l'écriture
+  </button>
+
+
+  <button
+    class="back-button"
+    type="button"
+    onclick="window.location.href='exercice-ecoute-23.html'"
+  >
+    ← Retour à l'exercice d'écoute
+  </button>
+
+</main>
+
+
+<script src="chapter-progress.js"></script>
+
+<script>
+
+  const AUDIO_SETTINGS = {
+    normalRate: 0.82
+  };
+
+
+  const progressKey =
+    "hanaKorean_chapter23_speaking";
+
+  const understandingKey =
+    "hanaKorean_chapter23_understanding";
+
+  const listeningExerciseKey =
+    "hanaKorean_chapter23_listeningExercise";
+
+  const speakingMistakesKey =
+    "hanaKorean_chapter23_speakingMistakes";
+
+  const speakingHelpKey =
+    "hanaKorean_chapter23_speakingHelp";
+
+  function renderChapterProgress() {
+    if (
+      window.HanaChapterProgress &&
+      typeof window.HanaChapterProgress.render === "function"
+    ) {
+      window.HanaChapterProgress.render();
+    }
+  }
+
+  function guardSpeakingAccess() {
+    if (localStorage.getItem(understandingKey) !== "completed") {
+      window.location.replace("chapitre-23.html");
+      return false;
+    }
+
+    if (localStorage.getItem(listeningExerciseKey) !== "completed") {
+      window.location.replace("exercice-ecoute-23.html");
+      return false;
+    }
+
+    return true;
+  }
+
+
+  const completeButton =
+    document.getElementById(
+      "completeButton"
+    );
+
+
+  const nextButton =
+    document.getElementById(
+      "nextButton"
+    );
+
+
+  const speechSteps =
+    Array.from(
+      document.querySelectorAll(
+        ".speech-step"
+      )
+    );
+
+
+  function getKoreanVoice() {
+
+    const voices =
+      window.speechSynthesis.getVoices();
+
+
+    return voices.find(
+      voice =>
+        voice.lang &&
+        voice.lang
+          .toLowerCase()
+          .startsWith("ko")
+    ) || null;
+
+  }
+
+
+  function speak(
+    text
+  ) {
+
+    window.speechSynthesis.cancel();
+
+
+    const utterance =
+      new SpeechSynthesisUtterance(
+        text
+      );
+
+
+    utterance.lang =
+      "ko-KR";
+
+    utterance.rate =
+      AUDIO_SETTINGS.normalRate;
+
+    utterance.pitch =
+      1;
+
+
+    const koreanVoice =
+      getKoreanVoice();
+
+
+    if (
+      koreanVoice
+    ) {
+
+      utterance.voice =
+        koreanVoice;
+
+    }
+
+
+    window.speechSynthesis.speak(
+      utterance
+    );
+
+  }
+
+
+  document
+    .querySelectorAll(
+      "[data-audio]"
+    )
+    .forEach(
+      button => {
+
+        button.addEventListener(
+          "click",
+          () => {
+
+            speak(
+              button.dataset.audio
+            );
+
+          }
+        );
+
+      }
+    );
+
+
+  function normalizeText(
+    value
+  ) {
+
+    return value
+      .replace(
+        /[?.!,]/g,
+        ""
+      )
+      .replace(
+        /\s+/g,
+        " "
+      )
+      .trim();
+
+  }
+
+
+  function isAcceptable(
+    transcript,
+    expected,
+    stepNumber
+  ) {
+
+    const cleanTranscript =
+      normalizeText(
+        transcript
+      );
+
+
+    const cleanExpected =
+      normalizeText(
+        expected
+      );
+
+
+    if (
+      cleanTranscript.includes(
+        cleanExpected
+      )
+    ) {
+
+      return true;
+
+    }
+
+
+    const alternatives = {
+
+      1: [
+        "우유를 사고 싶어요",
+        "딸기를 사고 싶어요",
+        "우유하고 딸기를 사고 싶어요",
+        "우유와 딸기를 사고 싶어요"
+      ],
+
+      2: [
+        "좋아요",
+        "네 좋아요",
+        "네"
+      ],
+
+      3: [
+        "과자도 사고 싶어요",
+        "그리고 과자도 사고 싶어요"
+      ],
+
+      4: [
+        "과자 어디에 있어요",
+        "과자는 어디에 있어요"
+      ],
+
+      5: [
+        "같이 가요",
+        "네 같이 가요",
+        "좋아요 같이 가요"
+      ]
+
+    };
+
+
+    return (
+      alternatives[
+        stepNumber
+      ] || []
+    ).some(
+      alternative =>
+        cleanTranscript.includes(
+          normalizeText(
+            alternative
+          )
+        )
+    );
+
+  }
+
+
+  function completedCount() {
+
+    return speechSteps.filter(
+      step =>
+        step.dataset.completed ===
+        "true"
+    ).length;
+
+  }
+
+
+  function updateCompletion() {
+
+    if (
+      completedCount() ===
+      speechSteps.length
+    ) {
+
+      completeButton
+        .classList
+        .add(
+          "show"
+        );
+
+    }
+
+  }
+
+
+  const SpeechRecognition =
+    window.SpeechRecognition ||
+    window.webkitSpeechRecognition;
+
+
+  speechSteps.forEach(
+    step => {
+
+      const micButton =
+        step.querySelector(
+          ".mic-button"
+        );
+
+
+      const feedback =
+        step.querySelector(
+          ".speech-feedback"
+        );
+
+
+      const expected =
+        step.dataset.expected;
+
+
+      const stepNumber =
+        Number(
+          step.dataset.step
+        );
+
+
+      micButton.addEventListener(
+        "click",
+        () => {
+
+          if (
+            !SpeechRecognition
+          ) {
+
+            feedback.className =
+              "speech-feedback show error";
+
+
+            feedback.innerHTML =
+              "La reconnaissance vocale n'est pas disponible dans ce navigateur. Répète la phrase à voix haute pour t'entraîner.";
+
+
+            step.dataset.completed =
+              "true";
+
+
+            micButton.textContent =
+              "✅ Répété à voix haute";
+
+
+            updateCompletion();
+
+            return;
+
+          }
+
+
+          const recognition =
+            new SpeechRecognition();
+
+
+          recognition.lang =
+            "ko-KR";
+
+          recognition.interimResults =
+            false;
+
+          recognition.maxAlternatives =
+            3;
+
+
+          micButton
+            .classList
+            .add(
+              "listening"
+            );
+
+
+          micButton.textContent =
+            "🎙️ J'écoute…";
+
+
+          recognition.onresult =
+            event => {
+
+              const transcripts =
+                Array.from(
+                  event.results[0]
+                ).map(
+                  result =>
+                    result.transcript
+                );
+
+
+              const accepted =
+                transcripts.some(
+                  transcript =>
+                    isAcceptable(
+                      transcript,
+                      expected,
+                      stepNumber
+                    )
+                );
+
+
+              const firstTranscript =
+                transcripts[0] || "";
+
+
+              if (
+                accepted
+              ) {
+
+                feedback.className =
+                  "speech-feedback show success";
+
+
+                feedback.innerHTML =
+                  "✅ Très bien !<div class='transcript'>Le téléphone a compris : " +
+                  firstTranscript +
+                  "</div>";
+
+
+                step.dataset.completed =
+                  "true";
+
+
+                micButton.textContent =
+                  "✅ Réussi";
+
+
+                micButton.disabled =
+                  true;
+
+
+                updateCompletion();
+
+              } else {
+
+                feedback.className =
+                  "speech-feedback show error";
+
+
+                feedback.innerHTML =
+                  "Pas encore. Réécoute le modèle puis réessaie.<div class='transcript'>Le téléphone a compris : " +
+                  firstTranscript +
+                  "</div>";
+
+
+                micButton.textContent =
+                  "🎤 Réessayer";
+
+              }
+
+
+              micButton
+                .classList
+                .remove(
+                  "listening"
+                );
+
+            };
+
+
+          recognition.onerror =
+            () => {
+
+              feedback.className =
+                "speech-feedback show error";
+
+
+              feedback.textContent =
+                "Je n'ai pas réussi à entendre correctement. Réessaie en parlant un peu plus près du téléphone.";
+
+
+              micButton
+                .classList
+                .remove(
+                  "listening"
+                );
+
+
+              micButton.textContent =
+                "🎤 Réessayer";
+
+            };
+
+
+          recognition.onend =
+            () => {
+
+              if (
+                micButton.textContent ===
+                "🎙️ J'écoute…"
+              ) {
+
+                micButton.textContent =
+                  "🎤 Réessayer";
+
+              }
+
+
+              micButton
+                .classList
+                .remove(
+                  "listening"
+                );
+
+            };
+
+
+          recognition.start();
+
+        }
+      );
+
+    }
+  );
+
+
+  function showCompletedState() {
+
+    completeButton.textContent =
+      "✅ Oral terminé";
+
+
+    completeButton
+      .classList
+      .add(
+        "show",
+        "done"
+      );
+
+
+    nextButton.style.display =
+      "block";
+
+  }
+
+
+  guardSpeakingAccess();
+  renderChapterProgress();
+
+  if (
+    localStorage.getItem(
+      progressKey
+    ) === "completed"
+  ) {
+
+    showCompletedState();
+
+  }
+
+
+  completeButton.addEventListener(
+    "click",
+    () => {
+
+      localStorage.setItem(
+        progressKey,
+        "completed"
+      );
+
+      if (localStorage.getItem(speakingMistakesKey) === null) {
+        localStorage.setItem(speakingMistakesKey, "0");
+      }
+
+      if (localStorage.getItem(speakingHelpKey) === null) {
+        localStorage.setItem(speakingHelpKey, "0");
+      }
+
+      renderChapterProgress();
+
+
+      showCompletedState();
+
+    }
+  );
+
+
+  nextButton.addEventListener(
+    "click",
+    () => {
+
+      window.speechSynthesis.cancel();
+
+
+      window.location.href =
+        "ecriture-23.html";
+
+    }
+  );
+
+
+  window.addEventListener(
+    "beforeunload",
+    () => {
+
+      window.speechSynthesis.cancel();
+
+    }
+  );
+
+
+  window.speechSynthesis.onvoiceschanged =
+    () => {
+      getKoreanVoice();
+    };
+
+
+  window.addEventListener("pageshow", () => {
+    guardSpeakingAccess();
+    renderChapterProgress();
+  });
+
+</script>
+
+
+</body>
+
+</html>
