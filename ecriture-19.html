@@ -14,12 +14,13 @@
     content="#F7F4ED"
   >
 
-  <title>J'écris — Chapitre 12</title>
+  <title>J'écris — Chapitre 19</title>
 
   <link
     rel="stylesheet"
     href="style.css"
   >
+  <link rel="stylesheet" href="chapter-progress.css">
 
   <style>
     .writing-header {
@@ -285,6 +286,11 @@
 
   </header>
 
+  <section
+    id="hanaChapterPath"
+    data-chapter-path
+  ></section>
+
 
   <section class="intro-card">
 
@@ -307,7 +313,7 @@
 
     <div class="progress-info">
       <span>Expression écrite</span>
-      <span id="progressLabel">1 / 5</span>
+      <span id="progressLabel">1 / 6</span>
     </div>
 
     <div class="progress-bar">
@@ -329,7 +335,7 @@
       class="step-label"
       id="stepLabel"
     >
-      Étape 1 / 5
+      Étape 1 / 6
     </div>
 
     <h2 id="stepTitle">
@@ -505,7 +511,61 @@
 </main>
 
 
+<script src="chapter-progress.js"></script>
+
 <script>
+
+  const CHAPTER = 19;
+
+  const UNDERSTANDING_KEY =
+    "hanaKorean_chapter19_understanding";
+
+  const LISTENING_EXERCISE_KEY =
+    "hanaKorean_chapter19_listeningExercise";
+
+  const SPEAKING_KEY =
+    "hanaKorean_chapter19_speaking";
+
+  const WRITING_KEY =
+    "hanaKorean_chapter19_writing";
+
+  const WRITING_MISTAKES_KEY =
+    "hanaKorean_chapter19_writingMistakes";
+
+  const REVISION_NOTIONS_KEY =
+    "hanaKorean_chapter19_revisionNotions";
+
+  function guardWritingAccess() {
+    const required = [
+      [UNDERSTANDING_KEY, "chapitre-19.html"],
+      [LISTENING_EXERCISE_KEY, "ecoute-19.html"],
+      [SPEAKING_KEY, "parle-19.html"]
+    ];
+
+    for (const item of required) {
+      if (
+        localStorage.getItem(item[0]) !==
+        "completed"
+      ) {
+        window.location.replace(item[1]);
+        return false;
+      }
+    }
+
+    return true;
+  }
+
+  function renderChapterProgress() {
+    if (
+      window.HanaChapterProgress &&
+      typeof window.HanaChapterProgress.render === "function"
+    ) {
+      window.HanaChapterProgress.render();
+    }
+  }
+
+
+
   const steps = [
 
     {
@@ -590,7 +650,7 @@
 
     return text
       .replace(/[.,!?~…'"]/g, "")
-      .replace(/\s+/g, " ")
+      .replace(/\s+/g, "")
       .trim();
 
   }
@@ -825,60 +885,18 @@
       "feedback show wrong";
 
 
-    if (
-      currentStep === 0
-    ) {
+    const correctionMessages = [
+      "❌ <strong>Repère 갔어요.</strong><br><br>Utilise <strong>서울에 갔어요.</strong>",
+      "❌ <strong>Repère 먹었어요.</strong><br><br>Utilise <strong>비빔밥을 먹었어요.</strong>",
+      "❌ <strong>Repère 찍었어요.</strong><br><br>Utilise <strong>사진을 많이 찍었어요.</strong>",
+      "❌ <strong>Donne une impression au passé.</strong><br><br>Utilise <strong>정말 좋았어요.</strong>",
+      "❌ <strong>Pour demander « Comment c'était ? »</strong><br><br>Utilise <strong>어땠어요?</strong>",
+      "❌ <strong>Ajoute 처음 pour « pour la première fois ».</strong><br><br>Utilise <strong>한국에 처음 갔어요.</strong>"
+    ];
 
-      feedback.innerHTML =
-        "❌ <strong>Pas encore.</strong><br><br>" +
-        "Commence par <strong>이거</strong>, puis ajoute la question <strong>얼마예요?</strong>.";
-
-    }
-
-
-    if (
-      currentStep === 1
-    ) {
-
-      feedback.innerHTML =
-        "❌ <strong>Attention.</strong><br><br>" +
-        "Pour dire « c'est cher », utilise <strong>비싸요</strong>.";
-
-    }
-
-
-    if (
-      currentStep === 2
-    ) {
-
-      feedback.innerHTML =
-        "❌ <strong>Regarde bien la consonne.</strong><br><br>" +
-        "« Bon marché » s'écrit <strong>싸요</strong> avec <strong>ㅆ</strong>.";
-
-    }
-
-
-    if (
-      currentStep === 3
-    ) {
-
-      feedback.innerHTML =
-        "❌ <strong>Réessaie.</strong><br><br>" +
-        "Pour demander l'objet, combine <strong>이거</strong> et <strong>주세요</strong>.";
-
-    }
-
-
-    if (
-      currentStep === 4
-    ) {
-
-      feedback.innerHTML =
-        "❌ <strong>Réessaie la formule complète.</strong><br><br>" +
-        "La formule polie pour « merci » est <strong>감사합니다</strong>.";
-
-    }
-
+    feedback.innerHTML =
+      correctionMessages[currentStep] ||
+      "❌ <strong>Réessaie en utilisant la forme passée attendue.</strong>";
 
     document.getElementById(
       "retryButton"
@@ -1013,23 +1031,25 @@
 
 
     localStorage.setItem(
-      "hanaKorean_chapter19_writing",
+      WRITING_KEY,
       "completed"
     );
 
 
     localStorage.setItem(
-      "hanaKorean_chapter19_writingMistakes",
-      mistakes
+      WRITING_MISTAKES_KEY,
+      String(mistakes)
     );
 
 
     localStorage.setItem(
-      "hanaKorean_chapter19_revisionNotions",
+      REVISION_NOTIONS_KEY,
       JSON.stringify(
         weakNotions
       )
     );
+
+    renderChapterProgress();
 
 
     window.scrollTo({
@@ -1061,7 +1081,17 @@
   );
 
 
-  renderStep();
+  if (guardWritingAccess()) {
+    renderChapterProgress();
+    renderStep();
+
+    window.addEventListener(
+      "pageshow",
+      function() {
+        renderChapterProgress();
+      }
+    );
+  }
 </script>
 
 </body>

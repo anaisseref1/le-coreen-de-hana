@@ -14,11 +14,16 @@
     content="#F7F4ED"
   >
 
-  <title>J'écris — Chapitre 12</title>
+  <title>J'écris — Chapitre 15</title>
 
   <link
     rel="stylesheet"
     href="style.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="chapter-progress.css"
   >
 
   <style>
@@ -73,7 +78,7 @@
     }
 
     .progress-fill {
-      width: 20%;
+      width: 16.6667%;
       height: 100%;
       background: var(--jade);
       border-radius: 20px;
@@ -286,6 +291,12 @@
   </header>
 
 
+  <section
+    id="hanaChapterPath"
+    data-chapter-path
+  ></section>
+
+
   <section class="intro-card">
 
     <strong>🎯 Objectif</strong>
@@ -307,7 +318,7 @@
 
     <div class="progress-info">
       <span>Expression écrite</span>
-      <span id="progressLabel">1 / 5</span>
+      <span id="progressLabel">1 / 6</span>
     </div>
 
     <div class="progress-bar">
@@ -329,7 +340,7 @@
       class="step-label"
       id="stepLabel"
     >
-      Étape 1 / 5
+      Étape 1 / 6
     </div>
 
     <h2 id="stepTitle">
@@ -486,7 +497,7 @@
     <button
       class="continue-button"
       type="button"
-      onclick="window.location.href='revision-15.html'"
+      onclick="goToReview()"
     >
       🧠 Passer à « Je révise »
     </button>
@@ -505,7 +516,80 @@
 </main>
 
 
+<script src="chapter-progress.js"></script>
+
 <script>
+  const CHAPTER = 15;
+
+  const UNDERSTANDING_KEY =
+    "hanaKorean_chapter15_understanding";
+
+  const LISTENING_EXERCISE_KEY =
+    "hanaKorean_chapter15_listeningExercise";
+
+  const SPEAKING_KEY =
+    "hanaKorean_chapter15_speaking";
+
+  const WRITING_KEY =
+    "hanaKorean_chapter15_writing";
+
+  const WRITING_MISTAKES_KEY =
+    "hanaKorean_chapter15_writingMistakes";
+
+  const REVISION_NOTIONS_KEY =
+    "hanaKorean_chapter15_revisionNotions";
+
+
+  function guardWritingAccess() {
+
+    if (
+      localStorage.getItem(
+        UNDERSTANDING_KEY
+      ) !== "completed"
+    ) {
+      window.location.replace(
+        "chapitre-15.html"
+      );
+      return false;
+    }
+
+    if (
+      localStorage.getItem(
+        LISTENING_EXERCISE_KEY
+      ) !== "completed"
+    ) {
+      window.location.replace(
+        "ecoute-15.html"
+      );
+      return false;
+    }
+
+    if (
+      localStorage.getItem(
+        SPEAKING_KEY
+      ) !== "completed"
+    ) {
+      window.location.replace(
+        "parle-15.html"
+      );
+      return false;
+    }
+
+    return true;
+  }
+
+
+  function renderChapterProgress() {
+
+    if (
+      window.HanaChapterProgress &&
+      typeof window.HanaChapterProgress.render === "function"
+    ) {
+      window.HanaChapterProgress.render();
+    }
+  }
+
+
   const steps = [
 
     {
@@ -588,7 +672,7 @@
 
     return text
       .replace(/[.,!?~…'"]/g, "")
-      .replace(/\s+/g, " ")
+      .replace(/\s+/g, "")
       .trim();
 
   }
@@ -829,7 +913,7 @@
 
       feedback.innerHTML =
         "❌ <strong>Pas encore.</strong><br><br>" +
-        "Commence par <strong>이거</strong>, puis ajoute la question <strong>얼마예요?</strong>.";
+        "Utilise <strong>메뉴</strong> puis ajoute <strong>주세요</strong>.";
 
     }
 
@@ -839,8 +923,8 @@
     ) {
 
       feedback.innerHTML =
-        "❌ <strong>Attention.</strong><br><br>" +
-        "Pour dire « c'est cher », utilise <strong>비싸요</strong>.";
+        "❌ <strong>Repère l'expression de recommandation.</strong><br><br>" +
+        "La formule attendue est <strong>추천해 주세요.</strong>";
 
     }
 
@@ -850,8 +934,8 @@
     ) {
 
       feedback.innerHTML =
-        "❌ <strong>Regarde bien la consonne.</strong><br><br>" +
-        "« Bon marché » s'écrit <strong>싸요</strong> avec <strong>ㅆ</strong>.";
+        "❌ <strong>Attention à la négation.</strong><br><br>" +
+        "Commence par <strong>돼지고기를</strong> puis ajoute <strong>안 먹어요</strong>.";
 
     }
 
@@ -862,7 +946,7 @@
 
       feedback.innerHTML =
         "❌ <strong>Réessaie.</strong><br><br>" +
-        "Pour demander l'objet, combine <strong>이거</strong> et <strong>주세요</strong>.";
+        "Pour demander si c'est très épicé, utilise <strong>많이 매워요?</strong>";
 
     }
 
@@ -872,8 +956,19 @@
     ) {
 
       feedback.innerHTML =
-        "❌ <strong>Réessaie la formule complète.</strong><br><br>" +
-        "La formule polie pour « merci » est <strong>감사합니다</strong>.";
+        "❌ <strong>Regarde la structure de commande.</strong><br><br>" +
+        "Utilise <strong>비빔밥 + 하나 + 주세요</strong>.";
+
+    }
+
+
+    if (
+      currentStep === 5
+    ) {
+
+      feedback.innerHTML =
+        "❌ <strong>Repère le mot 계산.</strong><br><br>" +
+        "Pour demander l'addition, utilise <strong>계산해 주세요.</strong>";
 
     }
 
@@ -1011,23 +1106,26 @@
 
 
     localStorage.setItem(
-      "hanaKorean_chapter15_writing",
+      WRITING_KEY,
       "completed"
     );
 
 
     localStorage.setItem(
-      "hanaKorean_chapter15_writingMistakes",
-      mistakes
+      WRITING_MISTAKES_KEY,
+      String(mistakes)
     );
 
 
     localStorage.setItem(
-      "hanaKorean_chapter15_revisionNotions",
+      REVISION_NOTIONS_KEY,
       JSON.stringify(
         weakNotions
       )
     );
+
+
+    renderChapterProgress();
 
 
     window.scrollTo({
@@ -1035,6 +1133,21 @@
       behavior: "smooth"
     });
 
+  }
+
+
+  function goToReview() {
+
+    if (
+      localStorage.getItem(
+        WRITING_KEY
+      ) !== "completed"
+    ) {
+      return;
+    }
+
+    window.location.href =
+      "revision-15.html";
   }
 
 
@@ -1059,7 +1172,20 @@
   );
 
 
-  renderStep();
+  if (
+    guardWritingAccess()
+  ) {
+
+    renderChapterProgress();
+    renderStep();
+
+    window.addEventListener(
+      "pageshow",
+      function() {
+        renderChapterProgress();
+      }
+    );
+  }
 </script>
 
 </body>

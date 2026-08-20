@@ -7,7 +7,9 @@
   <title>Chapitre 17 — Le téléphone et Internet</title>
   <link rel="stylesheet" href="style.css">
 
-  <style>
+    <link rel="stylesheet" href="chapter-progress.css">
+
+<style>
     .chapter-header { text-align:center; margin-bottom:28px; }
     .chapter-badge { display:inline-block; padding:7px 14px; margin-bottom:10px; border-radius:20px; font-size:14px; font-weight:bold; }
     .chapter-subtitle { color:var(--text-light); line-height:1.7; }
@@ -210,6 +212,11 @@
     </p>
 
   </header>
+
+  <section
+    id="hanaChapterPath"
+    data-chapter-path
+  ></section>
 
 
   <section class="objective-card">
@@ -734,67 +741,112 @@
 </main>
 
 
-<script>
+<script src="chapter-progress.js"></script>
 
-  const STORAGE_KEY =
+<script>
+  const CHAPTER = 17;
+
+  const UNDERSTANDING_KEY =
     "hanaKorean_chapter17_understanding";
 
+  function renderChapterProgress() {
+    if (
+      window.HanaChapterProgress &&
+      typeof window.HanaChapterProgress.render === "function"
+    ) {
+      window.HanaChapterProgress.render();
+    }
+  }
 
   function completeUnderstanding() {
-
     localStorage.setItem(
-      STORAGE_KEY,
+      UNDERSTANDING_KEY,
       "completed"
     );
 
     renderCompletion();
-
+    renderChapterProgress();
   }
 
-
   function renderCompletion() {
-
     const completed =
       localStorage.getItem(
-        STORAGE_KEY
+        UNDERSTANDING_KEY
       ) === "completed";
-
 
     const completeButton =
       document.getElementById(
         "completeButton"
       );
 
-
     const nextButton =
       document.getElementById(
         "nextButton"
       );
 
+    if (!completeButton || !nextButton) {
+      return;
+    }
 
-    if (
-      completed
-    ) {
-
+    if (completed) {
       completeButton.textContent =
         "Compris ✓";
-
-
       completeButton.classList.add(
         "done"
       );
-
-
       nextButton.style.display =
         "block";
-
     }
-
   }
 
+  function migratePreviousProgress() {
+    if (
+      localStorage.getItem(
+        UNDERSTANDING_KEY
+      ) === "completed"
+    ) {
+      return;
+    }
 
+    const laterKeys = [
+      "hanaKorean_chapter17_listening",
+      "hanaKorean_chapter17_listeningExercise",
+      "hanaKorean_chapter17_speaking",
+      "hanaKorean_chapter17_writing",
+      "hanaKorean_chapter17_review",
+      "hanaKorean_chapter17_use",
+      "hanaKorean_chapter17_mission",
+      "hanaKorean_chapter17_completed",
+      "hanaKorean_chapter17_resume"
+    ];
+
+    const laterProgressExists =
+      laterKeys.some(
+        key =>
+          localStorage.getItem(key) ===
+          "completed"
+      );
+
+    if (laterProgressExists) {
+      localStorage.setItem(
+        UNDERSTANDING_KEY,
+        "completed"
+      );
+    }
+  }
+
+  migratePreviousProgress();
   renderCompletion();
+  renderChapterProgress();
 
+  window.addEventListener(
+    "pageshow",
+    function() {
+      migratePreviousProgress();
+      renderCompletion();
+      renderChapterProgress();
+    }
+  );
 </script>
 
 </body>

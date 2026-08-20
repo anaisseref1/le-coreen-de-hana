@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="theme-color"
+    content="#F7F4ED"
+  >
+
+  <title>Chapitre 24 — Offrir un cadeau</title>
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+<link rel="stylesheet" href="chapter-progress.css">
+
+  <style>
+
+    .chapter-header {
+      text-align:center;
+      margin-bottom:24px;
+    }
+
+    .chapter-card,
+    .dialogue-card,
+    .grammar-card,
+    .why-card,
+    .culture-card,
+    .tip-card,
+    .phrase-card {
+      padding:20px;
+      margin-bottom:18px;
+      background:var(--white);
+      border-radius:var(--radius-large);
+      box-shadow:var(--shadow);
+    }
+
+    .objective-list {
+      display:flex;
+      flex-direction:column;
+      gap:9px;
+      margin-top:12px;
+    }
+
+    .objective-item {
+      padding:12px 14px;
+      background:var(--soft-green);
+      border-radius:var(--radius-medium);
+      color:var(--navy);
+      line-height:1.55;
+    }
+
+    .vocab-grid {
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0, 1fr));
+      gap:10px;
+      margin-top:14px;
+    }
+
+    .vocab-item {
+      padding:13px;
+      background:#FBFAF6;
+      border-radius:var(--radius-medium);
+    }
+
+    .vocab-korean {
+      color:var(--navy);
+      font-size:18px;
+      font-weight:bold;
+    }
+
+    .vocab-french {
+      margin-top:4px;
+      color:var(--text-light);
+      font-size:14px;
+    }
+
+    .expression-item {
+      padding:14px;
+      margin-top:10px;
+      background:var(--soft-beige);
+      border-radius:var(--radius-medium);
+      line-height:1.6;
+    }
+
+    .expression-item strong {
+      color:var(--navy);
+    }
+
+    .dialogue-line {
+      padding:15px;
+      margin-top:10px;
+      border-radius:var(--radius-medium);
+      line-height:1.65;
+    }
+
+    .dialogue-line.hana {
+      background:var(--soft-green);
+    }
+
+    .dialogue-line.minsu {
+      background:var(--soft-blue);
+    }
+
+    .dialogue-line.jisoo {
+      background:var(--soft-beige);
+    }
+
+    .speaker {
+      margin-bottom:4px;
+      font-weight:bold;
+    }
+
+    .korean-line {
+      color:var(--navy);
+      font-size:18px;
+      font-weight:bold;
+    }
+
+    .french-line {
+      margin-top:5px;
+      color:var(--text-light);
+    }
+
+    .grammar-item {
+      padding:15px;
+      margin-top:12px;
+      background:#FBFAF6;
+      border-radius:var(--radius-medium);
+      line-height:1.7;
+    }
+
+    .grammar-title {
+      color:var(--jade-dark);
+      font-size:18px;
+      font-weight:bold;
+    }
+
+    .remember-box {
+      margin-top:12px;
+      padding:14px;
+      background:var(--soft-beige);
+      border-radius:var(--radius-medium);
+      color:var(--navy);
+      line-height:1.65;
+    }
+
+    .why-card {
+      background:var(--soft-blue);
+      color:var(--navy);
+      line-height:1.75;
+    }
+
+    .culture-card {
+      line-height:1.75;
+    }
+
+    .tip-card {
+      background:var(--soft-beige);
+      color:var(--navy);
+      line-height:1.75;
+    }
+
+    .phrase-card {
+      background:var(--soft-green);
+      color:var(--navy);
+      text-align:center;
+      line-height:1.8;
+      font-weight:600;
+    }
+
+    .continue-button {
+      width:100%;
+      margin-top:10px;
+      background:var(--jade);
+      color:white;
+      font-weight:bold;
+    }
+
+    .continue-button.done {
+      background:var(--success);
+    }
+
+    .next-button {
+      display:none;
+      width:100%;
+      margin-top:10px;
+      background:var(--navy);
+      color:white;
+      font-weight:bold;
+    }
+
+    .back-button {
+      width:100%;
+      margin-top:10px;
+      background:var(--soft-beige);
+      color:var(--navy);
+    }
+
+    @media (max-width:430px) {
+
+      .vocab-grid {
+        grid-template-columns:1fr;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+<main class="app">
+
+
+  <a
+    class="back-link"
+    href="itineraire.html"
+  >
+    ← Itinéraire
+  </a>
+
+<section id="hanaChapterPath" data-chapter-path></section>
+
+
+
+  <header class="chapter-header">
+
+    <span class="chapter-badge">
+      Chapitre 24 · 🎁
+    </span>
+
+    <p class="korean">
+      선물이에요.
+    </p>
+
+    <h1>
+      Offrir un cadeau
+    </h1>
+
+    <p>
+      Apprends à parler d'un cadeau,
+      à dire à qui tu veux l'offrir
+      et à utiliser
+      <strong>주다</strong> et <strong>받다</strong>.
+    </p>
+
+  </header>
+
+
+  <section class="chapter-card">
+
+    <h2>🎯 Objectif</h2>
+
+    <div class="objective-list">
+
+      <div class="objective-item">
+        ✅ parler d'un cadeau
+      </div>
+
+      <div class="objective-item">
+        ✅ dire à qui tu souhaites offrir quelque chose
+      </div>
+
+      <div class="objective-item">
+        ✅ demander ce que quelqu'un aimerait recevoir
+      </div>
+
+      <div class="objective-item">
+        ✅ accepter un cadeau et remercier quelqu'un
+      </div>
+
+      <div class="objective-item">
+        ✅ utiliser <strong>주다</strong> (donner) et <strong>받다</strong> (recevoir)
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="chapter-card">
+
+    <h2>🟩 Vocabulaire</h2>
+
+    <div class="vocab-grid">
+
+      <div class="vocab-item"><div class="vocab-korean">선물</div><div class="vocab-french">cadeau</div></div>
+      <div class="vocab-item"><div class="vocab-korean">선물하다</div><div class="vocab-french">offrir un cadeau</div></div>
+      <div class="vocab-item"><div class="vocab-korean">주다</div><div class="vocab-french">donner</div></div>
+      <div class="vocab-item"><div class="vocab-korean">받다</div><div class="vocab-french">recevoir</div></div>
+      <div class="vocab-item"><div class="vocab-korean">사다</div><div class="vocab-french">acheter</div></div>
+      <div class="vocab-item"><div class="vocab-korean">고르다</div><div class="vocab-french">choisir</div></div>
+      <div class="vocab-item"><div class="vocab-korean">좋아하다</div><div class="vocab-french">aimer</div></div>
+      <div class="vocab-item"><div class="vocab-korean">마음</div><div class="vocab-french">cœur / intention</div></div>
+      <div class="vocab-item"><div class="vocab-korean">친구</div><div class="vocab-french">ami(e)</div></div>
+      <div class="vocab-item"><div class="vocab-korean">가족</div><div class="vocab-french">famille</div></div>
+      <div class="vocab-item"><div class="vocab-korean">차</div><div class="vocab-french">thé</div></div>
+      <div class="vocab-item"><div class="vocab-korean">꽃</div><div class="vocab-french">fleur</div></div>
+      <div class="vocab-item"><div class="vocab-korean">초콜릿</div><div class="vocab-french">chocolat</div></div>
+      <div class="vocab-item"><div class="vocab-korean">책</div><div class="vocab-french">livre</div></div>
+      <div class="vocab-item"><div class="vocab-korean">예쁘다</div><div class="vocab-french">être joli</div></div>
+      <div class="vocab-item"><div class="vocab-korean">특별하다</div><div class="vocab-french">être spécial</div></div>
+
+    </div>
+
+  </section>
+
+
+  <section class="chapter-card">
+
+    <h2>🎁 Quelques expressions utiles</h2>
+
+    <div class="expression-item">
+      <strong>선물이에요.</strong><br>
+      → C'est un cadeau.
+    </div>
+
+    <div class="expression-item">
+      <strong>선물을 샀어요.</strong><br>
+      → J'ai acheté un cadeau.
+    </div>
+
+    <div class="expression-item">
+      <strong>이거 선물이에요.</strong><br>
+      → C'est un cadeau.
+    </div>
+
+    <div class="expression-item">
+      <strong>고마워요.</strong><br>
+      → Merci.
+    </div>
+
+    <div class="expression-item">
+      <strong>정말 고마워요.</strong><br>
+      → Merci beaucoup.
+    </div>
+
+  </section>
+
+
+  <section class="dialogue-card">
+
+    <h2>💬 Dialogue</h2>
+
+    <div class="dialogue-line jisoo">
+      <div class="speaker">💚 Ji-soo</div>
+      <div class="korean-line">하나 씨, 이 차 어때요?</div>
+      <div class="french-line">Hana, que penses-tu de ce thé ?</div>
+    </div>
+
+    <div class="dialogue-line hana">
+      <div class="speaker">🌸 Hana</div>
+      <div class="korean-line">예뻐요!</div>
+      <div class="french-line">Il est joli !</div>
+    </div>
+
+    <div class="dialogue-line minsu">
+      <div class="speaker">💙 Min-su</div>
+      <div class="korean-line">선물이에요?</div>
+      <div class="french-line">C'est un cadeau ?</div>
+    </div>
+
+    <div class="dialogue-line hana">
+      <div class="speaker">🌸 Hana</div>
+      <div class="korean-line">네. 친구에게 선물하고 싶어요.</div>
+      <div class="french-line">Oui. J'aimerais offrir un cadeau à une amie.</div>
+    </div>
+
+    <div class="dialogue-line jisoo">
+      <div class="speaker">💚 Ji-soo</div>
+      <div class="korean-line">좋은 생각이에요! 무슨 선물을 좋아해요?</div>
+      <div class="french-line">Bonne idée ! Quel genre de cadeau aime-t-elle ?</div>
+    </div>
+
+    <div class="dialogue-line hana">
+      <div class="speaker">🌸 Hana</div>
+      <div class="korean-line">차나 책을 좋아해요.</div>
+      <div class="french-line">Elle aime le thé ou les livres.</div>
+    </div>
+
+    <div class="dialogue-line jisoo">
+      <div class="speaker">💚 Ji-soo</div>
+      <div class="korean-line">그럼 이 차는 어때요?</div>
+      <div class="french-line">Alors, que penses-tu de ce thé ?</div>
+    </div>
+
+    <div class="dialogue-line hana">
+      <div class="speaker">🌸 Hana</div>
+      <div class="korean-line">좋아요! 이걸로 할게요.</div>
+      <div class="french-line">C'est bien ! Je vais prendre celui-ci.</div>
+    </div>
+
+  </section>
+
+
+  <section class="grammar-card">
+
+    <h2>💙 Grammaire</h2>
+
+
+    <div class="grammar-item">
+
+      <div class="grammar-title">
+        👉 에게 — À quelqu'un
+      </div>
+
+      Marque une personne liée à l'action,
+      notamment la personne <strong>à qui</strong>
+      quelque chose est donné.
+
+      <br><br>
+
+      <strong>친구에게 선물해요.</strong><br>
+      → J'offre un cadeau à un ami.
+
+      <br><br>
+
+      <strong>엄마에게 줘요.</strong><br>
+      → Je le donne à maman.
+
+      <br><br>
+
+      <strong>친구에게 편지를 써요.</strong><br>
+      → J'écris une lettre à un ami.
+
+      <div class="remember-box">
+
+        <strong>🟨 À retenir</strong>
+
+        <br><br>
+
+        <strong>에게</strong> s'emploie avec une personne
+        liée à l'action.
+
+        <br>
+
+        Avec <strong>주다</strong>, il indique notamment
+        la personne <strong>à qui</strong> quelque chose est donné.
+
+      </div>
+
+    </div>
+
+
+    <div class="grammar-item">
+
+      <div class="grammar-title">
+        👉 주다 — Donner
+      </div>
+
+      <strong>선물을 줘요.</strong><br>
+      → Je donne un cadeau.
+
+      <br><br>
+
+      <strong>친구에게 선물을 줘요.</strong><br>
+      → Je donne un cadeau à un ami.
+
+    </div>
+
+
+    <div class="grammar-item">
+
+      <div class="grammar-title">
+        👉 받다 — Recevoir
+      </div>
+
+      <strong>선물을 받아요.</strong><br>
+      → Je reçois un cadeau.
+
+      <br><br>
+
+      <strong>친구에게 선물을 받아요.</strong><br>
+      → Je reçois un cadeau d'un ami.
+
+      <div class="remember-box">
+
+        <strong>💡 Petite nuance</strong>
+
+        <br><br>
+
+        Avec <strong>받다</strong>, tu peux aussi rencontrer
+        <strong>에게서</strong>, qui insiste clairement sur la personne
+        <strong>de qui</strong> vient quelque chose.
+
+        <br><br>
+
+        <strong>친구에게서 선물을 받아요.</strong><br>
+        → Je reçois un cadeau d'un ami.
+
+        <br><br>
+
+        Nous reverrons cette forme plus tard.
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="why-card">
+
+    <h2>🟨 Pourquoi ?</h2>
+
+    Pourquoi utilise-t-on <strong>에게</strong> dans :
+
+    <br><br>
+
+    <strong>친구에게 선물해요.</strong>
+
+    <br><br>
+
+    Parce que le coréen distingue clairement :
+
+    <br><br>
+
+    <strong>무엇을?</strong> → quoi ?
+
+    <br>
+
+    <strong>누구에게?</strong> → à qui ?
+
+    <br><br>
+
+    Dans :
+
+    <br><br>
+
+    <strong>친구에게 선물을 줘요.</strong>
+
+    <br><br>
+
+    <strong>친구에게</strong> = à un ami
+
+    <br>
+
+    <strong>선물을</strong> = un cadeau
+
+    <br>
+
+    <strong>줘요</strong> = je donne
+
+    <br><br>
+
+    L'ordre est donc très logique :
+
+    <br>
+
+    <strong>À qui + quoi + action</strong>
+
+  </section>
+
+
+  <section class="grammar-card">
+
+    <h2>💙 Une petite nuance importante</h2>
+
+    Il existe plusieurs façons de dire
+    <strong>« à »</strong> en coréen.
+
+    <br><br>
+
+    Tu as déjà appris :
+
+    <br><br>
+
+    <strong>에</strong>
+
+    <br>
+
+    Pour une destination ou un lieu :
+
+    <br>
+
+    <strong>학교에 가요.</strong>
+    → Je vais à l'école.
+
+    <br><br>
+
+    <strong>에게</strong>
+
+    <br>
+
+    Pour une personne qui reçoit quelque chose :
+
+    <br>
+
+    <strong>친구에게 선물을 줘요.</strong>
+    → Je donne un cadeau à mon ami.
+
+    <div class="remember-box">
+
+      <strong>🌸 Pourquoi ?</strong>
+
+      <br><br>
+
+      Parce que <strong>에게</strong>
+      est utilisé pour une personne,
+      tandis que <strong>에</strong>
+      sert notamment pour les lieux et les destinations.
+
+    </div>
+
+  </section>
+
+
+  <section class="chapter-card">
+
+    <h2>🩵 Prononciation</h2>
+
+    <strong>선물</strong>
+
+    <br><br>
+
+    Prononciation :
+    <strong>seon-mul</strong>.
+
+    <br><br>
+
+    Attention à la prononciation de
+    <strong>선</strong>.
+    Ne cherche pas à prononcer
+    <em>seon</em>
+    comme une syllabe française.
+
+    <br><br>
+
+    <strong>🎧 주다 / 받다</strong>
+
+    <br><br>
+
+    Écoute la différence entre
+    <strong>주다</strong>
+    et
+    <strong>받다</strong>.
+
+    <br><br>
+
+    Puis répète :
+
+    <br>
+
+    <strong>선물을 줘요.</strong>
+
+    <br>
+
+    <strong>선물을 받아요.</strong>
+
+  </section>
+
+
+  <section class="culture-card">
+
+    <h2>🌸 Point culture</h2>
+
+    Les cadeaux occupent une place importante
+    dans les relations sociales coréennes.
+
+    <br><br>
+
+    Il n'est pas nécessaire d'attendre un anniversaire
+    pour offrir quelque chose.
+
+    <br><br>
+
+    On peut offrir un petit cadeau
+    pour remercier quelqu'un,
+    lorsqu'on est invité chez quelqu'un,
+    pour un anniversaire,
+    lors d'une occasion particulière
+    ou simplement pour faire plaisir.
+
+    <br><br>
+
+    Le cadeau n'a pas besoin d'être coûteux.
+    Un petit souvenir, du thé, des fleurs,
+    des douceurs ou même un joli carnet
+    peuvent être une attention appréciée.
+
+    <br><br>
+
+    C'est surtout <strong>l'intention</strong> qui compte.
+
+  </section>
+
+
+  <section class="tip-card">
+
+    <h2>💚 Le conseil de Ji-soo</h2>
+
+    Tu aimes les livres ?
+    Alors pourquoi ne pas offrir un livre comme cadeau ?
+
+    <br><br>
+
+    En Corée, les librairies proposent souvent
+    de très beaux livres illustrés,
+    des carnets et des petits ouvrages
+    qui peuvent faire de jolis souvenirs.
+
+    <br><br>
+
+    Et un jour, peut-être que tu ne choisiras plus
+    un livre uniquement parce que sa couverture te plaît...
+
+    <br><br>
+
+    Tu pourras
+    <strong>lire son titre et comprendre ce que tu achètes.</strong>
+    📖
+
+  </section>
+
+
+  <section class="phrase-card">
+
+    <h2>🌟 Phrase du chapitre</h2>
+
+    « Un cadeau n'a pas besoin d'être grand pour être précieux :
+    parfois, c'est simplement une façon de dire
+    “je pensais à toi”. » 🌸
+
+  </section>
+
+
+  <button
+    class="continue-button"
+    id="completeButton"
+    type="button"
+  >
+    ✅ J'ai compris
+  </button>
+
+
+  <button
+    class="next-button"
+    id="nextButton"
+    type="button"
+  >
+    🎧 Passer à l'écoute
+  </button>
+
+
+  <button
+    class="back-button"
+    type="button"
+    onclick="window.location.href='itineraire.html'"
+  >
+    ← Retour à l'itinéraire
+  </button>
+
+
+</main>
+
+
+<script src="chapter-progress.js"></script>
+
+<script>
+
+  const progressKey =
+    "hanaKorean_chapter24_understanding";
+
+
+  const completeButton =
+    document.getElementById(
+      "completeButton"
+    );
+
+
+  const nextButton =
+    document.getElementById(
+      "nextButton"
+    );
+
+
+  function showCompletedState() {
+
+    completeButton.textContent =
+      "✅ Compréhension terminée";
+
+
+    completeButton
+      .classList
+      .add(
+        "done"
+      );
+
+
+    nextButton.style.display =
+      "block";
+
+  }
+
+
+  if (
+    localStorage.getItem(
+      progressKey
+    ) === "completed"
+  ) {
+
+    showCompletedState();
+
+  }
+
+
+  completeButton.addEventListener(
+    "click",
+    () => {
+
+      localStorage.setItem(
+        progressKey,
+        "completed"
+      );
+
+
+      showCompletedState();
+
+    }
+  );
+
+
+  nextButton.addEventListener(
+    "click",
+    () => {
+
+      window.location.href =
+        "ecoute-24.html";
+
+    }
+  );
+
+</script>
+
+
+
+<script>
+(function () {
+  const UNDERSTANDING_KEY = "hanaKorean_chapter24_understanding";
+
+  function renderChapterProgress() {
+    if (window.HanaChapterProgress && typeof window.HanaChapterProgress.render === "function") {
+      window.HanaChapterProgress.render();
+    }
+  }
+
+  function migratePreviousProgress() {
+    if (localStorage.getItem(UNDERSTANDING_KEY) === "completed") return;
+
+    const laterKeys = [
+      "hanaKorean_chapter24_listening",
+      "hanaKorean_chapter24_listeningExercise",
+      "hanaKorean_chapter24_speaking",
+      "hanaKorean_chapter24_writing",
+      "hanaKorean_chapter24_review",
+      "hanaKorean_chapter24_use",
+      "hanaKorean_chapter24_mission",
+      "hanaKorean_chapter24_completed",
+      "hanaKorean_chapter24_resume"
+    ];
+
+    if (laterKeys.some(key => localStorage.getItem(key) === "completed")) {
+      localStorage.setItem(UNDERSTANDING_KEY, "completed");
+    }
+  }
+
+  migratePreviousProgress();
+  renderChapterProgress();
+
+  const button = document.getElementById("completeButton");
+  if (button) {
+    button.addEventListener("click", renderChapterProgress);
+  }
+
+  window.addEventListener("pageshow", () => {
+    migratePreviousProgress();
+    renderChapterProgress();
+  });
+})();
+</script>
+
+</body>
+
+</html>

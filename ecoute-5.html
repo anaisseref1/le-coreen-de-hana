@@ -15,12 +15,40 @@
     content="#F7F4ED"
   >
 
-  <title>J'écoute — Chapitre 5</title>
+  <title>
+    Chapitre 5 — J'écoute
+  </title>
 
   <link
     rel="stylesheet"
     href="style.css"
   >
+
+  <link
+    rel="stylesheet"
+    href="chapter-progress.css"
+  >
+
+
+  <script>
+
+    /* =====================================================
+       GARDE — JE COMPRENDS DOIT ÊTRE VALIDÉ
+       ===================================================== */
+
+    if (
+      localStorage.getItem(
+        "hanaKorean_chapter5_understanding"
+      ) !== "completed"
+    ) {
+
+      window.location.replace(
+        "chapitre-5.html"
+      );
+
+    }
+
+  </script>
 
 
   <style>
@@ -31,74 +59,38 @@
 
     .listen-header {
       text-align: center;
-      margin-bottom: 30px;
+      margin-bottom: 25px;
     }
 
 
     .chapter-badge {
       display: inline-block;
+
       padding: 7px 14px;
+
       margin-bottom: 10px;
+
       border-radius: 20px;
+
       font-size: 14px;
       font-weight: bold;
     }
 
 
-    /* =====================================================
-       INTRO
-       ===================================================== */
-
-    .intro-card {
-      padding: 20px;
-      margin-bottom: 20px;
-      background: var(--white);
-      border-radius: var(--radius-large);
-      box-shadow: var(--shadow);
-    }
-
-
-    .intro-card h2 {
-      margin-top: 0;
-    }
-
-
-    .question-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-      margin-top: 16px;
-    }
-
-
-    .question-item {
-      padding: 15px 8px;
-      background: var(--soft-green);
-      border-radius: var(--radius-medium);
-      text-align: center;
-    }
-
-
-    .question-korean {
-      color: var(--navy);
-      font-size: 22px;
-      font-weight: bold;
-    }
-
-
-    .question-french {
-      margin-top: 5px;
+    .listen-intro {
       color: var(--text-light);
-      font-size: 13px;
+
+      line-height: 1.7;
     }
 
 
     /* =====================================================
-       CARTES D'ÉCOUTE
+       CARTES
        ===================================================== */
 
     .listen-card {
       padding: 20px;
+
       margin-bottom: 18px;
     }
 
@@ -108,101 +100,99 @@
     }
 
 
-    .korean-text {
-      margin-top: 15px;
-      color: var(--navy);
-      font-size: 24px;
-      font-weight: bold;
-    }
-
-
-    .translation {
-      margin-top: 6px;
-      color: var(--text-light);
-    }
-
-
     /* =====================================================
        AUDIO
        ===================================================== */
 
-    .audio-button {
+    .audio-row {
+      display: grid;
+
+      grid-template-columns: 1fr 1fr;
+
+      gap: 10px;
+
+      margin-top: 14px;
+    }
+
+
+    .audio-button,
+    .slow-button {
       width: 100%;
-      margin-top: 15px;
+
       font-weight: bold;
+    }
+
+
+    .audio-button {
+      background: var(--soft-blue);
+
+      color: var(--navy);
     }
 
 
     .slow-button {
-      width: 100%;
-      margin-top: 8px;
-    }
-
-
-    .dialogue-audio-button {
-      width: 100%;
-      margin-top: 18px;
-      font-weight: bold;
-    }
-
-
-    .dialogue-audio-button.playing {
-      background: var(--error-light) !important;
-      color: var(--error) !important;
-      border: 1px solid var(--error);
-    }
-
-
-    /* =====================================================
-       FOCUS
-       ===================================================== */
-
-    .focus-box {
-      padding: 14px;
-      margin-top: 15px;
       background: var(--soft-beige);
-      border-radius: var(--radius-medium);
-      line-height: 1.7;
+
+      color: var(--navy);
     }
 
 
-    .focus-word {
-      color: var(--jade-dark);
+    .audio-main {
+      width: 100%;
+
+      margin-top: 14px;
+
+      background: var(--jade);
+
+      color: white;
+
       font-weight: bold;
     }
 
 
     /* =====================================================
-       COMPARAISONS
+       PHRASES
        ===================================================== */
 
-    .comparison-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin-top: 15px;
-    }
+    .listening-focus {
+      padding: 16px;
 
+      margin-top: 13px;
 
-    .comparison-item {
-      padding: 15px;
       background: #FBFAF6;
+
       border-radius: var(--radius-medium);
-      text-align: center;
     }
 
 
-    .comparison-korean {
-      color: var(--navy);
-      font-size: 19px;
+    .focus-number {
+      margin-bottom: 7px;
+
+      color: var(--jade-dark);
+
+      font-size: 13px;
       font-weight: bold;
     }
 
 
-    .comparison-french {
-      margin-top: 6px;
+    .focus-korean {
+      color: var(--navy);
+
+      font-size: 22px;
+      font-weight: bold;
+
+      line-height: 1.6;
+    }
+
+
+    .translation {
+      display: block;
+
+      margin-top: 5px;
+
       color: var(--text-light);
-      font-size: 13px;
+
+      line-height: 1.6;
     }
 
 
@@ -210,81 +200,89 @@
        DIALOGUE
        ===================================================== */
 
+    .dialogue {
+      margin-top: 15px;
+    }
+
+
     .dialogue-line {
-      padding: 15px;
-      margin-bottom: 12px;
+      padding: 14px;
+
+      margin-bottom: 10px;
+
+      background: #FBFAF6;
+
       border-radius: var(--radius-medium);
+
       line-height: 1.7;
     }
 
 
     .speaker {
-      margin-bottom: 6px;
+      margin-bottom: 5px;
+
       color: var(--navy);
+
       font-weight: bold;
     }
 
 
-    .dialogue-korean {
-      color: var(--navy);
-      font-size: 18px;
-      font-weight: 600;
-    }
+    /* =====================================================
+       CONSIGNE
+       ===================================================== */
 
+    .tip-box {
+      padding: 16px;
 
-    .dialogue-translation {
-      margin-top: 5px;
-      color: var(--text-light);
-      font-size: 14px;
-    }
-
-
-    .listen-tip {
-      padding: 14px;
       margin-top: 15px;
+
       background: var(--soft-green);
+
       border-radius: var(--radius-medium);
+
       color: var(--navy);
+
+      line-height: 1.7;
+    }
+
+
+    .important-box {
+      padding: 16px;
+
+      margin-top: 15px;
+
+      background: var(--soft-beige);
+
+      border-radius: var(--radius-medium);
+
+      color: var(--navy);
+
       line-height: 1.7;
     }
 
 
     /* =====================================================
-       MINI DÉFI
+       BOUTON
        ===================================================== */
 
-    .challenge-card {
-      border-left: 4px solid var(--jade);
-    }
-
-
-    .challenge-list {
-      padding-left: 20px;
-      line-height: 1.9;
-    }
-
-
-    .next-button {
+    .continue-button {
       width: 100%;
-      margin-top: 16px;
+
+      margin-top: 4px;
+
       font-weight: bold;
     }
 
 
     @media (max-width: 480px) {
 
-      .question-grid {
-        grid-template-columns: 1fr;
+      .focus-korean {
+        font-size: 20px;
       }
 
 
-      .comparison-grid {
+      .audio-row {
         grid-template-columns: 1fr;
-      }
-
-
-      .korean-text {
-        font-size: 22px;
       }
 
     }
@@ -308,7 +306,7 @@
     class="back-link"
     href="chapitre-5.html"
   >
-    ← Chapitre 5
+    ← Je comprends
   </a>
 
 
@@ -320,7 +318,7 @@
   <header class="listen-header">
 
     <span class="chapter-badge">
-      Chapitre 5 · Étape 2
+      Module 1 · Chapitre 5
     </span>
 
 
@@ -334,9 +332,14 @@
     </h1>
 
 
-    <p>
-      Écoute les questions et apprends
-      à reconnaître ce que la personne veut savoir.
+    <p class="listen-intro">
+      Écoute comment les questions
+      sonnent dans une vraie conversation.
+      Concentre-toi surtout sur
+      <strong>뭐</strong>,
+      <strong>어디</strong>,
+      <strong>누구</strong>
+      et sur l'intonation.
     </p>
 
   </header>
@@ -344,420 +347,267 @@
 
 
   <!-- =====================================================
-       INTRO
+       PARCOURS
        ===================================================== -->
 
-  <section class="intro-card">
+  <section
+    id="hanaChapterPath"
+    data-chapter-path
+  ></section>
+
+
+
+  <!-- =====================================================
+       CONSEIL
+       ===================================================== -->
+
+  <section class="listen-card">
 
     <h2>
-      👂 Les trois mots à repérer
+      🌿 Avant d'écouter
     </h2>
 
 
     <p>
-      Tu n'as pas besoin de traduire chaque syllabe.
-
-      <br><br>
-
-      Commence par repérer le mot interrogatif :
+      Ne cherche pas à comprendre
+      chaque syllabe immédiatement.
     </p>
 
 
-    <div class="question-grid">
+    <div class="tip-box">
 
-
-      <div class="question-item">
-
-        <div class="question-korean">
-          뭐
-        </div>
-
-        <div class="question-french">
-          quoi ?
-        </div>
-
-      </div>
-
-
-      <div class="question-item">
-
-        <div class="question-korean">
-          어디
-        </div>
-
-        <div class="question-french">
-          où ?
-        </div>
-
-      </div>
-
-
-      <div class="question-item">
-
-        <div class="question-korean">
-          누구
-        </div>
-
-        <div class="question-french">
-          qui ?
-        </div>
-
-      </div>
-
-
-    </div>
-
-  </section>
-
-
-
-  <!-- =====================================================
-       뭐
-       ===================================================== -->
-
-  <section class="listen-card">
-
-    <h2>
-      1 · 뭐
-    </h2>
-
-
-    <div class="korean-text">
-      뭐예요?
-    </div>
-
-
-    <div class="translation">
-      Qu'est-ce que c'est ?
-    </div>
-
-
-    <button
-      class="audio-button"
-      type="button"
-      onclick="speakKorean('뭐예요?')"
-    >
-      🔊 Écouter
-    </button>
-
-
-    <button
-      class="slow-button"
-      type="button"
-      onclick="speakKoreanSlow('뭐예요?')"
-    >
-      🐢 Écouter lentement
-    </button>
-
-
-    <div class="focus-box">
-
-      👂 Essaie de repérer :
+      Pendant la première écoute,
+      essaie simplement de repérer :
 
       <br><br>
 
-      <strong class="focus-word">
-        뭐
-      </strong>
-
-      <br><br>
-
-      Quand tu entends <strong>뭐</strong>,
-      la personne demande généralement
-      <strong>quoi</strong> ou <strong>ce que c'est</strong>.
-
-    </div>
-
-  </section>
-
-
-
-  <!-- =====================================================
-       누구
-       ===================================================== -->
-
-  <section class="listen-card">
-
-    <h2>
-      2 · 누구
-    </h2>
-
-
-    <div class="korean-text">
-      누구예요?
-    </div>
-
-
-    <div class="translation">
-      Qui est-ce ?
-    </div>
-
-
-    <button
-      class="audio-button"
-      type="button"
-      onclick="speakKorean('누구예요?')"
-    >
-      🔊 Écouter
-    </button>
-
-
-    <button
-      class="slow-button"
-      type="button"
-      onclick="speakKoreanSlow('누구예요?')"
-    >
-      🐢 Écouter lentement
-    </button>
-
-
-    <div class="focus-box">
-
-      👤 Ici, le mot essentiel est :
-
-      <br><br>
-
-      <strong class="focus-word">
-        누구
-      </strong>
-
-      <br><br>
-
-      La question concerne
-      <strong>une personne</strong>.
-
-    </div>
-
-  </section>
-
-
-
-  <!-- =====================================================
-       어디
-       ===================================================== -->
-
-  <section class="listen-card">
-
-    <h2>
-      3 · 어디
-    </h2>
-
-
-    <div class="korean-text">
-      어디에 있어요?
-    </div>
-
-
-    <div class="translation">
-      Où êtes-vous ?
-    </div>
-
-
-    <button
-      class="audio-button"
-      type="button"
-      onclick="speakKorean('어디에 있어요?')"
-    >
-      🔊 Écouter
-    </button>
-
-
-    <button
-      class="slow-button"
-      type="button"
-      onclick="speakKoreanSlow('어디에 있어요?')"
-    >
-      🐢 Écouter lentement
-    </button>
-
-
-    <div class="focus-box">
-
-      📍 Si tu entends :
-
-      <br><br>
-
-      <strong class="focus-word">
-        어디
-      </strong>
-
-      <br><br>
-
-      la question concerne un <strong>lieu</strong>.
-
-    </div>
-
-  </section>
-
-
-
-  <!-- =====================================================
-       MÊME MOT, VERBE DIFFÉRENT
-       ===================================================== -->
-
-  <section class="listen-card">
-
-    <h2>
-      4 · Écoute aussi le verbe
-    </h2>
-
-
-    <p>
-      <strong>어디</strong> indique que l'on parle d'un lieu,
-      mais le verbe précise la question.
-    </p>
-
-
-    <div class="comparison-grid">
-
-
-      <div class="comparison-item">
-
-        <div class="comparison-korean">
-          어디에 있어요?
-        </div>
-
-        <div class="comparison-french">
-          Où êtes-vous ?
-        </div>
-
-      </div>
-
-
-      <div class="comparison-item">
-
-        <div class="comparison-korean">
-          어디에 가요?
-        </div>
-
-        <div class="comparison-french">
-          Où allez-vous ?
-        </div>
-
-      </div>
-
-
-      <div class="comparison-item">
-
-        <div class="comparison-korean">
-          어디에 살아요?
-        </div>
-
-        <div class="comparison-french">
-          Où habitez-vous ?
-        </div>
-
-      </div>
-
-
-    </div>
-
-
-    <button
-      class="audio-button"
-      type="button"
-      onclick="playWhereQuestions()"
-    >
-      🎧 Écouter les 3 questions
-    </button>
-
-
-    <div class="focus-box">
-
-      🧠 Essaie maintenant de distinguer la fin :
-
-      <br><br>
-
-      📍 <strong>있어요?</strong>
-      → être / se trouver
-
-      <br><br>
-
-      🚶 <strong>가요?</strong>
-      → aller
-
-      <br><br>
-
-      🏠 <strong>살아요?</strong>
-      → habiter
-
-    </div>
-
-  </section>
-
-
-
-  <!-- =====================================================
-       QUESTION SANS MOT INTERROGATIF
-       ===================================================== -->
-
-  <section class="listen-card">
-
-    <h2>
-      5 · Une question sans 뭐, 어디 ou 누구
-    </h2>
-
-
-    <div class="korean-text">
-      커피를 좋아해요?
-    </div>
-
-
-    <div class="translation">
-      Vous aimez le café ?
-    </div>
-
-
-    <button
-      class="audio-button"
-      type="button"
-      onclick="speakKorean('커피를 좋아해요?')"
-    >
-      🔊 Écouter
-    </button>
-
-
-    <button
-      class="slow-button"
-      type="button"
-      onclick="speakKoreanSlow('커피를 좋아해요?')"
-    >
-      🐢 Écouter lentement
-    </button>
-
-
-    <div class="focus-box">
-
-      ❓ Toutes les questions ne contiennent pas
-      un mot comme 뭐, 어디 ou 누구.
-
-      <br><br>
-
-      Ici, tu connais déjà la structure :
-
-      <br><br>
-
-      <strong>
-        커피를 좋아해요.
-      </strong>
+      🧐 <strong>뭐</strong> → quoi ?
 
       <br>
 
-      → Vous aimez le café.
+      📍 <strong>어디</strong> → où ?
+
+      <br>
+
+      👤 <strong>누구</strong> → qui ?
 
       <br><br>
 
-      Avec l'intonation interrogative :
+      Puis écoute une deuxième fois
+      pour comprendre la phrase entière.
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       PHRASE 1
+       ===================================================== -->
+
+  <section class="listen-card">
+
+    <h2>
+      🧐 1. Qu'est-ce que c'est ?
+    </h2>
+
+
+    <div class="listening-focus">
+
+      <div class="focus-number">
+        ÉCOUTE
+      </div>
+
+
+      <div class="focus-korean">
+        이거 뭐예요?
+      </div>
+
+
+      <span class="translation">
+        Qu'est-ce que c'est, ça ?
+      </span>
+
+
+      <div class="audio-row">
+
+        <button
+          class="audio-button"
+          type="button"
+          onclick="speakKorean('이거 뭐예요?', 'hana')"
+        >
+          🔊 Écouter
+        </button>
+
+
+        <button
+          class="slow-button"
+          type="button"
+          onclick="speakKoreanSlow('이거 뭐예요?', 'hana')"
+        >
+          🐢 Lentement
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="important-box">
+
+      Écoute la fin de la phrase :
+      la voix remonte légèrement,
+      car Hana pose une question.
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       PHRASE 2
+       ===================================================== -->
+
+  <section class="listen-card">
+
+    <h2>
+      ☕ 2. Une réponse
+    </h2>
+
+
+    <div class="listening-focus">
+
+      <div class="focus-number">
+        ÉCOUTE
+      </div>
+
+
+      <div class="focus-korean">
+        커피예요.
+      </div>
+
+
+      <span class="translation">
+        C'est du café.
+      </span>
+
+
+      <div class="audio-row">
+
+        <button
+          class="audio-button"
+          type="button"
+          onclick="speakKorean('커피예요.', 'minsu')"
+        >
+          🔊 Écouter
+        </button>
+
+
+        <button
+          class="slow-button"
+          type="button"
+          onclick="speakKoreanSlow('커피예요.', 'minsu')"
+        >
+          🐢 Lentement
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="tip-box">
+
+      Compare :
 
       <br><br>
 
-      <strong>
+      ❓ <strong>커피예요?</strong>
+
+      <br>
+
+      ✅ <strong>커피예요.</strong>
+
+      <br><br>
+
+      Les mots peuvent être identiques.
+      C'est notamment l'intonation
+      qui permet de distinguer
+      la question de l'affirmation.
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       PHRASE 3
+       ===================================================== -->
+
+  <section class="listen-card">
+
+    <h2>
+      ❤️ 3. Une phrase devient une question
+    </h2>
+
+
+    <div class="listening-focus">
+
+      <div class="focus-number">
+        ÉCOUTE
+      </div>
+
+
+      <div class="focus-korean">
         커피를 좋아해요?
-      </strong>
+      </div>
 
-      <br>
 
-      → Vous aimez le café ?
+      <span class="translation">
+        Tu aimes le café ?
+      </span>
+
+
+      <div class="audio-row">
+
+        <button
+          class="audio-button"
+          type="button"
+          onclick="speakKorean('커피를 좋아해요?', 'hana')"
+        >
+          🔊 Écouter
+        </button>
+
+
+        <button
+          class="slow-button"
+          type="button"
+          onclick="speakKoreanSlow('커피를 좋아해요?', 'hana')"
+        >
+          🐢 Lentement
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="tip-box">
+
+      Tu connais déjà
+      <strong>커피를 좋아해요</strong>.
+
+      <br><br>
+
+      Ici, Hana utilise la même structure
+      pour demander :
+
+      <br><br>
+
+      <strong>커피를 좋아해요?</strong>
 
     </div>
 
@@ -766,71 +616,68 @@
 
 
   <!-- =====================================================
-       QUESTION OU AFFIRMATION
+       PHRASE 4
        ===================================================== -->
 
   <section class="listen-card">
 
     <h2>
-      6 · Question ou affirmation ?
+      📍 4. Où vas-tu ?
     </h2>
 
 
-    <p>
-      Écoute les deux versions :
-    </p>
+    <div class="listening-focus">
 
-
-    <div class="comparison-grid">
-
-
-      <div class="comparison-item">
-
-        <div class="comparison-korean">
-          커피예요.
-        </div>
-
-        <div class="comparison-french">
-          C'est du café.
-        </div>
-
+      <div class="focus-number">
+        ÉCOUTE
       </div>
 
 
-      <div class="comparison-item">
-
-        <div class="comparison-korean">
-          커피예요?
-        </div>
-
-        <div class="comparison-french">
-          C'est du café ?
-        </div>
-
+      <div class="focus-korean">
+        지금 어디에 가요?
       </div>
 
+
+      <span class="translation">
+        Où vas-tu maintenant ?
+      </span>
+
+
+      <div class="audio-row">
+
+        <button
+          class="audio-button"
+          type="button"
+          onclick="speakKorean('지금 어디에 가요?', 'minsu')"
+        >
+          🔊 Écouter
+        </button>
+
+
+        <button
+          class="slow-button"
+          type="button"
+          onclick="speakKoreanSlow('지금 어디에 가요?', 'minsu')"
+        >
+          🐢 Lentement
+        </button>
+
+      </div>
 
     </div>
 
 
-    <button
-      class="audio-button"
-      type="button"
-      onclick="playIntonationComparison()"
-    >
-      🎧 Écouter la différence
-    </button>
+    <div class="important-box">
 
-
-    <div class="focus-box">
-
-      🎵 Les mots sont presque identiques.
+      Essaie de repérer
+      <strong>어디</strong>
+      avant même de traduire toute la phrase.
 
       <br><br>
 
-      C'est surtout <strong>l'intonation finale</strong>
-      qui permet de comprendre
-      qu'il s'agit d'une question à l'oral.
+      Dès que tu entends
+      <strong>어디</strong>,
+      tu sais qu'on demande un lieu.
 
     </div>
 
@@ -839,7 +686,76 @@
 
 
   <!-- =====================================================
-       DIALOGUE PRINCIPAL
+       PHRASE 5
+       ===================================================== -->
+
+  <section class="listen-card">
+
+    <h2>
+      👤 5. Qui est-ce ?
+    </h2>
+
+
+    <div class="listening-focus">
+
+      <div class="focus-number">
+        ÉCOUTE
+      </div>
+
+
+      <div class="focus-korean">
+        누구예요?
+      </div>
+
+
+      <span class="translation">
+        Qui est-ce ?
+      </span>
+
+
+      <div class="audio-row">
+
+        <button
+          class="audio-button"
+          type="button"
+          onclick="speakKorean('누구예요?', 'hana')"
+        >
+          🔊 Écouter
+        </button>
+
+
+        <button
+          class="slow-button"
+          type="button"
+          onclick="speakKoreanSlow('누구예요?', 'hana')"
+        >
+          🐢 Lentement
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="tip-box">
+
+      Ici, le mot important est
+      <strong>누구</strong>.
+
+      <br><br>
+
+      Il indique immédiatement
+      que la question concerne
+      l'identité d'une personne.
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       DIALOGUE COMPLET
        ===================================================== -->
 
   <section class="listen-card">
@@ -849,210 +765,194 @@
     </h2>
 
 
-    <div class="dialogue-line">
-
-      <div class="speaker">
-        🌸 Hana
-      </div>
-
-      <div class="dialogue-korean">
-        민수 씨, 뭐예요?
-      </div>
-
-      <div class="dialogue-translation">
-        Min-su, qu'est-ce que c'est ?
-      </div>
-
-    </div>
-
-
-    <div class="dialogue-line">
-
-      <div class="speaker">
-        💙 Min-su
-      </div>
-
-      <div class="dialogue-korean">
-        커피예요.
-      </div>
-
-      <div class="dialogue-translation">
-        C'est du café.
-      </div>
-
-    </div>
-
-
-    <div class="dialogue-line">
-
-      <div class="speaker">
-        🌸 Hana
-      </div>
-
-      <div class="dialogue-korean">
-        커피를 좋아해요?
-      </div>
-
-      <div class="dialogue-translation">
-        Tu aimes le café ?
-      </div>
-
-    </div>
-
-
-    <div class="dialogue-line">
-
-      <div class="speaker">
-        💙 Min-su
-      </div>
-
-      <div class="dialogue-korean">
-        네, 정말 좋아해요.
-      </div>
-
-      <div class="dialogue-translation">
-        Oui, j'aime vraiment ça.
-      </div>
-
-    </div>
-
-
-    <div class="dialogue-line">
-
-      <div class="speaker">
-        💚 Ji-eun
-      </div>
-
-      <div class="dialogue-korean">
-        안녕하세요!
-      </div>
-
-      <div class="dialogue-translation">
-        Bonjour !
-      </div>
-
-    </div>
-
-
-    <div class="dialogue-line">
-
-      <div class="speaker">
-        🌸 Hana
-      </div>
-
-      <div class="dialogue-korean">
-        지은 씨, 안녕하세요!
-      </div>
-
-      <div class="dialogue-translation">
-        Bonjour, Ji-eun !
-      </div>
-
-    </div>
-
-
-    <div class="dialogue-line">
-
-      <div class="speaker">
-        💙 Min-su
-      </div>
-
-      <div class="dialogue-korean">
-        하나 씨, 지금 어디에 가요?
-      </div>
-
-      <div class="dialogue-translation">
-        Hana, où vas-tu maintenant ?
-      </div>
-
-    </div>
-
-
-    <div class="dialogue-line">
-
-      <div class="speaker">
-        🌸 Hana
-      </div>
-
-      <div class="dialogue-korean">
-        호텔에 가요.
-      </div>
-
-      <div class="dialogue-translation">
-        Je vais à l'hôtel.
-      </div>
-
-    </div>
-
-
-    <div class="dialogue-line">
-
-      <div class="speaker">
-        🌸 Hana
-      </div>
-
-      <div class="dialogue-korean">
-        민수 씨는 어디에 가요?
-      </div>
-
-      <div class="dialogue-translation">
-        Et toi Min-su, où vas-tu ?
-      </div>
-
-    </div>
-
-
-    <div class="dialogue-line">
-
-      <div class="speaker">
-        💙 Min-su
-      </div>
-
-      <div class="dialogue-korean">
-        저는 집에 가요.
-      </div>
-
-      <div class="dialogue-translation">
-        Je vais chez moi.
-      </div>
-
-    </div>
+    <p>
+      Maintenant, écoute le petit dialogue
+      sans t'arrêter après chaque phrase.
+    </p>
 
 
     <button
-      id="mainDialogueButton"
-      class="dialogue-audio-button audio-button"
+      class="audio-main"
+      id="dialogueButton"
       type="button"
-      onclick="toggleMainDialogue()"
+      onclick="toggleDialogue()"
     >
-      🎧 Écouter tout le dialogue
+      ▶️ Écouter le dialogue
     </button>
 
 
-    <div class="listen-tip">
+    <div class="dialogue">
 
-      🎯 Pendant l'écoute,
-      ne cherche pas à tout traduire.
 
-      <br><br>
+      <div class="dialogue-line">
 
-      Essaie d'abord de repérer :
+        <div class="speaker">
+          🌸 Hana
+        </div>
 
-      <br><br>
+        민수 씨, 이거 뭐예요?
 
-      🧐 <strong>뭐</strong>
+        <br>
 
-      <br>
+        <span class="translation">
+          Min-su, qu'est-ce que c'est, ça ?
+        </span>
 
-      📍 <strong>어디</strong>
+      </div>
 
-      <br>
 
-      ❤️ <strong>좋아해요?</strong>
+      <div class="dialogue-line">
 
-      <br>
+        <div class="speaker">
+          💙 Min-su
+        </div>
 
-      🚶 <strong>가요?</strong>
+        커피예요.
+
+        <br>
+
+        <span class="translation">
+          C'est du café.
+        </span>
+
+      </div>
+
+
+      <div class="dialogue-line">
+
+        <div class="speaker">
+          🌸 Hana
+        </div>
+
+        커피를 좋아해요?
+
+        <br>
+
+        <span class="translation">
+          Tu aimes le café ?
+        </span>
+
+      </div>
+
+
+      <div class="dialogue-line">
+
+        <div class="speaker">
+          💙 Min-su
+        </div>
+
+        네, 정말 좋아해요.
+
+        <br>
+
+        <span class="translation">
+          Oui, j'aime vraiment ça.
+        </span>
+
+      </div>
+
+
+      <div class="dialogue-line">
+
+        <div class="speaker">
+          💚 Ji-eun
+        </div>
+
+        안녕하세요!
+
+        <br>
+
+        <span class="translation">
+          Bonjour !
+        </span>
+
+      </div>
+
+
+      <div class="dialogue-line">
+
+        <div class="speaker">
+          🌸 Hana
+        </div>
+
+        지은 씨, 안녕하세요!
+
+        <br>
+
+        <span class="translation">
+          Bonjour, Ji-eun !
+        </span>
+
+      </div>
+
+
+      <div class="dialogue-line">
+
+        <div class="speaker">
+          💙 Min-su
+        </div>
+
+        하나 씨, 지금 어디에 가요?
+
+        <br>
+
+        <span class="translation">
+          Hana, où vas-tu maintenant ?
+        </span>
+
+      </div>
+
+
+      <div class="dialogue-line">
+
+        <div class="speaker">
+          🌸 Hana
+        </div>
+
+        호텔에 가요.
+
+        <br>
+
+        <span class="translation">
+          Je vais à l'hôtel.
+        </span>
+
+      </div>
+
+
+      <div class="dialogue-line">
+
+        <div class="speaker">
+          🌸 Hana
+        </div>
+
+        민수 씨는 어디에 가요?
+
+        <br>
+
+        <span class="translation">
+          Et toi Min-su, où vas-tu ?
+        </span>
+
+      </div>
+
+
+      <div class="dialogue-line">
+
+        <div class="speaker">
+          💙 Min-su
+        </div>
+
+        저는 집에 가요.
+
+        <br>
+
+        <span class="translation">
+          Je vais chez moi.
+        </span>
+
+      </div>
+
 
     </div>
 
@@ -1061,34 +961,36 @@
 
 
   <!-- =====================================================
-       STRATÉGIE
+       CE QU'IL FAUT ENTENDRE
        ===================================================== -->
 
   <section class="listen-card">
 
     <h2>
-      🧠 Ta stratégie d'écoute
+      🧠 Ce que ton oreille doit commencer à reconnaître
     </h2>
 
 
-    <div class="focus-box">
+    <div class="tip-box">
 
-      Quand tu entends une question :
-
-      <br><br>
-
-      <strong>1.</strong> Repère d'abord
-      <strong>뭐 / 어디 / 누구</strong> s'il y en a un.
+      🧐 <strong>뭐</strong>
+      → la personne demande « quoi ? »
 
       <br><br>
 
-      <strong>2.</strong> Écoute ensuite le verbe :
-      <strong>있어요 / 가요 / 살아요 / 좋아해요</strong>.
+      📍 <strong>어디</strong>
+      → la personne demande « où ? »
 
       <br><br>
 
-      <strong>3.</strong> Cherche le sens général,
-      pas une traduction mot à mot.
+      👤 <strong>누구</strong>
+      → la personne demande « qui ? »
+
+      <br><br>
+
+      ❓ Une phrase déjà connue
+      peut devenir une question
+      grâce au contexte et à l'intonation.
 
     </div>
 
@@ -1097,763 +999,502 @@
 
 
   <!-- =====================================================
-       MINI DÉFI
+       SUITE
        ===================================================== -->
 
-  <section class="listen-card challenge-card">
+  <section class="listen-card">
 
     <h2>
-      🎧 Mini défi
+      🎧 À toi de reconnaître
     </h2>
 
 
     <p>
-      Tu vas entendre plusieurs questions
-      sans voir la phrase coréenne.
+      Tu vas maintenant écouter
+      plusieurs phrases sans avoir
+      immédiatement la traduction.
     </p>
 
 
     <p>
-      Tu devras identifier
-      <strong>ce que la personne veut savoir</strong>.
+      Il faudra identifier
+      ce que la personne demande.
     </p>
 
 
-    <ul class="challenge-list">
+    <div class="important-box">
 
-      <li>
-        🧐 Qu'est-ce que c'est ?
-      </li>
+      Cette page d'écoute
+      <strong>ne valide pas encore l'étape</strong>.
 
-      <li>
-        👤 Qui est-ce ?
-      </li>
+      <br><br>
 
-      <li>
-        📍 Où est la personne ?
-      </li>
+      Pour débloquer
+      <strong>🗣️ Je parle</strong>,
+      tu dois terminer
+      le petit exercice d'écoute suivant.
 
-      <li>
-        🚶 Où va la personne ?
-      </li>
-
-      <li>
-        ❤️ Est-ce qu'elle aime quelque chose ?
-      </li>
-
-    </ul>
-
-
-    <button
-      class="next-button"
-      type="button"
-      onclick="window.location.href='exercice-ecoute-5.html'"
-    >
-      🎧 Faire le mini défi d'écoute
-    </button>
+    </div>
 
   </section>
+
+
+
+  <button
+    class="continue-button"
+    type="button"
+    onclick="goToListeningExercise()"
+  >
+    🎧 Faire l'exercice d'écoute
+  </button>
 
 
 </main>
 
 
 
+<script src="chapter-progress.js"></script>
+
+
 <script>
 
   /* =====================================================
-     PARAMÈTRES AUDIO
+     AUDIO
      ===================================================== */
 
   const AUDIO_SETTINGS = {
 
-    normalRate: 0.82,
+    normalRate:
+      0.82,
 
-    slowRate: 0.25
+    slowRate:
+      0.25
 
   };
 
 
-
-  /* =====================================================
-     ÉTAT DU DIALOGUE
-     ===================================================== */
-
-  let isMainDialoguePlaying = false;
-
-  let dialogueSessionId = 0;
+  let dialoguePlaying =
+    false;
 
 
-
-  /* =====================================================
-     VOIX CORÉENNE DISPONIBLE
-     ===================================================== */
-
-  let koreanVoice = null;
+  let dialogueIndex =
+    0;
 
 
-  function loadKoreanVoice() {
+  const dialogueLines = [
 
-    if (
-      !("speechSynthesis" in window)
-    ) {
-      return;
+    {
+      text:
+        "민수 씨, 이거 뭐예요?",
+
+      character:
+        "hana"
+    },
+
+    {
+      text:
+        "커피예요.",
+
+      character:
+        "minsu"
+    },
+
+    {
+      text:
+        "커피를 좋아해요?",
+
+      character:
+        "hana"
+    },
+
+    {
+      text:
+        "네, 정말 좋아해요.",
+
+      character:
+        "minsu"
+    },
+
+    {
+      text:
+        "안녕하세요!",
+
+      character:
+        "jieun"
+    },
+
+    {
+      text:
+        "지은 씨, 안녕하세요!",
+
+      character:
+        "hana"
+    },
+
+    {
+      text:
+        "하나 씨, 지금 어디에 가요?",
+
+      character:
+        "minsu"
+    },
+
+    {
+      text:
+        "호텔에 가요.",
+
+      character:
+        "hana"
+    },
+
+    {
+      text:
+        "민수 씨는 어디에 가요?",
+
+      character:
+        "hana"
+    },
+
+    {
+      text:
+        "저는 집에 가요.",
+
+      character:
+        "minsu"
     }
 
+  ];
+
+
+
+  function getKoreanVoice() {
 
     const voices =
-      window.speechSynthesis.getVoices();
+      window.speechSynthesis
+        .getVoices();
 
 
-    const koreanVoices =
-      voices.filter(
+    return (
+      voices.find(
         voice =>
           voice.lang &&
           voice.lang
             .toLowerCase()
             .startsWith("ko")
-      );
-
-
-    if (
-      koreanVoices.length > 0
-    ) {
-
-      koreanVoice =
-        koreanVoices[0];
-
-    }
+      ) ||
+      null
+    );
 
   }
 
 
 
-  /* =====================================================
-     IDENTITÉ AUDIO DES PERSONNAGES
-     =====================================================
-
-     Pour l'instant, Safari / Chrome peuvent ne fournir
-     qu'une seule voix coréenne.
-
-     Nous gardons malgré tout les personnages séparés
-     dans le code afin de pouvoir connecter plus tard :
-
-     - Hana → voix dédiée
-     - Min-su → voix masculine dédiée
-     - Ji-eun → voix dédiée
-
-     sans devoir reconstruire les dialogues.
-     ===================================================== */
-
-  function getCharacterSettings(
-    character,
-    slow = false
+  function characterPitch(
+    character
   ) {
 
-    const rate =
-      slow
-        ? AUDIO_SETTINGS.slowRate
-        : AUDIO_SETTINGS.normalRate;
+    const pitches = {
 
+      hana:
+        1.06,
 
-    if (
-      character === "hana"
-    ) {
+      minsu:
+        0.94,
 
-      return {
-
-        rate: rate,
-
-        pitch: 1
-
-      };
-
-    }
-
-
-    if (
-      character === "minsu"
-    ) {
-
-      return {
-
-        rate: rate,
-
-        pitch: 1
-
-      };
-
-    }
-
-
-    if (
-      character === "jieun"
-    ) {
-
-      return {
-
-        rate: rate,
-
-        pitch: 1
-
-      };
-
-    }
-
-
-    return {
-
-      rate: rate,
-
-      pitch: 1
+      jieun:
+        1.02
 
     };
 
+
+    return (
+      pitches[
+        character
+      ] ||
+      1
+    );
+
   }
 
 
 
-  /* =====================================================
-     SYNTHÈSE VOCALE SIMPLE
-     ===================================================== */
-
-  function speakWithCharacter(
+  function createUtterance(
     text,
-    character = "hana",
-    slow = false
+    character,
+    rate
   ) {
 
-    if (
-      !("speechSynthesis" in window)
-    ) {
-      return;
-    }
-
-
-    stopMainDialogue();
-
-
-    window.speechSynthesis.cancel();
-
-
-    const speech =
+    const utterance =
       new SpeechSynthesisUtterance(
         text
       );
 
 
-    speech.lang =
+    utterance.lang =
       "ko-KR";
 
 
-    const settings =
-      getCharacterSettings(
-        character,
-        slow
+    utterance.rate =
+      rate;
+
+
+    utterance.pitch =
+      characterPitch(
+        character
       );
 
 
-    speech.rate =
-      settings.rate;
+    const voice =
+      getKoreanVoice();
 
 
-    speech.pitch =
-      settings.pitch;
+    if (voice) {
 
-
-    if (
-      koreanVoice
-    ) {
-
-      speech.voice =
-        koreanVoice;
+      utterance.voice =
+        voice;
 
     }
 
 
-    window.speechSynthesis.speak(
-      speech
-    );
+    return utterance;
 
   }
 
 
 
-  /* =====================================================
-     AUDIO NORMAL
-     ===================================================== */
-
-  function speakKorean(text) {
-
-    speakWithCharacter(
-      text,
-      "hana",
-      false
-    );
-
-  }
-
-
-
-  /* =====================================================
-     AUDIO LENT
-     ===================================================== */
-
-  function speakKoreanSlow(text) {
-
-    speakWithCharacter(
-      text,
-      "hana",
-      true
-    );
-
-  }
-
-
-
-  /* =====================================================
-     PAUSE ENTRE LES PHRASES
-     ===================================================== */
-
-  function pauseBetweenLines(
-    milliseconds
-  ) {
-
-    return new Promise(
-      resolve => {
-
-        setTimeout(
-          resolve,
-          milliseconds
-        );
-
-      }
-    );
-
-  }
-
-
-
-  /* =====================================================
-     LIRE UNE PHRASE ET ATTENDRE SA FIN
-     ===================================================== */
-
-  function speakCharacterAndWait(
+  function speakKorean(
     text,
-    character,
-    sessionId = null
+    character
   ) {
 
-    return new Promise(
-      resolve => {
-
-        if (
-          !("speechSynthesis" in window)
-        ) {
-
-          resolve();
-
-          return;
-
-        }
-
-
-        if (
-          sessionId !== null &&
-          sessionId !== dialogueSessionId
-        ) {
-
-          resolve();
-
-          return;
-
-        }
-
-
-        const speech =
-          new SpeechSynthesisUtterance(
-            text
-          );
-
-
-        speech.lang =
-          "ko-KR";
-
-
-        const settings =
-          getCharacterSettings(
-            character,
-            false
-          );
-
-
-        speech.rate =
-          settings.rate;
-
-
-        speech.pitch =
-          settings.pitch;
-
-
-        if (
-          koreanVoice
-        ) {
-
-          speech.voice =
-            koreanVoice;
-
-        }
-
-
-        speech.onend =
-          function() {
-
-            resolve();
-
-          };
-
-
-        speech.onerror =
-          function() {
-
-            resolve();
-
-          };
-
-
-        window.speechSynthesis.speak(
-          speech
-        );
-
-      }
-    );
-
-  }
-
-
-
-  /* =====================================================
-     LES 3 QUESTIONS AVEC 어디
-     ===================================================== */
-
-  async function playWhereQuestions() {
-
-    if (
-      !("speechSynthesis" in window)
-    ) {
-      return;
-    }
-
-
-    stopMainDialogue();
-
-
     window.speechSynthesis.cancel();
 
 
-    const questions = [
-
-      "어디에 있어요?",
-      "어디에 가요?",
-      "어디에 살아요?"
-
-    ];
-
-
-    for (
-      const question of questions
-    ) {
-
-      await speakCharacterAndWait(
-        question,
-        "hana"
-      );
-
-
-      await pauseBetweenLines(
-        650
-      );
-
-    }
-
-  }
-
-
-
-  /* =====================================================
-     QUESTION / AFFIRMATION
-     ===================================================== */
-
-  async function playIntonationComparison() {
-
-    if (
-      !("speechSynthesis" in window)
-    ) {
-      return;
-    }
-
-
-    stopMainDialogue();
-
-
-    window.speechSynthesis.cancel();
-
-
-    await speakCharacterAndWait(
-      "커피예요.",
-      "hana"
-    );
-
-
-    await pauseBetweenLines(
-      900
-    );
-
-
-    await speakCharacterAndWait(
-      "커피예요?",
-      "hana"
-    );
-
-  }
-
-
-
-  /* =====================================================
-     METTRE À JOUR LE BOUTON DU DIALOGUE
-     ===================================================== */
-
-  function updateDialogueButton() {
-
-    const button =
-      document.getElementById(
-        "mainDialogueButton"
-      );
-
-
-    if (!button) {
-      return;
-    }
-
-
-    if (
-      isMainDialoguePlaying
-    ) {
-
-      button.textContent =
-        "⏹️ Stopper le dialogue";
-
-
-      button.classList.add(
-        "playing"
-      );
-
-    } else {
-
-      button.textContent =
-        "🎧 Écouter tout le dialogue";
-
-
-      button.classList.remove(
-        "playing"
-      );
-
-    }
-
-  }
-
-
-
-  /* =====================================================
-     STOPPER LE DIALOGUE
-     ===================================================== */
-
-  function stopMainDialogue() {
-
-    dialogueSessionId++;
-
-
-    if (
-      "speechSynthesis" in window
-    ) {
-
-      window.speechSynthesis.cancel();
-
-    }
-
-
-    isMainDialoguePlaying =
+    dialoguePlaying =
       false;
 
 
-    updateDialogueButton();
+    resetDialogueButton();
+
+
+    const utterance =
+      createUtterance(
+        text,
+        character,
+        AUDIO_SETTINGS.normalRate
+      );
+
+
+    window.speechSynthesis.speak(
+      utterance
+    );
+
+  }
+
+
+
+  function speakKoreanSlow(
+    text,
+    character
+  ) {
+
+    window.speechSynthesis.cancel();
+
+
+    dialoguePlaying =
+      false;
+
+
+    resetDialogueButton();
+
+
+    const utterance =
+      createUtterance(
+        text,
+        character,
+        AUDIO_SETTINGS.slowRate
+      );
+
+
+    window.speechSynthesis.speak(
+      utterance
+    );
 
   }
 
 
 
   /* =====================================================
-     LANCER / STOPPER LE DIALOGUE
+     DIALOGUE
      ===================================================== */
 
-  function toggleMainDialogue() {
+  function toggleDialogue() {
 
     if (
-      isMainDialoguePlaying
+      dialoguePlaying
     ) {
 
-      stopMainDialogue();
+      stopDialogue();
 
       return;
 
-    }
-
-
-    playMainDialogue();
-
-  }
-
-
-
-  /* =====================================================
-     DIALOGUE COMPLET
-     ===================================================== */
-
-  async function playMainDialogue() {
-
-    if (
-      !("speechSynthesis" in window)
-    ) {
-      return;
     }
 
 
     window.speechSynthesis.cancel();
 
 
-    dialogueSessionId++;
-
-
-    const currentSession =
-      dialogueSessionId;
-
-
-    isMainDialoguePlaying =
+    dialoguePlaying =
       true;
 
 
-    updateDialogueButton();
+    dialogueIndex =
+      0;
 
 
-    const dialogue = [
-
-      {
-        character: "hana",
-        text: "민수 씨, 뭐예요?"
-      },
-
-      {
-        character: "minsu",
-        text: "커피예요."
-      },
-
-      {
-        character: "hana",
-        text: "커피를 좋아해요?"
-      },
-
-      {
-        character: "minsu",
-        text: "네, 정말 좋아해요."
-      },
-
-      {
-        character: "jieun",
-        text: "안녕하세요!"
-      },
-
-      {
-        character: "hana",
-        text: "지은 씨, 안녕하세요!"
-      },
-
-      {
-        character: "minsu",
-        text: "하나 씨, 지금 어디에 가요?"
-      },
-
-      {
-        character: "hana",
-        text: "호텔에 가요."
-      },
-
-      {
-        character: "hana",
-        text: "민수 씨는 어디에 가요?"
-      },
-
-      {
-        character: "minsu",
-        text: "저는 집에 가요."
-      }
-
-    ];
+    const button =
+      document.getElementById(
+        "dialogueButton"
+      );
 
 
-    for (
-      const line of dialogue
+    if (button) {
+
+      button.textContent =
+        "⏹️ Arrêter le dialogue";
+
+    }
+
+
+    playNextDialogueLine();
+
+  }
+
+
+
+  function playNextDialogueLine() {
+
+    if (
+      !dialoguePlaying
     ) {
 
-      if (
-        currentSession !== dialogueSessionId
-      ) {
-
-        return;
-
-      }
-
-
-      await speakCharacterAndWait(
-        line.text,
-        line.character,
-        currentSession
-      );
-
-
-      if (
-        currentSession !== dialogueSessionId
-      ) {
-
-        return;
-
-      }
-
-
-      await pauseBetweenLines(
-        450
-      );
-
-
-      if (
-        currentSession !== dialogueSessionId
-      ) {
-
-        return;
-
-      }
+      return;
 
     }
 
 
     if (
-      currentSession === dialogueSessionId
+      dialogueIndex >=
+      dialogueLines.length
     ) {
 
-      isMainDialoguePlaying =
+      dialoguePlaying =
         false;
 
 
-      updateDialogueButton();
+      dialogueIndex =
+        0;
+
+
+      resetDialogueButton();
+
+      return;
+
+    }
+
+
+    const line =
+      dialogueLines[
+        dialogueIndex
+      ];
+
+
+    const utterance =
+      createUtterance(
+        line.text,
+        line.character,
+        AUDIO_SETTINGS.normalRate
+      );
+
+
+    utterance.onend =
+      function() {
+
+        if (
+          !dialoguePlaying
+        ) {
+
+          return;
+
+        }
+
+
+        dialogueIndex++;
+
+
+        window.setTimeout(
+          playNextDialogueLine,
+          280
+        );
+
+      };
+
+
+    utterance.onerror =
+      function() {
+
+        dialoguePlaying =
+          false;
+
+
+        dialogueIndex =
+          0;
+
+
+        resetDialogueButton();
+
+      };
+
+
+    window.speechSynthesis.speak(
+      utterance
+    );
+
+  }
+
+
+
+  function stopDialogue() {
+
+    dialoguePlaying =
+      false;
+
+
+    dialogueIndex =
+      0;
+
+
+    window.speechSynthesis.cancel();
+
+
+    resetDialogueButton();
+
+  }
+
+
+
+  function resetDialogueButton() {
+
+    const button =
+      document.getElementById(
+        "dialogueButton"
+      );
+
+
+    if (button) {
+
+      button.textContent =
+        "▶️ Écouter le dialogue";
 
     }
 
@@ -1862,35 +1503,60 @@
 
 
   /* =====================================================
-     CHARGEMENT DES VOIX
+     CONTINUER
      ===================================================== */
 
-  loadKoreanVoice();
+  function goToListeningExercise() {
+
+    window.speechSynthesis.cancel();
 
 
-  if (
-    "speechSynthesis" in window
-  ) {
+    dialoguePlaying =
+      false;
 
-    window.speechSynthesis.onvoiceschanged =
-      function() {
 
-        loadKoreanVoice();
-
-      };
+    window.location.href =
+      "exercice-ecoute-5.html";
 
   }
 
 
-  setTimeout(
-    loadKoreanVoice,
-    700
+
+  /* =====================================================
+     SÉCURITÉ AUDIO
+     ===================================================== */
+
+  window.addEventListener(
+    "pagehide",
+    function() {
+
+      window.speechSynthesis.cancel();
+
+
+      dialoguePlaying =
+        false;
+
+    }
   );
 
 
-  setTimeout(
-    loadKoreanVoice,
-    1800
+  window.addEventListener(
+    "pageshow",
+    function() {
+
+      resetDialogueButton();
+
+
+      if (
+        window.HanaChapterProgress &&
+        typeof window.HanaChapterProgress.render === "function"
+      ) {
+
+        window.HanaChapterProgress.render();
+
+      }
+
+    }
   );
 
 </script>

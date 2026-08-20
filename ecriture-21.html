@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="theme-color"
+    content="#F7F4ED"
+  >
+
+  <title>Chapitre 21 — J'écris</title>
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+  <link rel="stylesheet" href="chapter-progress.css">
+
+  <style>
+
+    .write-header {
+      text-align:center;
+      margin-bottom:24px;
+    }
+
+    .exercise-card,
+    .free-card,
+    .tip-card {
+      padding:20px;
+      margin-bottom:18px;
+      background:var(--white);
+      border-radius:var(--radius-large);
+      box-shadow:var(--shadow);
+    }
+
+    .question-block {
+      padding:16px;
+      margin-top:14px;
+      background:#FBFAF6;
+      border-radius:var(--radius-medium);
+    }
+
+    .question-title {
+      margin-bottom:10px;
+      color:var(--navy);
+      font-weight:bold;
+      line-height:1.6;
+    }
+
+    input,
+    textarea {
+      width:100%;
+      box-sizing:border-box;
+      margin-top:8px;
+      padding:12px 13px;
+      border:1px solid var(--border);
+      border-radius:var(--radius-medium);
+      font:inherit;
+      color:var(--navy);
+      background:white;
+    }
+
+    textarea {
+      min-height:130px;
+      resize:vertical;
+    }
+
+    .check-button {
+      width:100%;
+      margin-top:10px;
+      background:var(--jade);
+      color:white;
+      font-weight:bold;
+    }
+
+    .feedback {
+      display:none;
+      margin-top:10px;
+      padding:11px 13px;
+      border-radius:var(--radius-medium);
+      line-height:1.6;
+    }
+
+    .feedback.show {
+      display:block;
+    }
+
+    .feedback.success {
+      background:var(--success-light);
+      color:var(--success);
+    }
+
+    .feedback.error {
+      background:var(--error-light);
+      color:var(--error);
+    }
+
+    .hint {
+      margin-top:8px;
+      color:var(--text-light);
+      font-size:14px;
+    }
+
+    .complete-button,
+    .next-button,
+    .back-button {
+      width:100%;
+      margin-top:10px;
+    }
+
+    .complete-button {
+      display:none;
+      background:var(--jade);
+      color:white;
+      font-weight:bold;
+    }
+
+    .complete-button.show {
+      display:block;
+    }
+
+    .complete-button.done {
+      background:var(--success);
+    }
+
+    .next-button {
+      display:none;
+      background:var(--navy);
+      color:white;
+      font-weight:bold;
+    }
+
+    .back-button {
+      background:var(--soft-beige);
+      color:var(--navy);
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+<main class="app">
+
+  <a
+    class="back-link"
+    href="parle-21.html"
+  >
+    ← Oral
+  </a>
+
+  <header class="write-header">
+
+    <span class="chapter-badge">
+      Chapitre 21 · ✍️ J'écris
+    </span>
+
+    <p class="korean">
+      같이 갈래요? 🌸
+    </p>
+
+    <h1>
+      Écrire une invitation
+    </h1>
+
+    <p>
+      Réutilise les structures du chapitre pour proposer,
+      répondre et fixer un rendez-vous.
+    </p>
+
+  </header>
+
+  <section id="hanaChapterPath" data-chapter-path></section>
+
+  <section class="exercise-card">
+
+    <h2>✍️ Exercice 1 — Traduis en coréen</h2>
+
+    <div
+      class="question-block"
+      data-type="translation"
+      data-valid="커피 마실래요|커피를 마실래요"
+    >
+      <div class="question-title">
+        1. Tu veux boire un café ?
+      </div>
+
+      <input
+        type="text"
+        lang="ko"
+        placeholder="Écris en coréen"
+      >
+
+      <button
+        class="check-button"
+        type="button"
+      >
+        Vérifier
+      </button>
+
+      <div class="feedback"></div>
+    </div>
+
+
+    <div
+      class="question-block"
+      data-type="translation"
+      data-valid="어디에 갈까요|어디 갈까요"
+    >
+      <div class="question-title">
+        2. Où allons-nous ?
+      </div>
+
+      <input
+        type="text"
+        lang="ko"
+        placeholder="Écris en coréen"
+      >
+
+      <button
+        class="check-button"
+        type="button"
+      >
+        Vérifier
+      </button>
+
+      <div class="feedback"></div>
+    </div>
+
+
+    <div
+      class="question-block"
+      data-type="translation"
+      data-valid="내일 만날까요|내일 만나요"
+    >
+      <div class="question-title">
+        3. On se retrouve demain ?
+      </div>
+
+      <input
+        type="text"
+        lang="ko"
+        placeholder="Écris en coréen"
+      >
+
+      <button
+        class="check-button"
+        type="button"
+      >
+        Vérifier
+      </button>
+
+      <div class="feedback"></div>
+    </div>
+
+
+    <div
+      class="question-block"
+      data-type="translation"
+      data-valid="몇 시에 만날까요"
+    >
+      <div class="question-title">
+        4. À quelle heure se retrouve-t-on ?
+      </div>
+
+      <input
+        type="text"
+        lang="ko"
+        placeholder="Écris en coréen"
+      >
+
+      <button
+        class="check-button"
+        type="button"
+      >
+        Vérifier
+      </button>
+
+      <div class="feedback"></div>
+    </div>
+
+  </section>
+
+
+  <section class="exercise-card">
+
+    <h2>🧩 Exercice 2 — Complète</h2>
+
+    <div
+      class="question-block"
+      data-type="translation"
+      data-valid="놀러|놀러 가"
+    >
+      <div class="question-title">
+        같이 ________ 갈래요?
+      </div>
+
+      <input
+        type="text"
+        lang="ko"
+        placeholder="Complète la phrase"
+      >
+
+      <div class="hint">
+        Indice : « aller se promener / sortir »
+      </div>
+
+      <button
+        class="check-button"
+        type="button"
+      >
+        Vérifier
+      </button>
+
+      <div class="feedback"></div>
+    </div>
+
+
+    <div
+      class="question-block"
+      data-type="translation"
+      data-valid="갈까요"
+    >
+      <div class="question-title">
+        어디에 ________?
+      </div>
+
+      <input
+        type="text"
+        lang="ko"
+        placeholder="Complète la phrase"
+      >
+
+      <button
+        class="check-button"
+        type="button"
+      >
+        Vérifier
+      </button>
+
+      <div class="feedback"></div>
+    </div>
+
+
+    <div
+      class="question-block"
+      data-type="translation"
+      data-valid="같이|같이 만나|만나"
+    >
+      <div class="question-title">
+        내일 ________ 만나요.
+      </div>
+
+      <input
+        type="text"
+        lang="ko"
+        placeholder="Complète la phrase"
+      >
+
+      <button
+        class="check-button"
+        type="button"
+      >
+        Vérifier
+      </button>
+
+      <div class="feedback"></div>
+    </div>
+
+
+    <div
+      class="question-block"
+      data-type="translation"
+      data-valid="만나요"
+    >
+      <div class="question-title">
+        오후 두 시에 ________.
+      </div>
+
+      <input
+        type="text"
+        lang="ko"
+        placeholder="Complète la phrase"
+      >
+
+      <button
+        class="check-button"
+        type="button"
+      >
+        Vérifier
+      </button>
+
+      <div class="feedback"></div>
+    </div>
+
+  </section>
+
+
+  <section class="free-card">
+
+    <h2>🌸 Exercice 3 — Réponds librement</h2>
+
+    <div class="question-block">
+      <div class="question-title">
+        오늘 뭐 하고 싶어요?
+      </div>
+
+      <textarea
+        lang="ko"
+        placeholder="Réponds en coréen"
+      ></textarea>
+    </div>
+
+
+    <div class="question-block">
+      <div class="question-title">
+        주말에 어디에 가고 싶어요?
+      </div>
+
+      <textarea
+        lang="ko"
+        placeholder="Réponds en coréen"
+      ></textarea>
+    </div>
+
+  </section>
+
+
+  <section class="free-card">
+
+    <h2>📝 Mon carnet de voyage</h2>
+
+    Imagine que tu proposes une sortie à Min-su ou à Ji-soo.
+    Écris un petit dialogue de 5 ou 6 répliques.
+
+    <br><br>
+
+    Tu peux utiliser :
+    <strong>
+      같이 · 갈래요? · 갈까요? · 몇 시에? · 좋아요
+    </strong>
+
+    <textarea
+      id="travelNotebook"
+      lang="ko"
+      placeholder="Écris ton mini-dialogue ici…"
+    ></textarea>
+
+  </section>
+
+
+  <section class="tip-card">
+
+    <h2>💡 Petit rappel</h2>
+
+    Tu n'as pas besoin d'écrire exactement la même phrase
+    que le modèle si ta formulation est naturelle et correcte.
+
+    <br><br>
+
+    Pour les réponses libres, l'objectif est surtout de
+    <strong>produire toi-même du coréen</strong>.
+
+  </section>
+
+
+  <button
+    class="complete-button"
+    id="completeButton"
+    type="button"
+  >
+    ✅ Valider l'écriture
+  </button>
+
+
+  <button
+    class="next-button"
+    id="nextButton"
+    type="button"
+  >
+    🧠 Passer à la révision
+  </button>
+
+
+  <button
+    class="back-button"
+    type="button"
+    onclick="window.location.href='parle-21.html'"
+  >
+    ← Retour à l'oral
+  </button>
+
+</main>
+
+
+<script src="chapter-progress.js">
+  renderChapterProgress();
+
+  window.addEventListener("pageshow", () => {
+    guardWritingAccess();
+    renderChapterProgress();
+  });
+
+</script>
+
+<script>
+
+  const progressKey =
+    "hanaKorean_chapter21_writing";
+
+  const understandingKey =
+    "hanaKorean_chapter21_understanding";
+
+  const listeningExerciseKey =
+    "hanaKorean_chapter21_listeningExercise";
+
+  const speakingKey =
+    "hanaKorean_chapter21_speaking";
+
+  const revisionNotionsKey =
+    "hanaKorean_chapter21_revisionNotions";
+
+
+  function renderChapterProgress() {
+    if (
+      window.HanaChapterProgress &&
+      typeof window.HanaChapterProgress.render === "function"
+    ) {
+      window.HanaChapterProgress.render();
+    }
+  }
+
+  function guardWritingAccess() {
+    const required = [
+      [understandingKey, "chapitre-21.html"],
+      [listeningExerciseKey, "exercice-ecoute-21.html"],
+      [speakingKey, "parle-21.html"]
+    ];
+
+    for (const [key, page] of required) {
+      if (localStorage.getItem(key) !== "completed") {
+        window.location.replace(page);
+        return false;
+      }
+    }
+
+    return true;
+  }
+
+
+
+  const questionBlocks =
+    Array.from(
+      document.querySelectorAll(
+        ".question-block[data-valid]"
+      )
+    );
+
+
+  const completeButton =
+    document.getElementById(
+      "completeButton"
+    );
+
+
+  const nextButton =
+    document.getElementById(
+      "nextButton"
+    );
+
+
+  const travelNotebook =
+    document.getElementById(
+      "travelNotebook"
+    );
+
+
+  const notebookKey =
+    "hanaKorean_chapter21_notebook";
+
+
+  function normalizeText(value) {
+
+    return value
+      .replace(/[?.!,]/g, "")
+      .replace(/\s+/g, "")
+      .trim();
+
+  }
+
+
+  function updateCompletionAvailability() {
+
+    const allCorrect =
+      questionBlocks.every(
+        block =>
+          block.dataset.completed ===
+          "true"
+      );
+
+
+    if (
+      allCorrect
+    ) {
+
+      completeButton
+        .classList
+        .add(
+          "show"
+        );
+
+    }
+
+  }
+
+
+  questionBlocks.forEach(
+    block => {
+
+      const input =
+        block.querySelector(
+          "input"
+        );
+
+
+      const checkButton =
+        block.querySelector(
+          ".check-button"
+        );
+
+
+      const feedback =
+        block.querySelector(
+          ".feedback"
+        );
+
+
+      const validAnswers =
+        block.dataset.valid
+          .split("|")
+          .map(
+            answer =>
+              normalizeText(
+                answer
+              )
+          );
+
+
+      checkButton.addEventListener(
+        "click",
+        () => {
+
+          const answer =
+            normalizeText(
+              input.value
+            );
+
+
+          if (
+            !answer
+          ) {
+
+            feedback.className =
+              "feedback show error";
+
+
+            feedback.textContent =
+              "Écris une réponse avant de vérifier.";
+
+            return;
+
+          }
+
+
+          const accepted =
+            validAnswers.some(
+              valid =>
+                answer === valid
+            );
+
+
+          if (
+            accepted
+          ) {
+
+            block.dataset.completed =
+              "true";
+
+
+            feedback.className =
+              "feedback show success";
+
+
+            feedback.textContent =
+              "✅ Très bien !";
+
+
+            input.disabled =
+              true;
+
+
+            checkButton.disabled =
+              true;
+
+
+            updateCompletionAvailability();
+
+          } else {
+
+            feedback.className =
+              "feedback show error";
+
+
+            feedback.textContent =
+              "Pas encore. Regarde la structure du chapitre et réessaie.";
+
+          }
+
+        }
+      );
+
+    }
+  );
+
+
+  if (
+    travelNotebook
+  ) {
+
+    travelNotebook.value =
+      localStorage.getItem(
+        notebookKey
+      ) || "";
+
+
+    travelNotebook.addEventListener(
+      "input",
+      () => {
+
+        localStorage.setItem(
+          notebookKey,
+          travelNotebook.value
+        );
+
+      }
+    );
+
+  }
+
+
+  function showCompletedState() {
+
+    completeButton.textContent =
+      "✅ Écriture terminée";
+
+
+    completeButton
+      .classList
+      .add(
+        "show",
+        "done"
+      );
+
+
+    nextButton.style.display =
+      "block";
+
+  }
+
+
+  guardWritingAccess();
+
+  if (
+    localStorage.getItem(
+      progressKey
+    ) === "completed"
+  ) {
+
+    showCompletedState();
+
+  }
+
+
+  completeButton.addEventListener(
+    "click",
+    () => {
+
+      localStorage.setItem(
+        progressKey,
+        "completed"
+      );
+
+      if (localStorage.getItem(revisionNotionsKey) === null) {
+        localStorage.setItem(revisionNotionsKey, "[]");
+      }
+
+      showCompletedState();
+      renderChapterProgress();
+
+    }
+  );
+
+
+  nextButton.addEventListener(
+    "click",
+    () => {
+
+      window.location.href =
+        "revision-21.html";
+
+    }
+  );
+
+</script>
+
+
+</body>
+
+</html>

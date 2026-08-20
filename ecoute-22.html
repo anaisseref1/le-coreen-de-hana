@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="theme-color"
+    content="#F7F4ED"
+  >
+
+  <title>Chapitre 22 — J'écoute</title>
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+  <link rel="stylesheet" href="chapter-progress.css">
+
+  <style>
+
+    .listen-header {
+      text-align:center;
+      margin-bottom:24px;
+    }
+
+    .listen-card,
+    .dialogue-card,
+    .shadowing-card,
+    .tip-card {
+      padding:20px;
+      margin-bottom:18px;
+      background:var(--white);
+      border-radius:var(--radius-large);
+      box-shadow:var(--shadow);
+    }
+
+    .dialogue-line {
+      padding:15px;
+      margin-bottom:10px;
+      border-radius:var(--radius-medium);
+      line-height:1.7;
+    }
+
+    .dialogue-line.hana {
+      background:var(--soft-green);
+    }
+
+    .dialogue-line.minsu {
+      background:var(--soft-blue);
+    }
+
+    .speaker {
+      font-weight:bold;
+      margin-bottom:4px;
+    }
+
+    .korean-line {
+      color:var(--navy);
+      font-size:19px;
+      font-weight:bold;
+    }
+
+    .french-line {
+      margin-top:5px;
+      color:var(--text-light);
+    }
+
+    .audio-row {
+      display:flex;
+      gap:10px;
+      margin-top:12px;
+      flex-wrap:wrap;
+    }
+
+    .audio-row button {
+      flex:1;
+      min-width:135px;
+    }
+
+    .dialogue-play {
+      background:var(--jade);
+      color:white;
+      font-weight:bold;
+    }
+
+    .dialogue-slow {
+      background:var(--soft-beige);
+      color:var(--navy);
+      font-weight:bold;
+    }
+
+    .shadowing-button {
+      background:var(--navy);
+      color:white;
+      font-weight:bold;
+    }
+
+    .complete-button,
+    .next-button,
+    .back-button {
+      width:100%;
+      margin-top:10px;
+    }
+
+    .complete-button {
+      background:var(--jade);
+      color:white;
+      font-weight:bold;
+    }
+
+    .complete-button.done {
+      background:var(--success);
+    }
+
+    .next-button {
+      display:none;
+      background:var(--navy);
+      color:white;
+      font-weight:bold;
+    }
+
+    .back-button {
+      background:var(--soft-beige);
+      color:var(--navy);
+    }
+
+    .playing {
+      background:var(--navy) !important;
+      color:white !important;
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+<main class="app">
+
+  <a
+    class="back-link"
+    href="chapitre-22.html"
+  >
+    ← Chapitre 22
+  </a>
+
+  <header class="listen-header">
+
+    <span class="chapter-badge">
+      Chapitre 22 · 🎧 J'écoute
+    </span>
+
+    <p class="korean">
+      오늘 날씨가 어때요? 🌦️
+    </p>
+
+    <h1>
+      Comprendre la météo
+    </h1>
+
+    <p>
+      Écoute Hana et Min-su parler du temps avant de sortir.
+      Commence lentement, puis réécoute à vitesse normale.
+    </p>
+
+  </header>
+
+  <section id="hanaChapterPath" data-chapter-path></section>
+
+
+  <section class="listen-card">
+
+    <h2>🎧 Dialogue complet</h2>
+
+    <p>
+      Essaie d'abord de repérer les mots météo sans lire la traduction.
+      Puis réécoute en suivant les phrases.
+    </p>
+
+    <div class="audio-row">
+
+      <button
+        class="dialogue-slow"
+        id="slowDialogueButton"
+        type="button"
+      >
+        🐢 Écouter lentement
+      </button>
+
+      <button
+        class="dialogue-play"
+        id="normalDialogueButton"
+        type="button"
+      >
+        🎧 Écouter tout le dialogue
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <section class="dialogue-card">
+
+    <h2>💬 Dialogue</h2>
+
+    <div class="dialogue-line minsu">
+      <div class="speaker">💙 Min-su</div>
+      <div class="korean-line">
+        오늘 날씨가 어때요?
+      </div>
+      <div class="french-line">
+        Comment est le temps aujourd'hui ?
+      </div>
+    </div>
+
+    <div class="dialogue-line hana">
+      <div class="speaker">🌸 Hana</div>
+      <div class="korean-line">
+        조금 더워요.
+      </div>
+      <div class="french-line">
+        Il fait un peu chaud.
+      </div>
+    </div>
+
+    <div class="dialogue-line minsu">
+      <div class="speaker">💙 Min-su</div>
+      <div class="korean-line">
+        하지만 비가 올 것 같아요.
+      </div>
+      <div class="french-line">
+        Mais je crois qu'il va pleuvoir.
+      </div>
+    </div>
+
+    <div class="dialogue-line hana">
+      <div class="speaker">🌸 Hana</div>
+      <div class="korean-line">
+        맞아요. 하늘이 흐려요.
+      </div>
+      <div class="french-line">
+        Oui. Le ciel est couvert.
+      </div>
+    </div>
+
+    <div class="dialogue-line minsu">
+      <div class="speaker">💙 Min-su</div>
+      <div class="korean-line">
+        우산 있어요?
+      </div>
+      <div class="french-line">
+        Tu as un parapluie ?
+      </div>
+    </div>
+
+    <div class="dialogue-line hana">
+      <div class="speaker">🌸 Hana</div>
+      <div class="korean-line">
+        네! 가방에 있어요.
+      </div>
+      <div class="french-line">
+        Oui ! Il est dans mon sac.
+      </div>
+    </div>
+
+    <div class="dialogue-line minsu">
+      <div class="speaker">💙 Min-su</div>
+      <div class="korean-line">
+        다행이에요.
+      </div>
+      <div class="french-line">
+        Heureusement !
+      </div>
+    </div>
+
+  </section>
+
+
+  <section class="tip-card">
+
+    <h2>🩵 À écouter attentivement</h2>
+
+    <strong>날씨</strong>
+    contient un double
+    <strong>ㅆ</strong> :
+    le son <strong>s</strong> est bien marqué.
+
+    <br><br>
+
+    Écoute aussi la différence entre :
+
+    <br><br>
+
+    <strong>비가 와요.</strong>
+    → Il pleut.
+
+    <br>
+
+    <strong>비가 올 것 같아요.</strong>
+    → Je pense qu'il va pleuvoir.
+
+  </section>
+
+
+  <section class="shadowing-card">
+
+    <h2>🗣️ Shadowing</h2>
+
+    <p>
+      Lance le dialogue puis répète chaque phrase juste après le personnage.
+      Essaie surtout d'imiter le rythme et l'intonation.
+    </p>
+
+    <button
+      class="shadowing-button"
+      id="shadowingButton"
+      type="button"
+    >
+      🎭 Lancer le shadowing
+    </button>
+
+  </section>
+
+
+  <button
+    class="complete-button"
+    id="completeButton"
+    type="button"
+  >
+    ✅ J'ai terminé l'écoute
+  </button>
+
+
+  <button
+    class="next-button"
+    id="nextButton"
+    type="button"
+  >
+    🎧 Faire l'exercice d'écoute
+  </button>
+
+
+  <button
+    class="back-button"
+    type="button"
+    onclick="window.location.href='chapitre-22.html'"
+  >
+    ← Retour au chapitre
+  </button>
+
+</main>
+
+
+<script src="chapter-progress.js"></script>
+
+<script>
+
+  const AUDIO_SETTINGS = {
+    normalRate: 0.82,
+    slowRate: 0.25
+  };
+
+
+  const dialogue = [
+    {
+      character: "minsu",
+      text: "오늘 날씨가 어때요?"
+    },
+    {
+      character: "hana",
+      text: "조금 더워요."
+    },
+    {
+      character: "minsu",
+      text: "하지만 비가 올 것 같아요."
+    },
+    {
+      character: "hana",
+      text: "맞아요. 하늘이 흐려요."
+    },
+    {
+      character: "minsu",
+      text: "우산 있어요?"
+    },
+    {
+      character: "hana",
+      text: "네! 가방에 있어요."
+    },
+    {
+      character: "minsu",
+      text: "다행이에요."
+    }
+  ];
+
+
+  const progressKey =
+    "hanaKorean_chapter22_listening";
+
+  const understandingKey =
+    "hanaKorean_chapter22_understanding";
+
+  const listeningExerciseKey =
+    "hanaKorean_chapter22_listeningExercise";
+
+  function renderChapterProgress() {
+    if (
+      window.HanaChapterProgress &&
+      typeof window.HanaChapterProgress.render === "function"
+    ) {
+      window.HanaChapterProgress.render();
+    }
+  }
+
+  function guardListeningAccess() {
+    if (localStorage.getItem(understandingKey) !== "completed") {
+      window.location.replace("chapitre-22.html");
+      return false;
+    }
+
+    if (
+      localStorage.getItem(progressKey) === "completed" &&
+      localStorage.getItem(listeningExerciseKey) !== "completed"
+    ) {
+      localStorage.setItem(progressKey, "in_progress");
+    }
+
+    if (localStorage.getItem(progressKey) === null) {
+      localStorage.setItem(progressKey, "in_progress");
+    }
+
+    return true;
+  }
+
+
+  const slowDialogueButton =
+    document.getElementById(
+      "slowDialogueButton"
+    );
+
+
+  const normalDialogueButton =
+    document.getElementById(
+      "normalDialogueButton"
+    );
+
+
+  const shadowingButton =
+    document.getElementById(
+      "shadowingButton"
+    );
+
+
+  const completeButton =
+    document.getElementById(
+      "completeButton"
+    );
+
+
+  const nextButton =
+    document.getElementById(
+      "nextButton"
+    );
+
+
+  let dialogueSessionId = 0;
+  let activeButton = null;
+
+
+  function getKoreanVoice() {
+
+    const voices =
+      window.speechSynthesis.getVoices();
+
+
+    return voices.find(
+      voice =>
+        voice.lang &&
+        voice.lang.toLowerCase().startsWith("ko")
+    ) || null;
+
+  }
+
+
+  function getCharacterSettings(character) {
+
+    const settings = {
+      hana: {
+        pitch: 1.06
+      },
+      minsu: {
+        pitch: 0.94
+      }
+    };
+
+
+    return settings[character] || {
+      pitch: 1
+    };
+
+  }
+
+
+  function resetDialogueButtons() {
+
+    slowDialogueButton.textContent =
+      "🐢 Écouter lentement";
+
+    normalDialogueButton.textContent =
+      "🎧 Écouter tout le dialogue";
+
+    shadowingButton.textContent =
+      "🎭 Lancer le shadowing";
+
+
+    slowDialogueButton.classList.remove(
+      "playing"
+    );
+
+    normalDialogueButton.classList.remove(
+      "playing"
+    );
+
+    shadowingButton.classList.remove(
+      "playing"
+    );
+
+
+    activeButton = null;
+
+  }
+
+
+  function stopDialogue() {
+
+    dialogueSessionId++;
+
+    window.speechSynthesis.cancel();
+
+    resetDialogueButtons();
+
+  }
+
+
+  function playDialogue(
+    rate,
+    button,
+    shadowingMode = false
+  ) {
+
+    if (
+      activeButton === button &&
+      window.speechSynthesis.speaking
+    ) {
+
+      stopDialogue();
+      return;
+
+    }
+
+
+    stopDialogue();
+
+
+    const sessionId =
+      ++dialogueSessionId;
+
+
+    activeButton =
+      button;
+
+
+    button.classList.add(
+      "playing"
+    );
+
+
+    button.textContent =
+      "⏹️ Stopper le dialogue";
+
+
+    let index =
+      0;
+
+
+    function speakNext() {
+
+      if (
+        sessionId !== dialogueSessionId
+      ) {
+
+        return;
+
+      }
+
+
+      if (
+        index >= dialogue.length
+      ) {
+
+        resetDialogueButtons();
+        return;
+
+      }
+
+
+      const line =
+        dialogue[index];
+
+
+      const utterance =
+        new SpeechSynthesisUtterance(
+          line.text
+        );
+
+
+      utterance.lang =
+        "ko-KR";
+
+      utterance.rate =
+        rate;
+
+      utterance.pitch =
+        getCharacterSettings(
+          line.character
+        ).pitch;
+
+
+      const koreanVoice =
+        getKoreanVoice();
+
+
+      if (koreanVoice) {
+
+        utterance.voice =
+          koreanVoice;
+
+      }
+
+
+      utterance.onend =
+        () => {
+
+          if (
+            sessionId !== dialogueSessionId
+          ) {
+
+            return;
+
+          }
+
+
+          index++;
+
+
+          setTimeout(
+            speakNext,
+            shadowingMode ? 1600 : 220
+          );
+
+        };
+
+
+      utterance.onerror =
+        () => {
+
+          stopDialogue();
+
+        };
+
+
+      window.speechSynthesis.speak(
+        utterance
+      );
+
+    }
+
+
+    speakNext();
+
+  }
+
+
+  slowDialogueButton.addEventListener(
+    "click",
+    () => {
+
+      playDialogue(
+        AUDIO_SETTINGS.slowRate,
+        slowDialogueButton
+      );
+
+    }
+  );
+
+
+  normalDialogueButton.addEventListener(
+    "click",
+    () => {
+
+      playDialogue(
+        AUDIO_SETTINGS.normalRate,
+        normalDialogueButton
+      );
+
+    }
+  );
+
+
+  shadowingButton.addEventListener(
+    "click",
+    () => {
+
+      playDialogue(
+        AUDIO_SETTINGS.normalRate,
+        shadowingButton,
+        true
+      );
+
+    }
+  );
+
+
+  function showCompletedState() {
+
+    completeButton.textContent =
+      "✅ Écoute terminée";
+
+    completeButton.classList.add(
+      "done"
+    );
+
+    nextButton.style.display =
+      "block";
+
+  }
+
+
+  guardListeningAccess();
+  renderChapterProgress();
+
+  if (
+    localStorage.getItem(
+      progressKey
+    ) === "completed"
+  ) {
+
+    showCompletedState();
+
+  }
+
+
+  completeButton.addEventListener(
+    "click",
+    () => {
+
+      localStorage.setItem(
+        progressKey,
+        "in_progress"
+      );
+
+      showCompletedState();
+      renderChapterProgress();
+
+    }
+  );
+
+
+  nextButton.addEventListener(
+    "click",
+    () => {
+
+      stopDialogue();
+
+      window.location.href =
+        "exercice-ecoute-22.html";
+
+    }
+  );
+
+
+  window.addEventListener(
+    "beforeunload",
+    stopDialogue
+  );
+
+
+  window.speechSynthesis.onvoiceschanged =
+    () => {
+      getKoreanVoice();
+    };
+
+
+  window.addEventListener("pageshow", () => {
+    guardListeningAccess();
+    renderChapterProgress();
+  });
+
+</script>
+
+</body>
+
+</html>

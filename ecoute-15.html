@@ -22,6 +22,11 @@
     href="style.css"
   >
 
+  <link
+    rel="stylesheet"
+    href="chapter-progress.css"
+  >
+
 
   <style>
 
@@ -249,6 +254,11 @@
 
   </header>
 
+
+  <section
+    id="hanaChapterPath"
+    data-chapter-path
+  ></section>
 
 
   <section class="goal-card">
@@ -1213,7 +1223,57 @@
 
 
 
+<script src="chapter-progress.js"></script>
+
 <script>
+
+  const CHAPTER = 15;
+
+  const UNDERSTANDING_KEY =
+    "hanaKorean_chapter15_understanding";
+
+  const LISTENING_KEY =
+    "hanaKorean_chapter15_listening";
+
+
+  function guardListeningAccess() {
+
+    if (
+      localStorage.getItem(
+        UNDERSTANDING_KEY
+      ) !== "completed"
+    ) {
+      window.location.replace(
+        "chapitre-15.html"
+      );
+      return false;
+    }
+
+    if (
+      localStorage.getItem(
+        LISTENING_KEY
+      ) !== "completed"
+    ) {
+      localStorage.setItem(
+        LISTENING_KEY,
+        "in_progress"
+      );
+    }
+
+    return true;
+  }
+
+
+  function renderChapterProgress() {
+
+    if (
+      window.HanaChapterProgress &&
+      typeof window.HanaChapterProgress.render === "function"
+    ) {
+      window.HanaChapterProgress.render();
+    }
+  }
+
 
   const AUDIO_SETTINGS = {
     normalRate: 0.82,
@@ -1733,29 +1793,29 @@
 
   function goToListeningExercise() {
 
-    localStorage.setItem(
-      "hanaKorean_chapter15_listening",
-      "completed"
-    );
-
+    if (
+      localStorage.getItem(
+        UNDERSTANDING_KEY
+      ) !== "completed"
+    ) {
+      window.location.href =
+        "chapitre-15.html";
+      return;
+    }
 
     if (
       localStorage.getItem(
-        "hanaKorean_chapter15_listeningMistakes"
-      ) === null
+        LISTENING_KEY
+      ) !== "completed"
     ) {
-
       localStorage.setItem(
-        "hanaKorean_chapter15_listeningMistakes",
-        "0"
+        LISTENING_KEY,
+        "in_progress"
       );
-
     }
-
 
     window.location.href =
       "exercice-ecoute-15.html";
-
   }
 
 
@@ -1779,6 +1839,21 @@
 
       };
 
+  }
+
+
+  if (
+    guardListeningAccess()
+  ) {
+
+    renderChapterProgress();
+
+    window.addEventListener(
+      "pageshow",
+      function() {
+        renderChapterProgress();
+      }
+    );
   }
 
 </script>

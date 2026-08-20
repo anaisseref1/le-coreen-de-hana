@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#F7F4ED">
+  <title>Chapitre 20 — Faire connaissance</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="chapter-progress.css">
+
+  <style>
+    .chapter-header { text-align:center; margin-bottom:28px; }
+    .chapter-badge { display:inline-block; padding:7px 14px; margin-bottom:10px; border-radius:20px; font-size:14px; font-weight:bold; }
+    .chapter-subtitle { color:var(--text-light); line-height:1.7; }
+
+    .objective-card,
+    .lesson-card,
+    .culture-card,
+    .note-card {
+      padding:18px;
+      margin-bottom:18px;
+      border-radius:var(--radius-medium);
+    }
+
+    .objective-card {
+      background:var(--soft-green);
+      color:var(--navy);
+      line-height:1.7;
+    }
+
+    .lesson-card {
+      background:var(--white);
+      border-radius:var(--radius-large);
+      box-shadow:var(--shadow);
+    }
+
+    .lesson-card h2 {
+      margin-top:0;
+      color:var(--navy);
+    }
+
+    .vocab-grid {
+      display:grid;
+      grid-template-columns:1fr;
+      gap:10px;
+      margin-top:14px;
+    }
+
+    .vocab-item {
+      padding:14px;
+      background:#FBFAF6;
+      border-radius:var(--radius-medium);
+    }
+
+    .vocab-korean {
+      color:var(--navy);
+      font-size:20px;
+      font-weight:bold;
+    }
+
+    .vocab-french {
+      margin-top:4px;
+      color:var(--text-light);
+    }
+
+    .pronunciation-card,
+    .grammar-box,
+    .why-box {
+      padding:16px;
+      margin-top:14px;
+      border-radius:var(--radius-medium);
+      line-height:1.7;
+    }
+
+    .pronunciation-card,
+    .grammar-box {
+      background:var(--soft-blue);
+    }
+
+    .why-box {
+      background:var(--soft-beige);
+      color:var(--navy);
+    }
+
+    .grammar-example {
+      padding:11px 0;
+      border-bottom:1px solid var(--border);
+    }
+
+    .grammar-example:last-child {
+      border-bottom:none;
+    }
+
+    .dialogue-line {
+      padding:15px;
+      margin-bottom:10px;
+      border-radius:var(--radius-medium);
+      line-height:1.7;
+    }
+
+    .dialogue-line.hana {
+      background:var(--soft-green);
+    }
+
+    .dialogue-line.jisoo {
+      background:var(--soft-blue);
+    }
+
+    .speaker {
+      font-weight:bold;
+      margin-bottom:4px;
+    }
+
+    .dialogue-korean {
+      color:var(--navy);
+      font-size:19px;
+      font-weight:bold;
+    }
+
+    .dialogue-french {
+      margin-top:5px;
+      color:var(--text-light);
+    }
+
+    .note-card {
+      background:var(--soft-beige);
+      color:var(--navy);
+      line-height:1.7;
+    }
+
+    .culture-card {
+      background:var(--soft-green);
+      color:var(--navy);
+      line-height:1.7;
+    }
+
+    .recap-line {
+      padding:11px 0;
+      border-bottom:1px solid var(--border);
+      line-height:1.6;
+    }
+
+    .recap-line:last-child {
+      border-bottom:none;
+    }
+
+    .complete-button,
+    .next-button,
+    .back-route-button {
+      width:100%;
+      margin-top:10px;
+    }
+
+    .complete-button {
+      background:var(--jade);
+      color:white;
+      font-weight:bold;
+    }
+
+    .complete-button.done {
+      background:var(--success);
+    }
+
+    .next-button {
+      display:none;
+      background:var(--navy);
+      color:white;
+      font-weight:bold;
+    }
+
+    .back-route-button {
+      background:var(--soft-beige);
+      color:var(--navy);
+    }
+
+    @media (min-width:620px) {
+      .vocab-grid {
+        grid-template-columns:1fr 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<main class="app">
+
+  <a class="back-link" href="itineraire.html">
+    ← Itinéraire
+  </a>
+
+
+  <header class="chapter-header">
+
+    <span class="chapter-badge">
+      Chapitre 20 · 👋 Faire connaissance
+    </span>
+
+    <p class="korean">
+      처음 뵙겠습니다 👋
+    </p>
+
+    <h1>
+      Faire connaissance
+    </h1>
+
+    <p class="chapter-subtitle">
+      Apprends à parler un peu plus de toi,
+      demander d'où vient quelqu'un,
+      parler de ton métier et de tes loisirs,
+      puis trouver des points communs.
+    </p>
+
+  </header>
+
+  <section
+    id="hanaChapterPath"
+    data-chapter-path
+  ></section>
+
+
+  <section class="objective-card">
+
+    <strong>
+      🎯 Objectif du chapitre
+    </strong>
+
+    <br><br>
+
+    ✅ parler un peu plus de toi<br>
+    ✅ demander à quelqu'un d'où il vient<br>
+    ✅ parler de ton métier<br>
+    ✅ parler de tes loisirs<br>
+    ✅ poser des questions simples pour mieux connaître une personne<br>
+    ✅ dire que toi aussi, tu aimes quelque chose
+
+  </section>
+
+
+  <section class="lesson-card">
+
+    <h2>🟩 1. Vocabulaire</h2>
+
+    <div class="vocab-grid">
+
+      <div class="vocab-item">
+        <div class="vocab-korean">취미</div>
+        <div class="vocab-french">loisir</div>
+      </div>
+
+      <div class="vocab-item">
+        <div class="vocab-korean">회사</div>
+        <div class="vocab-french">entreprise</div>
+      </div>
+
+      <div class="vocab-item">
+        <div class="vocab-korean">일하다</div>
+        <div class="vocab-french">travailler</div>
+      </div>
+
+      <div class="vocab-item">
+        <div class="vocab-korean">사진 찍다</div>
+        <div class="vocab-french">prendre des photos</div>
+      </div>
+
+      <div class="vocab-item">
+        <div class="vocab-korean">음악</div>
+        <div class="vocab-french">musique</div>
+      </div>
+
+      <div class="vocab-item">
+        <div class="vocab-korean">영화</div>
+        <div class="vocab-french">film</div>
+      </div>
+
+      <div class="vocab-item">
+        <div class="vocab-korean">운동</div>
+        <div class="vocab-french">sport</div>
+      </div>
+
+      <div class="vocab-item">
+        <div class="vocab-korean">독서</div>
+        <div class="vocab-french">lecture</div>
+      </div>
+
+      <div class="vocab-item">
+        <div class="vocab-korean">여행</div>
+        <div class="vocab-french">voyage</div>
+      </div>
+
+      <div class="vocab-item">
+        <div class="vocab-korean">처음 뵙겠습니다</div>
+        <div class="vocab-french">Enchanté(e) de vous rencontrer</div>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="lesson-card">
+
+    <h2>💙 2. 무슨...? — « quel / quelle ? »</h2>
+
+    <div class="grammar-box">
+
+      <strong>무슨</strong>
+      sert à demander « quel / quelle » devant un nom.
+
+      <div class="grammar-example">
+        <strong>무슨 일을 하세요?</strong><br>
+        → Quel travail faites-vous ? / Quel est votre métier ?
+      </div>
+
+      <div class="grammar-example">
+        <strong>무슨 음식을 좋아해요?</strong><br>
+        → Quel type de nourriture aimez-vous ?
+      </div>
+
+      <div class="grammar-example">
+        <strong>무슨 음악을 좋아해요?</strong><br>
+        → Quel type de musique aimez-vous ?
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="lesson-card">
+
+    <h2>👩‍💼 3. Parler de son métier</h2>
+
+    <div class="grammar-box">
+
+      Une question très naturelle pour demander le métier :
+
+      <div class="grammar-example">
+        <strong>무슨 일을 하세요?</strong><br>
+        → Quel est votre métier ?
+      </div>
+
+      Une réponse simple :
+
+      <div class="grammar-example">
+        <strong>회사에서 일해요.</strong><br>
+        → Je travaille dans une entreprise.
+      </div>
+
+    </div>
+
+    <div class="why-box">
+
+      <strong>🟨 Pourquoi 회사에서 et non 회사에 ?</strong>
+
+      <br><br>
+
+      <strong>에서</strong>
+      indique l'endroit où une action se déroule.
+
+      <br><br>
+
+      <strong>회사에서 일해요.</strong><br>
+      → Je travaille dans une entreprise.
+
+      <br><br>
+
+      <strong>카페에서 커피를 마셔요.</strong><br>
+      → Je bois du café dans un café.
+
+      <br><br>
+
+      En revanche,
+      <strong>에</strong>
+      peut indiquer la destination :
+
+      <br><br>
+
+      <strong>회사에 가요.</strong><br>
+      → Je vais à l'entreprise.
+
+    </div>
+
+  </section>
+
+
+  <section class="lesson-card">
+
+    <h2>🌍 4. Demander d'où vient quelqu'un</h2>
+
+    <div class="grammar-box">
+
+      Pour demander le pays d'origine :
+
+      <div class="grammar-example">
+        <strong>어느 나라에서 왔어요?</strong><br>
+        → De quel pays venez-vous ?
+      </div>
+
+      Pour répondre :
+
+      <div class="grammar-example">
+        <strong>프랑스에서 왔어요.</strong><br>
+        → Je viens de France.
+      </div>
+
+      Tu peux aussi demander directement :
+
+      <div class="grammar-example">
+        <strong>프랑스 사람이에요?</strong><br>
+        → Vous êtes français(e) ?
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="lesson-card">
+
+    <h2>🎨 5. Parler de ses loisirs</h2>
+
+    <div class="grammar-box">
+
+      La question la plus utile :
+
+      <div class="grammar-example">
+        <strong>취미가 뭐예요?</strong><br>
+        → Quels sont vos loisirs ?
+      </div>
+
+      Quelques réponses naturelles :
+
+      <div class="grammar-example">
+        <strong>사진 찍는 것을 좋아해요.</strong><br>
+        → J'aime prendre des photos.
+      </div>
+
+      <div class="grammar-example">
+        <strong>음악을 좋아해요.</strong><br>
+        → J'aime la musique.
+      </div>
+
+      <div class="grammar-example">
+        <strong>영화를 좋아해요.</strong><br>
+        → J'aime les films.
+      </div>
+
+      <div class="grammar-example">
+        <strong>운동을 해요.</strong><br>
+        → Je fais du sport.
+      </div>
+
+      <div class="grammar-example">
+        <strong>독서를 좋아해요.</strong><br>
+        → J'aime la lecture.
+      </div>
+
+      <div class="grammar-example">
+        <strong>여행을 좋아해요.</strong><br>
+        → J'aime voyager / les voyages.
+      </div>
+
+    </div>
+
+    <div class="note-card">
+
+      🌿 À reconnaître :
+
+      <br><br>
+
+      <strong>제 취미는 사진 찍기예요.</strong><br>
+      → Mon loisir est la photographie / prendre des photos.
+
+      <br><br>
+
+      Cette structure est utile,
+      mais tu n'as pas besoin de la maîtriser parfaitement dans ce chapitre.
+
+    </div>
+
+  </section>
+
+
+  <section class="lesson-card">
+
+    <h2>➕ 6. 도 — « aussi »</h2>
+
+    <div class="grammar-box">
+
+      <strong>도</strong>
+      permet d'ajouter l'idée de « aussi ».
+
+      <div class="grammar-example">
+        <strong>커피도 좋아해요.</strong><br>
+        → J'aime aussi le café.
+      </div>
+
+      Ici, c'est <strong>le café aussi</strong> que l'on ajoute.
+
+      <div class="grammar-example">
+        <strong>저도 커피를 좋아해요.</strong><br>
+        → Moi aussi, j'aime le café.
+      </div>
+
+      Ici, c'est <strong>moi aussi</strong> qui partage la même préférence.
+
+      <div class="grammar-example">
+        <strong>영화도 좋아해요.</strong><br>
+        → J'aime aussi les films.
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="lesson-card">
+
+    <h2>🩵 7. Prononciation — 취미</h2>
+
+    <div class="pronunciation-card">
+
+      <strong>취미</strong>
+      se prononce approximativement :
+
+      <br><br>
+
+      <strong>chwi-mi</strong>
+
+      <br><br>
+
+      Le son <strong>취</strong>
+      peut demander un peu d'entraînement pour un francophone.
+
+      <br><br>
+
+      Écoute-le plusieurs fois dans la partie audio
+      et essaie surtout d'imiter le son sans le découper trop lentement.
+
+    </div>
+
+  </section>
+
+
+  <section class="lesson-card">
+
+    <h2>💬 8. Dialogue — Hana rencontre Ji-Soo</h2>
+
+
+    <div class="dialogue-line jisoo">
+      <div class="speaker">💚 Ji-Soo</div>
+      <div class="dialogue-korean">
+        안녕하세요! 처음 뵙겠습니다.
+      </div>
+      <div class="dialogue-french">
+        Bonjour ! Enchantée de vous rencontrer.
+      </div>
+    </div>
+
+
+    <div class="dialogue-line hana">
+      <div class="speaker">🌸 Hana</div>
+      <div class="dialogue-korean">
+        안녕하세요. 저는 하나예요.
+      </div>
+      <div class="dialogue-french">
+        Bonjour. Je m'appelle Hana.
+      </div>
+    </div>
+
+
+    <div class="dialogue-line jisoo">
+      <div class="speaker">💚 Ji-Soo</div>
+      <div class="dialogue-korean">
+        어느 나라에서 왔어요?
+      </div>
+      <div class="dialogue-french">
+        De quel pays venez-vous ?
+      </div>
+    </div>
+
+
+    <div class="dialogue-line hana">
+      <div class="speaker">🌸 Hana</div>
+      <div class="dialogue-korean">
+        프랑스에서 왔어요.
+      </div>
+      <div class="dialogue-french">
+        Je viens de France.
+      </div>
+    </div>
+
+
+    <div class="dialogue-line jisoo">
+      <div class="speaker">💚 Ji-Soo</div>
+      <div class="dialogue-korean">
+        프랑스 사람이에요?
+      </div>
+      <div class="dialogue-french">
+        Vous êtes française ?
+      </div>
+    </div>
+
+
+    <div class="dialogue-line hana">
+      <div class="speaker">🌸 Hana</div>
+      <div class="dialogue-korean">
+        네! 프랑스 사람이에요.
+      </div>
+      <div class="dialogue-french">
+        Oui ! Je suis française.
+      </div>
+    </div>
+
+
+    <div class="dialogue-line jisoo">
+      <div class="speaker">💚 Ji-Soo</div>
+      <div class="dialogue-korean">
+        무슨 일을 하세요?
+      </div>
+      <div class="dialogue-french">
+        Quel est votre métier ?
+      </div>
+    </div>
+
+
+    <div class="dialogue-line hana">
+      <div class="speaker">🌸 Hana</div>
+      <div class="dialogue-korean">
+        회사에서 일해요.
+      </div>
+      <div class="dialogue-french">
+        Je travaille dans une entreprise.
+      </div>
+    </div>
+
+
+    <div class="dialogue-line jisoo">
+      <div class="speaker">💚 Ji-Soo</div>
+      <div class="dialogue-korean">
+        취미가 뭐예요?
+      </div>
+      <div class="dialogue-french">
+        Quels sont vos loisirs ?
+      </div>
+    </div>
+
+
+    <div class="dialogue-line hana">
+      <div class="speaker">🌸 Hana</div>
+      <div class="dialogue-korean">
+        사진 찍는 것을 좋아해요. 커피도 좋아해요.
+      </div>
+      <div class="dialogue-french">
+        J'aime prendre des photos. J'aime aussi le café.
+      </div>
+    </div>
+
+
+    <div class="dialogue-line jisoo">
+      <div class="speaker">💚 Ji-Soo</div>
+      <div class="dialogue-korean">
+        저도 커피를 좋아해요!
+      </div>
+      <div class="dialogue-french">
+        Moi aussi, j'aime le café !
+      </div>
+    </div>
+
+  </section>
+
+
+  <section class="note-card">
+
+    <strong>🌿 À produire / à reconnaître</strong>
+
+    <br><br>
+
+    <strong>À produire en priorité :</strong><br>
+    프랑스에서 왔어요.<br>
+    회사에서 일해요.<br>
+    취미가 뭐예요?<br>
+    사진 찍는 것을 좋아해요.<br>
+    커피도 좋아해요.<br>
+    저도 커피를 좋아해요.<br><br>
+
+    <strong>À reconnaître puis réutiliser :</strong><br>
+    처음 뵙겠습니다.<br>
+    어느 나라에서 왔어요?<br>
+    무슨 일을 하세요?<br>
+    제 취미는 사진 찍기예요.
+
+  </section>
+
+
+  <section class="culture-card">
+
+    <strong>🌸 Point culture</strong>
+
+    <br><br>
+
+    Lors d'une première rencontre,
+    les questions sur le métier,
+    les loisirs ou le pays d'origine
+    peuvent arriver assez rapidement dans une conversation en Corée.
+
+    <br><br>
+
+    Le but est souvent simplement
+    de mieux situer la personne
+    et de trouver un sujet commun pour continuer à parler.
+
+  </section>
+
+
+  <section class="lesson-card">
+
+    <h2>🧠 9. À retenir</h2>
+
+    <div class="recap-line">
+      🌍 <strong>어느 나라에서 왔어요?</strong>
+      → De quel pays venez-vous ?
+    </div>
+
+    <div class="recap-line">
+      🇫🇷 <strong>프랑스에서 왔어요.</strong>
+      → Je viens de France.
+    </div>
+
+    <div class="recap-line">
+      💼 <strong>무슨 일을 하세요?</strong>
+      → Quel est votre métier ?
+    </div>
+
+    <div class="recap-line">
+      🏢 <strong>회사에서 일해요.</strong>
+      → Je travaille dans une entreprise.
+    </div>
+
+    <div class="recap-line">
+      🎨 <strong>취미가 뭐예요?</strong>
+      → Quels sont vos loisirs ?
+    </div>
+
+    <div class="recap-line">
+      📷 <strong>사진 찍는 것을 좋아해요.</strong>
+      → J'aime prendre des photos.
+    </div>
+
+    <div class="recap-line">
+      ➕ <strong>커피도 좋아해요.</strong>
+      → J'aime aussi le café.
+    </div>
+
+    <div class="recap-line">
+      🤝 <strong>저도 커피를 좋아해요.</strong>
+      → Moi aussi, j'aime le café.
+    </div>
+
+  </section>
+
+
+  <section class="note-card">
+
+    <strong>📝 Mon carnet de voyage</strong>
+
+    <br><br>
+
+    Imagine que tu rencontres quelqu'un
+    dans une librairie à Séoul.
+
+    <br><br>
+
+    Écris cinq phrases pour te présenter :
+
+    <br><br>
+
+    ton prénom,<br>
+    ton pays,<br>
+    ton métier,<br>
+    un loisir,<br>
+    quelque chose que tu aimes.
+
+  </section>
+
+
+  <section class="note-card">
+
+    <strong>🌟 Phrase du chapitre</strong>
+
+    <br><br>
+
+    « Chaque conversation commence par une simple présentation,
+    mais peut devenir une belle rencontre. » 🌸
+
+  </section>
+
+
+  <button
+    class="complete-button"
+    id="completeButton"
+    type="button"
+    onclick="completeUnderstanding()"
+  >
+    J'ai compris 🌿
+  </button>
+
+
+  <button
+    class="next-button"
+    id="nextButton"
+    type="button"
+    onclick="window.location.href='ecoute-20.html'"
+  >
+    🎧 Passer à « J'écoute »
+  </button>
+
+
+  <button
+    class="back-route-button"
+    type="button"
+    onclick="window.location.href='itineraire.html'"
+  >
+    Retour à l'itinéraire
+  </button>
+
+</main>
+
+
+<script src="chapter-progress.js"></script>
+
+<script>
+const CHAPTER = 20;
+
+  const UNDERSTANDING_KEY =
+    "hanaKorean_chapter20_understanding";
+
+  function renderChapterProgress() {
+    if (
+      window.HanaChapterProgress &&
+      typeof window.HanaChapterProgress.render === "function"
+    ) {
+      window.HanaChapterProgress.render();
+    }
+  }
+
+  function completeUnderstanding() {
+    localStorage.setItem(
+      UNDERSTANDING_KEY,
+      "completed"
+    );
+
+    renderCompletion();
+    renderChapterProgress();
+  }
+
+  function renderCompletion() {
+    const completed =
+      localStorage.getItem(
+        UNDERSTANDING_KEY
+      ) === "completed";
+
+    const completeButton =
+      document.getElementById(
+        "completeButton"
+      );
+
+    const nextButton =
+      document.getElementById(
+        "nextButton"
+      );
+
+    if (!completeButton || !nextButton) {
+      return;
+    }
+
+    if (completed) {
+      completeButton.textContent =
+        "Compris ✓";
+
+      completeButton.classList.add(
+        "done"
+      );
+
+      nextButton.style.display =
+        "block";
+    }
+  }
+
+  function migratePreviousProgress() {
+    if (
+      localStorage.getItem(
+        UNDERSTANDING_KEY
+      ) === "completed"
+    ) {
+      return;
+    }
+
+    const laterKeys = [
+      "hanaKorean_chapter20_listening",
+      "hanaKorean_chapter20_listeningExercise",
+      "hanaKorean_chapter20_speaking",
+      "hanaKorean_chapter20_writing",
+      "hanaKorean_chapter20_review",
+      "hanaKorean_chapter20_use",
+      "hanaKorean_chapter20_mission",
+      "hanaKorean_chapter20_completed",
+      "hanaKorean_chapter20_resume"
+    ];
+
+    const laterProgressExists =
+      laterKeys.some(
+        key =>
+          localStorage.getItem(key) ===
+          "completed"
+      );
+
+    if (laterProgressExists) {
+      localStorage.setItem(
+        UNDERSTANDING_KEY,
+        "completed"
+      );
+    }
+  }
+
+  migratePreviousProgress();
+  renderCompletion();
+  renderChapterProgress();
+
+  window.addEventListener(
+    "pageshow",
+    function() {
+      migratePreviousProgress();
+      renderCompletion();
+      renderChapterProgress();
+    }
+  );
+</script>
+
+</body>
+</html>

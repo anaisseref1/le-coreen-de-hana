@@ -22,6 +22,11 @@
     href="style.css"
   >
 
+  <link
+    rel="stylesheet"
+    href="chapter-progress.css"
+  >
+
 
   <style>
 
@@ -290,6 +295,8 @@
 
   </header>
 
+
+  <section id="hanaChapterPath" data-chapter-path></section>
 
 
   <section class="goal-card">
@@ -1011,8 +1018,37 @@
 </main>
 
 
+<script src="chapter-progress.js"></script>
 
 <script>
+
+  const understandingState =
+    localStorage.getItem(
+      "hanaKorean_chapter13_understanding"
+    );
+
+
+  if (
+    understandingState !== "completed"
+  ) {
+
+    window.location.replace(
+      "chapitre-13.html"
+    );
+
+  } else if (
+    localStorage.getItem(
+      "hanaKorean_chapter13_listening"
+    ) !== "completed"
+  ) {
+
+    localStorage.setItem(
+      "hanaKorean_chapter13_listening",
+      "in_progress"
+    );
+
+  }
+
 
   const AUDIO_SETTINGS = {
     normalRate: 0.82,
@@ -1660,21 +1696,29 @@
 
   function goToListeningExercise() {
 
-    localStorage.setItem(
-      "hanaKorean_chapter13_listening",
-      "completed"
-    );
+    if (
+      localStorage.getItem(
+        "hanaKorean_chapter13_understanding"
+      ) !== "completed"
+    ) {
+
+      window.location.href =
+        "chapitre-13.html";
+
+      return;
+
+    }
 
 
     if (
       localStorage.getItem(
-        "hanaKorean_chapter13_listeningMistakes"
-      ) === null
+        "hanaKorean_chapter13_listening"
+      ) !== "completed"
     ) {
 
       localStorage.setItem(
-        "hanaKorean_chapter13_listeningMistakes",
-        "0"
+        "hanaKorean_chapter13_listening",
+        "in_progress"
       );
 
     }
@@ -1707,6 +1751,23 @@
       };
 
   }
+
+
+  window.addEventListener(
+    "pageshow",
+    function() {
+
+      if (
+        window.HanaChapterProgress &&
+        typeof window.HanaChapterProgress.render === "function"
+      ) {
+
+        window.HanaChapterProgress.render();
+
+      }
+
+    }
+  );
 
 </script>
 

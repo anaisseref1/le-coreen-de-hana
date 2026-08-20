@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#F7F4ED">
+  <title>Chapitre 22 — Parler de la météo</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="chapter-progress.css">
+
+  <style>
+    .chapter-header{text-align:center;margin-bottom:24px}
+    .card,.bridge-card{padding:20px;margin-bottom:18px;background:var(--white);border-radius:var(--radius-large);box-shadow:var(--shadow)}
+    .korean{font-size:22px;font-weight:700;color:var(--navy)}
+    .vocab-list{display:flex;flex-direction:column;gap:9px;margin-top:12px}
+    .vocab-row{display:flex;justify-content:space-between;gap:16px;padding:12px 14px;background:#FBFAF6;border-radius:var(--radius-medium)}
+    .vocab-row strong{color:var(--navy);font-size:18px}
+    .vocab-row span{color:var(--text-light);text-align:right}
+    .dialogue-line{padding:15px;margin-top:10px;border-radius:var(--radius-medium);line-height:1.7}
+    .dialogue-line.hana{background:var(--soft-green)}
+    .dialogue-line.minsu{background:var(--soft-blue)}
+    .speaker{font-weight:700;margin-bottom:4px}
+    .korean-line{font-size:19px;font-weight:700;color:var(--navy)}
+    .french-line{margin-top:5px;color:var(--text-light)}
+    .grammar-box{padding:15px;margin-top:12px;background:var(--soft-beige);border-radius:var(--radius-medium);line-height:1.7}
+    .grammar-box h3{margin-top:0;color:var(--navy)}
+    .example{color:var(--navy)}
+    .culture-quote{margin-top:14px;padding:14px;background:var(--soft-beige);border-radius:var(--radius-medium);color:var(--navy);line-height:1.7}
+    .weather-word{display:inline-block;margin:4px 6px 4px 0;padding:7px 10px;background:var(--soft-blue);border-radius:999px;color:var(--navy);font-weight:600}
+    .bridge-card{background:var(--soft-green);color:var(--navy);line-height:1.7}
+    .complete-button,.next-button{width:100%;margin-top:10px}
+    .complete-button{background:var(--jade);color:white;font-weight:700}
+    .complete-button.done{background:var(--success)}
+    .next-button{display:none;background:var(--navy);color:white;font-weight:700}
+  </style>
+</head>
+
+<body>
+<main class="app">
+
+  <a class="back-link" href="itineraire.html">← Itinéraire</a>
+
+  <header class="chapter-header">
+    <span class="chapter-badge">Chapitre 22 · 🌦️</span>
+    <p class="korean">오늘 날씨가 어때요?</p>
+    <h1>Parler de la météo</h1>
+    <p>
+      Apprends à décrire le temps, comprendre les expressions météo courantes
+      et proposer une activité selon la météo.
+    </p>
+  </header>
+
+  <section id="hanaChapterPath" data-chapter-path></section>
+
+  <section class="card">
+    <h2>🎯 Objectif</h2>
+    <p>À la fin de ce chapitre, tu seras capable de :</p>
+    <ul>
+      <li>✅ parler du temps qu'il fait ;</li>
+      <li>✅ comprendre les expressions météorologiques les plus courantes ;</li>
+      <li>✅ proposer une activité selon la météo ;</li>
+      <li>✅ utiliser quelques adjectifs indispensables du quotidien.</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2>🟩 Vocabulaire</h2>
+    <div class="vocab-list">
+      <div class="vocab-row"><strong>날씨</strong><span>météo</span></div>
+      <div class="vocab-row"><strong>덥다</strong><span>faire chaud</span></div>
+      <div class="vocab-row"><strong>춥다</strong><span>faire froid</span></div>
+      <div class="vocab-row"><strong>비</strong><span>pluie</span></div>
+      <div class="vocab-row"><strong>눈</strong><span>neige</span></div>
+      <div class="vocab-row"><strong>바람</strong><span>vent</span></div>
+      <div class="vocab-row"><strong>맑다</strong><span>être dégagé</span></div>
+      <div class="vocab-row"><strong>흐리다</strong><span>être nuageux</span></div>
+      <div class="vocab-row"><strong>우산</strong><span>parapluie</span></div>
+      <div class="vocab-row"><strong>하늘</strong><span>ciel</span></div>
+      <div class="vocab-row"><strong>햇빛</strong><span>soleil (rayons)</span></div>
+      <div class="vocab-row"><strong>구름</strong><span>nuage</span></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>💬 Dialogue</h2>
+
+    <div class="dialogue-line minsu">
+      <div class="speaker">💙 Min-su</div>
+      <div class="korean-line">오늘 날씨가 어때요?</div>
+      <div class="french-line">Comment est le temps aujourd'hui ?</div>
+    </div>
+
+    <div class="dialogue-line hana">
+      <div class="speaker">🌸 Hana</div>
+      <div class="korean-line">조금 더워요.</div>
+      <div class="french-line">Il fait un peu chaud.</div>
+    </div>
+
+    <div class="dialogue-line minsu">
+      <div class="speaker">💙 Min-su</div>
+      <div class="korean-line">하지만 비가 올 것 같아요.</div>
+      <div class="french-line">Mais je crois qu'il va pleuvoir.</div>
+    </div>
+
+    <div class="dialogue-line hana">
+      <div class="speaker">🌸 Hana</div>
+      <div class="korean-line">맞아요. 하늘이 흐려요.</div>
+      <div class="french-line">Oui. Le ciel est couvert.</div>
+    </div>
+
+    <div class="dialogue-line minsu">
+      <div class="speaker">💙 Min-su</div>
+      <div class="korean-line">우산 있어요?</div>
+      <div class="french-line">Tu as un parapluie ?</div>
+    </div>
+
+    <div class="dialogue-line hana">
+      <div class="speaker">🌸 Hana</div>
+      <div class="korean-line">네! 가방에 있어요.</div>
+      <div class="french-line">Oui ! Il est dans mon sac.</div>
+    </div>
+
+    <div class="dialogue-line minsu">
+      <div class="speaker">💙 Min-su</div>
+      <div class="korean-line">다행이에요.</div>
+      <div class="french-line">Heureusement !</div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>💙 Grammaire</h2>
+
+    <div class="grammar-box">
+      <h3>👉 날씨가 어때요?</h3>
+      <p><strong>날씨</strong> → la météo</p>
+      <p><strong>어때요?</strong> → comment est... ?</p>
+      <p class="example"><strong>날씨가 어때요?</strong> → Quel temps fait-il ?</p>
+    </div>
+
+    <div class="grammar-box">
+      <h3>👉 조금</h3>
+      <p><strong>조금</strong> → un peu</p>
+      <p class="example">조금 더워요. → Il fait un peu chaud.</p>
+      <p class="example">조금 추워요. → Il fait un peu froid.</p>
+    </div>
+
+    <div class="grammar-box">
+      <h3>👉 -(으)ㄹ 것 같아요</h3>
+      <p>Cette structure signifie : <strong>« Je pense que... »</strong> ou <strong>« On dirait que... »</strong></p>
+      <p class="example">비가 올 것 같아요. → Je pense qu'il va pleuvoir.</p>
+      <p class="example">좋을 것 같아요. → Je pense que ce sera bien.</p>
+      <p class="example">맛있을 것 같아요. → Ça a l'air bon.</p>
+      <p>C'est une expression très utilisée dans les conversations du quotidien.</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>🟨 Pourquoi ?</h2>
+    <p>Pourquoi dit-on <strong>비가 와요</strong> mais <strong>비가 올 것 같아요</strong> ?</p>
+
+    <div class="grammar-box">
+      <strong>비가 와요</strong><br>
+      → Il pleut.<br><br>
+      C'est une réalité.
+    </div>
+
+    <div class="grammar-box">
+      <strong>비가 올 것 같아요</strong><br>
+      → Je pense qu'il va pleuvoir.<br><br>
+      C'est une impression ou une prévision.
+    </div>
+
+    <p>Cette nuance permet d'exprimer une opinion avec douceur.</p>
+  </section>
+
+  <section class="card">
+    <h2>🩵 Prononciation</h2>
+    <p>
+      Dans <strong>날씨</strong>, le double <strong>ㅆ</strong>
+      se prononce comme un <strong>s bien marqué</strong>.
+    </p>
+    <p class="example">On entend : <strong>nal-ssi</strong></p>
+  </section>
+
+  <section class="card">
+    <h2>🌸 Point culture</h2>
+    <p>
+      Parler de la météo est l'un des sujets les plus fréquents en Corée.
+      Au printemps, les Coréens parlent souvent des cerisiers en fleurs.
+      En été, la chaleur et les pluies de mousson
+      (<strong>장마</strong>, <em>jangma</em>) sont au cœur des conversations.
+      En automne, beaucoup apprécient le ciel dégagé et les couleurs des montagnes.
+      En hiver, les premières chutes de neige sont souvent attendues avec enthousiasme.
+    </p>
+
+    <div class="culture-quote">
+      Tu entendras très souvent :<br><br>
+      <strong>오늘 덥네요.</strong><br>
+      <strong>오늘 춥네요.</strong>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>📚 Le conseil de Ji-soo</h2>
+    <p>
+      Aujourd'hui, observe simplement les affiches et les applications météo en coréen.
+    </p>
+    <p>Essaie de reconnaître quelques mots :</p>
+
+    <div>
+      <span class="weather-word">☀️ 맑아요</span>
+      <span class="weather-word">☁️ 흐려요</span>
+      <span class="weather-word">🌧️ 비</span>
+      <span class="weather-word">❄️ 눈</span>
+    </div>
+
+    <p>
+      Même sans tout comprendre, tu commenceras à associer naturellement les mots aux symboles.
+    </p>
+  </section>
+
+  <section class="bridge-card">
+    <strong>💙 Min-su</strong><br><br>
+    <span class="korean-line">비가 오니까 마트에 갈까요?</span><br><br>
+    Puisqu'il va pleuvoir, et si on allait au supermarché ?
+  </section>
+
+  <section class="card">
+    <h2>🌟 Phrase du chapitre</h2>
+    <p>
+      « Regarder le ciel, c'est souvent le début d'une conversation.
+      En Corée comme ailleurs, quelques mots sur la météo peuvent ouvrir
+      la porte à de belles rencontres. » 🌸
+    </p>
+  </section>
+
+  <button class="complete-button" id="completeButton" type="button">
+    ✅ J'ai compris
+  </button>
+
+  <button class="next-button" id="nextButton" type="button">
+    🎧 Passer à l'écoute
+  </button>
+
+</main>
+
+<script src="chapter-progress.js"></script>
+
+<script>
+  const progressKey = "hanaKorean_chapter22_understanding";
+
+
+  function renderChapterProgress() {
+    if (
+      window.HanaChapterProgress &&
+      typeof window.HanaChapterProgress.render === "function"
+    ) {
+      window.HanaChapterProgress.render();
+    }
+  }
+
+  function migratePreviousProgress() {
+    migratePreviousProgress();
+  renderChapterProgress();
+
+  if (localStorage.getItem(progressKey) === "completed") {
+      return;
+    }
+
+    const laterKeys = [
+      "hanaKorean_chapter22_listening",
+      "hanaKorean_chapter22_listeningExercise",
+      "hanaKorean_chapter22_speaking",
+      "hanaKorean_chapter22_writing",
+      "hanaKorean_chapter22_review",
+      "hanaKorean_chapter22_use",
+      "hanaKorean_chapter22_mission",
+      "hanaKorean_chapter22_completed",
+      "hanaKorean_chapter22_resume"
+    ];
+
+    if (laterKeys.some(key => localStorage.getItem(key) === "completed")) {
+      localStorage.setItem(progressKey, "completed");
+    }
+  }
+
+  const completeButton = document.getElementById("completeButton");
+  const nextButton = document.getElementById("nextButton");
+
+  function showCompletedState() {
+    completeButton.textContent = "✅ Compréhension terminée";
+    completeButton.classList.add("done");
+    nextButton.style.display = "block";
+  }
+
+  if (localStorage.getItem(progressKey) === "completed") {
+    showCompletedState();
+  }
+
+  completeButton.addEventListener("click", () => {
+    localStorage.setItem(progressKey, "completed");
+    showCompletedState();
+    renderChapterProgress();
+  });
+
+  nextButton.addEventListener("click", () => {
+    window.location.href = "ecoute-22.html";
+  });
+
+  window.addEventListener("pageshow", () => {
+    migratePreviousProgress();
+    renderChapterProgress();
+  });
+
+</script>
+
+</body>
+</html>

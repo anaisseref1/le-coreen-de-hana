@@ -21,6 +21,7 @@
     rel="stylesheet"
     href="style.css"
   >
+  <link rel="stylesheet" href="chapter-progress.css">
 
 
   <style>
@@ -219,7 +220,7 @@
     class="back-link"
     href="chapitre-19.html"
   >
-    ← Chapitre 16
+    ← Chapitre 19
   </a>
 
 
@@ -232,7 +233,7 @@
 
 
     <p class="korean">
-      잘 들어 봐요 🏨
+      잘 들어 봐요 📸
     </p>
 
 
@@ -248,6 +249,11 @@
     </p>
 
   </header>
+
+  <section
+    id="hanaChapterPath"
+    data-chapter-path
+  ></section>
 
 
 
@@ -532,7 +538,56 @@
 
 
 
+<script src="chapter-progress.js"></script>
+
 <script>
+
+  const CHAPTER = 19;
+
+  const UNDERSTANDING_KEY =
+    "hanaKorean_chapter19_understanding";
+
+  const LISTENING_KEY =
+    "hanaKorean_chapter19_listening";
+
+  function guardListeningAccess() {
+    if (
+      localStorage.getItem(
+        UNDERSTANDING_KEY
+      ) !== "completed"
+    ) {
+      window.location.replace(
+        "chapitre-19.html"
+      );
+      return false;
+    }
+
+    if (
+      localStorage.getItem(
+        LISTENING_KEY
+      ) !== "completed"
+    ) {
+      localStorage.setItem(
+        LISTENING_KEY,
+        "in_progress"
+      );
+    }
+
+    return true;
+  }
+
+  function renderChapterProgress() {
+    if (
+      window.HanaChapterProgress &&
+      typeof window.HanaChapterProgress.render === "function"
+    ) {
+      window.HanaChapterProgress.render();
+    }
+  }
+
+
+
+
 
   const AUDIO_SETTINGS = {
     normalRate: 0.82,
@@ -1002,30 +1057,18 @@
 
 
   function goToListeningExercise() {
-
-    localStorage.setItem(
-      "hanaKorean_chapter19_listening",
-      "completed"
-    );
-
-
     if (
       localStorage.getItem(
-        "hanaKorean_chapter19_listeningMistakes"
-      ) === null
+        UNDERSTANDING_KEY
+      ) !== "completed"
     ) {
-
-      localStorage.setItem(
-        "hanaKorean_chapter19_listeningMistakes",
-        "0"
-      );
-
+      window.location.href =
+        "chapitre-19.html";
+      return;
     }
-
 
     window.location.href =
       "exercice-ecoute-19.html";
-
   }
 
 
@@ -1051,6 +1094,17 @@
 
   }
 
+
+  if (guardListeningAccess()) {
+    renderChapterProgress();
+
+    window.addEventListener(
+      "pageshow",
+      function() {
+        renderChapterProgress();
+      }
+    );
+  }
 </script>
 
 

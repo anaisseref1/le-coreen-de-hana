@@ -22,6 +22,8 @@
     href="style.css"
   >
 
+  <link rel="stylesheet" href="chapter-progress.css">
+
 
   <style>
 
@@ -138,7 +140,7 @@
     }
 
 
-    .dialogue-line.joonho {
+    .dialogue-line.minsu {
       background: var(--soft-blue);
     }
 
@@ -219,7 +221,7 @@
     class="back-link"
     href="chapitre-18.html"
   >
-    ← Chapitre 16
+    ← Chapitre 18
   </a>
 
 
@@ -232,7 +234,7 @@
 
 
     <p class="korean">
-      잘 들어 봐요 🏨
+      잘 들어 봐요 ❤️
     </p>
 
 
@@ -248,6 +250,11 @@
     </p>
 
   </header>
+
+  <section
+    id="hanaChapterPath"
+    data-chapter-path
+  ></section>
 
 
 
@@ -568,7 +575,54 @@
 
 
 
+<script src="chapter-progress.js"></script>
+
 <script>
+
+  const CHAPTER = 18;
+
+  const UNDERSTANDING_KEY =
+    "hanaKorean_chapter18_understanding";
+
+  const LISTENING_KEY =
+    "hanaKorean_chapter18_listening";
+
+  function guardListeningAccess() {
+    if (
+      localStorage.getItem(
+        UNDERSTANDING_KEY
+      ) !== "completed"
+    ) {
+      window.location.replace(
+        "chapitre-18.html"
+      );
+      return false;
+    }
+
+    if (
+      localStorage.getItem(
+        LISTENING_KEY
+      ) !== "completed"
+    ) {
+      localStorage.setItem(
+        LISTENING_KEY,
+        "in_progress"
+      );
+    }
+
+    return true;
+  }
+
+  function renderChapterProgress() {
+    if (
+      window.HanaChapterProgress &&
+      typeof window.HanaChapterProgress.render === "function"
+    ) {
+      window.HanaChapterProgress.render();
+    }
+  }
+
+
 
   const AUDIO_SETTINGS = {
     normalRate: 0.82,
@@ -1052,32 +1106,19 @@
 
 
   function goToListeningExercise() {
-
-    localStorage.setItem(
-      "hanaKorean_chapter18_listening",
-      "completed"
-    );
-
-
     if (
       localStorage.getItem(
-        "hanaKorean_chapter18_listeningMistakes"
-      ) === null
+        UNDERSTANDING_KEY
+      ) !== "completed"
     ) {
-
-      localStorage.setItem(
-        "hanaKorean_chapter18_listeningMistakes",
-        "0"
-      );
-
+      window.location.href =
+        "chapitre-18.html";
+      return;
     }
-
 
     window.location.href =
       "exercice-ecoute-18.html";
-
   }
-
 
 
   window
@@ -1101,6 +1142,18 @@
 
   }
 
+
+
+  if (guardListeningAccess()) {
+    renderChapterProgress();
+
+    window.addEventListener(
+      "pageshow",
+      function() {
+        renderChapterProgress();
+      }
+    );
+  }
 </script>
 
 

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#F7F4ED">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="chapter-progress.css">
+<title>Chapitre 26 — À la pharmacie</title>
+<style>
+.chapter-header{text-align:center;margin-bottom:24px}
+.card{padding:20px;margin-bottom:18px;background:var(--white);border-radius:var(--radius-large);box-shadow:var(--shadow)}
+.vocab-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:12px}
+.vocab-item{padding:12px 14px;background:#FBFAF6;border-radius:var(--radius-medium)}
+.vocab-item strong{display:block;color:var(--navy);font-size:18px}
+.dialogue-line{padding:14px;margin-top:10px;border-radius:var(--radius-medium);line-height:1.7}
+.dialogue-line.hana{background:var(--soft-green)}
+.dialogue-line.friend{background:var(--soft-beige)}
+.dialogue-line.staff{background:var(--soft-blue)}
+.complete-button,.next-button{width:100%;margin-top:10px}
+.complete-button{background:var(--jade);color:white;font-weight:bold}
+.complete-button.done{background:var(--success)}
+.next-button{display:none;background:var(--navy);color:white;font-weight:bold}
+@media(max-width:430px){.vocab-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<main class="app">
+<a class="back-link" href="index.html">← Retour</a>
+<section id="hanaChapterPath" data-chapter-path></section>
+<header class="chapter-header">
+<span class="chapter-badge">Chapitre 26 · 🏥</span>
+<p class="korean">머리가 아파요.</p>
+<h1>À la pharmacie</h1>
+<p>Dire que l'on ne se sent pas bien, décrire un symptôme simple et demander un médicament.</p>
+</header>
+<section class="card">
+<h2>🎯 Objectifs</h2>
+<ul>
+<li>✅ dire que l'on a mal quelque part ;</li>
+<li>✅ demander un médicament ;</li>
+<li>✅ comprendre quelques questions simples posées à la pharmacie.</li>
+</ul>
+</section>
+<section class="card">
+<h2>🟩 Vocabulaire</h2>
+<div class="vocab-grid">
+<div class="vocab-item"><strong>약국</strong><span>pharmacie</span></div>
+<div class="vocab-item"><strong>약</strong><span>médicament</span></div>
+<div class="vocab-item"><strong>아프다</strong><span>avoir mal / être malade</span></div>
+<div class="vocab-item"><strong>괜찮아요</strong><span>ça va / c'est bon</span></div>
+<div class="vocab-item"><strong>머리가 아파요</strong><span>j'ai mal à la tête</span></div>
+<div class="vocab-item"><strong>배가 아파요</strong><span>j'ai mal au ventre</span></div>
+<div class="vocab-item"><strong>목이 아파요</strong><span>j'ai mal à la gorge</span></div>
+<div class="vocab-item"><strong>열</strong><span>fièvre</span></div>
+<div class="vocab-item"><strong>기침</strong><span>toux</span></div>
+<div class="vocab-item"><strong>콧물</strong><span>nez qui coule</span></div>
+</div>
+</section>
+<section class="card">
+<h2>💊 Expressions utiles</h2>
+<p><strong>아파요.</strong> → J'ai mal / je suis malade.</p>
+<p><strong>약이 필요해요.</strong> → J'ai besoin d'un médicament.</p>
+<p><strong>약국에 가요.</strong> → Je vais à la pharmacie.</p>
+</section>
+<section class="card">
+<h2>💬 Dialogue</h2>
+<div class="dialogue-line friend"><strong>💚 Ji-soo</strong><br>하나 씨, 괜찮아요?<br><small>Hana, ça va ?</small></div>
+<div class="dialogue-line hana"><strong>🌸 Hana</strong><br>네, 그런데 머리가 아파요.<br><small>Oui, mais j'ai mal à la tête.</small></div>
+<div class="dialogue-line friend"><strong>💙 Min-su</strong><br>약국에 갈까요?<br><small>On va à la pharmacie ?</small></div>
+<div class="dialogue-line staff"><strong>💚 Pharmacien</strong><br>어디가 아파요?<br><small>Où avez-vous mal ?</small></div>
+<div class="dialogue-line hana"><strong>🌸 Hana</strong><br>머리가 아파요.<br><small>J'ai mal à la tête.</small></div>
+<div class="dialogue-line staff"><strong>💚 Pharmacien</strong><br>열이 있어요?<br><small>Vous avez de la fièvre ?</small></div>
+<div class="dialogue-line hana"><strong>🌸 Hana</strong><br>아니요, 열은 없어요.<br><small>Non, je n'ai pas de fièvre.</small></div>
+<div class="dialogue-line staff"><strong>💚 Pharmacien</strong><br>이 약을 드세요. 하루에 세 번 드세요.<br><small>Prenez ce médicament. Trois fois par jour.</small></div>
+</section>
+<section class="card">
+<h2>🧠 Grammaire</h2>
+<p><strong>어디가 아파요?</strong><br>Où avez-vous mal ?</p>
+<p><strong>[partie du corps] + 이/가 아파요</strong><br>머리가 아파요. / 배가 아파요. / 목이 아파요.</p>
+<p><strong>이 약</strong><br>ce médicament-ci</p>
+<p>À l'oral, la particule peut parfois être omise : <strong>머리 아파요.</strong> Mais la forme de référence reste <strong>머리가 아파요.</strong></p>
+</section>
+<section class="card">
+<h2>✍️ Exercices</h2>
+<p>1. Traduis : J'ai mal à la tête.</p>
+<p>2. Complète : ___가 아파요.</p>
+<p>3. Réponds à : 어디가 아파요?</p>
+</section>
+<section class="card">
+<h2>🌸 Point culture</h2>
+<p>Les pharmacies coréennes sont indiquées par le mot <strong>약국</strong>. Quelques mots simples permettent déjà de demander de l'aide pendant un voyage.</p>
+</section>
+<button class="complete-button" id="completeButton" type="button">✅ J'ai compris</button>
+<button class="next-button" id="nextButton" type="button">🎧 Passer à l'écoute</button>
+</main>
+<script src="chapter-progress.js"></script>
+<script>
+const UNDERSTANDING_KEY = "hanaKorean_chapter26_understanding";
+const LATER_KEYS = [
+  "hanaKorean_chapter26_listening",
+  "hanaKorean_chapter26_listeningExercise",
+  "hanaKorean_chapter26_speaking",
+  "hanaKorean_chapter26_writing",
+  "hanaKorean_chapter26_review",
+  "hanaKorean_chapter26_use",
+  "hanaKorean_chapter26_mission",
+  "hanaKorean_chapter26_completed",
+  "hanaKorean_chapter26_resume"
+];
+const completeButton = document.getElementById("completeButton");
+const nextButton = document.getElementById("nextButton");
+function migratePreviousProgress() {
+  if (
+    localStorage.getItem(UNDERSTANDING_KEY) !== "completed" &&
+    LATER_KEYS.some(key => localStorage.getItem(key) === "completed")
+  ) {
+    localStorage.setItem(UNDERSTANDING_KEY, "completed");
+  }
+}
+function refresh() {
+  migratePreviousProgress();
+  if (localStorage.getItem(UNDERSTANDING_KEY) === "completed") {
+    completeButton.textContent = "✅ Compréhension validée";
+    completeButton.classList.add("done");
+    nextButton.style.display = "block";
+  }
+  if (window.HanaChapterProgress) HanaChapterProgress.render();
+}
+completeButton.addEventListener("click", () => {
+  localStorage.setItem(UNDERSTANDING_KEY, "completed");
+  refresh();
+});
+nextButton.addEventListener("click", () => {
+  window.location.href = "ecoute-26.html";
+});
+window.addEventListener("pageshow", refresh);
+refresh();
+</script>
+</body>
+</html>

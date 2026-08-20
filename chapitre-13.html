@@ -6,6 +6,7 @@
   <meta name="theme-color" content="#F7F4ED">
   <title>Chapitre 13 — Demander son chemin</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="chapter-progress.css">
   <style>
     .chapter-header { text-align:center; margin-bottom:28px; }
     .chapter-badge { display:inline-block; padding:7px 14px; margin-bottom:10px; border-radius:20px; font-size:14px; font-weight:bold; }
@@ -56,6 +57,8 @@
       et à reconnaître les annonces simples du métro.
     </p>
   </header>
+
+  <section id="hanaChapterPath" data-chapter-path></section>
 
   <section class="objective-card">
     <strong>🎯 Objectif du chapitre</strong><br><br>
@@ -192,11 +195,7 @@
   </section>
 
   <button class="complete-button" id="completeButton" type="button" onclick="completeUnderstanding()">
-    ✅ J'ai compris
-  </button>
-
-  <button class="next-button" id="nextButton" type="button" onclick="window.location.href='ecoute-13.html'">
-    🎧 Passer à « J'écoute »
+    🎧 J'ai compris · Passer à « J'écoute »
   </button>
 
   <button class="back-route-button" type="button" onclick="window.location.href='itineraire.html'">
@@ -205,6 +204,8 @@
 
 </main>
 
+<script src="chapter-progress.js"></script>
+
 <script>
   function completeUnderstanding() {
     localStorage.setItem(
@@ -212,42 +213,51 @@
       "completed"
     );
 
-    const completeButton =
-      document.getElementById("completeButton");
+    if (
+      window.HanaChapterProgress &&
+      typeof window.HanaChapterProgress.render === "function"
+    ) {
+      window.HanaChapterProgress.render();
+    }
 
-    completeButton.textContent =
-      "✅ Compréhension validée";
-
-    completeButton.classList.add("done");
-    completeButton.disabled = true;
-
-    document.getElementById("nextButton").style.display =
-      "block";
-
-    window.scrollTo({
-      top: document.body.scrollHeight,
-      behavior: "smooth"
-    });
+    window.location.href = "ecoute-13.html";
   }
 
-  const understandingCompleted =
-    localStorage.getItem(
+  function migratePreviousProgress() {
+    const understanding = localStorage.getItem(
       "hanaKorean_chapter13_understanding"
-    ) === "completed";
+    );
 
-  if (understandingCompleted) {
-    const completeButton =
-      document.getElementById("completeButton");
+    if (understanding === "completed") return;
 
-    completeButton.textContent =
-      "✅ Compréhension validée";
+    const laterKeys = [
+      "hanaKorean_chapter13_listening",
+      "hanaKorean_chapter13_listeningExercise",
+      "hanaKorean_chapter13_speaking",
+      "hanaKorean_chapter13_writing",
+      "hanaKorean_chapter13_review",
+      "hanaKorean_chapter13_mission",
+      "hanaKorean_chapter13_completed"
+    ];
 
-    completeButton.classList.add("done");
-    completeButton.disabled = true;
-
-    document.getElementById("nextButton").style.display =
-      "block";
+    if (laterKeys.some(key => localStorage.getItem(key) === "completed")) {
+      localStorage.setItem(
+        "hanaKorean_chapter13_understanding",
+        "completed"
+      );
+    }
   }
+
+  migratePreviousProgress();
+
+  window.addEventListener("pageshow", function() {
+    if (
+      window.HanaChapterProgress &&
+      typeof window.HanaChapterProgress.render === "function"
+    ) {
+      window.HanaChapterProgress.render();
+    }
+  });
 </script>
 
 </body>

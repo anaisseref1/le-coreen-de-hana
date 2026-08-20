@@ -1,327 +1,1370 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
+
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#F7F4ED">
-  <title>J'écoute — Chapitre 6</title>
-  <link rel="stylesheet" href="style.css">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="theme-color"
+    content="#F7F4ED"
+  >
+
+  <title>
+    Chapitre 6 — J'écoute
+  </title>
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="chapter-progress.css"
+  >
+
+
+  <script>
+
+    /* =====================================================
+       ACCÈS SÉQUENTIEL
+       ===================================================== */
+
+    if (
+      localStorage.getItem(
+        "hanaKorean_chapter6_understanding"
+      ) !== "completed"
+    ) {
+
+      window.location.replace(
+        "chapitre-6.html"
+      );
+
+    }
+
+  </script>
+
+
   <style>
-    .listen-header{text-align:center;margin-bottom:28px}.chapter-badge{display:inline-block;padding:7px 14px;margin-bottom:10px;border-radius:20px;font-size:14px;font-weight:bold}.listen-header p{line-height:1.7}.goal-card,.tip-card{padding:18px;margin-bottom:20px;border-radius:var(--radius-medium);color:var(--navy);line-height:1.7}.goal-card{background:var(--soft-green)}.tip-card{background:var(--soft-beige)}.audio-card{padding:20px;margin-bottom:18px;background:var(--white);border-radius:var(--radius-large);box-shadow:var(--shadow)}.audio-card h2{margin-top:0;color:var(--navy)}.audio-card p{line-height:1.7}.expression-item{padding:16px;margin-bottom:10px;background:#FBFAF6;border-radius:var(--radius-medium)}.expression-korean{color:var(--navy);font-size:21px;font-weight:bold}.expression-french{margin-top:5px;color:var(--text-light);line-height:1.5}.expression-actions{margin-top:10px}.expression-actions button,.line-actions button{width:100%}.expression-actions .slow,.line-actions .slow{margin-top:7px}.dialogue-controls{margin:16px 0}.dialogue-play-button,.dialogue-slow-button,.next-button,.chapter-button{width:100%;font-weight:bold}.dialogue-play-button{background:var(--jade);color:white}.dialogue-play-button.playing{background:var(--error)}.dialogue-slow-button{margin-top:8px;background:var(--soft-beige);color:var(--navy)}.dialogue-line{padding:15px;margin-bottom:10px;border-radius:var(--radius-medium);line-height:1.7}.dialogue-line.minsu{background:var(--soft-blue)}.dialogue-line.hana{background:var(--soft-green)}.speaker{font-weight:bold;margin-bottom:4px}.dialogue-korean{color:var(--navy);font-size:20px;font-weight:bold}.dialogue-french{margin-top:5px;color:var(--text-light)}.line-actions{margin-top:10px}.next-button{margin-top:10px;background:var(--jade);color:white}.chapter-button{margin-top:10px;background:var(--soft-beige);color:var(--navy)}
+
+    /* =====================================================
+       EN-TÊTE
+       ===================================================== */
+
+    .listen-header {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+
+    .chapter-badge {
+      display: inline-block;
+      padding: 7px 14px;
+      margin-bottom: 10px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+
+    .listen-intro {
+      color: var(--text-light);
+      line-height: 1.7;
+    }
+
+
+    /* =====================================================
+       CARTES
+       ===================================================== */
+
+    .listen-card {
+      padding: 20px;
+      margin-bottom: 18px;
+    }
+
+
+    .listen-card h2 {
+      margin-top: 0;
+    }
+
+
+    .intro-card {
+      padding: 18px;
+      margin-bottom: 20px;
+      background: var(--soft-green);
+      border-radius: var(--radius-large);
+      color: var(--navy);
+      line-height: 1.7;
+    }
+
+
+    /* =====================================================
+       TEXTE CORÉEN
+       ===================================================== */
+
+    .korean-text {
+      color: var(--navy);
+      font-size: 24px;
+      font-weight: bold;
+      line-height: 1.6;
+    }
+
+
+    .translation {
+      margin-top: 6px;
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+
+
+    /* =====================================================
+       FOCUS
+       ===================================================== */
+
+    .focus-box {
+      padding: 15px;
+      margin-top: 14px;
+      background: var(--soft-beige);
+      border-radius: var(--radius-medium);
+      color: var(--navy);
+      line-height: 1.7;
+    }
+
+
+    .focus-word {
+      font-weight: bold;
+      color: var(--jade-dark);
+    }
+
+
+    /* =====================================================
+       AUDIO
+       ===================================================== */
+
+    .audio-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 9px;
+      margin-top: 13px;
+    }
+
+
+    .audio-button,
+    .slow-button {
+      width: 100%;
+      font-weight: bold;
+    }
+
+
+    .audio-button {
+      background: var(--soft-blue);
+      color: var(--navy);
+    }
+
+
+    .slow-button {
+      background: var(--soft-beige);
+      color: var(--navy);
+    }
+
+
+    /* =====================================================
+       DIALOGUE
+       ===================================================== */
+
+    .dialogue-box {
+      margin-top: 15px;
+    }
+
+
+    .dialogue-line {
+      padding: 15px;
+      margin-bottom: 11px;
+      border-radius: var(--radius-medium);
+      line-height: 1.7;
+    }
+
+
+    .dialogue-line.minsu {
+      background: var(--soft-blue);
+    }
+
+
+    .dialogue-line.hana {
+      background: var(--soft-green);
+    }
+
+
+    .speaker {
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+
+    .dialogue-korean {
+      color: var(--navy);
+      font-size: 20px;
+      font-weight: bold;
+      line-height: 1.6;
+    }
+
+
+    .dialogue-french {
+      margin-top: 5px;
+      color: var(--text-light);
+    }
+
+
+    /* =====================================================
+       DIALOGUE AUDIO
+       ===================================================== */
+
+    .dialogue-audio-button {
+      width: 100%;
+      margin-top: 15px;
+      font-weight: bold;
+      background: var(--jade);
+      color: white;
+    }
+
+
+    .dialogue-audio-button.playing {
+      background: var(--error-light);
+      color: var(--error);
+      border: 1px solid var(--error);
+    }
+
+
+    /* =====================================================
+       CONSEIL
+       ===================================================== */
+
+    .listen-tip {
+      padding: 15px;
+      margin-top: 15px;
+      background: var(--soft-beige);
+      border-radius: var(--radius-medium);
+      color: var(--navy);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+
+    /* =====================================================
+       BOUTON FINAL
+       ===================================================== */
+
+    .next-button {
+      width: 100%;
+      margin-top: 15px;
+      background: var(--jade);
+      color: white;
+      font-weight: bold;
+    }
+
+
+    @media (max-width: 480px) {
+
+      .audio-row {
+        grid-template-columns: 1fr;
+      }
+
+    }
+
   </style>
+
 </head>
+
+
 <body>
+
+
 <main class="app">
-  <a class="back-link" href="chapitre-6.html">← Chapitre 6</a>
+
+
+  <!-- =====================================================
+       RETOUR
+       ===================================================== -->
+
+  <a
+    class="back-link"
+    href="chapitre-6.html"
+  >
+    ← Chapitre 6
+  </a>
+
+
+
+  <!-- =====================================================
+       EN-TÊTE
+       ===================================================== -->
 
   <header class="listen-header">
-    <span class="chapter-badge">Chapitre 6 · Compréhension orale</span>
-    <p class="korean">잘 들어 봐요 🎧</p>
-    <h1>J'écoute</h1>
-    <p>Écoute les mots et les phrases du chapitre, puis le dialogue complet entre Hana et Min-su.</p>
+
+    <span class="chapter-badge">
+      Module 1 · Chapitre 6 · Étape 2
+    </span>
+
+
+    <p class="korean">
+      들어 봐요 🎧
+    </p>
+
+
+    <h1>
+      J'écoute
+    </h1>
+
+
+    <p class="listen-intro">
+      Écoute comment Hana présente
+      sa famille à Min-su
+      et essaie de reconnaître
+      les mots importants avant de lire la traduction.
+    </p>
+
   </header>
 
-  <section class="goal-card">
-    <strong>🎯 Objectif</strong><br><br>
-    Reconnaître à l'oreille <strong>가족</strong>, <strong>엄마</strong>, <strong>아빠</strong>, <strong>제</strong> et comprendre une petite conversation autour d'une photo de famille.
+
+
+  <!-- =====================================================
+       PARCOURS
+       ===================================================== -->
+
+  <section
+    id="hanaChapterPath"
+    data-chapter-path
+  ></section>
+
+
+
+  <!-- =====================================================
+       INTRO
+       ===================================================== -->
+
+  <section class="intro-card">
+
+    <strong>
+      👂 Ton objectif
+    </strong>
+
+    <br><br>
+
+    Essaie surtout d'entendre :
+
+    <br><br>
+
+    🌿 <strong>제</strong>
+    → mon / ma
+
+    <br>
+
+    👩 <strong>엄마</strong>
+    → maman
+
+    <br>
+
+    👨 <strong>아빠</strong>
+    → papa
+
+    <br>
+
+    👤 <strong>누구예요?</strong>
+    → qui est-ce ?
+
   </section>
 
-  <section class="audio-card">
-    <h2>🌱 1. Écoute les mots essentiels</h2>
-    <p>Commence par écouter chaque mot séparément.</p>
 
-    <div class="expression-item">
-      <div class="expression-korean">가족</div>
-      <div class="expression-french">famille</div>
-      <div class="expression-actions">
-        <button type="button" onclick="speakKorean('가족','hana',false)">🔊 Écouter</button>
-        <button class="slow" type="button" onclick="speakKorean('가족','hana',true)">🐢 Écouter lentement</button>
-      </div>
+
+  <!-- =====================================================
+       PHRASE 1
+       ===================================================== -->
+
+  <section class="listen-card">
+
+    <h2>
+      1 · Ma mère
+    </h2>
+
+
+    <div class="korean-text">
+      제 엄마예요.
     </div>
 
-    <div class="expression-item">
-      <div class="expression-korean">엄마</div>
-      <div class="expression-french">maman</div>
-      <div class="expression-actions">
-        <button type="button" onclick="speakKorean('엄마','hana',false)">🔊 Écouter</button>
-        <button class="slow" type="button" onclick="speakKorean('엄마','hana',true)">🐢 Écouter lentement</button>
-      </div>
+
+    <div class="translation">
+      C'est ma mère.
     </div>
 
-    <div class="expression-item">
-      <div class="expression-korean">아빠</div>
-      <div class="expression-french">papa</div>
-      <div class="expression-actions">
-        <button type="button" onclick="speakKorean('아빠','hana',false)">🔊 Écouter</button>
-        <button class="slow" type="button" onclick="speakKorean('아빠','hana',true)">🐢 Écouter lentement</button>
-      </div>
+
+    <div class="audio-row">
+
+      <button
+        class="audio-button"
+        type="button"
+        onclick="speakKorean('제 엄마예요.', 'hana')"
+      >
+        🔊 Écouter
+      </button>
+
+
+      <button
+        class="slow-button"
+        type="button"
+        onclick="speakKoreanSlow('제 엄마예요.', 'hana')"
+      >
+        🐢 Lentement
+      </button>
+
     </div>
 
-    <div class="expression-item">
-      <div class="expression-korean">제</div>
-      <div class="expression-french">mon / ma / mes</div>
-      <div class="expression-actions">
-        <button type="button" onclick="speakKorean('제','hana',false)">🔊 Écouter</button>
-        <button class="slow" type="button" onclick="speakKorean('제','hana',true)">🐢 Écouter lentement</button>
-      </div>
+
+    <div class="focus-box">
+
+      👂 Essaie d'entendre :
+
+      <br><br>
+
+      <span class="focus-word">
+        제
+      </span>
+
+      → mon / ma
+
+      <br>
+
+      <span class="focus-word">
+        엄마
+      </span>
+
+      → maman
+
     </div>
+
   </section>
 
-  <section class="audio-card">
-    <h2>🌿 2. Écoute les phrases</h2>
 
-    <div class="expression-item">
-      <div class="expression-korean">제 엄마예요.</div>
-      <div class="expression-french">C'est ma mère.</div>
-      <div class="expression-actions">
-        <button type="button" onclick="speakKorean('제 엄마예요.','hana',false)">🔊 Écouter</button>
-        <button class="slow" type="button" onclick="speakKorean('제 엄마예요.','hana',true)">🐢 Écouter lentement</button>
-      </div>
+
+  <!-- =====================================================
+       PHRASE 2
+       ===================================================== -->
+
+  <section class="listen-card">
+
+    <h2>
+      2 · Mon père
+    </h2>
+
+
+    <div class="korean-text">
+      제 아빠예요.
     </div>
 
-    <div class="expression-item">
-      <div class="expression-korean">제 아빠예요.</div>
-      <div class="expression-french">C'est mon père.</div>
-      <div class="expression-actions">
-        <button type="button" onclick="speakKorean('제 아빠예요.','hana',false)">🔊 Écouter</button>
-        <button class="slow" type="button" onclick="speakKorean('제 아빠예요.','hana',true)">🐢 Écouter lentement</button>
-      </div>
+
+    <div class="translation">
+      C'est mon père.
     </div>
 
-    <div class="expression-item">
-      <div class="expression-korean">제 가족이에요.</div>
-      <div class="expression-french">C'est ma famille.</div>
-      <div class="expression-actions">
-        <button type="button" onclick="speakKorean('제 가족이에요.','hana',false)">🔊 Écouter</button>
-        <button class="slow" type="button" onclick="speakKorean('제 가족이에요.','hana',true)">🐢 Écouter lentement</button>
-      </div>
+
+    <div class="audio-row">
+
+      <button
+        class="audio-button"
+        type="button"
+        onclick="speakKorean('제 아빠예요.', 'hana')"
+      >
+        🔊 Écouter
+      </button>
+
+
+      <button
+        class="slow-button"
+        type="button"
+        onclick="speakKoreanSlow('제 아빠예요.', 'hana')"
+      >
+        🐢 Lentement
+      </button>
+
     </div>
+
+
+    <div class="focus-box">
+
+      Compare avec la phrase précédente.
+
+      <br><br>
+
+      <strong>제</strong>
+      ne change pas.
+
+      <br><br>
+
+      Seul le membre de la famille change :
+
+      <br>
+
+      엄마 → 아빠
+
+    </div>
+
   </section>
 
-  <section class="audio-card">
-    <h2>💬 3. Dialogue — Une photo de famille</h2>
-    <p>Écoute d'abord tout le dialogue, puis réécoute les lignes séparément si nécessaire.</p>
 
-    <div class="dialogue-controls">
-      <button class="dialogue-play-button" id="dialogueButton" type="button" onclick="toggleDialogue(false)">🎧 Écouter tout le dialogue</button>
-      <button class="dialogue-slow-button" id="dialogueSlowButton" type="button" onclick="toggleDialogue(true)">🐢 Écouter tout lentement</button>
+
+  <!-- =====================================================
+       PHRASE 3
+       ===================================================== -->
+
+  <section class="listen-card">
+
+    <h2>
+      3 · Ma famille
+    </h2>
+
+
+    <div class="korean-text">
+      제 가족이에요.
     </div>
 
-    <div class="dialogue-line minsu">
-      <div class="speaker">💙 Min-su</div>
-      <div class="dialogue-korean">이 사진은 뭐예요?</div>
-      <div class="dialogue-french">Cette photo, qu'est-ce que c'est ?</div>
-      <div class="line-actions">
-        <button type="button" onclick="speakKorean('이 사진은 뭐예요?','minsu',false)">🔊 Écouter Min-su</button>
-        <button class="slow" type="button" onclick="speakKorean('이 사진은 뭐예요?','minsu',true)">🐢 Lentement</button>
-      </div>
+
+    <div class="translation">
+      C'est ma famille.
     </div>
 
-    <div class="dialogue-line hana">
-      <div class="speaker">🌸 Hana</div>
-      <div class="dialogue-korean">제 가족 사진이에요.</div>
-      <div class="dialogue-french">C'est une photo de ma famille.</div>
-      <div class="line-actions">
-        <button type="button" onclick="speakKorean('제 가족 사진이에요.','hana',false)">🔊 Écouter Hana</button>
-        <button class="slow" type="button" onclick="speakKorean('제 가족 사진이에요.','hana',true)">🐢 Lentement</button>
-      </div>
+
+    <div class="audio-row">
+
+      <button
+        class="audio-button"
+        type="button"
+        onclick="speakKorean('제 가족이에요.', 'hana')"
+      >
+        🔊 Écouter
+      </button>
+
+
+      <button
+        class="slow-button"
+        type="button"
+        onclick="speakKoreanSlow('제 가족이에요.', 'hana')"
+      >
+        🐢 Lentement
+      </button>
+
     </div>
 
-    <div class="dialogue-line minsu">
-      <div class="speaker">💙 Min-su</div>
-      <div class="dialogue-korean">이 사람은 누구예요?</div>
-      <div class="dialogue-french">Cette personne, qui est-ce ?</div>
-      <div class="line-actions">
-        <button type="button" onclick="speakKorean('이 사람은 누구예요?','minsu',false)">🔊 Écouter Min-su</button>
-        <button class="slow" type="button" onclick="speakKorean('이 사람은 누구예요?','minsu',true)">🐢 Lentement</button>
-      </div>
+
+    <div class="focus-box">
+
+      Cette fois,
+      écoute aussi la terminaison :
+
+      <br><br>
+
+      가족<strong>이에요</strong>
+
+      <br><br>
+
+      가족 se termine par une consonne.
+
     </div>
 
-    <div class="dialogue-line hana">
-      <div class="speaker">🌸 Hana</div>
-      <div class="dialogue-korean">제 엄마예요.</div>
-      <div class="dialogue-french">C'est ma mère.</div>
-      <div class="line-actions">
-        <button type="button" onclick="speakKorean('제 엄마예요.','hana',false)">🔊 Écouter Hana</button>
-        <button class="slow" type="button" onclick="speakKorean('제 엄마예요.','hana',true)">🐢 Lentement</button>
-      </div>
-    </div>
-
-    <div class="dialogue-line minsu">
-      <div class="speaker">💙 Min-su</div>
-      <div class="dialogue-korean">그리고 이 사람은요?</div>
-      <div class="dialogue-french">Et cette personne ?</div>
-      <div class="line-actions">
-        <button type="button" onclick="speakKorean('그리고 이 사람은요?','minsu',false)">🔊 Écouter Min-su</button>
-        <button class="slow" type="button" onclick="speakKorean('그리고 이 사람은요?','minsu',true)">🐢 Lentement</button>
-      </div>
-    </div>
-
-    <div class="dialogue-line hana">
-      <div class="speaker">🌸 Hana</div>
-      <div class="dialogue-korean">제 아빠예요.</div>
-      <div class="dialogue-french">C'est mon père.</div>
-      <div class="line-actions">
-        <button type="button" onclick="speakKorean('제 아빠예요.','hana',false)">🔊 Écouter Hana</button>
-        <button class="slow" type="button" onclick="speakKorean('제 아빠예요.','hana',true)">🐢 Lentement</button>
-      </div>
-    </div>
   </section>
 
-  <section class="tip-card">
-    <strong>👂 Astuce d'écoute</strong><br><br>
-    Quand tu entends <strong>제</strong>, attends-toi souvent à entendre ensuite une personne ou quelque chose qui appartient au locuteur.<br><br>
-    Exemple : <strong>제 엄마</strong>, <strong>제 아빠</strong>, <strong>제 가족</strong>.
+
+
+  <!-- =====================================================
+       PHRASE 4
+       ===================================================== -->
+
+  <section class="listen-card">
+
+    <h2>
+      4 · Qui est-ce ?
+    </h2>
+
+
+    <div class="korean-text">
+      이 사람은 누구예요?
+    </div>
+
+
+    <div class="translation">
+      Cette personne, qui est-ce ?
+    </div>
+
+
+    <div class="audio-row">
+
+      <button
+        class="audio-button"
+        type="button"
+        onclick="speakKorean('이 사람은 누구예요?', 'minsu')"
+      >
+        🔊 Écouter
+      </button>
+
+
+      <button
+        class="slow-button"
+        type="button"
+        onclick="speakKoreanSlow('이 사람은 누구예요?', 'minsu')"
+      >
+        🐢 Lentement
+      </button>
+
+    </div>
+
+
+    <div class="focus-box">
+
+      Tu connais déjà le mot interrogatif :
+
+      <br><br>
+
+      <span class="focus-word">
+        누구
+      </span>
+
+      → qui
+
+      <br><br>
+
+      Ici, Min-su demande
+      l'identité d'une personne
+      visible sur la photo.
+
+    </div>
+
   </section>
 
-  <button class="next-button" type="button" onclick="goToListeningExercise()">🎧 Faire le mini défi d'écoute</button>
-  <button class="chapter-button" type="button" onclick="window.location.href='chapitre-6.html'">Retour au chapitre</button>
+
+
+  <!-- =====================================================
+       PHRASE 5
+       ===================================================== -->
+
+  <section class="listen-card">
+
+    <h2>
+      5 · Une photo de famille
+    </h2>
+
+
+    <div class="korean-text">
+      제 가족 사진이에요.
+    </div>
+
+
+    <div class="translation">
+      C'est une photo de ma famille.
+    </div>
+
+
+    <div class="audio-row">
+
+      <button
+        class="audio-button"
+        type="button"
+        onclick="speakKorean('제 가족 사진이에요.', 'hana')"
+      >
+        🔊 Écouter
+      </button>
+
+
+      <button
+        class="slow-button"
+        type="button"
+        onclick="speakKoreanSlow('제 가족 사진이에요.', 'hana')"
+      >
+        🐢 Lentement
+      </button>
+
+    </div>
+
+
+    <div class="focus-box">
+
+      Essaie de repérer :
+
+      <br><br>
+
+      <strong>제 가족</strong>
+      → ma famille
+
+      <br>
+
+      <strong>사진</strong>
+      → photo
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       DIALOGUE
+       ===================================================== -->
+
+  <section class="listen-card">
+
+    <h2>
+      📖 Dialogue — Une photo de famille
+    </h2>
+
+
+    <p>
+      Écoute maintenant l'échange complet.
+      Essaie d'abord de suivre les voix
+      sans lire chaque traduction.
+    </p>
+
+
+    <div class="dialogue-box">
+
+
+      <div class="dialogue-line minsu">
+
+        <div class="speaker">
+          💙 Min-su
+        </div>
+
+        <div class="dialogue-korean">
+          이 사진은 뭐예요?
+        </div>
+
+        <div class="dialogue-french">
+          Cette photo, qu'est-ce que c'est ?
+        </div>
+
+      </div>
+
+
+      <div class="dialogue-line hana">
+
+        <div class="speaker">
+          🌸 Hana
+        </div>
+
+        <div class="dialogue-korean">
+          제 가족 사진이에요.
+        </div>
+
+        <div class="dialogue-french">
+          C'est une photo de ma famille.
+        </div>
+
+      </div>
+
+
+      <div class="dialogue-line minsu">
+
+        <div class="speaker">
+          💙 Min-su
+        </div>
+
+        <div class="dialogue-korean">
+          이 사람은 누구예요?
+        </div>
+
+        <div class="dialogue-french">
+          Cette personne, qui est-ce ?
+        </div>
+
+      </div>
+
+
+      <div class="dialogue-line hana">
+
+        <div class="speaker">
+          🌸 Hana
+        </div>
+
+        <div class="dialogue-korean">
+          제 엄마예요.
+        </div>
+
+        <div class="dialogue-french">
+          C'est ma mère.
+        </div>
+
+      </div>
+
+
+      <div class="dialogue-line minsu">
+
+        <div class="speaker">
+          💙 Min-su
+        </div>
+
+        <div class="dialogue-korean">
+          그리고 이 사람은요?
+        </div>
+
+        <div class="dialogue-french">
+          Et cette personne ?
+        </div>
+
+      </div>
+
+
+      <div class="dialogue-line hana">
+
+        <div class="speaker">
+          🌸 Hana
+        </div>
+
+        <div class="dialogue-korean">
+          제 아빠예요.
+        </div>
+
+        <div class="dialogue-french">
+          C'est mon père.
+        </div>
+
+      </div>
+
+
+    </div>
+
+
+    <button
+      class="dialogue-audio-button"
+      id="dialogueAudioButton"
+      type="button"
+      onclick="toggleDialogue()"
+    >
+      ▶️ Écouter tout le dialogue
+    </button>
+
+
+    <div class="listen-tip">
+
+      💡 <strong>Conseil :</strong>
+
+      <br><br>
+
+      Pendant la première écoute,
+      ne cherche pas à comprendre
+      chaque syllabe.
+
+      <br><br>
+
+      Essaie surtout d'identifier :
+
+      <strong>
+        사진 · 가족 · 누구 · 엄마 · 아빠
+      </strong>.
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       FIN
+       ===================================================== -->
+
+  <button
+    class="next-button"
+    type="button"
+    onclick="goToListeningExercise()"
+  >
+    🎧 J'ai écouté · Faire l'exercice d'écoute
+  </button>
+
+
 </main>
 
+
+
+<script src="chapter-progress.js"></script>
+
+
 <script>
-  const AUDIO_SETTINGS = { normalRate: 0.82, slowRate: 0.25 };
 
-  const dialogueLines = [
-    { character: "minsu", text: "이 사진은 뭐예요?" },
-    { character: "hana", text: "제 가족 사진이에요." },
-    { character: "minsu", text: "이 사람은 누구예요?" },
-    { character: "hana", text: "제 엄마예요." },
-    { character: "minsu", text: "그리고 이 사람은요?" },
-    { character: "hana", text: "제 아빠예요." }
-  ];
+  /* =====================================================
+     AUDIO
+     ===================================================== */
 
-  let dialogueSessionId = 0;
-  let dialoguePlaying = false;
-  let dialogueMode = "normal";
+  const AUDIO_SETTINGS = {
+
+    normalRate:
+      0.82,
+
+    slowRate:
+      0.25
+
+  };
+
+
+  let dialoguePlaying =
+    false;
+
+
+  let dialogueRunId =
+    0;
+
+
 
   function getKoreanVoice() {
-    const voices = window.speechSynthesis.getVoices();
-    return voices.find(voice => voice.lang && voice.lang.toLowerCase().startsWith("ko"));
+
+    const voices =
+      window.speechSynthesis
+        .getVoices();
+
+
+    return (
+      voices.find(
+        voice =>
+          voice.lang &&
+          voice.lang
+            .toLowerCase()
+            .startsWith("ko")
+      ) ||
+      null
+    );
+
   }
 
-  function getCharacterSettings(character, slow) {
-    return {
-      rate: slow ? AUDIO_SETTINGS.slowRate : AUDIO_SETTINGS.normalRate,
-      pitch: 1
+
+
+  function characterPitch(
+    character
+  ) {
+
+    const pitches = {
+
+      hana:
+        1.06,
+
+      minsu:
+        0.94
+
     };
+
+
+    return (
+      pitches[
+        character
+      ] ||
+      1
+    );
+
   }
 
-  function speakKorean(text, character = "hana", slow = false) {
-    if (!("speechSynthesis" in window)) return;
-    stopDialogue();
 
-    const speech = new SpeechSynthesisUtterance(text);
-    const settings = getCharacterSettings(character, slow);
-    speech.lang = "ko-KR";
-    speech.rate = settings.rate;
-    speech.pitch = settings.pitch;
 
-    const koreanVoice = getKoreanVoice();
-    if (koreanVoice) speech.voice = koreanVoice;
+  function createUtterance(
+    text,
+    character,
+    rate
+  ) {
 
-    window.speechSynthesis.speak(speech);
-  }
+    const utterance =
+      new SpeechSynthesisUtterance(
+        text
+      );
 
-  function toggleDialogue(slow) {
-    const requestedMode = slow ? "slow" : "normal";
 
-    if (dialoguePlaying) {
-      stopDialogue();
-      return;
+    utterance.lang =
+      "ko-KR";
+
+
+    utterance.rate =
+      rate;
+
+
+    utterance.pitch =
+      characterPitch(
+        character
+      );
+
+
+    const voice =
+      getKoreanVoice();
+
+
+    if (voice) {
+
+      utterance.voice =
+        voice;
+
     }
 
-    dialogueMode = requestedMode;
-    playDialogue(slow);
+
+    return utterance;
+
   }
 
-  function playDialogue(slow) {
-    if (!("speechSynthesis" in window)) return;
+
+
+  function speak(
+    text,
+    character,
+    rate
+  ) {
+
+    stopDialogue();
+
+
+    const utterance =
+      createUtterance(
+        text,
+        character,
+        rate
+      );
+
+
+    window.speechSynthesis.speak(
+      utterance
+    );
+
+  }
+
+
+
+  function speakKorean(
+    text,
+    character
+  ) {
+
+    speak(
+      text,
+      character,
+      AUDIO_SETTINGS.normalRate
+    );
+
+  }
+
+
+
+  function speakKoreanSlow(
+    text,
+    character
+  ) {
+
+    speak(
+      text,
+      character,
+      AUDIO_SETTINGS.slowRate
+    );
+
+  }
+
+
+
+  /* =====================================================
+     DIALOGUE COMPLET
+     ===================================================== */
+
+  const dialogueLines = [
+
+    {
+      text:
+        "이 사진은 뭐예요?",
+      character:
+        "minsu"
+    },
+
+    {
+      text:
+        "제 가족 사진이에요.",
+      character:
+        "hana"
+    },
+
+    {
+      text:
+        "이 사람은 누구예요?",
+      character:
+        "minsu"
+    },
+
+    {
+      text:
+        "제 엄마예요.",
+      character:
+        "hana"
+    },
+
+    {
+      text:
+        "그리고 이 사람은요?",
+      character:
+        "minsu"
+    },
+
+    {
+      text:
+        "제 아빠예요.",
+      character:
+        "hana"
+    }
+
+  ];
+
+
+
+  function toggleDialogue() {
+
+    if (
+      dialoguePlaying
+    ) {
+
+      stopDialogue();
+
+      return;
+
+    }
+
+
+    playDialogue();
+
+  }
+
+
+
+  function playDialogue() {
 
     window.speechSynthesis.cancel();
-    dialogueSessionId++;
-    const sessionId = dialogueSessionId;
-    dialoguePlaying = true;
-    updateDialogueButtons();
-    playDialogueLine(0, slow, sessionId);
+
+
+    dialoguePlaying =
+      true;
+
+
+    dialogueRunId++;
+
+
+    const thisRun =
+      dialogueRunId;
+
+
+    updateDialogueButton();
+
+
+    speakDialogueLine(
+      0,
+      thisRun
+    );
+
   }
 
-  function playDialogueLine(index, slow, sessionId) {
-    if (sessionId !== dialogueSessionId) return;
 
-    if (index >= dialogueLines.length) {
-      dialoguePlaying = false;
-      updateDialogueButtons();
+
+  function speakDialogueLine(
+    index,
+    runId
+  ) {
+
+    if (
+      !dialoguePlaying ||
+      runId !== dialogueRunId
+    ) {
+
       return;
+
     }
 
-    const line = dialogueLines[index];
-    const speech = new SpeechSynthesisUtterance(line.text);
-    const settings = getCharacterSettings(line.character, slow);
 
-    speech.lang = "ko-KR";
-    speech.rate = settings.rate;
-    speech.pitch = settings.pitch;
+    if (
+      index >= dialogueLines.length
+    ) {
 
-    const koreanVoice = getKoreanVoice();
-    if (koreanVoice) speech.voice = koreanVoice;
+      dialoguePlaying =
+        false;
 
-    speech.onend = function() {
-      if (sessionId !== dialogueSessionId) return;
-      setTimeout(() => playDialogueLine(index + 1, slow, sessionId), 240);
-    };
 
-    speech.onerror = function() {
-      if (sessionId === dialogueSessionId) {
-        dialoguePlaying = false;
-        updateDialogueButtons();
-      }
-    };
+      updateDialogueButton();
 
-    window.speechSynthesis.speak(speech);
+      return;
+
+    }
+
+
+    const line =
+      dialogueLines[
+        index
+      ];
+
+
+    const utterance =
+      createUtterance(
+        line.text,
+        line.character,
+        AUDIO_SETTINGS.normalRate
+      );
+
+
+    utterance.onend =
+      function() {
+
+        if (
+          !dialoguePlaying ||
+          runId !== dialogueRunId
+        ) {
+
+          return;
+
+        }
+
+
+        setTimeout(
+          function() {
+
+            speakDialogueLine(
+              index + 1,
+              runId
+            );
+
+          },
+          350
+        );
+
+      };
+
+
+    utterance.onerror =
+      function() {
+
+        dialoguePlaying =
+          false;
+
+
+        updateDialogueButton();
+
+      };
+
+
+    window.speechSynthesis.speak(
+      utterance
+    );
+
   }
+
+
 
   function stopDialogue() {
-    dialogueSessionId++;
-    dialoguePlaying = false;
-    if ("speechSynthesis" in window) window.speechSynthesis.cancel();
-    updateDialogueButtons();
+
+    dialoguePlaying =
+      false;
+
+
+    dialogueRunId++;
+
+
+    window.speechSynthesis.cancel();
+
+
+    updateDialogueButton();
+
   }
 
-  function updateDialogueButtons() {
-    const normalButton = document.getElementById("dialogueButton");
-    const slowButton = document.getElementById("dialogueSlowButton");
 
-    if (!normalButton || !slowButton) return;
 
-    normalButton.classList.remove("playing");
-    slowButton.classList.remove("playing");
+  function updateDialogueButton() {
 
-    normalButton.textContent = "🎧 Écouter tout le dialogue";
-    slowButton.textContent = "🐢 Écouter tout lentement";
+    const button =
+      document.getElementById(
+        "dialogueAudioButton"
+      );
 
-    if (dialoguePlaying && dialogueMode === "normal") {
-      normalButton.textContent = "⏹️ Stopper le dialogue";
-      normalButton.classList.add("playing");
+
+    if (!button) {
+
+      return;
+
     }
 
-    if (dialoguePlaying && dialogueMode === "slow") {
-      slowButton.textContent = "⏹️ Stopper le dialogue lent";
-      slowButton.classList.add("playing");
+
+    if (
+      dialoguePlaying
+    ) {
+
+      button.textContent =
+        "⏹️ Stopper le dialogue";
+
+
+      button.classList.add(
+        "playing"
+      );
+
     }
+
+    else {
+
+      button.textContent =
+        "▶️ Écouter tout le dialogue";
+
+
+      button.classList.remove(
+        "playing"
+      );
+
+    }
+
   }
+
+
+
+  /* =====================================================
+     ÉTAPE SUIVANTE
+     ===================================================== */
 
   function goToListeningExercise() {
+
     stopDialogue();
-    window.location.href = "exercice-ecoute-6.html";
+
+
+    window.location.href =
+      "exercice-ecoute-6.html";
+
   }
 
-  if ("speechSynthesis" in window) {
-    window.speechSynthesis.onvoiceschanged = function() {
-      window.speechSynthesis.getVoices();
-    };
-  }
 
-  window.addEventListener("pagehide", stopDialogue);
+
+  /* =====================================================
+     SÉCURITÉ
+     ===================================================== */
+
+  window.addEventListener(
+    "pagehide",
+    function() {
+
+      stopDialogue();
+
+    }
+  );
+
+
+  window.addEventListener(
+    "pageshow",
+    function() {
+
+      if (
+        window.HanaChapterProgress &&
+        typeof window.HanaChapterProgress.render === "function"
+      ) {
+
+        window.HanaChapterProgress.render();
+
+      }
+
+    }
+  );
+
 </script>
+
+
 </body>
+
 </html>

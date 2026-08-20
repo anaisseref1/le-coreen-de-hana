@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="theme-color"
+    content="#F7F4ED"
+  >
+
+  <title>Chapitre 22 — J'écris</title>
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+  <link rel="stylesheet" href="chapter-progress.css">
+
+  <style>
+
+    .write-header {
+      text-align:center;
+      margin-bottom:24px;
+    }
+
+    .exercise-card,
+    .free-card,
+    .tip-card {
+      padding:20px;
+      margin-bottom:18px;
+      background:var(--white);
+      border-radius:var(--radius-large);
+      box-shadow:var(--shadow);
+    }
+
+    .question-block {
+      padding:16px;
+      margin-top:14px;
+      background:#FBFAF6;
+      border-radius:var(--radius-medium);
+    }
+
+    .question-title {
+      margin-bottom:10px;
+      color:var(--navy);
+      font-weight:bold;
+      line-height:1.6;
+    }
+
+    input,
+    textarea {
+      width:100%;
+      box-sizing:border-box;
+      margin-top:8px;
+      padding:12px 13px;
+      border:1px solid var(--border);
+      border-radius:var(--radius-medium);
+      font:inherit;
+      color:var(--navy);
+      background:white;
+    }
+
+    textarea {
+      min-height:130px;
+      resize:vertical;
+    }
+
+    .check-button {
+      width:100%;
+      margin-top:10px;
+      background:var(--jade);
+      color:white;
+      font-weight:bold;
+    }
+
+    .feedback {
+      display:none;
+      margin-top:10px;
+      padding:11px 13px;
+      border-radius:var(--radius-medium);
+      line-height:1.6;
+    }
+
+    .feedback.show {
+      display:block;
+    }
+
+    .feedback.success {
+      background:var(--success-light);
+      color:var(--success);
+    }
+
+    .feedback.error {
+      background:var(--error-light);
+      color:var(--error);
+    }
+
+    .hint {
+      margin-top:8px;
+      color:var(--text-light);
+      font-size:14px;
+    }
+
+    .complete-button,
+    .next-button,
+    .back-button {
+      width:100%;
+      margin-top:10px;
+    }
+
+    .complete-button {
+      display:none;
+      background:var(--jade);
+      color:white;
+      font-weight:bold;
+    }
+
+    .complete-button.show {
+      display:block;
+    }
+
+    .complete-button.done {
+      background:var(--success);
+    }
+
+    .next-button {
+      display:none;
+      background:var(--navy);
+      color:white;
+      font-weight:bold;
+    }
+
+    .back-button {
+      background:var(--soft-beige);
+      color:var(--navy);
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+<main class="app">
+
+  <a
+    class="back-link"
+    href="parle-22.html"
+  >
+    ← Oral
+  </a>
+
+  <header class="write-header">
+
+    <span class="chapter-badge">
+      Chapitre 22 · ✍️ J'écris
+    </span>
+
+    <p class="korean">
+      오늘 날씨가 어때요? 🌦️
+    </p>
+
+    <h1>
+      Décrire la météo
+    </h1>
+
+    <p>
+      Réutilise les mots et structures du chapitre
+      pour parler du temps et de tes décisions.
+    </p>
+
+  </header>
+
+  <section id="hanaChapterPath" data-chapter-path></section>
+
+
+  <section class="exercise-card">
+
+    <h2>✍️ Exercice 1 — Traduis en coréen</h2>
+
+
+    <div
+      class="question-block"
+      data-valid="더워요|날씨가 더워요"
+    >
+
+      <div class="question-title">
+        1. Il fait chaud.
+      </div>
+
+      <input
+        type="text"
+        lang="ko"
+        placeholder="Écris en coréen"
+      >
+
+      <button
+        class="check-button"
+        type="button"
+      >
+        Vérifier
+      </button>
+
+      <div class="feedback"></div>
+
+    </div>
+
+
+    <div
+      class="question-block"
+      data-valid="추워요|날씨가 추워요"
+    >
+
+      <div class="question-title">
+        2. Il fait froid.
+      </div>
+
+      <input
+        type="text"
+        lang="ko"
+        placeholder="Écris en coréen"
+      >
+
+      <button
+        class="check-button"
+        type="button"
+      >
+        Vérifier
+      </button>
+
+      <div class="feedback"></div>
+
+    </div>
+
+
+    <div
+      class="question-block"
+      data-valid="하늘이 흐려요"
+    >
+
+      <div class="question-title">
+        3. Le ciel est couvert.
+      </div>
+
+      <input
+        type="text"
+        lang="ko"
+        placeholder="Écris en coréen"
+      >
+
+      <button
+        class="check-button"
+        type="button"
+      >
+        Vérifier
+      </button>
+
+      <div class="feedback"></div>
+
+    </div>
+
+
+    <div
+      class="question-block"
+      data-valid="비가 올 것 같아요"
+    >
+
+      <div class="question-title">
+        4. Je pense qu'il va pleuvoir.
+      </div>
+
+      <input
+        type="text"
+        lang="ko"
+        placeholder="Écris en coréen"
+      >
+
+      <button
+        class="check-button"
+        type="button"
+      >
+        Vérifier
+      </button>
+
+      <div class="feedback"></div>
+
+    </div>
+
+  </section>
+
+
+  <section class="exercise-card">
+
+    <h2>🧩 Exercice 2 — Complète</h2>
+
+
+    <div
+      class="question-block"
+      data-valid="날씨가"
+    >
+
+      <div class="question-title">
+        오늘 ________ 어때요?
+      </div>
+
+      <input
+        type="text"
+        lang="ko"
+        placeholder="Complète la phrase"
+      >
+
+      <button
+        class="check-button"
+        type="button"
+      >
+        Vérifier
+      </button>
+
+      <div class="feedback"></div>
+
+    </div>
+
+
+    <div
+      class="question-block"
+      data-valid="더워요|추워요"
+    >
+
+      <div class="question-title">
+        조금 ________.
+      </div>
+
+      <input
+        type="text"
+        lang="ko"
+        placeholder="Complète la phrase"
+      >
+
+      <div class="hint">
+        Deux réponses du chapitre sont acceptées.
+      </div>
+
+      <button
+        class="check-button"
+        type="button"
+      >
+        Vérifier
+      </button>
+
+      <div class="feedback"></div>
+
+    </div>
+
+
+    <div
+      class="question-block"
+      data-valid="올 것"
+    >
+
+      <div class="question-title">
+        비가 ________ 같아요.
+      </div>
+
+      <input
+        type="text"
+        lang="ko"
+        placeholder="Complète la phrase"
+      >
+
+      <button
+        class="check-button"
+        type="button"
+      >
+        Vérifier
+      </button>
+
+      <div class="feedback"></div>
+
+    </div>
+
+
+    <div
+      class="question-block"
+      data-valid="있어요"
+    >
+
+      <div class="question-title">
+        우산 ________?
+      </div>
+
+      <input
+        type="text"
+        lang="ko"
+        placeholder="Complète la phrase"
+      >
+
+      <button
+        class="check-button"
+        type="button"
+      >
+        Vérifier
+      </button>
+
+      <div class="feedback"></div>
+
+    </div>
+
+  </section>
+
+
+  <section class="free-card">
+
+    <h2>🌦️ Exercice 3 — Réponds librement</h2>
+
+
+    <div class="question-block">
+
+      <div class="question-title">
+        오늘 날씨가 어때요?
+      </div>
+
+      <textarea
+        lang="ko"
+        placeholder="Décris le temps en coréen"
+      ></textarea>
+
+    </div>
+
+
+    <div class="question-block">
+
+      <div class="question-title">
+        비를 좋아해요?
+      </div>
+
+      <textarea
+        lang="ko"
+        placeholder="Réponds en coréen"
+      ></textarea>
+
+    </div>
+
+
+    <div class="question-block">
+
+      <div class="question-title">
+        여름을 좋아해요?
+      </div>
+
+      <textarea
+        lang="ko"
+        placeholder="Réponds en coréen"
+      ></textarea>
+
+    </div>
+
+  </section>
+
+
+  <section class="free-card">
+
+    <h2>📝 Mon carnet de voyage</h2>
+
+    Imagine que tu consultes la météo
+    avant de partir visiter Séoul.
+
+    <br><br>
+
+    Écris trois ou quatre phrases pour décrire le temps
+    et ce que tu décides de faire.
+
+    <br><br>
+
+    Tu peux parler de :
+    <strong>
+      날씨 · 비 · 우산 · 흐려요 · 더워요 · 갈까요?
+    </strong>
+
+    <textarea
+      id="travelNotebook"
+      lang="ko"
+      placeholder="Écris ici ce que tu observes et ce que tu décides…"
+    ></textarea>
+
+  </section>
+
+
+  <section class="tip-card">
+
+    <h2>💡 Petit rappel</h2>
+
+    Pour décrire un fait actuel :
+
+    <br><br>
+
+    <strong>비가 와요.</strong>
+    → Il pleut.
+
+    <br><br>
+
+    Pour exprimer ton impression ou une prévision :
+
+    <br><br>
+
+    <strong>비가 올 것 같아요.</strong>
+    → Je pense qu'il va pleuvoir.
+
+  </section>
+
+
+  <button
+    class="complete-button"
+    id="completeButton"
+    type="button"
+  >
+    ✅ Valider l'écriture
+  </button>
+
+
+  <button
+    class="next-button"
+    id="nextButton"
+    type="button"
+  >
+    🧠 Passer à la révision
+  </button>
+
+
+  <button
+    class="back-button"
+    type="button"
+    onclick="window.location.href='parle-22.html'"
+  >
+    ← Retour à l'oral
+  </button>
+
+</main>
+
+
+<script src="chapter-progress.js"></script>
+
+<script>
+
+  const progressKey =
+    "hanaKorean_chapter22_writing";
+
+
+  const notebookKey =
+    "hanaKorean_chapter22_notebook";
+
+  const understandingKey =
+    "hanaKorean_chapter22_understanding";
+
+  const listeningExerciseKey =
+    "hanaKorean_chapter22_listeningExercise";
+
+  const speakingKey =
+    "hanaKorean_chapter22_speaking";
+
+  const revisionNotionsKey =
+    "hanaKorean_chapter22_revisionNotions";
+
+  function renderChapterProgress() {
+    if (
+      window.HanaChapterProgress &&
+      typeof window.HanaChapterProgress.render === "function"
+    ) {
+      window.HanaChapterProgress.render();
+    }
+  }
+
+  function guardWritingAccess() {
+    const required = [
+      [understandingKey, "chapitre-22.html"],
+      [listeningExerciseKey, "exercice-ecoute-22.html"],
+      [speakingKey, "parle-22.html"]
+    ];
+
+    for (const [key, page] of required) {
+      if (localStorage.getItem(key) !== "completed") {
+        window.location.replace(page);
+        return false;
+      }
+    }
+
+    return true;
+  }
+
+
+  const questionBlocks =
+    Array.from(
+      document.querySelectorAll(
+        ".question-block[data-valid]"
+      )
+    );
+
+
+  const completeButton =
+    document.getElementById(
+      "completeButton"
+    );
+
+
+  const nextButton =
+    document.getElementById(
+      "nextButton"
+    );
+
+
+  const travelNotebook =
+    document.getElementById(
+      "travelNotebook"
+    );
+
+
+  function normalizeText(
+    value
+  ) {
+
+    return value
+      .replace(
+        /[?.!,]/g,
+        ""
+      )
+      .replace(
+        /\s+/g,
+        ""
+      )
+      .trim();
+
+  }
+
+
+  function updateCompletionAvailability() {
+
+    const allCorrect =
+      questionBlocks.every(
+        block =>
+          block.dataset.completed ===
+          "true"
+      );
+
+
+    if (
+      allCorrect
+    ) {
+
+      completeButton
+        .classList
+        .add(
+          "show"
+        );
+
+    }
+
+  }
+
+
+  questionBlocks.forEach(
+    block => {
+
+      const input =
+        block.querySelector(
+          "input"
+        );
+
+
+      const checkButton =
+        block.querySelector(
+          ".check-button"
+        );
+
+
+      const feedback =
+        block.querySelector(
+          ".feedback"
+        );
+
+
+      const validAnswers =
+        block.dataset.valid
+          .split("|")
+          .map(
+            answer =>
+              normalizeText(
+                answer
+              )
+          );
+
+
+      checkButton.addEventListener(
+        "click",
+        () => {
+
+          const answer =
+            normalizeText(
+              input.value
+            );
+
+
+          if (
+            !answer
+          ) {
+
+            feedback.className =
+              "feedback show error";
+
+
+            feedback.textContent =
+              "Écris une réponse avant de vérifier.";
+
+            return;
+
+          }
+
+
+          const accepted =
+            validAnswers.some(
+              valid =>
+                answer === valid
+            );
+
+
+          if (
+            accepted
+          ) {
+
+            block.dataset.completed =
+              "true";
+
+
+            feedback.className =
+              "feedback show success";
+
+
+            feedback.textContent =
+              "✅ Très bien !";
+
+
+            input.disabled =
+              true;
+
+
+            checkButton.disabled =
+              true;
+
+
+            updateCompletionAvailability();
+
+          } else {
+
+            feedback.className =
+              "feedback show error";
+
+
+            feedback.textContent =
+              "Pas encore. Relis la structure du chapitre et réessaie.";
+
+          }
+
+        }
+      );
+
+    }
+  );
+
+
+  if (
+    travelNotebook
+  ) {
+
+    travelNotebook.value =
+      localStorage.getItem(
+        notebookKey
+      ) || "";
+
+
+    travelNotebook.addEventListener(
+      "input",
+      () => {
+
+        localStorage.setItem(
+          notebookKey,
+          travelNotebook.value
+        );
+
+      }
+    );
+
+  }
+
+
+  function showCompletedState() {
+
+    completeButton.textContent =
+      "✅ Écriture terminée";
+
+
+    completeButton
+      .classList
+      .add(
+        "show",
+        "done"
+      );
+
+
+    nextButton.style.display =
+      "block";
+
+  }
+
+
+  guardWritingAccess();
+  renderChapterProgress();
+
+  if (
+    localStorage.getItem(
+      progressKey
+    ) === "completed"
+  ) {
+
+    showCompletedState();
+
+  }
+
+
+  completeButton.addEventListener(
+    "click",
+    () => {
+
+      localStorage.setItem(
+        progressKey,
+        "completed"
+      );
+
+      if (localStorage.getItem(revisionNotionsKey) === null) {
+        localStorage.setItem(revisionNotionsKey, "[]");
+      }
+
+      renderChapterProgress();
+
+
+      showCompletedState();
+
+    }
+  );
+
+
+  nextButton.addEventListener(
+    "click",
+    () => {
+
+      window.location.href =
+        "revision-22.html";
+
+    }
+  );
+
+
+  window.addEventListener("pageshow", () => {
+    guardWritingAccess();
+    renderChapterProgress();
+  });
+
+</script>
+
+
+</body>
+
+</html>

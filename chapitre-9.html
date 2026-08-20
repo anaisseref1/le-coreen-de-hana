@@ -2,6 +2,7 @@
 <html lang="fr">
 
 <head>
+
   <meta charset="UTF-8">
 
   <meta
@@ -14,18 +15,32 @@
     content="#F7F4ED"
   >
 
-  <title>Chapitre 9 — Se déplacer</title>
+  <title>
+    Chapitre 9 — Se déplacer
+  </title>
 
   <link
     rel="stylesheet"
     href="style.css"
   >
 
+  <link
+    rel="stylesheet"
+    href="chapter-progress.css"
+  >
+
+
   <style>
+
+    /* =====================================================
+       EN-TÊTE
+       ===================================================== */
+
     .chapter-header {
       text-align: center;
-      margin-bottom: 28px;
+      margin-bottom: 25px;
     }
+
 
     .chapter-badge {
       display: inline-block;
@@ -36,10 +51,16 @@
       font-weight: bold;
     }
 
+
     .chapter-subtitle {
       color: var(--text-light);
       line-height: 1.7;
     }
+
+
+    /* =====================================================
+       OBJECTIFS
+       ===================================================== */
 
     .objective-card {
       padding: 18px;
@@ -50,9 +71,22 @@
       line-height: 1.7;
     }
 
+
     .objective-card strong {
       color: var(--jade-dark);
     }
+
+
+    .objective-list {
+      margin: 12px 0 0;
+      padding-left: 20px;
+      line-height: 1.8;
+    }
+
+
+    /* =====================================================
+       CARTES
+       ===================================================== */
 
     .lesson-card {
       padding: 20px;
@@ -62,14 +96,21 @@
       box-shadow: var(--shadow);
     }
 
+
     .lesson-card h2 {
       margin-top: 0;
       color: var(--navy);
     }
 
+
     .lesson-card p {
       line-height: 1.7;
     }
+
+
+    /* =====================================================
+       VOCABULAIRE
+       ===================================================== */
 
     .vocab-grid {
       display: grid;
@@ -78,11 +119,13 @@
       margin-top: 14px;
     }
 
+
     .vocab-item {
       padding: 14px;
       background: #FBFAF6;
       border-radius: var(--radius-medium);
     }
+
 
     .vocab-korean {
       color: var(--navy);
@@ -90,31 +133,70 @@
       font-weight: bold;
     }
 
+
     .vocab-french {
       margin-top: 4px;
       color: var(--text-light);
+      line-height: 1.5;
     }
+
+
+    /* =====================================================
+       GRAMMAIRE
+       ===================================================== */
 
     .grammar-box {
       padding: 16px;
       margin-top: 14px;
       background: var(--soft-blue);
       border-radius: var(--radius-medium);
+      color: var(--navy);
       line-height: 1.7;
     }
+
 
     .grammar-example {
       padding: 11px 0;
       border-bottom: 1px solid var(--border);
     }
 
+
     .grammar-example:last-child {
       border-bottom: none;
     }
 
+
+    .structure-box {
+      padding: 17px;
+      margin: 14px 0;
+      background: var(--soft-beige);
+      border-radius: var(--radius-medium);
+      color: var(--navy);
+      text-align: center;
+      font-size: 19px;
+      font-weight: bold;
+      line-height: 1.8;
+    }
+
+
+    .tip-box {
+      padding: 16px;
+      margin-top: 14px;
+      background: var(--soft-green);
+      border-radius: var(--radius-medium);
+      color: var(--navy);
+      line-height: 1.7;
+    }
+
+
+    /* =====================================================
+       DIALOGUE
+       ===================================================== */
+
     .dialogue {
       margin-top: 15px;
     }
+
 
     .dialogue-line {
       padding: 15px;
@@ -123,18 +205,22 @@
       line-height: 1.7;
     }
 
+
     .dialogue-line.minsu {
       background: var(--soft-blue);
     }
+
 
     .dialogue-line.hana {
       background: var(--soft-green);
     }
 
+
     .speaker {
-      font-weight: bold;
       margin-bottom: 4px;
+      font-weight: bold;
     }
+
 
     .dialogue-korean {
       color: var(--navy);
@@ -142,14 +228,19 @@
       font-weight: bold;
     }
 
+
     .dialogue-french {
       margin-top: 5px;
       color: var(--text-light);
     }
 
+
+    /* =====================================================
+       NOTE
+       ===================================================== */
+
     .note-card {
       padding: 16px;
-      margin-top: 16px;
       margin-bottom: 18px;
       background: var(--soft-beige);
       border-radius: var(--radius-medium);
@@ -157,101 +248,162 @@
       line-height: 1.7;
     }
 
-    .recap-line {
+
+    /* =====================================================
+       CARNET
+       ===================================================== */
+
+    .mission-line {
       padding: 11px 0;
       border-bottom: 1px solid var(--border);
-      line-height: 1.6;
+      line-height: 1.65;
     }
 
-    .recap-line:last-child {
+
+    .mission-line:last-child {
       border-bottom: none;
     }
 
-    .complete-button {
+
+    /* =====================================================
+       BOUTON FINAL
+       ===================================================== */
+
+    .continue-button {
       width: 100%;
-      margin-top: 18px;
+      margin-top: 5px;
       background: var(--jade);
       color: white;
       font-weight: bold;
     }
 
-    .complete-button.done {
-      background: var(--success);
-    }
-
-    .next-button {
-      display: none;
-      width: 100%;
-      margin-top: 10px;
-      background: var(--navy);
-      color: white;
-      font-weight: bold;
-    }
-
-    .back-home-button {
-      width: 100%;
-      margin-top: 10px;
-      background: var(--soft-beige);
-      color: var(--navy);
-    }
 
     @media (min-width: 620px) {
+
       .vocab-grid {
         grid-template-columns: 1fr 1fr;
       }
+
     }
+
   </style>
+
 </head>
+
 
 <body>
 
+
 <main class="app">
+
+
+  <!-- =====================================================
+       RETOUR
+       ===================================================== -->
 
   <a
     class="back-link"
-    href="itineraire.html"
+    href="itineraire.html#module1"
   >
-    ← Itinéraire
+    ← Mon itinéraire
   </a>
 
+
+
+  <!-- =====================================================
+       EN-TÊTE
+       ===================================================== -->
 
   <header class="chapter-header">
 
     <span class="chapter-badge">
-      Chapitre 9 · 🚇 Se déplacer
+      Module 1 · Chapitre 9
     </span>
+
 
     <p class="korean">
       어떻게 가요? 🚇
     </p>
 
+
     <h1>
       Se déplacer
     </h1>
 
+
     <p class="chapter-subtitle">
       Apprends à parler des transports,
       à demander comment aller quelque part
-      et à dire quel moyen de transport tu utilises.
+      et à dire quel moyen de transport
+      tu utilises.
     </p>
 
   </header>
 
 
+
+  <!-- =====================================================
+       PARCOURS
+       ===================================================== -->
+
+  <section
+    id="hanaChapterPath"
+    data-chapter-path
+  ></section>
+
+
+
+  <!-- =====================================================
+       OBJECTIFS
+       ===================================================== -->
+
   <section class="objective-card">
 
-    <strong>🎯 Objectif du chapitre</strong>
+    <strong>
+      🎯 Objectifs du chapitre
+    </strong>
 
-    <br><br>
 
-    À la fin de ce chapitre,
-    tu pourras dire où tu vas,
-    demander comment s'y rendre,
-    indiquer un moyen de transport
-    et comprendre une petite conversation dans le métro.
+    <ul class="objective-list">
+
+      <li>
+        reconnaître les principaux moyens de transport ;
+      </li>
+
+      <li>
+        demander comment aller quelque part avec
+        <strong>어떻게 가요?</strong> ;
+      </li>
+
+      <li>
+        indiquer un moyen de transport avec
+        <strong>(으)로</strong> ;
+      </li>
+
+      <li>
+        dire que tu prends un transport avec
+        <strong>타요</strong> ;
+      </li>
+
+      <li>
+        dire où tu descends avec
+        <strong>내려요</strong> ;
+      </li>
+
+      <li>
+        comprendre une petite conversation
+        pour se déplacer en métro.
+      </li>
+
+    </ul>
 
   </section>
 
+
+
+  <!-- =====================================================
+       TRANSPORTS
+       ===================================================== -->
 
   <section class="lesson-card">
 
@@ -259,47 +411,103 @@
       🚇 1. Les transports
     </h2>
 
+
     <p>
       Voici quelques mots très utiles
       pour te déplacer en Corée.
     </p>
 
+
     <div class="vocab-grid">
 
-      <div class="vocab-item">
-        <div class="vocab-korean">지하철</div>
-        <div class="vocab-french">métro</div>
-      </div>
 
       <div class="vocab-item">
-        <div class="vocab-korean">버스</div>
-        <div class="vocab-french">bus</div>
+
+        <div class="vocab-korean">
+          지하철
+        </div>
+
+        <div class="vocab-french">
+          métro
+        </div>
+
       </div>
 
-      <div class="vocab-item">
-        <div class="vocab-korean">택시</div>
-        <div class="vocab-french">taxi</div>
-      </div>
 
       <div class="vocab-item">
-        <div class="vocab-korean">기차</div>
-        <div class="vocab-french">train</div>
+
+        <div class="vocab-korean">
+          버스
+        </div>
+
+        <div class="vocab-french">
+          bus
+        </div>
+
       </div>
 
-      <div class="vocab-item">
-        <div class="vocab-korean">역</div>
-        <div class="vocab-french">gare / station</div>
-      </div>
 
       <div class="vocab-item">
-        <div class="vocab-korean">버스 정류장</div>
-        <div class="vocab-french">arrêt de bus</div>
+
+        <div class="vocab-korean">
+          택시
+        </div>
+
+        <div class="vocab-french">
+          taxi
+        </div>
+
       </div>
+
+
+      <div class="vocab-item">
+
+        <div class="vocab-korean">
+          기차
+        </div>
+
+        <div class="vocab-french">
+          train
+        </div>
+
+      </div>
+
+
+      <div class="vocab-item">
+
+        <div class="vocab-korean">
+          역
+        </div>
+
+        <div class="vocab-french">
+          gare / station
+        </div>
+
+      </div>
+
+
+      <div class="vocab-item">
+
+        <div class="vocab-korean">
+          버스 정류장
+        </div>
+
+        <div class="vocab-french">
+          arrêt de bus
+        </div>
+
+      </div>
+
 
     </div>
 
   </section>
 
+
+
+  <!-- =====================================================
+       COMMENT Y ALLER ?
+       ===================================================== -->
 
   <section class="lesson-card">
 
@@ -307,29 +515,93 @@
       ❓ 2. Demander « Comment on y va ? »
     </h2>
 
+
     <p>
-      Tu connais déjà <strong>어디</strong> pour demander « où ».
-      Voici maintenant une nouvelle question très utile :
+      Tu connais déjà
+      <strong>어디</strong>
+      pour demander « où ».
     </p>
+
+
+    <p>
+      Voici maintenant
+      une nouvelle question très utile :
+    </p>
+
+
+    <div class="structure-box">
+
+      어떻게 가요?
+
+      <br>
+
+      Comment on y va ?
+
+    </div>
+
 
     <div class="grammar-box">
 
-      <div class="grammar-example">
-        <strong>어떻게 가요?</strong>
-        <br>
-        Comment on y va ? / Comment tu y vas ?
-      </div>
 
       <div class="grammar-example">
-        <strong>서울역에 어떻게 가요?</strong>
+
+        <strong>
+          어떻게 가요?
+        </strong>
+
         <br>
-        Comment aller à la gare de Séoul ?
+
+        Comment on y va ?
+        / Comment tu y vas ?
+
       </div>
+
+
+      <div class="grammar-example">
+
+        <strong>
+          서울역에 어떻게 가요?
+        </strong>
+
+        <br>
+
+        Comment aller à la gare de Séoul ?
+
+      </div>
+
+
+    </div>
+
+
+    <div class="tip-box">
+
+      🌿 <strong>어떻게</strong>
+      signifie « comment ».
+
+      <br><br>
+
+      Tu peux donc reconnaître :
+
+      <br><br>
+
+      <strong>
+        lieu + 에 + 어떻게 가요?
+      </strong>
+
+      <br><br>
+
+      pour demander
+      comment aller vers un lieu.
 
     </div>
 
   </section>
 
+
+
+  <!-- =====================================================
+       MOYEN DE TRANSPORT
+       ===================================================== -->
 
   <section class="lesson-card">
 
@@ -337,51 +609,107 @@
       🚌 3. Dire « en métro / en bus / en taxi »
     </h2>
 
+
     <p>
-      Pour indiquer le moyen utilisé,
-      on peut employer <strong>(으)로</strong>.
+      Pour indiquer
+      le moyen utilisé,
+      on peut employer
+      <strong>(으)로</strong>.
     </p>
 
-    <div class="grammar-box">
 
-      <div class="grammar-example">
-        <strong>지하철로 가요.</strong>
-        <br>
-        J'y vais en métro.
-      </div>
+    <div class="structure-box">
 
-      <div class="grammar-example">
-        <strong>버스로 가요.</strong>
-        <br>
-        J'y vais en bus.
-      </div>
-
-      <div class="grammar-example">
-        <strong>택시로 가요.</strong>
-        <br>
-        J'y vais en taxi.
-      </div>
+      transport + (으)로 + 가요
 
     </div>
 
-    <p>
-      Pour l'instant,
-      retiens surtout ces expressions comme des blocs utiles.
-    </p>
+
+    <div class="grammar-box">
+
+
+      <div class="grammar-example">
+
+        <strong>
+          지하철로 가요.
+        </strong>
+
+        <br>
+
+        J'y vais en métro.
+
+      </div>
+
+
+      <div class="grammar-example">
+
+        <strong>
+          버스로 가요.
+        </strong>
+
+        <br>
+
+        J'y vais en bus.
+
+      </div>
+
+
+      <div class="grammar-example">
+
+        <strong>
+          택시로 가요.
+        </strong>
+
+        <br>
+
+        J'y vais en taxi.
+
+      </div>
+
+
+    </div>
+
 
     <div class="note-card">
-      <strong>🌿 Petit repère</strong>
+
+      <strong>
+        🌿 Petit repère
+      </strong>
+
       <br><br>
-      Après un mot qui se termine par une voyelle,
-      on utilise généralement <strong>로</strong>.
+
+      Après un mot
+      qui se termine par une voyelle,
+      on utilise généralement
+      <strong>로</strong>.
+
       <br><br>
-      Après beaucoup de mots terminés par une consonne,
-      on utilise <strong>으로</strong>.
-      Nous reverrons cette règle plus en détail plus tard.
+
+      Après beaucoup de mots
+      terminés par une consonne,
+      on utilise
+      <strong>으로</strong>.
+
+      <br><br>
+
+      Pour l'instant,
+      retiens surtout les expressions
+      de ce chapitre comme des blocs utiles.
+
+      <br><br>
+
+      Nous approfondirons
+      la règle complète plus tard.
+
     </div>
 
   </section>
 
+
+
+  <!-- =====================================================
+       PRENDRE / DESCENDRE
+       ===================================================== -->
 
   <section class="lesson-card">
 
@@ -389,48 +717,120 @@
       🚉 4. Prendre et quitter un transport
     </h2>
 
+
     <p>
-      Deux verbes sont particulièrement utiles :
+      Deux verbes sont
+      particulièrement utiles
+      lorsque tu te déplaces.
     </p>
+
 
     <div class="vocab-grid">
 
-      <div class="vocab-item">
-        <div class="vocab-korean">타요</div>
-        <div class="vocab-french">prendre / monter dans un transport</div>
-      </div>
 
       <div class="vocab-item">
-        <div class="vocab-korean">내려요</div>
-        <div class="vocab-french">descendre / sortir d'un transport</div>
+
+        <div class="vocab-korean">
+          타요
+        </div>
+
+        <div class="vocab-french">
+          prendre / monter dans un transport
+        </div>
+
       </div>
+
+
+      <div class="vocab-item">
+
+        <div class="vocab-korean">
+          내려요
+        </div>
+
+        <div class="vocab-french">
+          descendre / sortir d'un transport
+        </div>
+
+      </div>
+
 
     </div>
 
+
     <div class="grammar-box">
 
+
       <div class="grammar-example">
-        <strong>지하철을 타요.</strong>
+
+        <strong>
+          지하철을 타요.
+        </strong>
+
         <br>
+
         Je prends le métro.
+
       </div>
 
+
       <div class="grammar-example">
-        <strong>버스를 타요.</strong>
+
+        <strong>
+          버스를 타요.
+        </strong>
+
         <br>
+
         Je prends le bus.
+
       </div>
 
+
       <div class="grammar-example">
-        <strong>서울역에서 내려요.</strong>
+
+        <strong>
+          서울역에서 내려요.
+        </strong>
+
         <br>
+
         Je descends à la gare de Séoul.
+
       </div>
+
+
+    </div>
+
+
+    <div class="tip-box">
+
+      🧠 Observe les structures :
+
+      <br><br>
+
+      <strong>
+        transport + 을 / 를 + 타요
+      </strong>
+
+      <br><br>
+
+      mais :
+
+      <br><br>
+
+      <strong>
+        lieu + 에서 + 내려요
+      </strong>
 
     </div>
 
   </section>
 
+
+
+  <!-- =====================================================
+       OÙ DESCENDRE ?
+       ===================================================== -->
 
   <section class="lesson-card">
 
@@ -438,264 +838,559 @@
       📍 5. Où descendre ?
     </h2>
 
+
     <p>
-      Pour demander où descendre,
-      on peut dire :
+      Pour demander
+      où descendre,
+      tu peux dire :
     </p>
 
-    <div class="grammar-box">
 
-      <div class="grammar-example">
-        <strong>어디에서 내려요?</strong>
-        <br>
-        Où est-ce que je descends ? / Où tu descends ?
-      </div>
+    <div class="structure-box">
 
-      <div class="grammar-example">
-        <strong>서울역에서 내려요.</strong>
-        <br>
-        Je descends à la gare de Séoul.
-      </div>
+      어디에서 내려요?
+
+      <br>
+
+      Où est-ce que je descends ?
 
     </div>
 
-    <p>
-      Ici, <strong>에서</strong> marque le lieu
-      où l'action de descendre se produit.
-    </p>
+
+    <div class="grammar-box">
+
+
+      <div class="grammar-example">
+
+        <strong>
+          어디에서 내려요?
+        </strong>
+
+        <br>
+
+        Où est-ce que je descends ?
+        / Où tu descends ?
+
+      </div>
+
+
+      <div class="grammar-example">
+
+        <strong>
+          서울역에서 내려요.
+        </strong>
+
+        <br>
+
+        Je descends à la gare de Séoul.
+
+      </div>
+
+
+    </div>
+
+
+    <div class="tip-box">
+
+      Ici,
+      <strong>에서</strong>
+      marque le lieu
+      où l'action de descendre
+      se produit.
+
+    </div>
 
   </section>
 
 
+
+  <!-- =====================================================
+       COMPARAISON
+       ===================================================== -->
+
   <section class="lesson-card">
 
     <h2>
-      💬 6. Dialogue — Aller à la gare
+      🔎 6. Ne confonds pas ces deux idées
     </h2>
+
+
+    <div class="grammar-box">
+
+
+      <div class="grammar-example">
+
+        <strong>
+          지하철로 가요.
+        </strong>
+
+        <br>
+
+        J'y vais en métro.
+
+        <br><br>
+
+        👉 On indique
+        <strong>le moyen de transport</strong>.
+
+      </div>
+
+
+      <div class="grammar-example">
+
+        <strong>
+          지하철을 타요.
+        </strong>
+
+        <br>
+
+        Je prends le métro.
+
+        <br><br>
+
+        👉 On parle directement
+        de l'action de
+        <strong>prendre le métro</strong>.
+
+      </div>
+
+
+    </div>
+
+
+    <div class="tip-box">
+
+      Les deux phrases peuvent apparaître
+      dans une même situation,
+      mais elles ne disent pas
+      exactement la même chose.
+
+      <br><br>
+
+      🚇 <strong>지하철로 가요.</strong>
+
+      <br>
+
+      = le métro est le moyen utilisé.
+
+      <br><br>
+
+      🚉 <strong>지하철을 타요.</strong>
+
+      <br>
+
+      = je monte / je prends le métro.
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       DIALOGUE
+       ===================================================== -->
+
+  <section class="lesson-card">
+
+    <h2>
+      💬 7. Dialogue — Aller à la gare
+    </h2>
+
 
     <p>
       Hana demande à Min-su
-      comment aller à la gare de Séoul.
+      comment aller
+      à la gare de Séoul.
     </p>
+
 
     <div class="dialogue">
 
+
       <div class="dialogue-line hana">
+
         <div class="speaker">
           🌸 Hana
         </div>
+
 
         <div class="dialogue-korean">
           서울역에 어떻게 가요?
         </div>
 
+
         <div class="dialogue-french">
           Comment aller à la gare de Séoul ?
         </div>
+
       </div>
 
 
       <div class="dialogue-line minsu">
+
         <div class="speaker">
           💙 Min-su
         </div>
+
 
         <div class="dialogue-korean">
           지하철로 가요.
         </div>
 
+
         <div class="dialogue-french">
           On y va en métro.
         </div>
+
       </div>
 
 
       <div class="dialogue-line hana">
+
         <div class="speaker">
           🌸 Hana
         </div>
+
 
         <div class="dialogue-korean">
           지하철을 타요?
         </div>
 
+
         <div class="dialogue-french">
           Je prends le métro ?
         </div>
+
       </div>
 
 
       <div class="dialogue-line minsu">
+
         <div class="speaker">
           💙 Min-su
         </div>
+
 
         <div class="dialogue-korean">
           네, 지하철을 타요.
         </div>
 
+
         <div class="dialogue-french">
           Oui, prends le métro.
         </div>
+
       </div>
 
 
       <div class="dialogue-line hana">
+
         <div class="speaker">
           🌸 Hana
         </div>
+
 
         <div class="dialogue-korean">
           어디에서 내려요?
         </div>
 
+
         <div class="dialogue-french">
           Où est-ce que je descends ?
         </div>
+
       </div>
 
 
       <div class="dialogue-line minsu">
+
         <div class="speaker">
           💙 Min-su
         </div>
+
 
         <div class="dialogue-korean">
           서울역에서 내려요.
         </div>
 
+
         <div class="dialogue-french">
           Descends à la gare de Séoul.
         </div>
+
       </div>
 
 
       <div class="dialogue-line hana">
+
         <div class="speaker">
           🌸 Hana
         </div>
+
 
         <div class="dialogue-korean">
           감사합니다!
         </div>
 
+
         <div class="dialogue-french">
           Merci !
         </div>
+
       </div>
 
 
       <div class="dialogue-line minsu">
+
         <div class="speaker">
           💙 Min-su
         </div>
+
 
         <div class="dialogue-korean">
           천만에요!
         </div>
 
+
         <div class="dialogue-french">
           De rien !
         </div>
+
       </div>
+
 
     </div>
 
   </section>
 
 
+
+  <!-- =====================================================
+       À RETENIR POUR L'INSTANT
+       ===================================================== -->
+
   <section class="note-card">
 
-    <strong>🌿 À retenir pour l'instant</strong>
+    <strong>
+      🌿 À retenir pour l'instant
+    </strong>
 
     <br><br>
 
-    Le plus important dans ce chapitre est de savoir reconnaître
-    <strong>어떻게 가요?</strong>,
-    les noms des transports
-    et les verbes <strong>타요 / 내려요</strong>.
+    Le plus important
+    dans ce chapitre
+    est de savoir reconnaître :
 
     <br><br>
 
-    La règle complète de <strong>(으)로</strong>
+    ❓ <strong>어떻게 가요?</strong>
+
+    <br>
+
+    🚇 les noms des transports
+
+    <br>
+
+    🚉 <strong>타요</strong>
+
+    <br>
+
+    📍 <strong>내려요</strong>
+
+    <br><br>
+
+    La règle complète
+    de <strong>(으)로</strong>
     pourra être approfondie plus tard.
 
   </section>
 
 
+
+  <!-- =====================================================
+       CARNET
+       ===================================================== -->
+
   <section class="lesson-card">
 
     <h2>
-      🧠 7. À retenir
+      📓 Dans ton carnet de voyage
     </h2>
 
-    <div class="recap-line">
-      🚇 <strong>지하철</strong> → métro
+
+    <p>
+      À la fin de ce chapitre,
+      tu devras pouvoir comprendre
+      et utiliser :
+    </p>
+
+
+    <div class="mission-line">
+
+      🚇
+
+      <strong>
+        지하철
+      </strong>
+
+      <br>
+
+      métro
+
     </div>
 
-    <div class="recap-line">
-      🚌 <strong>버스</strong> → bus
+
+    <div class="mission-line">
+
+      🚌
+
+      <strong>
+        버스
+      </strong>
+
+      <br>
+
+      bus
+
     </div>
 
-    <div class="recap-line">
-      🚕 <strong>택시</strong> → taxi
+
+    <div class="mission-line">
+
+      🚕
+
+      <strong>
+        택시
+      </strong>
+
+      <br>
+
+      taxi
+
     </div>
 
-    <div class="recap-line">
-      ❓ <strong>어떻게 가요?</strong> → Comment on y va ?
+
+    <div class="mission-line">
+
+      ❓
+
+      <strong>
+        어떻게 가요?
+      </strong>
+
+      <br>
+
+      Comment on y va ?
+
     </div>
 
-    <div class="recap-line">
-      🚇 <strong>지하철로 가요.</strong> → J'y vais en métro.
+
+    <div class="mission-line">
+
+      🚇
+
+      <strong>
+        서울역에 어떻게 가요?
+      </strong>
+
+      <br>
+
+      Comment aller à la gare de Séoul ?
+
     </div>
 
-    <div class="recap-line">
-      🚉 <strong>지하철을 타요.</strong> → Je prends le métro.
+
+    <div class="mission-line">
+
+      🚇
+
+      <strong>
+        지하철로 가요.
+      </strong>
+
+      <br>
+
+      J'y vais en métro.
+
     </div>
 
-    <div class="recap-line">
-      📍 <strong>어디에서 내려요?</strong> → Où est-ce que je descends ?
+
+    <div class="mission-line">
+
+      🚉
+
+      <strong>
+        지하철을 타요.
+      </strong>
+
+      <br>
+
+      Je prends le métro.
+
     </div>
 
-    <div class="recap-line">
-      🚉 <strong>서울역에서 내려요.</strong> → Je descends à la gare de Séoul.
+
+    <div class="mission-line">
+
+      📍
+
+      <strong>
+        어디에서 내려요?
+      </strong>
+
+      <br>
+
+      Où est-ce que je descends ?
+
     </div>
+
+
+    <div class="mission-line">
+
+      🚉
+
+      <strong>
+        서울역에서 내려요.
+      </strong>
+
+      <br>
+
+      Je descends à la gare de Séoul.
+
+    </div>
+
 
   </section>
 
 
+
+  <!-- =====================================================
+       VALIDATION
+       ===================================================== -->
+
   <button
-    class="complete-button"
-    id="completeButton"
+    class="continue-button"
     type="button"
     onclick="completeUnderstanding()"
   >
-    ✅ J'ai compris
+    🎧 J'ai compris · Passer à « J'écoute »
   </button>
 
-
-  <button
-    class="next-button"
-    id="nextButton"
-    type="button"
-    onclick="window.location.href='ecoute-9.html'"
-  >
-    🎧 Passer à « J'écoute »
-  </button>
-
-
-  <button
-    class="back-home-button"
-    type="button"
-    onclick="window.location.href='itineraire.html'"
-  >
-    Retour à l'itinéraire
-  </button>
 
 </main>
 
 
+
+<script src="chapter-progress.js"></script>
+
+
 <script>
+
+  /* =====================================================
+     VALIDATION DE « JE COMPRENDS »
+     ===================================================== */
+
   function completeUnderstanding() {
 
     localStorage.setItem(
@@ -704,74 +1399,106 @@
     );
 
 
-    const completeButton =
-      document.getElementById(
-        "completeButton"
-      );
+    if (
+      window.HanaChapterProgress &&
+      typeof window.HanaChapterProgress.render === "function"
+    ) {
+
+      window.HanaChapterProgress.render();
+
+    }
 
 
-    completeButton.textContent =
-      "✅ Compréhension validée";
-
-
-    completeButton.classList.add(
-      "done"
-    );
-
-
-    completeButton.disabled =
-      true;
-
-
-    document.getElementById(
-      "nextButton"
-    ).style.display =
-      "block";
-
-
-    window.scrollTo({
-      top: document.body.scrollHeight,
-      behavior: "smooth"
-    });
+    window.location.href =
+      "ecoute-9.html";
 
   }
 
 
-  const understandingCompleted =
-    localStorage.getItem(
-      "hanaKorean_chapter9_understanding"
-    ) ===
-    "completed";
 
+  /* =====================================================
+     COMPATIBILITÉ AVEC UNE ANCIENNE PROGRESSION
+     ===================================================== */
 
-  if (understandingCompleted) {
+  function migratePreviousProgress() {
 
-    const completeButton =
-      document.getElementById(
-        "completeButton"
+    const understanding =
+      localStorage.getItem(
+        "hanaKorean_chapter9_understanding"
       );
 
 
-    completeButton.textContent =
-      "✅ Compréhension validée";
+    if (
+      understanding === "completed"
+    ) {
+
+      return;
+
+    }
 
 
-    completeButton.classList.add(
-      "done"
-    );
+    const laterKeys = [
+
+      "hanaKorean_chapter9_listening",
+      "hanaKorean_chapter9_listeningExercise",
+      "hanaKorean_chapter9_speaking",
+      "hanaKorean_chapter9_writing",
+      "hanaKorean_chapter9_review",
+      "hanaKorean_chapter9_mission",
+      "hanaKorean_chapter9_completed"
+
+    ];
 
 
-    completeButton.disabled =
-      true;
+    const laterProgressExists =
+      laterKeys.some(
+        key =>
+          localStorage.getItem(
+            key
+          ) === "completed"
+      );
 
 
-    document.getElementById(
-      "nextButton"
-    ).style.display =
-      "block";
+    if (
+      laterProgressExists
+    ) {
+
+      localStorage.setItem(
+        "hanaKorean_chapter9_understanding",
+        "completed"
+      );
+
+    }
 
   }
+
+
+
+  /* =====================================================
+     DÉMARRAGE
+     ===================================================== */
+
+  migratePreviousProgress();
+
+
+  window.addEventListener(
+    "pageshow",
+    function() {
+
+      if (
+        window.HanaChapterProgress &&
+        typeof window.HanaChapterProgress.render === "function"
+      ) {
+
+        window.HanaChapterProgress.render();
+
+      }
+
+    }
+  );
+
 </script>
+
 
 </body>
 

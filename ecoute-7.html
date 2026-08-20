@@ -2,6 +2,7 @@
 <html lang="fr">
 
 <head>
+
   <meta charset="UTF-8">
 
   <meta
@@ -14,18 +15,32 @@
     content="#F7F4ED"
   >
 
-  <title>J'écoute — Chapitre 7</title>
+  <title>
+    Chapitre 7 — Ma journée
+  </title>
 
   <link
     rel="stylesheet"
     href="style.css"
   >
 
+  <link
+    rel="stylesheet"
+    href="chapter-progress.css"
+  >
+
+
   <style>
-    .listen-header {
+
+    /* =====================================================
+       EN-TÊTE
+       ===================================================== */
+
+    .chapter-header {
       text-align: center;
-      margin-bottom: 28px;
+      margin-bottom: 25px;
     }
+
 
     .chapter-badge {
       display: inline-block;
@@ -36,11 +51,18 @@
       font-weight: bold;
     }
 
-    .listen-header p {
+
+    .chapter-subtitle {
+      color: var(--text-light);
       line-height: 1.7;
     }
 
-    .goal-card {
+
+    /* =====================================================
+       OBJECTIFS
+       ===================================================== */
+
+    .objective-card {
       padding: 18px;
       margin-bottom: 20px;
       background: var(--soft-green);
@@ -49,7 +71,24 @@
       line-height: 1.7;
     }
 
-    .audio-card {
+
+    .objective-card strong {
+      color: var(--jade-dark);
+    }
+
+
+    .objective-list {
+      margin: 12px 0 0;
+      padding-left: 20px;
+      line-height: 1.8;
+    }
+
+
+    /* =====================================================
+       CARTES
+       ===================================================== */
+
+    .lesson-card {
       padding: 20px;
       margin-bottom: 18px;
       background: var(--white);
@@ -57,74 +96,107 @@
       box-shadow: var(--shadow);
     }
 
-    .audio-card h2 {
+
+    .lesson-card h2 {
       margin-top: 0;
       color: var(--navy);
     }
 
-    .audio-card p {
+
+    .lesson-card p {
       line-height: 1.7;
     }
 
-    .expression-list {
-      margin-top: 16px;
+
+    /* =====================================================
+       VOCABULAIRE
+       ===================================================== */
+
+    .vocab-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-top: 14px;
     }
 
-    .expression-item {
-      padding: 16px;
-      margin-bottom: 10px;
+
+    .vocab-item {
+      padding: 14px;
       background: #FBFAF6;
       border-radius: var(--radius-medium);
     }
 
-    .expression-korean {
+
+    .vocab-korean {
       color: var(--navy);
-      font-size: 21px;
+      font-size: 20px;
       font-weight: bold;
     }
 
-    .expression-french {
-      margin-top: 5px;
+
+    .vocab-french {
+      margin-top: 4px;
       color: var(--text-light);
       line-height: 1.5;
     }
 
-    .expression-actions {
-      margin-top: 10px;
-    }
 
-    .expression-actions button,
-    .line-actions button {
-      width: 100%;
-    }
+    /* =====================================================
+       GRAMMAIRE
+       ===================================================== */
 
-    .expression-actions .slow,
-    .line-actions .slow {
-      margin-top: 7px;
-    }
-
-    .dialogue-controls {
-      margin: 16px 0;
-    }
-
-    .dialogue-play-button {
-      width: 100%;
-      background: var(--jade);
-      color: white;
-      font-weight: bold;
-    }
-
-    .dialogue-play-button.playing {
-      background: var(--error);
-    }
-
-    .dialogue-slow-button {
-      width: 100%;
-      margin-top: 8px;
-      background: var(--soft-beige);
+    .grammar-box {
+      padding: 16px;
+      margin-top: 14px;
+      background: var(--soft-blue);
+      border-radius: var(--radius-medium);
       color: var(--navy);
-      font-weight: bold;
+      line-height: 1.7;
     }
+
+
+    .grammar-example {
+      padding: 11px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+
+    .grammar-example:last-child {
+      border-bottom: none;
+    }
+
+
+    .structure-box {
+      padding: 17px;
+      margin: 14px 0;
+      background: var(--soft-beige);
+      border-radius: var(--radius-medium);
+      color: var(--navy);
+      text-align: center;
+      font-size: 19px;
+      font-weight: bold;
+      line-height: 1.8;
+    }
+
+
+    .tip-box {
+      padding: 16px;
+      margin-top: 14px;
+      background: var(--soft-green);
+      border-radius: var(--radius-medium);
+      color: var(--navy);
+      line-height: 1.7;
+    }
+
+
+    /* =====================================================
+       DIALOGUE
+       ===================================================== */
+
+    .dialogue {
+      margin-top: 15px;
+    }
+
 
     .dialogue-line {
       padding: 15px;
@@ -133,35 +205,41 @@
       line-height: 1.7;
     }
 
+
     .dialogue-line.minsu {
       background: var(--soft-blue);
     }
+
 
     .dialogue-line.hana {
       background: var(--soft-green);
     }
 
+
     .speaker {
-      font-weight: bold;
       margin-bottom: 4px;
+      font-weight: bold;
     }
+
 
     .dialogue-korean {
       color: var(--navy);
-      font-size: 20px;
+      font-size: 19px;
       font-weight: bold;
     }
+
 
     .dialogue-french {
       margin-top: 5px;
       color: var(--text-light);
     }
 
-    .line-actions {
-      margin-top: 10px;
-    }
 
-    .tip-card {
+    /* =====================================================
+       NOTE
+       ===================================================== */
+
+    .note-card {
       padding: 16px;
       margin-bottom: 18px;
       background: var(--soft-beige);
@@ -170,811 +248,1157 @@
       line-height: 1.7;
     }
 
-    .next-button {
+
+    /* =====================================================
+       CARNET
+       ===================================================== */
+
+    .mission-line {
+      padding: 11px 0;
+      border-bottom: 1px solid var(--border);
+      line-height: 1.65;
+    }
+
+
+    .mission-line:last-child {
+      border-bottom: none;
+    }
+
+
+    /* =====================================================
+       BOUTON FINAL
+       ===================================================== */
+
+    .continue-button {
       width: 100%;
-      margin-top: 10px;
+      margin-top: 5px;
       background: var(--jade);
       color: white;
       font-weight: bold;
     }
 
-    .chapter-button {
-      width: 100%;
-      margin-top: 10px;
-      background: var(--soft-beige);
-      color: var(--navy);
+
+    @media (min-width: 620px) {
+
+      .vocab-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
     }
+
   </style>
+
 </head>
+
 
 <body>
 
+
 <main class="app">
+
+
+  <!-- =====================================================
+       RETOUR
+       ===================================================== -->
 
   <a
     class="back-link"
-    href="chapitre-7.html"
+    href="itineraire.html#module1"
   >
-    ← Chapitre 7
+    ← Mon itinéraire
   </a>
 
 
-  <header class="listen-header">
+
+  <!-- =====================================================
+       EN-TÊTE
+       ===================================================== -->
+
+  <header class="chapter-header">
 
     <span class="chapter-badge">
-      Chapitre 7 · Compréhension orale
+      Module 1 · Chapitre 7
     </span>
 
+
     <p class="korean">
-      잘 들어 봐요 🎧
+      하루를 이야기해 봐요 ☀️
     </p>
 
+
     <h1>
-      J'écoute
+      Ma journée
     </h1>
 
-    <p>
-      Écoute les moments de la journée,
-      quelques verbes utiles
-      puis le dialogue complet entre Hana et Min-su.
+
+    <p class="chapter-subtitle">
+      Apprends à parler simplement
+      de ta routine,
+      à dire ce que tu fais le matin,
+      à midi et le soir,
+      et à enchaîner plusieurs actions.
     </p>
 
   </header>
 
 
-  <section class="goal-card">
 
-    <strong>🎯 Objectif</strong>
+  <!-- =====================================================
+       PARCOURS
+       ===================================================== -->
 
-    <br><br>
-
-    Reconnaître à l'oreille
-    <strong>아침</strong>,
-    <strong>점심</strong>,
-    <strong>저녁</strong>,
-    <strong>마셔요</strong>,
-    <strong>가요</strong>,
-    <strong>공부해요</strong>
-    et comprendre une petite conversation sur la routine.
-
-  </section>
+  <section
+    id="hanaChapterPath"
+    data-chapter-path
+  ></section>
 
 
-  <section class="audio-card">
 
-    <h2>
-      ☀️ 1. Écoute les moments de la journée
-    </h2>
+  <!-- =====================================================
+       OBJECTIFS
+       ===================================================== -->
 
-    <div class="expression-list">
+  <section class="objective-card">
 
-      <div class="expression-item">
-        <div class="expression-korean">아침</div>
-        <div class="expression-french">matin</div>
+    <strong>
+      🎯 Objectifs du chapitre
+    </strong>
 
-        <div class="expression-actions">
-          <button type="button" onclick="speakKorean('아침', 'hana', false)">🔊 Écouter</button>
-          <button class="slow" type="button" onclick="speakKorean('아침', 'hana', true)">🐢 Écouter lentement</button>
-        </div>
-      </div>
 
-      <div class="expression-item">
-        <div class="expression-korean">점심</div>
-        <div class="expression-french">midi / déjeuner</div>
+    <ul class="objective-list">
 
-        <div class="expression-actions">
-          <button type="button" onclick="speakKorean('점심', 'hana', false)">🔊 Écouter</button>
-          <button class="slow" type="button" onclick="speakKorean('점심', 'hana', true)">🐢 Écouter lentement</button>
-        </div>
-      </div>
+      <li>
+        reconnaître les principaux moments de la journée ;
+      </li>
 
-      <div class="expression-item">
-        <div class="expression-korean">저녁</div>
-        <div class="expression-french">soir / dîner</div>
+      <li>
+        utiliser quelques verbes courants de la routine ;
+      </li>
 
-        <div class="expression-actions">
-          <button type="button" onclick="speakKorean('저녁', 'hana', false)">🔊 Écouter</button>
-          <button class="slow" type="button" onclick="speakKorean('저녁', 'hana', true)">🐢 Écouter lentement</button>
-        </div>
-      </div>
+      <li>
+        situer une action avec <strong>에</strong> ;
+      </li>
 
-      <div class="expression-item">
-        <div class="expression-korean">매일</div>
-        <div class="expression-french">tous les jours</div>
+      <li>
+        demander ce que quelqu'un fait avec
+        <strong>뭐 해요?</strong> ;
+      </li>
 
-        <div class="expression-actions">
-          <button type="button" onclick="speakKorean('매일', 'hana', false)">🔊 Écouter</button>
-          <button class="slow" type="button" onclick="speakKorean('매일', 'hana', true)">🐢 Écouter lentement</button>
-        </div>
-      </div>
+      <li>
+        relier deux actions avec
+        <strong>그리고</strong> ;
+      </li>
 
-    </div>
+      <li>
+        dire qu'une action se répète tous les jours avec
+        <strong>매일</strong>.
+      </li>
+
+    </ul>
 
   </section>
 
 
-  <section class="audio-card">
+
+  <!-- =====================================================
+       MOMENTS DE LA JOURNÉE
+       ===================================================== -->
+
+  <section class="lesson-card">
 
     <h2>
-      🌿 2. Écoute les actions
+      ☀️ 1. Les moments de la journée
     </h2>
 
-    <div class="expression-list">
-
-      <div class="expression-item">
-        <div class="expression-korean">일어나요</div>
-        <div class="expression-french">se lever</div>
-
-        <div class="expression-actions">
-          <button type="button" onclick="speakKorean('일어나요', 'hana', false)">🔊 Écouter</button>
-          <button class="slow" type="button" onclick="speakKorean('일어나요', 'hana', true)">🐢 Écouter lentement</button>
-        </div>
-      </div>
-
-      <div class="expression-item">
-        <div class="expression-korean">마셔요</div>
-        <div class="expression-french">boire</div>
-
-        <div class="expression-actions">
-          <button type="button" onclick="speakKorean('마셔요', 'hana', false)">🔊 Écouter</button>
-          <button class="slow" type="button" onclick="speakKorean('마셔요', 'hana', true)">🐢 Écouter lentement</button>
-        </div>
-      </div>
-
-      <div class="expression-item">
-        <div class="expression-korean">가요</div>
-        <div class="expression-french">aller</div>
-
-        <div class="expression-actions">
-          <button type="button" onclick="speakKorean('가요', 'hana', false)">🔊 Écouter</button>
-          <button class="slow" type="button" onclick="speakKorean('가요', 'hana', true)">🐢 Écouter lentement</button>
-        </div>
-      </div>
-
-      <div class="expression-item">
-        <div class="expression-korean">공부해요</div>
-        <div class="expression-french">étudier</div>
-
-        <div class="expression-actions">
-          <button type="button" onclick="speakKorean('공부해요', 'hana', false)">🔊 Écouter</button>
-          <button class="slow" type="button" onclick="speakKorean('공부해요', 'hana', true)">🐢 Écouter lentement</button>
-        </div>
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <section class="audio-card">
-
-    <h2>
-      💬 3. Écoute les phrases utiles
-    </h2>
-
-    <div class="expression-list">
-
-      <div class="expression-item">
-        <div class="expression-korean">아침에 뭐 해요?</div>
-        <div class="expression-french">Qu'est-ce que tu fais le matin ?</div>
-
-        <div class="expression-actions">
-          <button type="button" onclick="speakKorean('아침에 뭐 해요?', 'minsu', false)">🔊 Écouter</button>
-          <button class="slow" type="button" onclick="speakKorean('아침에 뭐 해요?', 'minsu', true)">🐢 Écouter lentement</button>
-        </div>
-      </div>
-
-      <div class="expression-item">
-        <div class="expression-korean">커피를 마셔요.</div>
-        <div class="expression-french">Je bois du café.</div>
-
-        <div class="expression-actions">
-          <button type="button" onclick="speakKorean('커피를 마셔요.', 'hana', false)">🔊 Écouter</button>
-          <button class="slow" type="button" onclick="speakKorean('커피를 마셔요.', 'hana', true)">🐢 Écouter lentement</button>
-        </div>
-      </div>
-
-      <div class="expression-item">
-        <div class="expression-korean">회사에 가요.</div>
-        <div class="expression-french">Je vais au travail.</div>
-
-        <div class="expression-actions">
-          <button type="button" onclick="speakKorean('회사에 가요.', 'hana', false)">🔊 Écouter</button>
-          <button class="slow" type="button" onclick="speakKorean('회사에 가요.', 'hana', true)">🐢 Écouter lentement</button>
-        </div>
-      </div>
-
-      <div class="expression-item">
-        <div class="expression-korean">저녁에 공부해요.</div>
-        <div class="expression-french">J'étudie le soir.</div>
-
-        <div class="expression-actions">
-          <button type="button" onclick="speakKorean('저녁에 공부해요.', 'hana', false)">🔊 Écouter</button>
-          <button class="slow" type="button" onclick="speakKorean('저녁에 공부해요.', 'hana', true)">🐢 Écouter lentement</button>
-        </div>
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <section class="audio-card">
-
-    <h2>
-      🎧 4. Dialogue — Une journée avec Hana
-    </h2>
 
     <p>
-      Écoute d'abord tout le dialogue,
-      puis réécoute chaque phrase séparément si nécessaire.
+      Ces mots te permettent
+      de situer une action
+      dans ta journée.
     </p>
 
-    <div class="dialogue-controls">
 
-      <button
-        class="dialogue-play-button"
-        id="dialogueButton"
-        type="button"
-        onclick="toggleDialogue(false)"
-      >
-        🎧 Écouter tout le dialogue
-      </button>
-
-      <button
-        class="dialogue-slow-button"
-        type="button"
-        onclick="toggleDialogue(true)"
-      >
-        🐢 Écouter tout lentement
-      </button>
-
-    </div>
+    <div class="vocab-grid">
 
 
-    <div class="dialogue-line minsu">
-      <div class="speaker">💙 Min-su</div>
-      <div class="dialogue-korean">아침에 뭐 해요?</div>
-      <div class="dialogue-french">Qu'est-ce que tu fais le matin ?</div>
-
-      <div class="line-actions">
-        <button type="button" onclick="speakKorean('아침에 뭐 해요?', 'minsu', false)">🔊 Écouter Min-su</button>
-        <button class="slow" type="button" onclick="speakKorean('아침에 뭐 해요?', 'minsu', true)">🐢 Lentement</button>
+      <div class="vocab-item">
+        <div class="vocab-korean">아침</div>
+        <div class="vocab-french">matin</div>
       </div>
-    </div>
 
 
-    <div class="dialogue-line hana">
-      <div class="speaker">🌸 Hana</div>
-      <div class="dialogue-korean">커피를 마셔요. 그리고 회사에 가요.</div>
-      <div class="dialogue-french">Je bois du café. Puis je vais au travail.</div>
-
-      <div class="line-actions">
-        <button type="button" onclick="speakKorean('커피를 마셔요. 그리고 회사에 가요.', 'hana', false)">🔊 Écouter Hana</button>
-        <button class="slow" type="button" onclick="speakKorean('커피를 마셔요. 그리고 회사에 가요.', 'hana', true)">🐢 Lentement</button>
+      <div class="vocab-item">
+        <div class="vocab-korean">점심</div>
+        <div class="vocab-french">midi / déjeuner</div>
       </div>
-    </div>
 
 
-    <div class="dialogue-line minsu">
-      <div class="speaker">💙 Min-su</div>
-      <div class="dialogue-korean">점심에는요?</div>
-      <div class="dialogue-french">Et à midi ?</div>
-
-      <div class="line-actions">
-        <button type="button" onclick="speakKorean('점심에는요?', 'minsu', false)">🔊 Écouter Min-su</button>
-        <button class="slow" type="button" onclick="speakKorean('점심에는요?', 'minsu', true)">🐢 Lentement</button>
+      <div class="vocab-item">
+        <div class="vocab-korean">저녁</div>
+        <div class="vocab-french">soir / dîner</div>
       </div>
-    </div>
 
 
-    <div class="dialogue-line hana">
-      <div class="speaker">🌸 Hana</div>
-      <div class="dialogue-korean">점심을 먹어요.</div>
-      <div class="dialogue-french">Je déjeune.</div>
-
-      <div class="line-actions">
-        <button type="button" onclick="speakKorean('점심을 먹어요.', 'hana', false)">🔊 Écouter Hana</button>
-        <button class="slow" type="button" onclick="speakKorean('점심을 먹어요.', 'hana', true)">🐢 Lentement</button>
+      <div class="vocab-item">
+        <div class="vocab-korean">오늘</div>
+        <div class="vocab-french">aujourd'hui</div>
       </div>
-    </div>
 
 
-    <div class="dialogue-line minsu">
-      <div class="speaker">💙 Min-su</div>
-      <div class="dialogue-korean">저녁에는 뭐 해요?</div>
-      <div class="dialogue-french">Et le soir, qu'est-ce que tu fais ?</div>
-
-      <div class="line-actions">
-        <button type="button" onclick="speakKorean('저녁에는 뭐 해요?', 'minsu', false)">🔊 Écouter Min-su</button>
-        <button class="slow" type="button" onclick="speakKorean('저녁에는 뭐 해요?', 'minsu', true)">🐢 Lentement</button>
+      <div class="vocab-item">
+        <div class="vocab-korean">매일</div>
+        <div class="vocab-french">tous les jours</div>
       </div>
-    </div>
 
 
-    <div class="dialogue-line hana">
-      <div class="speaker">🌸 Hana</div>
-      <div class="dialogue-korean">집에 와요. 그리고 공부해요.</div>
-      <div class="dialogue-french">Je rentre à la maison. Puis j'étudie.</div>
-
-      <div class="line-actions">
-        <button type="button" onclick="speakKorean('집에 와요. 그리고 공부해요.', 'hana', false)">🔊 Écouter Hana</button>
-        <button class="slow" type="button" onclick="speakKorean('집에 와요. 그리고 공부해요.', 'hana', true)">🐢 Lentement</button>
+      <div class="vocab-item">
+        <div class="vocab-korean">집</div>
+        <div class="vocab-french">maison</div>
       </div>
-    </div>
 
 
-    <div class="dialogue-line minsu">
-      <div class="speaker">💙 Min-su</div>
-      <div class="dialogue-korean">매일 공부해요?</div>
-      <div class="dialogue-french">Tu étudies tous les jours ?</div>
-
-      <div class="line-actions">
-        <button type="button" onclick="speakKorean('매일 공부해요?', 'minsu', false)">🔊 Écouter Min-su</button>
-        <button class="slow" type="button" onclick="speakKorean('매일 공부해요?', 'minsu', true)">🐢 Lentement</button>
+      <div class="vocab-item">
+        <div class="vocab-korean">회사</div>
+        <div class="vocab-french">entreprise / travail</div>
       </div>
-    </div>
 
 
-    <div class="dialogue-line hana">
-      <div class="speaker">🌸 Hana</div>
-      <div class="dialogue-korean">네, 매일 공부해요!</div>
-      <div class="dialogue-french">Oui, j'étudie tous les jours !</div>
-
-      <div class="line-actions">
-        <button type="button" onclick="speakKorean('네, 매일 공부해요!', 'hana', false)">🔊 Écouter Hana</button>
-        <button class="slow" type="button" onclick="speakKorean('네, 매일 공부해요!', 'hana', true)">🐢 Lentement</button>
+      <div class="vocab-item">
+        <div class="vocab-korean">학교</div>
+        <div class="vocab-french">école</div>
       </div>
+
+
     </div>
 
   </section>
 
 
-  <section class="tip-card">
 
-    <strong>👂 Astuce d'écoute</strong>
+  <!-- =====================================================
+       VERBES
+       ===================================================== -->
 
-    <br><br>
+  <section class="lesson-card">
 
-    Essaie d'abord de repérer
-    <strong>le moment de la journée</strong>
-    puis <strong>le verbe</strong>.
+    <h2>
+      🌿 2. Les verbes de la routine
+    </h2>
 
-    <br><br>
 
-    Par exemple :
-    <strong>아침에</strong> + <strong>마셔요</strong>
-    ou
-    <strong>저녁에</strong> + <strong>공부해요</strong>.
+    <p>
+      Avec quelques verbes,
+      tu peux déjà raconter
+      une grande partie d'une journée simple.
+    </p>
+
+
+    <div class="vocab-grid">
+
+
+      <div class="vocab-item">
+        <div class="vocab-korean">일어나요</div>
+        <div class="vocab-french">se lever</div>
+      </div>
+
+
+      <div class="vocab-item">
+        <div class="vocab-korean">먹어요</div>
+        <div class="vocab-french">manger</div>
+      </div>
+
+
+      <div class="vocab-item">
+        <div class="vocab-korean">마셔요</div>
+        <div class="vocab-french">boire</div>
+      </div>
+
+
+      <div class="vocab-item">
+        <div class="vocab-korean">가요</div>
+        <div class="vocab-french">aller</div>
+      </div>
+
+
+      <div class="vocab-item">
+        <div class="vocab-korean">와요</div>
+        <div class="vocab-french">venir / revenir</div>
+      </div>
+
+
+      <div class="vocab-item">
+        <div class="vocab-korean">자요</div>
+        <div class="vocab-french">dormir</div>
+      </div>
+
+
+      <div class="vocab-item">
+        <div class="vocab-korean">공부해요</div>
+        <div class="vocab-french">étudier</div>
+      </div>
+
+
+      <div class="vocab-item">
+        <div class="vocab-korean">일해요</div>
+        <div class="vocab-french">travailler</div>
+      </div>
+
+
+    </div>
 
   </section>
 
 
-  <button
-    class="next-button"
-    type="button"
-    onclick="goToListeningExercise()"
-  >
-    🎧 Faire le mini défi d'écoute
-  </button>
+
+  <!-- =====================================================
+       에
+       ===================================================== -->
+
+  <section class="lesson-card">
+
+    <h2>
+      🕘 3. Situer une action avec 에
+    </h2>
+
+
+    <p>
+      Tu as déjà rencontré
+      la particule <strong>에</strong>
+      pour les lieux.
+    </p>
+
+
+    <p>
+      Elle peut aussi servir
+      à situer une action
+      dans le temps.
+    </p>
+
+
+    <div class="structure-box">
+
+      moment + 에 + action
+
+    </div>
+
+
+    <div class="grammar-box">
+
+
+      <div class="grammar-example">
+        <strong>아침에</strong>
+        <br>
+        le matin
+      </div>
+
+
+      <div class="grammar-example">
+        <strong>점심에</strong>
+        <br>
+        à midi
+      </div>
+
+
+      <div class="grammar-example">
+        <strong>저녁에</strong>
+        <br>
+        le soir
+      </div>
+
+
+    </div>
+
+
+    <div class="grammar-box">
+
+
+      <div class="grammar-example">
+
+        <strong>
+          아침에 커피를 마셔요.
+        </strong>
+
+        <br>
+
+        Je bois du café le matin.
+
+      </div>
+
+
+      <div class="grammar-example">
+
+        <strong>
+          저녁에 공부해요.
+        </strong>
+
+        <br>
+
+        J'étudie le soir.
+
+      </div>
+
+
+    </div>
+
+
+    <div class="tip-box">
+
+      💡 Tu connais donc déjà
+      le principe de <strong>에</strong> :
+
+      <br><br>
+
+      📍 lieu + 에
+
+      <br>
+
+      🕘 moment + 에
+
+      <br><br>
+
+      C'est le contexte
+      qui te permet de comprendre
+      s'il s'agit d'un lieu
+      ou d'un moment.
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       뭐 해요?
+       ===================================================== -->
+
+  <section class="lesson-card">
+
+    <h2>
+      ❓ 4. Demander « Qu'est-ce que tu fais ? »
+    </h2>
+
+
+    <div class="structure-box">
+
+      뭐 해요?
+
+      <br>
+
+      Qu'est-ce que tu fais ?
+
+    </div>
+
+
+    <p>
+      Tu connais déjà
+      <strong>뭐</strong>
+      qui signifie « quoi ».
+    </p>
+
+
+    <p>
+      Ici,
+      il est utilisé avec
+      <strong>해요</strong>
+      pour demander ce que quelqu'un fait.
+    </p>
+
+
+    <div class="grammar-box">
+
+
+      <div class="grammar-example">
+
+        <strong>
+          뭐 해요?
+        </strong>
+
+        <br>
+
+        Qu'est-ce que tu fais ?
+
+      </div>
+
+
+      <div class="grammar-example">
+
+        <strong>
+          아침에 뭐 해요?
+        </strong>
+
+        <br>
+
+        Qu'est-ce que tu fais le matin ?
+
+      </div>
+
+
+      <div class="grammar-example">
+
+        <strong>
+          저녁에 뭐 해요?
+        </strong>
+
+        <br>
+
+        Qu'est-ce que tu fais le soir ?
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       그리고
+       ===================================================== -->
+
+  <section class="lesson-card">
+
+    <h2>
+      ➕ 5. Relier deux actions avec 그리고
+    </h2>
+
+
+    <p>
+      <strong>그리고</strong>
+      signifie ici
+      « et » ou « puis ».
+    </p>
+
+
+    <div class="structure-box">
+
+      action 1
+
+      <br>
+
+      그리고
+
+      <br>
+
+      action 2
+
+    </div>
+
+
+    <div class="grammar-box">
+
+
+      <div class="grammar-example">
+
+        <strong>
+          커피를 마셔요.
+          그리고 회사에 가요.
+        </strong>
+
+        <br>
+
+        Je bois du café.
+        Puis je vais au travail.
+
+      </div>
+
+
+      <div class="grammar-example">
+
+        <strong>
+          집에 와요.
+          그리고 공부해요.
+        </strong>
+
+        <br>
+
+        Je rentre à la maison.
+        Puis j'étudie.
+
+      </div>
+
+
+    </div>
+
+
+    <div class="tip-box">
+
+      🌿 <strong>그리고</strong>
+      te permet de commencer
+      à raconter plusieurs actions
+      au lieu de produire
+      uniquement des phrases isolées.
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       매일
+       ===================================================== -->
+
+  <section class="lesson-card">
+
+    <h2>
+      🔁 6. Dire « tous les jours »
+    </h2>
+
+
+    <div class="structure-box">
+
+      매일
+
+      <br>
+
+      tous les jours
+
+    </div>
+
+
+    <div class="grammar-box">
+
+
+      <div class="grammar-example">
+
+        <strong>
+          매일 공부해요.
+        </strong>
+
+        <br>
+
+        J'étudie tous les jours.
+
+      </div>
+
+
+      <div class="grammar-example">
+
+        <strong>
+          매일 공부해요?
+        </strong>
+
+        <br>
+
+        Tu étudies tous les jours ?
+
+      </div>
+
+
+    </div>
+
+
+    <p>
+      <strong>매일</strong>
+      permet de parler
+      d'une habitude régulière.
+    </p>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       DIALOGUE
+       ===================================================== -->
+
+  <section class="lesson-card">
+
+    <h2>
+      💬 7. Dialogue — Une journée avec Hana
+    </h2>
+
+
+    <p>
+      Min-su demande à Hana
+      ce qu'elle fait
+      pendant une journée normale.
+    </p>
+
+
+    <div class="dialogue">
+
+
+      <div class="dialogue-line minsu">
+
+        <div class="speaker">
+          💙 Min-su
+        </div>
+
+        <div class="dialogue-korean">
+          아침에 뭐 해요?
+        </div>
+
+        <div class="dialogue-french">
+          Qu'est-ce que tu fais le matin ?
+        </div>
+
+      </div>
+
+
+      <div class="dialogue-line hana">
+
+        <div class="speaker">
+          🌸 Hana
+        </div>
+
+        <div class="dialogue-korean">
+          커피를 마셔요. 그리고 회사에 가요.
+        </div>
+
+        <div class="dialogue-french">
+          Je bois du café.
+          Puis je vais au travail.
+        </div>
+
+      </div>
+
+
+      <div class="dialogue-line minsu">
+
+        <div class="speaker">
+          💙 Min-su
+        </div>
+
+        <div class="dialogue-korean">
+          점심에는요?
+        </div>
+
+        <div class="dialogue-french">
+          Et à midi ?
+        </div>
+
+      </div>
+
+
+      <div class="dialogue-line hana">
+
+        <div class="speaker">
+          🌸 Hana
+        </div>
+
+        <div class="dialogue-korean">
+          점심을 먹어요.
+        </div>
+
+        <div class="dialogue-french">
+          Je déjeune.
+        </div>
+
+      </div>
+
+
+      <div class="dialogue-line minsu">
+
+        <div class="speaker">
+          💙 Min-su
+        </div>
+
+        <div class="dialogue-korean">
+          저녁에는 뭐 해요?
+        </div>
+
+        <div class="dialogue-french">
+          Et le soir,
+          qu'est-ce que tu fais ?
+        </div>
+
+      </div>
+
+
+      <div class="dialogue-line hana">
+
+        <div class="speaker">
+          🌸 Hana
+        </div>
+
+        <div class="dialogue-korean">
+          집에 와요. 그리고 공부해요.
+        </div>
+
+        <div class="dialogue-french">
+          Je rentre à la maison.
+          Puis j'étudie.
+        </div>
+
+      </div>
+
+
+      <div class="dialogue-line minsu">
+
+        <div class="speaker">
+          💙 Min-su
+        </div>
+
+        <div class="dialogue-korean">
+          매일 공부해요?
+        </div>
+
+        <div class="dialogue-french">
+          Tu étudies tous les jours ?
+        </div>
+
+      </div>
+
+
+      <div class="dialogue-line hana">
+
+        <div class="speaker">
+          🌸 Hana
+        </div>
+
+        <div class="dialogue-korean">
+          네, 매일 공부해요!
+        </div>
+
+        <div class="dialogue-french">
+          Oui, j'étudie tous les jours !
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       NOTE
+       ===================================================== -->
+
+  <section class="note-card">
+
+    <strong>
+      🌿 À retenir pour l'instant
+    </strong>
+
+    <br><br>
+
+    Dans ce chapitre,
+    tu parles simplement
+    des grands moments de la journée :
+
+    <br><br>
+
+    ☀️ matin
+
+    <br>
+
+    🍱 midi
+
+    <br>
+
+    🌙 soir
+
+    <br><br>
+
+    Les heures précises
+    arriveront au chapitre suivant :
+
+    <br><br>
+
+    <strong>
+      🕒 Chapitre 8 — Quelle heure est-il ?
+    </strong>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       CARNET
+       ===================================================== -->
+
+  <section class="lesson-card">
+
+    <h2>
+      📓 Dans ton carnet de voyage
+    </h2>
+
+
+    <p>
+      À la fin de ce chapitre,
+      tu devras pouvoir comprendre
+      et utiliser :
+    </p>
+
+
+    <div class="mission-line">
+
+      ☀️
+
+      <strong>
+        아침에
+      </strong>
+
+      <br>
+
+      le matin
+
+    </div>
+
+
+    <div class="mission-line">
+
+      🍱
+
+      <strong>
+        점심에
+      </strong>
+
+      <br>
+
+      à midi
+
+    </div>
+
+
+    <div class="mission-line">
+
+      🌙
+
+      <strong>
+        저녁에
+      </strong>
+
+      <br>
+
+      le soir
+
+    </div>
+
+
+    <div class="mission-line">
+
+      ❓
+
+      <strong>
+        뭐 해요?
+      </strong>
+
+      <br>
+
+      Qu'est-ce que tu fais ?
+
+    </div>
+
+
+    <div class="mission-line">
+
+      ☕
+
+      <strong>
+        커피를 마셔요.
+      </strong>
+
+      <br>
+
+      Je bois du café.
+
+    </div>
+
+
+    <div class="mission-line">
+
+      🏢
+
+      <strong>
+        회사에 가요.
+      </strong>
+
+      <br>
+
+      Je vais au travail.
+
+    </div>
+
+
+    <div class="mission-line">
+
+      📚
+
+      <strong>
+        공부해요.
+      </strong>
+
+      <br>
+
+      J'étudie.
+
+    </div>
+
+
+    <div class="mission-line">
+
+      ➕
+
+      <strong>
+        그리고
+      </strong>
+
+      <br>
+
+      et / puis
+
+    </div>
+
+
+    <div class="mission-line">
+
+      🔁
+
+      <strong>
+        매일
+      </strong>
+
+      <br>
+
+      tous les jours
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       VALIDATION
+       ===================================================== -->
 
   <button
-    class="chapter-button"
+    class="continue-button"
     type="button"
-    onclick="window.location.href='chapitre-7.html'"
+    onclick="completeUnderstanding()"
   >
-    Retour au chapitre
+    🎧 J'ai compris · Passer à « J'écoute »
   </button>
+
 
 </main>
 
 
+
+<script src="chapter-progress.js"></script>
+
+
 <script>
-  const AUDIO_SETTINGS = {
-    normalRate: 0.82,
-    slowRate: 0.25
-  };
 
+  /* =====================================================
+     VALIDATION DE « JE COMPRENDS »
+     ===================================================== */
 
-  const dialogueLines = [
-    {
-      character: "minsu",
-      text: "아침에 뭐 해요?"
-    },
-    {
-      character: "hana",
-      text: "커피를 마셔요. 그리고 회사에 가요."
-    },
-    {
-      character: "minsu",
-      text: "점심에는요?"
-    },
-    {
-      character: "hana",
-      text: "점심을 먹어요."
-    },
-    {
-      character: "minsu",
-      text: "저녁에는 뭐 해요?"
-    },
-    {
-      character: "hana",
-      text: "집에 와요. 그리고 공부해요."
-    },
-    {
-      character: "minsu",
-      text: "매일 공부해요?"
-    },
-    {
-      character: "hana",
-      text: "네, 매일 공부해요!"
-    }
-  ];
+  function completeUnderstanding() {
 
-
-  let dialogueSessionId = 0;
-  let dialoguePlaying = false;
-
-
-  function getKoreanVoice() {
-
-    const voices =
-      window.speechSynthesis.getVoices();
-
-
-    return voices.find(
-      voice =>
-        voice.lang &&
-        voice.lang
-          .toLowerCase()
-          .startsWith("ko")
+    localStorage.setItem(
+      "hanaKorean_chapter7_understanding",
+      "completed"
     );
 
-  }
-
-
-  function getCharacterSettings(
-    character,
-    slow
-  ) {
-
-    return {
-      rate:
-        slow
-          ? AUDIO_SETTINGS.slowRate
-          : AUDIO_SETTINGS.normalRate,
-
-      pitch: 1
-    };
-
-  }
-
-
-  function speakKorean(
-    text,
-    character = "hana",
-    slow = false
-  ) {
 
     if (
-      !("speechSynthesis" in window)
-    ) {
-      return;
-    }
-
-
-    stopDialogue();
-
-
-    const speech =
-      new SpeechSynthesisUtterance(
-        text
-      );
-
-
-    const settings =
-      getCharacterSettings(
-        character,
-        slow
-      );
-
-
-    speech.lang =
-      "ko-KR";
-
-
-    speech.rate =
-      settings.rate;
-
-
-    speech.pitch =
-      settings.pitch;
-
-
-    const koreanVoice =
-      getKoreanVoice();
-
-
-    if (koreanVoice) {
-
-      speech.voice =
-        koreanVoice;
-
-    }
-
-
-    window.speechSynthesis.speak(
-      speech
-    );
-
-  }
-
-
-  function toggleDialogue(slow) {
-
-    if (
-      dialoguePlaying
+      window.HanaChapterProgress &&
+      typeof window.HanaChapterProgress.render === "function"
     ) {
 
-      stopDialogue();
-
-      return;
+      window.HanaChapterProgress.render();
 
     }
-
-
-    playDialogue(slow);
-
-  }
-
-
-  function playDialogue(slow) {
-
-    if (
-      !("speechSynthesis" in window)
-    ) {
-      return;
-    }
-
-
-    window.speechSynthesis.cancel();
-
-
-    dialogueSessionId++;
-
-
-    const sessionId =
-      dialogueSessionId;
-
-
-    dialoguePlaying =
-      true;
-
-
-    updateDialogueButton();
-
-
-    playDialogueLine(
-      0,
-      slow,
-      sessionId
-    );
-
-  }
-
-
-  function playDialogueLine(
-    index,
-    slow,
-    sessionId
-  ) {
-
-    if (
-      sessionId !== dialogueSessionId
-    ) {
-      return;
-    }
-
-
-    if (
-      index >= dialogueLines.length
-    ) {
-
-      dialoguePlaying =
-        false;
-
-
-      updateDialogueButton();
-
-      return;
-    }
-
-
-    const line =
-      dialogueLines[index];
-
-
-    const speech =
-      new SpeechSynthesisUtterance(
-        line.text
-      );
-
-
-    const settings =
-      getCharacterSettings(
-        line.character,
-        slow
-      );
-
-
-    speech.lang =
-      "ko-KR";
-
-
-    speech.rate =
-      settings.rate;
-
-
-    speech.pitch =
-      settings.pitch;
-
-
-    const koreanVoice =
-      getKoreanVoice();
-
-
-    if (koreanVoice) {
-
-      speech.voice =
-        koreanVoice;
-
-    }
-
-
-    speech.onend =
-      function() {
-
-        if (
-          sessionId !== dialogueSessionId
-        ) {
-          return;
-        }
-
-
-        setTimeout(
-          () => {
-
-            playDialogueLine(
-              index + 1,
-              slow,
-              sessionId
-            );
-
-          },
-          240
-        );
-
-      };
-
-
-    speech.onerror =
-      function() {
-
-        if (
-          sessionId === dialogueSessionId
-        ) {
-
-          dialoguePlaying =
-            false;
-
-
-          updateDialogueButton();
-
-        }
-
-      };
-
-
-    window.speechSynthesis.speak(
-      speech
-    );
-
-  }
-
-
-  function stopDialogue() {
-
-    dialogueSessionId++;
-
-
-    dialoguePlaying =
-      false;
-
-
-    if (
-      "speechSynthesis" in window
-    ) {
-
-      window.speechSynthesis.cancel();
-
-    }
-
-
-    updateDialogueButton();
-
-  }
-
-
-  function updateDialogueButton() {
-
-    const button =
-      document.getElementById(
-        "dialogueButton"
-      );
-
-
-    if (!button) {
-      return;
-    }
-
-
-    if (dialoguePlaying) {
-
-      button.textContent =
-        "⏹️ Stopper le dialogue";
-
-
-      button.classList.add(
-        "playing"
-      );
-
-    }
-
-    else {
-
-      button.textContent =
-        "🎧 Écouter tout le dialogue";
-
-
-      button.classList.remove(
-        "playing"
-      );
-
-    }
-
-  }
-
-
-  function goToListeningExercise() {
-
-    stopDialogue();
 
 
     window.location.href =
-      "exercice-ecoute-7.html";
+      "ecoute-7.html";
 
   }
 
 
-  if (
-    "speechSynthesis" in window
-  ) {
 
-    window.speechSynthesis.onvoiceschanged =
-      function() {
+  /* =====================================================
+     COMPATIBILITÉ ANCIENNE PROGRESSION
+     ===================================================== */
 
-        window.speechSynthesis.getVoices();
+  function migratePreviousProgress() {
 
-      };
+    const understanding =
+      localStorage.getItem(
+        "hanaKorean_chapter7_understanding"
+      );
+
+
+    if (
+      understanding ===
+      "completed"
+    ) {
+
+      return;
+
+    }
+
+
+    const laterKeys = [
+
+      "hanaKorean_chapter7_listening",
+      "hanaKorean_chapter7_listeningExercise",
+      "hanaKorean_chapter7_speaking",
+      "hanaKorean_chapter7_writing",
+      "hanaKorean_chapter7_review",
+      "hanaKorean_chapter7_mission",
+      "hanaKorean_chapter7_completed"
+
+    ];
+
+
+    const laterProgressExists =
+      laterKeys.some(
+        key =>
+          localStorage.getItem(
+            key
+          ) === "completed"
+      );
+
+
+    if (
+      laterProgressExists
+    ) {
+
+      localStorage.setItem(
+        "hanaKorean_chapter7_understanding",
+        "completed"
+      );
+
+    }
 
   }
+
+
+
+  /* =====================================================
+     DÉMARRAGE
+     ===================================================== */
+
+  migratePreviousProgress();
 
 
   window.addEventListener(
-    "pagehide",
-    stopDialogue
+    "pageshow",
+    function() {
+
+      if (
+        window.HanaChapterProgress &&
+        typeof window.HanaChapterProgress.render === "function"
+      ) {
+
+        window.HanaChapterProgress.render();
+
+      }
+
+    }
   );
+
 </script>
+
 
 </body>
 

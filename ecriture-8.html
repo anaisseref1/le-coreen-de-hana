@@ -2,6 +2,7 @@
 <html lang="fr">
 
 <head>
+
   <meta charset="UTF-8">
 
   <meta
@@ -14,18 +15,53 @@
     content="#F7F4ED"
   >
 
-  <title>J'écris — Chapitre 8</title>
+  <title>
+    Chapitre 8 — J'écris
+  </title>
 
   <link
     rel="stylesheet"
     href="style.css"
   >
 
+  <link
+    rel="stylesheet"
+    href="chapter-progress.css"
+  >
+
+
+  <script>
+
+    /* =====================================================
+       ACCÈS SÉQUENTIEL
+       ===================================================== */
+
+    if (
+      localStorage.getItem(
+        "hanaKorean_chapter8_speaking"
+      ) !== "completed"
+    ) {
+
+      window.location.replace(
+        "parle-8.html"
+      );
+
+    }
+
+  </script>
+
+
   <style>
+
+    /* =====================================================
+       EN-TÊTE
+       ===================================================== */
+
     .writing-header {
       text-align: center;
-      margin-bottom: 28px;
+      margin-bottom: 25px;
     }
+
 
     .chapter-badge {
       display: inline-block;
@@ -36,86 +72,192 @@
       font-weight: bold;
     }
 
-    .writing-header p {
+
+    .writing-intro {
+      color: var(--text-light);
       line-height: 1.7;
     }
 
-    .writing-progress {
-      margin-bottom: 22px;
+
+    /* =====================================================
+       PROGRESSION
+       ===================================================== */
+
+    .exercise-progress-card {
+      padding: 17px;
+      margin-bottom: 20px;
+      background: var(--white);
+      border-radius: var(--radius-large);
+      box-shadow: var(--shadow);
     }
 
-    .progress-info {
+
+    .exercise-progress-top {
       display: flex;
       justify-content: space-between;
-      margin-bottom: 8px;
+      gap: 10px;
+      margin-bottom: 9px;
       color: var(--text-light);
       font-size: 13px;
     }
 
-    .progress-bar {
-      width: 100%;
+
+    .exercise-progress-bar {
       height: 9px;
+      overflow: hidden;
       background: var(--soft-beige);
       border-radius: 20px;
-      overflow: hidden;
     }
 
-    .progress-fill {
-      width: 20%;
+
+    .exercise-progress-fill {
+      width: 16.67%;
       height: 100%;
       background: var(--jade);
       border-radius: 20px;
       transition: width 0.3s ease;
     }
 
+
+    /* =====================================================
+       CARTES
+       ===================================================== */
+
     .writing-card {
       padding: 20px;
       margin-bottom: 18px;
-      background: var(--white);
-      border-radius: var(--radius-large);
-      box-shadow: var(--shadow);
     }
 
-    .question-number {
-      margin-top: 0;
+
+    .writing-card.hidden {
+      display: none;
+    }
+
+
+    .step-number {
+      margin-bottom: 8px;
       color: var(--jade-dark);
-      font-size: 14px;
+      font-size: 13px;
       font-weight: bold;
     }
 
-    .writing-card h2 {
-      margin-top: 8px;
-      color: var(--navy);
-    }
 
-    .prompt {
+    .prompt-box {
+      padding: 16px;
+      margin-top: 14px;
+      background: var(--soft-green);
+      border-radius: var(--radius-medium);
+      color: var(--navy);
       line-height: 1.7;
     }
 
+
+    /* =====================================================
+       INPUT
+       ===================================================== */
+
     .answer-input {
       width: 100%;
-      margin-top: 14px;
-      padding: 15px;
       box-sizing: border-box;
-      border: 2px solid var(--border);
+      margin-top: 15px;
+      padding: 14px;
+      border: 1px solid var(--border);
       border-radius: var(--radius-medium);
-      background: #FBFAF6;
+      background: white;
       color: var(--navy);
-      font-size: 20px;
+      font-size: 18px;
     }
 
+
     .answer-input:focus {
-      outline: none;
+      outline: 2px solid var(--soft-blue);
       border-color: var(--jade);
     }
 
-    .validate-button {
+
+    /* =====================================================
+       CONSTRUCTEUR
+       ===================================================== */
+
+    .sentence-builder {
+      min-height: 58px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      padding: 12px;
+      margin-top: 15px;
+      background: #FBFAF6;
+      border: 1px dashed var(--border);
+      border-radius: var(--radius-medium);
+    }
+
+
+    .builder-placeholder {
+      color: var(--text-light);
+      font-size: 14px;
+    }
+
+
+    .word-bank {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 13px;
+    }
+
+
+    .word-chip {
+      padding: 9px 12px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: var(--soft-blue);
+      color: var(--navy);
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+
+    /* =====================================================
+       BOUTONS
+       ===================================================== */
+
+    .check-button {
       width: 100%;
-      margin-top: 10px;
+      margin-top: 15px;
       background: var(--jade);
       color: white;
       font-weight: bold;
     }
+
+
+    .reset-button {
+      width: 100%;
+      margin-top: 9px;
+      background: var(--soft-beige);
+      color: var(--navy);
+      font-weight: bold;
+    }
+
+
+    .next-button {
+      display: none;
+      width: 100%;
+      margin-top: 14px;
+      background: var(--jade);
+      color: white;
+      font-weight: bold;
+    }
+
+
+    .next-button.show {
+      display: block;
+    }
+
+
+    /* =====================================================
+       FEEDBACK
+       ===================================================== */
 
     .feedback {
       display: none;
@@ -125,81 +267,73 @@
       line-height: 1.7;
     }
 
-    .feedback.correct {
+
+    .feedback.success {
       display: block;
       background: var(--success-light);
       border-left: 4px solid var(--success);
+      color: var(--navy);
     }
 
-    .feedback.wrong {
+
+    .feedback.error {
       display: block;
       background: var(--warning-light);
       border-left: 4px solid var(--warning);
+      color: var(--navy);
     }
 
-    .hint-box {
-      margin-top: 10px;
-      padding: 12px;
-      background: rgba(255, 255, 255, 0.65);
-      border-radius: var(--radius-small);
-    }
 
-    .next-question {
-      display: none;
-      width: 100%;
-      margin-top: 12px;
-      background: var(--navy);
-      color: white;
+    .correction {
+      display: block;
+      margin: 9px 0;
+      color: var(--navy);
+      font-size: 20px;
       font-weight: bold;
     }
 
-    .hidden {
-      display: none;
-    }
+
+    /* =====================================================
+       RÉSULTAT
+       ===================================================== */
 
     .result-card {
       display: none;
-      padding: 25px;
-      background: var(--white);
-      border-radius: var(--radius-large);
-      box-shadow: var(--shadow);
+      padding: 22px;
       text-align: center;
     }
 
-    .result-icon {
-      font-size: 60px;
+
+    .result-card.show {
+      display: block;
     }
+
+
+    .result-icon {
+      font-size: 48px;
+      margin-bottom: 8px;
+    }
+
 
     .result-score {
       color: var(--jade-dark);
-      font-size: 21px;
+      font-size: 20px;
       font-weight: bold;
     }
 
+
     .result-summary {
       padding: 16px;
-      margin-top: 18px;
-      background: #FBFAF6;
+      margin-top: 16px;
+      background: var(--soft-green);
       border-radius: var(--radius-medium);
+      color: var(--navy);
       text-align: left;
-      line-height: 1.6;
+      line-height: 1.8;
     }
 
-    .notion-summary {
-      margin-top: 18px;
-      text-align: left;
-    }
 
-    .notion-line {
-      padding: 11px 0;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .notion-line:last-child {
-      border-bottom: none;
-    }
-
-    .next-step-button {
+    .finish-button {
       width: 100%;
       margin-top: 18px;
       background: var(--jade);
@@ -207,84 +341,129 @@
       font-weight: bold;
     }
 
-    .chapter-button {
-      width: 100%;
-      margin-top: 10px;
-      background: var(--soft-beige);
-      color: var(--navy);
-    }
   </style>
+
 </head>
+
 
 <body>
 
+
 <main class="app">
+
+
+  <!-- =====================================================
+       RETOUR
+       ===================================================== -->
 
   <a
     class="back-link"
-    href="chapitre-8.html"
+    href="parle-8.html"
   >
-    ← Chapitre 8
+    ← Je parle
   </a>
 
+
+
+  <!-- =====================================================
+       EN-TÊTE
+       ===================================================== -->
 
   <header class="writing-header">
 
     <span class="chapter-badge">
-      Chapitre 8 · Expression écrite
+      Module 1 · Chapitre 8 · Étape 4
     </span>
 
+
     <p class="korean">
-      시간을 써 봐요 ✍️
+      써 봐요 ✍️
     </p>
+
 
     <h1>
       J'écris
     </h1>
 
-    <p>
-      Écris des questions et des phrases simples
-      pour parler de l'heure et des horaires de ta journée.
+
+    <p class="writing-intro">
+      Écris maintenant
+      les structures qui te permettent
+      de demander l'heure
+      et de préciser l'heure d'une activité.
     </p>
 
   </header>
 
 
-  <div class="writing-progress">
 
-    <div class="progress-info">
-      <span>Expression écrite</span>
-      <span id="progressLabel">1 / 5</span>
+  <!-- =====================================================
+       PARCOURS
+       ===================================================== -->
+
+  <section
+    id="hanaChapterPath"
+    data-chapter-path
+  ></section>
+
+
+
+  <!-- =====================================================
+       PROGRESSION
+       ===================================================== -->
+
+  <section class="exercise-progress-card">
+
+    <div class="exercise-progress-top">
+
+      <span>
+        Expression écrite
+      </span>
+
+      <strong id="progressLabel">
+        1 / 6
+      </strong>
+
     </div>
 
-    <div class="progress-bar">
+
+    <div class="exercise-progress-bar">
+
       <div
-        class="progress-fill"
+        class="exercise-progress-fill"
         id="progressFill"
       ></div>
+
     </div>
 
-  </div>
+  </section>
 
 
-  <!-- QUESTION 1 -->
+
+  <!-- =====================================================
+       EXERCICE 1
+       ===================================================== -->
 
   <section
     class="writing-card"
-    id="question1"
+    id="exercise1"
   >
 
-    <p class="question-number">
-      Question 1 / 5
-    </p>
+    <div class="step-number">
+      EXERCICE 1 / 6
+    </div>
+
 
     <h2>
-      🕒 Écris « Quelle heure est-il ? »
+      🕒 Demande l'heure
     </h2>
 
-    <p class="prompt">
-      Utilise <strong>몇</strong> et <strong>시</strong>.
-    </p>
+
+    <div class="prompt-box">
+      Écris :
+      <strong>« Quelle heure est-il ? »</strong>
+    </div>
+
 
     <input
       class="answer-input"
@@ -294,52 +473,62 @@
       autocomplete="off"
       autocapitalize="off"
       spellcheck="false"
-      placeholder="Écris en coréen"
+      placeholder="Écris la question en coréen…"
     >
 
+
     <button
-      class="validate-button"
+      class="check-button"
       type="button"
-      onclick="checkWriting(1)"
+      onclick="checkExercise1()"
     >
       Vérifier
     </button>
+
 
     <div
       class="feedback"
       id="feedback1"
     ></div>
 
+
     <button
-      class="next-question"
+      class="next-button"
       id="next1"
       type="button"
-      onclick="showQuestion(2)"
+      onclick="showExercise(2)"
     >
-      Question suivante →
+      Exercice suivant →
     </button>
 
   </section>
 
 
-  <!-- QUESTION 2 -->
+
+  <!-- =====================================================
+       EXERCICE 2
+       ===================================================== -->
 
   <section
     class="writing-card hidden"
-    id="question2"
+    id="exercise2"
   >
 
-    <p class="question-number">
-      Question 2 / 5
-    </p>
+    <div class="step-number">
+      EXERCICE 2 / 6
+    </div>
+
 
     <h2>
-      🕖 Écris « Il est 7 h. »
+      7️⃣ Il est 7 h
     </h2>
 
-    <p class="prompt">
-      Pense à <strong>일곱 + 시예요</strong>.
-    </p>
+
+    <div class="prompt-box">
+      Écris :
+      <strong>« Il est 7 h. »</strong>
+    </div>
+
 
     <input
       class="answer-input"
@@ -349,107 +538,165 @@
       autocomplete="off"
       autocapitalize="off"
       spellcheck="false"
-      placeholder="Écris en coréen"
+      placeholder="Écris l'heure en coréen…"
     >
 
+
     <button
-      class="validate-button"
+      class="check-button"
       type="button"
-      onclick="checkWriting(2)"
+      onclick="checkExercise2()"
     >
       Vérifier
     </button>
+
 
     <div
       class="feedback"
       id="feedback2"
     ></div>
 
+
     <button
-      class="next-question"
+      class="next-button"
       id="next2"
       type="button"
-      onclick="showQuestion(3)"
+      onclick="showExercise(3)"
     >
-      Question suivante →
+      Exercice suivant →
     </button>
 
   </section>
 
 
-  <!-- QUESTION 3 -->
+
+  <!-- =====================================================
+       EXERCICE 3
+       ===================================================== -->
 
   <section
     class="writing-card hidden"
-    id="question3"
+    id="exercise3"
   >
 
-    <p class="question-number">
-      Question 3 / 5
-    </p>
+    <div class="step-number">
+      EXERCICE 3 / 6
+    </div>
+
 
     <h2>
-      🌓 Écris « Il est 2 h 30. »
+      🌓 Construis 2 h 30
     </h2>
 
-    <p class="prompt">
-      Utilise <strong>두 시</strong> et <strong>반</strong>.
-    </p>
 
-    <input
-      class="answer-input"
-      id="answer3"
-      type="text"
-      lang="ko"
-      autocomplete="off"
-      autocapitalize="off"
-      spellcheck="false"
-      placeholder="Écris en coréen"
+    <div class="prompt-box">
+      Remets les blocs dans l'ordre
+      pour écrire :
+
+      <br><br>
+
+      <strong>« Il est 2 h 30. »</strong>
+    </div>
+
+
+    <div
+      class="sentence-builder"
+      id="sentenceBuilder"
+    >
+      <span class="builder-placeholder">
+        Clique sur les blocs pour construire la phrase.
+      </span>
+    </div>
+
+
+    <div
+      class="word-bank"
+      id="wordBank"
     >
 
+      <button
+        class="word-chip"
+        type="button"
+        data-word="반이에요"
+        onclick="selectWord(this)"
+      >
+        반이에요
+      </button>
+
+
+      <button
+        class="word-chip"
+        type="button"
+        data-word="두 시"
+        onclick="selectWord(this)"
+      >
+        두 시
+      </button>
+
+    </div>
+
+
     <button
-      class="validate-button"
+      class="check-button"
       type="button"
-      onclick="checkWriting(3)"
+      onclick="checkSentenceOrder()"
     >
       Vérifier
     </button>
+
+
+    <button
+      class="reset-button"
+      type="button"
+      onclick="resetSentence()"
+    >
+      ↺ Recommencer la phrase
+    </button>
+
 
     <div
       class="feedback"
       id="feedback3"
     ></div>
 
+
     <button
-      class="next-question"
+      class="next-button"
       id="next3"
       type="button"
-      onclick="showQuestion(4)"
+      onclick="showExercise(4)"
     >
-      Question suivante →
+      Exercice suivant →
     </button>
 
   </section>
 
 
-  <!-- QUESTION 4 -->
+
+  <!-- =====================================================
+       EXERCICE 4
+       ===================================================== -->
 
   <section
     class="writing-card hidden"
-    id="question4"
+    id="exercise4"
   >
 
-    <p class="question-number">
-      Question 4 / 5
-    </p>
+    <div class="step-number">
+      EXERCICE 4 / 6
+    </div>
+
 
     <h2>
-      🌅 Écris « Je me lève à 7 h du matin. »
+      ❓ À quelle heure tu te lèves ?
     </h2>
 
-    <p class="prompt">
-      Utilise <strong>오전 일곱 시에</strong> + <strong>일어나요</strong>.
-    </p>
+
+    <div class="prompt-box">
+      Écris :
+      <strong>« À quelle heure tu te lèves ? »</strong>
+    </div>
+
 
     <input
       class="answer-input"
@@ -459,52 +706,67 @@
       autocomplete="off"
       autocapitalize="off"
       spellcheck="false"
-      placeholder="Écris en coréen"
+      placeholder="Écris la question en coréen…"
     >
 
+
     <button
-      class="validate-button"
+      class="check-button"
       type="button"
-      onclick="checkWriting(4)"
+      onclick="checkExercise4()"
     >
       Vérifier
     </button>
+
 
     <div
       class="feedback"
       id="feedback4"
     ></div>
 
+
     <button
-      class="next-question"
+      class="next-button"
       id="next4"
       type="button"
-      onclick="showQuestion(5)"
+      onclick="showExercise(5)"
     >
-      Dernière question →
+      Exercice suivant →
     </button>
 
   </section>
 
 
-  <!-- QUESTION 5 -->
+
+  <!-- =====================================================
+       EXERCICE 5
+       ===================================================== -->
 
   <section
     class="writing-card hidden"
-    id="question5"
+    id="exercise5"
   >
 
-    <p class="question-number">
-      Question 5 / 5
-    </p>
+    <div class="step-number">
+      EXERCICE 5 / 6
+    </div>
+
 
     <h2>
-      🏢 Écris « Je vais au travail à 8 h. »
+      🌅 À 7 h du matin
     </h2>
 
-    <p class="prompt">
-      Utilise <strong>여덟 시에</strong> + <strong>회사에 가요</strong>.
-    </p>
+
+    <div class="prompt-box">
+      Écris :
+
+      <br><br>
+
+      <strong>
+        « Je me lève à 7 h du matin. »
+      </strong>
+    </div>
+
 
     <input
       class="answer-input"
@@ -514,35 +776,111 @@
       autocomplete="off"
       autocapitalize="off"
       spellcheck="false"
-      placeholder="Écris en coréen"
+      placeholder="Écris la phrase en coréen…"
     >
 
+
     <button
-      class="validate-button"
+      class="check-button"
       type="button"
-      onclick="checkWriting(5)"
+      onclick="checkExercise5()"
     >
       Vérifier
     </button>
+
 
     <div
       class="feedback"
       id="feedback5"
     ></div>
 
+
     <button
-      class="next-question"
+      class="next-button"
       id="next5"
       type="button"
-      onclick="finishWriting()"
+      onclick="showExercise(6)"
     >
-      Voir mon résultat 🌿
+      Dernier exercice →
     </button>
 
   </section>
 
 
-  <!-- RÉSULTAT -->
+
+  <!-- =====================================================
+       EXERCICE 6
+       ===================================================== -->
+
+  <section
+    class="writing-card hidden"
+    id="exercise6"
+  >
+
+    <div class="step-number">
+      EXERCICE 6 / 6
+    </div>
+
+
+    <h2>
+      🌙 À 19 h 30
+    </h2>
+
+
+    <div class="prompt-box">
+      Écris :
+
+      <br><br>
+
+      <strong>
+        « J'étudie à 19 h 30. »
+      </strong>
+    </div>
+
+
+    <input
+      class="answer-input"
+      id="answer6"
+      type="text"
+      lang="ko"
+      autocomplete="off"
+      autocapitalize="off"
+      spellcheck="false"
+      placeholder="Écris la phrase en coréen…"
+    >
+
+
+    <button
+      class="check-button"
+      type="button"
+      onclick="checkExercise6()"
+    >
+      Vérifier
+    </button>
+
+
+    <div
+      class="feedback"
+      id="feedback6"
+    ></div>
+
+
+    <button
+      class="next-button"
+      id="next6"
+      type="button"
+      onclick="showResult()"
+    >
+      Voir mon résultat →
+    </button>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       RÉSULTAT
+       ===================================================== -->
 
   <section
     class="result-card"
@@ -550,242 +888,271 @@
   >
 
     <div class="result-icon">
-      ✍️🕒
+      ✍️⏰
     </div>
+
 
     <h2>
       잘했어요!
     </h2>
 
+
     <p>
-      Tu as terminé l'expression écrite du chapitre 8.
+      Tu as terminé
+      l'expression écrite du chapitre 8.
     </p>
 
+
     <p class="result-score">
-      5 réponses validées ✅
+      6 exercices validés ✅
     </p>
 
 
     <div class="result-summary">
 
       <strong>
-        📊 Ta séance
+        🧠 Tu sais maintenant écrire :
       </strong>
 
-      <p id="sessionSummary"></p>
+      <br><br>
 
-    </div>
+      🕒 <strong>몇 시예요?</strong>
 
+      <br><br>
 
-    <div class="notion-summary">
+      7️⃣ <strong>일곱 시예요.</strong>
 
-      <div class="notion-line">
-        ❓ <strong>몇 시예요?</strong> → Quelle heure est-il ?
-      </div>
+      <br><br>
 
-      <div class="notion-line">
-        🕖 <strong>일곱 시예요.</strong> → Il est 7 h.
-      </div>
+      🌓 <strong>두 시 반이에요.</strong>
 
-      <div class="notion-line">
-        🌓 <strong>두 시 반이에요.</strong> → Il est 2 h 30.
-      </div>
+      <br><br>
 
-      <div class="notion-line">
-        🌅 <strong>오전 일곱 시에 일어나요.</strong> → Je me lève à 7 h du matin.
-      </div>
+      ❓ <strong>몇 시에 일어나요?</strong>
 
-      <div class="notion-line">
-        🏢 <strong>여덟 시에 회사에 가요.</strong> → Je vais au travail à 8 h.
-      </div>
+      <br><br>
+
+      🌅 <strong>오전 일곱 시에 일어나요.</strong>
+
+      <br><br>
+
+      🌙 <strong>오후 일곱 시 반에 공부해요.</strong>
 
     </div>
 
 
     <button
-      class="next-step-button"
+      class="finish-button"
       type="button"
-      onclick="window.location.href='revision-8.html'"
+      onclick="completeWriting()"
     >
-      🧠 Passer à « Je révise »
-    </button>
-
-
-    <button
-      class="chapter-button"
-      type="button"
-      onclick="window.location.href='chapitre-8.html'"
-    >
-      Retour au chapitre
+      ✅ Valider « J'écris » · Passer à « Je révise »
     </button>
 
   </section>
 
+
 </main>
 
 
+
+<script src="chapter-progress.js"></script>
+
+
 <script>
-  const answers = {
 
-    1: [
-      "몇 시예요",
-      "지금 몇 시예요"
-    ],
+  /* =====================================================
+     ÉTAT
+     ===================================================== */
 
-    2: [
-      "일곱 시예요",
-      "지금 일곱 시예요"
-    ],
+  const completed = {
 
-    3: [
-      "두 시 반이에요",
-      "지금 두 시 반이에요"
-    ],
-
-    4: [
-      "오전 일곱 시에 일어나요",
-      "일곱 시에 일어나요",
-      "저는 오전 일곱 시에 일어나요",
-      "저는 일곱 시에 일어나요"
-    ],
-
-    5: [
-      "여덟 시에 회사에 가요",
-      "저는 여덟 시에 회사에 가요"
-    ]
-
-  };
-
-
-  const completedQuestions = {
     1: false,
     2: false,
     3: false,
     4: false,
-    5: false
+    5: false,
+    6: false
+
   };
 
 
-  let incorrectAttempts = 0;
+  const mistakes =
+    [];
 
 
-  const weakNotions = new Set();
+  const revisionNotions =
+    [];
 
 
-  function normalizeKorean(text) {
+  let builtSentence =
+    [];
+
+
+
+  /* =====================================================
+     NORMALISATION
+     ===================================================== */
+
+  function normalize(
+    text
+  ) {
 
     return text
       .trim()
-      .replace(/[.!?。！？,，]/g, "")
-      .replace(/\s+/g, "");
+      .replace(
+        /[.,!?？！。]/g,
+        ""
+      )
+      .replace(
+        /\s+/g,
+        " "
+      );
 
   }
 
 
-  function checkWriting(number) {
 
-    if (
-      completedQuestions[number]
-    ) {
-      return;
-    }
+  function compact(
+    text
+  ) {
+
+    return normalize(
+      text
+    ).replace(
+      /\s/g,
+      ""
+    );
+
+  }
 
 
-    const input =
-      document.getElementById(
-        "answer" + number
-      );
+
+  /* =====================================================
+     FEEDBACK
+     ===================================================== */
+
+  function success(
+    number,
+    message
+  ) {
+
+    completed[number] =
+      true;
 
 
     const feedback =
       document.getElementById(
-        "feedback" + number
+        "feedback" +
+        number
       );
 
 
-    const value =
-      normalizeKorean(
-        input.value
+    feedback.className =
+      "feedback success";
+
+
+    feedback.innerHTML =
+      "✅ <strong>Très bien !</strong>" +
+      "<br><br>" +
+      message;
+
+
+    document.getElementById(
+      "next" +
+        number
+    ).classList.add(
+      "show"
+    );
+
+  }
+
+
+
+  function error(
+    number,
+    message,
+    notion
+  ) {
+
+    if (
+      !mistakes.includes(
+        number
+      )
+    ) {
+
+      mistakes.push(
+        number
       );
 
+    }
 
-    const accepted =
-      answers[number].some(
-        answer =>
-          normalizeKorean(
-            answer
-          ) === value
+
+    if (
+      notion &&
+      !revisionNotions.includes(
+        notion
+      )
+    ) {
+
+      revisionNotions.push(
+        notion
       );
 
-
-    if (accepted) {
-
-      completedQuestions[number] =
-        true;
+    }
 
 
-      feedback.className =
-        "feedback correct";
-
-
-      if (number === 1) {
-
-        feedback.innerHTML =
-          "✅ <strong>Très bien !</strong>" +
-          "<br><br>" +
-          "<strong>몇 시예요?</strong> signifie bien « Quelle heure est-il ? ».";
-
-      }
-
-
-      if (number === 2) {
-
-        feedback.innerHTML =
-          "✅ <strong>Exact !</strong>" +
-          "<br><br>" +
-          "<strong>일곱 시예요.</strong> = Il est 7 h.";
-
-      }
-
-
-      if (number === 3) {
-
-        feedback.innerHTML =
-          "✅ <strong>Très bien !</strong>" +
-          "<br><br>" +
-          "<strong>두 시 반이에요.</strong> = Il est 2 h 30.";
-
-      }
-
-
-      if (number === 4) {
-
-        feedback.innerHTML =
-          "✅ <strong>Exact !</strong>" +
-          "<br><br>" +
-          "<strong>오전 일곱 시에 일어나요.</strong> = Je me lève à 7 h du matin.";
-
-      }
-
-
-      if (number === 5) {
-
-        feedback.innerHTML =
-          "✅ <strong>Parfait !</strong>" +
-          "<br><br>" +
-          "<strong>여덟 시에 회사에 가요.</strong> = Je vais au travail à 8 h.";
-
-      }
-
-
-      input.disabled =
-        true;
-
-
+    const feedback =
       document.getElementById(
-        "next" + number
-      ).style.display =
-        "block";
+        "feedback" +
+        number
+      );
+
+
+    feedback.className =
+      "feedback error";
+
+
+    feedback.innerHTML =
+      message;
+
+  }
+
+
+
+  /* =====================================================
+     EXERCICE 1
+     ===================================================== */
+
+  function checkExercise1() {
+
+    if (
+      completed[1]
+    ) {
+
+      return;
+
+    }
+
+
+    const answer =
+      compact(
+        document.getElementById(
+          "answer1"
+        ).value
+      );
+
+
+    if (
+      answer ===
+      "몇시예요"
+    ) {
+
+      success(
+        1,
+        "<span class='correction'>몇 시예요?</span>" +
+        "<strong>몇 시</strong> permet de demander l'heure."
+      );
 
 
       return;
@@ -793,96 +1160,741 @@
     }
 
 
-    incorrectAttempts++;
+    if (
+      answer ===
+      "몇시에"
+    ) {
 
-
-    feedback.className =
-      "feedback wrong";
-
-
-    if (number === 1) {
-
-      weakNotions.add(
-        "몇 시예요"
+      error(
+        1,
+        "<strong>몇 시에</strong> signifie « à quelle heure » devant une action." +
+        "<br><br>" +
+        "Ici, tu demandes simplement l'heure.",
+        "몇 시예요? / 몇 시에…?"
       );
 
 
-      feedback.innerHTML =
-        "❌ <strong>Pas encore.</strong>" +
-        "<div class='hint-box'>" +
-        "💡 Pense à <strong>몇 + 시예요?</strong>" +
-        "</div>";
+      return;
 
     }
 
 
-    if (number === 2) {
+    if (
+      answer.includes(
+        "몇시"
+      ) &&
+      !answer.includes(
+        "예요"
+      )
+    ) {
 
-      weakNotions.add(
-        "일곱 시예요"
+      error(
+        1,
+        "Tu as bien retrouvé <strong>몇 시</strong>." +
+        "<br><br>" +
+        "Ajoute <strong>예요?</strong> pour former la question complète.",
+        "몇 시예요?"
       );
 
 
-      feedback.innerHTML =
-        "❌ <strong>Regarde la structure de l'heure.</strong>" +
-        "<div class='hint-box'>" +
-        "💡 <strong>일곱 + 시예요</strong>" +
-        "</div>";
+      return;
 
     }
 
 
-    if (number === 3) {
-
-      weakNotions.add(
-        "반"
-      );
-
-
-      feedback.innerHTML =
-        "❌ <strong>N'oublie pas « et demie ».</strong>" +
-        "<div class='hint-box'>" +
-        "💡 <strong>두 시 + 반이에요</strong>" +
-        "</div>";
-
-    }
-
-
-    if (number === 4) {
-
-      weakNotions.add(
-        "시간 + 에"
-      );
-
-
-      feedback.innerHTML =
-        "❌ <strong>Fais attention à 에 après l'heure.</strong>" +
-        "<div class='hint-box'>" +
-        "💡 <strong>오전 일곱 시에 + 일어나요</strong>" +
-        "</div>";
-
-    }
-
-
-    if (number === 5) {
-
-      weakNotions.add(
-        "여덟 시에"
-      );
-
-
-      feedback.innerHTML =
-        "❌ <strong>Commence par l'heure de l'action.</strong>" +
-        "<div class='hint-box'>" +
-        "💡 <strong>여덟 시에 + 회사에 가요</strong>" +
-        "</div>";
-
-    }
+    error(
+      1,
+      "💡 Construis :" +
+      "<br><br>" +
+      "<strong>몇 시 + 예요?</strong>",
+      "몇 시예요?"
+    );
 
   }
 
 
-  function showQuestion(number) {
+
+  /* =====================================================
+     EXERCICE 2
+     ===================================================== */
+
+  function checkExercise2() {
+
+    if (
+      completed[2]
+    ) {
+
+      return;
+
+    }
+
+
+    const answer =
+      compact(
+        document.getElementById(
+          "answer2"
+        ).value
+      );
+
+
+    if (
+      answer ===
+      "일곱시예요"
+    ) {
+
+      success(
+        2,
+        "<span class='correction'>일곱 시예요.</span>" +
+        "<strong>일곱</strong> correspond à 7."
+      );
+
+
+      return;
+
+    }
+
+
+    if (
+      answer.includes(
+        "여덟"
+      )
+    ) {
+
+      error(
+        2,
+        "<strong>여덟</strong> correspond à 8." +
+        "<br><br>" +
+        "Pour 7 h, utilise <strong>일곱 시</strong>.",
+        "nombres des heures"
+      );
+
+
+      return;
+
+    }
+
+
+    if (
+      answer ===
+      "일곱시"
+    ) {
+
+      error(
+        2,
+        "Tu as correctement écrit <strong>일곱 시</strong> = 7 h." +
+        "<br><br>" +
+        "Ajoute maintenant <strong>예요</strong>.",
+        "시예요"
+      );
+
+
+      return;
+
+    }
+
+
+    error(
+      2,
+      "💡 7 h se construit avec :" +
+      "<br><br>" +
+      "<strong>일곱 시예요.</strong>",
+      "일곱 시예요"
+    );
+
+  }
+
+
+
+  /* =====================================================
+     EXERCICE 3 — CONSTRUCTEUR
+     ===================================================== */
+
+  function selectWord(
+    button
+  ) {
+
+    if (
+      completed[3]
+    ) {
+
+      return;
+
+    }
+
+
+    builtSentence.push(
+      button.dataset.word
+    );
+
+
+    button.style.display =
+      "none";
+
+
+    renderSentence();
+
+  }
+
+
+
+  function renderSentence() {
+
+    const builder =
+      document.getElementById(
+        "sentenceBuilder"
+      );
+
+
+    builder.innerHTML =
+      "";
+
+
+    if (
+      builtSentence.length === 0
+    ) {
+
+      builder.innerHTML =
+        "<span class='builder-placeholder'>" +
+        "Clique sur les blocs pour construire la phrase." +
+        "</span>";
+
+
+      return;
+
+    }
+
+
+    builtSentence.forEach(
+      word => {
+
+        const chip =
+          document.createElement(
+            "span"
+          );
+
+
+        chip.className =
+          "word-chip";
+
+
+        chip.textContent =
+          word;
+
+
+        builder.appendChild(
+          chip
+        );
+
+      }
+    );
+
+  }
+
+
+
+  function resetSentence() {
+
+    if (
+      completed[3]
+    ) {
+
+      return;
+
+    }
+
+
+    builtSentence =
+      [];
+
+
+    document
+      .querySelectorAll(
+        "#wordBank .word-chip"
+      )
+      .forEach(
+        button => {
+
+          button.style.display =
+            "inline-block";
+
+        }
+      );
+
+
+    renderSentence();
+
+  }
+
+
+
+  function checkSentenceOrder() {
+
+    if (
+      completed[3]
+    ) {
+
+      return;
+
+    }
+
+
+    const sentence =
+      builtSentence.join(
+        "|"
+      );
+
+
+    if (
+      sentence ===
+      "두 시|반이에요"
+    ) {
+
+      success(
+        3,
+        "<span class='correction'>두 시 반이에요.</span>" +
+        "<strong>반</strong> signifie ici « et demie »."
+      );
+
+
+      return;
+
+    }
+
+
+    if (
+      builtSentence.length < 2
+    ) {
+
+      error(
+        3,
+        "Il manque encore un bloc." +
+        "<br><br>" +
+        "💡 Tu dois utiliser les deux.",
+        "반"
+      );
+
+
+      return;
+
+    }
+
+
+    error(
+      3,
+      "L'ordre n'est pas correct." +
+      "<br><br>" +
+      "💡 Commence par l'heure <strong>두 시</strong>, puis ajoute <strong>반이에요</strong>.",
+      "heure + 반"
+    );
+
+  }
+
+
+
+  /* =====================================================
+     EXERCICE 4
+     ===================================================== */
+
+  function checkExercise4() {
+
+    if (
+      completed[4]
+    ) {
+
+      return;
+
+    }
+
+
+    const answer =
+      compact(
+        document.getElementById(
+          "answer4"
+        ).value
+      );
+
+
+    if (
+      answer ===
+      "몇시에일어나요"
+    ) {
+
+      success(
+        4,
+        "<span class='correction'>몇 시에 일어나요?</span>" +
+        "<strong>몇 시에</strong> signifie ici « à quelle heure »."
+      );
+
+
+      return;
+
+    }
+
+
+    if (
+      answer ===
+      "몇시예요"
+    ) {
+
+      error(
+        4,
+        "<strong>몇 시예요?</strong> signifie « Quelle heure est-il ? »." +
+        "<br><br>" +
+        "Ici, tu demandes l'heure d'une action.",
+        "몇 시예요? / 몇 시에…?"
+      );
+
+
+      return;
+
+    }
+
+
+    if (
+      answer.includes(
+        "몇시"
+      ) &&
+      !answer.includes(
+        "에"
+      )
+    ) {
+
+      error(
+        4,
+        "Tu as bien commencé par <strong>몇 시</strong>." +
+        "<br><br>" +
+        "Ajoute <strong>에</strong> pour obtenir « à quelle heure ».",
+        "몇 시에"
+      );
+
+
+      return;
+
+    }
+
+
+    if (
+      answer.includes(
+        "몇시에"
+      ) &&
+      !answer.includes(
+        "일어나요"
+      )
+    ) {
+
+      error(
+        4,
+        "La structure <strong>몇 시에</strong> est correcte." +
+        "<br><br>" +
+        "Ajoute <strong>일어나요</strong> = se lever.",
+        "일어나요"
+      );
+
+
+      return;
+
+    }
+
+
+    error(
+      4,
+      "💡 Construis :" +
+      "<br><br>" +
+      "<strong>몇 시에 + 일어나요?</strong>",
+      "몇 시에 일어나요?"
+    );
+
+  }
+
+
+
+  /* =====================================================
+     EXERCICE 5
+     ===================================================== */
+
+  function checkExercise5() {
+
+    if (
+      completed[5]
+    ) {
+
+      return;
+
+    }
+
+
+    const answer =
+      compact(
+        document.getElementById(
+          "answer5"
+        ).value
+      );
+
+
+    if (
+      answer ===
+      "오전일곱시에일어나요"
+    ) {
+
+      success(
+        5,
+        "<span class='correction'>오전 일곱 시에 일어나요.</span>" +
+        "<strong>오전</strong> précise qu'il s'agit du matin."
+      );
+
+
+      return;
+
+    }
+
+
+    if (
+      answer ===
+      "일곱시에일어나요"
+    ) {
+
+      error(
+        5,
+        "La phrase est correcte pour dire « Je me lève à 7 h »." +
+        "<br><br>" +
+        "Mais la consigne demande de préciser <strong>du matin</strong>." +
+        "<br><br>" +
+        "💡 Ajoute <strong>오전</strong> au début.",
+        "오전"
+      );
+
+
+      return;
+
+    }
+
+
+    if (
+      answer.includes(
+        "오후"
+      )
+    ) {
+
+      error(
+        5,
+        "<strong>오후</strong> indique l'après-midi / PM." +
+        "<br><br>" +
+        "Pour le matin, utilise <strong>오전</strong>.",
+        "오전 / 오후"
+      );
+
+
+      return;
+
+    }
+
+
+    if (
+      answer.includes(
+        "오전일곱시"
+      ) &&
+      !answer.includes(
+        "에"
+      )
+    ) {
+
+      error(
+        5,
+        "Tu as correctement indiqué 7 h du matin." +
+        "<br><br>" +
+        "Pour dire « <strong>à</strong> 7 h », ajoute <strong>에</strong> après 시.",
+        "heure + 에"
+      );
+
+
+      return;
+
+    }
+
+
+    if (
+      answer.includes(
+        "오전일곱시에"
+      ) &&
+      !answer.includes(
+        "일어나요"
+      )
+    ) {
+
+      error(
+        5,
+        "L'heure est parfaite." +
+        "<br><br>" +
+        "Ajoute le verbe <strong>일어나요</strong>.",
+        "일어나요"
+      );
+
+
+      return;
+
+    }
+
+
+    error(
+      5,
+      "💡 Modèle :" +
+      "<br><br>" +
+      "<strong>오전 일곱 시에 일어나요.</strong>",
+      "오전 / heure + 에"
+    );
+
+  }
+
+
+
+  /* =====================================================
+     EXERCICE 6
+     ===================================================== */
+
+  function checkExercise6() {
+
+    if (
+      completed[6]
+    ) {
+
+      return;
+
+    }
+
+
+    const answer =
+      compact(
+        document.getElementById(
+          "answer6"
+        ).value
+      );
+
+
+    if (
+      answer ===
+      "오후일곱시반에공부해요"
+    ) {
+
+      success(
+        6,
+        "<span class='correction'>오후 일곱 시 반에 공부해요.</span>" +
+        "<strong>오후</strong> indique PM et <strong>반</strong> signifie « et demie »."
+      );
+
+
+      return;
+
+    }
+
+
+    if (
+      answer.includes(
+        "오전"
+      )
+    ) {
+
+      error(
+        6,
+        "<strong>오전</strong> indique le matin." +
+        "<br><br>" +
+        "19 h 30 correspond à <strong>오후</strong>.",
+        "오전 / 오후"
+      );
+
+
+      return;
+
+    }
+
+
+    if (
+      answer.includes(
+        "오후일곱시"
+      ) &&
+      !answer.includes(
+        "반"
+      )
+    ) {
+
+      error(
+        6,
+        "Tu as correctement écrit 19 h." +
+        "<br><br>" +
+        "Il manque <strong>반</strong> pour ajouter les 30 minutes.",
+        "반"
+      );
+
+
+      return;
+
+    }
+
+
+    if (
+      answer.includes(
+        "오후일곱시반"
+      ) &&
+      !answer.includes(
+        "에"
+      )
+    ) {
+
+      error(
+        6,
+        "L'heure est correcte." +
+        "<br><br>" +
+        "Pour dire que l'action a lieu <strong>à</strong> cette heure, ajoute <strong>에</strong>.",
+        "heure + 에"
+      );
+
+
+      return;
+
+    }
+
+
+    if (
+      answer.includes(
+        "오후일곱시반에"
+      ) &&
+      !answer.includes(
+        "공부해요"
+      )
+    ) {
+
+      error(
+        6,
+        "Tu as parfaitement écrit l'heure." +
+        "<br><br>" +
+        "Ajoute maintenant <strong>공부해요</strong> = j'étudie.",
+        "공부해요"
+      );
+
+
+      return;
+
+    }
+
+
+    error(
+      6,
+      "💡 Construis :" +
+      "<br><br>" +
+      "<strong>오후 + 일곱 시 반에 + 공부해요</strong>",
+      "오후 일곱 시 반에 공부해요"
+    );
+
+  }
+
+
+
+  /* =====================================================
+     EXERCICE SUIVANT
+     ===================================================== */
+
+  function showExercise(
+    number
+  ) {
 
     document
       .querySelectorAll(
@@ -900,56 +1912,59 @@
 
 
     document.getElementById(
-      "question" + number
+      "exercise" +
+      number
     ).classList.remove(
       "hidden"
     );
-
-
-    const percentages = {
-      1: 20,
-      2: 40,
-      3: 60,
-      4: 80,
-      5: 100
-    };
-
-
-    document.getElementById(
-      "progressFill"
-    ).style.width =
-      percentages[number] +
-      "%";
 
 
     document.getElementById(
       "progressLabel"
     ).textContent =
       number +
-      " / 5";
+      " / 6";
+
+
+    document.getElementById(
+      "progressFill"
+    ).style.width =
+      (
+        number /
+        6 *
+        100
+      ) +
+      "%";
 
 
     window.scrollTo({
-      top: 0,
-      behavior: "smooth"
+
+      top:
+        0,
+
+      behavior:
+        "smooth"
+
     });
-
-
-    setTimeout(
-      () => {
-
-        document.getElementById(
-          "answer" + number
-        ).focus();
-
-      },
-      350
-    );
 
   }
 
 
-  function finishWriting() {
+
+  /* =====================================================
+     RÉSULTAT
+     ===================================================== */
+
+  function showResult() {
+
+    if (
+      !completed[6]
+    ) {
+
+      return;
+
+    }
+
 
     document
       .querySelectorAll(
@@ -975,51 +1990,51 @@
     document.getElementById(
       "progressLabel"
     ).textContent =
-      "5 / 5";
+      "6 / 6";
 
 
     document.getElementById(
       "resultCard"
-    ).style.display =
-      "block";
+    ).classList.add(
+      "show"
+    );
 
 
-    let summary = "";
+    localStorage.setItem(
+      "hanaKorean_chapter8_writingMistakes",
+      JSON.stringify(
+        mistakes
+      )
+    );
 
 
-    if (
-      incorrectAttempts === 0
-    ) {
-
-      summary =
-        "🌟 Les 5 réponses ont été écrites correctement du premier coup.";
-
-    }
-
-    else if (
-      incorrectAttempts === 1
-    ) {
-
-      summary =
-        "🌿 Une seule tentative incorrecte : très bonne maîtrise.";
-
-    }
-
-    else {
-
-      summary =
-        "Tu as validé les 5 réponses avec " +
-        incorrectAttempts +
-        " tentative(s) incorrecte(s).";
-
-    }
+    localStorage.setItem(
+      "hanaKorean_chapter8_revisionNotions",
+      JSON.stringify(
+        revisionNotions
+      )
+    );
 
 
-    document.getElementById(
-      "sessionSummary"
-    ).textContent =
-      summary;
+    window.scrollTo({
 
+      top:
+        0,
+
+      behavior:
+        "smooth"
+
+    });
+
+  }
+
+
+
+  /* =====================================================
+     VALIDATION DE « J'ÉCRIS »
+     ===================================================== */
+
+  function completeWriting() {
 
     localStorage.setItem(
       "hanaKorean_chapter8_writing",
@@ -1027,60 +2042,45 @@
     );
 
 
-    localStorage.setItem(
-      "hanaKorean_chapter8_writingMistakes",
-      incorrectAttempts
-    );
+    if (
+      window.HanaChapterProgress &&
+      typeof window.HanaChapterProgress.render === "function"
+    ) {
+
+      window.HanaChapterProgress.render();
+
+    }
 
 
-    localStorage.setItem(
-      "hanaKorean_chapter8_revisionNotions",
-      JSON.stringify(
-        Array.from(
-          weakNotions
-        )
-      )
-    );
-
-
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    });
+    window.location.href =
+      "revision-8.html";
 
   }
 
 
-  document
-    .querySelectorAll(
-      ".answer-input"
-    )
-    .forEach(
-      (input, index) => {
 
-        input.addEventListener(
-          "keydown",
-          function(event) {
+  /* =====================================================
+     RAFRAÎCHISSEMENT
+     ===================================================== */
 
-            if (
-              event.key ===
-              "Enter"
-            ) {
+  window.addEventListener(
+    "pageshow",
+    function() {
 
-              event.preventDefault();
+      if (
+        window.HanaChapterProgress &&
+        typeof window.HanaChapterProgress.render === "function"
+      ) {
 
-              checkWriting(
-                index + 1
-              );
-
-            }
-
-          }
-        );
+        window.HanaChapterProgress.render();
 
       }
-    );
+
+    }
+  );
+
 </script>
+
 
 </body>
 

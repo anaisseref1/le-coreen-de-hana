@@ -15,12 +15,58 @@
     content="#F7F4ED"
   >
 
-  <title>Mini défi d'écoute — Chapitre 5</title>
+  <title>
+    Chapitre 5 — Exercice d'écoute
+  </title>
 
   <link
     rel="stylesheet"
     href="style.css"
   >
+
+  <link
+    rel="stylesheet"
+    href="chapter-progress.css"
+  >
+
+
+  <script>
+
+    /* =====================================================
+       GARDE — JE COMPRENDS DOIT ÊTRE VALIDÉ
+       ===================================================== */
+
+    if (
+      localStorage.getItem(
+        "hanaKorean_chapter5_understanding"
+      ) !== "completed"
+    ) {
+
+      window.location.replace(
+        "chapitre-5.html"
+      );
+
+    }
+
+
+    /* =====================================================
+       L'EXERCICE D'ÉCOUTE EST COMMENCÉ
+       ===================================================== */
+
+    if (
+      localStorage.getItem(
+        "hanaKorean_chapter5_listeningExercise"
+      ) !== "completed"
+    ) {
+
+      localStorage.setItem(
+        "hanaKorean_chapter5_listeningExercise",
+        "in_progress"
+      );
+
+    }
+
+  </script>
 
 
   <style>
@@ -31,21 +77,23 @@
 
     .exercise-header {
       text-align: center;
-      margin-bottom: 30px;
+      margin-bottom: 25px;
     }
 
 
     .chapter-badge {
       display: inline-block;
-
       padding: 7px 14px;
-
       margin-bottom: 10px;
-
       border-radius: 20px;
-
       font-size: 14px;
       font-weight: bold;
+    }
+
+
+    .exercise-intro {
+      color: var(--text-light);
+      line-height: 1.7;
     }
 
 
@@ -53,55 +101,64 @@
        PROGRESSION
        ===================================================== */
 
-    .exercise-progress {
-      margin-bottom: 22px;
+    .exercise-progress-card {
+      padding: 17px;
+      margin-bottom: 20px;
+      background: var(--white);
+      border-radius: var(--radius-large);
+      box-shadow: var(--shadow);
     }
 
 
-    .progress-info {
+    .exercise-progress-top {
       display: flex;
+      align-items: center;
       justify-content: space-between;
-
-      margin-bottom: 8px;
-
+      gap: 10px;
+      margin-bottom: 9px;
       color: var(--text-light);
-
       font-size: 13px;
     }
 
 
-    .progress-bar {
-      width: 100%;
+    .exercise-progress-bar {
       height: 9px;
-
-      background: var(--soft-beige);
-
-      border-radius: 20px;
-
       overflow: hidden;
+      background: var(--soft-beige);
+      border-radius: 20px;
     }
 
 
-    .progress-fill {
-      width: 20%;
+    .exercise-progress-fill {
+      width: 0%;
       height: 100%;
-
       background: var(--jade);
-
       border-radius: 20px;
-
       transition: width 0.3s ease;
     }
 
 
     /* =====================================================
-       CARTE
+       QUESTIONS
        ===================================================== */
 
     .exercise-card {
+      display: none;
       padding: 20px;
-
       margin-bottom: 18px;
+    }
+
+
+    .exercise-card.active {
+      display: block;
+    }
+
+
+    .question-number {
+      margin-bottom: 7px;
+      color: var(--jade-dark);
+      font-size: 13px;
+      font-weight: bold;
     }
 
 
@@ -110,18 +167,9 @@
     }
 
 
-    .question-number {
-      margin-top: 0;
-
-      color: var(--jade-dark);
-
-      font-size: 14px;
-      font-weight: bold;
-    }
-
-
-    .question-text {
-      line-height: 1.6;
+    .question-instruction {
+      color: var(--text-light);
+      line-height: 1.7;
     }
 
 
@@ -129,46 +177,21 @@
        AUDIO
        ===================================================== */
 
-    .audio-zone {
-      padding: 18px;
-
-      margin: 15px 0;
-
-      background: var(--soft-blue);
-
-      border-radius: var(--radius-medium);
-
-      text-align: center;
-    }
-
-
-    .audio-icon {
-      margin-bottom: 8px;
-
-      font-size: 38px;
-    }
-
-
-    .audio-note {
-      margin-bottom: 14px;
-
-      color: var(--text-light);
-
-      font-size: 14px;
-    }
-
-
     .audio-main {
       width: 100%;
-
+      margin-top: 14px;
+      background: var(--soft-blue);
+      color: var(--navy);
       font-weight: bold;
     }
 
 
     .slow-button {
       width: 100%;
-
-      margin-top: 8px;
+      margin-top: 9px;
+      background: var(--soft-beige);
+      color: var(--navy);
+      font-weight: bold;
     }
 
 
@@ -177,23 +200,39 @@
        ===================================================== */
 
     .answers {
-      display: flex;
-      flex-direction: column;
-
+      display: grid;
+      grid-template-columns: 1fr;
       gap: 10px;
-
-      margin-top: 15px;
+      margin-top: 18px;
     }
 
 
-    .answer {
+    .answer-button {
       width: 100%;
-
-      padding: 15px;
-
-      text-align: left;
-
+      min-height: 56px;
+      padding: 13px;
+      background: #FBFAF6;
+      color: var(--navy);
       border: 2px solid transparent;
+      text-align: left;
+      font-weight: 600;
+    }
+
+
+    .answer-button:hover {
+      background: var(--soft-green);
+    }
+
+
+    .answer-button.correct {
+      background: var(--success-light) !important;
+      border-color: var(--success) !important;
+    }
+
+
+    .answer-button.wrong {
+      background: var(--error-light) !important;
+      border-color: var(--error) !important;
     }
 
 
@@ -203,60 +242,48 @@
 
     .feedback {
       display: none;
-
-      margin-top: 16px;
-
       padding: 15px;
-
+      margin-top: 15px;
       border-radius: var(--radius-medium);
-
-      line-height: 1.7;
+      line-height: 1.65;
     }
 
 
-    .feedback.correct,
-    .feedback.wrong {
+    .feedback.show {
       display: block;
     }
 
 
-    .heard-question {
-      margin-top: 10px;
-
-      padding: 12px;
-
-      background: rgba(255, 255, 255, 0.65);
-
-      border-radius: var(--radius-small);
-
+    .feedback.correct {
+      background: var(--success-light);
+      border-left: 4px solid var(--success);
       color: var(--navy);
+    }
 
-      font-size: 19px;
-      font-weight: bold;
+
+    .feedback.wrong {
+      background: var(--warning-light);
+      border-left: 4px solid var(--warning);
+      color: var(--navy);
     }
 
 
     /* =====================================================
-       SUIVANT
+       BOUTONS
        ===================================================== */
 
-    .next-question {
+    .next-button {
       display: none;
-
       width: 100%;
-
       margin-top: 15px;
-
       background: var(--jade);
-
       color: white;
-
       font-weight: bold;
     }
 
 
-    .hidden {
-      display: none;
+    .next-button.show {
+      display: block;
     }
 
 
@@ -266,113 +293,47 @@
 
     .result-card {
       display: none;
-
-      padding: 25px;
-
+      padding: 22px;
+      margin-bottom: 18px;
       text-align: center;
     }
 
 
-    .result-icon {
-      font-size: 60px;
+    .result-card.show {
+      display: block;
     }
 
 
     .result-score {
+      margin: 14px 0 8px;
       color: var(--jade-dark);
-
-      font-size: 21px;
+      font-size: 34px;
       font-weight: bold;
     }
 
 
-    .result-summary {
-      padding: 16px;
-
-      margin-top: 18px;
-
-      background: #FBFAF6;
-
-      border-radius: var(--radius-medium);
-
-      text-align: left;
-
-      line-height: 1.6;
-    }
-
-
-    .notion-summary {
-      margin-top: 18px;
-
-      text-align: left;
-    }
-
-
-    .notion-line {
-      padding: 11px 0;
-
-      border-bottom: 1px solid var(--border);
-    }
-
-
-    .notion-line:last-child {
-      border-bottom: none;
-    }
-
-
-    .strategy-box {
-      padding: 16px;
-
-      margin-top: 18px;
-
-      background: var(--soft-green);
-
-      border-radius: var(--radius-medium);
-
-      color: var(--navy);
-
-      text-align: left;
-
+    .result-message {
+      color: var(--text-light);
       line-height: 1.7;
     }
 
 
-    .garden-info {
-      padding: 14px;
-
+    .mistake-summary {
       margin-top: 18px;
-
-      background: var(--soft-blue);
-
+      padding: 15px;
+      background: #FBFAF6;
       border-radius: var(--radius-medium);
-
-      color: var(--navy);
-
-      line-height: 1.6;
+      text-align: left;
+      line-height: 1.7;
     }
 
 
-    .next-step-button {
+    .finish-button {
       width: 100%;
-
       margin-top: 18px;
-
       background: var(--jade);
-
       color: white;
-
       font-weight: bold;
-    }
-
-
-    .chapter-button {
-      width: 100%;
-
-      margin-top: 10px;
-
-      background: var(--soft-beige);
-
-      color: var(--navy);
     }
 
   </style>
@@ -406,26 +367,24 @@
   <header class="exercise-header">
 
     <span class="chapter-badge">
-      Chapitre 5 · Mini défi
+      Module 1 · Chapitre 5
     </span>
 
 
     <p class="korean">
-      잘 들어 보세요 🎧
+      들어 보고 골라요 🎧
     </p>
 
 
     <h1>
-      Qu'est-ce qu'on te demande ?
+      À toi d'écouter
     </h1>
 
 
-    <p>
-      Cette fois, la phrase coréenne est cachée.
-
-      <br>
-
-      Écoute et identifie l'intention de la question.
+    <p class="exercise-intro">
+      Écoute chaque phrase,
+      puis choisis ce que la personne
+      demande ou veut dire.
     </p>
 
   </header>
@@ -433,35 +392,45 @@
 
 
   <!-- =====================================================
+       PARCOURS
+       ===================================================== -->
+
+  <section
+    id="hanaChapterPath"
+    data-chapter-path
+  ></section>
+
+
+
+  <!-- =====================================================
        PROGRESSION
        ===================================================== -->
 
-  <div class="exercise-progress">
+  <section class="exercise-progress-card">
 
-    <div class="progress-info">
+    <div class="exercise-progress-top">
 
       <span>
-        Compréhension des questions
+        Exercice d'écoute
       </span>
 
-
-      <span id="progressLabel">
+      <strong id="exerciseProgressText">
         1 / 5
-      </span>
+      </strong>
 
     </div>
 
 
-    <div class="progress-bar">
+    <div class="exercise-progress-bar">
 
       <div
-        class="progress-fill"
-        id="progressFill"
+        class="exercise-progress-fill"
+        id="exerciseProgressFill"
       ></div>
 
     </div>
 
-  </div>
+  </section>
 
 
 
@@ -470,83 +439,69 @@
        ===================================================== -->
 
   <section
-    class="exercise-card"
+    class="exercise-card active"
     id="question1"
   >
 
-    <p class="question-number">
-      Question 1 / 5
-    </p>
-
-
-    <h2>
-      🧐 Écoute
-    </h2>
-
-
-    <div class="audio-zone">
-
-      <div class="audio-icon">
-        🎧
-      </div>
-
-
-      <div class="audio-note">
-        La phrase reste cachée jusqu'à ta réponse.
-      </div>
-
-
-      <button
-        class="audio-main"
-        type="button"
-        onclick="speakKorean('뭐예요?')"
-      >
-        🔊 Écouter la question
-      </button>
-
-
-      <button
-        class="slow-button"
-        type="button"
-        onclick="speakKoreanSlow('뭐예요?')"
-      >
-        🐢 Réécouter lentement
-      </button>
-
+    <div class="question-number">
+      QUESTION 1 / 5
     </div>
 
 
-    <p class="question-text">
-      Que veut savoir la personne ?
+    <h2>
+      🧐 Qu'est-ce que Hana demande ?
+    </h2>
+
+
+    <p class="question-instruction">
+      Écoute la phrase sans regarder de traduction.
     </p>
+
+
+    <button
+      class="audio-main"
+      type="button"
+      onclick="speakKorean('이거 뭐예요?', 'hana')"
+    >
+      🔊 Écouter
+    </button>
+
+
+    <button
+      class="slow-button"
+      type="button"
+      onclick="speakKoreanSlow('이거 뭐예요?', 'hana')"
+    >
+      🐢 Lentement
+    </button>
 
 
     <div class="answers">
 
       <button
-        class="answer"
+        class="answer-button"
         type="button"
-        onclick="checkAnswer(1, this, true)"
+        onclick="checkAnswer(1, this, 'what')"
       >
-        🧐 Ce que c'est
+        Elle demande ce que c'est.
       </button>
 
 
       <button
-        class="answer"
+        class="answer-button"
         type="button"
-        onclick="checkAnswer(1, this, false)"
+        onclick="checkAnswer(1, this, 'where')"
       >
-        📍 Où se trouve quelqu'un
+        Elle demande où se trouve quelque chose.
       </button>
 
 
       <button
-        class="answer"
+        class="answer-button"
         type="button"
-        onclick="checkAnswer(1, this, false)"
+        onclick="checkAnswer(1, this, 'who')"
       >
-        👤 Qui est une personne
+        Elle demande qui est une personne.
       </button>
 
     </div>
@@ -559,10 +514,10 @@
 
 
     <button
-      class="next-question"
+      class="next-button"
       id="next1"
       type="button"
-      onclick="showQuestion(2)"
+      onclick="nextQuestion()"
     >
       Question suivante →
     </button>
@@ -576,83 +531,69 @@
        ===================================================== -->
 
   <section
-    class="exercise-card hidden"
+    class="exercise-card"
     id="question2"
   >
 
-    <p class="question-number">
-      Question 2 / 5
-    </p>
-
-
-    <h2>
-      👤 Écoute
-    </h2>
-
-
-    <div class="audio-zone">
-
-      <div class="audio-icon">
-        🎧
-      </div>
-
-
-      <div class="audio-note">
-        Repère le mot interrogatif.
-      </div>
-
-
-      <button
-        class="audio-main"
-        type="button"
-        onclick="speakKorean('누구예요?')"
-      >
-        🔊 Écouter la question
-      </button>
-
-
-      <button
-        class="slow-button"
-        type="button"
-        onclick="speakKoreanSlow('누구예요?')"
-      >
-        🐢 Réécouter lentement
-      </button>
-
+    <div class="question-number">
+      QUESTION 2 / 5
     </div>
 
 
-    <p class="question-text">
-      La question concerne…
+    <h2>
+      📍 Quel mot interrogatif entends-tu ?
+    </h2>
+
+
+    <p class="question-instruction">
+      Repère le mot essentiel dans la phrase.
     </p>
+
+
+    <button
+      class="audio-main"
+      type="button"
+      onclick="speakKorean('지금 어디에 가요?', 'minsu')"
+    >
+      🔊 Écouter
+    </button>
+
+
+    <button
+      class="slow-button"
+      type="button"
+      onclick="speakKoreanSlow('지금 어디에 가요?', 'minsu')"
+    >
+      🐢 Lentement
+    </button>
 
 
     <div class="answers">
 
       <button
-        class="answer"
+        class="answer-button"
         type="button"
-        onclick="checkAnswer(2, this, false)"
+        onclick="checkAnswer(2, this, 'mwo')"
       >
-        🧐 Une chose
+        뭐
       </button>
 
 
       <button
-        class="answer"
+        class="answer-button"
         type="button"
-        onclick="checkAnswer(2, this, true)"
+        onclick="checkAnswer(2, this, 'eodi')"
       >
-        👤 Une personne
+        어디
       </button>
 
 
       <button
-        class="answer"
+        class="answer-button"
         type="button"
-        onclick="checkAnswer(2, this, false)"
+        onclick="checkAnswer(2, this, 'nugu')"
       >
-        🏠 Un lieu
+        누구
       </button>
 
     </div>
@@ -665,10 +606,10 @@
 
 
     <button
-      class="next-question"
+      class="next-button"
       id="next2"
       type="button"
-      onclick="showQuestion(3)"
+      onclick="nextQuestion()"
     >
       Question suivante →
     </button>
@@ -682,83 +623,64 @@
        ===================================================== -->
 
   <section
-    class="exercise-card hidden"
+    class="exercise-card"
     id="question3"
   >
 
-    <p class="question-number">
-      Question 3 / 5
-    </p>
-
-
-    <h2>
-      📍 Écoute bien la fin
-    </h2>
-
-
-    <div class="audio-zone">
-
-      <div class="audio-icon">
-        🎧
-      </div>
-
-
-      <div class="audio-note">
-        Repère 어디 puis le verbe.
-      </div>
-
-
-      <button
-        class="audio-main"
-        type="button"
-        onclick="speakKorean('어디에 있어요?')"
-      >
-        🔊 Écouter la question
-      </button>
-
-
-      <button
-        class="slow-button"
-        type="button"
-        onclick="speakKoreanSlow('어디에 있어요?')"
-      >
-        🐢 Réécouter lentement
-      </button>
-
+    <div class="question-number">
+      QUESTION 3 / 5
     </div>
 
 
-    <p class="question-text">
-      Qu'est-ce que la personne demande ?
-    </p>
+    <h2>
+      👤 Que demande cette phrase ?
+    </h2>
+
+
+    <button
+      class="audio-main"
+      type="button"
+      onclick="speakKorean('누구예요?', 'hana')"
+    >
+      🔊 Écouter
+    </button>
+
+
+    <button
+      class="slow-button"
+      type="button"
+      onclick="speakKoreanSlow('누구예요?', 'hana')"
+    >
+      🐢 Lentement
+    </button>
 
 
     <div class="answers">
 
       <button
-        class="answer"
+        class="answer-button"
         type="button"
-        onclick="checkAnswer(3, this, false)"
+        onclick="checkAnswer(3, this, 'what')"
       >
-        🚶 Où vas-tu ?
+        Qu'est-ce que c'est ?
       </button>
 
 
       <button
-        class="answer"
+        class="answer-button"
         type="button"
-        onclick="checkAnswer(3, this, true)"
+        onclick="checkAnswer(3, this, 'who')"
       >
-        📍 Où es-tu ?
+        Qui est-ce ?
       </button>
 
 
       <button
-        class="answer"
+        class="answer-button"
         type="button"
-        onclick="checkAnswer(3, this, false)"
+        onclick="checkAnswer(3, this, 'where')"
       >
-        🏠 Où habites-tu ?
+        Où est-ce ?
       </button>
 
     </div>
@@ -771,10 +693,10 @@
 
 
     <button
-      class="next-question"
+      class="next-button"
       id="next3"
       type="button"
-      onclick="showQuestion(4)"
+      onclick="nextQuestion()"
     >
       Question suivante →
     </button>
@@ -788,83 +710,60 @@
        ===================================================== -->
 
   <section
-    class="exercise-card hidden"
+    class="exercise-card"
     id="question4"
   >
 
-    <p class="question-number">
-      Question 4 / 5
-    </p>
-
-
-    <h2>
-      🚶 Même début, autre question
-    </h2>
-
-
-    <div class="audio-zone">
-
-      <div class="audio-icon">
-        🎧
-      </div>
-
-
-      <div class="audio-note">
-        Le mot 어디 ne suffit pas : écoute le verbe.
-      </div>
-
-
-      <button
-        class="audio-main"
-        type="button"
-        onclick="speakKorean('어디에 가요?')"
-      >
-        🔊 Écouter la question
-      </button>
-
-
-      <button
-        class="slow-button"
-        type="button"
-        onclick="speakKoreanSlow('어디에 가요?')"
-      >
-        🐢 Réécouter lentement
-      </button>
-
+    <div class="question-number">
+      QUESTION 4 / 5
     </div>
 
 
-    <p class="question-text">
-      Quelle information est demandée ?
+    <h2>
+      ❤️ Est-ce une question ou une affirmation ?
+    </h2>
+
+
+    <p class="question-instruction">
+      Écoute surtout l'intonation.
     </p>
+
+
+    <button
+      class="audio-main"
+      type="button"
+      onclick="speakKorean('커피를 좋아해요?', 'hana')"
+    >
+      🔊 Écouter
+    </button>
+
+
+    <button
+      class="slow-button"
+      type="button"
+      onclick="speakKoreanSlow('커피를 좋아해요?', 'hana')"
+    >
+      🐢 Lentement
+    </button>
 
 
     <div class="answers">
 
       <button
-        class="answer"
+        class="answer-button"
         type="button"
-        onclick="checkAnswer(4, this, false)"
+        onclick="checkAnswer(4, this, 'statement')"
       >
-        📍 Où se trouve la personne
+        Une affirmation : « Tu aimes le café. »
       </button>
 
 
       <button
-        class="answer"
+        class="answer-button"
         type="button"
-        onclick="checkAnswer(4, this, false)"
+        onclick="checkAnswer(4, this, 'question')"
       >
-        🏠 Où habite la personne
-      </button>
-
-
-      <button
-        class="answer"
-        type="button"
-        onclick="checkAnswer(4, this, true)"
-      >
-        🚶 Où va la personne
+        Une question : « Tu aimes le café ? »
       </button>
 
     </div>
@@ -877,12 +776,12 @@
 
 
     <button
-      class="next-question"
+      class="next-button"
       id="next4"
       type="button"
-      onclick="showQuestion(5)"
+      onclick="nextQuestion()"
     >
-      Dernière question →
+      Question suivante →
     </button>
 
   </section>
@@ -894,83 +793,64 @@
        ===================================================== -->
 
   <section
-    class="exercise-card hidden"
+    class="exercise-card"
     id="question5"
   >
 
-    <p class="question-number">
-      Question 5 / 5
-    </p>
-
-
-    <h2>
-      ❤️ Pas de mot interrogatif cette fois
-    </h2>
-
-
-    <div class="audio-zone">
-
-      <div class="audio-icon">
-        🎧
-      </div>
-
-
-      <div class="audio-note">
-        Écoute l'ensemble de la phrase.
-      </div>
-
-
-      <button
-        class="audio-main"
-        type="button"
-        onclick="speakKorean('커피를 좋아해요?')"
-      >
-        🔊 Écouter la question
-      </button>
-
-
-      <button
-        class="slow-button"
-        type="button"
-        onclick="speakKoreanSlow('커피를 좋아해요?')"
-      >
-        🐢 Réécouter lentement
-      </button>
-
+    <div class="question-number">
+      QUESTION 5 / 5
     </div>
 
 
-    <p class="question-text">
-      Qu'est-ce que la personne veut savoir ?
-    </p>
+    <h2>
+      ☕ Que signifie la réponse de Min-su ?
+    </h2>
+
+
+    <button
+      class="audio-main"
+      type="button"
+      onclick="speakKorean('커피예요.', 'minsu')"
+    >
+      🔊 Écouter
+    </button>
+
+
+    <button
+      class="slow-button"
+      type="button"
+      onclick="speakKoreanSlow('커피예요.', 'minsu')"
+    >
+      🐢 Lentement
+    </button>
 
 
     <div class="answers">
 
       <button
-        class="answer"
+        class="answer-button"
         type="button"
-        onclick="checkAnswer(5, this, false)"
+        onclick="checkAnswer(5, this, 'coffee')"
       >
-        ☕ Si c'est du café
+        C'est du café.
       </button>
 
 
       <button
-        class="answer"
+        class="answer-button"
         type="button"
-        onclick="checkAnswer(5, this, true)"
+        onclick="checkAnswer(5, this, 'likes')"
       >
-        ❤️ Si l'autre personne aime le café
+        J'aime le café.
       </button>
 
 
       <button
-        class="answer"
+        class="answer-button"
         type="button"
-        onclick="checkAnswer(5, this, false)"
+        onclick="checkAnswer(5, this, 'where')"
       >
-        📍 Où se trouve le café
+        Je vais au café.
       </button>
 
     </div>
@@ -983,12 +863,12 @@
 
 
     <button
-      class="next-question"
+      class="next-button"
       id="next5"
       type="button"
       onclick="finishExercise()"
     >
-      Voir mon résultat 🌿
+      Voir mon résultat →
     </button>
 
   </section>
@@ -1004,129 +884,37 @@
     id="resultCard"
   >
 
-    <div class="result-icon">
-      🎧❓
-    </div>
-
-
     <h2>
-      잘했어요!
+      🎧 Exercice terminé
     </h2>
 
 
-    <p>
-      Tu as terminé le défi de compréhension orale.
-    </p>
-
-
-    <p class="result-score">
-      5 questions reconnues ✅
-    </p>
-
-
-
-    <div class="result-summary">
-
-      <strong>
-        📊 Ta séance
-      </strong>
-
-      <p id="attemptText"></p>
-
+    <div
+      class="result-score"
+      id="resultScore"
+    >
+      0 / 5
     </div>
 
 
-
-    <div class="notion-summary">
-
-      <div class="notion-line">
-        🧐 <strong>뭐예요?</strong> → Qu'est-ce que c'est ?
-      </div>
+    <p
+      class="result-message"
+      id="resultMessage"
+    ></p>
 
 
-      <div class="notion-line">
-        👤 <strong>누구예요?</strong> → Qui est-ce ?
-      </div>
-
-
-      <div class="notion-line">
-        📍 <strong>어디에 있어요?</strong> → Où êtes-vous ?
-      </div>
-
-
-      <div class="notion-line">
-        🚶 <strong>어디에 가요?</strong> → Où allez-vous ?
-      </div>
-
-
-      <div class="notion-line">
-        ❤️ <strong>커피를 좋아해요?</strong> → Vous aimez le café ?
-      </div>
-
-    </div>
-
-
-
-    <div class="strategy-box">
-
-      <strong>
-        🧠 Stratégie d'écoute
-      </strong>
-
-      <br><br>
-
-      Si tu entends <strong>뭐</strong>,
-      pense « quoi ».
-
-      <br><br>
-
-      Si tu entends <strong>누구</strong>,
-      pense « qui ».
-
-      <br><br>
-
-      Si tu entends <strong>어디</strong>,
-      pense « où », puis écoute le verbe
-      pour comprendre précisément la question.
-
-      <br><br>
-
-      Et n'oublie pas :
-      certaines questions comme
-      <strong>커피를 좋아해요?</strong>
-      n'ont pas besoin de mot interrogatif.
-    </div>
-
-
-
-    <div class="garden-info">
-
-      💧 Activité terminée !
-
-      <br><br>
-
-      Tu peux maintenant passer
-      à l'expression orale et commencer
-      à poser toi-même les questions.
-    </div>
-
+    <div
+      class="mistake-summary"
+      id="mistakeSummary"
+    ></div>
 
 
     <button
-      class="next-step-button"
+      class="finish-button"
       type="button"
-      onclick="window.location.href='parle-5.html'"
+      onclick="completeListeningAndGo()"
     >
-      🗣️ Passer à « Je parle »
-    </button>
-
-
-    <button
-      class="chapter-button"
-      type="button"
-      onclick="window.location.href='chapitre-5.html'"
-    >
-      Retour au chapitre
+      ✅ J'ai terminé · Passer à « Je parle »
     </button>
 
   </section>
@@ -1136,82 +924,99 @@
 
 
 
+<script src="chapter-progress.js"></script>
+
+
 <script>
 
   /* =====================================================
-     VARIABLES
+     AUDIO
      ===================================================== */
 
-  let incorrectAttempts =
-    0;
+  const AUDIO_SETTINGS = {
 
+    normalRate:
+      0.82,
 
-  const completedQuestions = {
-
-    1: false,
-    2: false,
-    3: false,
-    4: false,
-    5: false
+    slowRate:
+      0.25
 
   };
 
 
-
-  /* =====================================================
-     VOIX CORÉENNE
-     ===================================================== */
-
   function getKoreanVoice() {
 
     const voices =
-      window.speechSynthesis.getVoices();
+      window.speechSynthesis
+        .getVoices();
 
 
-    return voices.find(
-      voice =>
-        voice.lang &&
-        voice.lang
-          .toLowerCase()
-          .startsWith("ko")
+    return (
+      voices.find(
+        voice =>
+          voice.lang &&
+          voice.lang
+            .toLowerCase()
+            .startsWith("ko")
+      ) ||
+      null
     );
 
   }
 
 
+  function characterPitch(
+    character
+  ) {
 
-  /* =====================================================
-     AUDIO NORMAL
-     ===================================================== */
+    const pitches = {
 
-  function speakKorean(text) {
+      hana:
+        1.06,
 
-    if (
-      !("speechSynthesis" in window)
-    ) {
-      return;
-    }
+      minsu:
+        0.94
 
+    };
+
+
+    return (
+      pitches[
+        character
+      ] ||
+      1
+    );
+
+  }
+
+
+  function speak(
+    text,
+    character,
+    rate
+  ) {
 
     window.speechSynthesis.cancel();
 
 
-    const speech =
+    const utterance =
       new SpeechSynthesisUtterance(
         text
       );
 
 
-    speech.lang =
+    utterance.lang =
       "ko-KR";
 
 
-    speech.rate =
-      0.82;
+    utterance.rate =
+      rate;
 
 
-    speech.pitch =
-      1;
+    utterance.pitch =
+      characterPitch(
+        character
+      );
 
 
     const voice =
@@ -1220,14 +1025,42 @@
 
     if (voice) {
 
-      speech.voice =
+      utterance.voice =
         voice;
 
     }
 
 
     window.speechSynthesis.speak(
-      speech
+      utterance
+    );
+
+  }
+
+
+  function speakKorean(
+    text,
+    character
+  ) {
+
+    speak(
+      text,
+      character,
+      AUDIO_SETTINGS.normalRate
+    );
+
+  }
+
+
+  function speakKoreanSlow(
+    text,
+    character
+  ) {
+
+    speak(
+      text,
+      character,
+      AUDIO_SETTINGS.slowRate
     );
 
   }
@@ -1235,103 +1068,131 @@
 
 
   /* =====================================================
-     AUDIO LENT
+     QUESTIONS
      ===================================================== */
 
-  function speakKoreanSlow(text) {
+  const correctAnswers = {
 
-    if (
-      !("speechSynthesis" in window)
-    ) {
-      return;
-    }
+    1:
+      "what",
 
+    2:
+      "eodi",
 
-    window.speechSynthesis.cancel();
+    3:
+      "who",
 
+    4:
+      "question",
 
-    const speech =
-      new SpeechSynthesisUtterance(
-        text
-      );
+    5:
+      "coffee"
 
-
-    speech.lang =
-      "ko-KR";
+  };
 
 
-    speech.rate =
-      0.25;
+  const correctFeedback = {
+
+    1:
+      "Exact ✓ Tu as entendu 뭐 : Hana demande ce qu'est l'objet.",
+
+    2:
+      "Exact ✓ 어디 signifie « où ». Dans 지금 어디에 가요?, Min-su demande où Hana va maintenant.",
+
+    3:
+      "Exact ✓ 누구 signifie « qui ». 누구예요? veut donc dire « Qui est-ce ? ».",
+
+    4:
+      "Exact ✓ 커피를 좋아해요? est bien une question : « Tu aimes le café ? ».",
+
+    5:
+      "Exact ✓ 커피예요 signifie « C'est du café. »"
+
+  };
 
 
-    speech.pitch =
-      1;
+  const wrongFeedback = {
+
+    1:
+      "Écoute encore le mot 뭐. Il sert à demander « quoi ? ». La bonne idée est donc : « Qu'est-ce que c'est ? ».",
+
+    2:
+      "Écoute le début du groupe 어디에. Le mot interrogatif entendu est 어디, « où ».",
+
+    3:
+      "Le mot que tu entends est 누구. Il concerne l'identité d'une personne : « Qui est-ce ? ».",
+
+    4:
+      "Ici Hana ne donne pas simplement une information : elle demande si l'autre personne aime le café. Réécoute l'intonation de la fin.",
+
+    5:
+      "커피 signifie « café » et 예요 signifie ici « c'est ». Min-su répond donc : « C'est du café. »"
+
+  };
 
 
-    const voice =
-      getKoreanVoice();
+  let currentQuestion =
+    1;
 
 
-    if (voice) {
-
-      speech.voice =
-        voice;
-
-    }
+  let correctCount =
+    0;
 
 
-    window.speechSynthesis.speak(
-      speech
-    );
-
-  }
+  const answeredQuestions =
+    new Set();
 
 
+  const listeningMistakes =
+    [];
 
-  /* =====================================================
-     VÉRIFIER UNE RÉPONSE
-     ===================================================== */
 
   function checkAnswer(
-    number,
+    questionNumber,
     button,
-    isCorrect
+    answer
   ) {
 
     if (
-      completedQuestions[number]
+      answeredQuestions.has(
+        questionNumber
+      )
     ) {
+
       return;
+
     }
 
 
     const feedback =
       document.getElementById(
-        "feedback" + number
+        "feedback" +
+        questionNumber
       );
 
 
-    const question =
+    const nextButton =
       document.getElementById(
-        "question" + number
+        "next" +
+        questionNumber
       );
 
 
-    const answers =
-      question.querySelectorAll(
-        ".answer"
+    const correct =
+      answer ===
+      correctAnswers[
+        questionNumber
+      ];
+
+
+    if (correct) {
+
+      answeredQuestions.add(
+        questionNumber
       );
 
 
-
-    /* ===================================================
-       BONNE RÉPONSE
-       =================================================== */
-
-    if (isCorrect) {
-
-      completedQuestions[number] =
-        true;
+      correctCount++;
 
 
       button.classList.add(
@@ -1340,112 +1201,28 @@
 
 
       feedback.className =
-        "feedback correct";
+        "feedback correct show";
 
 
-
-      if (
-        number === 1
-      ) {
-
-        feedback.innerHTML =
-          "✅ <strong>Exact !</strong>" +
-          "<br><br>" +
-          "Tu as entendu :" +
-          "<div class='heard-question'>뭐예요?</div>" +
-          "<strong>뭐</strong> permet de demander « quoi ? » ou « qu'est-ce que c'est ? ».";
-
-      }
+      feedback.textContent =
+        correctFeedback[
+          questionNumber
+        ];
 
 
-
-      if (
-        number === 2
-      ) {
-
-        feedback.innerHTML =
-          "✅ <strong>Très bien !</strong>" +
-          "<br><br>" +
-          "La question était :" +
-          "<div class='heard-question'>누구예요?</div>" +
-          "<strong>누구</strong> signifie « qui » : on cherche donc l'identité d'une personne.";
-
-      }
-
-
-
-      if (
-        number === 3
-      ) {
-
-        feedback.innerHTML =
-          "✅ <strong>Exact !</strong>" +
-          "<br><br>" +
-          "Tu as entendu :" +
-          "<div class='heard-question'>어디에 있어요?</div>" +
-          "<strong>어디</strong> indique un lieu et <strong>있어요</strong> signifie ici « être / se trouver ».";
-
-      }
-
-
-
-      if (
-        number === 4
-      ) {
-
-        feedback.innerHTML =
-          "✅ <strong>Très bien !</strong>" +
-          "<br><br>" +
-          "La question était :" +
-          "<div class='heard-question'>어디에 가요?</div>" +
-          "Cette fois, le verbe <strong>가요</strong> signifie « aller ».";
-
-      }
-
-
-
-      if (
-        number === 5
-      ) {
-
-        feedback.innerHTML =
-          "✅ <strong>Parfait !</strong>" +
-          "<br><br>" +
-          "Tu as entendu :" +
-          "<div class='heard-question'>커피를 좋아해요?</div>" +
-          "La personne demande si l'autre <strong>aime le café</strong>.";
-
-      }
-
-
-
-      answers.forEach(
-        answer => {
-
-          answer.disabled =
-            true;
-
-        }
+      nextButton.classList.add(
+        "show"
       );
 
 
-      document.getElementById(
-        "next" + number
-      ).style.display =
-        "block";
+      disableQuestionButtons(
+        questionNumber
+      );
 
 
       return;
 
     }
-
-
-
-    /* ===================================================
-       MAUVAISE RÉPONSE
-       =================================================== */
-
-    incorrectAttempts++;
 
 
     button.classList.add(
@@ -1454,154 +1231,337 @@
 
 
     feedback.className =
-      "feedback wrong";
+      "feedback wrong show";
 
+
+    feedback.textContent =
+      wrongFeedback[
+        questionNumber
+      ];
 
 
     if (
-      number === 1
+      !listeningMistakes.includes(
+        questionNumber
+      )
     ) {
 
-      feedback.innerHTML =
-        "❌ <strong>Réécoute le tout début.</strong>" +
-        "<br><br>" +
-        "💡 Essaie de reconnaître <strong>뭐</strong>. Ce mot sert à demander « quoi ? ».";
+      listeningMistakes.push(
+        questionNumber
+      );
 
     }
 
 
-
-    if (
-      number === 2
-    ) {
-
-      feedback.innerHTML =
-        "❌ <strong>Cette question concerne une personne.</strong>" +
-        "<br><br>" +
-        "💡 Essaie de repérer le son de <strong>누구</strong>.";
-
-    }
-
-
-
-    if (
-      number === 3
-    ) {
-
-      feedback.innerHTML =
-        "❌ <strong>Tu as peut-être reconnu 어디, mais écoute aussi la fin.</strong>" +
-        "<br><br>" +
-        "💡 <strong>있어요?</strong> demande où quelqu'un <strong>se trouve</strong>.";
-
-    }
-
-
-
-    if (
-      number === 4
-    ) {
-
-      feedback.innerHTML =
-        "❌ <strong>Le début parle bien d'un lieu.</strong>" +
-        "<br><br>" +
-        "Mais écoute le verbe : <strong>가요?</strong> = « aller ? ».";
-
-    }
-
-
-
-    if (
-      number === 5
-    ) {
-
-      feedback.innerHTML =
-        "❌ <strong>Il n'y a ni 뭐, ni 어디, ni 누구.</strong>" +
-        "<br><br>" +
-        "💡 Essaie de reconnaître <strong>커피</strong> et <strong>좋아해요?</strong>.";
-
-    }
-
-
-
-    setTimeout(
-      () => {
+    window.setTimeout(
+      function() {
 
         button.classList.remove(
           "wrong"
         );
 
       },
-      800
+      700
     );
 
   }
 
 
 
-  /* =====================================================
-     QUESTION SUIVANTE
-     ===================================================== */
+  function disableQuestionButtons(
+    questionNumber
+  ) {
 
-  function showQuestion(number) {
+    const question =
+      document.getElementById(
+        "question" +
+        questionNumber
+      );
 
-    if (
-      "speechSynthesis" in window
-    ) {
-      window.speechSynthesis.cancel();
-    }
 
-    document
+    question
       .querySelectorAll(
-        ".exercise-card"
+        ".answer-button"
       )
       .forEach(
-        card => {
+        button => {
 
-          card.classList.add(
-            "hidden"
-          );
+          button.disabled =
+            true;
 
         }
       );
 
-
-    document.getElementById(
-      "question" + number
-    ).classList.remove(
-      "hidden"
-    );
+  }
 
 
-    const percentages = {
 
-      1: 20,
-      2: 40,
-      3: 60,
-      4: 80,
-      5: 100
+  function nextQuestion() {
 
-    };
-
-
-    document.getElementById(
-      "progressFill"
-    ).style.width =
-      percentages[number] +
-      "%";
+    document
+      .getElementById(
+        "question" +
+        currentQuestion
+      )
+      .classList.remove(
+        "active"
+      );
 
 
-    document.getElementById(
-      "progressLabel"
-    ).textContent =
-      number +
-      " / 5";
+    currentQuestion++;
+
+
+    document
+      .getElementById(
+        "question" +
+        currentQuestion
+      )
+      .classList.add(
+        "active"
+      );
+
+
+    updateExerciseProgress();
 
 
     window.scrollTo({
+      top:
+        0,
+      behavior:
+        "smooth"
+    });
 
-      top: 0,
-      behavior: "smooth"
+  }
 
+
+
+  function updateExerciseProgress() {
+
+    const percentage =
+      (
+        currentQuestion /
+        5
+      ) *
+      100;
+
+
+    document.getElementById(
+      "exerciseProgressText"
+    ).textContent =
+      currentQuestion +
+      " / 5";
+
+
+    document.getElementById(
+      "exerciseProgressFill"
+    ).style.width =
+      percentage +
+      "%";
+
+  }
+
+
+
+  /* =====================================================
+     RÉSULTAT
+     ===================================================== */
+
+  function finishExercise() {
+
+    window.speechSynthesis.cancel();
+
+
+    document
+      .getElementById(
+        "question5"
+      )
+      .classList.remove(
+        "active"
+      );
+
+
+    document.getElementById(
+      "exerciseProgressText"
+    ).textContent =
+      "5 / 5";
+
+
+    document.getElementById(
+      "exerciseProgressFill"
+    ).style.width =
+      "100%";
+
+
+    const resultCard =
+      document.getElementById(
+        "resultCard"
+      );
+
+
+    resultCard.classList.add(
+      "show"
+    );
+
+
+    document.getElementById(
+      "resultScore"
+    ).textContent =
+      correctCount +
+      " / 5";
+
+
+    const resultMessage =
+      document.getElementById(
+        "resultMessage"
+      );
+
+
+    if (
+      listeningMistakes.length === 0
+    ) {
+
+      resultMessage.textContent =
+        "Bravo 🌿 Ton oreille reconnaît déjà très bien les principales questions du chapitre.";
+
+    }
+
+    else if (
+      listeningMistakes.length <= 2
+    ) {
+
+      resultMessage.textContent =
+        "Très bien 🌿 Quelques phrases t'ont demandé une deuxième écoute, mais tu as réussi à les identifier.";
+
+    }
+
+    else {
+
+      resultMessage.textContent =
+        "Tu as terminé l'exercice 🌱 Les erreurs t'indiquent simplement quelles questions réécouter pendant ta prochaine révision.";
+
+    }
+
+
+    const summary =
+      document.getElementById(
+        "mistakeSummary"
+      );
+
+
+    if (
+      listeningMistakes.length === 0
+    ) {
+
+      summary.innerHTML =
+        "<strong>✅ Rien à revoir pour le moment.</strong><br><br>" +
+        "Tu as identifié 뭐, 어디, 누구 et l'intonation interrogative sans erreur.";
+
+    }
+
+    else {
+
+      const notions =
+        [];
+
+
+      if (
+        listeningMistakes.includes(
+          1
+        )
+      ) {
+
+        notions.push(
+          "뭐 → quoi / qu'est-ce que c'est ?"
+        );
+
+      }
+
+
+      if (
+        listeningMistakes.includes(
+          2
+        )
+      ) {
+
+        notions.push(
+          "어디 → où ?"
+        );
+
+      }
+
+
+      if (
+        listeningMistakes.includes(
+          3
+        )
+      ) {
+
+        notions.push(
+          "누구 → qui ?"
+        );
+
+      }
+
+
+      if (
+        listeningMistakes.includes(
+          4
+        )
+      ) {
+
+        notions.push(
+          "intonation d'une question"
+        );
+
+      }
+
+
+      if (
+        listeningMistakes.includes(
+          5
+        )
+      ) {
+
+        notions.push(
+          "커피예요 → C'est du café."
+        );
+
+      }
+
+
+      summary.innerHTML =
+        "<strong>🧠 À revoir :</strong><br><br>" +
+        notions
+          .map(
+            notion =>
+              "• " +
+              notion
+          )
+          .join(
+            "<br>"
+          );
+
+    }
+
+
+    /*
+      On sauvegarde uniquement les erreurs.
+      L'étape J'écoute n'est PAS encore validée.
+    */
+
+    localStorage.setItem(
+      "hanaKorean_chapter5_listeningMistakes",
+      JSON.stringify(
+        listeningMistakes
+      )
+    );
+
+
+    window.scrollTo({
+      top:
+        0,
+      behavior:
+        "smooth"
     });
 
   }
@@ -1609,93 +1569,13 @@
 
 
   /* =====================================================
-     FIN DE L'EXERCICE
+     VALIDATION FINALE
      ===================================================== */
 
-  function finishExercise() {
+  function completeListeningAndGo() {
 
-    if (
-      "speechSynthesis" in window
-    ) {
-      window.speechSynthesis.cancel();
-    }
+    window.speechSynthesis.cancel();
 
-    document
-      .querySelectorAll(
-        ".exercise-card"
-      )
-      .forEach(
-        card => {
-
-          card.classList.add(
-            "hidden"
-          );
-
-        }
-      );
-
-
-    document.getElementById(
-      "progressFill"
-    ).style.width =
-      "100%";
-
-
-    document.getElementById(
-      "progressLabel"
-    ).textContent =
-      "5 / 5";
-
-
-    document.getElementById(
-      "resultCard"
-    ).style.display =
-      "block";
-
-
-
-    let message =
-      "";
-
-
-    if (
-      incorrectAttempts === 0
-    ) {
-
-      message =
-        "🌟 Tu as identifié les 5 questions du premier coup.";
-
-    }
-
-    else if (
-      incorrectAttempts === 1
-    ) {
-
-      message =
-        "💡 1 tentative incorrecte, puis les 5 questions ont été reconnues.";
-
-    }
-
-    else {
-
-      message =
-        "💡 " +
-        incorrectAttempts +
-        " tentatives incorrectes. Les 5 questions ont malgré tout été validées.";
-
-    }
-
-
-    document.getElementById(
-      "attemptText"
-    ).textContent =
-      message;
-
-
-
-    /* ===================================================
-       VALIDATION DE 🎧 J'ÉCOUTE
-       =================================================== */
 
     localStorage.setItem(
       "hanaKorean_chapter5_listening",
@@ -1704,38 +1584,60 @@
 
 
     localStorage.setItem(
-      "hanaKorean_chapter5_listeningMistakes",
-      incorrectAttempts
+      "hanaKorean_chapter5_listeningExercise",
+      "completed"
     );
 
 
-    window.scrollTo({
+    if (
+      window.HanaChapterProgress &&
+      typeof window.HanaChapterProgress.render === "function"
+    ) {
 
-      top: 0,
-      behavior: "smooth"
+      window.HanaChapterProgress.render();
 
-    });
+    }
+
+
+    window.location.href =
+      "parle-5.html";
 
   }
 
 
 
   /* =====================================================
-     CHARGEMENT DES VOIX
+     DÉMARRAGE
      ===================================================== */
 
-  if (
-    "speechSynthesis" in window
-  ) {
+  updateExerciseProgress();
 
-    window.speechSynthesis.onvoiceschanged =
-      function() {
 
-        window.speechSynthesis.getVoices();
+  window.addEventListener(
+    "pagehide",
+    function() {
 
-      };
+      window.speechSynthesis.cancel();
 
-  }
+    }
+  );
+
+
+  window.addEventListener(
+    "pageshow",
+    function() {
+
+      if (
+        window.HanaChapterProgress &&
+        typeof window.HanaChapterProgress.render === "function"
+      ) {
+
+        window.HanaChapterProgress.render();
+
+      }
+
+    }
+  );
 
 </script>
 

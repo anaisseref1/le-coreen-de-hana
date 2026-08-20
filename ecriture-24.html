@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="theme-color"
+    content="#F7F4ED"
+  >
+
+  <title>Chapitre 24 — J'écris</title>
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+<link rel="stylesheet" href="chapter-progress.css">
+
+  <style>
+
+    .write-header {
+      text-align:center;
+      margin-bottom:24px;
+    }
+
+    .exercise-card,
+    .free-card,
+    .tip-card {
+      padding:20px;
+      margin-bottom:18px;
+      background:var(--white);
+      border-radius:var(--radius-large);
+      box-shadow:var(--shadow);
+    }
+
+    .question-block {
+      padding:16px;
+      margin-top:14px;
+      background:#FBFAF6;
+      border-radius:var(--radius-medium);
+    }
+
+    .question-title {
+      margin-bottom:10px;
+      color:var(--navy);
+      font-weight:bold;
+      line-height:1.6;
+    }
+
+    input,
+    textarea {
+      width:100%;
+      box-sizing:border-box;
+      margin-top:8px;
+      padding:12px 13px;
+      border:1px solid var(--border);
+      border-radius:var(--radius-medium);
+      font:inherit;
+      color:var(--navy);
+      background:white;
+    }
+
+    textarea {
+      min-height:130px;
+      resize:vertical;
+    }
+
+    .check-button {
+      width:100%;
+      margin-top:10px;
+      background:var(--jade);
+      color:white;
+      font-weight:bold;
+    }
+
+    .feedback {
+      display:none;
+      margin-top:10px;
+      padding:11px 13px;
+      border-radius:var(--radius-medium);
+      line-height:1.6;
+    }
+
+    .feedback.show {
+      display:block;
+    }
+
+    .feedback.success {
+      background:var(--success-light);
+      color:var(--success);
+    }
+
+    .feedback.error {
+      background:var(--error-light);
+      color:var(--error);
+    }
+
+    .choice-grid {
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0, 1fr));
+      gap:10px;
+      margin-top:12px;
+    }
+
+    .gift-chip {
+      padding:12px;
+      background:var(--soft-beige);
+      border-radius:var(--radius-medium);
+      color:var(--navy);
+      text-align:center;
+      font-weight:600;
+    }
+
+    .complete-button,
+    .next-button,
+    .back-button {
+      width:100%;
+      margin-top:10px;
+    }
+
+    .complete-button {
+      display:none;
+      background:var(--jade);
+      color:white;
+      font-weight:bold;
+    }
+
+    .complete-button.show {
+      display:block;
+    }
+
+    .complete-button.done {
+      background:var(--success);
+    }
+
+    .next-button {
+      display:none;
+      background:var(--navy);
+      color:white;
+      font-weight:bold;
+    }
+
+    .back-button {
+      background:var(--soft-beige);
+      color:var(--navy);
+    }
+
+    @media (max-width:430px) {
+
+      .choice-grid {
+        grid-template-columns:1fr;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+<main class="app">
+
+
+  <a
+    class="back-link"
+    href="parle-24.html"
+  >
+    ← Oral
+  </a>
+
+<section id="hanaChapterPath" data-chapter-path></section>
+
+
+
+  <header class="write-header">
+
+    <span class="chapter-badge">
+      Chapitre 24 · ✍️ J'écris
+    </span>
+
+    <p class="korean">
+      친구에게 선물을 줘요. 🎁
+    </p>
+
+    <h1>
+      Écrire autour d'un cadeau
+    </h1>
+
+    <p>
+      Réutilise
+      <strong>에게</strong>,
+      <strong>주다</strong>,
+      <strong>받다</strong>
+      et les expressions du chapitre.
+    </p>
+
+  </header>
+
+
+  <section class="exercise-card">
+
+    <h2>✍️ Exercice 1 — Traduis en coréen</h2>
+
+
+    <div
+      class="question-block"
+      data-valid="친구에게 선물을 줘요"
+    >
+
+      <div class="question-title">
+        1. J'offre / Je donne un cadeau à mon ami.
+      </div>
+
+      <input
+        type="text"
+        lang="ko"
+        placeholder="Écris en coréen"
+      >
+
+      <button
+        class="check-button"
+        type="button"
+      >
+        Vérifier
+      </button>
+
+      <div class="feedback"></div>
+
+    </div>
+
+
+    <div
+      class="question-block"
+      data-valid="선물을 받아요"
+    >
+
+      <div class="question-title">
+        2. Je reçois un cadeau.
+      </div>
+
+      <input
+        type="text"
+        lang="ko"
+        placeholder="Écris en coréen"
+      >
+
+      <button
+        class="check-button"
+        type="button"
+      >
+        Vérifier
+      </button>
+
+      <div class="feedback"></div>
+
+    </div>
+
+
+    <div
+      class="question-block"
+      data-valid="가족에게 선물하고 싶어요"
+    >
+
+      <div class="question-title">
+        3. Je veux offrir un cadeau à ma famille.
+      </div>
+
+      <input
+        type="text"
+        lang="ko"
+        placeholder="Écris en coréen"
+      >
+
+      <button
+        class="check-button"
+        type="button"
+      >
+        Vérifier
+      </button>
+
+      <div class="feedback"></div>
+
+    </div>
+
+
+    <div
+      class="question-block"
+      data-valid="선물을 사요"
+    >
+
+      <div class="question-title">
+        4. J'achète un cadeau.
+      </div>
+
+      <input
+        type="text"
+        lang="ko"
+        placeholder="Écris en coréen"
+      >
+
+      <button
+        class="check-button"
+        type="button"
+      >
+        Vérifier
+      </button>
+
+      <div class="feedback"></div>
+
+    </div>
+
+  </section>
+
+
+  <section class="exercise-card">
+
+    <h2>🧩 Exercice 2 — Complète</h2>
+
+    <p>
+      Complète avec :
+      <strong>에게 / 을 / 줘요 / 받아요</strong>
+    </p>
+
+
+    <div
+      class="question-block"
+      data-valid="에게 줘요"
+      data-mode="parts"
+    >
+
+      <div class="question-title">
+        ① 친구_____ 선물을 ________.
+        <br>
+        → Je donne un cadeau à mon ami.
+      </div>
+
+      <input
+        type="text"
+        lang="ko"
+        placeholder="Exemple : 에게 줘요"
+      >
+
+      <button
+        class="check-button"
+        type="button"
+      >
+        Vérifier
+      </button>
+
+      <div class="feedback"></div>
+
+    </div>
+
+
+    <div
+      class="question-block"
+      data-valid="을 받아요"
+      data-mode="parts"
+    >
+
+      <div class="question-title">
+        ② 선물_____ ________.
+        <br>
+        → Je reçois un cadeau.
+      </div>
+
+      <input
+        type="text"
+        lang="ko"
+        placeholder="Exemple : 을 받아요"
+      >
+
+      <button
+        class="check-button"
+        type="button"
+      >
+        Vérifier
+      </button>
+
+      <div class="feedback"></div>
+
+    </div>
+
+
+    <div
+      class="question-block"
+      data-valid="에게"
+    >
+
+      <div class="question-title">
+        ③ 가족_____ 선물하고 싶어요.
+        <br>
+        → Je veux offrir un cadeau à ma famille.
+      </div>
+
+      <input
+        type="text"
+        lang="ko"
+        placeholder="Complète la phrase"
+      >
+
+      <button
+        class="check-button"
+        type="button"
+      >
+        Vérifier
+      </button>
+
+      <div class="feedback"></div>
+
+    </div>
+
+  </section>
+
+
+  <section class="free-card">
+
+    <h2>🎁 Exercice 3 — Que choisirais-tu ?</h2>
+
+    <p>
+      Tu veux offrir un cadeau à quelqu'un.
+      Choisis un objet :
+    </p>
+
+    <div class="choice-grid">
+
+      <div class="gift-chip">🎁 선물</div>
+      <div class="gift-chip">📖 책</div>
+      <div class="gift-chip">🌸 꽃</div>
+      <div class="gift-chip">🍫 초콜릿</div>
+      <div class="gift-chip">🍵 차</div>
+
+    </div>
+
+    <p>
+      Puis construis une phrase avec :
+    </p>
+
+    <strong>
+      ______에게 ______을/를 선물하고 싶어요.
+    </strong>
+
+    <textarea
+      id="choiceExercise"
+      lang="ko"
+      placeholder="Exemple : 친구에게 책을 선물하고 싶어요."
+    ></textarea>
+
+  </section>
+
+
+  <section class="free-card">
+
+    <h2>📝 Mon carnet de voyage</h2>
+
+    <p>
+      Imagine que tu veux remercier quelqu'un
+      rencontré pendant ton voyage en Corée.
+    </p>
+
+    <p>
+      À qui veux-tu offrir un cadeau ?
+      Que veux-tu lui offrir ?
+      Pourquoi ?
+    </p>
+
+    <p>
+      Écris <strong>3 à 5 phrases en coréen</strong>.
+    </p>
+
+    <div class="choice-grid">
+
+      <div class="gift-chip">친구에게</div>
+      <div class="gift-chip">가족에게</div>
+      <div class="gift-chip">선물을 줘요.</div>
+      <div class="gift-chip">선물하고 싶어요.</div>
+      <div class="gift-chip">책을 좋아해요.</div>
+      <div class="gift-chip">차를 좋아해요.</div>
+      <div class="gift-chip">꽃을 좋아해요.</div>
+
+    </div>
+
+    <textarea
+      id="travelNotebook"
+      lang="ko"
+      placeholder="Écris ici 3 à 5 phrases…"
+    ></textarea>
+
+  </section>
+
+
+  <section class="tip-card">
+
+    <h2>💡 À retenir</h2>
+
+    <strong>친구에게 선물을 줘요.</strong>
+
+    <br>
+
+    → Je donne un cadeau à un ami.
+
+    <br><br>
+
+    <strong>선물을 받아요.</strong>
+
+    <br>
+
+    → Je reçois un cadeau.
+
+    <br><br>
+
+    Avec <strong>받다</strong>,
+    tu peux aussi rencontrer
+    <strong>에게서</strong>
+    pour préciser la personne
+    <strong>de qui</strong> vient quelque chose.
+
+    <br><br>
+
+    <strong>친구에게서 선물을 받아요.</strong>
+
+    <br>
+
+    → Je reçois un cadeau d'un ami.
+
+  </section>
+
+
+  <button
+    class="complete-button"
+    id="completeButton"
+    type="button"
+  >
+    ✅ Valider l'écriture
+  </button>
+
+
+  <button
+    class="next-button"
+    id="nextButton"
+    type="button"
+  >
+    🧠 Passer à la révision
+  </button>
+
+
+  <button
+    class="back-button"
+    type="button"
+    onclick="window.location.href='parle-24.html'"
+  >
+    ← Retour à l'oral
+  </button>
+
+
+</main>
+
+
+<script src="chapter-progress.js"></script>
+
+<script>
+
+  const progressKey =
+    "hanaKorean_chapter24_writing";
+
+
+  const choiceExerciseKey =
+    "hanaKorean_chapter24_choiceExercise";
+
+
+  const notebookKey =
+    "hanaKorean_chapter24_notebook";
+
+
+  const questionBlocks =
+    Array.from(
+      document.querySelectorAll(
+        ".question-block[data-valid]"
+      )
+    );
+
+
+  const completeButton =
+    document.getElementById(
+      "completeButton"
+    );
+
+
+  const nextButton =
+    document.getElementById(
+      "nextButton"
+    );
+
+
+  const choiceExercise =
+    document.getElementById(
+      "choiceExercise"
+    );
+
+
+  const travelNotebook =
+    document.getElementById(
+      "travelNotebook"
+    );
+
+
+  function normalizeText(
+    value
+  ) {
+
+    return value
+      .replace(
+        /[?.!,]/g,
+        ""
+      )
+      .replace(
+        /\s+/g,
+        ""
+      )
+      .trim();
+
+  }
+
+
+  function updateCompletionAvailability() {
+
+    const allCorrect =
+      questionBlocks.every(
+        block =>
+          block.dataset.completed ===
+          "true"
+      );
+
+
+    if (
+      allCorrect
+    ) {
+
+      completeButton
+        .classList
+        .add(
+          "show"
+        );
+
+    }
+
+  }
+
+
+  questionBlocks.forEach(
+    block => {
+
+      const input =
+        block.querySelector(
+          "input"
+        );
+
+
+      const checkButton =
+        block.querySelector(
+          ".check-button"
+        );
+
+
+      const feedback =
+        block.querySelector(
+          ".feedback"
+        );
+
+
+      const validAnswers =
+        block.dataset.valid
+          .split("|")
+          .map(
+            answer =>
+              normalizeText(
+                answer
+              )
+          );
+
+
+      checkButton.addEventListener(
+        "click",
+        () => {
+
+          const answer =
+            normalizeText(
+              input.value
+            );
+
+
+          if (
+            !answer
+          ) {
+
+            feedback.className =
+              "feedback show error";
+
+
+            feedback.textContent =
+              "Écris une réponse avant de vérifier.";
+
+            return;
+
+          }
+
+
+          const accepted =
+            validAnswers.some(
+              valid =>
+                answer === valid
+            );
+
+
+          if (
+            accepted
+          ) {
+
+            block.dataset.completed =
+              "true";
+
+
+            feedback.className =
+              "feedback show success";
+
+
+            feedback.textContent =
+              "✅ Très bien !";
+
+
+            input.disabled =
+              true;
+
+
+            checkButton.disabled =
+              true;
+
+
+            updateCompletionAvailability();
+
+          } else {
+
+            feedback.className =
+              "feedback show error";
+
+
+            if (
+              block.dataset.mode ===
+              "parts"
+            ) {
+
+              feedback.textContent =
+                "Pas encore. Vérifie les deux éléments à compléter et réessaie.";
+
+            } else {
+
+              feedback.textContent =
+                "Pas encore. Relis la structure du chapitre et réessaie.";
+
+            }
+
+          }
+
+        }
+      );
+
+    }
+  );
+
+
+  function restoreAndSave(
+    element,
+    key
+  ) {
+
+    if (
+      !element
+    ) {
+
+      return;
+
+    }
+
+
+    element.value =
+      localStorage.getItem(
+        key
+      ) || "";
+
+
+    element.addEventListener(
+      "input",
+      () => {
+
+        localStorage.setItem(
+          key,
+          element.value
+        );
+
+      }
+    );
+
+  }
+
+
+  restoreAndSave(
+    choiceExercise,
+    choiceExerciseKey
+  );
+
+
+  restoreAndSave(
+    travelNotebook,
+    notebookKey
+  );
+
+
+  function showCompletedState() {
+
+    completeButton.textContent =
+      "✅ Écriture terminée";
+
+
+    completeButton
+      .classList
+      .add(
+        "show",
+        "done"
+      );
+
+
+    nextButton.style.display =
+      "block";
+
+  }
+
+
+  if (
+    localStorage.getItem(
+      progressKey
+    ) === "completed"
+  ) {
+
+    showCompletedState();
+
+  }
+
+
+  completeButton.addEventListener(
+    "click",
+    () => {
+
+      localStorage.setItem(
+        progressKey,
+        "completed"
+      );
+
+
+      showCompletedState();
+
+    }
+  );
+
+
+  nextButton.addEventListener(
+    "click",
+    () => {
+
+      window.location.href =
+        "revision-24.html";
+
+    }
+  );
+
+</script>
+
+
+
+<script>
+(function () {
+  const UNDERSTANDING_KEY = "hanaKorean_chapter24_understanding";
+  const LISTENING_EXERCISE_KEY = "hanaKorean_chapter24_listeningExercise";
+  const SPEAKING_KEY = "hanaKorean_chapter24_speaking";
+  const WRITING_KEY = "hanaKorean_chapter24_writing";
+  const WRITING_MISTAKES_KEY = "hanaKorean_chapter24_writingMistakes";
+  const REVISION_NOTIONS_KEY = "hanaKorean_chapter24_revisionNotions";
+
+  function renderChapterProgress() {
+    if (window.HanaChapterProgress && typeof window.HanaChapterProgress.render === "function") {
+      window.HanaChapterProgress.render();
+    }
+  }
+
+  function guardWritingAccess() {
+    if (localStorage.getItem(UNDERSTANDING_KEY) !== "completed") {
+      window.location.href = "chapitre-24.html";
+      return false;
+    }
+    if (localStorage.getItem(LISTENING_EXERCISE_KEY) !== "completed") {
+      window.location.href = "exercice-ecoute-24.html";
+      return false;
+    }
+    if (localStorage.getItem(SPEAKING_KEY) !== "completed") {
+      window.location.href = "parle-24.html";
+      return false;
+    }
+    return true;
+  }
+
+  if (guardWritingAccess()) renderChapterProgress();
+
+  const button = document.getElementById("completeButton");
+  if (button) {
+    button.addEventListener("click", () => {
+      localStorage.setItem(WRITING_KEY, "completed");
+      if (localStorage.getItem(WRITING_MISTAKES_KEY) === null) {
+        localStorage.setItem(WRITING_MISTAKES_KEY, "0");
+      }
+      if (localStorage.getItem(REVISION_NOTIONS_KEY) === null) {
+        localStorage.setItem(REVISION_NOTIONS_KEY, "[]");
+      }
+      renderChapterProgress();
+    });
+  }
+
+  window.addEventListener("pageshow", () => {
+    if (guardWritingAccess()) renderChapterProgress();
+  });
+})();
+</script>
+
+</body>
+
+</html>

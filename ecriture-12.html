@@ -2,1044 +2,946 @@
 <html lang="fr">
 
 <head>
-  <meta charset="UTF-8">
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
+<meta charset="UTF-8">
 
-  <meta
-    name="theme-color"
-    content="#F7F4ED"
-  >
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0"
+>
 
-  <title>J'écris — Chapitre 12</title>
+<meta
+name="theme-color"
+content="#F7F4ED"
+>
 
-  <link
-    rel="stylesheet"
-    href="style.css"
-  >
+<title>
+Chapitre 12 — Écriture
+</title>
 
-  <style>
-    .writing-header {
-      text-align: center;
-      margin-bottom: 28px;
-    }
 
-    .chapter-badge {
-      display: inline-block;
-      padding: 7px 14px;
-      margin-bottom: 10px;
-      border-radius: 20px;
-      font-size: 14px;
-      font-weight: bold;
-    }
+<link
+rel="stylesheet"
+href="style.css"
+>
 
-    .intro-card,
-    .writing-card,
-    .result-card {
-      padding: 20px;
-      margin-bottom: 18px;
-      background: var(--white);
-      border-radius: var(--radius-large);
-      box-shadow: var(--shadow);
-    }
+<link
+rel="stylesheet"
+href="chapter-progress.css"
+>
 
-    .intro-card {
-      background: var(--soft-green);
-      color: var(--navy);
-      line-height: 1.7;
-    }
 
-    .exercise-progress {
-      margin-bottom: 22px;
-    }
+<script>
 
-    .progress-info {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 8px;
-      color: var(--text-light);
-      font-size: 13px;
-    }
+if(
+localStorage.getItem(
+"hanaKorean_chapter12_speaking"
+)!=="completed"
+){
 
-    .progress-bar {
-      width: 100%;
-      height: 9px;
-      background: var(--soft-beige);
-      border-radius: 20px;
-      overflow: hidden;
-    }
+window.location.replace(
+"parle-12.html"
+);
 
-    .progress-fill {
-      width: 20%;
-      height: 100%;
-      background: var(--jade);
-      border-radius: 20px;
-      transition: width 0.3s ease;
-    }
+}
 
-    .step-label {
-      color: var(--jade-dark);
-      font-size: 14px;
-      font-weight: bold;
-    }
+</script>
 
-    .prompt-box {
-      padding: 18px;
-      margin: 16px 0;
-      background: #FBFAF6;
-      border-radius: var(--radius-medium);
-      line-height: 1.7;
-    }
 
-    .prompt-main {
-      color: var(--navy);
-      font-size: 20px;
-      font-weight: bold;
-    }
+<style>
 
-    .hint-line {
-      margin-top: 8px;
-      color: var(--text-light);
-    }
+.chapter-header{
 
-    .writing-input {
-      width: 100%;
-      min-height: 58px;
-      padding: 14px;
-      box-sizing: border-box;
-      border: 2px solid var(--border);
-      border-radius: var(--radius-medium);
-      background: var(--white);
-      color: var(--text);
-      font-size: 20px;
-      font-family: inherit;
-    }
+text-align:center;
+margin-bottom:25px;
 
-    .writing-input:focus {
-      outline: none;
-      border-color: var(--jade);
-    }
+}
 
-    .check-button,
-    .retry-button,
-    .next-button,
-    .help-button,
-    .continue-button,
-    .back-button {
-      width: 100%;
-    }
 
-    .check-button {
-      margin-top: 12px;
-      background: var(--jade);
-      color: white;
-      font-weight: bold;
-    }
+.chapter-badge{
 
-    .feedback {
-      display: none;
-      padding: 16px;
-      margin-top: 14px;
-      border-radius: var(--radius-medium);
-      line-height: 1.7;
-    }
+display:inline-block;
+padding:7px 14px;
+border-radius:20px;
+font-size:14px;
+font-weight:bold;
+margin-bottom:10px;
 
-    .feedback.show {
-      display: block;
-    }
+}
 
-    .help-button {
-      margin-top: 10px;
-      background: var(--soft-beige);
-      color: var(--navy);
-    }
 
-    .help-box {
-      display: none;
-      padding: 15px;
-      margin-top: 10px;
-      background: var(--soft-beige);
-      border-radius: var(--radius-medium);
-      color: var(--navy);
-      line-height: 1.7;
-    }
+.intro{
 
-    .help-box.show {
-      display: block;
-    }
+color:var(--text-light);
+line-height:1.7;
 
-    .retry-button {
-      display: none;
-      margin-top: 10px;
-    }
+}
 
-    .retry-button.show {
-      display: block;
-    }
 
-    .next-button {
-      display: none;
-      margin-top: 12px;
-      background: var(--navy);
-      color: white;
-      font-weight: bold;
-    }
+.write-card{
 
-    .next-button.show {
-      display: block;
-    }
+padding:20px;
+margin-bottom:18px;
 
-    .answer-reveal {
-      margin-top: 10px;
-      padding: 12px;
-      background: rgba(255, 255, 255, 0.7);
-      border-radius: var(--radius-small);
-      color: var(--navy);
-      font-size: 20px;
-      font-weight: bold;
-    }
+}
 
-    .result-card {
-      display: none;
-      text-align: center;
-    }
 
-    .result-card.show {
-      display: block;
-    }
+.hidden{
 
-    .result-icon {
-      font-size: 58px;
-    }
+display:none;
 
-    .summary-box {
-      padding: 16px;
-      margin-top: 18px;
-      background: #FBFAF6;
-      border-radius: var(--radius-medium);
-      text-align: left;
-      line-height: 1.7;
-    }
+}
 
-    .notion-list {
-      margin-top: 14px;
-    }
 
-    .notion-line {
-      padding: 10px 0;
-      border-bottom: 1px solid var(--border);
-    }
+.step-number{
 
-    .notion-line:last-child {
-      border-bottom: none;
-    }
+font-size:13px;
+font-weight:bold;
+color:var(--jade-dark);
+margin-bottom:8px;
 
-    .continue-button {
-      margin-top: 18px;
-      background: var(--jade);
-      color: white;
-      font-weight: bold;
-    }
+}
 
-    .back-button {
-      margin-top: 10px;
-      background: var(--soft-beige);
-      color: var(--navy);
-    }
-  </style>
+
+.example-box{
+
+padding:16px;
+margin-top:14px;
+background:var(--soft-blue);
+border-radius:var(--radius-medium);
+text-align:center;
+
+}
+
+
+.korean{
+
+font-size:24px;
+font-weight:bold;
+color:var(--navy);
+
+}
+
+
+.translation{
+
+margin-top:5px;
+color:var(--text-light);
+
+}
+
+
+.input-area{
+
+width:100%;
+min-height:80px;
+margin-top:15px;
+padding:12px;
+border-radius:var(--radius-medium);
+border:1px solid var(--border);
+font-size:18px;
+
+}
+
+
+.check-button,
+.next-button,
+.finish-button{
+
+width:100%;
+margin-top:15px;
+font-weight:bold;
+
+}
+
+
+.check-button{
+
+background:var(--jade);
+color:white;
+
+}
+
+
+.next-button{
+
+display:none;
+background:var(--jade);
+color:white;
+
+}
+
+
+.next-button.show{
+
+display:block;
+
+}
+
+
+.feedback{
+
+display:none;
+padding:14px;
+margin-top:14px;
+border-radius:var(--radius-medium);
+line-height:1.7;
+
+}
+
+
+.feedback.success{
+
+display:block;
+background:var(--success-light);
+
+}
+
+
+.feedback.error{
+
+display:block;
+background:var(--warning-light);
+
+}
+
+
+.result{
+
+display:none;
+padding:20px;
+text-align:center;
+
+}
+
+
+.result.show{
+
+display:block;
+
+}
+
+</style>
+
+
 </head>
+
+
 
 <body>
 
+
 <main class="app">
 
-  <a
-    class="back-link"
-    href="parle-12.html"
-  >
-    ← Je parle
-  </a>
+
+<a
+class="back-link"
+href="parle-12.html"
+>
+← Je parle
+</a>
 
 
-  <header class="writing-header">
 
-    <span class="chapter-badge">
-      Chapitre 12 · Expression écrite
-    </span>
-
-    <p class="korean">
-      써 봐요 ✍️
-    </p>
-
-    <h1>
-      J'écris
-    </h1>
-
-    <p>
-      Écris les expressions utiles pour demander ton chemin
-      en utilisant ton clavier coréen.
-    </p>
-
-  </header>
+<header class="chapter-header">
 
 
-  <section class="intro-card">
+<span class="chapter-badge">
 
-    <strong>🎯 Objectif</strong>
+Chapitre 12 · Étape 4
 
-    <br><br>
-
-    Savoir écrire une question pour demander un lieu,
-    utiliser <strong>직진</strong>, <strong>왼쪽</strong> et <strong>오른쪽</strong>,
-    puis remercier avec <strong>감사합니다</strong>.
-
-  </section>
+</span>
 
 
-  <div class="exercise-progress">
+<p class="korean">
 
-    <div class="progress-info">
-      <span>Expression écrite</span>
-      <span id="progressLabel">1 / 5</span>
-    </div>
+써 봐요 ✍️
 
-    <div class="progress-bar">
-      <div
-        class="progress-fill"
-        id="progressFill"
-      ></div>
-    </div>
-
-  </div>
+</p>
 
 
-  <section
-    class="writing-card"
-    id="writingCard"
-  >
+<h1>
 
-    <div
-      class="step-label"
-      id="stepLabel"
-    >
-      Étape 1 / 5
-    </div>
+Écriture
 
-    <h2 id="stepTitle">
-      📍 Demander où se trouve un lieu
-    </h2>
-
-    <div class="prompt-box">
-
-      <div
-        class="prompt-main"
-        id="promptMain"
-      >
-        Écris : « Où se trouve le palais de Gyeongbokgung ? »
-      </div>
-
-      <div
-        class="hint-line"
-        id="promptHint"
-      >
-        Utilise 경복궁이 + 어디에 있어요?
-      </div>
-
-    </div>
+</h1>
 
 
-    <input
-      class="writing-input"
-      id="writingInput"
-      type="text"
-      lang="ko"
-      autocomplete="off"
-      autocapitalize="off"
-      spellcheck="false"
-      placeholder="Écris en coréen…"
-    >
+<p class="intro">
+
+Écris les expressions essentielles
+pour demander ton chemin
+et comprendre les directions.
+
+</p>
 
 
-    <button
-      class="check-button"
-      id="checkButton"
-      type="button"
-      onclick="checkWriting()"
-    >
-      Vérifier
-    </button>
+</header>
 
 
-    <div
-      class="feedback"
-      id="feedback"
-    ></div>
 
 
-    <button
-      class="help-button"
-      type="button"
-      onclick="toggleHelp()"
-    >
-      💡 Besoin d'aide ?
-    </button>
+<section
+id="hanaChapterPath"
+data-chapter-path
+>
+</section>
 
 
-    <div
-      class="help-box"
-      id="helpBox"
-    ></div>
 
 
-    <button
-      class="retry-button"
-      id="retryButton"
-      type="button"
-      onclick="retryWriting()"
-    >
-      ✍️ Réessayer
-    </button>
 
 
-    <button
-      class="next-button"
-      id="nextButton"
-      type="button"
-      onclick="nextStep()"
-    >
-      Continuer →
-    </button>
 
-  </section>
+<section
+class="write-card"
+id="step1"
+>
 
 
-  <section
-    class="result-card"
-    id="resultCard"
-  >
+<div class="step-number">
 
-    <div class="result-icon">
-      ✍️🛍️
-    </div>
+ÉTAPE 1 / 4
 
-    <h2>
-      잘했어요!
-    </h2>
-
-    <p>
-      Tu as terminé l'expression écrite du chapitre 12.
-    </p>
+</div>
 
 
-    <div class="summary-box">
+<h2>
 
-      <strong>
-        🌿 À retenir
-      </strong>
+📍 Écris la question
 
-      <div class="notion-list">
-
-        <div class="notion-line">
-          💰 <strong>이거 얼마예요?</strong>
-          → Combien coûte celui-ci ?
-        </div>
-
-        <div class="notion-line">
-          💸 <strong>비싸요.</strong>
-          → C'est cher.
-        </div>
-
-        <div class="notion-line">
-          🛍️ <strong>싸요.</strong>
-          → C'est bon marché.
-        </div>
-
-        <div class="notion-line">
-          👉 <strong>이거 주세요.</strong>
-          → Je voudrais celui-ci.
-        </div>
-
-        <div class="notion-line">
-          🙏 <strong>감사합니다.</strong>
-          → Merci.
-        </div>
-
-      </div>
-
-      <p id="mistakeSummary"></p>
-
-    </div>
+</h2>
 
 
-    <button
-      class="continue-button"
-      type="button"
-      onclick="window.location.href='revision-12.html'"
-    >
-      🧠 Passer à « Je révise »
-    </button>
+<div class="example-box">
+
+<div class="korean">
+
+Où se trouve Gyeongbokgung ?
+
+</div>
+
+</div>
 
 
-    <button
-      class="back-button"
-      type="button"
-      onclick="window.location.href='chapitre-12.html'"
-    >
-      Retour au chapitre
-    </button>
 
-  </section>
+<p>
+
+Écris en coréen :
+
+</p>
+
+
+<strong>
+
+경복궁이 어디에 있어요?
+
+</strong>
+
+
+
+<textarea
+class="input-area"
+id="input1"
+placeholder="Écris ici..."
+></textarea>
+
+
+
+<button
+class="check-button"
+onclick="checkAnswer(1)"
+>
+
+Vérifier
+
+</button>
+
+
+
+<div
+class="feedback"
+id="feedback1"
+>
+</div>
+
+
+
+<button
+class="next-button"
+id="next1"
+onclick="nextStep(2)"
+>
+
+Continuer →
+
+</button>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+<section
+class="write-card hidden"
+id="step2"
+>
+
+
+<div class="step-number">
+
+ÉTAPE 2 / 4
+
+</div>
+
+
+<h2>
+
+➡️ Écris une direction
+
+</h2>
+
+
+<div class="example-box">
+
+
+<div class="korean">
+
+Allez tout droit.
+
+</div>
+
+
+</div>
+
+
+
+<p>
+
+Écris :
+
+</p>
+
+
+<strong>
+
+직진하세요.
+
+</strong>
+
+
+
+<textarea
+class="input-area"
+id="input2"
+placeholder="Écris ici..."
+></textarea>
+
+
+
+<button
+class="check-button"
+onclick="checkAnswer(2)"
+>
+
+Vérifier
+
+</button>
+
+
+
+<div
+class="feedback"
+id="feedback2"
+>
+</div>
+
+
+
+<button
+class="next-button"
+id="next2"
+onclick="nextStep(3)"
+>
+
+Continuer →
+
+</button>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+<section
+class="write-card hidden"
+id="step3"
+>
+
+
+<div class="step-number">
+
+ÉTAPE 3 / 4
+
+</div>
+
+
+<h2>
+
+🧭 Écris une direction
+
+</h2>
+
+
+<div class="example-box">
+
+
+<div class="korean">
+
+C'est à droite.
+
+</div>
+
+
+</div>
+
+
+
+<p>
+
+Écris :
+
+</p>
+
+
+<strong>
+
+오른쪽이에요.
+
+</strong>
+
+
+
+<textarea
+class="input-area"
+id="input3"
+placeholder="Écris ici..."
+></textarea>
+
+
+
+<button
+class="check-button"
+onclick="checkAnswer(3)"
+>
+
+Vérifier
+
+</button>
+
+
+
+<div
+class="feedback"
+id="feedback3"
+>
+</div>
+
+
+
+<button
+class="next-button"
+id="next3"
+onclick="nextStep(4)"
+>
+
+Continuer →
+
+</button>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+<section
+class="write-card hidden"
+id="step4"
+>
+
+
+<div class="step-number">
+
+ÉTAPE 4 / 4
+
+</div>
+
+
+<h2>
+
+🙏 Terminer poliment
+
+</h2>
+
+
+<div class="example-box">
+
+
+<div class="korean">
+
+Merci.
+
+</div>
+
+
+</div>
+
+
+
+<p>
+
+Écris :
+
+</p>
+
+
+<strong>
+
+감사합니다.
+
+</strong>
+
+
+
+<textarea
+class="input-area"
+id="input4"
+placeholder="Écris ici..."
+></textarea>
+
+
+
+<button
+class="check-button"
+onclick="checkAnswer(4)"
+>
+
+Vérifier
+
+</button>
+
+
+
+<div
+class="feedback"
+id="feedback4"
+>
+</div>
+
+
+
+<button
+class="next-button"
+id="next4"
+onclick="showResult()"
+>
+
+Terminer →
+
+</button>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+<section
+class="result"
+id="result"
+>
+
+
+<h2>
+
+🎉 잘했어요!
+
+</h2>
+
+
+<p>
+
+Tu as terminé l'écriture
+du chapitre 12.
+
+</p>
+
+
+
+<button
+class="finish-button"
+onclick="completeChapter()"
+>
+
+🧠 Passer à la révision
+
+</button>
+
+
+</section>
+
+
+
+
+
+
 
 </main>
 
 
+
+
+
+<script src="chapter-progress.js"></script>
+
+
+
 <script>
-  const steps = [
-
-    {
-      title: "📍 Demander où se trouve un lieu",
-      prompt: "Écris : « Où se trouve le palais de Gyeongbokgung ? »",
-      hint: "Utilise 경복궁이 + 어디에 있어요?",
-      accepted: [
-        "경복궁이어디에있어요"
-      ],
-      answer: "경복궁이 어디에 있어요?",
-      notion: "어디에 있어요?"
-    },
-
-    {
-      title: "⬆️ Aller tout droit",
-      prompt: "Écris : « Allez tout droit. »",
-      hint: "Utilise 직진 + 하세요.",
-      accepted: [
-        "직진하세요"
-      ],
-      answer: "직진하세요.",
-      notion: "직진하세요"
-    },
-
-    {
-      title: "⬅️ La gauche",
-      prompt: "Écris le mot coréen pour « gauche ».",
-      hint: "Le mot commence par 왼…",
-      accepted: [
-        "왼쪽"
-      ],
-      answer: "왼쪽",
-      notion: "왼쪽"
-    },
-
-    {
-      title: "➡️ La droite",
-      prompt: "Écris le mot coréen pour « droite ».",
-      hint: "Le mot commence par 오…",
-      accepted: [
-        "오른쪽"
-      ],
-      answer: "오른쪽",
-      notion: "오른쪽"
-    },
-
-    {
-      title: "🙏 Remercier",
-      prompt: "Écris : « Merci. »",
-      hint: "Utilise la formule polie déjà connue.",
-      accepted: [
-        "감사합니다"
-      ],
-      answer: "감사합니다.",
-      notion: "감사합니다"
-    }
 
-  ];
-
-
-  let currentStep = 0;
-  let mistakes = 0;
-  let helpCount = 0;
-  const weakNotions = [];
 
-
-  function normalizeKorean(text) {
+const answers={
 
-    return text
-      .replace(/[.,!?~…'"]/g, "")
-      .replace(/\s+/g, " ")
-      .trim();
 
-  }
+1:[
+"경복궁이 어디에 있어요",
+"경복궁이 어디에 있어요?"
+],
 
 
-  function renderStep() {
+2:[
+"직진하세요",
+"직진하세요."
+],
 
-    const step =
-      steps[currentStep];
 
+3:[
+"오른쪽이에요",
+"오른쪽이에요."
+],
 
-    document.getElementById(
-      "stepLabel"
-    ).textContent =
-      "Étape " +
-      (currentStep + 1) +
-      " / " +
-      steps.length;
 
+4:[
+"감사합니다",
+"감사합니다!"
+]
 
-    document.getElementById(
-      "stepTitle"
-    ).textContent =
-      step.title;
 
+};
 
-    document.getElementById(
-      "promptMain"
-    ).textContent =
-      step.prompt;
 
 
-    document.getElementById(
-      "promptHint"
-    ).textContent =
-      step.hint;
 
 
-    document.getElementById(
-      "helpBox"
-    ).textContent =
-      "💡 Réponse attendue : " +
-      step.answer;
+function normalize(text){
 
+return text
+.trim()
+.replace(/[.,!?]/g,"")
+.replace(/\s+/g," ");
 
-    document.getElementById(
-      "progressLabel"
-    ).textContent =
-      (currentStep + 1) +
-      " / " +
-      steps.length;
+}
 
 
-    document.getElementById(
-      "progressFill"
-    ).style.width =
-      (
-        ((currentStep + 1) /
-          steps.length) *
-        100
-      ) +
-      "%";
 
 
-    const input =
-      document.getElementById(
-        "writingInput"
-      );
 
 
-    input.value =
-      "";
 
+function checkAnswer(number){
 
-    input.disabled =
-      false;
 
+const input=
+document.getElementById(
+"input"+number
+)
+.value;
 
-    document.getElementById(
-      "checkButton"
-    ).disabled =
-      false;
 
 
-    document.getElementById(
-      "feedback"
-    ).className =
-      "feedback";
+const feedback=
+document.getElementById(
+"feedback"+number
+);
 
 
-    document.getElementById(
-      "feedback"
-    ).innerHTML =
-      "";
 
+if(
+answers[number].some(
+answer=>
+normalize(answer)===normalize(input)
+)
+){
 
-    document.getElementById(
-      "helpBox"
-    ).classList.remove(
-      "show"
-    );
 
+feedback.className=
+"feedback success";
 
-    document.getElementById(
-      "retryButton"
-    ).classList.remove(
-      "show"
-    );
 
+feedback.innerHTML=
+"✅ Très bien ! L'écriture est correcte.";
 
-    document.getElementById(
-      "nextButton"
-    ).classList.remove(
-      "show"
-    );
 
 
-    setTimeout(
-      () => input.focus(),
-      200
-    );
+document
+.getElementById(
+"next"+number
+)
+.classList.add(
+"show"
+);
 
-  }
 
+}
 
-  function toggleHelp() {
+else{
 
-    helpCount++;
 
+feedback.className=
+"feedback error";
 
-    document.getElementById(
-      "helpBox"
-    ).classList.toggle(
-      "show"
-    );
 
-  }
+feedback.innerHTML=
+"❌ Vérifie les lettres coréennes et réessaie.";
 
+}
 
-  function checkWriting() {
 
-    const step =
-      steps[currentStep];
+}
 
 
-    const input =
-      document.getElementById(
-        "writingInput"
-      );
 
 
-    const value =
-      normalizeKorean(
-        input.value
-      );
 
 
-    const accepted =
-      step.accepted.map(
-        answer =>
-          normalizeKorean(answer)
-      );
 
+function nextStep(number){
 
-    const feedback =
-      document.getElementById(
-        "feedback"
-      );
 
+document
+.querySelectorAll(
+".write-card"
+)
+.forEach(
+card=>
+card.classList.add(
+"hidden"
+)
+);
 
-    if (
-      accepted.includes(value)
-    ) {
 
-      feedback.className =
-        "feedback show correct";
 
+document
+.getElementById(
+"step"+number
+)
+.classList.remove(
+"hidden"
+);
 
-      feedback.innerHTML =
-        "✅ <strong>Très bien !</strong>" +
-        "<div class='answer-reveal'>" +
-        step.answer +
-        "</div>";
 
+window.scrollTo({
 
-      input.disabled =
-        true;
+top:0,
 
+behavior:"smooth"
 
-      document.getElementById(
-        "checkButton"
-      ).disabled =
-        true;
+});
 
 
-      document.getElementById(
-        "retryButton"
-      ).classList.remove(
-        "show"
-      );
+}
 
 
-      document.getElementById(
-        "nextButton"
-      ).classList.add(
-        "show"
-      );
 
 
-      return;
 
-    }
 
 
-    mistakes++;
+function showResult(){
 
 
-    if (
-      !weakNotions.includes(
-        step.notion
-      )
-    ) {
+document
+.querySelectorAll(
+".write-card"
+)
+.forEach(
+card=>
+card.classList.add(
+"hidden"
+)
+);
 
-      weakNotions.push(
-        step.notion
-      );
 
-    }
 
+document
+.getElementById(
+"result"
+)
+.classList.add(
+"show"
+);
 
-    feedback.className =
-      "feedback show wrong";
 
+}
 
-    if (
-      currentStep === 0
-    ) {
 
-      feedback.innerHTML =
-        "❌ <strong>Pas encore.</strong><br><br>" +
-        "Commence par <strong>이거</strong>, puis ajoute la question <strong>얼마예요?</strong>.";
 
-    }
 
 
-    if (
-      currentStep === 1
-    ) {
 
-      feedback.innerHTML =
-        "❌ <strong>Attention.</strong><br><br>" +
-        "Pour dire « c'est cher », utilise <strong>비싸요</strong>.";
 
-    }
+function completeChapter(){
 
 
-    if (
-      currentStep === 2
-    ) {
+localStorage.setItem(
+"hanaKorean_chapter12_writing",
+"completed"
+);
 
-      feedback.innerHTML =
-        "❌ <strong>Regarde bien la consonne.</strong><br><br>" +
-        "« Bon marché » s'écrit <strong>싸요</strong> avec <strong>ㅆ</strong>.";
 
-    }
 
+window.location.href=
+"revision-12.html";
 
-    if (
-      currentStep === 3
-    ) {
 
-      feedback.innerHTML =
-        "❌ <strong>Réessaie.</strong><br><br>" +
-        "Pour demander l'objet, combine <strong>이거</strong> et <strong>주세요</strong>.";
+}
 
-    }
 
 
-    if (
-      currentStep === 4
-    ) {
-
-      feedback.innerHTML =
-        "❌ <strong>Réessaie la formule complète.</strong><br><br>" +
-        "La formule polie pour « merci » est <strong>감사합니다</strong>.";
-
-    }
-
-
-    document.getElementById(
-      "retryButton"
-    ).classList.add(
-      "show"
-    );
-
-  }
-
-
-  function retryWriting() {
-
-    const input =
-      document.getElementById(
-        "writingInput"
-      );
-
-
-    input.value =
-      "";
-
-
-    input.focus();
-
-
-    document.getElementById(
-      "feedback"
-    ).className =
-      "feedback";
-
-
-    document.getElementById(
-      "retryButton"
-    ).classList.remove(
-      "show"
-    );
-
-  }
-
-
-  function nextStep() {
-
-    if (
-      currentStep <
-      steps.length - 1
-    ) {
-
-      currentStep++;
-
-
-      renderStep();
-
-
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
-
-
-      return;
-
-    }
-
-
-    finishWriting();
-
-  }
-
-
-  function finishWriting() {
-
-    document.getElementById(
-      "writingCard"
-    ).style.display =
-      "none";
-
-
-    document.getElementById(
-      "resultCard"
-    ).classList.add(
-      "show"
-    );
-
-
-    let summary = "";
-
-
-    if (
-      mistakes === 0
-    ) {
-
-      summary =
-        "🌟 Toutes les réponses ont été écrites correctement du premier coup.";
-
-    }
-
-    else if (
-      mistakes === 1
-    ) {
-
-      summary =
-        "💡 Tu as eu 1 tentative incorrecte pendant la séance.";
-
-    }
-
-    else {
-
-      summary =
-        "💡 Tu as eu " +
-        mistakes +
-        " tentatives incorrectes pendant la séance.";
-
-    }
-
-
-    if (
-      helpCount > 0
-    ) {
-
-      summary +=
-        "<br><br>Tu as consulté l'aide " +
-        helpCount +
-        " fois.";
-
-    }
-
-
-    document.getElementById(
-      "mistakeSummary"
-    ).innerHTML =
-      summary;
-
-
-    localStorage.setItem(
-      "hanaKorean_chapter12_writing",
-      "completed"
-    );
-
-
-    localStorage.setItem(
-      "hanaKorean_chapter12_writingMistakes",
-      mistakes
-    );
-
-
-    localStorage.setItem(
-      "hanaKorean_chapter12_revisionNotions",
-      JSON.stringify(
-        weakNotions
-      )
-    );
-
-
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    });
-
-  }
-
-
-  document.getElementById(
-    "writingInput"
-  ).addEventListener(
-    "keydown",
-    function(event) {
-
-      if (
-        event.key === "Enter" &&
-        !document.getElementById(
-          "checkButton"
-        ).disabled
-      ) {
-
-        checkWriting();
-
-      }
-
-    }
-  );
-
-
-  renderStep();
 </script>
+
 
 </body>
 

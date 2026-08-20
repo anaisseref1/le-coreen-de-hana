@@ -2,14 +2,11 @@
 <html lang="fr">
 
 <head>
-
   <meta charset="UTF-8">
-
   <meta
     name="viewport"
     content="width=device-width, initial-scale=1.0"
   >
-
   <meta
     name="theme-color"
     content="#F7F4ED"
@@ -22,25 +19,25 @@
     href="style.css"
   >
 
+  <link
+    rel="stylesheet"
+    href="chapter-progress.css"
+  >
 
   <style>
-
     .listen-header {
       text-align: center;
       margin-bottom: 28px;
     }
 
-
     .listen-header h1 {
       margin-bottom: 8px;
     }
-
 
     .listen-header p {
       color: var(--text-light);
       line-height: 1.7;
     }
-
 
     .goal-card,
     .audio-card,
@@ -52,19 +49,16 @@
       box-shadow: var(--shadow);
     }
 
-
     .goal-card {
       background: var(--soft-green);
       color: var(--navy);
       line-height: 1.7;
     }
 
-
     .audio-card h2 {
       margin-top: 0;
       color: var(--navy);
     }
-
 
     .expression-list {
       display: flex;
@@ -72,26 +66,26 @@
       gap: 12px;
     }
 
-
     .expression-item {
       padding: 15px;
       background: #FBFAF6;
       border-radius: var(--radius-medium);
     }
 
-
-    .expression-korean {
+    .expression-korean,
+    .dialogue-korean {
       color: var(--navy);
-      font-size: 21px;
+      font-size: 20px;
       font-weight: bold;
+      line-height: 1.6;
     }
 
-
-    .expression-french {
-      margin-top: 4px;
+    .expression-french,
+    .dialogue-french {
+      margin-top: 5px;
       color: var(--text-light);
+      line-height: 1.6;
     }
-
 
     .expression-actions,
     .line-actions,
@@ -102,7 +96,6 @@
       margin-top: 12px;
     }
 
-
     .expression-actions button,
     .line-actions button,
     .dialogue-controls button {
@@ -110,20 +103,17 @@
       min-width: 135px;
     }
 
-
     .slow,
     .dialogue-slow-button {
       background: var(--soft-beige);
       color: var(--navy);
     }
 
-
     .dialogue-play-button {
       background: var(--jade);
       color: white;
       font-weight: bold;
     }
-
 
     .dialogue-line {
       padding: 15px;
@@ -132,35 +122,18 @@
       line-height: 1.7;
     }
 
-
     .dialogue-line.hana {
       background: var(--soft-green);
     }
-
 
     .dialogue-line.joonho {
       background: var(--soft-blue);
     }
 
-
     .speaker {
-      margin-bottom: 4px;
+      margin-bottom: 5px;
       font-weight: bold;
     }
-
-
-    .dialogue-korean {
-      color: var(--navy);
-      font-size: 19px;
-      font-weight: bold;
-    }
-
-
-    .dialogue-french {
-      margin-top: 5px;
-      color: var(--text-light);
-    }
-
 
     .recognition-box {
       padding: 16px;
@@ -171,13 +144,11 @@
       line-height: 1.7;
     }
 
-
     .tip-card {
       background: var(--soft-beige);
       color: var(--navy);
       line-height: 1.7;
     }
-
 
     .next-button,
     .chapter-button {
@@ -185,35 +156,27 @@
       margin-top: 10px;
     }
 
-
     .next-button {
       background: var(--jade);
       color: white;
       font-weight: bold;
     }
 
-
     .chapter-button {
       background: var(--soft-beige);
       color: var(--navy);
     }
 
-
     .playing {
       background: var(--navy) !important;
       color: white !important;
     }
-
   </style>
-
 </head>
-
 
 <body>
 
-
 <main class="app">
-
 
   <a
     class="back-link"
@@ -222,24 +185,19 @@
     ← Chapitre 16
   </a>
 
-
-
   <header class="listen-header">
 
     <span class="chapter-badge">
       Chapitre 16 · Compréhension orale
     </span>
 
-
     <p class="korean">
       잘 들어 봐요 🏨
     </p>
 
-
     <h1>
       J'écoute
     </h1>
-
 
     <p>
       Écoute les expressions utiles à l'hôtel,
@@ -249,7 +207,10 @@
 
   </header>
 
-
+  <section
+    id="hanaChapterPath"
+    data-chapter-path
+  ></section>
 
   <section class="goal-card">
 
@@ -269,20 +230,13 @@
   </section>
 
 
-
-  <!-- =====================================================
-       1. EXPRESSIONS ESSENTIELLES
-       ===================================================== -->
-
   <section class="audio-card">
 
     <h2>
       🛎️ 1. Écoute les expressions essentielles
     </h2>
 
-
     <div class="expression-list">
-
 
       <div class="expression-item">
 
@@ -314,7 +268,6 @@
         </div>
 
       </div>
-
 
 
       <div class="expression-item">
@@ -349,7 +302,6 @@
       </div>
 
 
-
       <div class="expression-item">
 
         <div class="expression-korean">
@@ -380,7 +332,6 @@
         </div>
 
       </div>
-
 
 
       <div class="expression-item">
@@ -415,7 +366,6 @@
       </div>
 
 
-
       <div class="expression-item">
 
         <div class="expression-korean">
@@ -423,7 +373,8 @@
         </div>
 
         <div class="expression-french">
-          Le Wi-Fi ne fonctionne pas. Aidez-moi, s'il vous plaît.
+          Le Wi-Fi ne fonctionne pas.
+          Aidez-moi, s'il vous plaît.
         </div>
 
         <div class="expression-actions">
@@ -446,7 +397,6 @@
         </div>
 
       </div>
-
 
 
       <div class="expression-item">
@@ -480,23 +430,16 @@
 
       </div>
 
-
     </div>
 
   </section>
 
-
-
-  <!-- =====================================================
-       2. PHRASES A RECONNAITRE
-       ===================================================== -->
 
   <section class="audio-card">
 
     <h2>
       👂 2. Ce que Joon-ho peut te dire
     </h2>
-
 
     <div class="recognition-box">
 
@@ -512,7 +455,6 @@
       et les expressions courantes de réception.
 
     </div>
-
 
     <div class="expression-list">
 
@@ -549,7 +491,6 @@
       </div>
 
 
-
       <div class="expression-item">
 
         <div class="expression-korean">
@@ -580,7 +521,6 @@
         </div>
 
       </div>
-
 
 
       <div class="expression-item">
@@ -615,40 +555,6 @@
       </div>
 
 
-
-      <div class="expression-item">
-
-        <div class="expression-korean">
-          비밀번호요?
-        </div>
-
-        <div class="expression-french">
-          Le mot de passe ?
-        </div>
-
-        <div class="expression-actions">
-
-          <button
-            type="button"
-            onclick="speakKorean('비밀번호요?', 'joonho', false)"
-          >
-            🔊 Écouter Joon-ho
-          </button>
-
-          <button
-            class="slow"
-            type="button"
-            onclick="speakKorean('비밀번호요?', 'joonho', true)"
-          >
-            🐢 Lentement
-          </button>
-
-        </div>
-
-      </div>
-
-
-
       <div class="expression-item">
 
         <div class="expression-korean">
@@ -680,16 +586,10 @@
 
       </div>
 
-
     </div>
 
   </section>
 
-
-
-  <!-- =====================================================
-       3. DIALOGUE
-       ===================================================== -->
 
   <section class="audio-card">
 
@@ -697,12 +597,10 @@
       💬 3. Dialogue — À la réception
     </h2>
 
-
     <p>
       Écoute d'abord le dialogue complet,
       puis réécoute les phrases qui te posent difficulté.
     </p>
-
 
     <div class="dialogue-controls">
 
@@ -714,7 +612,6 @@
       >
         🎧 Écouter tout le dialogue
       </button>
-
 
       <button
         class="dialogue-slow-button"
@@ -728,10 +625,11 @@
     </div>
 
 
-
     <div class="dialogue-line hana">
 
-      <div class="speaker">🌸 Hana</div>
+      <div class="speaker">
+        🌸 Hana
+      </div>
 
       <div class="dialogue-korean">
         안녕하세요. 예약했어요.
@@ -763,10 +661,11 @@
     </div>
 
 
-
     <div class="dialogue-line joonho">
 
-      <div class="speaker">🩶 Joon-ho</div>
+      <div class="speaker">
+        🩶 Joon-ho
+      </div>
 
       <div class="dialogue-korean">
         성함이 어떻게 되세요?
@@ -798,10 +697,11 @@
     </div>
 
 
-
     <div class="dialogue-line hana">
 
-      <div class="speaker">🌸 Hana</div>
+      <div class="speaker">
+        🌸 Hana
+      </div>
 
       <div class="dialogue-korean">
         하나예요.
@@ -833,10 +733,11 @@
     </div>
 
 
-
     <div class="dialogue-line joonho">
 
-      <div class="speaker">🩶 Joon-ho</div>
+      <div class="speaker">
+        🩶 Joon-ho
+      </div>
 
       <div class="dialogue-korean">
         네. 여기 있습니다.
@@ -868,10 +769,11 @@
     </div>
 
 
-
     <div class="dialogue-line hana">
 
-      <div class="speaker">🌸 Hana</div>
+      <div class="speaker">
+        🌸 Hana
+      </div>
 
       <div class="dialogue-korean">
         감사합니다. 제 방이 어디예요?
@@ -903,10 +805,11 @@
     </div>
 
 
-
     <div class="dialogue-line joonho">
 
-      <div class="speaker">🩶 Joon-ho</div>
+      <div class="speaker">
+        🩶 Joon-ho
+      </div>
 
       <div class="dialogue-korean">
         삼 층이에요.
@@ -938,10 +841,11 @@
     </div>
 
 
-
     <div class="dialogue-line hana">
 
-      <div class="speaker">🌸 Hana</div>
+      <div class="speaker">
+        🌸 Hana
+      </div>
 
       <div class="dialogue-korean">
         와이파이 비밀번호가 뭐예요?
@@ -973,10 +877,11 @@
     </div>
 
 
-
     <div class="dialogue-line joonho">
 
-      <div class="speaker">🩶 Joon-ho</div>
+      <div class="speaker">
+        🩶 Joon-ho
+      </div>
 
       <div class="dialogue-korean">
         여기 있습니다.
@@ -1008,10 +913,11 @@
     </div>
 
 
-
     <div class="dialogue-line hana">
 
-      <div class="speaker">🌸 Hana</div>
+      <div class="speaker">
+        🌸 Hana
+      </div>
 
       <div class="dialogue-korean">
         감사합니다!
@@ -1043,10 +949,11 @@
     </div>
 
 
-
     <div class="dialogue-line joonho">
 
-      <div class="speaker">🩶 Joon-ho</div>
+      <div class="speaker">
+        🩶 Joon-ho
+      </div>
 
       <div class="dialogue-korean">
         좋은 여행 되세요.
@@ -1080,7 +987,6 @@
   </section>
 
 
-
   <section class="tip-card">
 
     <strong>
@@ -1093,30 +999,14 @@
 
     <br><br>
 
-    <strong>예약</strong> → réservation
-
-    <br>
-
-    <strong>성함</strong> → nom, forme respectueuse
-
-    <br>
-
-    <strong>방</strong> → chambre
-
-    <br>
-
-    <strong>비밀번호</strong> → mot de passe
-
-    <br>
-
-    <strong>안 돼요</strong> → ça ne fonctionne pas
-
-    <br>
-
+    <strong>예약</strong> → réservation<br>
+    <strong>성함</strong> → nom, forme respectueuse<br>
+    <strong>방</strong> → chambre<br>
+    <strong>비밀번호</strong> → mot de passe<br>
+    <strong>안 돼요</strong> → ça ne fonctionne pas<br>
     <strong>도와주세요</strong> → aidez-moi
 
   </section>
-
 
 
   <button
@@ -1128,7 +1018,6 @@
   </button>
 
 
-
   <button
     class="chapter-button"
     type="button"
@@ -1137,12 +1026,19 @@
     Retour au chapitre
   </button>
 
-
 </main>
 
 
+<script src="chapter-progress.js"></script>
 
 <script>
+  const CHAPTER = 16;
+
+  const UNDERSTANDING_KEY =
+    "hanaKorean_chapter16_understanding";
+
+  const LISTENING_KEY =
+    "hanaKorean_chapter16_listening";
 
   const AUDIO_SETTINGS = {
     normalRate: 0.82,
@@ -1228,53 +1124,110 @@
   let dialogueSessionId =
     0;
 
-
   let dialoguePlaying =
     false;
-
 
   let dialogueSlowMode =
     false;
 
 
+  function guardListeningAccess() {
+
+    if (
+      localStorage.getItem(
+        UNDERSTANDING_KEY
+      ) !== "completed"
+    ) {
+
+      window.location.replace(
+        "chapitre-16.html"
+      );
+
+      return false;
+    }
+
+
+    if (
+      localStorage.getItem(
+        LISTENING_KEY
+      ) !== "completed"
+    ) {
+
+      localStorage.setItem(
+        LISTENING_KEY,
+        "in_progress"
+      );
+    }
+
+
+    return true;
+  }
+
+
+  function renderChapterProgress() {
+
+    if (
+      window.HanaChapterProgress &&
+      typeof window.HanaChapterProgress.render === "function"
+    ) {
+
+      window.HanaChapterProgress.render();
+    }
+  }
+
 
   function getKoreanVoice() {
 
+    if (
+      !(
+        "speechSynthesis"
+        in window
+      )
+    ) {
+      return null;
+    }
+
+
     const voices =
-      window.speechSynthesis.getVoices();
+      window
+        .speechSynthesis
+        .getVoices();
 
 
-    return voices.find(
-      voice =>
-        voice.lang &&
-        voice.lang
-          .toLowerCase()
-          .startsWith(
-            "ko"
-          )
+    return (
+      voices.find(
+        voice =>
+          voice.lang &&
+          voice.lang
+            .toLowerCase()
+            .startsWith(
+              "ko"
+            )
+      ) || null
     );
-
   }
 
 
-
-  function getCharacterSettings(
-    character,
-    slow
+  function getCharacterPitch(
+    character
   ) {
 
-    return {
-      rate:
-        slow
-          ? AUDIO_SETTINGS.slowRate
-          : AUDIO_SETTINGS.normalRate,
+    if (
+      character === "hana"
+    ) {
+      return 1.06;
+    }
 
-      pitch:
-        1
-    };
 
+    if (
+      character === "joonho"
+    ) {
+      return 0.94;
+    }
+
+
+    return 1;
   }
-
 
 
   function speakKorean(
@@ -1302,23 +1255,20 @@
       );
 
 
-    const settings =
-      getCharacterSettings(
-        character,
-        slow
-      );
-
-
     speech.lang =
       "ko-KR";
 
 
     speech.rate =
-      settings.rate;
+      slow
+        ? AUDIO_SETTINGS.slowRate
+        : AUDIO_SETTINGS.normalRate;
 
 
     speech.pitch =
-      settings.pitch;
+      getCharacterPitch(
+        character
+      );
 
 
     const koreanVoice =
@@ -1328,19 +1278,17 @@
     if (
       koreanVoice
     ) {
-
       speech.voice =
         koreanVoice;
-
     }
 
 
-    window.speechSynthesis.speak(
-      speech
-    );
-
+    window
+      .speechSynthesis
+      .speak(
+        speech
+      );
   }
-
 
 
   function toggleDialogue(
@@ -1354,7 +1302,6 @@
       stopDialogue();
 
       return;
-
     }
 
 
@@ -1365,9 +1312,7 @@
     playDialogue(
       slow
     );
-
   }
-
 
 
   function playDialogue(
@@ -1384,7 +1329,9 @@
     }
 
 
-    window.speechSynthesis.cancel();
+    window
+      .speechSynthesis
+      .cancel();
 
 
     dialogueSessionId++;
@@ -1410,9 +1357,7 @@
       slow,
       sessionId
     );
-
   }
-
 
 
   function playDialogueLine(
@@ -1441,7 +1386,6 @@
       updateDialogueButtons();
 
       return;
-
     }
 
 
@@ -1457,23 +1401,20 @@
       );
 
 
-    const settings =
-      getCharacterSettings(
-        line.character,
-        slow
-      );
-
-
     speech.lang =
       "ko-KR";
 
 
     speech.rate =
-      settings.rate;
+      slow
+        ? AUDIO_SETTINGS.slowRate
+        : AUDIO_SETTINGS.normalRate;
 
 
     speech.pitch =
-      settings.pitch;
+      getCharacterPitch(
+        line.character
+      );
 
 
     const koreanVoice =
@@ -1483,10 +1424,8 @@
     if (
       koreanVoice
     ) {
-
       speech.voice =
         koreanVoice;
-
     }
 
 
@@ -1509,11 +1448,9 @@
               slow,
               sessionId
             );
-
           },
           350
         );
-
       };
 
 
@@ -1525,16 +1462,15 @@
 
 
         updateDialogueButtons();
-
       };
 
 
-    window.speechSynthesis.speak(
-      speech
-    );
-
+    window
+      .speechSynthesis
+      .speak(
+        speech
+      );
   }
-
 
 
   function stopDialogue() {
@@ -1551,15 +1487,14 @@
       in window
     ) {
 
-      window.speechSynthesis.cancel();
-
+      window
+        .speechSynthesis
+        .cancel();
     }
 
 
     updateDialogueButtons();
-
   }
-
 
 
   function updateDialogueButtons() {
@@ -1587,7 +1522,6 @@
 
       normalButton.textContent =
         "🎧 Écouter tout le dialogue";
-
     }
 
 
@@ -1602,7 +1536,6 @@
 
       slowButton.textContent =
         "🐢 Écouter tout lentement";
-
     }
 
 
@@ -1628,10 +1561,10 @@
 
         slowButton.textContent =
           "⏹️ Stopper le dialogue";
-
       }
+    }
 
-    } else {
+    else {
 
       if (
         normalButton
@@ -1644,47 +1577,42 @@
 
         normalButton.textContent =
           "⏹️ Stopper le dialogue";
-
       }
-
     }
-
   }
-
 
 
   function goToListeningExercise() {
 
-    localStorage.setItem(
-      "hanaKorean_chapter16_listening",
-      "completed"
-    );
+    if (
+      localStorage.getItem(
+        UNDERSTANDING_KEY
+      ) !== "completed"
+    ) {
+
+      window.location.href =
+        "chapitre-16.html";
+
+      return;
+    }
 
 
     if (
       localStorage.getItem(
-        "hanaKorean_chapter16_listeningMistakes"
-      ) === null
+        LISTENING_KEY
+      ) !== "completed"
     ) {
 
       localStorage.setItem(
-        "hanaKorean_chapter16_listeningMistakes",
-        "0"
+        LISTENING_KEY,
+        "in_progress"
       );
-
     }
 
 
     window.location.href =
       "exercice-ecoute-16.html";
-
   }
-
-
-
-  window
-    .speechSynthesis
-    ?.getVoices();
 
 
   if (
@@ -1692,20 +1620,43 @@
     in window
   ) {
 
-    window.speechSynthesis.onvoiceschanged =
+    window
+      .speechSynthesis
+      .onvoiceschanged =
       function() {
 
         window
           .speechSynthesis
           .getVoices();
-
       };
-
   }
 
+
+  window.addEventListener(
+    "pagehide",
+    function() {
+
+      stopDialogue();
+    }
+  );
+
+
+  if (
+    guardListeningAccess()
+  ) {
+
+    renderChapterProgress();
+
+
+    window.addEventListener(
+      "pageshow",
+      function() {
+
+        renderChapterProgress();
+      }
+    );
+  }
 </script>
 
-
 </body>
-
 </html>

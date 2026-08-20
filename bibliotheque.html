@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="theme-color"
+    content="#F7F4ED"
+  >
+
+  <title>La bibliothèque de Hana</title>
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
+
+  <style>
+
+    .library-header {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+
+    .library-header h1 {
+      margin-bottom: 8px;
+    }
+
+
+    .library-header p {
+      color: var(--text-light);
+      line-height: 1.7;
+    }
+
+
+    .library-card,
+    .jisoo-card,
+    .reading-card,
+    .locked-card {
+      padding: 20px;
+      margin-bottom: 18px;
+
+      background: var(--white);
+
+      border-radius: var(--radius-large);
+
+      box-shadow: var(--shadow);
+    }
+
+
+    .library-intro {
+      padding: 18px;
+      margin-bottom: 18px;
+
+      background: var(--soft-green);
+
+      border-radius: var(--radius-medium);
+
+      color: var(--navy);
+
+      line-height: 1.7;
+    }
+
+
+    .jisoo-card {
+      background: var(--soft-blue);
+      color: var(--navy);
+      line-height: 1.8;
+    }
+
+
+    .jisoo-name {
+      margin-bottom: 8px;
+
+      font-weight: bold;
+    }
+
+
+    .jisoo-quote {
+      padding: 15px;
+
+      background: rgba(255, 255, 255, 0.65);
+
+      border-radius: var(--radius-medium);
+
+      line-height: 1.8;
+    }
+
+
+    .reading-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+
+      gap: 12px;
+
+      margin-top: 16px;
+    }
+
+
+    .reading-item {
+      padding: 16px;
+
+      background: #FBFAF6;
+
+      border-radius: var(--radius-medium);
+
+      line-height: 1.7;
+    }
+
+
+    .reading-item strong {
+      color: var(--navy);
+    }
+
+
+    .level-badge {
+      display: inline-block;
+
+      padding: 5px 10px;
+      margin-bottom: 8px;
+
+      background: var(--soft-green);
+
+      border-radius: 20px;
+
+      color: var(--jade-dark);
+
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+
+    .future-box {
+      padding: 16px;
+      margin-top: 18px;
+
+      background: var(--soft-beige);
+
+      border-radius: var(--radius-medium);
+
+      color: var(--navy);
+
+      line-height: 1.7;
+    }
+
+
+    .locked-card {
+      text-align: center;
+
+      background: var(--soft-beige);
+
+      color: var(--navy);
+
+      line-height: 1.7;
+    }
+
+
+    .locked-icon {
+      margin-bottom: 10px;
+
+      font-size: 48px;
+    }
+
+
+    .route-button {
+      width: 100%;
+      margin-top: 10px;
+
+      background: var(--soft-beige);
+
+      color: var(--navy);
+    }
+
+
+    .library-roadmap {
+      padding: 20px;
+      margin-bottom: 18px;
+      background: var(--white);
+      border-radius: var(--radius-large);
+      box-shadow: var(--shadow);
+    }
+
+    .library-roadmap h2 {
+      margin-top: 0;
+    }
+
+    .roadmap-intro {
+      color: var(--text-light);
+      line-height: 1.7;
+    }
+
+    .roadmap-grid,
+    .mode-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .roadmap-item,
+    .mode-item {
+      padding: 16px;
+      background: #FBFAF6;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-medium);
+      line-height: 1.65;
+    }
+
+    .roadmap-item strong,
+    .mode-item strong {
+      color: var(--navy);
+    }
+
+    .soon-badge {
+      display: inline-block;
+      margin-bottom: 8px;
+      padding: 5px 9px;
+      background: var(--soft-beige);
+      border-radius: 20px;
+      color: var(--text-light);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .story-path {
+      padding: 20px;
+      margin-bottom: 18px;
+      background: var(--soft-blue);
+      border-radius: var(--radius-large);
+      color: var(--navy);
+    }
+
+    .story-path h2 {
+      margin-top: 0;
+    }
+
+    .story-sequence {
+      margin-top: 14px;
+      padding: 14px;
+      background: rgba(255, 255, 255, 0.72);
+      border-radius: var(--radius-medium);
+      font-weight: 700;
+      line-height: 1.8;
+      text-align: center;
+    }
+
+    .level-plan {
+      padding: 18px;
+      margin-bottom: 18px;
+      background: var(--soft-green);
+      border-radius: var(--radius-large);
+      color: var(--navy);
+      line-height: 1.7;
+    }
+
+
+    .hidden {
+      display: none;
+    }
+
+
+    @media (min-width: 650px) {
+
+      .reading-grid,
+      .roadmap-grid,
+      .mode-grid {
+        grid-template-columns:
+          1fr 1fr;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+<main class="app">
+
+
+  <a
+    class="back-link"
+    href="itineraire.html"
+  >
+    ← Itinéraire
+  </a>
+
+
+
+  <header class="library-header">
+
+    <span class="chapter-badge">
+      📚 Espace lecture
+    </span>
+
+
+    <p class="korean">
+      읽어 봐요 🌿
+    </p>
+
+
+    <h1>
+      La bibliothèque de Hana
+    </h1>
+
+
+    <p>
+      Un espace permanent pour commencer à lire
+      de vrais petits contenus en coréen
+      au rythme de ta progression.
+    </p>
+
+  </header>
+
+
+
+  <!-- =====================================================
+       PLAN DE LA FUTURE BIBLIOTHÈQUE
+       ===================================================== -->
+
+  <section class="library-roadmap">
+
+    <span class="chapter-badge">
+      🧭 Projet de la bibliothèque
+    </span>
+
+    <h2>
+      Ce qui arrivera ici
+    </h2>
+
+    <p class="roadmap-intro">
+      La bibliothèque servira à développer progressivement
+      la lecture, la compréhension, l'écoute et l'oral.
+      Les contenus seront classés par niveau et pourront aussi
+      demander d'avoir terminé certains chapitres.
+    </p>
+
+    <div class="roadmap-grid">
+
+      <div class="roadmap-item">
+        <span class="soon-badge">Bientôt</span><br>
+        <strong>🌙 Histoires originales de Hana</strong><br><br>
+        De petits épisodes avec Hana, Min-su, Ji-eun, Ji-soo
+        et les autres personnages du manuel.
+      </div>
+
+      <div class="roadmap-item">
+        <span class="soon-badge">Bientôt</span><br>
+        <strong>💬 Mini-dialogues</strong><br><br>
+        Des échanges courts pour relire des structures déjà apprises
+        dans un contexte plus naturel.
+      </div>
+
+      <div class="roadmap-item">
+        <span class="soon-badge">Bientôt</span><br>
+        <strong>🏙️ Petites scènes de vie</strong><br><br>
+        Café, transports, hôtel, courses, voyage, téléphone
+        et autres situations du quotidien.
+      </div>
+
+      <div class="roadmap-item">
+        <span class="soon-badge">Bientôt</span><br>
+        <strong>🇰🇷 Contes & culture coréenne</strong><br><br>
+        Des récits traditionnels ou culturels uniquement lorsque
+        les droits et la version utilisée auront été vérifiés.
+      </div>
+
+      <div class="roadmap-item">
+        <span class="soon-badge">Bientôt</span><br>
+        <strong>📖 Textes du domaine public</strong><br><br>
+        Des textes libres de droits, adaptés au niveau lorsque cela
+        est nécessaire et clairement identifié.
+      </div>
+
+      <div class="roadmap-item">
+        <span class="soon-badge">Bientôt</span><br>
+        <strong>📚 Livres & ressources recommandés</strong><br><br>
+        Des idées de lectures et de ressources adaptées au niveau
+        pour continuer à progresser en dehors du manuel.
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="story-path">
+
+    <h2>
+      🌿 Le parcours d'une histoire
+    </h2>
+
+    <p>
+      Une même histoire pourra être travaillée de plusieurs façons,
+      sans la transformer en contrôle scolaire.
+    </p>
+
+    <div class="story-sequence">
+      📖 Je lis → 🧠 Je comprends → 🎧 J'écoute → 🗣️ Je lis à voix haute → 🎭 Je joue la scène
+    </div>
+
+    <div class="mode-grid">
+
+      <div class="mode-item">
+        <strong>📖 Je lis</strong><br><br>
+        Texte coréen, traduction optionnelle, romanisation masquable
+        et vocabulaire utile.
+      </div>
+
+      <div class="mode-item">
+        <strong>🧠 Je comprends</strong><br><br>
+        Quelques questions simples pour vérifier que l'essentiel
+        de l'histoire a été compris.
+      </div>
+
+      <div class="mode-item">
+        <strong>🎧 J'écoute</strong><br><br>
+        Lecture audio de l'histoire entière, phrase par phrase
+        ou paragraphe par paragraphe.
+      </div>
+
+      <div class="mode-item">
+        <strong>🗣️ Je lis à voix haute</strong><br><br>
+        Lecture avec micro et vérification des mots reconnus,
+        sans prétendre faire une analyse phonétique parfaite.
+      </div>
+
+      <div class="mode-item">
+        <strong>🎭 Je joue la scène</strong><br><br>
+        Pour les histoires dialoguées : choisir un rôle et répondre
+        directement aux personnages.
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="level-plan">
+
+    <strong>🌱 Progression prévue</strong>
+
+    <br><br>
+
+    Les histoires seront classées par niveau :
+    <strong>🌱 A1 · 🌿 A2 · 🌸 B1</strong>.
+
+    <br><br>
+
+    Les premières lectures A1 n'utiliseront que le vocabulaire
+    et les structures déjà rencontrés. Plus tard, certaines histoires
+    pourront mélanger plusieurs modules.
+
+    <br><br>
+
+    Une histoire débloquée restera disponible définitivement.
+
+  </section>
+
+
+  <!-- =====================================================
+       ÉTAT VERROUILLÉ
+       ===================================================== -->
+
+  <section
+    class="locked-card"
+    id="lockedState"
+  >
+
+    <div class="locked-icon">
+      🔒📚
+    </div>
+
+
+    <h2>
+      La bibliothèque n'est pas encore débloquée
+    </h2>
+
+
+    <p>
+      Continue ton parcours.
+      Cet espace apparaîtra plus tard,
+      lorsque tu auras suffisamment de bases
+      pour commencer à lire de petits contenus réels.
+    </p>
+
+
+    <button
+      class="route-button"
+      type="button"
+      onclick="window.location.href='itineraire.html'"
+    >
+      🌿 Continuer mon itinéraire
+    </button>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       ÉTAT DÉVERROUILLÉ
+       ===================================================== -->
+
+  <div
+    id="unlockedState"
+    class="hidden"
+  >
+
+
+    <section class="library-intro">
+
+      <strong>
+        🌿 Un nouvel espace est débloqué !
+      </strong>
+
+      <br><br>
+
+      À partir d'ici,
+      tu vas progressivement apprendre
+      à lire sans dépendre systématiquement
+      de la traduction française.
+
+      <br><br>
+
+      La bibliothèque restera accessible
+      définitivement une fois débloquée.
+
+    </section>
+
+
+
+    <section class="jisoo-card">
+
+      <div class="jisoo-name">
+        🌟 Le conseil lecture de Ji-soo
+      </div>
+
+
+      <h2>
+        📚 Aujourd'hui, pas encore de livre !
+      </h2>
+
+
+      <div class="jisoo-quote">
+
+        💚 <strong>Ji-soo</strong>
+
+        <br><br>
+
+        « Avant de commencer ton premier livre en coréen,
+        entraîne-toi à lire de petits dialogues
+        comme ceux de ce manuel
+        sans regarder la traduction.
+
+        <br><br>
+
+        Tu verras qu'un jour,
+        tu n'auras plus besoin d'elle. »
+
+      </div>
+
+    </section>
+
+
+
+    <section class="library-card">
+
+      <h2>
+        👀 Tes premières lectures du quotidien
+      </h2>
+
+
+      <p>
+        Pour l'instant,
+        l'objectif n'est pas de lire un livre entier.
+        Commence par reconnaître du coréen
+        dans des contenus courts et familiers.
+      </p>
+
+
+      <div class="reading-grid">
+
+
+        <div class="reading-item">
+
+          <div class="level-badge">
+            🌱 Premiers pas
+          </div>
+
+          <br>
+
+          <strong>
+            💬 Les dialogues du manuel
+          </strong>
+
+          <br><br>
+
+          Relis un petit dialogue
+          sans regarder immédiatement
+          la traduction française.
+
+        </div>
+
+
+
+        <div class="reading-item">
+
+          <div class="level-badge">
+            🌱 Premiers pas
+          </div>
+
+          <br>
+
+          <strong>
+            🪧 Les affiches
+          </strong>
+
+          <br><br>
+
+          Essaie de reconnaître
+          quelques mots familiers
+          sur de petites affiches en coréen.
+
+        </div>
+
+
+
+        <div class="reading-item">
+
+          <div class="level-badge">
+            🌱 Premiers pas
+          </div>
+
+          <br>
+
+          <strong>
+            ☀️ La météo
+          </strong>
+
+          <br><br>
+
+          Observe des prévisions météo coréennes
+          et repère les mots,
+          nombres ou expressions
+          que tu connais déjà.
+
+        </div>
+
+
+
+        <div class="reading-item">
+
+          <div class="level-badge">
+            🌿 Petit défi
+          </div>
+
+          <br>
+
+          <strong>
+            🇰🇷 Du coréen autour de toi
+          </strong>
+
+          <br><br>
+
+          Cherche de petits textes du quotidien
+          et essaie d'abord de comprendre
+          ce que tu peux sans traduction.
+
+        </div>
+
+
+      </div>
+
+
+
+      <div class="future-box">
+
+        <strong>
+          📖 Et les vrais livres ?
+        </strong>
+
+        <br><br>
+
+        Ils arriveront plus tard.
+
+        <br><br>
+
+        Quand ton niveau le permettra,
+        cette bibliothèque pourra accueillir
+        les recommandations de Ji-soo :
+        premières histoires,
+        petits livres adaptés
+        et autres lectures progressivement plus difficiles.
+
+      </div>
+
+    </section>
+
+
+
+    <button
+      class="route-button"
+      type="button"
+      onclick="window.location.href='itineraire.html'"
+    >
+      ← Retour à mon itinéraire
+    </button>
+
+
+  </div>
+
+
+</main>
+
+
+
+<script>
+
+  const READING_LIBRARY_UNLOCK_KEY =
+    "hanaKorean_readingLibrary_unlocked";
+
+
+
+  function isReadingLibraryUnlocked() {
+
+    return (
+      localStorage.getItem(
+        READING_LIBRARY_UNLOCK_KEY
+      ) === "true"
+    );
+
+  }
+
+
+
+  /*
+    Cette fonction sera appelée plus tard
+    par l'itinéraire lorsque nous aurons défini
+    précisément le moment du Module 3
+    où la bibliothèque doit être débloquée.
+
+    Une fois la clé enregistrée à "true",
+    aucun code de cette page ne la remet à "false".
+    Le déverrouillage est donc permanent.
+  */
+
+  function unlockReadingLibraryPermanently() {
+
+    localStorage.setItem(
+      READING_LIBRARY_UNLOCK_KEY,
+      "true"
+    );
+
+    renderLibraryState();
+
+  }
+
+
+
+  function renderLibraryState() {
+
+    const lockedState =
+      document.getElementById(
+        "lockedState"
+      );
+
+
+    const unlockedState =
+      document.getElementById(
+        "unlockedState"
+      );
+
+
+    if (
+      isReadingLibraryUnlocked()
+    ) {
+
+      lockedState.classList.add(
+        "hidden"
+      );
+
+
+      unlockedState.classList.remove(
+        "hidden"
+      );
+
+
+      return;
+
+    }
+
+
+    lockedState.classList.remove(
+      "hidden"
+    );
+
+
+    unlockedState.classList.add(
+      "hidden"
+    );
+
+  }
+
+
+
+  renderLibraryState();
+
+  window.addEventListener("pageshow", renderLibraryState);
+  window.addEventListener("storage", renderLibraryState);
+
+</script>
+
+
+</body>
+
+</html>

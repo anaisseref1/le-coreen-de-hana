@@ -1,518 +1,1659 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
+
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#F7F4ED">
-  <title>Chapitre 6 — Ma famille</title>
-  <link rel="stylesheet" href="style.css">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="theme-color"
+    content="#F7F4ED"
+  >
+
+  <title>
+    Chapitre 6 — Ma famille
+  </title>
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="chapter-progress.css"
+  >
+
 
   <style>
+
+    /* =====================================================
+       EN-TÊTE
+       ===================================================== */
+
     .chapter-header {
       text-align: center;
-      margin-bottom: 28px;
+      margin-bottom: 25px;
     }
+
 
     .chapter-badge {
       display: inline-block;
+
       padding: 7px 14px;
+
       margin-bottom: 10px;
+
       border-radius: 20px;
+
       font-size: 14px;
       font-weight: bold;
     }
 
+
     .chapter-subtitle {
       color: var(--text-light);
+
       line-height: 1.7;
     }
 
+
+    /* =====================================================
+       OBJECTIFS
+       ===================================================== */
+
     .objective-card {
       padding: 18px;
+
       margin-bottom: 20px;
+
       background: var(--soft-green);
+
       border-radius: var(--radius-medium);
+
       color: var(--navy);
+
       line-height: 1.7;
     }
+
 
     .objective-card strong {
       color: var(--jade-dark);
     }
 
+
+    .objective-list {
+      margin: 12px 0 0;
+
+      padding-left: 20px;
+
+      line-height: 1.8;
+    }
+
+
+    /* =====================================================
+       CARTES
+       ===================================================== */
+
     .lesson-card {
       padding: 20px;
+
       margin-bottom: 18px;
+
       background: var(--white);
+
       border-radius: var(--radius-large);
+
       box-shadow: var(--shadow);
     }
 
+
     .lesson-card h2 {
       margin-top: 0;
+
       color: var(--navy);
     }
+
 
     .lesson-card p {
       line-height: 1.7;
     }
 
+
+    /* =====================================================
+       VOCABULAIRE
+       ===================================================== */
+
     .vocab-grid {
       display: grid;
+
       grid-template-columns: 1fr;
+
       gap: 10px;
+
       margin-top: 14px;
     }
 
+
     .vocab-item {
       padding: 14px;
+
       background: #FBFAF6;
+
       border-radius: var(--radius-medium);
     }
 
+
     .vocab-korean {
       color: var(--navy);
+
       font-size: 20px;
       font-weight: bold;
     }
 
+
     .vocab-french {
       margin-top: 4px;
+
       color: var(--text-light);
+
+      line-height: 1.55;
     }
+
+
+    .vocab-note {
+      display: block;
+
+      margin-top: 4px;
+
+      font-size: 12px;
+    }
+
+
+    /* =====================================================
+       GRAMMAIRE
+       ===================================================== */
 
     .grammar-box {
       padding: 16px;
+
       margin-top: 14px;
+
       background: var(--soft-blue);
+
       border-radius: var(--radius-medium);
+
+      color: var(--navy);
+
       line-height: 1.7;
     }
 
+
     .grammar-example {
       padding: 11px 0;
+
       border-bottom: 1px solid var(--border);
     }
+
 
     .grammar-example:last-child {
       border-bottom: none;
     }
 
+
+    .structure-box {
+      padding: 17px;
+
+      margin: 14px 0;
+
+      background: var(--soft-beige);
+
+      border-radius: var(--radius-medium);
+
+      color: var(--navy);
+
+      text-align: center;
+
+      font-size: 19px;
+      font-weight: bold;
+
+      line-height: 1.8;
+    }
+
+
+    .tip-box {
+      padding: 16px;
+
+      margin-top: 14px;
+
+      background: var(--soft-green);
+
+      border-radius: var(--radius-medium);
+
+      color: var(--navy);
+
+      line-height: 1.7;
+    }
+
+
+    /* =====================================================
+       COMPARAISON
+       ===================================================== */
+
+    .comparison-grid {
+      display: grid;
+
+      grid-template-columns: 1fr 1fr;
+
+      gap: 10px;
+
+      margin-top: 14px;
+    }
+
+
+    .comparison-item {
+      padding: 15px;
+
+      background: #FBFAF6;
+
+      border-radius: var(--radius-medium);
+
+      text-align: center;
+    }
+
+
+    .comparison-korean {
+      color: var(--navy);
+
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+
+    .comparison-french {
+      margin-top: 5px;
+
+      color: var(--text-light);
+
+      font-size: 13px;
+
+      line-height: 1.5;
+    }
+
+
+    /* =====================================================
+       DIALOGUE
+       ===================================================== */
+
     .dialogue {
       margin-top: 15px;
     }
 
+
     .dialogue-line {
       padding: 15px;
+
       margin-bottom: 10px;
+
       border-radius: var(--radius-medium);
+
       line-height: 1.7;
     }
+
 
     .dialogue-line.minsu {
       background: var(--soft-blue);
     }
 
+
     .dialogue-line.hana {
       background: var(--soft-green);
     }
 
+
     .speaker {
-      font-weight: bold;
       margin-bottom: 4px;
+
+      font-weight: bold;
     }
+
 
     .dialogue-korean {
       color: var(--navy);
+
       font-size: 19px;
       font-weight: bold;
     }
 
+
     .dialogue-french {
       margin-top: 5px;
+
       color: var(--text-light);
     }
 
+
+    /* =====================================================
+       CULTURE
+       ===================================================== */
+
     .culture-note {
-      padding: 16px;
-      margin-top: 16px;
+      padding: 17px;
+
       margin-bottom: 18px;
+
       background: var(--soft-beige);
+
       border-radius: var(--radius-medium);
+
       color: var(--navy);
+
       line-height: 1.7;
     }
 
-    .recap-line {
-      padding: 11px 0;
+
+    /* =====================================================
+       CARNET
+       ===================================================== */
+
+    .mission-line {
+      padding: 12px 0;
+
       border-bottom: 1px solid var(--border);
-      line-height: 1.6;
+
+      line-height: 1.65;
     }
 
-    .recap-line:last-child {
+
+    .mission-line:last-child {
       border-bottom: none;
     }
 
-    .complete-button {
+
+    /* =====================================================
+       BOUTON FINAL
+       ===================================================== */
+
+    .continue-button {
       width: 100%;
-      margin-top: 18px;
+
+      margin-top: 5px;
+
       background: var(--jade);
+
       color: white;
+
       font-weight: bold;
     }
 
-    .complete-button.done {
-      background: var(--success);
-    }
 
-    .next-button {
-      display: none;
-      width: 100%;
-      margin-top: 10px;
-      background: var(--navy);
-      color: white;
-      font-weight: bold;
-    }
-
-    .back-home-button {
-      width: 100%;
-      margin-top: 10px;
-      background: var(--soft-beige);
-      color: var(--navy);
-    }
+    /* =====================================================
+       MOBILE
+       ===================================================== */
 
     @media (min-width: 620px) {
+
       .vocab-grid {
         grid-template-columns: 1fr 1fr;
       }
+
     }
+
+
+    @media (max-width: 480px) {
+
+      .comparison-grid {
+        grid-template-columns: 1fr;
+      }
+
+    }
+
   </style>
+
 </head>
 
+
 <body>
+
+
 <main class="app">
 
-  <a class="back-link" href="itineraire.html">
-    ← Itinéraire
+
+  <!-- =====================================================
+       RETOUR
+       ===================================================== -->
+
+  <a
+    class="back-link"
+    href="itineraire.html#module1"
+  >
+    ← Mon itinéraire
   </a>
 
+
+
+  <!-- =====================================================
+       EN-TÊTE
+       ===================================================== -->
+
   <header class="chapter-header">
+
     <span class="chapter-badge">
-      Chapitre 6 · 👨‍👩‍👧 Ma famille
+      Module 1 · Chapitre 6
     </span>
 
+
     <p class="korean">
-      가족을 소개해 봐요 🌿
+      가족을 소개해 봐요 👨‍👩‍👧
     </p>
 
-    <h1>Ma famille</h1>
+
+    <h1>
+      Ma famille
+    </h1>
+
 
     <p class="chapter-subtitle">
       Apprends à présenter les membres de ta famille,
-      à dire « mon / ma » avec <strong>제</strong>
-      et à réutiliser naturellement les questions
-      du chapitre précédent.
+      à dire « mon / ma / mes » avec
+      <strong>제</strong>
+      et à réutiliser naturellement
+      les questions que tu connais déjà.
     </p>
+
   </header>
 
+
+
+  <!-- =====================================================
+       PARCOURS DU CHAPITRE
+       ===================================================== -->
+
+  <section
+    id="hanaChapterPath"
+    data-chapter-path
+  ></section>
+
+
+
+  <!-- =====================================================
+       OBJECTIFS
+       ===================================================== -->
+
   <section class="objective-card">
-    <strong>🎯 Objectif du chapitre</strong>
-    <br><br>
-    À la fin de ce chapitre, tu pourras présenter quelques membres de ta famille,
-    comprendre une petite conversation autour d'une photo
-    et demander qui est une personne.
+
+    <strong>
+      🎯 Objectifs du chapitre
+    </strong>
+
+
+    <ul class="objective-list">
+
+      <li>
+        reconnaître les principaux membres de la famille ;
+      </li>
+
+      <li>
+        comprendre la différence entre
+        엄마 / 어머니 et 아빠 / 아버지 ;
+      </li>
+
+      <li>
+        dire « mon / ma / mes » avec 제 ;
+      </li>
+
+      <li>
+        présenter quelqu'un avec 이에요 / 예요 ;
+      </li>
+
+      <li>
+        demander qui est une personne avec 누구예요? ;
+      </li>
+
+      <li>
+        comprendre une petite conversation autour d'une photo.
+      </li>
+
+    </ul>
+
   </section>
 
+
+
+  <!-- =====================================================
+       VOCABULAIRE
+       ===================================================== -->
+
   <section class="lesson-card">
-    <h2>🌱 1. Le vocabulaire de la famille</h2>
+
+    <h2>
+      🌱 1. Le vocabulaire de la famille
+    </h2>
+
 
     <p>
-      Commence par les mots les plus utiles.
-      Certains sont très quotidiens,
-      d'autres sont plus polis ou plus formels.
+      Commençons par les mots
+      dont tu auras le plus besoin.
     </p>
+
 
     <div class="vocab-grid">
-      <div class="vocab-item">
-        <div class="vocab-korean">가족</div>
-        <div class="vocab-french">famille</div>
-      </div>
+
 
       <div class="vocab-item">
-        <div class="vocab-korean">엄마</div>
-        <div class="vocab-french">maman</div>
+
+        <div class="vocab-korean">
+          가족
+        </div>
+
+        <div class="vocab-french">
+          famille
+        </div>
+
       </div>
 
-      <div class="vocab-item">
-        <div class="vocab-korean">아빠</div>
-        <div class="vocab-french">papa</div>
-      </div>
 
       <div class="vocab-item">
-        <div class="vocab-korean">어머니</div>
-        <div class="vocab-french">mère · forme plus polie</div>
+
+        <div class="vocab-korean">
+          엄마
+        </div>
+
+        <div class="vocab-french">
+          maman
+
+          <span class="vocab-note">
+            forme familière et très courante
+          </span>
+        </div>
+
       </div>
 
-      <div class="vocab-item">
-        <div class="vocab-korean">아버지</div>
-        <div class="vocab-french">père · forme plus polie</div>
-      </div>
 
       <div class="vocab-item">
-        <div class="vocab-korean">언니</div>
-        <div class="vocab-french">grande sœur · quand une femme parle</div>
+
+        <div class="vocab-korean">
+          아빠
+        </div>
+
+        <div class="vocab-french">
+          papa
+
+          <span class="vocab-note">
+            forme familière et très courante
+          </span>
+        </div>
+
       </div>
 
-      <div class="vocab-item">
-        <div class="vocab-korean">오빠</div>
-        <div class="vocab-french">grand frère · quand une femme parle</div>
-      </div>
 
       <div class="vocab-item">
-        <div class="vocab-korean">동생</div>
-        <div class="vocab-french">petit frère / petite sœur</div>
+
+        <div class="vocab-korean">
+          어머니
+        </div>
+
+        <div class="vocab-french">
+          mère
+
+          <span class="vocab-note">
+            forme plus polie / respectueuse
+          </span>
+        </div>
+
       </div>
 
-      <div class="vocab-item">
-        <div class="vocab-korean">부모님</div>
-        <div class="vocab-french">parents</div>
-      </div>
 
       <div class="vocab-item">
-        <div class="vocab-korean">친구</div>
-        <div class="vocab-french">ami(e)</div>
+
+        <div class="vocab-korean">
+          아버지
+        </div>
+
+        <div class="vocab-french">
+          père
+
+          <span class="vocab-note">
+            forme plus polie / respectueuse
+          </span>
+        </div>
+
       </div>
+
+
+      <div class="vocab-item">
+
+        <div class="vocab-korean">
+          언니
+        </div>
+
+        <div class="vocab-french">
+          grande sœur
+
+          <span class="vocab-note">
+            utilisé lorsqu'une femme parle
+          </span>
+        </div>
+
+      </div>
+
+
+      <div class="vocab-item">
+
+        <div class="vocab-korean">
+          오빠
+        </div>
+
+        <div class="vocab-french">
+          grand frère
+
+          <span class="vocab-note">
+            utilisé lorsqu'une femme parle
+          </span>
+        </div>
+
+      </div>
+
+
+      <div class="vocab-item">
+
+        <div class="vocab-korean">
+          동생
+        </div>
+
+        <div class="vocab-french">
+          petit frère / petite sœur
+        </div>
+
+      </div>
+
+
+      <div class="vocab-item">
+
+        <div class="vocab-korean">
+          부모님
+        </div>
+
+        <div class="vocab-french">
+          parents
+        </div>
+
+      </div>
+
+
+      <div class="vocab-item">
+
+        <div class="vocab-korean">
+          친구
+        </div>
+
+        <div class="vocab-french">
+          ami(e)
+        </div>
+
+      </div>
+
+
     </div>
+
   </section>
 
+
+
+  <!-- =====================================================
+       엄마 / 어머니 — 아빠 / 아버지
+       ===================================================== -->
+
   <section class="lesson-card">
-    <h2>🌿 2. Dire « mon / ma / mes » avec 제</h2>
+
+    <h2>
+      👨‍👩‍👧 2. Deux façons de parler de ses parents
+    </h2>
+
 
     <p>
-      En coréen, <strong>저의</strong> signifie « mon / ma / mes »
-      dans un registre poli.
-      Dans la langue courante, on contracte très souvent
-      <strong>저의</strong> en <strong>제</strong>.
+      Tu rencontreras très souvent
+      deux mots différents
+      pour « mère » et « père ».
     </p>
 
+
+    <div class="comparison-grid">
+
+
+      <div class="comparison-item">
+
+        <div class="comparison-korean">
+          엄마
+        </div>
+
+        <div class="comparison-french">
+          maman
+          <br>
+          courant et familial
+        </div>
+
+      </div>
+
+
+      <div class="comparison-item">
+
+        <div class="comparison-korean">
+          어머니
+        </div>
+
+        <div class="comparison-french">
+          mère
+          <br>
+          plus poli / respectueux
+        </div>
+
+      </div>
+
+
+      <div class="comparison-item">
+
+        <div class="comparison-korean">
+          아빠
+        </div>
+
+        <div class="comparison-french">
+          papa
+          <br>
+          courant et familial
+        </div>
+
+      </div>
+
+
+      <div class="comparison-item">
+
+        <div class="comparison-korean">
+          아버지
+        </div>
+
+        <div class="comparison-french">
+          père
+          <br>
+          plus poli / respectueux
+        </div>
+
+      </div>
+
+
+    </div>
+
+
+    <div class="tip-box">
+
+      🌿 Pour commencer,
+      retiens surtout les quatre mots.
+
+      <br><br>
+
+      Le choix dépendra de la personne
+      dont on parle,
+      du contexte
+      et du niveau de politesse.
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       제
+       ===================================================== -->
+
+  <section class="lesson-card">
+
+    <h2>
+      🌿 3. Dire « mon / ma / mes » avec 제
+    </h2>
+
+
+    <p>
+      Tu connais déjà
+      <strong>저</strong>,
+      le pronom poli pour « je / moi ».
+    </p>
+
+
+    <p>
+      Pour dire
+      « mon / ma / mes »,
+      on peut utiliser :
+    </p>
+
+
+    <div class="structure-box">
+
+      저의 → 제
+
+      <br>
+
+      mon / ma / mes
+
+    </div>
+
+
+    <p>
+      <strong>제</strong>
+      est la contraction très courante
+      de <strong>저의</strong>.
+    </p>
+
+
     <div class="grammar-box">
+
+
       <div class="grammar-example">
-        <strong>제 엄마</strong><br>
+
+        <strong>
+          제 엄마
+        </strong>
+
+        <br>
+
         ma mère / ma maman
+
       </div>
 
+
       <div class="grammar-example">
-        <strong>제 아빠</strong><br>
+
+        <strong>
+          제 아빠
+        </strong>
+
+        <br>
+
         mon père / mon papa
+
       </div>
 
+
       <div class="grammar-example">
-        <strong>제 가족</strong><br>
+
+        <strong>
+          제 가족
+        </strong>
+
+        <br>
+
         ma famille
+
       </div>
 
+
       <div class="grammar-example">
-        <strong>제 친구</strong><br>
+
+        <strong>
+          제 친구
+        </strong>
+
+        <br>
+
         mon ami(e)
+
       </div>
+
+
     </div>
+
+
+    <div class="tip-box">
+
+      💡 Tu n'as pas besoin
+      de traduire séparément
+      « mon », « ma » ou « mes ».
+
+      <br><br>
+
+      En coréen,
+      <strong>제</strong>
+      reste le même.
+
+    </div>
+
   </section>
 
+
+
+  <!-- =====================================================
+       PRÉSENTER QUELQU'UN
+       ===================================================== -->
+
   <section class="lesson-card">
-    <h2>💬 3. Présenter quelqu'un</h2>
+
+    <h2>
+      💬 4. Présenter quelqu'un
+    </h2>
+
 
     <p>
-      Tu connais déjà <strong>이에요 / 예요</strong>.
-      On peut donc immédiatement les réutiliser
-      pour parler de sa famille.
+      Bonne nouvelle :
+      tu connais déjà la structure nécessaire.
     </p>
 
-    <div class="grammar-box">
-      <div class="grammar-example">
-        <strong>제 엄마예요.</strong><br>
-        C'est ma mère.
-      </div>
 
-      <div class="grammar-example">
-        <strong>제 아빠예요.</strong><br>
-        C'est mon père.
-      </div>
+    <div class="structure-box">
 
-      <div class="grammar-example">
-        <strong>제 가족이에요.</strong><br>
-        C'est ma famille.
-      </div>
+      personne + 이에요 / 예요
 
-      <div class="grammar-example">
-        <strong>제 친구예요.</strong><br>
-        C'est mon ami(e).
-      </div>
     </div>
+
+
+    <p>
+      Il suffit maintenant
+      d'y ajouter le vocabulaire
+      de la famille.
+    </p>
+
+
+    <div class="grammar-box">
+
+
+      <div class="grammar-example">
+
+        <strong>
+          제 엄마예요.
+        </strong>
+
+        <br>
+
+        C'est ma mère.
+
+      </div>
+
+
+      <div class="grammar-example">
+
+        <strong>
+          제 아빠예요.
+        </strong>
+
+        <br>
+
+        C'est mon père.
+
+      </div>
+
+
+      <div class="grammar-example">
+
+        <strong>
+          제 가족이에요.
+        </strong>
+
+        <br>
+
+        C'est ma famille.
+
+      </div>
+
+
+      <div class="grammar-example">
+
+        <strong>
+          제 친구예요.
+        </strong>
+
+        <br>
+
+        C'est mon ami(e).
+
+      </div>
+
+
+    </div>
+
+
+    <div class="tip-box">
+
+      🧠 Observe :
+
+      <br><br>
+
+      엄마 se termine par une voyelle
+
+      <br>
+
+      → 엄마<strong>예요</strong>
+
+      <br><br>
+
+      가족 se termine par une consonne
+
+      <br>
+
+      → 가족<strong>이에요</strong>
+
+    </div>
+
   </section>
 
+
+
+  <!-- =====================================================
+       RÉUTILISER 누구
+       ===================================================== -->
+
   <section class="lesson-card">
-    <h2>📖 4. Dialogue — Une photo de famille</h2>
+
+    <h2>
+      👤 5. Demander qui est une personne
+    </h2>
+
+
+    <p>
+      Dans le chapitre 5,
+      tu as appris :
+    </p>
+
+
+    <div class="structure-box">
+
+      누구예요?
+
+      <br>
+
+      Qui est-ce ?
+
+    </div>
+
+
+    <p>
+      Cette question devient particulièrement utile
+      lorsqu'on regarde une photo.
+    </p>
+
+
+    <div class="grammar-box">
+
+
+      <div class="grammar-example">
+
+        <strong>
+          이 사람은 누구예요?
+        </strong>
+
+        <br>
+
+        Cette personne, qui est-ce ?
+
+      </div>
+
+
+      <div class="grammar-example">
+
+        <strong>
+          제 엄마예요.
+        </strong>
+
+        <br>
+
+        C'est ma mère.
+
+      </div>
+
+
+    </div>
+
+
+    <div class="tip-box">
+
+      🌿 Ici,
+      tu n'as pas besoin d'apprendre
+      un nouveau mot interrogatif.
+
+      <br><br>
+
+      Tu réutilises simplement
+      <strong>누구</strong>
+      dans un nouveau contexte.
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       PHOTO
+       ===================================================== -->
+
+  <section class="lesson-card">
+
+    <h2>
+      📷 6. Une photo de famille
+    </h2>
+
 
     <p>
       Min-su regarde une photo avec Hana.
-      Observe comment les questions du chapitre 5
-      sont réutilisées.
+      Observe comment plusieurs notions
+      des chapitres précédents
+      sont réutilisées naturellement.
     </p>
 
+
     <div class="dialogue">
-      <div class="dialogue-line minsu">
-        <div class="speaker">💙 Min-su</div>
-        <div class="dialogue-korean">이 사진은 뭐예요?</div>
-        <div class="dialogue-french">Cette photo, qu'est-ce que c'est ?</div>
-      </div>
 
-      <div class="dialogue-line hana">
-        <div class="speaker">🌸 Hana</div>
-        <div class="dialogue-korean">제 가족 사진이에요.</div>
-        <div class="dialogue-french">C'est une photo de ma famille.</div>
-      </div>
 
       <div class="dialogue-line minsu">
-        <div class="speaker">💙 Min-su</div>
-        <div class="dialogue-korean">이 사람은 누구예요?</div>
-        <div class="dialogue-french">Cette personne, qui est-ce ?</div>
+
+        <div class="speaker">
+          💙 Min-su
+        </div>
+
+        <div class="dialogue-korean">
+          이 사진은 뭐예요?
+        </div>
+
+        <div class="dialogue-french">
+          Cette photo, qu'est-ce que c'est ?
+        </div>
+
       </div>
 
+
       <div class="dialogue-line hana">
-        <div class="speaker">🌸 Hana</div>
-        <div class="dialogue-korean">제 엄마예요.</div>
-        <div class="dialogue-french">C'est ma mère.</div>
+
+        <div class="speaker">
+          🌸 Hana
+        </div>
+
+        <div class="dialogue-korean">
+          제 가족 사진이에요.
+        </div>
+
+        <div class="dialogue-french">
+          C'est une photo de ma famille.
+        </div>
+
       </div>
+
 
       <div class="dialogue-line minsu">
-        <div class="speaker">💙 Min-su</div>
-        <div class="dialogue-korean">그리고 이 사람은요?</div>
-        <div class="dialogue-french">Et cette personne ?</div>
+
+        <div class="speaker">
+          💙 Min-su
+        </div>
+
+        <div class="dialogue-korean">
+          이 사람은 누구예요?
+        </div>
+
+        <div class="dialogue-french">
+          Cette personne, qui est-ce ?
+        </div>
+
       </div>
 
+
       <div class="dialogue-line hana">
-        <div class="speaker">🌸 Hana</div>
-        <div class="dialogue-korean">제 아빠예요.</div>
-        <div class="dialogue-french">C'est mon père.</div>
+
+        <div class="speaker">
+          🌸 Hana
+        </div>
+
+        <div class="dialogue-korean">
+          제 엄마예요.
+        </div>
+
+        <div class="dialogue-french">
+          C'est ma mère.
+        </div>
+
       </div>
+
+
+      <div class="dialogue-line minsu">
+
+        <div class="speaker">
+          💙 Min-su
+        </div>
+
+        <div class="dialogue-korean">
+          그리고 이 사람은요?
+        </div>
+
+        <div class="dialogue-french">
+          Et cette personne ?
+        </div>
+
+      </div>
+
+
+      <div class="dialogue-line hana">
+
+        <div class="speaker">
+          🌸 Hana
+        </div>
+
+        <div class="dialogue-korean">
+          제 아빠예요.
+        </div>
+
+        <div class="dialogue-french">
+          C'est mon père.
+        </div>
+
+      </div>
+
+
     </div>
+
   </section>
+
+
+
+  <!-- =====================================================
+       CE QUE TU RÉUTILISES
+       ===================================================== -->
 
   <section class="lesson-card">
-    <h2>🧠 5. À retenir</h2>
 
-    <div class="recap-line">
-      🌿 <strong>제</strong> → mon / ma / mes
+    <h2>
+      🔗 7. Tu construis déjà avec ce que tu connais
+    </h2>
+
+
+    <p>
+      Ce chapitre introduit du vocabulaire nouveau,
+      mais une grande partie de la conversation
+      repose sur des structures déjà apprises.
+    </p>
+
+
+    <div class="grammar-box">
+
+
+      <div class="grammar-example">
+
+        Chapitre 1
+
+        <br>
+
+        <strong>
+          이에요 / 예요
+        </strong>
+
+        <br>
+
+        présenter quelqu'un
+
+      </div>
+
+
+      <div class="grammar-example">
+
+        Chapitre 5
+
+        <br>
+
+        <strong>
+          뭐예요?
+        </strong>
+
+        <br>
+
+        demander ce que c'est
+
+      </div>
+
+
+      <div class="grammar-example">
+
+        Chapitre 5
+
+        <br>
+
+        <strong>
+          누구예요?
+        </strong>
+
+        <br>
+
+        demander qui est une personne
+
+      </div>
+
+
     </div>
 
-    <div class="recap-line">
-      👩 <strong>제 엄마예요.</strong> → C'est ma mère.
+
+    <div class="tip-box">
+
+      💙 C'est exactement le but :
+      apprendre de nouvelles choses
+      tout en réutilisant les anciennes,
+      afin que les phrases deviennent
+      progressivement automatiques.
+
     </div>
 
-    <div class="recap-line">
-      👨 <strong>제 아빠예요.</strong> → C'est mon père.
-    </div>
-
-    <div class="recap-line">
-      👨‍👩‍👧 <strong>제 가족이에요.</strong> → C'est ma famille.
-    </div>
-
-    <div class="recap-line">
-      👤 <strong>누구예요?</strong> → Qui est-ce ?
-    </div>
-
-    <div class="recap-line">
-      🧐 <strong>뭐예요?</strong> → Qu'est-ce que c'est ?
-    </div>
   </section>
+
+
+
+  <!-- =====================================================
+       CULTURE
+       ===================================================== -->
 
   <section class="culture-note">
-    <strong>🇰🇷 Petite note culturelle</strong>
+
+    <strong>
+      🇰🇷 Petite note culturelle — 우리
+    </strong>
+
     <br><br>
-    En coréen, tu entendras très souvent
-    <strong>우리 엄마</strong> ou <strong>우리 아빠</strong>,
-    littéralement « notre maman » ou « notre papa »,
-    même quand une personne parle de sa propre mère
+
+    En coréen,
+    tu entendras très souvent :
+
+    <br><br>
+
+    <strong>
+      우리 엄마
+    </strong>
+
+    <br>
+
+    notre maman
+
+    <br><br>
+
+    ou :
+
+    <br><br>
+
+    <strong>
+      우리 아빠
+    </strong>
+
+    <br>
+
+    notre papa
+
+    <br><br>
+
+    même lorsqu'une personne
+    parle de sa propre mère
     ou de son propre père.
+
     <br><br>
-    Pour l'instant, retiens simplement que cette façon de parler est très naturelle.
-    Nous reviendrons plus tard sur <strong>우리</strong>.
+
+    Cette manière de parler
+    est extrêmement naturelle en coréen.
+
+    <br><br>
+
+    Pour l'instant,
+    retiens simplement l'expression.
+
+    Nous reviendrons plus tard
+    plus précisément sur
+    <strong>우리</strong>.
+
   </section>
 
+
+
+  <!-- =====================================================
+       CARNET
+       ===================================================== -->
+
+  <section class="lesson-card">
+
+    <h2>
+      📓 Dans ton carnet de voyage
+    </h2>
+
+
+    <p>
+      À la fin du chapitre,
+      tu devras pouvoir comprendre
+      et utiliser naturellement :
+    </p>
+
+
+    <div class="mission-line">
+
+      🌿
+
+      <strong>
+        제
+      </strong>
+
+      <br>
+
+      mon / ma / mes
+
+    </div>
+
+
+    <div class="mission-line">
+
+      👩
+
+      <strong>
+        제 엄마예요.
+      </strong>
+
+      <br>
+
+      C'est ma mère.
+
+    </div>
+
+
+    <div class="mission-line">
+
+      👨
+
+      <strong>
+        제 아빠예요.
+      </strong>
+
+      <br>
+
+      C'est mon père.
+
+    </div>
+
+
+    <div class="mission-line">
+
+      👨‍👩‍👧
+
+      <strong>
+        제 가족이에요.
+      </strong>
+
+      <br>
+
+      C'est ma famille.
+
+    </div>
+
+
+    <div class="mission-line">
+
+      👤
+
+      <strong>
+        이 사람은 누구예요?
+      </strong>
+
+      <br>
+
+      Cette personne, qui est-ce ?
+
+    </div>
+
+
+    <div class="mission-line">
+
+      📷
+
+      <strong>
+        제 가족 사진이에요.
+      </strong>
+
+      <br>
+
+      C'est une photo de ma famille.
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       VALIDATION
+       ===================================================== -->
+
   <button
-    class="complete-button"
-    id="completeButton"
+    class="continue-button"
     type="button"
     onclick="completeUnderstanding()"
   >
-    ✅ J'ai compris
+    🎧 J'ai compris · Passer à « J'écoute »
   </button>
 
-  <button
-    class="next-button"
-    id="nextButton"
-    type="button"
-    onclick="window.location.href='ecoute-6.html'"
-  >
-    🎧 Passer à « J'écoute »
-  </button>
-
-  <button
-    class="back-home-button"
-    type="button"
-    onclick="window.location.href='itineraire.html'"
-  >
-    Retour à l'itinéraire
-  </button>
 
 </main>
 
+
+
+<script src="chapter-progress.js"></script>
+
+
 <script>
+
+  /* =====================================================
+     VALIDATION DE « JE COMPRENDS »
+     ===================================================== */
+
   function completeUnderstanding() {
+
     localStorage.setItem(
       "hanaKorean_chapter6_understanding",
       "completed"
     );
 
-    const completeButton =
-      document.getElementById("completeButton");
 
-    completeButton.textContent =
-      "✅ Compréhension validée";
+    if (
+      window.HanaChapterProgress &&
+      typeof window.HanaChapterProgress.render === "function"
+    ) {
 
-    completeButton.classList.add("done");
-    completeButton.disabled = true;
+      window.HanaChapterProgress.render();
 
-    document.getElementById(
-      "nextButton"
-    ).style.display = "block";
+    }
 
-    window.scrollTo({
-      top: document.body.scrollHeight,
-      behavior: "smooth"
-    });
+
+    window.location.href =
+      "ecoute-6.html";
+
   }
 
-  const understandingCompleted =
-    localStorage.getItem(
-      "hanaKorean_chapter6_understanding"
-    ) === "completed";
 
-  if (understandingCompleted) {
-    const completeButton =
-      document.getElementById("completeButton");
 
-    completeButton.textContent =
-      "✅ Compréhension validée";
+  /* =====================================================
+     COMPATIBILITÉ AVEC UNE ANCIENNE PROGRESSION
+     ===================================================== */
 
-    completeButton.classList.add("done");
-    completeButton.disabled = true;
+  function migratePreviousProgress() {
 
-    document.getElementById(
-      "nextButton"
-    ).style.display = "block";
+    const understanding =
+      localStorage.getItem(
+        "hanaKorean_chapter6_understanding"
+      );
+
+
+    if (
+      understanding ===
+      "completed"
+    ) {
+
+      return;
+
+    }
+
+
+    const laterKeys = [
+
+      "hanaKorean_chapter6_listening",
+      "hanaKorean_chapter6_listeningExercise",
+      "hanaKorean_chapter6_speaking",
+      "hanaKorean_chapter6_writing",
+      "hanaKorean_chapter6_review",
+      "hanaKorean_chapter6_mission",
+      "hanaKorean_chapter6_completed"
+
+    ];
+
+
+    const laterProgressExists =
+      laterKeys.some(
+        key =>
+          localStorage.getItem(
+            key
+          ) === "completed"
+      );
+
+
+    if (
+      laterProgressExists
+    ) {
+
+      localStorage.setItem(
+        "hanaKorean_chapter6_understanding",
+        "completed"
+      );
+
+    }
+
   }
+
+
+
+  /* =====================================================
+     DÉMARRAGE
+     ===================================================== */
+
+  migratePreviousProgress();
+
+
+  window.addEventListener(
+    "pageshow",
+    function() {
+
+      if (
+        window.HanaChapterProgress &&
+        typeof window.HanaChapterProgress.render === "function"
+      ) {
+
+        window.HanaChapterProgress.render();
+
+      }
+
+    }
+  );
+
 </script>
 
+
 </body>
+
 </html>

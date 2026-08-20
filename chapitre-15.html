@@ -6,6 +6,7 @@
   <meta name="theme-color" content="#F7F4ED">
   <title>Chapitre 15 — Commander au restaurant</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="chapter-progress.css">
 
   <style>
     .chapter-header { text-align:center; margin-bottom:28px; }
@@ -188,7 +189,7 @@
 
 <main class="app">
 
-  <a class="back-link" href="itineraire.html">
+  <a class="back-link" href="itineraire.html#module2">
     ← Itinéraire
   </a>
 
@@ -196,7 +197,7 @@
   <header class="chapter-header">
 
     <span class="chapter-badge">
-      Chapitre 15 · 🍜 Commander au restaurant
+      Module 2 · Chapitre 15
     </span>
 
     <p class="korean">
@@ -214,6 +215,12 @@
     </p>
 
   </header>
+
+
+  <section
+    id="hanaChapterPath"
+    data-chapter-path
+  ></section>
 
 
   <section class="objective-card">
@@ -903,96 +910,104 @@
 
   <button
     class="complete-button"
-    id="completeButton"
     type="button"
     onclick="completeUnderstanding()"
   >
-    J'ai compris 🌿
-  </button>
-
-
-  <button
-    class="next-button"
-    id="nextButton"
-    type="button"
-    onclick="window.location.href='ecoute-15.html'"
-  >
-    🎧 Passer à « J'écoute »
-  </button>
-
-
-  <button
-    class="back-route-button"
-    type="button"
-    onclick="window.location.href='itineraire.html'"
-  >
-    Retour à l'itinéraire
+    🎧 J'ai compris · Passer à « J'écoute »
   </button>
 
 </main>
 
 
-<script>
+<script src="chapter-progress.js"></script>
 
-  const STORAGE_KEY =
+<script>
+  const UNDERSTANDING_KEY =
     "hanaKorean_chapter15_understanding";
 
 
   function completeUnderstanding() {
 
     localStorage.setItem(
-      STORAGE_KEY,
+      UNDERSTANDING_KEY,
       "completed"
     );
 
-    renderCompletion();
-
-  }
-
-
-  function renderCompletion() {
-
-    const completed =
-      localStorage.getItem(
-        STORAGE_KEY
-      ) === "completed";
-
-
-    const completeButton =
-      document.getElementById(
-        "completeButton"
-      );
-
-
-    const nextButton =
-      document.getElementById(
-        "nextButton"
-      );
-
-
     if (
-      completed
+      window.HanaChapterProgress &&
+      typeof window.HanaChapterProgress.render === "function"
     ) {
-
-      completeButton.textContent =
-        "Compris ✓";
-
-
-      completeButton.classList.add(
-        "done"
-      );
-
-
-      nextButton.style.display =
-        "block";
-
+      window.HanaChapterProgress.render();
     }
 
+    window.location.href =
+      "ecoute-15.html";
   }
 
 
-  renderCompletion();
+  function migratePreviousProgress() {
 
+    const understanding =
+      localStorage.getItem(
+        UNDERSTANDING_KEY
+      );
+
+    if (
+      understanding === "completed"
+    ) {
+      return;
+    }
+
+    const laterKeys = [
+      "hanaKorean_chapter15_listening",
+      "hanaKorean_chapter15_listeningExercise",
+      "hanaKorean_chapter15_speaking",
+      "hanaKorean_chapter15_writing",
+      "hanaKorean_chapter15_review",
+      "hanaKorean_chapter15_mission",
+      "hanaKorean_chapter15_completed"
+    ];
+
+    const laterProgressExists =
+      laterKeys.some(
+        key =>
+          localStorage.getItem(
+            key
+          ) === "completed"
+      );
+
+    if (
+      laterProgressExists
+    ) {
+      localStorage.setItem(
+        UNDERSTANDING_KEY,
+        "completed"
+      );
+    }
+  }
+
+
+  function renderChapterProgress() {
+
+    if (
+      window.HanaChapterProgress &&
+      typeof window.HanaChapterProgress.render === "function"
+    ) {
+      window.HanaChapterProgress.render();
+    }
+  }
+
+
+  migratePreviousProgress();
+  renderChapterProgress();
+
+
+  window.addEventListener(
+    "pageshow",
+    function() {
+      renderChapterProgress();
+    }
+  );
 </script>
 
 </body>

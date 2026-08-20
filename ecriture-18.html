@@ -14,12 +14,14 @@
     content="#F7F4ED"
   >
 
-  <title>J'écris — Chapitre 12</title>
+  <title>J'écris — Chapitre 18</title>
 
   <link
     rel="stylesheet"
     href="style.css"
   >
+
+  <link rel="stylesheet" href="chapter-progress.css">
 
   <style>
     .writing-header {
@@ -73,7 +75,7 @@
     }
 
     .progress-fill {
-      width: 20%;
+      width: 16.6667%;
       height: 100%;
       background: var(--jade);
       border-radius: 20px;
@@ -285,6 +287,11 @@
 
   </header>
 
+  <section
+    id="hanaChapterPath"
+    data-chapter-path
+  ></section>
+
 
   <section class="intro-card">
 
@@ -307,7 +314,7 @@
 
     <div class="progress-info">
       <span>Expression écrite</span>
-      <span id="progressLabel">1 / 5</span>
+      <span id="progressLabel">1 / 6</span>
     </div>
 
     <div class="progress-bar">
@@ -329,7 +336,7 @@
       class="step-label"
       id="stepLabel"
     >
-      Étape 1 / 5
+      Étape 1 / 6
     </div>
 
     <h2 id="stepTitle">
@@ -505,7 +512,60 @@
 </main>
 
 
+<script src="chapter-progress.js"></script>
+
 <script>
+
+  const CHAPTER = 18;
+
+  const UNDERSTANDING_KEY =
+    "hanaKorean_chapter18_understanding";
+
+  const LISTENING_EXERCISE_KEY =
+    "hanaKorean_chapter18_listeningExercise";
+
+  const SPEAKING_KEY =
+    "hanaKorean_chapter18_speaking";
+
+  const WRITING_KEY =
+    "hanaKorean_chapter18_writing";
+
+  const WRITING_MISTAKES_KEY =
+    "hanaKorean_chapter18_writingMistakes";
+
+  const REVISION_NOTIONS_KEY =
+    "hanaKorean_chapter18_revisionNotions";
+
+  function guardWritingAccess() {
+    const required = [
+      [UNDERSTANDING_KEY, "chapitre-18.html"],
+      [LISTENING_EXERCISE_KEY, "ecoute-18.html"],
+      [SPEAKING_KEY, "parle-18.html"]
+    ];
+
+    for (const item of required) {
+      if (
+        localStorage.getItem(item[0]) !==
+        "completed"
+      ) {
+        window.location.replace(item[1]);
+        return false;
+      }
+    }
+
+    return true;
+  }
+
+  function renderChapterProgress() {
+    if (
+      window.HanaChapterProgress &&
+      typeof window.HanaChapterProgress.render === "function"
+    ) {
+      window.HanaChapterProgress.render();
+    }
+  }
+
+
   const steps = [
 
     {
@@ -590,7 +650,7 @@
 
     return text
       .replace(/[.,!?~…'"]/g, "")
-      .replace(/\s+/g, " ")
+      .replace(/\s+/g, "")
       .trim();
 
   }
@@ -825,58 +885,40 @@
       "feedback show wrong";
 
 
-    if (
-      currentStep === 0
-    ) {
-
+    if (currentStep === 0) {
       feedback.innerHTML =
-        "❌ <strong>Pas encore.</strong><br><br>" +
-        "Commence par <strong>이거</strong>, puis ajoute la question <strong>얼마예요?</strong>.";
-
+        "❌ <strong>Repère 좋아해요.</strong><br><br>" +
+        "Utilise <strong>커피를 좋아해요.</strong>.";
     }
 
-
-    if (
-      currentStep === 1
-    ) {
-
+    if (currentStep === 1) {
       feedback.innerHTML =
-        "❌ <strong>Attention.</strong><br><br>" +
-        "Pour dire « c'est cher », utilise <strong>비싸요</strong>.";
-
+        "❌ <strong>Repère 제일.</strong><br><br>" +
+        "La question attendue est <strong>뭐가 제일 좋아요?</strong>.";
     }
 
-
-    if (
-      currentStep === 2
-    ) {
-
+    if (currentStep === 2) {
       feedback.innerHTML =
-        "❌ <strong>Regarde bien la consonne.</strong><br><br>" +
-        "« Bon marché » s'écrit <strong>싸요</strong> avec <strong>ㅆ</strong>.";
-
+        "❌ <strong>Utilise le modèle de préférence.</strong><br><br>" +
+        "Écris <strong>저는 음악을 제일 좋아해요.</strong>.";
     }
 
-
-    if (
-      currentStep === 3
-    ) {
-
+    if (currentStep === 3) {
       feedback.innerHTML =
-        "❌ <strong>Réessaie.</strong><br><br>" +
-        "Pour demander l'objet, combine <strong>이거</strong> et <strong>주세요</strong>.";
-
+        "❌ <strong>Repère 어떤 음악.</strong><br><br>" +
+        "La phrase attendue est <strong>어떤 음악을 제일 좋아해요?</strong>.";
     }
 
-
-    if (
-      currentStep === 4
-    ) {
-
+    if (currentStep === 4) {
       feedback.innerHTML =
-        "❌ <strong>Réessaie la formule complète.</strong><br><br>" +
-        "La formule polie pour « merci » est <strong>감사합니다</strong>.";
+        "❌ <strong>Utilise la négation avec 안.</strong><br><br>" +
+        "Écris <strong>안 좋아해요.</strong>.";
+    }
 
+    if (currentStep === 5) {
+      feedback.innerHTML =
+        "❌ <strong>C'est une toute petite question.</strong><br><br>" +
+        "Écris <strong>왜요?</strong>.";
     }
 
 
@@ -1013,23 +1055,25 @@
 
 
     localStorage.setItem(
-      "hanaKorean_chapter18_writing",
+      WRITING_KEY,
       "completed"
     );
 
 
     localStorage.setItem(
-      "hanaKorean_chapter18_writingMistakes",
-      mistakes
+      WRITING_MISTAKES_KEY,
+      String(mistakes)
     );
 
 
     localStorage.setItem(
-      "hanaKorean_chapter18_revisionNotions",
+      REVISION_NOTIONS_KEY,
       JSON.stringify(
         weakNotions
       )
     );
+
+    renderChapterProgress();
 
 
     window.scrollTo({
@@ -1061,7 +1105,17 @@
   );
 
 
-  renderStep();
+  if (guardWritingAccess()) {
+    renderChapterProgress();
+    renderStep();
+
+    window.addEventListener(
+      "pageshow",
+      function() {
+        renderChapterProgress();
+      }
+    );
+  }
 </script>
 
 </body>

@@ -14,11 +14,16 @@
     content="#F7F4ED"
   >
 
-  <title>J'écris — Chapitre 12</title>
+  <title>Chapitre 13 — J'écris</title>
 
   <link
     rel="stylesheet"
     href="style.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="chapter-progress.css"
   >
 
   <style>
@@ -151,6 +156,16 @@
       display: block;
     }
 
+    .feedback.correct {
+      background: var(--success-light);
+      color: var(--navy);
+    }
+
+    .feedback.wrong {
+      background: var(--error-light);
+      color: var(--navy);
+    }
+
     .help-button {
       margin-top: 10px;
       background: var(--soft-beige);
@@ -263,7 +278,6 @@
     ← Je parle
   </a>
 
-
   <header class="writing-header">
 
     <span class="chapter-badge">
@@ -285,6 +299,10 @@
 
   </header>
 
+  <section
+    id="hanaChapterPath"
+    data-chapter-path
+  ></section>
 
   <section class="intro-card">
 
@@ -301,7 +319,6 @@
 
   </section>
 
-
   <div class="exercise-progress">
 
     <div class="progress-info">
@@ -317,7 +334,6 @@
     </div>
 
   </div>
-
 
   <section
     class="writing-card"
@@ -353,7 +369,6 @@
 
     </div>
 
-
     <input
       class="writing-input"
       id="writingInput"
@@ -365,7 +380,6 @@
       placeholder="Écris en coréen…"
     >
 
-
     <button
       class="check-button"
       id="checkButton"
@@ -375,12 +389,10 @@
       Vérifier
     </button>
 
-
     <div
       class="feedback"
       id="feedback"
     ></div>
-
 
     <button
       class="help-button"
@@ -390,12 +402,10 @@
       💡 Besoin d'aide ?
     </button>
 
-
     <div
       class="help-box"
       id="helpBox"
     ></div>
-
 
     <button
       class="retry-button"
@@ -405,7 +415,6 @@
     >
       ✍️ Réessayer
     </button>
-
 
     <button
       class="next-button"
@@ -417,7 +426,6 @@
     </button>
 
   </section>
-
 
   <section
     class="result-card"
@@ -435,7 +443,6 @@
     <p>
       Tu as terminé l'expression écrite du chapitre 13.
     </p>
-
 
     <div class="summary-box">
 
@@ -476,15 +483,13 @@
 
     </div>
 
-
     <button
       class="continue-button"
       type="button"
-      onclick="window.location.href='revision-13.html'"
+      onclick="goToReview()"
     >
       🧠 Passer à « Je révise »
     </button>
-
 
     <button
       class="back-button"
@@ -498,65 +503,160 @@
 
 </main>
 
+<script src="chapter-progress.js"></script>
 
 <script>
+  const CHAPTER = 13;
+
+  const UNDERSTANDING_KEY =
+    "hanaKorean_chapter13_understanding";
+
+  const LISTENING_EXERCISE_KEY =
+    "hanaKorean_chapter13_listeningExercise";
+
+  const SPEAKING_KEY =
+    "hanaKorean_chapter13_speaking";
+
+  const WRITING_KEY =
+    "hanaKorean_chapter13_writing";
+
+  const WRITING_MISTAKES_KEY =
+    "hanaKorean_chapter13_writingMistakes";
+
+  const REVISION_NOTIONS_KEY =
+    "hanaKorean_chapter13_revisionNotions";
+
+
+  function guardWritingAccess() {
+
+    if (
+      localStorage.getItem(
+        UNDERSTANDING_KEY
+      ) !== "completed"
+    ) {
+      window.location.replace(
+        "chapitre-13.html"
+      );
+      return false;
+    }
+
+    if (
+      localStorage.getItem(
+        LISTENING_EXERCISE_KEY
+      ) !== "completed"
+    ) {
+      window.location.replace(
+        "ecoute-13.html"
+      );
+      return false;
+    }
+
+    if (
+      localStorage.getItem(
+        SPEAKING_KEY
+      ) !== "completed"
+    ) {
+      window.location.replace(
+        "parle-13.html"
+      );
+      return false;
+    }
+
+    return true;
+  }
+
+
   const steps = [
 
     {
       title: "🚇 Demander la ligne",
-      prompt: "Écris : « Quelle ligne est-ce ? »",
-      hint: "Utilise 몇 호선 + 이에요?",
+      prompt:
+        "Écris : « Quelle ligne est-ce ? »",
+      hint:
+        "Utilise 몇 호선 + 이에요?",
       accepted: [
         "몇호선이에요",
         "몇호선이예요"
       ],
-      answer: "몇 호선이에요?",
-      notion: "몇 호선"
+      answer:
+        "몇 호선이에요?",
+      notion:
+        "몇 호선",
+      wrongFeedback:
+        "Repère d'abord <strong>몇 호선</strong> (« quelle ligne »), puis ajoute <strong>이에요?</strong>."
     },
 
     {
-      title: "4️⃣ Prendre la ligne 4",
-      prompt: "Écris : « Prenez la ligne 4. »",
-      hint: "Utilise 사호선을 + 타세요.",
+      title:
+        "4️⃣ Prendre la ligne 4",
+      prompt:
+        "Écris : « Prenez la ligne 4. »",
+      hint:
+        "Utilise 사호선을 + 타세요.",
       accepted: [
         "사호선을타세요"
       ],
-      answer: "사호선을 타세요.",
-      notion: "타세요"
+      answer:
+        "사호선을 타세요.",
+      notion:
+        "타세요",
+      wrongFeedback:
+        "Commence par <strong>사호선을</strong> (« la ligne 4 »), puis ajoute <strong>타세요</strong> (« prenez / montez »)."
     },
 
     {
-      title: "🔁 Faire une correspondance",
-      prompt: "Écris : « Changez à Seoul Station. »",
-      hint: "Utilise 서울역에서 + 갈아타세요.",
+      title:
+        "🔁 Faire une correspondance",
+      prompt:
+        "Écris : « Changez à Seoul Station. »",
+      hint:
+        "Utilise 서울역에서 + 갈아타세요.",
       accepted: [
         "서울역에서갈아타세요"
       ],
-      answer: "서울역에서 갈아타세요.",
-      notion: "갈아타세요"
+      answer:
+        "서울역에서 갈아타세요.",
+      notion:
+        "갈아타세요",
+      wrongFeedback:
+        "Garde le lieu <strong>서울역에서</strong>, puis utilise <strong>갈아타세요</strong> pour « faites une correspondance »."
     },
 
     {
-      title: "🚪 Demander la sortie",
-      prompt: "Écris : « Quelle sortie ? »",
-      hint: "Utilise 몇 번 + 출구예요?",
+      title:
+        "🚪 Demander la sortie",
+      prompt:
+        "Écris : « Quelle sortie ? »",
+      hint:
+        "Utilise 몇 번 + 출구예요?",
       accepted: [
         "몇번출구예요",
         "몇번출구에요"
       ],
-      answer: "몇 번 출구예요?",
-      notion: "출구"
+      answer:
+        "몇 번 출구예요?",
+      notion:
+        "출구",
+      wrongFeedback:
+        "Pour demander le numéro de sortie, construis <strong>몇 번 + 출구예요?</strong>."
     },
 
     {
-      title: "📍 Demander quelle ligne prendre",
-      prompt: "Écris : « Quelle ligne dois-je prendre pour aller à Myeong-dong ? »",
-      hint: "Utilise 명동에 가려면 + 몇 호선을 타야 해요?",
+      title:
+        "📍 Demander quelle ligne prendre",
+      prompt:
+        "Écris : « Quelle ligne dois-je prendre pour aller à Myeong-dong ? »",
+      hint:
+        "Utilise 명동에 가려면 + 몇 호선을 타야 해요?",
       accepted: [
         "명동에가려면몇호선을타야해요"
       ],
-      answer: "명동에 가려면 몇 호선을 타야 해요?",
-      notion: "가려면 / 타야 해요"
+      answer:
+        "명동에 가려면 몇 호선을 타야 해요?",
+      notion:
+        "가려면 / 타야 해요",
+      wrongFeedback:
+        "Réutilise le modèle complet : <strong>명동에 가려면</strong> + <strong>몇 호선을 타야 해요?</strong>"
     }
 
   ];
@@ -568,11 +668,23 @@
   const weakNotions = [];
 
 
+  function renderChapterProgress() {
+
+    if (
+      window.HanaChapterProgress &&
+      typeof window.HanaChapterProgress.render ===
+        "function"
+    ) {
+      window.HanaChapterProgress.render();
+    }
+  }
+
+
   function normalizeKorean(text) {
 
     return text
       .replace(/[.,!?~…'"]/g, "")
-      .replace(/\s+/g, " ")
+      .replace(/\s+/g, "")
       .trim();
 
   }
@@ -583,7 +695,6 @@
     const step =
       steps[currentStep];
 
-
     document.getElementById(
       "stepLabel"
     ).textContent =
@@ -592,31 +703,28 @@
       " / " +
       steps.length;
 
-
     document.getElementById(
       "stepTitle"
     ).textContent =
       step.title;
-
 
     document.getElementById(
       "promptMain"
     ).textContent =
       step.prompt;
 
-
     document.getElementById(
       "promptHint"
     ).textContent =
       step.hint;
 
-
     document.getElementById(
       "helpBox"
-    ).textContent =
+    ).innerHTML =
       "💡 Réponse attendue : " +
-      step.answer;
-
+      "<strong>" +
+      step.answer +
+      "</strong>";
 
     document.getElementById(
       "progressLabel"
@@ -624,7 +732,6 @@
       (currentStep + 1) +
       " / " +
       steps.length;
-
 
     document.getElementById(
       "progressFill"
@@ -636,45 +743,34 @@
       ) +
       "%";
 
-
     const input =
       document.getElementById(
         "writingInput"
       );
 
-
-    input.value =
-      "";
-
-
-    input.disabled =
-      false;
-
+    input.value = "";
+    input.disabled = false;
 
     document.getElementById(
       "checkButton"
     ).disabled =
       false;
 
-
     document.getElementById(
       "feedback"
     ).className =
       "feedback";
-
 
     document.getElementById(
       "feedback"
     ).innerHTML =
       "";
 
-
     document.getElementById(
       "helpBox"
     ).classList.remove(
       "show"
     );
-
 
     document.getElementById(
       "retryButton"
@@ -682,19 +778,16 @@
       "show"
     );
 
-
     document.getElementById(
       "nextButton"
     ).classList.remove(
       "show"
     );
 
-
     setTimeout(
       () => input.focus(),
       200
     );
-
   }
 
 
@@ -702,13 +795,14 @@
 
     helpCount++;
 
+    const box =
+      document.getElementById(
+        "helpBox"
+      );
 
-    document.getElementById(
-      "helpBox"
-    ).classList.toggle(
+    box.classList.toggle(
       "show"
     );
-
   }
 
 
@@ -717,39 +811,37 @@
     const step =
       steps[currentStep];
 
-
     const input =
       document.getElementById(
         "writingInput"
       );
-
 
     const value =
       normalizeKorean(
         input.value
       );
 
-
     const accepted =
       step.accepted.map(
         answer =>
-          normalizeKorean(answer)
+          normalizeKorean(
+            answer
+          )
       );
-
 
     const feedback =
       document.getElementById(
         "feedback"
       );
 
-
     if (
-      accepted.includes(value)
+      accepted.includes(
+        value
+      )
     ) {
 
       feedback.className =
         "feedback show correct";
-
 
       feedback.innerHTML =
         "✅ <strong>Très bien !</strong>" +
@@ -757,16 +849,13 @@
         step.answer +
         "</div>";
 
-
       input.disabled =
         true;
-
 
       document.getElementById(
         "checkButton"
       ).disabled =
         true;
-
 
       document.getElementById(
         "retryButton"
@@ -774,100 +863,39 @@
         "show"
       );
 
-
       document.getElementById(
         "nextButton"
       ).classList.add(
         "show"
       );
 
-
       return;
-
     }
 
-
     mistakes++;
-
 
     if (
       !weakNotions.includes(
         step.notion
       )
     ) {
-
       weakNotions.push(
         step.notion
       );
-
     }
-
 
     feedback.className =
       "feedback show wrong";
 
-
-    if (
-      currentStep === 0
-    ) {
-
-      feedback.innerHTML =
-        "❌ <strong>Pas encore.</strong><br><br>" +
-        "Commence par <strong>이거</strong>, puis ajoute la question <strong>얼마예요?</strong>.";
-
-    }
-
-
-    if (
-      currentStep === 1
-    ) {
-
-      feedback.innerHTML =
-        "❌ <strong>Attention.</strong><br><br>" +
-        "Pour dire « c'est cher », utilise <strong>비싸요</strong>.";
-
-    }
-
-
-    if (
-      currentStep === 2
-    ) {
-
-      feedback.innerHTML =
-        "❌ <strong>Regarde bien la consonne.</strong><br><br>" +
-        "« Bon marché » s'écrit <strong>싸요</strong> avec <strong>ㅆ</strong>.";
-
-    }
-
-
-    if (
-      currentStep === 3
-    ) {
-
-      feedback.innerHTML =
-        "❌ <strong>Réessaie.</strong><br><br>" +
-        "Pour demander l'objet, combine <strong>이거</strong> et <strong>주세요</strong>.";
-
-    }
-
-
-    if (
-      currentStep === 4
-    ) {
-
-      feedback.innerHTML =
-        "❌ <strong>Réessaie la formule complète.</strong><br><br>" +
-        "La formule polie pour « merci » est <strong>감사합니다</strong>.";
-
-    }
-
+    feedback.innerHTML =
+      "❌ <strong>Pas encore.</strong><br><br>" +
+      step.wrongFeedback;
 
     document.getElementById(
       "retryButton"
     ).classList.add(
       "show"
     );
-
   }
 
 
@@ -878,26 +906,19 @@
         "writingInput"
       );
 
-
-    input.value =
-      "";
-
-
+    input.value = "";
     input.focus();
-
 
     document.getElementById(
       "feedback"
     ).className =
       "feedback";
 
-
     document.getElementById(
       "retryButton"
     ).classList.remove(
       "show"
     );
-
   }
 
 
@@ -910,33 +931,45 @@
 
       currentStep++;
 
-
       renderStep();
-
 
       window.scrollTo({
         top: 0,
         behavior: "smooth"
       });
 
-
       return;
-
     }
 
-
     finishWriting();
-
   }
 
 
   function finishWriting() {
 
+    localStorage.setItem(
+      WRITING_KEY,
+      "completed"
+    );
+
+    localStorage.setItem(
+      WRITING_MISTAKES_KEY,
+      String(mistakes)
+    );
+
+    localStorage.setItem(
+      REVISION_NOTIONS_KEY,
+      JSON.stringify(
+        weakNotions
+      )
+    );
+
+    renderChapterProgress();
+
     document.getElementById(
       "writingCard"
     ).style.display =
       "none";
-
 
     document.getElementById(
       "resultCard"
@@ -944,81 +977,69 @@
       "show"
     );
 
-
     let summary = "";
-
 
     if (
       mistakes === 0
     ) {
-
       summary =
         "🌟 Toutes les réponses ont été écrites correctement du premier coup.";
-
     }
-
     else if (
       mistakes === 1
     ) {
-
       summary =
         "💡 Tu as eu 1 tentative incorrecte pendant la séance.";
-
     }
-
     else {
-
       summary =
         "💡 Tu as eu " +
         mistakes +
         " tentatives incorrectes pendant la séance.";
-
     }
-
 
     if (
       helpCount > 0
     ) {
-
       summary +=
         "<br><br>Tu as consulté l'aide " +
         helpCount +
         " fois.";
-
     }
 
+    if (
+      weakNotions.length > 0
+    ) {
+      summary +=
+        "<br><br>🧠 À revoir pendant la prochaine étape : <strong>" +
+        weakNotions.join(", ") +
+        "</strong>.";
+    }
 
     document.getElementById(
       "mistakeSummary"
     ).innerHTML =
       summary;
 
-
-    localStorage.setItem(
-      "hanaKorean_chapter13_writing",
-      "completed"
-    );
-
-
-    localStorage.setItem(
-      "hanaKorean_chapter13_writingMistakes",
-      mistakes
-    );
-
-
-    localStorage.setItem(
-      "hanaKorean_chapter13_revisionNotions",
-      JSON.stringify(
-        weakNotions
-      )
-    );
-
-
     window.scrollTo({
       top: 0,
       behavior: "smooth"
     });
+  }
 
+
+  function goToReview() {
+
+    if (
+      localStorage.getItem(
+        WRITING_KEY
+      ) !== "completed"
+    ) {
+      return;
+    }
+
+    window.location.href =
+      "revision-13.html";
   }
 
 
@@ -1034,18 +1055,27 @@
           "checkButton"
         ).disabled
       ) {
-
         checkWriting();
-
       }
-
     }
   );
 
 
-  renderStep();
+  if (
+    guardWritingAccess()
+  ) {
+
+    renderChapterProgress();
+    renderStep();
+
+    window.addEventListener(
+      "pageshow",
+      function() {
+        renderChapterProgress();
+      }
+    );
+  }
 </script>
 
 </body>
-
 </html>
