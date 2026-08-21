@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#F7F4ED">
+  <title>Chapitre 32 — Je parle</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="chapter-progress.css">
+  <style>
+    .speak-card{padding:20px;margin-bottom:18px;background:var(--white);border-radius:var(--radius-large);box-shadow:var(--shadow)}
+    .prompt{padding:14px;margin-top:10px;background:#FBFAF6;border-radius:var(--radius-medium);line-height:1.6}
+  </style>
+  <script src="profile.js"></script>
+</head>
+<body>
+<main class="app">
+<a class="back-link" href="exercice-ecoute-32.html">← Exercice d'écoute</a>
+<section id="hanaChapterPath" data-chapter-path></section>
+<header>
+  <span class="chapter-badge">Chapitre 32 · 🗣️ Je parle</span>
+  <h1>Donner ton avis</h1>
+  <p>Répète puis réponds spontanément.</p>
+</header>
+
+<section class="speak-card">
+  <h2>🌸 Répète</h2>
+  <div class="prompt"><strong>이 카페 어때요?</strong><br><small>Comment trouves-tu ce café ?</small></div>
+  <div class="prompt"><strong>재미있다고 생각해요.</strong><br><small>Je pense que c'est intéressant.</small></div>
+  <div class="prompt"><strong>조금 어려워요. 하지만 재미있어요.</strong><br><small>C'est un peu difficile, mais intéressant.</small></div>
+  <div class="prompt"><strong>맞아요. 저도 그렇게 생각해요.</strong><br><small>Exactement. Moi aussi, je pense comme ça.</small></div>
+  <div class="prompt"><strong>저는 조금 다르게 생각해요.</strong><br><small>Moi, je pense un peu différemment.</small></div>
+  <button id="listenAll" type="button" style="width:100%;margin-top:12px;">🔊 Écouter les phrases</button>
+</section>
+
+<section class="speak-card">
+  <h2>💬 Donne ton avis</h2>
+  <div class="prompt"><strong>한국 음식 어때요?</strong><br><small>Que penses-tu de la cuisine coréenne ?</small></div>
+  <div class="prompt"><strong>한국어는 어때요?</strong><br><small>Que penses-tu du coréen ?</small></div>
+  <div class="prompt"><strong>서울은 어때요?</strong><br><small>Que penses-tu de Séoul ?</small></div>
+  <div class="prompt"><strong>한국 여행은 어때요?</strong><br><small>Que penses-tu d'un voyage en Corée ?</small></div>
+</section>
+
+<section class="speak-card">
+  <h2>🎯 Mini-défi</h2>
+  <p>Réponds avec une phrase complète et essaie d'utiliser au moins une fois <strong>-다고 생각해요</strong>.</p>
+  <button id="doneSpeaking" type="button" style="width:100%;">✅ J'ai donné mes opinions à voix haute</button>
+</section>
+
+<button id="nextButton" type="button" style="display:none;width:100%;">✍️ Passer à l'écriture</button>
+</main>
+<script src="chapter-progress.js"></script>
+<script>
+const EXERCISE_KEY="hanaKorean_chapter32_listeningExercise";
+const SPEAKING_KEY="hanaKorean_chapter32_speaking";
+const done=document.getElementById("doneSpeaking"),next=document.getElementById("nextButton");
+function guard(){if(localStorage.getItem(EXERCISE_KEY)!=="completed"){window.location.href="exercice-ecoute-32.html";return false;}return true;}
+if(!guard())throw new Error("chapter32-speaking-guard");
+function speak(text){if(!("speechSynthesis" in window))return;speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.lang="ko-KR";u.rate=.82;const v=speechSynthesis.getVoices().find(x=>x.lang==="ko-KR")||speechSynthesis.getVoices().find(x=>x.lang&&x.lang.startsWith("ko"));if(v)u.voice=v;speechSynthesis.speak(u);}
+document.getElementById("listenAll").addEventListener("click",()=>speak("이 카페 어때요? 재미있다고 생각해요. 조금 어려워요. 하지만 재미있어요. 맞아요. 저도 그렇게 생각해요. 저는 조금 다르게 생각해요."));
+function refresh(){if(localStorage.getItem(SPEAKING_KEY)==="completed"){done.textContent="✅ Oral terminé";done.disabled=true;next.style.display="block";}if(window.HanaChapterProgress)HanaChapterProgress.render();}
+done.addEventListener("click",()=>{localStorage.setItem(SPEAKING_KEY,"completed");refresh();});
+next.addEventListener("click",()=>window.location.href="ecriture-32.html");
+window.addEventListener("pageshow",()=>{if(guard())refresh();});refresh();
+</script>
+</body>
+</html>

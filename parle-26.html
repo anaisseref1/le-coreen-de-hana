@@ -2,7 +2,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#F7F4ED">
 <link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="chapter-progress.css"><title>Chapitre 26 — Je parle</title><style>.speak-header{text-align:center;margin-bottom:24px}.card{padding:20px;margin-bottom:18px;background:var(--white);border-radius:var(--radius-large);box-shadow:var(--shadow)}.step{padding:15px;margin-top:12px;background:#FBFAF6;border-radius:var(--radius-medium)}.audio,.complete-button,.next-button{width:100%;margin-top:10px}.complete-button{background:var(--jade);color:white;font-weight:bold}.next-button{display:none;background:var(--navy);color:white;font-weight:bold}</style></head><body><main class="app">
+<link rel="stylesheet" href="chapter-progress.css"><title>Chapitre 26 — Je parle</title><style>.speak-header{text-align:center;margin-bottom:24px}.card{padding:20px;margin-bottom:18px;background:var(--white);border-radius:var(--radius-large);box-shadow:var(--shadow)}.step{padding:15px;margin-top:12px;background:#FBFAF6;border-radius:var(--radius-medium)}.audio,.complete-button,.next-button{width:100%;margin-top:10px}.complete-button{background:var(--jade);color:white;font-weight:bold}.next-button{display:none;background:var(--navy);color:white;font-weight:bold}</style>  <script src="profile.js"></script>
+</head><body><main class="app">
 <a class="back-link" href="exercice-ecoute-26.html">← Écoute</a><section id="hanaChapterPath" data-chapter-path></section>
 <header class="speak-header"><span class="chapter-badge">Chapitre 26 · 🗣️ Je parle</span><p class="korean">어디가 아파요?</p><h1>À la pharmacie</h1><p>Réponds au pharmacien comme si tu étais en Corée.</p></header>
 <section class="card"><h2>🎭 Situation</h2><p>Tu ne te sens pas bien. Tu entres dans une pharmacie. Le pharmacien te demande ce qui ne va pas.</p></section>
@@ -20,4 +21,5 @@ if(localStorage.getItem(UNDERSTANDING_KEY)!=="completed"||localStorage.getItem(L
 function speak(text){const u=new SpeechSynthesisUtterance(text);u.lang="ko-KR";u.rate=.8;speechSynthesis.cancel();speechSynthesis.speak(u);}document.querySelectorAll(".audio").forEach(btn=>btn.onclick=()=>speak(btn.dataset.text));const next=document.getElementById("next"),complete=document.getElementById("completeButton");
 function refresh(){if(localStorage.getItem(SPEAKING_KEY)==="completed"){complete.textContent="✅ Oral validé";next.style.display="block";}if(window.HanaChapterProgress)HanaChapterProgress.render();}
 complete.onclick=()=>{localStorage.setItem(SPEAKING_KEY,"completed");if(localStorage.getItem(MISTAKES_KEY)===null)localStorage.setItem(MISTAKES_KEY,"0");if(localStorage.getItem(HELP_KEY)===null)localStorage.setItem(HELP_KEY,"0");refresh();};next.onclick=()=>window.location.href="ecriture-26.html";window.addEventListener("pageshow",refresh);refresh();
-</script></body></html>
+</script>
+</body></html>

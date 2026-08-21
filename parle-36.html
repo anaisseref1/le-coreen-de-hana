@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#F7F4ED">
+  <title>Chapitre 36 — Je parle</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="chapter-progress.css">
+  <style>
+    .speak-card{padding:20px;margin-bottom:18px;background:var(--white);border-radius:var(--radius-large);box-shadow:var(--shadow)}
+    .prompt{padding:14px;margin-top:10px;background:#FBFAF6;border-radius:var(--radius-medium);line-height:1.6}
+  </style>
+  <script src="profile.js"></script>
+</head>
+<body>
+<main class="app">
+<a class="back-link" href="exercice-ecoute-36.html">← Exercice d'écoute</a>
+<section id="hanaChapterPath" data-chapter-path></section>
+<header>
+  <span class="chapter-badge">Chapitre 36 · 🗣️ Je parle</span>
+  <h1>Inviter et organiser</h1>
+  <p>Répète puis organise ta propre sortie.</p>
+</header>
+
+<section class="speak-card">
+  <h2>🌸 Répète</h2>
+  <div class="prompt"><strong>주말에 같이 뭐 할래요?</strong><br><small>Tu veux qu'on fasse quelque chose ensemble ce week-end ?</small></div>
+  <div class="prompt"><strong>영화 볼래요?</strong><br><small>Tu veux voir un film ?</small></div>
+  <div class="prompt"><strong>토요일 어때요?</strong><br><small>Et samedi ? / Samedi, ça te va ?</small></div>
+  <div class="prompt"><strong>몇 시에 만날까요?</strong><br><small>À quelle heure on se retrouve ?</small></div>
+  <div class="prompt"><strong>어디에서 만날까요?</strong><br><small>Où est-ce qu'on se retrouve ?</small></div>
+  <div class="prompt"><strong>다음에 같이 가요.</strong><br><small>On ira ensemble une prochaine fois.</small></div>
+  <button id="listenAll" type="button" style="width:100%;margin-top:12px;">🔊 Écouter les phrases</button>
+</section>
+
+<section class="speak-card">
+  <h2>💬 À toi</h2>
+  <div class="prompt"><strong>커피 마실래요?</strong></div>
+  <div class="prompt"><strong>영화 볼까요?</strong></div>
+  <div class="prompt"><strong>일요일은 어때요?</strong></div>
+  <div class="prompt"><strong>몇 시에 만날까요?</strong></div>
+  <div class="prompt"><strong>어디에서 만날까요?</strong></div>
+</section>
+
+<section class="speak-card">
+  <h2>🎯 Mini-défi</h2>
+  <p>Fais une mini-conversation de 6 à 8 phrases : activité, jour, heure, lieu et réponse finale.</p>
+  <button id="doneSpeaking" type="button" style="width:100%;">✅ J'ai organisé une sortie à voix haute</button>
+</section>
+
+<button id="nextButton" type="button" style="display:none;width:100%;">✍️ Passer à l'écriture</button>
+</main>
+
+<script src="chapter-progress.js"></script>
+<script>
+const EXERCISE_KEY="hanaKorean_chapter36_listeningExercise";
+const SPEAKING_KEY="hanaKorean_chapter36_speaking";
+const done=document.getElementById("doneSpeaking");
+const next=document.getElementById("nextButton");
+
+function guard(){
+  if(localStorage.getItem(EXERCISE_KEY)!=="completed"){
+    window.location.href="exercice-ecoute-36.html";
+    return false;
+  }
+  return true;
+}
+if(!guard())throw new Error("chapter36-speaking-guard");
+
+function speak(text){
+  if(!("speechSynthesis" in window))return;
+  speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(text);
+  u.lang="ko-KR";u.rate=.82;
+  const voices=speechSynthesis.getVoices();
+  const v=voices.find(x=>x.lang==="ko-KR")||voices.find(x=>x.lang&&x.lang.startsWith("ko"));
+  if(v)u.voice=v;
+  speechSynthesis.speak(u);
+}
+document.getElementById("listenAll").addEventListener("click",()=>speak(
+  "주말에 같이 뭐 할래요? 영화 볼래요? 토요일 어때요? 몇 시에 만날까요? 어디에서 만날까요? 다음에 같이 가요."
+));
+
+function refresh(){
+  if(localStorage.getItem(SPEAKING_KEY)==="completed"){
+    done.textContent="✅ Oral terminé";
+    done.disabled=true;
+    next.style.display="block";
+  }
+  if(window.HanaChapterProgress)HanaChapterProgress.render();
+}
+done.addEventListener("click",()=>{localStorage.setItem(SPEAKING_KEY,"completed");refresh();});
+next.addEventListener("click",()=>window.location.href="ecriture-36.html");
+window.addEventListener("pageshow",()=>{if(guard())refresh();});
+refresh();
+</script>
+</body>
+</html>

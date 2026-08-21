@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#F7F4ED">
+  <title>Chapitre 31 — Résumé</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="chapter-progress.css">
+  <style>
+    .summary-header{text-align:center;margin-bottom:24px;}
+    .summary-card,.bag-card,.ending-card{padding:20px;margin-bottom:18px;background:var(--white);border-radius:var(--radius-large);box-shadow:var(--shadow);}
+    .summary-item{padding:14px;margin-top:10px;background:#FBFAF6;border-radius:var(--radius-medium);line-height:1.65;}
+    .ko{color:var(--navy);font-size:18px;font-weight:bold;}
+  </style>
+  <script src="profile.js"></script>
+</head>
+<body>
+<main class="app">
+<a class="back-link" href="utilise-31.html">← Mission</a>
+<section id="hanaChapterPath" data-chapter-path></section>
+
+<header class="summary-header">
+  <span class="chapter-badge">Chapitre 31 · 📚 Résumé</span>
+  <p class="korean">습관을 말해요 🌸</p>
+  <h1>Parler de ses habitudes</h1>
+  <p>La fiche courte à relire avant de passer au chapitre 32.</p>
+</header>
+
+<section class="summary-card">
+  <h2>💙 Les mots de fréquence</h2>
+  <div class="summary-item"><span class="ko">항상</span> → toujours</div>
+  <div class="summary-item"><span class="ko">자주</span> → souvent</div>
+  <div class="summary-item"><span class="ko">보통</span> → généralement / d'habitude</div>
+  <div class="summary-item"><span class="ko">가끔</span> → parfois</div>
+  <div class="summary-item"><span class="ko">거의 안</span> → presque jamais</div>
+  <div class="summary-item"><span class="ko">전혀 안</span> → jamais / pas du tout</div>
+</section>
+
+<section class="summary-card">
+  <h2>🧩 Structure</h2>
+  <div class="summary-item"><strong>Complément + adverbe + verbe</strong></div>
+  <div class="summary-item"><span class="ko">커피를 자주 마셔요.</span><br>Je bois souvent du café.</div>
+  <div class="summary-item"><span class="ko">가끔 운동해요.</span><br>Je fais parfois du sport.</div>
+</section>
+
+<section class="summary-card">
+  <h2>🌸 Expressions utiles</h2>
+  <div class="summary-item"><span class="ko">매일 한국어를 공부해요.</span><br>J'étudie le coréen tous les jours.</div>
+  <div class="summary-item"><span class="ko">주말에는 보통 집에서 쉬어요.</span><br>Le week-end, je me repose généralement à la maison.</div>
+  <div class="summary-item"><span class="ko">커피를 전혀 안 마셔요.</span><br>Je ne bois jamais / pas du tout de café.</div>
+  <div class="summary-item"><span class="ko">보통 뭐 해요?</span><br>Qu'est-ce que tu fais habituellement ?</div>
+</section>
+
+<section class="bag-card">
+  <h2>🎒 Dans mon sac à dos</h2>
+  <p>Le chapitre 31 ajoute maintenant les adverbes de fréquence à ton Sac à dos coréen.</p>
+  <button type="button" style="width:100%;" onclick="window.location.href='sac-a-dos.html'">🎒 Ouvrir mon sac à dos</button>
+</section>
+
+<section class="ending-card">
+  <h2>🌸 Prochaine étape</h2>
+  <p>Ji-soo ne demande plus seulement à Ana ce qu'elle fait.</p>
+  <p>Elle lui demande maintenant :</p>
+  <p><strong>이거 어떻게 생각해요?</strong><br>→ Qu'est-ce que tu en penses ?</p>
+  <p>➡️ Chapitre 32 : <strong>Dire ce qu'on pense</strong>.</p>
+</section>
+
+<button id="backRoute" type="button" style="width:100%;">🗺️ Retour au Module 4</button>
+</main>
+
+<script src="chapter-progress.js"></script>
+<script>
+const COMPLETED_KEY="hanaKorean_chapter31_completed";
+const RESUME_KEY="hanaKorean_chapter31_resume";
+
+if(localStorage.getItem(COMPLETED_KEY)!=="completed"){
+  window.location.href="utilise-31.html";
+}else{
+  localStorage.setItem(RESUME_KEY,"completed");
+}
+
+document.getElementById("backRoute").addEventListener("click",()=>{
+  window.location.href="itineraire.html#module4";
+});
+
+if(window.HanaChapterProgress)HanaChapterProgress.render();
+</script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#F7F4ED"><title>Chapitre 38 — Je parle</title><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="chapter-progress.css"><style>.p{padding:14px;margin:10px 0;background:#FBFAF6;border-radius:var(--radius-medium)}</style>  <script src="profile.js"></script>
+</head>
+<body><main class="app"><a class="back-link" href="exercice-ecoute-38.html">← Exercice</a><section id="hanaChapterPath" data-chapter-path></section><header><span class="chapter-badge">Chapitre 38 · 🗣️ Je parle</span><h1>Parler dans une librairie</h1></header>
+<section class="card"><div class="p"><strong>어떤 책 좋아해요?</strong></div><div class="p"><strong>한국어 책을 찾고 있어요.</strong></div><div class="p"><strong>이 책 있어요?</strong></div><div class="p"><strong>어디에 있어요?</strong></div><div class="p"><strong>어떤 책을 추천해요?</strong></div><div class="p"><strong>이 책 얼마예요?</strong></div><div class="p"><strong>그럼 이 책을 살게요.</strong></div></section>
+<section class="card"><h2>🎯 Défi</h2><p>Imagine un échange complet avec un employé : ce que tu cherches, disponibilité, emplacement, recommandation, prix et décision.</p><button id="done" style="width:100%">✅ J'ai fait le dialogue à voix haute</button></section>
+<button id="next" style="display:none;width:100%">✍️ Passer à l'écriture</button></main>
+<script src="chapter-progress.js"></script><script>
+const PREV="hanaKorean_chapter38_listeningExercise",KEY="hanaKorean_chapter38_speaking";if(localStorage.getItem(PREV)!=="completed")location.href="exercice-ecoute-38.html";const d=document.getElementById("done"),n=document.getElementById("next");function r(){if(localStorage.getItem(KEY)==="completed"){d.disabled=true;d.textContent="✅ Oral terminé";n.style.display="block"}if(window.HanaChapterProgress)HanaChapterProgress.render()}d.onclick=()=>{localStorage.setItem(KEY,"completed");r()};n.onclick=()=>location.href="ecriture-38.html";r();
+</script>
+</body></html>

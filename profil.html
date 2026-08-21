@@ -1,0 +1,311 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><meta name="theme-color" content="#F7F4ED"><title>Mon profil — Le Coréen de Ana</title><link rel="stylesheet" href="style.css"><style>
+.profile-hero{text-align:center;margin-bottom:24px}.card{padding:20px;margin-bottom:16px;background:var(--white);border:1px solid var(--border);border-radius:var(--radius-large);box-shadow:var(--shadow)}.field{margin:14px 0}.field label{display:block;margin-bottom:6px;font-weight:700;color:var(--navy)}input,select{width:100%;box-sizing:border-box;padding:13px 14px;border:1px solid var(--border);border-radius:var(--radius-medium);background:#fff;color:var(--navy);font:inherit}.hint{font-size:12px;color:var(--text-light);line-height:1.55}.row{display:grid;grid-template-columns:1fr;gap:10px}.actions{display:grid;grid-template-columns:1fr;gap:10px;margin-top:14px}.secondary{background:var(--soft-beige);color:var(--navy)}.preview{padding:14px;margin-top:10px;border-radius:var(--radius-medium);background:#FBFAF6;line-height:1.7}.mode-grid{display:grid;grid-template-columns:1fr;gap:8px}.mode{padding:12px;border:1px solid var(--border);border-radius:var(--radius-medium);background:#fff}.mode input{width:auto}.suggestions{display:grid;grid-template-columns:1fr;gap:10px;margin-top:12px}.suggestion{padding:14px;border:1px solid var(--border);border-radius:var(--radius-medium);background:#FBFAF6}.suggestion h3{margin:0 0 6px}.tiny-badge{display:inline-block;padding:4px 8px;background:var(--soft-green);border-radius:16px;font-size:11px;font-weight:700;color:var(--jade-dark)}@media(min-width:650px){.row,.actions{grid-template-columns:1fr 1fr}.mode-grid{grid-template-columns:repeat(3,1fr)}.suggestions{grid-template-columns:repeat(3,1fr)}}</style>  <script src="profile.js"></script>
+</head><body><main class="app" data-profile-static><a class="back-link" href="index.html">← Accueil</a><header class="profile-hero"><span class="chapter-badge">👤 Mon identité dans l'application</span><p class="korean">내 프로필 🌿</p><h1>Mon profil</h1><p>Choisis comment Min-su, Ji-soo et les histoires t'appellent.</p></header>
+<section class="card"><h2>🌸 Mon prénom</h2><div class="field"><label for="realName">Prénom réel</label><input id="realName" maxlength="40" placeholder="Maryon"></div><div class="row"><div class="field"><label for="hangulName">Version en hangeul</label><input id="hangulName" maxlength="30" placeholder="마리온"><button type="button" class="secondary" id="transcribe">🔤 Proposer une transcription</button><p class="hint">La transcription est phonétique et reste modifiable. L'application ne peut pas connaître parfaitement la prononciation de tous les prénoms étrangers.</p></div><div class="field"><label for="koreanName">Prénom coréen choisi</label><input id="koreanName" maxlength="30" placeholder="서윤"><p class="hint">Tu peux le choisir dans les suggestions ci-dessous ou écrire le tien.</p></div></div></section>
+<section class="card"><h2>💙 Comment veux-tu être appelée ?</h2><div class="mode-grid"><label class="mode"><input type="radio" name="display" value="real"> <strong>Prénom réel</strong><br><span class="hint" id="modeReal">Maryon</span></label><label class="mode"><input type="radio" name="display" value="hangul"> <strong>Version hangeul</strong><br><span class="hint" id="modeHangul">마리온</span></label><label class="mode"><input type="radio" name="display" value="korean"> <strong>Prénom coréen</strong><br><span class="hint" id="modeKorean">서윤</span></label></div><div class="preview"><strong>Aperçu :</strong><br>💙 Min-su : <span id="previewKo">Maryon 씨, 오늘 뭐 하고 싶어요?</span><br>📖 <span id="previewFr">Maryon</span> entre dans le café.</div></section>
+<section class="card"><h2>🌷 Trouver un prénom coréen selon mes goûts</h2><div class="field"><label for="vibe">Ambiance recherchée</label><select id="vibe"><option value="doux">Doux / délicat</option><option value="elegant">Élégant / classique</option><option value="lumineux">Lumineux / joyeux</option><option value="fort">Fort / affirmé</option><option value="moderne">Moderne / simple</option><option value="nature">Nature / poétique</option></select></div><button id="suggestTaste" type="button">🌸 Me proposer des prénoms</button><div id="tasteSuggestions" class="suggestions"></div></section>
+<section class="card"><h2>🌙 Proposition inspirée de ma naissance</h2><p>Ce mode est <strong>ludique et inspiré du 사주</strong>. Il ne réalise pas un véritable calcul traditionnel de 사주 ni une consultation de 작명.</p><div class="row"><div class="field"><label for="birthDate">Date de naissance</label><input id="birthDate" type="date"></div><div class="field"><label for="birthTime">Heure de naissance (facultative)</label><input id="birthTime" type="time"></div></div><button id="suggestBirth" type="button">🌙 Générer 3 propositions inspirées</button><p class="hint" id="birthNote">Ces informations restent dans le stockage local de ton navigateur.</p><div id="birthSuggestions" class="suggestions"></div></section>
+<section class="card"><h2>🀄 Et les hanja ?</h2><p>Un même prénom en hangeul peut correspondre à plusieurs hanja et donc à plusieurs significations. L'application ne prétendra jamais qu'une syllabe signifie toujours une seule chose. Plus tard, on pourra ajouter une fiche culturelle dédiée aux prénoms et aux hanja.</p></section>
+<section class="card"><div class="actions"><button id="save">💙 Enregistrer mon profil</button><button id="reset" class="secondary">🌸 Réinitialiser à Ana</button></div><p id="status" class="hint" role="status"></p></section>
+</main>
+<script>
+const NAMES=[
+  {n:'서윤',r:'Seo-yun',v:['doux','elegant'],e:'water',a:'doux et élégant'},
+  {n:'지우',r:'Ji-u',v:['moderne','doux'],e:'wood',a:'moderne et facile à porter'},
+  {n:'수아',r:'Su-a',v:['doux','lumineux'],e:'water',a:'léger et lumineux'},
+  {n:'민서',r:'Min-seo',v:['elegant','moderne'],e:'metal',a:'équilibré et moderne'},
+  {n:'하윤',r:'Ha-yun',v:['doux','elegant'],e:'earth',a:'doux et raffiné'},
+  {n:'유나',r:'Yu-na',v:['lumineux','moderne'],e:'fire',a:'clair et vivant'},
+  {n:'예린',r:'Ye-rin',v:['doux','nature'],e:'wood',a:'délicat et printanier'},
+  {n:'가은',r:'Ga-eun',v:['elegant','doux'],e:'metal',a:'sobre et élégant'},
+  {n:'지아',r:'Ji-a',v:['lumineux','moderne'],e:'fire',a:'court et lumineux'},
+  {n:'윤서',r:'Yun-seo',v:['elegant','doux'],e:'water',a:'élégant et calme'},
+  {n:'채원',r:'Chae-won',v:['elegant','fort'],e:'metal',a:'classique et affirmé'},
+  {n:'시은',r:'Si-eun',v:['doux','elegant'],e:'earth',a:'doux et posé'},
+  {n:'아린',r:'A-rin',v:['doux','moderne'],e:'wood',a:'délicat et moderne'},
+  {n:'다온',r:'Da-on',v:['lumineux','moderne'],e:'fire',a:'chaleureux et contemporain'},
+  {n:'하린',r:'Ha-rin',v:['nature','doux'],e:'wood',a:'frais et doux'},
+  {n:'유진',r:'Yu-jin',v:['moderne','fort'],e:'metal',a:'mixte, net et moderne'},
+  {n:'보라',r:'Bo-ra',v:['fort','lumineux'],e:'fire',a:'expressif et coloré'},
+  {n:'하늘',r:'Ha-neul',v:['nature','lumineux'],e:'wood',a:'poétique, lié au mot « ciel »'},
+  {n:'봄',r:'Bom',v:['nature','lumineux'],e:'wood',a:'poétique, lié au mot « printemps »'},
+  {n:'세아',r:'Se-a',v:['doux','moderne'],e:'water',a:'court et délicat'}
+];
+
+const ROMAN={
+  '아나':'Ana',
+  '서윤':'Seo-yun','지우':'Ji-u','수아':'Su-a','민서':'Min-seo',
+  '하윤':'Ha-yun','유나':'Yu-na','예린':'Ye-rin','가은':'Ga-eun',
+  '지아':'Ji-a','윤서':'Yun-seo','채원':'Chae-won','시은':'Si-eun',
+  '아린':'A-rin','다온':'Da-on','하린':'Ha-rin','유진':'Yu-jin',
+  '보라':'Bo-ra','하늘':'Ha-neul','봄':'Bom','세아':'Se-a'
+};
+
+const el={
+  real:document.getElementById('realName'),
+  hangul:document.getElementById('hangulName'),
+  korean:document.getElementById('koreanName'),
+  roman:document.getElementById('koreanRomanization'),
+  vibe:document.getElementById('vibe'),
+  date:document.getElementById('birthDate'),
+  time:document.getElementById('birthTime')
+};
+
+function norm(s){
+  return (s||'')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g,'')
+    .toLowerCase()
+    .replace(/[^a-z]/g,'');
+}
+
+const known={
+  ana:'아나',
+  anais:'아나이스',
+  maryon:'마리온',
+  marion:'마리온',
+  sarah:'사라',
+  sara:'사라',
+  emma:'엠마',
+  lea:'레아',
+  lisa:'리사',
+  laura:'로라',
+  julie:'줄리',
+  chloe:'클로에',
+  clara:'클라라',
+  camille:'카밀',
+  lucie:'뤼시',
+  alice:'알리스',
+  manon:'마농',
+  ines:'이네스',
+  jade:'자드',
+  nina:'니나',
+  lina:'리나',
+  maria:'마리아',
+  anna:'안나',
+  sophie:'소피'
+};
+
+function heuristic(name){
+  const k=norm(name);
+  if(!k) return '아나';
+  if(known[k]) return known[k];
+
+  let x=k;
+  x=x
+    .replace(/ch/g,'ㅅ').replace(/sh/g,'ㅅ').replace(/ph/g,'ㅍ')
+    .replace(/th/g,'ㅌ').replace(/gn/g,'ㄴ').replace(/ou/g,'우')
+    .replace(/oo/g,'우').replace(/ee/g,'이').replace(/ai|ay/g,'에')
+    .replace(/oi/g,'와').replace(/au|eau/g,'오').replace(/on/g,'옹')
+    .replace(/an|en/g,'앙');
+
+  const syl=[];
+  const vowels={a:'아',e:'에',i:'이',o:'오',u:'우',y:'이'};
+  const lead={
+    b:'브',c:'크',d:'드',f:'프',g:'그',h:'흐',j:'지',k:'크',
+    l:'르',m:'므',n:'느',p:'프',q:'크',r:'르',s:'스',t:'트',
+    v:'브',w:'우',x:'크스',z:'즈','ㅅ':'시','ㅍ':'프','ㅌ':'트',
+    'ㄴ':'니','ㄱ':'기'
+  };
+
+  for(const ch of x){
+    if(vowels[ch]) syl.push(vowels[ch]);
+    else if(lead[ch]) syl.push(lead[ch]);
+  }
+
+  return syl.join('')
+    .replace(/으아/g,'아')
+    .replace(/으이/g,'이')
+    .replace(/으오/g,'오')
+    .slice(0,12) || '아나';
+}
+
+function koreanNameForPreview(mode){
+  return mode==='korean'
+    ? (el.korean.value || '아나')
+    : (el.hangul.value || '아나');
+}
+
+function latinNameForPreview(mode){
+  if(mode==='korean'){
+    return el.roman.value || ROMAN[el.korean.value] || el.real.value || 'Ana';
+  }
+  return el.real.value || 'Ana';
+}
+
+function displayPreview(){
+  const mode=document.querySelector('input[name=display]:checked')?.value || 'real';
+  const ko=koreanNameForPreview(mode);
+  const latin=latinNameForPreview(mode);
+
+  document.getElementById('previewKo').textContent=
+    ko+' 씨, 오늘 뭐 하고 싶어요?';
+
+  document.getElementById('previewFr').textContent=latin;
+
+  document.getElementById('modeReal').textContent=el.real.value || 'Ana';
+  document.getElementById('modeHangul').textContent=el.hangul.value || '아나';
+  document.getElementById('modeKorean').textContent=el.korean.value || '아나';
+}
+
+function chooseKoreanName(x){
+  el.korean.value=x.n;
+  el.roman.value=x.r;
+
+  document.querySelector(
+    'input[name=display][value=korean]'
+  ).checked=true;
+
+  displayPreview();
+}
+
+function render(list,target){
+  target.innerHTML='';
+
+  list.forEach(x=>{
+    const d=document.createElement('div');
+    d.className='suggestion';
+
+    d.innerHTML=
+      `<span class="tiny-badge">${x.r}</span>
+       <h3>${x.n}</h3>
+       <p>${x.a}</p>
+       <button type="button">Choisir ${x.n}</button>`;
+
+    d.querySelector('button').onclick=()=>chooseKoreanName(x);
+    target.appendChild(d);
+  });
+}
+
+function taste(){
+  const v=el.vibe.value;
+  let list=NAMES.filter(x=>x.v.includes(v));
+
+  if(list.length<3) list=NAMES;
+
+  render(
+    list.slice(0,3),
+    document.getElementById('tasteSuggestions')
+  );
+}
+
+function birth(){
+  if(!el.date.value){
+    document.getElementById('birthNote').textContent=
+      '🌙 Ajoute d’abord une date de naissance.';
+    return;
+  }
+
+  const raw=
+    el.date.value.replace(/-/g,'')+
+    (el.time.value||'').replace(':','');
+
+  const sum=[...raw].reduce(
+    (a,c)=>a+(+c||0),
+    0
+  );
+
+  const elements=['wood','fire','earth','metal','water'];
+  const element=elements[sum%5];
+
+  const labels={
+    wood:'목 · bois',
+    fire:'화 · feu',
+    earth:'토 · terre',
+    metal:'금 · métal',
+    water:'수 · eau'
+  };
+
+  let list=NAMES.filter(x=>x.e===element);
+
+  if(list.length<3){
+    list=NAMES.filter((_,i)=>i%5===sum%5);
+  }
+
+  document.getElementById('birthNote').textContent=
+    '🌙 Inspiration symbolique : '+labels[element]+
+    '. Ce résultat est ludique et ne remplace pas un véritable calcul de 사주.';
+
+  render(
+    list.slice(0,3),
+    document.getElementById('birthSuggestions')
+  );
+}
+
+function load(){
+  const p=HanaProfile.getProfile();
+
+  el.real.value=p.real;
+  el.hangul.value=p.hangul;
+  el.korean.value=p.korean;
+  el.roman.value=
+    p.koreanRomanization ||
+    ROMAN[p.korean] ||
+    p.real;
+
+  el.date.value=p.birthDate;
+  el.time.value=p.birthTime;
+  el.vibe.value=p.vibe || 'doux';
+
+  const radio=document.querySelector(
+    `input[name=display][value="${p.display}"]`
+  );
+
+  if(radio) radio.checked=true;
+
+  displayPreview();
+}
+
+document.getElementById('transcribe').onclick=()=>{
+  el.hangul.value=heuristic(el.real.value);
+  displayPreview();
+};
+
+document.getElementById('suggestTaste').onclick=taste;
+document.getElementById('suggestBirth').onclick=birth;
+
+document.querySelectorAll(
+  'input[name=display],#realName,#hangulName,#koreanName,#koreanRomanization'
+).forEach(x=>{
+  x.addEventListener('input',()=>{
+    if(x===el.korean && ROMAN[el.korean.value]){
+      el.roman.value=ROMAN[el.korean.value];
+    }
+
+    displayPreview();
+  });
+});
+
+document.getElementById('save').onclick=()=>{
+  const display=
+    document.querySelector(
+      'input[name=display]:checked'
+    )?.value || 'real';
+
+  HanaProfile.setProfile({
+    real:el.real.value,
+    hangul:el.hangul.value,
+    korean:el.korean.value,
+    koreanRomanization:el.roman.value,
+    display,
+    birthDate:el.date.value,
+    birthTime:el.time.value,
+    vibe:el.vibe.value
+  });
+
+  document.getElementById('status').textContent=
+    '✅ Profil enregistré. Les chapitres et dialogues utiliseront maintenant ton identité choisie.';
+
+  displayPreview();
+};
+
+document.getElementById('reset').onclick=()=>{
+  HanaProfile.resetProfile();
+  load();
+
+  document.getElementById('status').textContent=
+    '🌸 Profil réinitialisé à Ana.';
+};
+
+load();
+</script></body></html>

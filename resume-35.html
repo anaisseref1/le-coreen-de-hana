@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#F7F4ED">
+  <title>Chapitre 35 — Résumé</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="chapter-progress.css">
+  <style>
+    .summary-card{padding:20px;margin-bottom:18px;background:var(--white);border-radius:var(--radius-large);box-shadow:var(--shadow)}
+    .item{padding:13px;margin-top:9px;background:#FBFAF6;border-radius:var(--radius-medium);line-height:1.65}
+    .ko{font-size:18px;font-weight:800;color:var(--navy)}
+  </style>
+  <script src="profile.js"></script>
+</head>
+<body>
+<main class="app">
+<a class="back-link" href="utilise-35.html">← Mission</a>
+<section id="hanaChapterPath" data-chapter-path></section>
+<header>
+  <span class="chapter-badge">Chapitre 35 · 📚 Résumé</span>
+  <p class="korean">기분을 말해요 🌸</p>
+  <h1>Parler de ses émotions</h1>
+</header>
+
+<section class="summary-card">
+  <h2>💙 Humeur</h2>
+  <div class="item"><span class="ko">기분이 어때요?</span><br>Comment tu te sens ?</div>
+  <div class="item"><span class="ko">기분이 좋아요.</span><br>Je me sens bien.</div>
+</section>
+
+<section class="summary-card">
+  <h2>🌸 Émotions utiles</h2>
+  <div class="item"><span class="ko">행복해요.</span> → Je suis heureuse.</div>
+  <div class="item"><span class="ko">기뻐요.</span> → Je suis contente.</div>
+  <div class="item"><span class="ko">피곤해요.</span> → Je suis fatiguée.</div>
+  <div class="item"><span class="ko">걱정돼요.</span> → Je suis inquiète.</div>
+  <div class="item"><span class="ko">긴장돼요.</span> → Je suis nerveuse.</div>
+</section>
+
+<section class="summary-card">
+  <h2>💗 기분 vs 마음</h2>
+  <div class="item"><strong>기분</strong> → humeur du moment</div>
+  <div class="item"><span class="ko">마음이 편해요.</span><br>Je me sens apaisée.</div>
+</section>
+
+<section class="summary-card">
+  <h2>🌿 Donner une raison</h2>
+  <div class="item"><span class="ko">서울에 있어서 기분이 좋아요.</span><br>Je me sens bien parce que je suis à Séoul.</div>
+  <div class="item"><span class="ko">좋은 소식을 들어서 기뻐요.</span><br>Je suis contente parce que j'ai reçu une bonne nouvelle.</div>
+</section>
+
+<section class="summary-card">
+  <h2>🎒 Dans mon sac à dos</h2>
+  <p>Les principales émotions, <strong>기분 / 마음</strong> et les expressions pour dire comment tu te sens ont été ajoutées.</p>
+  <button type="button" style="width:100%;" onclick="window.location.href='sac-a-dos.html'">🎒 Ouvrir mon sac à dos</button>
+</section>
+
+<section class="summary-card">
+  <h2>🌸 Prochaine étape</h2>
+  <p><strong>주말에 같이 뭐 할래요?</strong><br>Tu veux qu'on fasse quelque chose ensemble ce week-end ?</p>
+  <p>➡️ Chapitre 36 — <strong>Inviter quelqu'un</strong>.</p>
+</section>
+
+<button id="backRoute" type="button" style="width:100%;">🗺️ Retour au Module 4</button>
+</main>
+
+<script src="chapter-progress.js"></script>
+<script>
+const COMPLETED_KEY="hanaKorean_chapter35_completed";
+const RESUME_KEY="hanaKorean_chapter35_resume";
+if(localStorage.getItem(COMPLETED_KEY)!=="completed"){
+  window.location.href="utilise-35.html";
+}else{
+  localStorage.setItem(RESUME_KEY,"completed");
+}
+document.getElementById("backRoute").addEventListener("click",()=>window.location.href="itineraire.html#module4");
+if(window.HanaChapterProgress)HanaChapterProgress.render();
+</script>
+</body>
+</html>

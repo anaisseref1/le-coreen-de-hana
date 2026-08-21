@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#F7F4ED">
+  <title>Chapitre 33 — Je parle</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="chapter-progress.css">
+  <style>
+    .speak-card{padding:20px;margin-bottom:18px;background:var(--white);border-radius:var(--radius-large);box-shadow:var(--shadow)}
+    .prompt{padding:14px;margin-top:10px;background:#FBFAF6;border-radius:var(--radius-medium);line-height:1.6}
+  </style>
+  <script src="profile.js"></script>
+</head>
+<body>
+<main class="app">
+<a class="back-link" href="exercice-ecoute-33.html">← Exercice d'écoute</a>
+<section id="hanaChapterPath" data-chapter-path></section>
+<header>
+  <span class="chapter-badge">Chapitre 33 · 🗣️ Je parle</span>
+  <h1>Répondre à « pourquoi ? »</h1>
+  <p>Répète puis explique tes propres raisons.</p>
+</header>
+
+<section class="speak-card">
+  <h2>🌸 Répète</h2>
+  <div class="prompt"><strong>왜 한국을 좋아해요?</strong><br><small>Pourquoi aimes-tu la Corée ?</small></div>
+  <div class="prompt"><strong>풍경이 아름다워서 좋아해요.</strong><br><small>J'aime parce que les paysages sont magnifiques.</small></div>
+  <div class="prompt"><strong>서울에 있으면 마음이 편해요. 그래서 한국을 좋아해요.</strong><br><small>Je me sens bien à Séoul, c'est pourquoi j'aime la Corée.</small></div>
+  <div class="prompt"><strong>한국 사람들과 이야기하고 싶어서 공부해요.</strong><br><small>J'étudie parce que je veux parler avec des Coréens.</small></div>
+  <div class="prompt"><strong>풍경이 아름다워서요.</strong><br><small>Parce que les paysages sont magnifiques.</small></div>
+  <button id="listenAll" type="button" style="width:100%;margin-top:12px;">🔊 Écouter les phrases</button>
+</section>
+
+<section class="speak-card">
+  <h2>💬 À toi</h2>
+  <div class="prompt"><strong>왜 한국어를 공부해요?</strong></div>
+  <div class="prompt"><strong>왜 한국을 좋아해요?</strong></div>
+  <div class="prompt"><strong>왜 음악을 좋아해요?</strong></div>
+  <div class="prompt"><strong>왜 여행을 좋아해요?</strong></div>
+</section>
+
+<section class="speak-card">
+  <h2>🎯 Défi 1 minute</h2>
+  <p>Réponds spontanément à au moins trois questions en utilisant <strong>-아서/어서(요)</strong> ou <strong>그래서</strong>.</p>
+  <button id="doneSpeaking" type="button" style="width:100%;">✅ J'ai expliqué mes raisons à voix haute</button>
+</section>
+
+<button id="nextButton" type="button" style="display:none;width:100%;">✍️ Passer à l'écriture</button>
+</main>
+<script src="chapter-progress.js"></script>
+<script>
+const EXERCISE_KEY="hanaKorean_chapter33_listeningExercise";
+const SPEAKING_KEY="hanaKorean_chapter33_speaking";
+const done=document.getElementById("doneSpeaking");
+const next=document.getElementById("nextButton");
+
+function guard(){
+  if(localStorage.getItem(EXERCISE_KEY)!=="completed"){
+    window.location.href="exercice-ecoute-33.html";
+    return false;
+  }
+  return true;
+}
+if(!guard())throw new Error("chapter33-speaking-guard");
+
+function speak(text){
+  if(!("speechSynthesis" in window))return;
+  speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(text);
+  u.lang="ko-KR";u.rate=.82;
+  const voices=speechSynthesis.getVoices();
+  const v=voices.find(x=>x.lang==="ko-KR")||voices.find(x=>x.lang&&x.lang.startsWith("ko"));
+  if(v)u.voice=v;
+  speechSynthesis.speak(u);
+}
+document.getElementById("listenAll").addEventListener("click",()=>speak(
+  "왜 한국을 좋아해요? 풍경이 아름다워서 좋아해요. 서울에 있으면 마음이 편해요. 그래서 한국을 좋아해요. 한국 사람들과 이야기하고 싶어서 공부해요. 풍경이 아름다워서요."
+));
+
+function refresh(){
+  if(localStorage.getItem(SPEAKING_KEY)==="completed"){
+    done.textContent="✅ Oral terminé";
+    done.disabled=true;
+    next.style.display="block";
+  }
+  if(window.HanaChapterProgress)HanaChapterProgress.render();
+}
+done.addEventListener("click",()=>{localStorage.setItem(SPEAKING_KEY,"completed");refresh();});
+next.addEventListener("click",()=>window.location.href="ecriture-33.html");
+window.addEventListener("pageshow",()=>{if(guard())refresh();});
+refresh();
+</script>
+</body>
+</html>
