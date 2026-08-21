@@ -19,6 +19,7 @@
 .complete-button{background:var(--jade);color:white;font-weight:bold}
 .next-button{display:none;background:var(--navy);color:white;font-weight:bold}
 </style>
+  <script src="profile.js"></script>
 </head>
 <body>
 <main class="app">
@@ -29,18 +30,18 @@
 <span class="chapter-badge">Chapitre 27 · 🎧 J'écoute</span>
 <p class="korean">기차표 있어요? 🚄</p>
 <h1>Prendre le train</h1>
-<p>Écoute Hana et Min-su puis repère l'heure du train, le quai et le siège.</p>
+<p>Écoute Ana et Min-su puis repère l'heure du train, le quai et le siège.</p>
 </header>
 
 <section class="card">
 <h2>🎧 Dialogue complet</h2>
-<div class="dialogue-line minsu"><strong>💙 Min-su</strong><br>하나 씨, 기차표 있어요?</div>
-<div class="dialogue-line hana"><strong>🌸 Hana</strong><br>네, 있어요.</div>
+<div class="dialogue-line minsu"><strong>💙 Min-su</strong><br>아나 씨, 기차표 있어요?</div>
+<div class="dialogue-line hana"><strong>🌸 Ana</strong><br>네, 있어요.</div>
 <div class="dialogue-line minsu"><strong>💙 Min-su</strong><br>몇 시 기차예요?</div>
-<div class="dialogue-line hana"><strong>🌸 Hana</strong><br>오전 열 시 기차예요.</div>
-<div class="dialogue-line hana"><strong>🌸 Hana</strong><br>그런데 승강장이 어디예요?</div>
+<div class="dialogue-line hana"><strong>🌸 Ana</strong><br>오전 열 시 기차예요.</div>
+<div class="dialogue-line hana"><strong>🌸 Ana</strong><br>그런데 승강장이 어디예요?</div>
 <div class="dialogue-line minsu"><strong>💙 Min-su</strong><br>3번 승강장이에요.</div>
-<div class="dialogue-line hana"><strong>🌸 Hana</strong><br>제 좌석은 몇 번이에요?</div>
+<div class="dialogue-line hana"><strong>🌸 Ana</strong><br>제 좌석은 몇 번이에요?</div>
 <div class="dialogue-line minsu"><strong>💙 Min-su</strong><br>12번 좌석이에요.</div>
 
 <div class="audio-row">
@@ -78,7 +79,7 @@ if (!localStorage.getItem(LISTENING_KEY)) {
 }
 
 const dialogue = [
-  "하나 씨, 기차표 있어요?",
+  HanaProfile.replacePerson("아나 씨, 기차표 있어요?"),
   "네, 있어요.",
   "몇 시 기차예요?",
   "오전 열 시 기차예요.",

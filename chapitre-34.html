@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#F7F4ED">
+  <title>Chapitre 34 — Comparer</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="chapter-progress.css">
+  <style>
+    .compare-box,.preference-box,.nuance-box{
+      padding:14px;
+      margin-top:12px;
+      border-radius:var(--radius-medium);
+      line-height:1.7;
+    }
+    .compare-box{background:var(--soft-green);}
+    .preference-box{background:var(--soft-blue);}
+    .nuance-box{background:#FFF6D8;}
+    .compare-grid{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:10px;
+      margin-top:12px;
+    }
+    .compare-item{
+      padding:13px;
+      border-radius:var(--radius-medium);
+      background:#FBFAF6;
+      line-height:1.65;
+    }
+    @media(min-width:650px){.compare-grid{grid-template-columns:1fr 1fr;}}
+  </style>
+  <script src="profile.js"></script>
+</head>
+<body>
+<main class="app">
+<a class="back-link" href="itineraire.html#module4">← Itinéraire</a>
+<section id="hanaChapterPath" data-chapter-path></section>
+
+<header>
+  <span class="chapter-badge">Chapitre 34 · 🌸</span>
+  <p class="korean">서울하고 파리는 어떻게 달라요?</p>
+  <h1>Comparer</h1>
+  <p>Apprends à comparer deux lieux, deux objets ou deux personnes et à exprimer une préférence.</p>
+</header>
+
+<section class="card">
+  <h2>🌸 Illustration d'ouverture</h2>
+  <p>Ji-soo pose deux photos sur la table du café.</p>
+  <p>Sur la première, Ana reconnaît les rues animées de <strong>Séoul</strong>. Sur la seconde, une rue de <strong>Paris</strong>.</p>
+  <p>💚 <strong>Ji-soo :</strong><br><strong>아나 씨, 서울하고 파리는 어떻게 달라요?</strong></p>
+  <p>→ Ana, en quoi Séoul et Paris sont-elles différentes ?</p>
+  <p>Ana sait déjà décrire les deux villes. Aujourd'hui, elle va apprendre à dire qu'une chose est <strong>plus grande, moins fréquentée, plus pratique ou simplement différente d'une autre</strong>.</p>
+</section>
+
+<section class="card">
+  <h2>🎯 Objectif</h2>
+  <p>✅ comparer deux choses</p>
+  <p>✅ dire qu'une chose est plus grande, plus petite, plus chère, etc.</p>
+  <p>✅ dire qu'une chose est moins… qu'une autre</p>
+  <p>✅ dire que deux choses sont pareilles, similaires ou différentes</p>
+  <p>✅ utiliser <strong>보다</strong>, <strong>더</strong> et <strong>덜</strong></p>
+  <p>✅ exprimer clairement une préférence</p>
+</section>
+
+<section class="card">
+  <h2>🟩 Vocabulaire</h2>
+  <p><strong>비교하다</strong> (bigyohada) → comparer</p>
+  <p><strong>다르다</strong> (dareuda) → être différent</p>
+  <p><strong>같다</strong> (gatda) → être pareil / le même selon le contexte</p>
+  <p><strong>비슷하다</strong> (biseuthada) → être similaire</p>
+  <p><strong>더</strong> (deo) → plus / davantage</p>
+  <p><strong>덜</strong> (deol) → moins</p>
+  <p><strong>크다</strong> (keuda) → être grand</p>
+  <p><strong>작다</strong> (jakda) → être petit</p>
+  <p><strong>많다</strong> (manta) → être nombreux / beaucoup</p>
+  <p><strong>적다</strong> (jeokda) → être peu nombreux</p>
+  <p><strong>비싸다</strong> (bissada) → être cher</p>
+  <p><strong>싸다</strong> (ssada) → être bon marché</p>
+  <p><strong>빠르다</strong> (ppareuda) → être rapide</p>
+  <p><strong>느리다</strong> (neurida) → être lent</p>
+  <p><strong>가깝다</strong> (gakkapda) → être proche</p>
+  <p><strong>멀다</strong> (meolda) → être loin</p>
+  <p><strong>편하다</strong> (pyeonhada) → être pratique / confortable</p>
+  <p><strong>복잡하다</strong> (bokjaphada) → être encombré / très fréquenté / complexe</p>
+  <p><strong>조용하다</strong> (joyonghada) → être calme</p>
+  <p><strong>깨끗하다</strong> (kkaekkeuthada) → être propre</p>
+</section>
+
+<section class="card">
+  <h2>💬 Dialogue</h2>
+
+  <p>💚 <strong>Ji-soo</strong><br>
+  아나 씨, 서울하고 파리는 어떻게 달라요?<br>
+  <small>Ana, en quoi Séoul et Paris sont-elles différentes ?</small></p>
+
+  <p>🌸 <strong>Ana</strong><br>
+  서울이 파리보다 더 커요.<br>
+  <small>Séoul est plus grande que Paris.</small></p>
+
+  <p>💚 <strong>Ji-soo</strong><br>
+  서울이 더 복잡해요?<br>
+  <small>Séoul est aussi plus fréquentée ?</small></p>
+
+  <p>🌸 <strong>Ana</strong><br>
+  네, 서울이 더 복잡해요. 하지만 지하철은 정말 편해요.<br>
+  <small>Oui, Séoul est plus fréquentée. Mais le métro est vraiment pratique.</small></p>
+
+  <p>💚 <strong>Ji-soo</strong><br>
+  파리는 어때요?<br>
+  <small>Et Paris ?</small></p>
+
+  <p>🌸 <strong>Ana</strong><br>
+  제 생각에는 파리가 서울보다 더 조용해요.<br>
+  <small>À mon avis, Paris est plus calme que Séoul.</small></p>
+
+  <p>💚 <strong>Ji-soo</strong><br>
+  두 도시가 많이 달라요?<br>
+  <small>Les deux villes sont très différentes ?</small></p>
+
+  <p>🌸 <strong>Ana</strong><br>
+  네, 많이 달라요. 하지만 둘 다 좋아요.<br>
+  <small>Oui, elles sont très différentes. Mais j'aime les deux.</small></p>
+
+  <p>💚 <strong>Ji-soo</strong><br>
+  그럼 어느 도시가 더 좋아요?<br>
+  <small>Alors, quelle ville préfères-tu ?</small></p>
+
+  <p>🌸 <strong>Ana</strong><br>
+  파리보다 서울이 더 좋아요.<br>
+  <small>Je préfère Séoul à Paris.</small></p>
+</section>
+
+<section class="card">
+  <h2>💙 Grammaire — Comparer avec 보다</h2>
+  <p><strong>보다</strong> indique le point de comparaison. On peut le comprendre comme « par rapport à » ou « que ».</p>
+
+  <div class="compare-box">
+    <strong>Structure principale</strong><br>
+    <strong>A가 B보다 (더) + adjectif</strong><br>
+    → A est plus adjectif que B.
+  </div>
+
+  <p><strong>서울이 파리보다 더 커요.</strong><br>→ Séoul est plus grande que Paris.</p>
+  <p><strong>기차가 버스보다 더 빨라요.</strong><br>→ Le train est plus rapide que le bus.</p>
+</section>
+
+<section class="card">
+  <h2>🌸 Le rôle de 더</h2>
+  <p><strong>더</strong> signifie « plus / davantage ».</p>
+
+  <p><strong>서울이 파리보다 커요.</strong><br>→ Séoul est plus grande que Paris.</p>
+  <p><strong>서울이 파리보다 더 커요.</strong><br>→ Séoul est plus grande que Paris.</p>
+
+  <div class="nuance-box">
+    Avec <strong>보다</strong>, la comparaison est déjà comprise.
+    <strong>더</strong> rend simplement le sens « plus » plus explicite ou plus appuyé.
+  </div>
+</section>
+
+<section class="card">
+  <h2>💙 On peut déplacer le groupe en 보다</h2>
+  <p><strong>서울이 파리보다 더 커요.</strong></p>
+  <p>et :</p>
+  <p><strong>파리보다 서울이 더 커요.</strong></p>
+  <p>expriment la même idée :</p>
+  <p>→ Séoul est plus grande que Paris.</p>
+  <p>Pour apprendre sans te mélanger, garde surtout en tête :</p>
+  <p><strong>A가 B보다 (더) + adjectif.</strong></p>
+</section>
+
+<section class="card">
+  <h2>🌿 Dire « moins » avec 덜</h2>
+  <p><strong>덜</strong> signifie « moins ».</p>
+  <p><strong>파리가 서울보다 덜 복잡해요.</strong><br>→ Paris est moins fréquentée / moins encombrée que Séoul.</p>
+  <p><strong>이 카페가 저 카페보다 덜 비싸요.</strong><br>→ Ce café est moins cher que l'autre.</p>
+</section>
+
+<section class="card">
+  <h2>🌸 Quelques comparaisons utiles</h2>
+  <div class="compare-grid">
+    <div class="compare-item"><strong>이 가방이 저 가방보다 더 비싸요.</strong><br>Ce sac est plus cher que l'autre.</div>
+    <div class="compare-item"><strong>이 카페가 저 카페보다 더 작아요.</strong><br>Ce café est plus petit que l'autre.</div>
+    <div class="compare-item"><strong>기차가 버스보다 더 빨라요.</strong><br>Le train est plus rapide que le bus.</div>
+    <div class="compare-item"><strong>이곳이 서울보다 더 조용해요.</strong><br>Cet endroit est plus calme que Séoul.</div>
+  </div>
+</section>
+
+<section class="card">
+  <h2>🧠 Les adjectifs continuent à se conjuguer normalement</h2>
+  <p><strong>크다 → 커요</strong> → être grand</p>
+  <p><strong>작다 → 작아요</strong> → être petit</p>
+  <p><strong>비싸다 → 비싸요</strong> → être cher</p>
+  <p><strong>싸다 → 싸요</strong> → être bon marché</p>
+  <p><strong>조용하다 → 조용해요</strong> → être calme</p>
+  <p><strong>복잡하다 → 복잡해요</strong> → être fréquenté / encombré / complexe</p>
+</section>
+
+<section class="card">
+  <h2>💗 Pareil, similaire ou différent ?</h2>
+  <p><strong>같아요.</strong><br>→ C'est pareil / c'est le même selon le contexte.</p>
+  <p><strong>이 두 가방은 같아요.</strong><br>→ Ces deux sacs sont pareils.</p>
+
+  <p><strong>비슷해요.</strong><br>→ C'est similaire / ça se ressemble.</p>
+  <p><strong>이 두 카페는 비슷해요.</strong><br>→ Ces deux cafés sont similaires.</p>
+
+  <p><strong>달라요.</strong><br>→ C'est différent.</p>
+  <p><strong>서울하고 파리는 달라요.</strong><br>→ Séoul et Paris sont différentes.</p>
+  <p><strong>많이 달라요.</strong><br>→ C'est très différent.</p>
+</section>
+
+<section class="card">
+  <h2>💙 Poser une question de comparaison</h2>
+  <p><strong>뭐가 더 커요?</strong><br>→ Qu'est-ce qui est plus grand ?</p>
+  <p><strong>뭐가 더 좋아요?</strong><br>→ Qu'est-ce que tu préfères ?</p>
+  <p><strong>뭐가 더 싸요?</strong><br>→ Qu'est-ce qui est moins cher / meilleur marché ?</p>
+  <p><strong>어느 도시가 더 커요?</strong><br>→ Quelle ville est plus grande ?</p>
+  <p><strong>어떻게 달라요?</strong><br>→ En quoi est-ce différent ?</p>
+</section>
+
+<section class="card">
+  <h2>💗 Dire ce qu'on préfère</h2>
+  <div class="preference-box">
+    <strong>A보다 B가 더 좋아요.</strong><br>
+    → Je préfère B à A.
+  </div>
+
+  <p><strong>커피보다 차가 더 좋아요.</strong><br>→ Je préfère le thé au café.</p>
+  <p><strong>파리보다 서울이 더 좋아요.</strong><br>→ Je préfère Séoul à Paris.</p>
+</section>
+
+<section class="card">
+  <h2>🌱 Réutiliser ton opinion</h2>
+  <p>Tu peux aussi combiner ce chapitre avec le chapitre 32 :</p>
+  <p><strong>서울 지하철이 파리 지하철보다 더 깨끗하다고 생각해요.</strong></p>
+  <p>→ Je pense que le métro de Séoul est plus propre que celui de Paris.</p>
+  <p class="nuance-box">Ici, tu combines <strong>보다 + 더</strong> avec <strong>-다고 생각해요</strong>. Pas besoin de produire cette phrase immédiatement : commence par les comparaisons simples.</p>
+</section>
+
+<section class="card">
+  <h2>🩵 Prononciation</h2>
+  <p><strong>보다</strong> — <em>boda</em><br>Le ㅂ initial est doux, entre « b » et « p ».</p>
+  <p><strong>더</strong> — <em>deo</em><br>Le ㅓ ne correspond pas exactement à un son français.</p>
+  <p><strong>달라요</strong> — <em>dallayo</em><br>Prononce naturellement 달-라요.</p>
+</section>
+
+<section class="card">
+  <h2>📖 Compréhension écrite</h2>
+  <p><strong>아나와 지수는 서울과 부산에 대해 이야기해요.</strong></p>
+  <p><strong>아나 : 서울이 부산보다 커요.</strong></p>
+  <p><strong>지수 : 맞아요. 하지만 부산은 서울보다 조용해요.</strong></p>
+  <p><strong>아나 : 네. 그리고 부산에는 바다가 있어요.</strong></p>
+  <p><strong>지수 : 서울도 재미있고 부산도 재미있어요.</strong></p>
+  <p><strong>아나 : 맞아요. 두 도시는 정말 달라요.</strong></p>
+</section>
+
+<section class="card">
+  <h2>💚 Le conseil de Ji-soo</h2>
+  <p>Comparer ne sert pas seulement à décider ce qui est « meilleur ».</p>
+  <p>Tu peux aussi expliquer ce qui est plus calme, plus pratique, plus propre ou simplement différent.</p>
+</section>
+
+<section class="card">
+  <h2>🌟 Phrase du chapitre</h2>
+  <p>« Comparer, c'est apprendre à regarder les différences… mais aussi à découvrir ce que deux choses ont en commun. » 🌸</p>
+</section>
+
+<section class="card">
+  <h2>🌸 À suivre...</h2>
+  <p>Ji-soo demande à Ana ce qu'elle préfère entre Paris et Séoul.</p>
+  <p>Puis elle lui pose une question plus personnelle :</p>
+  <p>💚 <strong>Ji-soo :</strong><br><strong>아나 씨, 요즘 기분이 어때요?</strong></p>
+  <p>→ Ana, comment te sens-tu en ce moment ?</p>
+  <p>➡️ Chapitre 35 — <strong>Parler de ses émotions</strong>.</p>
+</section>
+
+<button id="completeButton" type="button" style="width:100%;">✅ J'ai compris</button>
+<button id="nextButton" type="button" style="display:none;width:100%;">🎧 Passer à l'écoute</button>
+</main>
+
+<script src="chapter-progress.js"></script>
+<script>
+const UNDERSTANDING_KEY="hanaKorean_chapter34_understanding";
+const LATER_KEYS=[
+  "hanaKorean_chapter34_listening",
+  "hanaKorean_chapter34_listeningExercise",
+  "hanaKorean_chapter34_speaking",
+  "hanaKorean_chapter34_writing",
+  "hanaKorean_chapter34_review",
+  "hanaKorean_chapter34_use",
+  "hanaKorean_chapter34_mission",
+  "hanaKorean_chapter34_completed",
+  "hanaKorean_chapter34_resume"
+];
+const completeButton=document.getElementById("completeButton");
+const nextButton=document.getElementById("nextButton");
+
+function migratePreviousProgress(){
+  if(localStorage.getItem(UNDERSTANDING_KEY)!=="completed" &&
+    LATER_KEYS.some(k=>localStorage.getItem(k)==="completed")){
+    localStorage.setItem(UNDERSTANDING_KEY,"completed");
+  }
+}
+function refresh(){
+  migratePreviousProgress();
+  if(localStorage.getItem(UNDERSTANDING_KEY)==="completed"){
+    completeButton.textContent="✅ Compréhension terminée";
+    completeButton.disabled=true;
+    nextButton.style.display="block";
+  }
+  if(window.HanaChapterProgress)HanaChapterProgress.render();
+}
+completeButton.addEventListener("click",()=>{
+  localStorage.setItem(UNDERSTANDING_KEY,"completed");
+  refresh();
+});
+nextButton.addEventListener("click",()=>window.location.href="ecoute-34.html");
+window.addEventListener("pageshow",refresh);
+refresh();
+</script>
+</body>
+</html>

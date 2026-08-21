@@ -175,6 +175,7 @@
     }
   </script>
 
+  <script src="profile.js"></script>
 </head>
 
 
@@ -344,19 +345,19 @@
   <section class="listen-card">
 
     <div class="korean-text">
-      저는 하나예요.
+      저는 아나예요.
     </div>
 
 
     <p class="translation">
-      Je suis Hana.
+      Je suis Ana.
     </p>
 
 
     <button
       class="audio-button"
       type="button"
-      onclick="speakKorean('저는 하나예요.')"
+      onclick="speakKorean('저는 아나예요.')"
     >
       🔊 Écouter
     </button>
@@ -365,7 +366,7 @@
     <button
       class="slow-button"
       type="button"
-      onclick="speakKoreanSlow('저는 하나예요.')"
+      onclick="speakKoreanSlow('저는 아나예요.')"
     >
       🐢 Écouter lentement
     </button>
@@ -425,7 +426,7 @@
     <div class="dialogue-line">
 
       <div class="speaker">
-        🌸 Hana
+        🌸 Ana
       </div>
 
       <strong>
@@ -451,11 +452,11 @@
     <div class="dialogue-line">
 
       <div class="speaker">
-        🌸 Hana
+        🌸 Ana
       </div>
 
       <strong>
-        저는 하나예요.
+        저는 아나예요.
       </strong>
 
     </div>
@@ -601,14 +602,14 @@
      IDENTITÉ AUDIO DES PERSONNAGES
      =====================================================
 
-     Hana et Min-su sont déjà séparés dans le code.
+     Ana et Min-su sont déjà séparés dans le code.
 
      Pour l'instant, le navigateur utilise la même
      voix coréenne disponible.
 
      Plus tard nous pourrons connecter :
 
-     - Hana → voix dédiée
+     - Ana → voix dédiée
      - Min-su → voix masculine dédiée
 
      sans reconstruire le dialogue.
@@ -1025,7 +1026,7 @@
 
       {
         character: "hana",
-        text: "저는 하나예요."
+        text: HanaProfile.replacePerson("저는 아나예요.")
       },
 
       {
@@ -1130,8 +1131,6 @@
   );
 
 </script>
-
-
 </body>
 
 </html>

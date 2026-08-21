@@ -270,6 +270,7 @@
     }
   </script>
 
+  <script src="profile.js"></script>
 </head>
 
 
@@ -748,11 +749,11 @@
       </div>
 
       <div class="dialogue-korean">
-        하나 씨, 어디에 있어요?
+        아나 씨, 어디에 있어요?
       </div>
 
       <div class="dialogue-translation">
-        Hana, où es-tu ?
+        Ana, où es-tu ?
       </div>
 
     </div>
@@ -761,7 +762,7 @@
     <div class="dialogue-line">
 
       <div class="speaker">
-        🌸 Hana
+        🌸 Ana
       </div>
 
       <div class="dialogue-korean">
@@ -795,7 +796,7 @@
     <div class="dialogue-line">
 
       <div class="speaker">
-        🌸 Hana
+        🌸 Ana
       </div>
 
       <div class="dialogue-korean">
@@ -837,7 +838,7 @@
 
       <br>
 
-      <strong>있어요 / 가요</strong> → ce que fait Hana
+      <strong>있어요 / 가요</strong> → ce que fait Ana
 
     </div>
 
@@ -969,14 +970,14 @@
      IDENTITÉ AUDIO DES PERSONNAGES
      =====================================================
 
-     Hana et Min-su sont déjà séparés dans le code.
+     Ana et Min-su sont déjà séparés dans le code.
 
      Pour l'instant, le navigateur utilise la même
      voix coréenne disponible.
 
      Plus tard :
 
-     - Hana → voix dédiée
+     - Ana → voix dédiée
      - Min-su → voix masculine dédiée
 
      pourra être ajouté sans reconstruire le dialogue.
@@ -1383,7 +1384,7 @@
 
       {
         character: "minsu",
-        text: "하나 씨, 어디에 있어요?"
+        text: HanaProfile.replacePerson("아나 씨, 어디에 있어요?")
       },
 
       {
@@ -1498,8 +1499,6 @@
   );
 
 </script>
-
-
 </body>
 
 </html>

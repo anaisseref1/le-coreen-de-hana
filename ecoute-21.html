@@ -320,6 +320,7 @@
     color:white !important;
   }
 </style>
+  <script src="profile.js"></script>
 </head>
 
 <body>
@@ -345,7 +346,7 @@
     </h1>
 
     <p>
-      Écoute Hana et Min-su organiser une sortie.
+      Écoute Ana et Min-su organiser une sortie.
       Commence lentement, puis réécoute à vitesse normale.
     </p>
 
@@ -393,15 +394,15 @@
     <div class="dialogue-line minsu">
       <div class="speaker">💙 Min-su</div>
       <div class="korean-line">
-        하나 씨, 오늘 같이 놀러 갈래요?
+        아나 씨, 오늘 같이 놀러 갈래요?
       </div>
       <div class="french-line">
-        Hana, ça te dit de sortir ensemble aujourd'hui ?
+        Ana, ça te dit de sortir ensemble aujourd'hui ?
       </div>
     </div>
 
     <div class="dialogue-line hana">
-      <div class="speaker">🌸 Hana</div>
+      <div class="speaker">🌸 Ana</div>
       <div class="korean-line">
         좋아요! 어디에 갈까요?
       </div>
@@ -421,7 +422,7 @@
     </div>
 
     <div class="dialogue-line hana">
-      <div class="speaker">🌸 Hana</div>
+      <div class="speaker">🌸 Ana</div>
       <div class="korean-line">
         좋아요! 몇 시에 만날까요?
       </div>
@@ -441,7 +442,7 @@
     </div>
 
     <div class="dialogue-line hana">
-      <div class="speaker">🌸 Hana</div>
+      <div class="speaker">🌸 Ana</div>
       <div class="korean-line">
         네! 그때 봬요!
       </div>
@@ -547,7 +548,7 @@
   const dialogue = [
     {
       character: "minsu",
-      text: "하나 씨, 오늘 같이 놀러 갈래요?"
+      text: HanaProfile.replacePerson("아나 씨, 오늘 같이 놀러 갈래요?")
     },
     {
       character: "hana",
@@ -994,7 +995,6 @@
     };
 
 </script>
-
 </body>
 
 </html>

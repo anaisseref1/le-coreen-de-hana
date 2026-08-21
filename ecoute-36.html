@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#F7F4ED">
+  <title>Chapitre 36 — J'écoute</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="chapter-progress.css">
+  <style>
+    .dialogue-card,.focus-card,.shadow-card{padding:20px;margin-bottom:18px;background:var(--white);border-radius:var(--radius-large);box-shadow:var(--shadow)}
+    .line{padding:14px;margin-top:10px;border-radius:var(--radius-medium);line-height:1.65}
+    .hana{background:var(--soft-green)} .minsu{background:var(--soft-blue)} .jisoo{background:#FFF6D8}
+    .ko{font-size:18px;font-weight:800;color:var(--navy)} .fr{font-size:14px;color:var(--text-light);margin-top:4px}
+    .actions{display:flex;flex-direction:column;gap:9px;margin-top:14px}
+    .actions button,.shadow-card button{width:100%}
+  </style>
+  <script src="profile.js"></script>
+</head>
+<body>
+<main class="app">
+<a class="back-link" href="chapitre-36.html">← Chapitre 36</a>
+<section id="hanaChapterPath" data-chapter-path></section>
+
+<header>
+  <span class="chapter-badge">Chapitre 36 · 🎧 J'écoute</span>
+  <p class="korean">같이 뭐 할래요?</p>
+  <h1>Écouter une invitation</h1>
+  <p>Repère l'activité proposée, le jour, l'heure et le lieu.</p>
+</header>
+
+<section class="dialogue-card">
+  <h2>💬 Dialogue</h2>
+  <div class="line minsu"><strong>💙 Min-su</strong><div class="ko">주말에 같이 뭐 할래요?</div><div class="fr">Tu veux qu'on fasse quelque chose ensemble ce week-end ?</div></div>
+  <div class="line hana"><strong>🌸 Ana</strong><div class="ko">좋아요! 뭐 할까요?</div><div class="fr">Bonne idée ! Qu'est-ce qu'on fait ?</div></div>
+  <div class="line minsu"><strong>💙 Min-su</strong><div class="ko">영화 볼래요?</div><div class="fr">Tu veux voir un film ?</div></div>
+  <div class="line hana"><strong>🌸 Ana</strong><div class="ko">네, 좋아요.</div><div class="fr">Oui, avec plaisir.</div></div>
+  <div class="line jisoo"><strong>💚 Ji-soo</strong><div class="ko">토요일 오후 어때요?</div><div class="fr">Samedi après-midi, ça vous va ?</div></div>
+  <div class="line hana"><strong>🌸 Ana</strong><div class="ko">좋아요. 몇 시에 만날까요?</div><div class="fr">D'accord. À quelle heure on se retrouve ?</div></div>
+  <div class="line minsu"><strong>💙 Min-su</strong><div class="ko">세 시에 만나요.</div><div class="fr">Retrouvons-nous à 15 h.</div></div>
+  <div class="line hana"><strong>🌸 Ana</strong><div class="ko">어디에서 만날까요?</div><div class="fr">Où est-ce qu'on se retrouve ?</div></div>
+  <div class="line jisoo"><strong>💚 Ji-soo</strong><div class="ko">영화관 앞에서 만나요.</div><div class="fr">Retrouvons-nous devant le cinéma.</div></div>
+
+  <div class="actions">
+    <button class="listen-dialogue" data-rate="0.72">🐢 Écouter lentement</button>
+    <button class="listen-dialogue" data-rate="0.92">🎧 Écouter normalement</button>
+  </div>
+</section>
+
+<section class="focus-card">
+  <h2>👂 À repérer</h2>
+  <p><strong>할래요?</strong> → tu veux faire ?</p>
+  <p><strong>할까요?</strong> → on fait ?</p>
+  <p><strong>몇 시에</strong> → à quelle heure</p>
+  <p><strong>어디에서</strong> → où / à quel endroit</p>
+  <p><strong>토요일 오후</strong> → samedi après-midi</p>
+</section>
+
+<section class="shadow-card">
+  <h2>🗣️ Shadowing</h2>
+  <button data-text="주말에 같이 뭐 할래요?">🔊 주말에 같이 뭐 할래요?</button>
+  <button data-text="영화 볼래요?">🔊 영화 볼래요?</button>
+  <button data-text="토요일 오후 어때요?">🔊 토요일 오후 어때요?</button>
+  <button data-text="몇 시에 만날까요?">🔊 몇 시에 만날까요?</button>
+  <button data-text="어디에서 만날까요?">🔊 어디에서 만날까요?</button>
+  <button data-text="영화관 앞에서 만나요.">🔊 영화관 앞에서 만나요.</button>
+</section>
+
+<button id="completeButton" type="button" style="width:100%;">✅ J'ai écouté</button>
+<button id="nextButton" type="button" style="display:none;width:100%;">🧠 Faire l'exercice d'écoute</button>
+</main>
+
+<script src="chapter-progress.js"></script>
+<script>
+const UNDERSTANDING_KEY="hanaKorean_chapter36_understanding";
+const LISTENING_KEY="hanaKorean_chapter36_listening";
+const completeButton=document.getElementById("completeButton");
+const nextButton=document.getElementById("nextButton");
+
+function guard(){
+  if(localStorage.getItem(UNDERSTANDING_KEY)!=="completed"){
+    window.location.href="chapitre-36.html";
+    return false;
+  }
+  return true;
+}
+if(!guard())throw new Error("chapter36-listening-guard");
+
+const dialogue=[
+"주말에 같이 뭐 할래요?","좋아요! 뭐 할까요?","영화 볼래요?","네, 좋아요.",
+"토요일 오후 어때요?","좋아요. 몇 시에 만날까요?","세 시에 만나요.",
+"어디에서 만날까요?","영화관 앞에서 만나요."
+];
+
+function speak(text,rate){
+  if(!("speechSynthesis" in window))return;
+  speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(text);
+  u.lang="ko-KR";u.rate=rate;
+  const voices=speechSynthesis.getVoices();
+  const v=voices.find(x=>x.lang==="ko-KR")||voices.find(x=>x.lang&&x.lang.startsWith("ko"));
+  if(v)u.voice=v;
+  speechSynthesis.speak(u);
+}
+document.querySelectorAll(".listen-dialogue").forEach(btn=>{
+  btn.addEventListener("click",()=>speak(dialogue.join(" "),Number(btn.dataset.rate)));
+});
+document.querySelectorAll("[data-text]").forEach(btn=>{
+  btn.addEventListener("click",()=>speak(btn.dataset.text,.82));
+});
+function refresh(){
+  if(localStorage.getItem(LISTENING_KEY)==="completed"){
+    completeButton.textContent="✅ Écoute terminée";
+    completeButton.disabled=true;
+    nextButton.style.display="block";
+  }
+  if(window.HanaChapterProgress)HanaChapterProgress.render();
+}
+completeButton.addEventListener("click",()=>{localStorage.setItem(LISTENING_KEY,"completed");refresh();});
+nextButton.addEventListener("click",()=>window.location.href="exercice-ecoute-36.html");
+window.addEventListener("pageshow",()=>{if(guard())refresh();});
+refresh();
+</script>
+</body>
+</html>

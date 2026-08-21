@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#F7F4ED">
+  <title>Chapitre 32 — Dire ce qu'on pense</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="chapter-progress.css">
+  <style>
+    .contrast-box,.remember-box,.warning-box{
+      padding:14px;
+      margin-top:12px;
+      border-radius:var(--radius-medium);
+      line-height:1.7;
+    }
+    .contrast-box{background:var(--soft-blue);}
+    .remember-box{background:var(--soft-green);}
+    .warning-box{background:#FFF6D8;}
+    .opinion-grid{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:10px;
+      margin-top:12px;
+    }
+    .opinion-item{
+      padding:13px;
+      border-radius:var(--radius-medium);
+      background:#FBFAF6;
+      line-height:1.6;
+    }
+    @media(min-width:650px){
+      .opinion-grid{grid-template-columns:1fr 1fr;}
+    }
+  </style>
+  <script src="profile.js"></script>
+</head>
+<body>
+<main class="app">
+<a class="back-link" href="itineraire.html#module4">← Itinéraire</a>
+<section id="hanaChapterPath" data-chapter-path></section>
+
+<header>
+  <span class="chapter-badge">Chapitre 32 · 💭</span>
+  <p class="korean">어떻게 생각해요?</p>
+  <h1>Dire ce qu'on pense</h1>
+  <p>Apprends à demander un avis, donner ton opinion et réagir à celle de quelqu'un.</p>
+</header>
+
+<section class="card">
+  <h2>🌸 Illustration d'ouverture</h2>
+  <p>Ana et Ji-soo sont installées dans un petit café.</p>
+  <p>Ji-soo montre à Ana plusieurs photos sur son téléphone : un joli café, un plat coréen, puis une affiche de film.</p>
+  <p>Ana sait déjà dire si quelque chose lui plaît. Mais Ji-soo lui pose une question différente :</p>
+  <p>💚 <strong>Ji-soo :</strong><br><strong>아나 씨, 이거 어떻게 생각해요?</strong></p>
+  <p>→ Ana, qu'est-ce que tu en penses ?</p>
+  <p>Aujourd'hui, Ana va apprendre à <strong>exprimer son avis en coréen</strong>. 🌸</p>
+</section>
+
+<section class="card">
+  <h2>🎯 Objectif</h2>
+  <p>✅ demander l'avis de quelqu'un</p>
+  <p>✅ dire ce que tu penses</p>
+  <p>✅ qualifier quelque chose : intéressant, facile, difficile, joli…</p>
+  <p>✅ être d'accord ou exprimer doucement un avis différent</p>
+  <p>✅ utiliser <strong>생각하다</strong> — penser</p>
+</section>
+
+<section class="card">
+  <h2>🟩 Vocabulaire</h2>
+  <p><strong>생각하다</strong> (saenggakhada) → penser</p>
+  <p><strong>재미있다</strong> (jaemiitda) → être intéressant / amusant</p>
+  <p><strong>재미없다</strong> (jaemieopda) → être ennuyeux</p>
+  <p><strong>좋다</strong> (jota) → être bien / bon / plaire</p>
+  <p><strong>나쁘다</strong> (nappeuda) → être mauvais</p>
+  <p><strong>쉽다</strong> (swipda) → être facile</p>
+  <p><strong>어렵다</strong> (eoryeopda) → être difficile</p>
+  <p><strong>맛있다</strong> (masitda) → être délicieux</p>
+  <p><strong>예쁘다</strong> (yeppeuda) → être joli</p>
+  <p><strong>멋있다</strong> (meositda) → être cool / impressionnant</p>
+  <p><strong>괜찮다</strong> (gwaenchanta) → être correct / ça va</p>
+  <p><strong>특별하다</strong> (teukbyeolhada) → être spécial</p>
+  <p><strong>조용하다</strong> (joyonghada) → être calme</p>
+  <p><strong>정말</strong> (jeongmal) → vraiment</p>
+  <p><strong>아주</strong> (aju) → très</p>
+  <p><strong>조금</strong> (jogeum) → un peu</p>
+  <p><strong>하지만</strong> (hajiman) → mais / cependant</p>
+  <p><strong>맞아요</strong> (majayo) → c'est vrai / exactement</p>
+  <p><strong>그렇죠?</strong> (geureotjyo) → c'est vrai, n'est-ce pas ?</p>
+</section>
+
+<section class="card">
+  <h2>💬 Dialogue</h2>
+
+  <p>💚 <strong>Ji-soo</strong><br>
+  이 카페 어때요?<br>
+  <small>Comment trouves-tu ce café ?</small></p>
+
+  <p>🌸 <strong>Ana</strong><br>
+  정말 좋아요.<br>
+  <small>Je le trouve vraiment bien.</small></p>
+
+  <p>💚 <strong>Ji-soo</strong><br>
+  왜 좋아요?<br>
+  <small>Pourquoi tu l'aimes ?</small></p>
+
+  <p>🌸 <strong>Ana</strong><br>
+  정말 예뻐요. 그리고 조용해요.<br>
+  <small>Il est vraiment joli. Et il est calme.</small></p>
+
+  <p>💚 <strong>Ji-soo</strong><br>
+  이 영화 어떻게 생각해요?<br>
+  <small>Qu'est-ce que tu penses de ce film ?</small></p>
+
+  <p>🌸 <strong>Ana</strong><br>
+  재미있다고 생각해요.<br>
+  <small>Je pense qu'il est intéressant.</small></p>
+
+  <p>💚 <strong>Ji-soo</strong><br>
+  어려워요?<br>
+  <small>C'est difficile ?</small></p>
+
+  <p>🌸 <strong>Ana</strong><br>
+  조금 어려워요. 하지만 재미있어요.<br>
+  <small>C'est un peu difficile. Mais c'est intéressant.</small></p>
+
+  <p>💚 <strong>Ji-soo</strong><br>
+  맞아요. 저도 그렇게 생각해요.<br>
+  <small>Exactement. Moi aussi, je pense comme ça.</small></p>
+</section>
+
+<section class="card">
+  <h2>💙 Grammaire — 생각하다</h2>
+  <p><strong>생각하다</strong> signifie « penser ».</p>
+  <p>Dans ce chapitre, nous l'utilisons surtout avec des <strong>adjectifs / verbes descriptifs</strong>.</p>
+
+  <div class="remember-box">
+    <strong>🌸 Structure à retenir</strong><br>
+    forme dictionnaire en <strong>-다</strong> → <strong>-다고 생각해요</strong><br><br>
+    재미있다 → 재미있다고 생각해요.<br>
+    어렵다 → 어렵다고 생각해요.<br>
+    예쁘다 → 예쁘다고 생각해요.
+  </div>
+
+  <p><strong>재미있다고 생각해요.</strong><br>→ Je pense que c'est intéressant.</p>
+  <p><strong>맛있다고 생각해요.</strong><br>→ Je pense que c'est délicieux.</p>
+  <p><strong>어렵다고 생각해요.</strong><br>→ Je pense que c'est difficile.</p>
+
+  <div class="warning-box">
+    Pour l'instant, retiens cette construction avec les adjectifs descriptifs.
+    Les verbes d'action et les noms ne se transforment pas exactement de la même manière :
+    nous verrons cela plus tard.
+  </div>
+</section>
+
+<section class="card">
+  <h2>🟨 Pourquoi -다고 ?</h2>
+  <p>Quand on rapporte une idée sous la forme « je pense que… », la partie qui précède <strong>생각하다</strong> prend une forme spéciale.</p>
+  <p><strong>재미있다 → 재미있다고 생각해요.</strong></p>
+  <p><strong>어렵다 → 어렵다고 생각해요.</strong></p>
+  <p><strong>맛있다 → 맛있다고 생각해요.</strong></p>
+  <p>Pour ce chapitre, retiens simplement :</p>
+  <p><strong>Adjectif en -다 + 고 생각해요 = Je pense que c'est…</strong></p>
+</section>
+
+<section class="card">
+  <h2>💗 Dire « Je pense que c'est… »</h2>
+  <div class="opinion-grid">
+    <div class="opinion-item"><strong>재미있다고 생각해요.</strong><br>Je pense que c'est intéressant.</div>
+    <div class="opinion-item"><strong>맛있다고 생각해요.</strong><br>Je pense que c'est délicieux.</div>
+    <div class="opinion-item"><strong>쉽다고 생각해요.</strong><br>Je pense que c'est facile.</div>
+    <div class="opinion-item"><strong>어렵다고 생각해요.</strong><br>Je pense que c'est difficile.</div>
+    <div class="opinion-item"><strong>예쁘다고 생각해요.</strong><br>Je pense que c'est joli.</div>
+    <div class="opinion-item"><strong>특별하다고 생각해요.</strong><br>Je pense que c'est spécial.</div>
+  </div>
+</section>
+
+<section class="card">
+  <h2>🌸 Demander l'avis de quelqu'un</h2>
+  <p><strong>어때요?</strong><br>→ Comment c'est ? / Qu'est-ce que tu en penses ?</p>
+  <p><strong>이 음식 어때요?</strong><br>→ Que penses-tu de ce plat ?</p>
+  <p><strong>이 영화 어때요?</strong><br>→ Que penses-tu de ce film ?</p>
+  <p><strong>서울 어때요?</strong><br>→ Que penses-tu de Séoul ?</p>
+
+  <h3>💙 Une autre expression</h3>
+  <p><strong>어떻게 생각해요?</strong><br>→ Qu'est-ce que tu en penses ?</p>
+  <p><strong>이 영화 어떻게 생각해요?</strong><br>→ Qu'est-ce que tu penses de ce film ?</p>
+</section>
+
+<section class="card">
+  <h2>🌿 Donner une opinion simple</h2>
+  <p>Tu n'es pas obligée d'utiliser <strong>생각해요</strong> à chaque fois.</p>
+  <p><strong>정말 좋아요.</strong> → J'aime vraiment / C'est vraiment bien.</p>
+  <p><strong>재미있어요.</strong> → C'est intéressant.</p>
+  <p><strong>조금 어려워요.</strong> → C'est un peu difficile.</p>
+  <p><strong>맛있어요.</strong> → C'est délicieux.</p>
+  <p><strong>생각해요</strong> sert surtout à montrer clairement que tu présentes <strong>ton opinion</strong>.</p>
+</section>
+
+<section class="card">
+  <h2>🗣️ Être d'accord… ou pas tout à fait</h2>
+  <p><strong>맞아요.</strong><br>→ C'est vrai. / Exactement.</p>
+  <p><strong>저도요.</strong><br>→ Moi aussi.</p>
+  <p><strong>저도 그렇게 생각해요.</strong><br>→ Moi aussi, je pense comme ça.</p>
+  <p><strong>그렇죠?</strong><br>→ C'est vrai, n'est-ce pas ?</p>
+
+  <h3>🌱 Exprimer doucement un avis différent</h3>
+  <p><strong>저는 조금 다르게 생각해요.</strong><br>→ Moi, je pense un peu différemment.</p>
+  <p><strong>저는 그렇게 생각하지 않아요.</strong><br>→ Je ne pense pas comme ça / Je ne suis pas de cet avis.</p>
+</section>
+
+<section class="card">
+  <h2>🌱 Ne pas confondre</h2>
+  <div class="contrast-box">
+    <strong>맛있을 것 같아요.</strong><br>
+    → Ça a l'air bon / Je pense que ça va être bon.<br><br>
+    <strong>맛있다고 생각해요.</strong><br>
+    → Je pense que c'est bon / C'est mon opinion.
+  </div>
+  <p><strong>것 같아요</strong> exprime plutôt une impression ou une supposition.</p>
+  <p><strong>-다고 생각해요</strong> présente clairement ce que tu penses.</p>
+</section>
+
+<section class="card">
+  <h2>🩵 Prononciation</h2>
+  <p><strong>생각해요</strong> — <em>saenggakhaeyo</em></p>
+  <p>Dans la parole naturelle, le contact entre le <strong>ㄱ</strong> final de 생각 et le <strong>ㅎ</strong> de 해요 rend le son plus aspiré.</p>
+  <p>🌸 Le plus important : écoute et imite le rythme naturel sans découper chaque syllabe.</p>
+
+  <p><strong>재미있어요</strong> — <em>jaemiisseoyo</em></p>
+  <p>La liaison rend le mot plus fluide qu'une lecture syllabe par syllabe.</p>
+</section>
+
+<section class="card">
+  <h2>📖 Compréhension écrite</h2>
+  <p><strong>아나와 지수는 카페에 있어요.</strong></p>
+  <p><strong>지수는 아나에게 영화를 보여 줘요.</strong></p>
+  <p><strong>지수 : 이 영화 어때요?</strong></p>
+  <p><strong>아나 : 재미있다고 생각해요.</strong></p>
+  <p><strong>지수 : 어려워요?</strong></p>
+  <p><strong>아나 : 조금 어려워요. 하지만 재미있어요.</strong></p>
+  <p><strong>지수 : 맞아요. 저도 그렇게 생각해요.</strong></p>
+</section>
+
+<section class="card">
+  <h2>🌟 Phrase du chapitre</h2>
+  <p>« Connaître des mots permet de parler. Donner son opinion permet de vraiment se faire comprendre. » 🌸</p>
+</section>
+
+<section class="card">
+  <h2>🌸 À suivre...</h2>
+  <p>Ji-soo range son téléphone et regarde Ana.</p>
+  <p>💚 <strong>Ji-soo :</strong><br><strong>아나 씨는 왜 한국을 좋아해요?</strong></p>
+  <p>→ Ana, pourquoi est-ce que tu aimes la Corée ?</p>
+  <p>Cette fois, Ana doit expliquer <strong>pourquoi</strong>.</p>
+  <p>➡️ Chapitre 33 — Expliquer pourquoi</p>
+</section>
+
+<button id="completeButton" type="button" style="width:100%;">✅ J'ai compris</button>
+<button id="nextButton" type="button" style="display:none;width:100%;">🎧 Passer à l'écoute</button>
+</main>
+
+<script src="chapter-progress.js"></script>
+<script>
+const UNDERSTANDING_KEY="hanaKorean_chapter32_understanding";
+const LATER_KEYS=[
+  "hanaKorean_chapter32_listening",
+  "hanaKorean_chapter32_listeningExercise",
+  "hanaKorean_chapter32_speaking",
+  "hanaKorean_chapter32_writing",
+  "hanaKorean_chapter32_review",
+  "hanaKorean_chapter32_use",
+  "hanaKorean_chapter32_mission",
+  "hanaKorean_chapter32_completed",
+  "hanaKorean_chapter32_resume"
+];
+const completeButton=document.getElementById("completeButton");
+const nextButton=document.getElementById("nextButton");
+
+function migratePreviousProgress(){
+  if(
+    localStorage.getItem(UNDERSTANDING_KEY)!=="completed" &&
+    LATER_KEYS.some(key=>localStorage.getItem(key)==="completed")
+  ){
+    localStorage.setItem(UNDERSTANDING_KEY,"completed");
+  }
+}
+function refresh(){
+  migratePreviousProgress();
+  if(localStorage.getItem(UNDERSTANDING_KEY)==="completed"){
+    completeButton.textContent="✅ Compréhension terminée";
+    completeButton.disabled=true;
+    nextButton.style.display="block";
+  }
+  if(window.HanaChapterProgress)HanaChapterProgress.render();
+}
+completeButton.addEventListener("click",()=>{
+  localStorage.setItem(UNDERSTANDING_KEY,"completed");
+  refresh();
+});
+nextButton.addEventListener("click",()=>window.location.href="ecoute-32.html");
+window.addEventListener("pageshow",refresh);
+refresh();
+</script>
+</body>
+</html>

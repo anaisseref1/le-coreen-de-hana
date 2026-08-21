@@ -207,6 +207,7 @@
 
   </style>
 
+  <script src="profile.js"></script>
 </head>
 
 
@@ -440,7 +441,7 @@
   <section class="audio-card">
 
     <h2>
-      💬 3. Dialogue — Hana rencontre Ji-Soo
+      💬 3. Dialogue — Ana rencontre Ji-Soo
     </h2>
 
     <p>
@@ -481,12 +482,12 @@
     </div>
 
     <div class="dialogue-line hana">
-      <div class="speaker">🌸 Hana</div>
-      <div class="dialogue-korean">안녕하세요. 저는 하나예요.</div>
-      <div class="dialogue-french">Bonjour. Je m'appelle Hana.</div>
+      <div class="speaker">🌸 Ana</div>
+      <div class="dialogue-korean">안녕하세요. 저는 아나예요.</div>
+      <div class="dialogue-french">Bonjour. Je m'appelle Ana.</div>
       <div class="line-actions">
-        <button type="button" onclick="speakKorean('안녕하세요. 저는 하나예요.', 'hana', false)">🔊 Écouter Hana</button>
-        <button class="slow" type="button" onclick="speakKorean('안녕하세요. 저는 하나예요.', 'hana', true)">🐢 Lentement</button>
+        <button type="button" onclick="speakKorean('안녕하세요. 저는 아나예요.', 'hana', false)">🔊 Écouter Ana</button>
+        <button class="slow" type="button" onclick="speakKorean('안녕하세요. 저는 아나예요.', 'hana', true)">🐢 Lentement</button>
       </div>
     </div>
 
@@ -501,11 +502,11 @@
     </div>
 
     <div class="dialogue-line hana">
-      <div class="speaker">🌸 Hana</div>
+      <div class="speaker">🌸 Ana</div>
       <div class="dialogue-korean">프랑스에서 왔어요.</div>
       <div class="dialogue-french">Je viens de France.</div>
       <div class="line-actions">
-        <button type="button" onclick="speakKorean('프랑스에서 왔어요.', 'hana', false)">🔊 Écouter Hana</button>
+        <button type="button" onclick="speakKorean('프랑스에서 왔어요.', 'hana', false)">🔊 Écouter Ana</button>
         <button class="slow" type="button" onclick="speakKorean('프랑스에서 왔어요.', 'hana', true)">🐢 Lentement</button>
       </div>
     </div>
@@ -521,11 +522,11 @@
     </div>
 
     <div class="dialogue-line hana">
-      <div class="speaker">🌸 Hana</div>
+      <div class="speaker">🌸 Ana</div>
       <div class="dialogue-korean">네! 프랑스 사람이에요.</div>
       <div class="dialogue-french">Oui ! Je suis française.</div>
       <div class="line-actions">
-        <button type="button" onclick="speakKorean('네! 프랑스 사람이에요.', 'hana', false)">🔊 Écouter Hana</button>
+        <button type="button" onclick="speakKorean('네! 프랑스 사람이에요.', 'hana', false)">🔊 Écouter Ana</button>
         <button class="slow" type="button" onclick="speakKorean('네! 프랑스 사람이에요.', 'hana', true)">🐢 Lentement</button>
       </div>
     </div>
@@ -541,11 +542,11 @@
     </div>
 
     <div class="dialogue-line hana">
-      <div class="speaker">🌸 Hana</div>
+      <div class="speaker">🌸 Ana</div>
       <div class="dialogue-korean">회사에서 일해요.</div>
       <div class="dialogue-french">Je travaille dans une entreprise.</div>
       <div class="line-actions">
-        <button type="button" onclick="speakKorean('회사에서 일해요.', 'hana', false)">🔊 Écouter Hana</button>
+        <button type="button" onclick="speakKorean('회사에서 일해요.', 'hana', false)">🔊 Écouter Ana</button>
         <button class="slow" type="button" onclick="speakKorean('회사에서 일해요.', 'hana', true)">🐢 Lentement</button>
       </div>
     </div>
@@ -561,11 +562,11 @@
     </div>
 
     <div class="dialogue-line hana">
-      <div class="speaker">🌸 Hana</div>
+      <div class="speaker">🌸 Ana</div>
       <div class="dialogue-korean">사진 찍는 것을 좋아해요. 커피도 좋아해요.</div>
       <div class="dialogue-french">J'aime prendre des photos. J'aime aussi le café.</div>
       <div class="line-actions">
-        <button type="button" onclick="speakKorean('사진 찍는 것을 좋아해요. 커피도 좋아해요.', 'hana', false)">🔊 Écouter Hana</button>
+        <button type="button" onclick="speakKorean('사진 찍는 것을 좋아해요. 커피도 좋아해요.', 'hana', false)">🔊 Écouter Ana</button>
         <button class="slow" type="button" onclick="speakKorean('사진 찍는 것을 좋아해요. 커피도 좋아해요.', 'hana', true)">🐢 Lentement</button>
       </div>
     </div>
@@ -712,7 +713,7 @@
 
     {
       text:
-        "안녕하세요. 저는 하나예요.",
+        HanaProfile.replacePerson("안녕하세요. 저는 아나예요."),
       character:
         "hana"
     },
@@ -1252,8 +1253,6 @@
     );
   }
 </script>
-
-
 </body>
 
 </html>

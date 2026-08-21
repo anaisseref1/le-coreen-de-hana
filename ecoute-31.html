@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#F7F4ED">
+  <title>Chapitre 31 — J'écoute</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="chapter-progress.css">
+  <style>
+    .listen-header{text-align:center;margin-bottom:24px;}
+    .dialogue-card,.shadow-card,.focus-card,.tip-card{padding:20px;margin-bottom:18px;background:var(--white);border-radius:var(--radius-large);box-shadow:var(--shadow);}
+    .dialogue-line{padding:15px;margin-top:10px;border-radius:var(--radius-medium);line-height:1.65;}
+    .dialogue-line.hana{background:var(--soft-green);}
+    .dialogue-line.jisoo{background:var(--soft-blue);}
+    .speaker{margin-bottom:4px;font-weight:bold;}
+    .korean-line{color:var(--navy);font-size:18px;font-weight:bold;}
+    .french-line{margin-top:5px;color:var(--text-light);}
+    .audio-controls{display:flex;flex-direction:column;gap:10px;margin-top:16px;}
+    .audio-button,.shadow-button{width:100%;}
+    .audio-button.playing,.shadow-button.playing{background:var(--navy);color:white;}
+  </style>
+  <script src="profile.js"></script>
+</head>
+<body>
+<main class="app">
+<a class="back-link" href="chapitre-31.html">← Chapitre 31</a>
+<section id="hanaChapterPath" data-chapter-path></section>
+
+<header class="listen-header">
+  <span class="chapter-badge">Chapitre 31 · 🎧 J'écoute</span>
+  <p class="korean">매일 한국어를 공부해요?</p>
+  <h1>Écouter les habitudes de Ana</h1>
+  <p>Écoute le dialogue et repère les mots de fréquence.</p>
+</header>
+
+<section class="dialogue-card">
+  <h2>💬 Dialogue</h2>
+
+  <div class="dialogue-line jisoo">
+    <div class="speaker">💚 Ji-soo</div>
+    <div class="korean-line">아나 씨는 매일 한국어를 공부해요?</div>
+    <div class="french-line">Ana, tu étudies le coréen tous les jours ?</div>
+  </div>
+
+  <div class="dialogue-line hana">
+    <div class="speaker">🌸 Ana</div>
+    <div class="korean-line">네, 매일 공부해요.</div>
+    <div class="french-line">Oui, j'étudie tous les jours.</div>
+  </div>
+
+  <div class="dialogue-line jisoo">
+    <div class="speaker">💚 Ji-soo</div>
+    <div class="korean-line">보통 언제 공부해요?</div>
+    <div class="french-line">D'habitude, quand est-ce que tu étudies ?</div>
+  </div>
+
+  <div class="dialogue-line hana">
+    <div class="speaker">🌸 Ana</div>
+    <div class="korean-line">저녁에 공부해요.</div>
+    <div class="french-line">J'étudie le soir.</div>
+  </div>
+
+  <div class="dialogue-line jisoo">
+    <div class="speaker">💚 Ji-soo</div>
+    <div class="korean-line">커피를 자주 마셔요?</div>
+    <div class="french-line">Tu bois souvent du café ?</div>
+  </div>
+
+  <div class="dialogue-line hana">
+    <div class="speaker">🌸 Ana</div>
+    <div class="korean-line">네, 자주 마셔요.</div>
+    <div class="french-line">Oui, j'en bois souvent.</div>
+  </div>
+
+  <div class="dialogue-line jisoo">
+    <div class="speaker">💚 Ji-soo</div>
+    <div class="korean-line">운동도 해요?</div>
+    <div class="french-line">Tu fais aussi du sport ?</div>
+  </div>
+
+  <div class="dialogue-line hana">
+    <div class="speaker">🌸 Ana</div>
+    <div class="korean-line">가끔 운동해요.</div>
+    <div class="french-line">Je fais parfois du sport.</div>
+  </div>
+
+  <div class="dialogue-line jisoo">
+    <div class="speaker">💚 Ji-soo</div>
+    <div class="korean-line">주말에는 뭐 해요?</div>
+    <div class="french-line">Qu'est-ce que tu fais le week-end ?</div>
+  </div>
+
+  <div class="dialogue-line hana">
+    <div class="speaker">🌸 Ana</div>
+    <div class="korean-line">보통 집에서 쉬어요. 그리고 책을 읽어요.</div>
+    <div class="french-line">D'habitude, je me repose à la maison. Et je lis des livres.</div>
+  </div>
+
+  <div class="audio-controls">
+    <button class="audio-button" type="button" data-rate="0.72">🐢 Écouter lentement</button>
+    <button class="audio-button" type="button" data-rate="0.92">🎧 Écouter normalement</button>
+  </div>
+</section>
+
+<section class="focus-card">
+  <h2>👂 À repérer</h2>
+  <p><strong>매일</strong> → tous les jours</p>
+  <p><strong>보통</strong> → généralement</p>
+  <p><strong>자주</strong> → souvent</p>
+  <p><strong>가끔</strong> → parfois</p>
+</section>
+
+<section class="shadow-card">
+  <h2>🗣️ Shadowing</h2>
+  <p>Écoute puis répète chaque phrase à voix haute.</p>
+  <button class="shadow-button" type="button" data-text="매일 한국어를 공부해요.">🔊 매일 한국어를 공부해요.</button>
+  <button class="shadow-button" type="button" data-text="저녁에 공부해요.">🔊 저녁에 공부해요.</button>
+  <button class="shadow-button" type="button" data-text="커피를 자주 마셔요.">🔊 커피를 자주 마셔요.</button>
+  <button class="shadow-button" type="button" data-text="가끔 운동해요.">🔊 가끔 운동해요.</button>
+  <button class="shadow-button" type="button" data-text="보통 집에서 쉬어요.">🔊 보통 집에서 쉬어요.</button>
+  <button class="shadow-button" type="button" data-text="책을 읽어요.">🔊 책을 읽어요.</button>
+</section>
+
+<section class="tip-card">
+  <h2>🩵 Conseil d'écoute</h2>
+  <p>Ne cherche pas à tout traduire. Essaie d'abord d'entendre les petits mots qui donnent le rythme de l'habitude : <strong>매일, 자주, 가끔, 보통</strong>.</p>
+</section>
+
+<button id="completeButton" type="button" style="width:100%;">✅ J'ai écouté</button>
+<button id="nextButton" type="button" style="display:none;width:100%;">🧠 Faire l'exercice d'écoute</button>
+</main>
+
+<script src="chapter-progress.js"></script>
+<script>
+const UNDERSTANDING_KEY="hanaKorean_chapter31_understanding";
+const LISTENING_KEY="hanaKorean_chapter31_listening";
+const completeButton=document.getElementById("completeButton");
+const nextButton=document.getElementById("nextButton");
+
+function guard(){
+  if(localStorage.getItem(UNDERSTANDING_KEY)!=="completed"){
+    window.location.href="chapitre-31.html";
+    return false;
+  }
+  return true;
+}
+if(!guard()) throw new Error("chapter31-listening-guard");
+
+const dialogue=[
+HanaProfile.replacePerson("아나 씨는 매일 한국어를 공부해요?"),
+"네, 매일 공부해요.",
+"보통 언제 공부해요?",
+"저녁에 공부해요.",
+"커피를 자주 마셔요?",
+"네, 자주 마셔요.",
+"운동도 해요?",
+"가끔 운동해요.",
+"주말에는 뭐 해요?",
+"보통 집에서 쉬어요. 그리고 책을 읽어요."
+];
+
+function koreanVoice(){
+  const voices=speechSynthesis.getVoices();
+  return voices.find(v=>v.lang==="ko-KR") || voices.find(v=>v.lang&&v.lang.startsWith("ko")) || null;
+}
+
+function speak(text,rate,button){
+  if(!("speechSynthesis" in window)) return;
+  speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(text);
+  u.lang="ko-KR";
+  u.rate=rate;
+  const voice=koreanVoice();
+  if(voice) u.voice=voice;
+  document.querySelectorAll(".audio-button,.shadow-button").forEach(b=>b.classList.remove("playing"));
+  if(button) button.classList.add("playing");
+  u.onend=()=>button&&button.classList.remove("playing");
+  u.onerror=()=>button&&button.classList.remove("playing");
+  speechSynthesis.speak(u);
+}
+
+document.querySelectorAll(".audio-button").forEach(button=>{
+  button.addEventListener("click",()=>speak(dialogue.join(" "),Number(button.dataset.rate||0.9),button));
+});
+document.querySelectorAll(".shadow-button").forEach(button=>{
+  button.addEventListener("click",()=>speak(button.dataset.text,0.82,button));
+});
+
+function refresh(){
+  if(localStorage.getItem(LISTENING_KEY)==="completed"){
+    completeButton.textContent="✅ Écoute terminée";
+    completeButton.disabled=true;
+    nextButton.style.display="block";
+  }
+  if(window.HanaChapterProgress) HanaChapterProgress.render();
+}
+
+completeButton.addEventListener("click",()=>{
+  localStorage.setItem(LISTENING_KEY,"completed");
+  refresh();
+});
+nextButton.addEventListener("click",()=>window.location.href="exercice-ecoute-31.html");
+window.addEventListener("pageshow",()=>{if(guard())refresh();});
+refresh();
+</script>
+</body>
+</html>

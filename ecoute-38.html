@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#F7F4ED"><title>Chapitre 38 — J'écoute</title>
+<link rel="stylesheet" href="style.css"><link rel="stylesheet" href="chapter-progress.css">
+<style>.cardx{padding:20px;margin-bottom:18px;background:var(--white);border-radius:var(--radius-large);box-shadow:var(--shadow)}.line{padding:14px;margin-top:10px;border-radius:var(--radius-medium);background:#FBFAF6}.ko{font-size:18px;font-weight:800;color:var(--navy)}button{width:100%}</style>
+  <script src="profile.js"></script>
+</head>
+<body><main class="app">
+<a class="back-link" href="chapitre-38.html">← Chapitre 38</a><section id="hanaChapterPath" data-chapter-path></section>
+<header><span class="chapter-badge">Chapitre 38 · 🎧 J'écoute</span><h1>Écouter à la librairie</h1></header>
+<section class="cardx">
+<div class="line"><div class="ko">어떤 책 좋아해요?</div><small>Quel genre de livres tu aimes ?</small></div>
+<div class="line"><div class="ko">한국어 책을 찾고 있어요.</div><small>Je cherche un livre de coréen.</small></div>
+<div class="line"><div class="ko">이 책 있어요?</div><small>Vous avez ce livre ?</small></div>
+<div class="line"><div class="ko">어디에 있어요?</div><small>Où est-il ?</small></div>
+<div class="line"><div class="ko">어떤 책을 추천해요?</div><small>Quel livre recommandez-vous ?</small></div>
+<div class="line"><div class="ko">이 책 얼마예요?</div><small>Combien coûte ce livre ?</small></div>
+<button id="listenAll">🎧 Écouter</button>
+</section>
+<section class="cardx"><h2>🗣️ Shadowing</h2>
+<button data-text="어떤 책 좋아해요?">🔊 어떤 책 좋아해요?</button>
+<button data-text="한국어 책을 찾고 있어요.">🔊 한국어 책을 찾고 있어요.</button>
+<button data-text="이 책 있어요?">🔊 이 책 있어요?</button>
+<button data-text="어디에 있어요?">🔊 어디에 있어요?</button>
+<button data-text="어떤 책을 추천해요?">🔊 어떤 책을 추천해요?</button>
+<button data-text="이 책 얼마예요?">🔊 이 책 얼마예요?</button>
+</section>
+<button id="completeButton">✅ J'ai écouté</button><button id="nextButton" style="display:none">🧠 Faire l'exercice d'écoute</button>
+</main>
+<script src="chapter-progress.js"></script>
+<script>
+const PREV="hanaKorean_chapter38_understanding",KEY="hanaKorean_chapter38_listening";
+if(localStorage.getItem(PREV)!=="completed")location.href="chapitre-38.html";
+function speak(t,r=.82){if(!("speechSynthesis"in window))return;speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang="ko-KR";u.rate=r;const v=speechSynthesis.getVoices().find(x=>x.lang==="ko-KR")||speechSynthesis.getVoices().find(x=>x.lang&&x.lang.startsWith("ko"));if(v)u.voice=v;speechSynthesis.speak(u)}
+document.getElementById("listenAll").onclick=()=>speak("어떤 책 좋아해요? 한국어 책을 찾고 있어요. 이 책 있어요? 어디에 있어요? 어떤 책을 추천해요? 이 책 얼마예요?");
+document.querySelectorAll("[data-text]").forEach(b=>b.onclick=()=>speak(b.dataset.text));
+const c=document.getElementById("completeButton"),n=document.getElementById("nextButton");
+function refresh(){if(localStorage.getItem(KEY)==="completed"){c.disabled=true;c.textContent="✅ Écoute terminée";n.style.display="block"}if(window.HanaChapterProgress)HanaChapterProgress.render()}
+c.onclick=()=>{localStorage.setItem(KEY,"completed");refresh()};n.onclick=()=>location.href="exercice-ecoute-38.html";refresh();
+</script>
+</body></html>

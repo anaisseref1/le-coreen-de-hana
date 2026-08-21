@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#F7F4ED">
+  <title>Chapitre 37 — J'écoute</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="chapter-progress.css">
+  <style>
+    .dialogue-card,.focus-card,.shadow-card{padding:20px;margin-bottom:18px;background:var(--white);border-radius:var(--radius-large);box-shadow:var(--shadow)}
+    .line{padding:14px;margin-top:10px;border-radius:var(--radius-medium);line-height:1.65}
+    .hana{background:var(--soft-green)} .minsu{background:var(--soft-blue)} .jisoo{background:#FFF6D8}
+    .ko{font-size:18px;font-weight:800;color:var(--navy)} .fr{font-size:14px;color:var(--text-light);margin-top:4px}
+    .actions{display:flex;flex-direction:column;gap:9px;margin-top:14px}
+    .actions button,.shadow-card button{width:100%}
+  </style>
+  <script src="profile.js"></script>
+</head>
+<body>
+<main class="app">
+<a class="back-link" href="chapitre-37.html">← Chapitre 37</a>
+<section id="hanaChapterPath" data-chapter-path></section>
+
+<header>
+  <span class="chapter-badge">Chapitre 37 · 🎧 J'écoute</span>
+  <p class="korean">영화 어땠어요?</p>
+  <h1>Écouter au cinéma</h1>
+  <p>Repère le genre choisi, l'impression avant le film et l'avis après la séance.</p>
+</header>
+
+<section class="dialogue-card">
+  <h2>💬 Dialogue</h2>
+  <div class="line minsu"><strong>💙 Min-su</strong><div class="ko">어떤 영화 보고 싶어요?</div><div class="fr">Quel film tu veux voir ?</div></div>
+  <div class="line hana"><strong>🌸 Ana</strong><div class="ko">액션 영화 보고 싶어요.</div><div class="fr">Je veux voir un film d'action.</div></div>
+  <div class="line jisoo"><strong>💚 Ji-soo</strong><div class="ko">이 영화 어때요?</div><div class="fr">Et ce film ?</div></div>
+  <div class="line hana"><strong>🌸 Ana</strong><div class="ko">재미있을 것 같아요.</div><div class="fr">Il a l'air intéressant.</div></div>
+  <div class="line minsu"><strong>💙 Min-su</strong><div class="ko">몇 시 영화 볼까요?</div><div class="fr">On prend la séance de quelle heure ?</div></div>
+  <div class="line jisoo"><strong>💚 Ji-soo</strong><div class="ko">세 시 영화 어때요?</div><div class="fr">Et la séance de 15 h ?</div></div>
+  <div class="line hana"><strong>🌸 Ana</strong><div class="ko">좋아요!</div><div class="fr">Bonne idée !</div></div>
+  <div class="line jisoo"><strong>💚 Ji-soo</strong><div class="ko">영화 어땠어요?</div><div class="fr">Comment était le film ?</div></div>
+  <div class="line hana"><strong>🌸 Ana</strong><div class="ko">정말 재미있었어요. 배우도 멋있었어요.</div><div class="fr">Il était vraiment intéressant. L'acteur était super aussi.</div></div>
+  <div class="line minsu"><strong>💙 Min-su</strong><div class="ko">어떤 장면이 제일 좋았어요?</div><div class="fr">Quelle scène as-tu préférée ?</div></div>
+  <div class="line hana"><strong>🌸 Ana</strong><div class="ko">마지막 장면이 제일 좋았어요.</div><div class="fr">J'ai préféré la dernière scène.</div></div>
+
+  <div class="actions">
+    <button class="listen-dialogue" data-rate="0.72">🐢 Écouter lentement</button>
+    <button class="listen-dialogue" data-rate="0.92">🎧 Écouter normalement</button>
+  </div>
+</section>
+
+<section class="focus-card">
+  <h2>👂 À repérer</h2>
+  <p><strong>어떤 영화</strong> → quel film / quel genre</p>
+  <p><strong>보고 싶어요</strong> → je veux voir</p>
+  <p><strong>것 같아요</strong> → ça a l'air / je pense que</p>
+  <p><strong>어땠어요?</strong> → comment c'était ?</p>
+  <p><strong>제일 좋았어요</strong> → j'ai préféré / c'était le mieux</p>
+</section>
+
+<section class="shadow-card">
+  <h2>🗣️ Shadowing</h2>
+  <button data-text="어떤 영화 보고 싶어요?">🔊 어떤 영화 보고 싶어요?</button>
+  <button data-text="액션 영화 보고 싶어요.">🔊 액션 영화 보고 싶어요.</button>
+  <button data-text="재미있을 것 같아요.">🔊 재미있을 것 같아요.</button>
+  <button data-text="몇 시 영화 볼까요?">🔊 몇 시 영화 볼까요?</button>
+  <button data-text="영화 어땠어요?">🔊 영화 어땠어요?</button>
+  <button data-text="정말 재미있었어요.">🔊 정말 재미있었어요.</button>
+  <button data-text="마지막 장면이 제일 좋았어요.">🔊 마지막 장면이 제일 좋았어요.</button>
+</section>
+
+<button id="completeButton" type="button" style="width:100%;">✅ J'ai écouté</button>
+<button id="nextButton" type="button" style="display:none;width:100%;">🧠 Faire l'exercice d'écoute</button>
+</main>
+
+<script src="chapter-progress.js"></script>
+<script>
+const UNDERSTANDING_KEY="hanaKorean_chapter37_understanding";
+const LISTENING_KEY="hanaKorean_chapter37_listening";
+const completeButton=document.getElementById("completeButton");
+const nextButton=document.getElementById("nextButton");
+
+function guard(){
+  if(localStorage.getItem(UNDERSTANDING_KEY)!=="completed"){
+    window.location.href="chapitre-37.html";
+    return false;
+  }
+  return true;
+}
+if(!guard())throw new Error("chapter37-listening-guard");
+
+const dialogue=[
+"어떤 영화 보고 싶어요?","액션 영화 보고 싶어요.","이 영화 어때요?","재미있을 것 같아요.",
+"몇 시 영화 볼까요?","세 시 영화 어때요?","좋아요!","영화 어땠어요?",
+"정말 재미있었어요. 배우도 멋있었어요.","어떤 장면이 제일 좋았어요?","마지막 장면이 제일 좋았어요."
+];
+
+function speak(text,rate){
+  if(!("speechSynthesis" in window))return;
+  speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(text);
+  u.lang="ko-KR";u.rate=rate;
+  const voices=speechSynthesis.getVoices();
+  const v=voices.find(x=>x.lang==="ko-KR")||voices.find(x=>x.lang&&x.lang.startsWith("ko"));
+  if(v)u.voice=v;
+  speechSynthesis.speak(u);
+}
+document.querySelectorAll(".listen-dialogue").forEach(btn=>{
+  btn.addEventListener("click",()=>speak(dialogue.join(" "),Number(btn.dataset.rate)));
+});
+document.querySelectorAll("[data-text]").forEach(btn=>{
+  btn.addEventListener("click",()=>speak(btn.dataset.text,.82));
+});
+function refresh(){
+  if(localStorage.getItem(LISTENING_KEY)==="completed"){
+    completeButton.textContent="✅ Écoute terminée";
+    completeButton.disabled=true;
+    nextButton.style.display="block";
+  }
+  if(window.HanaChapterProgress)HanaChapterProgress.render();
+}
+completeButton.addEventListener("click",()=>{localStorage.setItem(LISTENING_KEY,"completed");refresh();});
+nextButton.addEventListener("click",()=>window.location.href="exercice-ecoute-37.html");
+window.addEventListener("pageshow",()=>{if(guard())refresh();});
+refresh();
+</script>
+</body>
+</html>

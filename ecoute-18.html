@@ -208,6 +208,7 @@
 
   </style>
 
+  <script src="profile.js"></script>
 </head>
 
 
@@ -424,7 +425,7 @@
   <section class="audio-card">
 
     <h2>
-      💬 3. Dialogue — Hana et Min-su
+      💬 3. Dialogue — Ana et Min-su
     </h2>
 
     <p>
@@ -456,20 +457,20 @@
 
     <div class="dialogue-line minsu">
       <div class="speaker">💙 Min-su</div>
-      <div class="dialogue-korean">하나 씨는 한국에서 뭐가 제일 좋아요?</div>
-      <div class="dialogue-french">Hana, qu'est-ce que tu préfères en Corée ?</div>
+      <div class="dialogue-korean">아나 씨는 한국에서 뭐가 제일 좋아요?</div>
+      <div class="dialogue-french">Ana, qu'est-ce que tu préfères en Corée ?</div>
       <div class="line-actions">
-        <button type="button" onclick="speakKorean('하나 씨는 한국에서 뭐가 제일 좋아요?', 'minsu', false)">🔊 Écouter Min-su</button>
-        <button class="slow" type="button" onclick="speakKorean('하나 씨는 한국에서 뭐가 제일 좋아요?', 'minsu', true)">🐢 Lentement</button>
+        <button type="button" onclick="speakKorean('아나 씨는 한국에서 뭐가 제일 좋아요?', 'minsu', false)">🔊 Écouter Min-su</button>
+        <button class="slow" type="button" onclick="speakKorean('아나 씨는 한국에서 뭐가 제일 좋아요?', 'minsu', true)">🐢 Lentement</button>
       </div>
     </div>
 
     <div class="dialogue-line hana">
-      <div class="speaker">🌸 Hana</div>
+      <div class="speaker">🌸 Ana</div>
       <div class="dialogue-korean">커피도 좋아하고 사진 찍는 것도 좋아해요. 하지만 한강이 제일 좋아요.</div>
       <div class="dialogue-french">J'aime le café et j'aime aussi prendre des photos. Mais ce que je préfère, c'est le fleuve Han.</div>
       <div class="line-actions">
-        <button type="button" onclick="speakKorean('커피도 좋아하고 사진 찍는 것도 좋아해요. 하지만 한강이 제일 좋아요.', 'hana', false)">🔊 Écouter Hana</button>
+        <button type="button" onclick="speakKorean('커피도 좋아하고 사진 찍는 것도 좋아해요. 하지만 한강이 제일 좋아요.', 'hana', false)">🔊 Écouter Ana</button>
         <button class="slow" type="button" onclick="speakKorean('커피도 좋아하고 사진 찍는 것도 좋아해요. 하지만 한강이 제일 좋아요.', 'hana', true)">🐢 Lentement</button>
       </div>
     </div>
@@ -485,11 +486,11 @@
     </div>
 
     <div class="dialogue-line hana">
-      <div class="speaker">🌸 Hana</div>
+      <div class="speaker">🌸 Ana</div>
       <div class="dialogue-korean">조용하고 정말 아름다워요.</div>
       <div class="dialogue-french">C'est calme et vraiment magnifique.</div>
       <div class="line-actions">
-        <button type="button" onclick="speakKorean('조용하고 정말 아름다워요.', 'hana', false)">🔊 Écouter Hana</button>
+        <button type="button" onclick="speakKorean('조용하고 정말 아름다워요.', 'hana', false)">🔊 Écouter Ana</button>
         <button class="slow" type="button" onclick="speakKorean('조용하고 정말 아름다워요.', 'hana', true)">🐢 Lentement</button>
       </div>
     </div>
@@ -505,11 +506,11 @@
     </div>
 
     <div class="dialogue-line hana">
-      <div class="speaker">🌸 Hana</div>
+      <div class="speaker">🌸 Ana</div>
       <div class="dialogue-korean">케이팝을 제일 좋아해요.</div>
       <div class="dialogue-french">Je préfère la K-pop.</div>
       <div class="line-actions">
-        <button type="button" onclick="speakKorean('케이팝을 제일 좋아해요.', 'hana', false)">🔊 Écouter Hana</button>
+        <button type="button" onclick="speakKorean('케이팝을 제일 좋아해요.', 'hana', false)">🔊 Écouter Ana</button>
         <button class="slow" type="button" onclick="speakKorean('케이팝을 제일 좋아해요.', 'hana', true)">🐢 Lentement</button>
       </div>
     </div>
@@ -634,7 +635,7 @@
 
     {
       text:
-        "하나 씨는 한국에서 뭐가 제일 좋아요?",
+        HanaProfile.replacePerson("아나 씨는 한국에서 뭐가 제일 좋아요?"),
       character:
         "minsu"
     },
@@ -1155,8 +1156,6 @@
     );
   }
 </script>
-
-
 </body>
 
 </html>

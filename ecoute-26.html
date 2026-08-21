@@ -15,19 +15,20 @@
 .audio-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px} .audio-row button{flex:1;min-width:140px}
 .complete-button,.next-button{width:100%;margin-top:10px} .complete-button{background:var(--jade);color:white;font-weight:bold} .next-button{display:none;background:var(--navy);color:white;font-weight:bold}
 </style>
+  <script src="profile.js"></script>
 </head>
 <body><main class="app">
 <a class="back-link" href="chapitre-26.html">← Chapitre 26</a>
 <section id="hanaChapterPath" data-chapter-path></section>
 <header class="listen-header"><span class="chapter-badge">Chapitre 26 · 🎧 J'écoute</span><p class="korean">머리가 아파요. 🏥</p><h1>À la pharmacie</h1><p>Écoute la situation puis repère les expressions importantes avant de vérifier ta compréhension.</p></header>
 <section class="card"><h2>🎧 Dialogue complet</h2>
-<div class="dialogue-line friend"><strong>💚 Ji-soo</strong><br>하나 씨, 괜찮아요?</div>
-<div class="dialogue-line hana"><strong>🌸 Hana</strong><br>네, 그런데 머리가 아파요.</div>
+<div class="dialogue-line friend"><strong>💚 Ji-soo</strong><br>아나 씨, 괜찮아요?</div>
+<div class="dialogue-line hana"><strong>🌸 Ana</strong><br>네, 그런데 머리가 아파요.</div>
 <div class="dialogue-line friend"><strong>💙 Min-su</strong><br>약국에 갈까요?</div>
 <div class="dialogue-line staff"><strong>💚 Pharmacien</strong><br>어디가 아파요?</div>
-<div class="dialogue-line hana"><strong>🌸 Hana</strong><br>머리가 아파요.</div>
+<div class="dialogue-line hana"><strong>🌸 Ana</strong><br>머리가 아파요.</div>
 <div class="dialogue-line staff"><strong>💚 Pharmacien</strong><br>열이 있어요?</div>
-<div class="dialogue-line hana"><strong>🌸 Hana</strong><br>아니요, 열은 없어요.</div>
+<div class="dialogue-line hana"><strong>🌸 Ana</strong><br>아니요, 열은 없어요.</div>
 <div class="dialogue-line staff"><strong>💚 Pharmacien</strong><br>이 약을 드세요. 하루에 세 번 드세요.</div>
 <div class="audio-row"><button id="slowButton" type="button">🐢 Écouter lentement</button><button id="normalButton" type="button">🎧 Écouter normalement</button></div>
 </section>
@@ -41,11 +42,12 @@ const UNDERSTANDING_KEY="hanaKorean_chapter26_understanding"; const LISTENING_KE
 if(localStorage.getItem(UNDERSTANDING_KEY)!=="completed")window.location.href="chapitre-26.html";
 if(localStorage.getItem(LISTENING_KEY)==="completed"&&localStorage.getItem(LISTENING_EXERCISE_KEY)!=="completed")localStorage.setItem(LISTENING_KEY,"in_progress");
 if(!localStorage.getItem(LISTENING_KEY))localStorage.setItem(LISTENING_KEY,"in_progress");
-const dialogue=["하나 씨, 괜찮아요?","네, 그런데 머리가 아파요.","약국에 갈까요?","어디가 아파요?","머리가 아파요.","열이 있어요?","아니요, 열은 없어요.","이 약을 드세요. 하루에 세 번 드세요."];
+const dialogue=[HanaProfile.replacePerson("아나 씨, 괜찮아요?"),"네, 그런데 머리가 아파요.","약국에 갈까요?","어디가 아파요?","머리가 아파요.","열이 있어요?","아니요, 열은 없어요.","이 약을 드세요. 하루에 세 번 드세요."];
 function speakAll(rate){speechSynthesis.cancel();let i=0;function next(){if(i>=dialogue.length)return;const u=new SpeechSynthesisUtterance(dialogue[i++]);u.lang="ko-KR";u.rate=rate;u.onend=next;speechSynthesis.speak(u);}next();}
 document.getElementById("slowButton").onclick=()=>speakAll(0.55); document.getElementById("normalButton").onclick=()=>speakAll(0.82);
 const completeButton=document.getElementById("completeButton"),nextButton=document.getElementById("nextButton");
 function refresh(){if(localStorage.getItem(LISTENING_EXERCISE_KEY)==="completed"){nextButton.style.display="block";}if(window.HanaChapterProgress)HanaChapterProgress.render();}
 completeButton.onclick=()=>{localStorage.setItem(LISTENING_KEY,"in_progress");completeButton.textContent="✅ Écoute terminée";nextButton.style.display="block";refresh();}; nextButton.onclick=()=>window.location.href="exercice-ecoute-26.html";
 window.addEventListener("pageshow",refresh);refresh();
-</script></body></html>
+</script>
+</body></html>

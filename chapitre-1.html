@@ -296,6 +296,7 @@
 
   </style>
 
+  <script src="profile.js"></script>
 </head>
 
 
@@ -573,12 +574,12 @@
 
       <br><br>
 
-      저는 하나예요.
+      저는 아나예요.
 
       <br>
 
       <span class="translation">
-        Je suis Hana.
+        Je suis Ana.
       </span>
 
     </div>
@@ -622,49 +623,35 @@
     <h2>
       🌿 이에요 / 예요
     </h2>
+      <p>
+        Ces terminaisons permettent notamment de dire « être »
+        dans un registre poli courant.
+      </p>
 
-    <p>
-      Ces terminaisons permettent notamment de dire
-      « être » dans un registre poli courant.
-    </p>
+      <div class="example-box">
+        <strong>학생이에요</strong>
+        <p>Je suis étudiant(e).</p>
+        <p>
+          학생 se termine par une consonne → <strong>이에요</strong>.
+        </p>
+      </div>
 
+      <div class="example-box" id="profileCopulaExample">
+        <strong id="profileCopulaKo">아나예요</strong>
+        <p>Je suis <span id="profileCopulaLatin">Ana</span>.</p>
+        <p id="profileCopulaRule">
+          Ana (아나) se termine par une voyelle → <strong>예요</strong>.
+        </p>
+      </div>
 
-    <div class="example">
-
-      <strong>
-        학생이에요
-      </strong>
-
-      <br>
-
-      Je suis étudiant(e).
-
-      <br><br>
-
-      학생 se termine par une consonne
-      → <strong>이에요</strong>.
-
-    </div>
-
-
-    <div class="example">
-
-      <strong>
-        하나예요
-      </strong>
-
-      <br>
-
-      Je suis Hana.
-
-      <br><br>
-
-      하나 se termine par une voyelle
-      → <strong>예요</strong>.
-
-    </div>
-
-  </section>
+      <div class="example-box" id="complementaryCopulaExample">
+        <strong id="complementaryCopulaKo">민석이에요</strong>
+        <p>Je suis <span id="complementaryCopulaLatin">Min-seok</span>.</p>
+        <p id="complementaryCopulaRule">
+          Min-seok (민석) se termine par une consonne → <strong>이에요</strong>.
+        </p>
+      </div>
+    </section>
 
 
 
@@ -720,7 +707,7 @@
     <div class="dialogue-line">
 
       <div class="speaker">
-        🌸 Hana
+        🌸 Ana
       </div>
 
       안녕하세요!
@@ -754,15 +741,15 @@
     <div class="dialogue-line">
 
       <div class="speaker">
-        🌸 Hana
+        🌸 Ana
       </div>
 
-      저는 하나예요.
+      저는 아나예요.
 
       <br>
 
       <span class="translation">
-        Je suis Hana.
+        Je suis Ana.
       </span>
 
     </div>
@@ -838,7 +825,7 @@
 
 
     <div class="mission-line">
-      🙋 <strong>저는 하나예요.</strong>
+      🙋 <strong>저는 아나예요.</strong>
     </div>
 
 
@@ -1070,6 +1057,52 @@
 
 </script>
 
+<script>
+(function(){
+  function renderProfileCopulaExample(){
+    if(!window.HanaProfile) return;
+
+    const ko = HanaProfile.getKoreanStoryName();
+    const latin = HanaProfile.getLatinStoryName();
+    const ending = HanaProfile.nameEndingType(ko);
+    const endingKo = ending === "consonne" ? "이에요" : "예요";
+    const copula = endingKo;
+    const sentence = ko + copula + ".";
+
+    const koEl = document.getElementById("profileCopulaKo");
+    const latinEl = document.getElementById("profileCopulaLatin");
+    const ruleEl = document.getElementById("profileCopulaRule");
+
+    if(koEl) koEl.textContent = sentence;
+    if(latinEl) latinEl.textContent = latin;
+    if(ruleEl){
+      ruleEl.innerHTML =
+        latin + " (" + ko + ") se termine par une " +
+        ending + " → <strong>" + endingKo + "</strong>.";
+    }
+
+    const ex = HanaProfile.complementaryNameExample(ko);
+    const exKo = document.getElementById("complementaryCopulaKo");
+    const exLatin = document.getElementById("complementaryCopulaLatin");
+    const exRule = document.getElementById("complementaryCopulaRule");
+
+    if(exKo) exKo.textContent = ex.sentence;
+    if(exLatin) exLatin.textContent = ex.latin;
+    if(exRule){
+      exRule.innerHTML =
+        ex.latin + " (" + ex.hangul + ") se termine par une " +
+        ex.ending + " → <strong>" + ex.endingKo + "</strong>.";
+    }
+  }
+
+  window.addEventListener("hana-profile-applied", renderProfileCopulaExample);
+  if(document.readyState === "loading"){
+    document.addEventListener("DOMContentLoaded", renderProfileCopulaExample);
+  }else{
+    renderProfileCopulaExample();
+  }
+})();
+</script>
 
 </body>
 

@@ -16,6 +16,7 @@
 .audio-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}.audio-row button{flex:1;min-width:140px}
 .complete-button,.next-button{width:100%;margin-top:10px}.complete-button{background:var(--jade);color:white;font-weight:bold}.next-button{display:none;background:var(--navy);color:white;font-weight:bold}
 </style>
+  <script src="profile.js"></script>
 </head>
 <body>
 <main class="app">
@@ -25,14 +26,14 @@
 <span class="chapter-badge">Chapitre 28 · 🎧 J'écoute</span>
 <p class="korean">부산에서 뭐 하고 싶어요? 🌊</p>
 <h1>Une journée à Busan</h1>
-<p>Écoute Hana et Min-su puis repère ce qu'Hana veut faire à Busan.</p>
+<p>Écoute Ana et Min-su puis repère ce qu'Ana veut faire à Busan.</p>
 </header>
 <section class="card">
 <h2>🎧 Dialogue complet</h2>
-<div class="dialogue-line minsu"><strong>💙 Min-su</strong><br>하나 씨, 부산에서 뭐 하고 싶어요?</div>
-<div class="dialogue-line hana"><strong>🌸 Hana</strong><br>바다를 보고 싶어요.</div>
+<div class="dialogue-line minsu"><strong>💙 Min-su</strong><br>아나 씨, 부산에서 뭐 하고 싶어요?</div>
+<div class="dialogue-line hana"><strong>🌸 Ana</strong><br>바다를 보고 싶어요.</div>
 <div class="dialogue-line minsu"><strong>💙 Min-su</strong><br>해변에 갈까요?</div>
-<div class="dialogue-line hana"><strong>🌸 Hana</strong><br>네! 좋아요. 그리고 사진을 많이 찍고 싶어요.</div>
+<div class="dialogue-line hana"><strong>🌸 Ana</strong><br>네! 좋아요. 그리고 사진을 많이 찍고 싶어요.</div>
 <div class="dialogue-line minsu"><strong>💙 Min-su</strong><br>좋아요. 같이 가요!</div>
 <div class="audio-row"><button id="slowButton" type="button">🐢 Écouter lentement</button><button id="normalButton" type="button">🎧 Écouter normalement</button></div>
 </section>
@@ -49,7 +50,7 @@ const LISTENING_EXERCISE_KEY="hanaKorean_chapter28_listeningExercise";
 if(localStorage.getItem(UNDERSTANDING_KEY)!=="completed") window.location.href="chapitre-28.html";
 if(localStorage.getItem(LISTENING_KEY)==="completed" && localStorage.getItem(LISTENING_EXERCISE_KEY)!=="completed") localStorage.setItem(LISTENING_KEY,"in_progress");
 if(!localStorage.getItem(LISTENING_KEY)) localStorage.setItem(LISTENING_KEY,"in_progress");
-const dialogue=["하나 씨, 부산에서 뭐 하고 싶어요?","바다를 보고 싶어요.","해변에 갈까요?","네! 좋아요. 그리고 사진을 많이 찍고 싶어요.","좋아요. 같이 가요!"];
+const dialogue=[HanaProfile.replacePerson("아나 씨, 부산에서 뭐 하고 싶어요?"),"바다를 보고 싶어요.","해변에 갈까요?","네! 좋아요. 그리고 사진을 많이 찍고 싶어요.","좋아요. 같이 가요!"];
 function speakText(text,rate){speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.lang="ko-KR";u.rate=rate;speechSynthesis.speak(u);}
 function speakAll(rate){speechSynthesis.cancel();let i=0;function next(){if(i>=dialogue.length)return;const u=new SpeechSynthesisUtterance(dialogue[i++]);u.lang="ko-KR";u.rate=rate;u.onend=next;speechSynthesis.speak(u);}next();}
 document.getElementById("slowButton").addEventListener("click",()=>speakAll(0.55));

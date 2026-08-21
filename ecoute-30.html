@@ -123,6 +123,7 @@
       color:var(--navy);
     }
   </style>
+  <script src="profile.js"></script>
 </head>
 
 <body>
@@ -150,7 +151,7 @@
     </h1>
 
     <p>
-      Écoute Hana et Min-su parler de ce qu'Hana prévoit
+      Écoute Ana et Min-su parler de ce qu'Ana prévoit
       de faire aujourd'hui et demain.
     </p>
 
@@ -164,13 +165,13 @@
 
     <div class="dialogue-line minsu">
       <div class="speaker">💙 Min-su</div>
-      <div class="korean-line">하나 씨, 오늘 뭐 할 거예요?</div>
-      <div class="french-line">Hana, qu'est-ce que tu vas faire aujourd'hui ?</div>
+      <div class="korean-line">아나 씨, 오늘 뭐 할 거예요?</div>
+      <div class="french-line">Ana, qu'est-ce que tu vas faire aujourd'hui ?</div>
     </div>
 
 
     <div class="dialogue-line hana">
-      <div class="speaker">🌸 Hana</div>
+      <div class="speaker">🌸 Ana</div>
       <div class="korean-line">오늘 부산을 더 구경할 거예요.</div>
       <div class="french-line">Aujourd'hui, je vais continuer à visiter Busan.</div>
     </div>
@@ -184,14 +185,14 @@
 
 
     <div class="dialogue-line hana">
-      <div class="speaker">🌸 Hana</div>
+      <div class="speaker">🌸 Ana</div>
       <div class="korean-line">해운대에 갈 거예요.</div>
       <div class="french-line">Je vais aller à Haeundae.</div>
     </div>
 
 
     <div class="dialogue-line hana">
-      <div class="speaker">🌸 Hana</div>
+      <div class="speaker">🌸 Ana</div>
       <div class="korean-line">그리고 사진을 많이 찍을 거예요.</div>
       <div class="french-line">Et je vais prendre beaucoup de photos.</div>
     </div>
@@ -205,14 +206,14 @@
 
 
     <div class="dialogue-line hana">
-      <div class="speaker">🌸 Hana</div>
+      <div class="speaker">🌸 Ana</div>
       <div class="korean-line">맛있는 음식을 먹을 거예요.</div>
       <div class="french-line">Je vais manger quelque chose de délicieux.</div>
     </div>
 
 
     <div class="dialogue-line hana">
-      <div class="speaker">🌸 Hana</div>
+      <div class="speaker">🌸 Ana</div>
       <div class="korean-line">그리고 호텔에서 쉴 거예요.</div>
       <div class="french-line">Et je vais me reposer à l'hôtel.</div>
     </div>
@@ -226,7 +227,7 @@
 
 
     <div class="dialogue-line hana">
-      <div class="speaker">🌸 Hana</div>
+      <div class="speaker">🌸 Ana</div>
       <div class="korean-line">서울에 돌아갈 거예요.</div>
       <div class="french-line">Je vais retourner à Séoul.</div>
     </div>
@@ -403,7 +404,7 @@
   const dialogue = [
 
     {
-      text: "하나 씨, 오늘 뭐 할 거예요?",
+      text: HanaProfile.replacePerson("아나 씨, 오늘 뭐 할 거예요?"),
       pitch: 0.94
     },
 
@@ -909,6 +910,5 @@
     };
 
 </script>
-
 </body>
 </html>

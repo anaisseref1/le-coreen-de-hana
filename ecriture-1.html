@@ -433,6 +433,7 @@
     }
   </script>
 
+  <script src="profile.js"></script>
 </head>
 
 
@@ -603,7 +604,7 @@
       Écris :
       <br><br>
 
-      <strong>Je suis Hana.</strong>
+      <strong>Je suis Ana.</strong>
     </p>
 
 
@@ -743,7 +744,7 @@
       Construis :
       <br><br>
 
-      <strong>Je suis Hana.</strong>
+      <strong>Je suis Ana.</strong>
     </p>
 
 
@@ -760,10 +761,10 @@
       <button
         class="word-chip"
         type="button"
-        data-word="하나예요"
+        data-word="아나예요"
         onclick="selectWord(this)"
       >
-        하나예요
+        아나예요
       </button>
 
 
@@ -1040,7 +1041,7 @@
       <br>
 
       Cette séance pourra compter pour arroser
-      ton jardin de Hana.
+      ton jardin de Ana.
 
     </div>
 
@@ -1382,15 +1383,15 @@
 
 
     if (
-      answer === "저는 하나예요"
+      answer === HanaProfile.replacePerson("저는 아나예요")
     ) {
 
       success(
         2,
-        "<span class='correction'>저는 하나예요.</span>" +
+        HanaProfile.replacePerson("<span class='correction'>저는 아나예요.</span>") +
         "저 se termine par une voyelle → <strong>는</strong>." +
         "<br>" +
-        "하나 se termine par une voyelle → <strong>예요</strong>."
+        "아나 se termine par une voyelle → <strong>예요</strong>."
       );
 
       return;
@@ -1398,12 +1399,12 @@
 
 
     if (
-      answer === "저는 하나입니다"
+      answer === "저는 아나입니다"
     ) {
 
       success(
         2,
-        "<span class='correction'>저는 하나입니다.</span>" +
+        "<span class='correction'>저는 아나입니다.</span>" +
         "Ta phrase est également correcte ✅" +
         "<br><br>" +
         "<strong>입니다</strong> correspond simplement à un registre plus formel."
@@ -1434,14 +1435,14 @@
 
 
     if (
-      answer.includes("하나이에요")
+      answer.includes("아나이에요")
     ) {
 
       error(
         2,
-        "Tu as utilisé <strong>이에요</strong> après 하나." +
+        "Tu as utilisé <strong>이에요</strong> après 아나." +
         "<br><br>" +
-        "Mais 하나 se termine par une voyelle." +
+        "Mais 아나 se termine par une voyelle." +
         "<br>" +
         "On utilise donc <strong>예요</strong>.",
         "이에요 / 예요"
@@ -1457,7 +1458,7 @@
       "<br><br>" +
       "<strong>저 + 는</strong>" +
       "<br>" +
-      "<strong>하나</strong>" +
+      "<strong>아나</strong>" +
       "<br>" +
       "<strong>예요</strong>",
       "se présenter"
@@ -1674,15 +1675,15 @@
 
 
     if (
-      sentence === "저는 하나예요"
+      sentence === HanaProfile.replacePerson("저는 아나예요")
     ) {
 
       success(
         4,
-        "<span class='correction'>저는 하나예요.</span>" +
+        HanaProfile.replacePerson("<span class='correction'>저는 아나예요.</span>") +
         "Très bien !" +
         "<br><br>" +
-        "Le thème <strong>저는</strong> vient en premier, puis l'information <strong>하나예요</strong>."
+        HanaProfile.replacePerson("Le thème <strong>저는</strong> vient en premier, puis l'information <strong>아나예요</strong>.")
       );
 
       return;
@@ -1830,8 +1831,8 @@
 
     const acceptedAnswers = [
 
-      "저는 하나예요",
-      "저는 하나입니다",
+      HanaProfile.replacePerson("저는 아나예요"),
+      "저는 아나입니다",
 
       "저는 학생이에요",
       "저는 학생입니다",
@@ -1882,7 +1883,7 @@
     if (
       answer.includes("학생예요") ||
       answer.includes("사람이예요") ||
-      answer.includes("하나이에요")
+      answer.includes("아나이에요")
     ) {
 
       error(
@@ -1919,7 +1920,7 @@
       "<br><br>" +
       "💡 Pour l'instant, tu peux utiliser :" +
       "<br><br>" +
-      "<strong>하나 · 학생 · 회사원 · 프랑스 사람</strong>",
+      "<strong>아나 · 학생 · 회사원 · 프랑스 사람</strong>",
       "vocabulaire du chapitre 1"
     );
 
@@ -2098,7 +2099,6 @@
 
 
 </script>
-
 </body>
 
 </html>
