@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#F7F4ED">
+  <title>Chapitre 36 — J'écris</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="chapter-progress.css">
+  <style>
+    .writing-card{padding:20px;margin-bottom:18px;background:var(--white);border-radius:var(--radius-large);box-shadow:var(--shadow)}
+    .exercise{padding:14px;margin-top:12px;background:#FBFAF6;border-radius:var(--radius-medium)}
+    input,textarea{width:100%;box-sizing:border-box;padding:12px;margin-top:8px;border:1px solid var(--border);border-radius:var(--radius-medium);font:inherit}
+    .feedback{margin-top:7px;font-size:14px}
+  </style>
+  <script src="profile.js"></script>
+</head>
+<body>
+<main class="app">
+<a class="back-link" href="parle-36.html">← Oral</a>
+<section id="hanaChapterPath" data-chapter-path></section>
+<header>
+  <span class="chapter-badge">Chapitre 36 · ✍️ J'écris</span>
+  <h1>Écrire une invitation</h1>
+</header>
+
+<section class="writing-card">
+  <h2>✍️ Exercice 1 — 래요 ou 까요 ?</h2>
+  <div class="exercise" data-answer="볼래요">
+    <p>« Tu veux voir un film ? » → 영화 ______?</p>
+    <input class="answer"><div class="feedback"></div>
+  </div>
+  <div class="exercise" data-answer="마실까요">
+    <p>« On boit un café ? » → 커피 ______?</p>
+    <input class="answer"><div class="feedback"></div>
+  </div>
+  <div class="exercise" data-answer="만날까요">
+    <p>« Où est-ce qu'on se retrouve ? » → 어디에서 ______?</p>
+    <input class="answer"><div class="feedback"></div>
+  </div>
+  <div class="exercise" data-answer="갈래요">
+    <p>« Tu veux venir avec nous ? » → 같이 ______?</p>
+    <input class="answer"><div class="feedback"></div>
+  </div>
+  <button id="checkAnswers" type="button" style="width:100%;margin-top:12px;">✅ Vérifier</button>
+</section>
+
+<section class="writing-card">
+  <h2>🌸 Exercice 2 — Accepte ou refuse</h2>
+  <p><strong>토요일에 영화 볼래요?</strong></p>
+  <p>Accepte : <strong>네, 좋아요!</strong></p>
+  <p>Refuse poliment : <strong>미안해요. 토요일에는 약속이 있어요.</strong></p>
+  <p>Propose une alternative : <strong>일요일은 어때요?</strong></p>
+</section>
+
+<section class="writing-card">
+  <h2>💙 Exercice 3 — Traduis</h2>
+  <p>① Tu veux voir un film ?<br><strong>영화 볼래요?</strong></p>
+  <p>② On boit un café ?<br><strong>커피 마실까요?</strong></p>
+  <p>③ Samedi, ça me va.<br><strong>토요일 괜찮아요.</strong></p>
+  <p>④ À quelle heure on se retrouve ?<br><strong>몇 시에 만날까요?</strong></p>
+  <p>⑤ Où est-ce qu'on se retrouve ?<br><strong>어디에서 만날까요?</strong></p>
+  <p>⑥ Désolée, j'ai déjà quelque chose de prévu.<br><strong>미안해요. 약속이 있어요.</strong></p>
+  <p>⑦ Et dimanche ?<br><strong>일요일은 어때요?</strong></p>
+</section>
+
+<section class="writing-card">
+  <h2>🧩 Organise une sortie</h2>
+  <p>Écris une mini-conversation avec :</p>
+  <p>① une activité</p>
+  <p>② un jour</p>
+  <p>③ une heure</p>
+  <p>④ un lieu</p>
+  <p>⑤ une conclusion naturelle</p>
+  <textarea id="freeText" rows="11" placeholder="주말에 같이 뭐 할래요?&#10;..."></textarea>
+</section>
+
+<button id="completeButton" type="button" style="width:100%;">✅ J'ai terminé l'écriture</button>
+<button id="nextButton" type="button" style="display:none;width:100%;">🧠 Passer à la révision</button>
+</main>
+
+<script src="chapter-progress.js"></script>
+<script>
+const SPEAKING_KEY="hanaKorean_chapter36_speaking";
+const WRITING_KEY="hanaKorean_chapter36_writing";
+const FREE_KEY="hanaKorean_chapter36_writingFree";
+const completeButton=document.getElementById("completeButton");
+const nextButton=document.getElementById("nextButton");
+const freeText=document.getElementById("freeText");
+
+function guard(){
+  if(localStorage.getItem(SPEAKING_KEY)!=="completed"){
+    window.location.href="parle-36.html";
+    return false;
+  }
+  return true;
+}
+if(!guard())throw new Error("chapter36-writing-guard");
+
+document.getElementById("checkAnswers").addEventListener("click",()=>{
+  document.querySelectorAll(".exercise").forEach(ex=>{
+    const value=ex.querySelector(".answer").value.trim().replace(/\s+/g," ");
+    const answer=ex.dataset.answer.trim().replace(/\s+/g," ");
+    ex.querySelector(".feedback").textContent=value===answer?"✅ Correct":"💙 Réponse : "+ex.dataset.answer;
+  });
+});
+
+freeText.value=localStorage.getItem(FREE_KEY)||"";
+freeText.addEventListener("input",()=>localStorage.setItem(FREE_KEY,freeText.value));
+
+function refresh(){
+  if(localStorage.getItem(WRITING_KEY)==="completed"){
+    completeButton.textContent="✅ Écriture terminée";
+    completeButton.disabled=true;
+    nextButton.style.display="block";
+  }
+  if(window.HanaChapterProgress)HanaChapterProgress.render();
+}
+completeButton.addEventListener("click",()=>{
+  localStorage.setItem(FREE_KEY,freeText.value);
+  localStorage.setItem(WRITING_KEY,"completed");
+  refresh();
+});
+nextButton.addEventListener("click",()=>window.location.href="revision-36.html");
+window.addEventListener("pageshow",()=>{if(guard())refresh();});
+refresh();
+</script>
+</body>
+</html>

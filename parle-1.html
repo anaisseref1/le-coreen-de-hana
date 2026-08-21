@@ -686,6 +686,7 @@
     }
   </script>
 
+  <script src="profile.js"></script>
 </head>
 
 
@@ -1174,7 +1175,7 @@
       <br>
 
       Cette séance pourra compter
-      pour arroser ton jardin de Hana.
+      pour arroser ton jardin de Ana.
 
     </div>
 
@@ -1241,8 +1242,8 @@
   const sentenceSteps = [
 
     {
-      korean: "제 이름은 하나예요.",
-      french: "Mon prénom est Hana.",
+      korean: HanaProfile.replacePerson("제 이름은 아나예요."),
+      french: "Mon prénom est Ana.",
       focus: "이름"
     },
 
@@ -1301,15 +1302,15 @@
         "Présente-toi.",
 
       model:
-        "저는 하나예요.",
+        HanaProfile.replacePerson("저는 아나예요."),
 
       accepted: [
-        "저는 하나예요",
-        "하나예요",
-        "저는 하나입니다",
-        "하나입니다",
-        "제 이름은 하나예요",
-        "제 이름은 하나입니다"
+        HanaProfile.replacePerson("저는 아나예요"),
+        HanaProfile.replacePerson("아나예요"),
+        "저는 아나입니다",
+        "아나입니다",
+        HanaProfile.replacePerson("제 이름은 아나예요"),
+        "제 이름은 아나입니다"
       ]
 
     },
@@ -2430,7 +2431,7 @@
       feedback.innerHTML =
         "❌ <strong>Essaie encore.</strong>" +
         "<br><br>" +
-        "💡 Min-su te demande ton prénom. Essaie de faire entendre <strong>하나</strong> clairement.";
+        "💡 Min-su te demande ton prénom. Essaie de faire entendre <strong>아나</strong> clairement.";
 
     }
 
@@ -2515,7 +2516,7 @@
     if (stepIndex === 1) {
 
       return (
-        normalized.includes("하나") &&
+        normalized.includes("아나") &&
         (
           normalized.includes("예요") ||
           normalized.includes("입니다")
@@ -2973,8 +2974,6 @@
   renderPractice();
 
 </script>
-
-
 </body>
 
 </html>

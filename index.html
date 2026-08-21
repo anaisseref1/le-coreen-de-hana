@@ -14,7 +14,7 @@
     content="#F7F4ED"
   >
 
-  <title>Le coréen de Hana</title>
+  <title>Le Coréen de Ana</title>
 
   <link
     rel="stylesheet"
@@ -230,6 +230,7 @@
 
   </style>
 
+  <script src="profile.js"></script>
 </head>
 
 
@@ -241,12 +242,12 @@
 
     <header class="home-header">
 
-      <p class="korean">
-        하나의 한국어 여행 🌿
+      <p class="korean" data-profile-static>
+        아나의 한국어 여행 🌿
       </p>
 
-      <h1>
-        Le coréen de Hana
+      <h1 data-profile-static>
+        Le Coréen de Ana
       </h1>
 
       <p>
@@ -255,6 +256,8 @@
         et transforme ce que tu apprends
         en vraies phrases.
       </p>
+
+      <p style="margin-top:10px;font-weight:700;color:var(--jade-dark)">안녕하세요, <span data-profile-name>Ana</span> ! 🌸</p>
 
     </header>
 
@@ -628,9 +631,13 @@
       </a>
 
 
+      <a class="module-card future" href="itineraire.html#module5"><div class="module-top"><div><div class="module-number">Module 5 · À venir</div><h2>Devenir autonome en Corée</h2></div><div class="module-icon">🌿</div></div><p class="module-description">Dire « si », parler de ce qu’on peut faire, demander la permission, gérer un problème, la pharmacie, une urgence et communiquer à distance.</p><span class="module-status">Chapitres 43 à 52</span><div class="module-action"><span>Voir la structure</span><span class="module-arrow">→</span></div></a>
+
     </section>
 
 
+
+    <div class="modules-title" style="margin-top:28px">✨ Mes espaces</div><section class="modules-grid"><a class="module-card" href="profil.html"><div class="module-top"><div><div class="module-number">Personnalisation</div><h2>Mon profil</h2></div><div class="module-icon">👤</div></div><p class="module-description">Prénom réel, version hangeul, prénom coréen et propositions inspirées de tes goûts ou de ta naissance.</p><div class="module-action"><span>Personnaliser</span><span class="module-arrow">→</span></div></a><a class="module-card" href="bibliotheque.html"><div class="module-top"><div><div class="module-number">Immersion</div><h2>Bibliothèque</h2></div><div class="module-icon">📚</div></div><p class="module-description">Histoires, comptines, K-pop, K-drama, culture, histoire et ressources.</p><div class="module-action"><span>Ouvrir</span><span class="module-arrow">→</span></div></a><a class="module-card" href="niveaux-de-langue.html"><div class="module-top"><div><div class="module-number">Référence</div><h2>Niveaux de langue</h2></div><div class="module-icon">🗣️</div></div><p class="module-description">반말, poli courant, très poli et honorifiques.</p><div class="module-action"><span>Voir</span><span class="module-arrow">→</span></div></a><a class="module-card" href="culture-coree.html"><div class="module-top"><div><div class="module-number">Culture</div><h2>Culture & histoire</h2></div><div class="module-icon">🇰🇷</div></div><p class="module-description">Dynasties, guerre de Corée, société, traditions et Corée contemporaine.</p><div class="module-action"><span>Voir</span><span class="module-arrow">→</span></div></a></section>
 
     <section
       class="mini-garden"
@@ -855,8 +862,6 @@
 
 
   <script src="app.js"></script>
-
-
 </body>
 
 </html>

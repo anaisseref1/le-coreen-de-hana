@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#F7F4ED">
+  <title>Chapitre 35 — J'écris</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="chapter-progress.css">
+  <style>
+    .writing-card{padding:20px;margin-bottom:18px;background:var(--white);border-radius:var(--radius-large);box-shadow:var(--shadow)}
+    .exercise{padding:14px;margin-top:12px;background:#FBFAF6;border-radius:var(--radius-medium)}
+    input,textarea{width:100%;box-sizing:border-box;padding:12px;margin-top:8px;border:1px solid var(--border);border-radius:var(--radius-medium);font:inherit}
+    .feedback{margin-top:7px;font-size:14px}
+  </style>
+  <script src="profile.js"></script>
+</head>
+<body>
+<main class="app">
+<a class="back-link" href="parle-35.html">← Oral</a>
+<section id="hanaChapterPath" data-chapter-path></section>
+<header>
+  <span class="chapter-badge">Chapitre 35 · ✍️ J'écris</span>
+  <h1>Écrire sur tes émotions</h1>
+</header>
+
+<section class="writing-card">
+  <h2>✍️ Exercice 1 — Associe</h2>
+  <p><strong>행복해요</strong> → je suis heureuse</p>
+  <p><strong>슬퍼요</strong> → je suis triste</p>
+  <p><strong>피곤해요</strong> → je suis fatiguée</p>
+  <p><strong>걱정돼요</strong> → je suis inquiète</p>
+  <p><strong>긴장돼요</strong> → je suis nerveuse</p>
+  <p><strong>무서워요</strong> → j'ai peur</p>
+</section>
+
+<section class="writing-card">
+  <h2>✍️ Exercice 2 — Complète</h2>
+
+  <div class="exercise" data-answer="기분이 좋아요">
+    <p>오늘 친구를 만나요.<br>→ ______</p>
+    <input class="answer"><div class="feedback"></div>
+  </div>
+
+  <div class="exercise" data-answer="피곤해요">
+    <p>어제 잠을 많이 못 잤어요.<br>→ ______</p>
+    <input class="answer"><div class="feedback"></div>
+  </div>
+
+  <div class="exercise" data-answer="기뻐요">
+    <p>좋은 소식을 들었어요.<br>→ ______</p>
+    <input class="answer"><div class="feedback"></div>
+  </div>
+
+  <div class="exercise" data-answer="슬퍼요">
+    <p>친구가 멀리 가요.<br>→ ______</p>
+    <input class="answer"><div class="feedback"></div>
+  </div>
+
+  <button id="checkAnswers" type="button" style="width:100%;margin-top:12px;">✅ Vérifier</button>
+</section>
+
+<section class="writing-card">
+  <h2>🌸 Exercice 3 — Traduis</h2>
+  <p>① Comment tu te sens ?<br><strong>기분이 어때요?</strong></p>
+  <p>② Je me sens bien.<br><strong>기분이 좋아요.</strong></p>
+  <p>③ Je suis un peu fatiguée.<br><strong>조금 피곤해요.</strong></p>
+  <p>④ Je suis heureuse.<br><strong>행복해요.</strong></p>
+  <p>⑤ Je suis inquiète.<br><strong>걱정돼요.</strong></p>
+  <p>⑥ Ça va ?<br><strong>괜찮아요?</strong></p>
+</section>
+
+<section class="writing-card">
+  <h2>💙 Exercice 4 — Pourquoi ?</h2>
+  <p><strong>왜 기분이 좋아요?</strong><br>Exemple : <strong>친구를 만나서 기분이 좋아요.</strong></p>
+  <p><strong>왜 피곤해요?</strong><br>Exemple : <strong>어제 잠을 많이 못 자서 피곤해요.</strong></p>
+  <p><strong>왜 행복해요?</strong><br>Exemple : <strong>서울에 있어서 행복해요.</strong></p>
+</section>
+
+<section class="writing-card">
+  <h2>🌸 Mon carnet des émotions</h2>
+  <p>Écris 2 à 4 phrases comme dans un petit journal.</p>
+  <p><strong>오늘 기분이 어때요?</strong></p>
+  <textarea id="freeText" rows="9" placeholder="오늘 기분이 좋아요.&#10;..."></textarea>
+</section>
+
+<button id="completeButton" type="button" style="width:100%;">✅ J'ai terminé l'écriture</button>
+<button id="nextButton" type="button" style="display:none;width:100%;">🧠 Passer à la révision</button>
+</main>
+
+<script src="chapter-progress.js"></script>
+<script>
+const SPEAKING_KEY="hanaKorean_chapter35_speaking";
+const WRITING_KEY="hanaKorean_chapter35_writing";
+const FREE_KEY="hanaKorean_chapter35_writingFree";
+const completeButton=document.getElementById("completeButton");
+const nextButton=document.getElementById("nextButton");
+const freeText=document.getElementById("freeText");
+
+function guard(){
+  if(localStorage.getItem(SPEAKING_KEY)!=="completed"){
+    window.location.href="parle-35.html";
+    return false;
+  }
+  return true;
+}
+if(!guard())throw new Error("chapter35-writing-guard");
+
+document.getElementById("checkAnswers").addEventListener("click",()=>{
+  document.querySelectorAll(".exercise").forEach(ex=>{
+    const value=ex.querySelector(".answer").value.trim().replace(/\s+/g," ");
+    const answer=ex.dataset.answer.trim().replace(/\s+/g," ");
+    ex.querySelector(".feedback").textContent=value===answer?"✅ Correct":"💙 Réponse : "+ex.dataset.answer;
+  });
+});
+
+freeText.value=localStorage.getItem(FREE_KEY)||"";
+freeText.addEventListener("input",()=>localStorage.setItem(FREE_KEY,freeText.value));
+
+function refresh(){
+  if(localStorage.getItem(WRITING_KEY)==="completed"){
+    completeButton.textContent="✅ Écriture terminée";
+    completeButton.disabled=true;
+    nextButton.style.display="block";
+  }
+  if(window.HanaChapterProgress)HanaChapterProgress.render();
+}
+completeButton.addEventListener("click",()=>{
+  localStorage.setItem(FREE_KEY,freeText.value);
+  localStorage.setItem(WRITING_KEY,"completed");
+  refresh();
+});
+nextButton.addEventListener("click",()=>window.location.href="revision-35.html");
+window.addEventListener("pageshow",()=>{if(guard())refresh();});
+refresh();
+</script>
+</body>
+</html>

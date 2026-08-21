@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#F7F4ED"><title>Chapitre 38 — Exercice d'écoute</title><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="chapter-progress.css"><style>.q{padding:14px;margin:12px 0;background:#FBFAF6;border-radius:var(--radius-medium)}.choices{display:flex;flex-direction:column;gap:8px}.choices button{width:100%;text-align:left;background:var(--soft-beige);color:var(--navy)}</style>  <script src="profile.js"></script>
+</head>
+<body><main class="app"><a class="back-link" href="ecoute-38.html">← Écoute</a><section id="hanaChapterPath" data-chapter-path></section><header><span class="chapter-badge">Chapitre 38 · 🎧 Exercice</span><h1>Comprendre à la librairie</h1></header><section class="card">
+<div class="q" data-answer="b"><p>1. 한국어 책을 찾고 있어요.</p><div class="choices"><button data-choice="a">J'achète un livre.</button><button data-choice="b">Je cherche un livre de coréen.</button><button data-choice="c">Je lis un livre.</button></div><div class="feedback"></div></div>
+<div class="q" data-answer="a"><p>2. 이 책 있어요?</p><div class="choices"><button data-choice="a">Vous avez ce livre ?</button><button data-choice="b">Combien coûte ce livre ?</button><button data-choice="c">Où est ce livre ?</button></div><div class="feedback"></div></div>
+<div class="q" data-answer="c"><p>3. 어떤 책을 추천해요?</p><div class="choices"><button data-choice="a">Quel livre lisez-vous ?</button><button data-choice="b">Quel livre achetez-vous ?</button><button data-choice="c">Quel livre recommandez-vous ?</button></div><div class="feedback"></div></div>
+<div class="q" data-answer="b"><p>4. 이 책 얼마예요?</p><div class="choices"><button data-choice="a">Où est ce livre ?</button><button data-choice="b">Combien coûte ce livre ?</button><button data-choice="c">Quel est le titre ?</button></div><div class="feedback"></div></div>
+</section><button id="nextButton" style="display:none;width:100%">🗣️ Passer à l'oral</button></main>
+<script src="chapter-progress.js"></script><script>
+const PREV="hanaKorean_chapter38_listening",KEY="hanaKorean_chapter38_listeningExercise";if(localStorage.getItem(PREV)!=="completed")location.href="ecoute-38.html";
+const qs=[...document.querySelectorAll(".q")],n=document.getElementById("nextButton");
+qs.forEach(q=>q.querySelectorAll("[data-choice]").forEach(b=>b.onclick=()=>{if(q.dataset.done==="true")return;if(b.dataset.choice===q.dataset.answer){q.dataset.done="true";q.querySelector(".feedback").textContent="✅ Très bien !";q.querySelectorAll("button").forEach(x=>x.disabled=true);if(qs.every(x=>x.dataset.done==="true")){localStorage.setItem(KEY,"completed");n.style.display="block";if(window.HanaChapterProgress)HanaChapterProgress.render()}}else{b.disabled=true;q.querySelector(".feedback").textContent="💙 Essaie encore."}}));
+if(localStorage.getItem(KEY)==="completed"){qs.forEach(q=>q.querySelectorAll("button").forEach(b=>b.disabled=true));n.style.display="block"}n.onclick=()=>location.href="parle-38.html";if(window.HanaChapterProgress)HanaChapterProgress.render();
+</script>
+</body></html>

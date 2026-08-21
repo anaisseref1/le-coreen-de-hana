@@ -331,6 +331,7 @@
     }
   </script>
 
+  <script src="profile.js"></script>
 </head>
 
 
@@ -528,7 +529,7 @@
     <button
       class="audio-main"
       type="button"
-      onclick="speakKorean('저는 하나예요.')"
+      onclick="speakKorean('저는 아나예요.')"
     >
       🔊 Écouter
     </button>
@@ -537,7 +538,7 @@
     <button
       class="slow-button"
       type="button"
-      onclick="speakKoreanSlow('저는 하나예요.')"
+      onclick="speakKoreanSlow('저는 아나예요.')"
     >
       🐢 Écouter lentement
     </button>
@@ -564,7 +565,7 @@
         type="button"
         onclick="checkAnswer(2, this, true)"
       >
-        저는 하나예요.
+        저는 아나예요.
       </button>
 
 
@@ -656,7 +657,7 @@
         type="button"
         onclick="checkAnswer(3, this, false)"
       >
-        Je suis Hana.
+        Je suis Ana.
       </button>
 
 
@@ -740,7 +741,7 @@
       <br>
 
       Cette séance pourra compter pour arroser
-      ton jardin de Hana.
+      ton jardin de Ana.
 
     </div>
 
@@ -1014,9 +1015,9 @@
           "<br><br>" +
           "Tu as entendu :" +
           "<br>" +
-          "<strong>저는 하나예요.</strong>" +
+          HanaProfile.replacePerson("<strong>저는 아나예요.</strong>") +
           "<br><br>" +
-          "→ Je suis Hana.";
+          "→ Je suis Ana.";
 
       }
 
@@ -1103,7 +1104,7 @@
         "❌ <strong>Écoute surtout le nom.</strong>" +
         "<br><br>" +
         "💡 Essaie de repérer " +
-        "<strong>하나</strong> dans la phrase." +
+        "<strong>아나</strong> dans la phrase." +
         "<br><br>" +
         "Réécoute puis réessaie.";
 
@@ -1404,8 +1405,6 @@
   );
 
 </script>
-
-
 </body>
 
 </html>

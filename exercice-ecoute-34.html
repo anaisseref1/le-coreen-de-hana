@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#F7F4ED">
+  <title>Chapitre 34 — Exercice d'écoute</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="chapter-progress.css">
+  <style>
+    .quiz{padding:20px;margin-bottom:18px;background:var(--white);border-radius:var(--radius-large);box-shadow:var(--shadow)}
+    .q{padding:14px;margin-top:12px;background:#FBFAF6;border-radius:var(--radius-medium)}
+    .choices{display:flex;flex-direction:column;gap:8px;margin-top:10px}
+    .choices button{width:100%;text-align:left;background:var(--soft-beige);color:var(--navy)}
+    .feedback{margin-top:8px;font-size:14px}
+  </style>
+  <script src="profile.js"></script>
+</head>
+<body>
+<main class="app">
+<a class="back-link" href="ecoute-34.html">← Écoute</a>
+<section id="hanaChapterPath" data-chapter-path></section>
+<header>
+  <span class="chapter-badge">Chapitre 34 · 🎧 Exercice</span>
+  <h1>Comprendre une comparaison</h1>
+</header>
+
+<section class="quiz">
+  <div class="q" data-answer="b" data-audio="서울이 파리보다 더 커요.">
+    <p><strong>1.</strong> 서울이 파리보다 더 커요.</p><button class="listen">🎧 Écouter</button>
+    <div class="choices"><button data-choice="a">Paris est plus grande que Séoul.</button><button data-choice="b">Séoul est plus grande que Paris.</button><button data-choice="c">Séoul et Paris sont pareilles.</button></div><div class="feedback"></div>
+  </div>
+
+  <div class="q" data-answer="a" data-audio="파리가 서울보다 덜 복잡해요.">
+    <p><strong>2.</strong> 파리가 서울보다 덜 복잡해요.</p><button class="listen">🎧 Écouter</button>
+    <div class="choices"><button data-choice="a">Paris est moins fréquentée que Séoul.</button><button data-choice="b">Paris est plus fréquentée que Séoul.</button><button data-choice="c">Paris est plus grande que Séoul.</button></div><div class="feedback"></div>
+  </div>
+
+  <div class="q" data-answer="c" data-audio="이 두 카페는 비슷해요.">
+    <p><strong>3.</strong> 이 두 카페는 비슷해요.</p><button class="listen">🎧 Écouter</button>
+    <div class="choices"><button data-choice="a">Ces deux cafés sont très différents.</button><button data-choice="b">Ces deux cafés sont chers.</button><button data-choice="c">Ces deux cafés sont similaires.</button></div><div class="feedback"></div>
+  </div>
+
+  <div class="q" data-answer="b" data-audio="파리보다 서울이 더 좋아요.">
+    <p><strong>4.</strong> 파리보다 서울이 더 좋아요.</p><button class="listen">🎧 Écouter</button>
+    <div class="choices"><button data-choice="a">Je préfère Paris à Séoul.</button><button data-choice="b">Je préfère Séoul à Paris.</button><button data-choice="c">Je n'aime ni Paris ni Séoul.</button></div><div class="feedback"></div>
+  </div>
+
+  <div class="q" data-answer="a" data-audio="두 도시는 많이 달라요.">
+    <p><strong>5.</strong> 두 도시는 많이 달라요.</p><button class="listen">🎧 Écouter</button>
+    <div class="choices"><button data-choice="a">Les deux villes sont très différentes.</button><button data-choice="b">Les deux villes sont identiques.</button><button data-choice="c">Les deux villes sont très calmes.</button></div><div class="feedback"></div>
+  </div>
+</section>
+
+<button id="nextButton" type="button" style="display:none;width:100%;">🗣️ Passer à l'oral</button>
+</main>
+
+<script src="chapter-progress.js"></script>
+<script>
+const LISTENING_KEY="hanaKorean_chapter34_listening";
+const EXERCISE_KEY="hanaKorean_chapter34_listeningExercise";
+const nextButton=document.getElementById("nextButton");
+
+function guard(){
+  if(localStorage.getItem(LISTENING_KEY)!=="completed"){
+    window.location.href="ecoute-34.html";
+    return false;
+  }
+  return true;
+}
+if(!guard())throw new Error("chapter34-listening-exercise-guard");
+
+function speak(text){
+  if(!("speechSynthesis" in window))return;
+  speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(text);
+  u.lang="ko-KR";u.rate=.82;
+  const voices=speechSynthesis.getVoices();
+  const v=voices.find(x=>x.lang==="ko-KR")||voices.find(x=>x.lang&&x.lang.startsWith("ko"));
+  if(v)u.voice=v;
+  speechSynthesis.speak(u);
+}
+
+const qs=[...document.querySelectorAll(".q")];
+qs.forEach(q=>{
+  q.querySelector(".listen").addEventListener("click",()=>speak(q.dataset.audio));
+  q.querySelectorAll("[data-choice]").forEach(btn=>{
+    btn.addEventListener("click",()=>{
+      if(q.dataset.done==="true")return;
+      const fb=q.querySelector(".feedback");
+      if(btn.dataset.choice===q.dataset.answer){
+        q.dataset.done="true";
+        fb.textContent="✅ Très bien !";
+        q.querySelectorAll("[data-choice]").forEach(b=>b.disabled=true);
+        if(qs.every(x=>x.dataset.done==="true")){
+          localStorage.setItem(EXERCISE_KEY,"completed");
+          nextButton.style.display="block";
+          if(window.HanaChapterProgress)HanaChapterProgress.render();
+        }
+      }else{
+        btn.disabled=true;
+        fb.textContent="💙 Réécoute et repère 보다, 더 ou 덜.";
+      }
+    });
+  });
+});
+
+if(localStorage.getItem(EXERCISE_KEY)==="completed"){
+  qs.forEach(q=>q.querySelectorAll("[data-choice]").forEach(b=>b.disabled=true));
+  nextButton.style.display="block";
+}
+nextButton.addEventListener("click",()=>window.location.href="parle-34.html");
+if(window.HanaChapterProgress)HanaChapterProgress.render();
+</script>
+</body>
+</html>

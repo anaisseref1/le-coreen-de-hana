@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#F7F4ED">
+  <title>Chapitre 32 — J'écris</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="chapter-progress.css">
+  <style>
+    .writing-card{padding:20px;margin-bottom:18px;background:var(--white);border-radius:var(--radius-large);box-shadow:var(--shadow)}
+    .exercise{padding:14px;margin-top:12px;background:#FBFAF6;border-radius:var(--radius-medium)}
+    input,textarea{width:100%;box-sizing:border-box;padding:12px;margin-top:8px;border:1px solid var(--border);border-radius:var(--radius-medium);font:inherit}
+    .feedback{margin-top:7px;font-size:14px}
+  </style>
+  <script src="profile.js"></script>
+</head>
+<body>
+<main class="app">
+<a class="back-link" href="parle-32.html">← Oral</a>
+<section id="hanaChapterPath" data-chapter-path></section>
+<header>
+  <span class="chapter-badge">Chapitre 32 · ✍️ J'écris</span>
+  <h1>Écrire une opinion</h1>
+  <p>Complète, traduis et formule ton propre avis.</p>
+</header>
+
+<section class="writing-card">
+  <h2>✍️ Exercice 1 — Associe</h2>
+  <p><strong>재미있어요</strong> → c'est intéressant</p>
+  <p><strong>어려워요</strong> → c'est difficile</p>
+  <p><strong>맛있어요</strong> → c'est délicieux</p>
+  <p><strong>예뻐요</strong> → c'est joli</p>
+  <p><strong>쉬워요</strong> → c'est facile</p>
+  <p><strong>괜찮아요</strong> → ça va / c'est correct</p>
+</section>
+
+<section class="writing-card">
+  <h2>✍️ Exercice 2 — Complète</h2>
+  <div class="exercise" data-answer="재미있다고"><p>이 영화는 ______ 생각해요.<br><small>Je pense que ce film est intéressant.</small></p><input class="answer"><div class="feedback"></div></div>
+  <div class="exercise" data-answer="맛있다고"><p>이 음식은 ______ 생각해요.<br><small>Je pense que ce plat est délicieux.</small></p><input class="answer"><div class="feedback"></div></div>
+  <div class="exercise" data-answer="어렵다고"><p>한국어는 ______ 생각해요.<br><small>Je pense que le coréen est difficile.</small></p><input class="answer"><div class="feedback"></div></div>
+  <div class="exercise" data-answer="예쁘다고"><p>이 카페는 ______ 생각해요.<br><small>Je pense que ce café est joli.</small></p><input class="answer"><div class="feedback"></div></div>
+  <button id="checkAnswers" type="button" style="width:100%;margin-top:12px;">✅ Vérifier</button>
+</section>
+
+<section class="writing-card">
+  <h2>🌸 Exercice 3 — Traduis</h2>
+  <p>① Que penses-tu de ce film ?<br><strong>이 영화 어떻게 생각해요?</strong></p>
+  <p>② Je pense que c'est intéressant.<br><strong>재미있다고 생각해요.</strong></p>
+  <p>③ Je pense que c'est délicieux.<br><strong>맛있다고 생각해요.</strong></p>
+  <p>④ C'est un peu difficile.<br><strong>조금 어려워요.</strong></p>
+  <p>⑤ Moi aussi, je pense comme ça.<br><strong>저도 그렇게 생각해요.</strong></p>
+</section>
+
+<section class="writing-card">
+  <h2>🧩 Exercice 4 — Remets dans l'ordre</h2>
+  <p>생각해요 / 재미있다고 → <strong>재미있다고 생각해요.</strong></p>
+  <p>어떻게 생각해요 / 이 영화 → <strong>이 영화 어떻게 생각해요?</strong></p>
+  <p>좋아요 / 정말 → <strong>정말 좋아요.</strong></p>
+  <p>생각해요 / 맛있다고 → <strong>맛있다고 생각해요.</strong></p>
+</section>
+
+<section class="writing-card">
+  <h2>🌸 Mon opinion sur Séoul</h2>
+  <p>Écris au moins trois opinions. Tu peux utiliser :</p>
+  <p><strong>서울은 정말 좋아요.</strong></p>
+  <p><strong>서울은 재미있다고 생각해요.</strong></p>
+  <p><strong>서울은 정말 멋있어요.</strong></p>
+  <p><strong>서울은 특별하다고 생각해요.</strong></p>
+  <p><strong>서울 음식은 맛있어요.</strong></p>
+  <textarea id="freeText" rows="7" placeholder="서울은..."></textarea>
+</section>
+
+<button id="completeButton" type="button" style="width:100%;">✅ J'ai terminé l'écriture</button>
+<button id="nextButton" type="button" style="display:none;width:100%;">🧠 Passer à la révision</button>
+</main>
+<script src="chapter-progress.js"></script>
+<script>
+const SPEAKING_KEY="hanaKorean_chapter32_speaking";
+const WRITING_KEY="hanaKorean_chapter32_writing";
+const FREE_KEY="hanaKorean_chapter32_writingFree";
+const completeButton=document.getElementById("completeButton"),nextButton=document.getElementById("nextButton"),freeText=document.getElementById("freeText");
+function guard(){if(localStorage.getItem(SPEAKING_KEY)!=="completed"){window.location.href="parle-32.html";return false;}return true;}
+if(!guard())throw new Error("chapter32-writing-guard");
+document.getElementById("checkAnswers").addEventListener("click",()=>{
+  document.querySelectorAll(".exercise").forEach(ex=>{
+    const value=ex.querySelector(".answer").value.replace(/\s+/g,"").trim();
+    const answer=ex.dataset.answer.replace(/\s+/g,"");
+    ex.querySelector(".feedback").textContent=value===answer?"✅ Correct":"💙 Réponse : "+ex.dataset.answer;
+  });
+});
+freeText.value=localStorage.getItem(FREE_KEY)||"";
+freeText.addEventListener("input",()=>localStorage.setItem(FREE_KEY,freeText.value));
+function refresh(){if(localStorage.getItem(WRITING_KEY)==="completed"){completeButton.textContent="✅ Écriture terminée";completeButton.disabled=true;nextButton.style.display="block";}if(window.HanaChapterProgress)HanaChapterProgress.render();}
+completeButton.addEventListener("click",()=>{localStorage.setItem(FREE_KEY,freeText.value);localStorage.setItem(WRITING_KEY,"completed");refresh();});
+nextButton.addEventListener("click",()=>window.location.href="revision-32.html");
+window.addEventListener("pageshow",()=>{if(guard())refresh();});refresh();
+</script>
+</body>
+</html>

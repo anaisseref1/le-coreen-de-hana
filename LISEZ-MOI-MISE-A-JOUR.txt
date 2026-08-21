@@ -1,0 +1,27 @@
+LE CORÉEN DE HANA — MISE À JOUR GLOBALE
+
+Base utilisée : le ZIP complet fourni par l’utilisatrice.
+
+Ajouts :
+- profil.html : prénom réel, transcription hangeul, prénom coréen, préférences, propositions inspirées de la naissance/사주 (mode ludique clairement indiqué)
+- profile.js : personnalisation automatique de l’histoire et des dialogues, y compris attributs audio et contenu injecté dynamiquement
+- profil intégré aux 351 pages HTML du projet
+- bibliotheque.html restructurée : histoires, mini-dialogues, scènes de vie, comptines, K-pop, K-drama, culture, politesse, domaine public, ressources
+- priorité MONSTA X dans la section K-pop
+- culture-coree.html : structure histoire/culture complète
+- niveaux-de-langue.html : 반말 / 해요체 / formel / honorifiques
+- index.html : accès Profil, Bibliothèque, Culture, Niveaux de langue + Module 5 futur
+- itineraire.html : structure future du Module 5, chapitres 43–52
+
+Important :
+- "하나" isolé n’est jamais remplacé automatiquement car il peut signifier « un ».
+- les formes du personnage (아나 씨, 아나는, 아나가, etc.) et les présentations explicites sont personnalisées.
+- les données de profil restent dans localStorage du navigateur.
+
+Validation :
+- profile.js, app.js et chapter-progress.js : syntaxe JavaScript OK
+- scripts inline des pages globales modifiées : syntaxe OK
+- pages HTML sans profile.js : []
+
+Correction supplémentaire : 5 anciens liens écriture-12 à écriture-16 corrigés vers ecriture-12 à ecriture-16.
+Validation finale : 0 lien local HTML/CSS/JS cassé détecté.

@@ -246,6 +246,7 @@
       color: var(--navy);
     }
   </style>
+  <script src="profile.js"></script>
 </head>
 
 <body>
@@ -290,7 +291,7 @@
 
     Savoir écrire :
     <strong>예약했어요.</strong>,
-    <strong>하나예요.</strong>,
+    <strong>아나예요.</strong>,
     <strong>제 방이 어디예요?</strong>,
     <strong>와이파이 비밀번호가 뭐예요?</strong>,
     <strong>와이파이가 안 돼요. 도와주세요.</strong>
@@ -435,8 +436,8 @@
       </div>
 
       <div class="notion-line">
-        👤 <strong>하나예요.</strong>
-        → Je m'appelle Hana.
+        👤 <strong>아나예요.</strong>
+        → Je m'appelle Ana.
       </div>
 
       <div class="notion-line">
@@ -527,16 +528,16 @@
     {
       title: "👤 Donner ton nom",
       prompt:
-        "Écris : « Je m'appelle Hana. »",
+        "Écris : « Je m'appelle Ana. »",
       hint:
-        "Réponds simplement 하나예요.",
+        HanaProfile.replacePerson("Réponds simplement 아나예요."),
       accepted: [
-        "하나예요"
+        HanaProfile.replacePerson("아나예요")
       ],
       answer:
-        "하나예요.",
+        HanaProfile.replacePerson("아나예요."),
       notion:
-        "하나예요"
+        HanaProfile.replacePerson("아나예요")
     },
 
     {
@@ -860,7 +861,7 @@
 
       feedback.innerHTML =
         "✅ <strong>Très bien !</strong>" +
-        "<div class='answer-reveal'>" +
+        "<div class='answer-revealHanaProfile.replacePerson('>" +
         step.answer +
         "</div>";
 
@@ -925,7 +926,7 @@
     ) {
       feedback.innerHTML =
         "❌ <strong>Réponds simplement avec ton nom.</strong><br><br>" +
-        "Ici : <strong>하나예요.</strong>";
+        "Ici : <strong>아나예요.</strong>";
     }
 
 
@@ -1071,7 +1072,7 @@
       helpCount > 0
     ) {
       summary +=
-        "<br><br>Tu as consulté l'aide " +
+        "<br><br>Tu as consulté l')aide " +
         helpCount +
         " fois.";
     }
@@ -1165,6 +1166,5 @@
     );
   }
 </script>
-
 </body>
 </html>

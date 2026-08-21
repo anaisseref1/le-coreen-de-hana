@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#F7F4ED">
+  <title>Chapitre 34 — J'écris</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="chapter-progress.css">
+  <style>
+    .writing-card{padding:20px;margin-bottom:18px;background:var(--white);border-radius:var(--radius-large);box-shadow:var(--shadow)}
+    .exercise{padding:14px;margin-top:12px;background:#FBFAF6;border-radius:var(--radius-medium)}
+    input,textarea{width:100%;box-sizing:border-box;padding:12px;margin-top:8px;border:1px solid var(--border);border-radius:var(--radius-medium);font:inherit}
+    .feedback{margin-top:7px;font-size:14px}
+  </style>
+  <script src="profile.js"></script>
+</head>
+<body>
+<main class="app">
+<a class="back-link" href="parle-34.html">← Oral</a>
+<section id="hanaChapterPath" data-chapter-path></section>
+<header>
+  <span class="chapter-badge">Chapitre 34 · ✍️ J'écris</span>
+  <h1>Écrire une comparaison</h1>
+</header>
+
+<section class="writing-card">
+  <h2>✍️ Exercice 1 — Associe</h2>
+  <p><strong>더</strong> → plus / davantage</p>
+  <p><strong>덜</strong> → moins</p>
+  <p><strong>보다</strong> → que / par rapport à</p>
+  <p><strong>같다</strong> → être pareil</p>
+  <p><strong>비슷하다</strong> → être similaire</p>
+  <p><strong>다르다</strong> → être différent</p>
+</section>
+
+<section class="writing-card">
+  <h2>✍️ Exercice 2 — Complète</h2>
+
+  <div class="exercise" data-answer="보다">
+    <p>서울이 파리______ 커요.</p>
+    <input class="answer"><div class="feedback"></div>
+  </div>
+
+  <div class="exercise" data-answer="보다 더">
+    <p>기차가 버스______ ______ 빨라요.</p>
+    <input class="answer"><div class="feedback"></div>
+  </div>
+
+  <div class="exercise" data-answer="보다">
+    <p>이 카페가 저 카페______ 조용해요.</p>
+    <input class="answer"><div class="feedback"></div>
+  </div>
+
+  <div class="exercise" data-answer="보다 더">
+    <p>이 가방이 저 가방______ ______ 비싸요.</p>
+    <input class="answer"><div class="feedback"></div>
+  </div>
+
+  <button id="checkAnswers" type="button" style="width:100%;margin-top:12px;">✅ Vérifier</button>
+</section>
+
+<section class="writing-card">
+  <h2>🌸 Exercice 3 — Transforme</h2>
+  <p>기차 / 버스 / 빠르다<br>→ <strong>기차가 버스보다 더 빨라요.</strong></p>
+  <p>이 카페 / 저 카페 / 조용하다<br>→ <strong>이 카페가 저 카페보다 더 조용해요.</strong></p>
+  <p>서울 / 부산 / 복잡하다<br>→ <strong>서울이 부산보다 더 복잡해요.</strong></p>
+  <p>이 음식 / 저 음식 / 맵다<br>→ <strong>이 음식이 저 음식보다 더 매워요.</strong></p>
+</section>
+
+<section class="writing-card">
+  <h2>🌸 Exercice 4 — Traduis</h2>
+  <p>① Séoul est plus grande que Paris.<br><strong>서울이 파리보다 더 커요.</strong></p>
+  <p>② Le train est plus rapide que le bus.<br><strong>기차가 버스보다 더 빨라요.</strong></p>
+  <p>③ Ce café est plus calme que l'autre.<br><strong>이 카페가 저 카페보다 더 조용해요.</strong></p>
+  <p>④ Paris est moins fréquentée que Séoul.<br><strong>파리가 서울보다 덜 복잡해요.</strong></p>
+  <p>⑤ Les deux villes sont différentes.<br><strong>두 도시는 달라요.</strong></p>
+</section>
+
+<section class="writing-card">
+  <h2>🇫🇷 Paris vs 🇰🇷 Séoul</h2>
+  <p>Écris cinq phrases selon <strong>ton expérience ou ton ressenti</strong>. Il n'y a pas une seule bonne réponse.</p>
+  <p>Tu peux utiliser : <strong>크다, 조용하다, 복잡하다, 편하다, 깨끗하다, 비싸다, 재미있다, 다르다</strong>.</p>
+  <p>Et tu peux terminer par une préférence :</p>
+  <p><strong>파리보다 서울이 더 좋아요.</strong></p>
+  <textarea id="freeText" rows="10" placeholder="서울이 파리보다..."></textarea>
+</section>
+
+<button id="completeButton" type="button" style="width:100%;">✅ J'ai terminé l'écriture</button>
+<button id="nextButton" type="button" style="display:none;width:100%;">🧠 Passer à la révision</button>
+</main>
+
+<script src="chapter-progress.js"></script>
+<script>
+const SPEAKING_KEY="hanaKorean_chapter34_speaking";
+const WRITING_KEY="hanaKorean_chapter34_writing";
+const FREE_KEY="hanaKorean_chapter34_writingFree";
+const completeButton=document.getElementById("completeButton");
+const nextButton=document.getElementById("nextButton");
+const freeText=document.getElementById("freeText");
+
+function guard(){
+  if(localStorage.getItem(SPEAKING_KEY)!=="completed"){
+    window.location.href="parle-34.html";
+    return false;
+  }
+  return true;
+}
+if(!guard())throw new Error("chapter34-writing-guard");
+
+document.getElementById("checkAnswers").addEventListener("click",()=>{
+  document.querySelectorAll(".exercise").forEach(ex=>{
+    const value=ex.querySelector(".answer").value.trim().replace(/\s+/g," ");
+    const answer=ex.dataset.answer.trim().replace(/\s+/g," ");
+    ex.querySelector(".feedback").textContent=value===answer?"✅ Correct":"💙 Réponse : "+ex.dataset.answer;
+  });
+});
+
+freeText.value=localStorage.getItem(FREE_KEY)||"";
+freeText.addEventListener("input",()=>localStorage.setItem(FREE_KEY,freeText.value));
+
+function refresh(){
+  if(localStorage.getItem(WRITING_KEY)==="completed"){
+    completeButton.textContent="✅ Écriture terminée";
+    completeButton.disabled=true;
+    nextButton.style.display="block";
+  }
+  if(window.HanaChapterProgress)HanaChapterProgress.render();
+}
+completeButton.addEventListener("click",()=>{
+  localStorage.setItem(FREE_KEY,freeText.value);
+  localStorage.setItem(WRITING_KEY,"completed");
+  refresh();
+});
+nextButton.addEventListener("click",()=>window.location.href="revision-34.html");
+window.addEventListener("pageshow",()=>{if(guard())refresh();});
+refresh();
+</script>
+</body>
+</html>

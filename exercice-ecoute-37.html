@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#F7F4ED">
+  <title>Chapitre 37 — Exercice d'écoute</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="chapter-progress.css">
+  <style>
+    .quiz{padding:20px;margin-bottom:18px;background:var(--white);border-radius:var(--radius-large);box-shadow:var(--shadow)}
+    .q{padding:14px;margin-top:12px;background:#FBFAF6;border-radius:var(--radius-medium)}
+    .choices{display:flex;flex-direction:column;gap:8px;margin-top:10px}
+    .choices button{width:100%;text-align:left;background:var(--soft-beige);color:var(--navy)}
+    .feedback{margin-top:8px;font-size:14px}
+  </style>
+  <script src="profile.js"></script>
+</head>
+<body>
+<main class="app">
+<a class="back-link" href="ecoute-37.html">← Écoute</a>
+<section id="hanaChapterPath" data-chapter-path></section>
+<header>
+  <span class="chapter-badge">Chapitre 37 · 🎧 Exercice</span>
+  <h1>Comprendre au cinéma</h1>
+</header>
+
+<section class="quiz">
+  <div class="q" data-answer="b" data-audio="어떤 영화 보고 싶어요?">
+    <p><strong>1.</strong> 어떤 영화 보고 싶어요?</p><button class="listen">🎧 Écouter</button>
+    <div class="choices"><button data-choice="a">Quel film as-tu vu ?</button><button data-choice="b">Quel film veux-tu voir ?</button><button data-choice="c">Quel acteur aimes-tu ?</button></div><div class="feedback"></div>
+  </div>
+
+  <div class="q" data-answer="a" data-audio="재미있을 것 같아요.">
+    <p><strong>2.</strong> 재미있을 것 같아요.</p><button class="listen">🎧 Écouter</button>
+    <div class="choices"><button data-choice="a">Ça a l'air intéressant.</button><button data-choice="b">C'était intéressant.</button><button data-choice="c">C'est ennuyeux.</button></div><div class="feedback"></div>
+  </div>
+
+  <div class="q" data-answer="c" data-audio="영화 어땠어요?">
+    <p><strong>3.</strong> 영화 어땠어요?</p><button class="listen">🎧 Écouter</button>
+    <div class="choices"><button data-choice="a">Quel film veux-tu voir ?</button><button data-choice="b">À quelle heure commence le film ?</button><button data-choice="c">Comment était le film ?</button></div><div class="feedback"></div>
+  </div>
+
+  <div class="q" data-answer="b" data-audio="정말 재미있었어요. 배우도 멋있었어요.">
+    <p><strong>4.</strong> 정말 재미있었어요. 배우도 멋있었어요.</p><button class="listen">🎧 Écouter</button>
+    <div class="choices"><button data-choice="a">Le film était effrayant et l'acteur mauvais.</button><button data-choice="b">Le film était très intéressant et l'acteur super.</button><button data-choice="c">Le film était long mais drôle.</button></div><div class="feedback"></div>
+  </div>
+
+  <div class="q" data-answer="a" data-audio="마지막 장면이 제일 좋았어요.">
+    <p><strong>5.</strong> 마지막 장면이 제일 좋았어요.</p><button class="listen">🎧 Écouter</button>
+    <div class="choices"><button data-choice="a">J'ai préféré la dernière scène.</button><button data-choice="b">La dernière scène était la plus triste.</button><button data-choice="c">Je n'ai pas aimé la dernière scène.</button></div><div class="feedback"></div>
+  </div>
+</section>
+
+<button id="nextButton" type="button" style="display:none;width:100%;">🗣️ Passer à l'oral</button>
+</main>
+
+<script src="chapter-progress.js"></script>
+<script>
+const LISTENING_KEY="hanaKorean_chapter37_listening";
+const EXERCISE_KEY="hanaKorean_chapter37_listeningExercise";
+const nextButton=document.getElementById("nextButton");
+
+function guard(){
+  if(localStorage.getItem(LISTENING_KEY)!=="completed"){
+    window.location.href="ecoute-37.html";
+    return false;
+  }
+  return true;
+}
+if(!guard())throw new Error("chapter37-listening-exercise-guard");
+
+function speak(text){
+  if(!("speechSynthesis" in window))return;
+  speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(text);
+  u.lang="ko-KR";u.rate=.82;
+  const voices=speechSynthesis.getVoices();
+  const v=voices.find(x=>x.lang==="ko-KR")||voices.find(x=>x.lang&&x.lang.startsWith("ko"));
+  if(v)u.voice=v;
+  speechSynthesis.speak(u);
+}
+const qs=[...document.querySelectorAll(".q")];
+qs.forEach(q=>{
+  q.querySelector(".listen").addEventListener("click",()=>speak(q.dataset.audio));
+  q.querySelectorAll("[data-choice]").forEach(btn=>{
+    btn.addEventListener("click",()=>{
+      if(q.dataset.done==="true")return;
+      const fb=q.querySelector(".feedback");
+      if(btn.dataset.choice===q.dataset.answer){
+        q.dataset.done="true";
+        fb.textContent="✅ Très bien !";
+        q.querySelectorAll("[data-choice]").forEach(b=>b.disabled=true);
+        if(qs.every(x=>x.dataset.done==="true")){
+          localStorage.setItem(EXERCISE_KEY,"completed");
+          nextButton.style.display="block";
+          if(window.HanaChapterProgress)HanaChapterProgress.render();
+        }
+      }else{
+        btn.disabled=true;
+        fb.textContent="💙 Réécoute et repère si on parle d'avant ou d'après le film.";
+      }
+    });
+  });
+});
+if(localStorage.getItem(EXERCISE_KEY)==="completed"){
+  qs.forEach(q=>q.querySelectorAll("[data-choice]").forEach(b=>b.disabled=true));
+  nextButton.style.display="block";
+}
+nextButton.addEventListener("click",()=>window.location.href="parle-37.html");
+if(window.HanaChapterProgress)HanaChapterProgress.render();
+</script>
+</body>
+</html>

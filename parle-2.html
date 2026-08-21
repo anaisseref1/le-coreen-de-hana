@@ -706,6 +706,7 @@
     }
   </script>
 
+  <script src="profile.js"></script>
 </head>
 
 
@@ -1314,15 +1315,15 @@
         "Réponds avec ton prénom.",
 
       model:
-        "저는 하나예요.",
+        HanaProfile.replacePerson("저는 아나예요."),
 
       accepted: [
-        "저는 하나예요",
-        "하나예요",
-        "저는 하나입니다",
-        "하나입니다",
-        "제 이름은 하나예요",
-        "제 이름은 하나입니다"
+        HanaProfile.replacePerson("저는 아나예요"),
+        HanaProfile.replacePerson("아나예요"),
+        "저는 아나입니다",
+        "아나입니다",
+        HanaProfile.replacePerson("제 이름은 아나예요"),
+        "제 이름은 아나입니다"
       ]
 
     },
@@ -2917,8 +2918,6 @@
   renderPractice();
 
 </script>
-
-
 </body>
 
 </html>

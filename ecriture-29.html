@@ -1,6 +1,7 @@
 <!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#F7F4ED"><title>Chapitre 29 — J'écris</title><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="chapter-progress.css"><style>
 .write-header{text-align:center;margin-bottom:24px}.card{padding:20px;margin-bottom:18px;background:var(--white);border-radius:var(--radius-large);box-shadow:var(--shadow)}.exercise{padding:15px;margin-top:12px;background:#FBFAF6;border-radius:var(--radius-medium)}.exercise input,textarea{width:100%;box-sizing:border-box;margin-top:8px;padding:12px;border:1px solid var(--border);border-radius:var(--radius-medium);font:inherit}.exercise button{width:100%;margin-top:8px}.feedback{margin-top:8px}.complete-button,.next-button{display:none;width:100%;margin-top:10px}.complete-button{background:var(--jade);color:white;font-weight:bold}.next-button{background:var(--navy);color:white;font-weight:bold}
-</style></head><body><main class="app"><a class="back-link" href="parle-29.html">← Oral</a><section id="hanaChapterPath" data-chapter-path></section>
+</style>  <script src="profile.js"></script>
+</head><body><main class="app"><a class="back-link" href="parle-29.html">← Oral</a><section id="hanaChapterPath" data-chapter-path></section>
 <header class="write-header"><span class="chapter-badge">Chapitre 29 · ✍️ J'écris</span><p class="korean">오늘 뭐 했어요?</p><h1>Raconter une journée passée</h1><p>Utilise le passé pour raconter ton voyage.</p></header>
 <section class="card"><h2>✍️ Exercice 1 — Transforme au passé</h2>
 <div class="exercise" data-answer="갔어요" data-notion="가요 → 갔어요"><p>① 가요 →</p><input lang="ko" placeholder="Écris la forme passée"><button type="button">Vérifier</button><div class="feedback"></div></div>
@@ -25,4 +26,5 @@ function normalize(value){return value.replace(/[?.!,]/g,"").replace(/\s+/g,"").
 exercises.forEach(ex=>{const button=ex.querySelector("button"),input=ex.querySelector("input"),feedback=ex.querySelector(".feedback");button.addEventListener("click",()=>{if(normalize(input.value)===normalize(ex.dataset.answer)){feedback.textContent="✅ Correct !";if(!ex.dataset.counted){completed++;ex.dataset.counted="true";}}else{mistakes++;weakNotions.add(ex.dataset.notion);feedback.textContent="❌ Réessaie.";}if(completed===exercises.length)completeButton.style.display="block";});});
 function refresh(){if(localStorage.getItem(WRITING_KEY)==="completed"){completeButton.style.display="block";completeButton.textContent="✅ Écriture validée";nextButton.style.display="block";}if(window.HanaChapterProgress)HanaChapterProgress.render();}
 completeButton.addEventListener("click",()=>{localStorage.setItem(WRITING_KEY,"completed");localStorage.setItem(MISTAKES_KEY,String(mistakes));localStorage.setItem(REVISION_NOTIONS_KEY,JSON.stringify(Array.from(weakNotions)));refresh();});nextButton.addEventListener("click",()=>window.location.href="revision-29.html");window.addEventListener("pageshow",refresh);refresh();
-</script></body></html>
+</script>
+</body></html>
