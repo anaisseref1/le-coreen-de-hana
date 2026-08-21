@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#F7F4ED">
+  <title>Chapitre 32 — Révision</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="chapter-progress.css">
+  <style>
+    .review-card{padding:20px;margin-bottom:18px;background:var(--white);border-radius:var(--radius-large);box-shadow:var(--shadow)}
+    .item{padding:13px;margin-top:9px;background:#FBFAF6;border-radius:var(--radius-medium);line-height:1.6}
+    .weak-list{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+    .weak-button{background:var(--soft-beige);color:var(--navy)}
+    .weak-button.selected{background:var(--jade);color:white}
+  </style>
+  <script src="profile.js"></script>
+</head>
+<body>
+<main class="app">
+<a class="back-link" href="ecriture-32.html">← Écriture</a>
+<section id="hanaChapterPath" data-chapter-path></section>
+<header>
+  <span class="chapter-badge">Chapitre 32 · 🧠 Révision</span>
+  <h1>Je consolide mon opinion</h1>
+</header>
+
+<section class="review-card">
+  <h2>💙 La structure</h2>
+  <div class="item"><strong>재미있다 → 재미있다고 생각해요.</strong><br>Je pense que c'est intéressant.</div>
+  <div class="item"><strong>어렵다 → 어렵다고 생각해요.</strong><br>Je pense que c'est difficile.</div>
+  <div class="item"><strong>특별하다 → 특별하다고 생각해요.</strong><br>Je pense que c'est spécial.</div>
+</section>
+
+<section class="review-card">
+  <h2>💬 Demander un avis</h2>
+  <div class="item"><strong>이 영화 어때요?</strong><br>Que penses-tu de ce film ?</div>
+  <div class="item"><strong>이 영화 어떻게 생각해요?</strong><br>Qu'est-ce que tu penses de ce film ?</div>
+</section>
+
+<section class="review-card">
+  <h2>🗣️ Réagir</h2>
+  <div class="item"><strong>맞아요.</strong> → Exactement.</div>
+  <div class="item"><strong>저도 그렇게 생각해요.</strong> → Moi aussi, je pense comme ça.</div>
+  <div class="item"><strong>저는 조금 다르게 생각해요.</strong> → Moi, je pense un peu différemment.</div>
+</section>
+
+<section class="review-card">
+  <h2>🌱 À ne pas confondre</h2>
+  <div class="item"><strong>맛있을 것 같아요.</strong> → Ça a l'air bon / supposition.</div>
+  <div class="item"><strong>맛있다고 생각해요.</strong> → Je pense que c'est bon / opinion.</div>
+</section>
+
+<section class="review-card">
+  <h2>🟨 Mon point à revoir</h2>
+  <div class="weak-list">
+    <button class="weak-button" data-value="dago">-다고 생각해요</button>
+    <button class="weak-button" data-value="ask">어때요? / 어떻게 생각해요?</button>
+    <button class="weak-button" data-value="agree">Être d'accord</button>
+    <button class="weak-button" data-value="different">Exprimer un avis différent</button>
+    <button class="weak-button" data-value="contrast">것 같아요 vs 생각해요</button>
+  </div>
+</section>
+
+<button id="completeButton" type="button" style="width:100%;">✅ Révision terminée</button>
+<button id="nextButton" type="button" style="display:none;width:100%;">🎯 Passer à la mission</button>
+</main>
+<script src="chapter-progress.js"></script>
+<script>
+const WRITING_KEY="hanaKorean_chapter32_writing";
+const REVIEW_KEY="hanaKorean_chapter32_review";
+const WEAK_KEY="hanaKorean_chapter32_reviewWeak";
+const complete=document.getElementById("completeButton"),next=document.getElementById("nextButton");
+function guard(){if(localStorage.getItem(WRITING_KEY)!=="completed"){window.location.href="ecriture-32.html";return false;}return true;}
+if(!guard())throw new Error("chapter32-review-guard");
+let weak=new Set(JSON.parse(localStorage.getItem(WEAK_KEY)||"[]"));
+document.querySelectorAll(".weak-button").forEach(btn=>{
+  if(weak.has(btn.dataset.value))btn.classList.add("selected");
+  btn.addEventListener("click",()=>{
+    if(weak.has(btn.dataset.value)){weak.delete(btn.dataset.value);btn.classList.remove("selected");}
+    else{weak.add(btn.dataset.value);btn.classList.add("selected");}
+    localStorage.setItem(WEAK_KEY,JSON.stringify([...weak]));
+  });
+});
+function refresh(){if(localStorage.getItem(REVIEW_KEY)==="completed"){complete.textContent="✅ Révision terminée";complete.disabled=true;next.style.display="block";}if(window.HanaChapterProgress)HanaChapterProgress.render();}
+complete.addEventListener("click",()=>{localStorage.setItem(WEAK_KEY,JSON.stringify([...weak]));localStorage.setItem(REVIEW_KEY,"completed");refresh();});
+next.addEventListener("click",()=>window.location.href="utilise-32.html");
+window.addEventListener("pageshow",()=>{if(guard())refresh();});refresh();
+</script>
+</body>
+</html>

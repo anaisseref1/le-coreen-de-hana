@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#F7F4ED">
+  <title>Chapitre 31 — Révision</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="chapter-progress.css">
+  <style>
+    .review-card{padding:20px;margin-bottom:18px;background:var(--white);border-radius:var(--radius-large);box-shadow:var(--shadow);}
+    .review-item{padding:13px;margin-top:9px;background:#FBFAF6;border-radius:var(--radius-medium);line-height:1.6;}
+    .weak-list{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;}
+    .weak-button{background:var(--soft-beige);color:var(--navy);}
+    .weak-button.selected{background:var(--jade);color:white;}
+  </style>
+  <script src="profile.js"></script>
+</head>
+<body>
+<main class="app">
+<a class="back-link" href="ecriture-31.html">← Écriture</a>
+<section id="hanaChapterPath" data-chapter-path></section>
+
+<header>
+  <span class="chapter-badge">Chapitre 31 · 🧠 Révision</span>
+  <p class="korean">다시 정리해요 🌸</p>
+  <h1>Je consolide mes habitudes</h1>
+  <p>Une révision rapide avant la mission finale.</p>
+</header>
+
+<section class="review-card">
+  <h2>💙 Les mots-clés</h2>
+  <div class="review-item"><strong>항상</strong> → toujours</div>
+  <div class="review-item"><strong>자주</strong> → souvent</div>
+  <div class="review-item"><strong>보통</strong> → généralement / d'habitude</div>
+  <div class="review-item"><strong>가끔</strong> → parfois</div>
+  <div class="review-item"><strong>거의 안</strong> → presque jamais</div>
+  <div class="review-item"><strong>전혀 안</strong> → jamais / pas du tout</div>
+</section>
+
+<section class="review-card">
+  <h2>🧩 Le placement</h2>
+  <p>L'adverbe de fréquence se place généralement avant le verbe qu'il précise.</p>
+  <div class="review-item"><strong>커피를 자주 마셔요.</strong><br>Je bois souvent du café.</div>
+  <div class="review-item"><strong>가끔 운동해요.</strong><br>Je fais parfois du sport.</div>
+</section>
+
+<section class="review-card">
+  <h2>🌸 À ne pas confondre</h2>
+  <div class="review-item"><strong>거의 매일</strong> → presque tous les jours</div>
+  <div class="review-item"><strong>거의 안</strong> → presque jamais</div>
+  <div class="review-item"><strong>전혀 안</strong> → pas du tout / jamais</div>
+</section>
+
+<section class="review-card">
+  <h2>🟨 Mon point à revoir</h2>
+  <p>Choisis ce qui te semble encore fragile :</p>
+  <div class="weak-list">
+    <button type="button" class="weak-button" data-value="frequency">Les mots de fréquence</button>
+    <button type="button" class="weak-button" data-value="order">La place de l'adverbe</button>
+    <button type="button" class="weak-button" data-value="negative">거의 안 / 전혀 안</button>
+    <button type="button" class="weak-button" data-value="weekend">주말에는 / 평일에는</button>
+  </div>
+</section>
+
+<button id="completeButton" type="button" style="width:100%;">✅ Révision terminée</button>
+<button id="nextButton" type="button" style="display:none;width:100%;">🎯 Passer à la mission</button>
+</main>
+
+<script src="chapter-progress.js"></script>
+<script>
+const WRITING_KEY="hanaKorean_chapter31_writing";
+const REVIEW_KEY="hanaKorean_chapter31_review";
+const WEAK_KEY="hanaKorean_chapter31_reviewWeak";
+const completeButton=document.getElementById("completeButton");
+const nextButton=document.getElementById("nextButton");
+
+function guard(){
+  if(localStorage.getItem(WRITING_KEY)!=="completed"){
+    window.location.href="ecriture-31.html";
+    return false;
+  }
+  return true;
+}
+if(!guard()) throw new Error("chapter31-review-guard");
+
+let weak=new Set(JSON.parse(localStorage.getItem(WEAK_KEY)||"[]"));
+document.querySelectorAll(".weak-button").forEach(btn=>{
+  if(weak.has(btn.dataset.value))btn.classList.add("selected");
+  btn.addEventListener("click",()=>{
+    if(weak.has(btn.dataset.value)){
+      weak.delete(btn.dataset.value);
+      btn.classList.remove("selected");
+    }else{
+      weak.add(btn.dataset.value);
+      btn.classList.add("selected");
+    }
+    localStorage.setItem(WEAK_KEY,JSON.stringify([...weak]));
+  });
+});
+
+function refresh(){
+  if(localStorage.getItem(REVIEW_KEY)==="completed"){
+    completeButton.textContent="✅ Révision terminée";
+    completeButton.disabled=true;
+    nextButton.style.display="block";
+  }
+  if(window.HanaChapterProgress)HanaChapterProgress.render();
+}
+
+completeButton.addEventListener("click",()=>{
+  localStorage.setItem(WEAK_KEY,JSON.stringify([...weak]));
+  localStorage.setItem(REVIEW_KEY,"completed");
+  refresh();
+});
+nextButton.addEventListener("click",()=>window.location.href="utilise-31.html");
+window.addEventListener("pageshow",()=>{if(guard())refresh();});
+refresh();
+</script>
+</body>
+</html>

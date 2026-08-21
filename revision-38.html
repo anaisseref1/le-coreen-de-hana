@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#F7F4ED"><title>Chapitre 38 — Révision</title><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="chapter-progress.css">  <script src="profile.js"></script>
+</head>
+<body><main class="app"><a class="back-link" href="ecriture-38.html">← Écriture</a><section id="hanaChapterPath" data-chapter-path></section><header><span class="chapter-badge">Chapitre 38 · 🧠 Révision</span><h1>Je consolide la librairie</h1></header>
+<section class="card"><h2>💙 Action en cours</h2><p><strong>-고 있어요</strong></p><p>책을 찾고 있어요. → Je suis en train de chercher un livre.</p></section>
+<section class="card"><h2>📚 Librairie</h2><p>이 책 있어요? → Vous avez ce livre ?</p><p>어디에 있어요? → Où est-il ?</p><p>어떤 책을 추천해요? → Quel livre recommandez-vous ?</p><p>얼마예요? → Combien ça coûte ?</p></section>
+<section class="card"><h2>🌿 Premier contact</h2><p><strong>verbe + 는 + nom</strong></p><p>한국어를 배우는 책 → un livre pour apprendre le coréen</p></section>
+<button id="done" style="width:100%">✅ Révision terminée</button><button id="next" style="display:none;width:100%">🎯 Mission</button></main>
+<script src="chapter-progress.js"></script><script>
+const PREV="hanaKorean_chapter38_writing",KEY="hanaKorean_chapter38_review";if(localStorage.getItem(PREV)!=="completed")location.href="ecriture-38.html";const d=document.getElementById("done"),n=document.getElementById("next");function r(){if(localStorage.getItem(KEY)==="completed"){d.disabled=true;n.style.display="block"}if(window.HanaChapterProgress)HanaChapterProgress.render()}d.onclick=()=>{localStorage.setItem(KEY,"completed");r()};n.onclick=()=>location.href="utilise-38.html";r();
+</script>
+</body></html>

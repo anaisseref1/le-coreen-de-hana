@@ -393,6 +393,7 @@
     }
   </style>
 
+  <script src="profile.js"></script>
 </head>
 
 
@@ -600,7 +601,7 @@
 
       <button class="answer" type="button"
         onclick="checkAnswer(2, this, true)">
-        하나예요.
+        아나예요.
       </button>
 
       <button class="answer" type="button"
@@ -614,7 +615,7 @@
 
     <div class="hint-box" id="hint2">
       💡 Pour répondre simplement avec ton nom :
-      <strong>하나예요.</strong>
+      <strong>아나예요.</strong>
     </div>
 
     <button
@@ -891,7 +892,7 @@
       <br>
 
       <strong>
-        하나예요.
+        아나예요.
       </strong>
 
       <br>
@@ -1154,7 +1155,7 @@
         feedback.innerHTML =
           "✅ <strong>Très bien !</strong>" +
           "<br><br>" +
-          "À <strong>성함이 어떻게 되세요?</strong>, tu peux répondre simplement <strong>하나예요.</strong>";
+          HanaProfile.replacePerson("À <strong>성함이 어떻게 되세요?</strong>, tu peux répondre simplement <strong>아나예요.</strong>");
       }
 
 
@@ -1230,7 +1231,7 @@
       feedback.innerHTML =
         "❌ <strong>Joon-ho te demande ton nom.</strong>" +
         "<br><br>" +
-        "💡 Réponds simplement : <strong>하나예요.</strong>";
+        HanaProfile.replacePerson("💡 Réponds simplement : <strong>아나예요.</strong>");
     }
 
 
@@ -1434,7 +1435,5 @@
   }
 
 </script>
-
-
 </body>
 </html>

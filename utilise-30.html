@@ -4,18 +4,19 @@
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#F7F4ED">
   <title>Chapitre 30 — Je l'utilise</title>
   <link rel="stylesheet" href="style.css"><link rel="stylesheet" href="chapter-progress.css">
+  <script src="profile.js"></script>
 </head>
 <body><main class="app">
 <a class="back-link" href="revision-30.html">← Révision</a>
 <section id="hanaChapterPath" data-chapter-path></section>
-<header><span class="chapter-badge">Chapitre 30 · 🎯 Je l'utilise</span><p class="korean">내일 뭐 할 거예요?</p><h1>Mission finale : parler de ses projets</h1><p>Hana termine son séjour à Busan. Aide-la à expliquer ce qu'elle prévoit de faire.</p></header>
-<section class="card"><h2>🌸 Situation</h2><p>Min-su et Ji-soo demandent à Hana ce qu'elle compte faire aujourd'hui, demain et la semaine prochaine.</p><p>Choisis la réponse la plus naturelle à chaque étape.</p></section>
+<header><span class="chapter-badge">Chapitre 30 · 🎯 Je l'utilise</span><p class="korean">내일 뭐 할 거예요?</p><h1>Mission finale : parler de ses projets</h1><p>Ana termine son séjour à Busan. Aide-la à expliquer ce qu'elle prévoit de faire.</p></header>
+<section class="card"><h2>🌸 Situation</h2><p>Min-su et Ji-soo demandent à Ana ce qu'elle compte faire aujourd'hui, demain et la semaine prochaine.</p><p>Choisis la réponse la plus naturelle à chaque étape.</p></section>
 <section class="card">
 <div class="mission" data-answer="b"><p><strong>1. Min-su :</strong> 오늘 뭐 할 거예요?</p><button type="button" data-choice="a">오늘 부산에 갔어요.</button><button type="button" data-choice="b">오늘 부산을 더 구경할 거예요.</button><button type="button" data-choice="c">오늘 부산에 가요?</button><div class="feedback"></div></div>
 <div class="mission" data-answer="c"><p><strong>2. Ji-soo :</strong> 어디에 갈 거예요?</p><button type="button" data-choice="a">사진을 찍을 거예요.</button><button type="button" data-choice="b">맛있는 음식을 먹을 거예요.</button><button type="button" data-choice="c">해운대에 갈 거예요.</button><div class="feedback"></div></div>
 <div class="mission" data-answer="a"><p><strong>3. Min-su :</strong> 저녁에는 뭐 할 거예요?</p><button type="button" data-choice="a">호텔에서 쉴 거예요.</button><button type="button" data-choice="b">호텔에서 쉬었어요.</button><button type="button" data-choice="c">호텔에 쉴까요?</button><div class="feedback"></div></div>
 <div class="mission" data-answer="b"><p><strong>4. Ji-soo :</strong> 내일은요?</p><button type="button" data-choice="a">서울에 돌아갔어요.</button><button type="button" data-choice="b">서울에 돌아갈 거예요.</button><button type="button" data-choice="c">서울에서 돌아갈 거예요.</button><div class="feedback"></div></div>
-<div class="mission" data-answer="c"><p><strong>5. Hana veut proposer une activité à Min-su.</strong></p><button type="button" data-choice="a">같이 먹었어요.</button><button type="button" data-choice="b">같이 먹을 거예요.</button><button type="button" data-choice="c">같이 먹을까요?</button><div class="feedback"></div></div>
+<div class="mission" data-answer="c"><p><strong>5. Ana veut proposer une activité à Min-su.</strong></p><button type="button" data-choice="a">같이 먹었어요.</button><button type="button" data-choice="b">같이 먹을 거예요.</button><button type="button" data-choice="c">같이 먹을까요?</button><div class="feedback"></div></div>
 </section>
 <section class="card"><h2>📝 Ta propre réponse</h2><p>Imagine maintenant ton propre programme. Essaie de dire au moins trois phrases :</p><p><strong>오늘…</strong><br><strong>내일…</strong><br><strong>다음 주…</strong></p><textarea id="freeAnswer" rows="6" style="width:100%;box-sizing:border-box;" placeholder="내일..."></textarea></section>
 <section class="card"><h2>💚 Le conseil de Ji-soo</h2><p>Tu n'as pas besoin d'une phrase compliquée. Commence par le moment, puis ajoute ton action :</p><p><strong>내일 + 서울에 + 갈 거예요.</strong></p><p>Avec cette structure, tu peux déjà expliquer beaucoup de projets.</p></section>
@@ -53,9 +54,9 @@ let hints=Number(localStorage.getItem(HINTS_KEY)||0);
 function completedMissionCount(){return missions.filter(item=>item.dataset.done==="true").length;}
 function updateFinishButton(){if(completedMissionCount()===missions.length)finishButton.style.display="block";}
 function hintFor(index){return [
-  "Pas encore 💙 Ici, Min-su demande ce que Hana <strong>va faire</strong>. Cherche la forme en <strong>-(으)ㄹ 거예요</strong>.",
-  "La question porte sur <strong>où</strong> Hana va aller. Il faut donc répondre avec une destination.",
-  "Ici Hana parle d'un projet pour le soir, donc il faut <strong>쉴 거예요</strong>, pas le passé <strong>쉬었어요</strong>.",
+  "Pas encore 💙 Ici, Min-su demande ce que Ana <strong>va faire</strong>. Cherche la forme en <strong>-(으)ㄹ 거예요</strong>.",
+  "La question porte sur <strong>où</strong> Ana va aller. Il faut donc répondre avec une destination.",
+  "Ici Ana parle d'un projet pour le soir, donc il faut <strong>쉴 거예요</strong>, pas le passé <strong>쉬었어요</strong>.",
   "Pour une destination, utilise <strong>서울에</strong>. Et comme il s'agit de demain, il faut le projet : <strong>돌아갈 거예요</strong>.",
   "Pour proposer une activité ensemble, utilise <strong>-까요?</strong> : <strong>같이 먹을까요?</strong>"
 ][index];}
@@ -76,4 +77,5 @@ finishButton.addEventListener("click",()=>{
 summaryButton.addEventListener("click",()=>window.location.href="resume-30.html");
 window.addEventListener("pageshow",()=>{if(!guardMissionPage())return;migrateLegacyMissionProgress();if(localStorage.getItem(USE_KEY)==="completed")showCompletedState();if(window.HanaChapterProgress)HanaChapterProgress.render();});
 if(window.HanaChapterProgress)HanaChapterProgress.render();
-</script></body></html>
+</script>
+</body></html>

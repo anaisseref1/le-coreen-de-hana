@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#F7F4ED">
+  <title>Chapitre 37 — Je l'utilise</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="chapter-progress.css">
+  <style>
+    .mission{padding:15px;margin-top:12px;background:#FBFAF6;border-radius:var(--radius-medium)}
+    .mission button{width:100%;margin-top:8px;text-align:left;background:var(--soft-beige);color:var(--navy)}
+    .feedback{margin-top:8px;line-height:1.6}
+    textarea{width:100%;box-sizing:border-box}
+  </style>
+  <script src="profile.js"></script>
+</head>
+<body>
+<main class="app">
+<a class="back-link" href="revision-37.html">← Révision</a>
+<section id="hanaChapterPath" data-chapter-path></section>
+<header>
+  <span class="chapter-badge">Chapitre 37 · 🎯 Je l'utilise</span>
+  <h1>Mission finale : mon film</h1>
+  <p>Choisis les formulations naturelles puis parle d'un film que tu connais.</p>
+</header>
+
+<section class="card">
+  <div class="mission" data-answer="b">
+    <p><strong>1. « Quel film veux-tu voir ? »</strong></p>
+    <button data-choice="a">어느 배우 좋아해요?</button>
+    <button data-choice="b">어떤 영화 보고 싶어요?</button>
+    <button data-choice="c">영화 어땠어요?</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="mission" data-answer="a">
+    <p><strong>2. Avant le film : « Ça a l'air intéressant. »</strong></p>
+    <button data-choice="a">재미있을 것 같아요.</button>
+    <button data-choice="b">재미있었어요.</button>
+    <button data-choice="c">재미없었어요.</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="mission" data-answer="c">
+    <p><strong>3. « Comment était le film ? »</strong></p>
+    <button data-choice="a">어떤 영화예요?</button>
+    <button data-choice="b">영화 볼래요?</button>
+    <button data-choice="c">영화 어땠어요?</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="mission" data-answer="b">
+    <p><strong>4. « C'était vraiment intéressant. »</strong></p>
+    <button data-choice="a">정말 재미있을 것 같아요.</button>
+    <button data-choice="b">정말 재미있었어요.</button>
+    <button data-choice="c">정말 재미있어요?</button>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="mission" data-answer="a">
+    <p><strong>5. « J'ai préféré la dernière scène. »</strong></p>
+    <button data-choice="a">마지막 장면이 제일 좋았어요.</button>
+    <button data-choice="b">마지막 장면을 보고 싶어요.</button>
+    <button data-choice="c">마지막 장면이 무서워요?</button>
+    <div class="feedback"></div>
+  </div>
+</section>
+
+<section class="card">
+  <h2>🎬 Mon film</h2>
+  <p>Écris 4 à 6 phrases : genre, avis, raison, scène ou personnage préféré.</p>
+  <textarea id="freeAnswer" rows="11" placeholder="이 영화는..."></textarea>
+</section>
+
+<button id="finishButton" type="button" style="display:none;width:100%;">✅ Terminer le chapitre 37</button>
+<button id="summaryButton" type="button" style="display:none;width:100%;">📚 Voir le résumé du chapitre</button>
+</main>
+
+<script src="chapter-progress.js"></script>
+<script>
+const UNDERSTANDING_KEY="hanaKorean_chapter37_understanding";
+const LISTENING_EXERCISE_KEY="hanaKorean_chapter37_listeningExercise";
+const SPEAKING_KEY="hanaKorean_chapter37_speaking";
+const WRITING_KEY="hanaKorean_chapter37_writing";
+const REVIEW_KEY="hanaKorean_chapter37_review";
+const USE_KEY="hanaKorean_chapter37_use";
+const MISSION_KEY="hanaKorean_chapter37_mission";
+const COMPLETED_KEY="hanaKorean_chapter37_completed";
+const FREE_KEY="hanaKorean_chapter37_missionFreeAnswer";
+
+function guardMissionPage(){
+  const required=[UNDERSTANDING_KEY,LISTENING_EXERCISE_KEY,SPEAKING_KEY,WRITING_KEY,REVIEW_KEY];
+  if(required.some(k=>localStorage.getItem(k)!=="completed")){
+    window.location.href="revision-37.html";
+    return false;
+  }
+  return true;
+}
+if(!guardMissionPage())throw new Error("chapter37-mission-guard");
+
+function migrate(){
+  if(localStorage.getItem(USE_KEY)!=="completed" &&
+    (localStorage.getItem(MISSION_KEY)==="completed"||localStorage.getItem(COMPLETED_KEY)==="completed")){
+    localStorage.setItem(USE_KEY,"completed");
+  }
+}
+migrate();
+
+const missions=[...document.querySelectorAll(".mission")];
+const finish=document.getElementById("finishButton");
+const summary=document.getElementById("summaryButton");
+const free=document.getElementById("freeAnswer");
+
+free.value=localStorage.getItem(FREE_KEY)||"";
+free.addEventListener("input",()=>localStorage.setItem(FREE_KEY,free.value));
+
+function count(){return missions.filter(m=>m.dataset.done==="true").length;}
+function update(){if(count()===missions.length)finish.style.display="block";}
+
+missions.forEach((m,i)=>{
+  m.querySelectorAll("[data-choice]").forEach(btn=>{
+    btn.addEventListener("click",()=>{
+      if(m.dataset.done==="true")return;
+      const fb=m.querySelector(".feedback");
+      if(btn.dataset.choice===m.dataset.answer){
+        m.dataset.done="true";
+        fb.textContent="✅ Très bien !";
+        m.querySelectorAll("[data-choice]").forEach(b=>b.disabled=true);
+        update();
+      }else{
+        btn.disabled=true;
+        fb.textContent=[
+          "어떤 영화 = quel film / quel genre de film.",
+          "Avant de voir : -을 것 같아요.",
+          "어땠어요? = comment c'était ?",
+          "Après le film, utilise le passé.",
+          "제일 좋았어요 = j'ai préféré / c'était le mieux."
+        ][i];
+      }
+    });
+  });
+});
+
+function completedState(){
+  finish.style.display="block";
+  finish.textContent="✅ Chapitre 37 terminé";
+  finish.disabled=true;
+  summary.style.display="block";
+}
+if(localStorage.getItem(USE_KEY)==="completed")completedState();
+
+finish.addEventListener("click",()=>{
+  if(count()!==missions.length && localStorage.getItem(USE_KEY)!=="completed")return;
+  localStorage.setItem(USE_KEY,"completed");
+  localStorage.setItem(MISSION_KEY,"completed");
+  localStorage.setItem(COMPLETED_KEY,"completed");
+  localStorage.setItem(FREE_KEY,free.value);
+  completedState();
+  if(window.HanaChapterProgress)HanaChapterProgress.render();
+});
+summary.addEventListener("click",()=>window.location.href="resume-37.html");
+window.addEventListener("pageshow",()=>{
+  if(guardMissionPage()){
+    migrate();
+    if(localStorage.getItem(USE_KEY)==="completed")completedState();
+    if(window.HanaChapterProgress)HanaChapterProgress.render();
+  }
+});
+if(window.HanaChapterProgress)HanaChapterProgress.render();
+</script>
+</body>
+</html>

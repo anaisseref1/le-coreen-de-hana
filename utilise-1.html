@@ -420,6 +420,7 @@
     }
   </script>
 
+  <script src="profile.js"></script>
 </head>
 
 
@@ -771,7 +772,7 @@
       <br>
 
       Cette mission pourra compter dans
-      la progression du Jardin de Hana.
+      la progression du Jardin de Ana.
 
     </div>
 
@@ -835,12 +836,12 @@
         "Min-su vient de donner son prénom et te demande le tien. Commence par 저는...",
 
       accepted: [
-        "저는 하나예요",
-        "하나예요",
-        "저는 하나입니다",
-        "하나입니다",
-        "제 이름은 하나예요",
-        "제 이름은 하나입니다"
+        HanaProfile.replacePerson("저는 아나예요"),
+        HanaProfile.replacePerson("아나예요"),
+        "저는 아나입니다",
+        "아나입니다",
+        HanaProfile.replacePerson("제 이름은 아나예요"),
+        "제 이름은 아나입니다"
       ]
 
     },
@@ -1416,7 +1417,7 @@
     if (stepIndex === 1) {
 
       return (
-        normalized.includes("하나") &&
+        normalized.includes("아나") &&
         (
           normalized.includes("예요") ||
           normalized.includes("입니다")
@@ -1761,8 +1762,6 @@
   renderMissionStep();
 
 </script>
-
-
 </body>
 
 </html>

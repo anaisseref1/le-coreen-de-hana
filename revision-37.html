@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#F7F4ED">
+  <title>Chapitre 37 — Révision</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="chapter-progress.css">
+  <style>
+    .review-card{padding:20px;margin-bottom:18px;background:var(--white);border-radius:var(--radius-large);box-shadow:var(--shadow)}
+    .item{padding:13px;margin-top:9px;background:#FBFAF6;border-radius:var(--radius-medium);line-height:1.6}
+    .weak-list{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+    .weak-button{background:var(--soft-beige);color:var(--navy)}
+    .weak-button.selected{background:var(--jade);color:white}
+  </style>
+  <script src="profile.js"></script>
+</head>
+<body>
+<main class="app">
+<a class="back-link" href="ecriture-37.html">← Écriture</a>
+<section id="hanaChapterPath" data-chapter-path></section>
+<header>
+  <span class="chapter-badge">Chapitre 37 · 🧠 Révision</span>
+  <h1>Je consolide le cinéma</h1>
+</header>
+
+<section class="review-card">
+  <h2>🎬 Choisir</h2>
+  <div class="item"><strong>어떤 영화 보고 싶어요?</strong> → Quel film veux-tu voir ?</div>
+  <div class="item"><strong>액션 영화 보고 싶어요.</strong> → Je veux voir un film d'action.</div>
+</section>
+
+<section class="review-card">
+  <h2>🌱 Avant le film</h2>
+  <div class="item"><strong>재미있을 것 같아요.</strong> → Ça a l'air intéressant.</div>
+</section>
+
+<section class="review-card">
+  <h2>💗 Après le film</h2>
+  <div class="item"><strong>영화 어땠어요?</strong> → Comment était le film ?</div>
+  <div class="item"><strong>정말 재미있었어요.</strong> → C'était vraiment intéressant.</div>
+  <div class="item"><strong>감동적이었어요.</strong> → C'était émouvant.</div>
+</section>
+
+<section class="review-card">
+  <h2>⭐ Préférence</h2>
+  <div class="item"><strong>어떤 장면이 제일 좋았어요?</strong> → Quelle scène as-tu préférée ?</div>
+  <div class="item"><strong>마지막 장면이 제일 좋았어요.</strong> → J'ai préféré la dernière scène.</div>
+</section>
+
+<section class="review-card">
+  <h2>🟨 Mon point à revoir</h2>
+  <div class="weak-list">
+    <button class="weak-button" data-value="eotteon">어떤</button>
+    <button class="weak-button" data-value="want">보고 싶어요</button>
+    <button class="weak-button" data-value="before">Avant : 것 같아요</button>
+    <button class="weak-button" data-value="past">Avis au passé</button>
+    <button class="weak-button" data-value="best">제일</button>
+  </div>
+</section>
+
+<button id="completeButton" type="button" style="width:100%;">✅ Révision terminée</button>
+<button id="nextButton" type="button" style="display:none;width:100%;">🎯 Passer à la mission</button>
+</main>
+
+<script src="chapter-progress.js"></script>
+<script>
+const WRITING_KEY="hanaKorean_chapter37_writing";
+const REVIEW_KEY="hanaKorean_chapter37_review";
+const WEAK_KEY="hanaKorean_chapter37_reviewWeak";
+const complete=document.getElementById("completeButton");
+const next=document.getElementById("nextButton");
+
+function guard(){
+  if(localStorage.getItem(WRITING_KEY)!=="completed"){
+    window.location.href="ecriture-37.html";
+    return false;
+  }
+  return true;
+}
+if(!guard())throw new Error("chapter37-review-guard");
+
+let weak=new Set(JSON.parse(localStorage.getItem(WEAK_KEY)||"[]"));
+document.querySelectorAll(".weak-button").forEach(btn=>{
+  if(weak.has(btn.dataset.value))btn.classList.add("selected");
+  btn.addEventListener("click",()=>{
+    if(weak.has(btn.dataset.value)){
+      weak.delete(btn.dataset.value);btn.classList.remove("selected");
+    }else{
+      weak.add(btn.dataset.value);btn.classList.add("selected");
+    }
+    localStorage.setItem(WEAK_KEY,JSON.stringify([...weak]));
+  });
+});
+function refresh(){
+  if(localStorage.getItem(REVIEW_KEY)==="completed"){
+    complete.textContent="✅ Révision terminée";
+    complete.disabled=true;
+    next.style.display="block";
+  }
+  if(window.HanaChapterProgress)HanaChapterProgress.render();
+}
+complete.addEventListener("click",()=>{
+  localStorage.setItem(WEAK_KEY,JSON.stringify([...weak]));
+  localStorage.setItem(REVIEW_KEY,"completed");
+  refresh();
+});
+next.addEventListener("click",()=>window.location.href="utilise-37.html");
+window.addEventListener("pageshow",()=>{if(guard())refresh();});
+refresh();
+</script>
+</body>
+</html>

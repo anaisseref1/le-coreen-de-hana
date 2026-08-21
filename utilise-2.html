@@ -592,6 +592,7 @@
     }
   </script>
 
+  <script src="profile.js"></script>
 </head>
 
 
@@ -726,7 +727,7 @@
 
 
       <span id="progressLabel">
-        1 / 5
+        1 / 4
       </span>
 
     </div>
@@ -960,7 +961,7 @@
 
 
       <div class="objective-result">
-        ✅ Poser une question
+        ✅ Retourner une question
       </div>
 
 
@@ -1026,35 +1027,33 @@
   const missionSteps = [
 
     {
-
       npc:
         "안녕하세요. 이름이 뭐예요?",
 
       prompt:
-        "Min-su attend ton prénom.",
+        "Donne ton prénom puis retourne la question à Min-su.",
 
       hint:
-        "Réponds avec la structure 저는...",
+        "Réponds avec 저는... puis ajoute 이름이 뭐예요?",
 
       accepted: [
-        "저는 하나예요",
-        "하나예요",
-        "저는 하나입니다",
-        "하나입니다",
-        "제 이름은 하나예요",
-        "제 이름은 하나입니다"
-      ]
+        HanaProfile.replacePerson("저는 아나예요 이름이 뭐예요"),
+        HanaProfile.replacePerson("아나예요 이름이 뭐예요"),
+        HanaProfile.replacePerson("제 이름은 아나예요 이름이 뭐예요"),
+        HanaProfile.replacePerson("저는 아나입니다 이름이 뭐예요"),
+        HanaProfile.replacePerson("아나입니다 이름이 뭐예요")
+      ],
 
+      reply:
+        "저는 민수예요. 어느 나라 사람이에요?"
     },
 
-
     {
-
       npc:
-        "어느 나라 사람이에요?",
+        "저는 민수예요. 어느 나라 사람이에요?",
 
       prompt:
-        "Réponds à Min-su.",
+        "Réponds à Min-su : de quel pays es-tu ?",
 
       hint:
         "Tu peux utiliser 프랑스 사람.",
@@ -1065,12 +1064,9 @@
         "저는 프랑스 사람입니다",
         "프랑스 사람입니다"
       ]
-
     },
 
-
     {
-
       npc:
         "직업이 뭐예요?",
 
@@ -1086,34 +1082,9 @@
         "저는 회사원입니다",
         "회사원입니다"
       ]
-
     },
 
-
     {
-
-      npc:
-        "저는 민수예요.",
-
-      prompt:
-        "Cette fois, prends l'initiative : demande à Min-su de quel pays il vient.",
-
-      hint:
-        "La question commence par 어느 나라...",
-
-      accepted: [
-        "어느 나라 사람이에요",
-        "어느 나라 사람이세요"
-      ],
-
-      reply:
-        "저는 한국 사람이에요."
-
-    },
-
-
-    {
-
       npc:
         "반가워요!",
 
@@ -1129,7 +1100,6 @@
         "반갑습니다",
         "저도 반갑습니다"
       ]
-
     }
 
   ];
@@ -1739,9 +1709,9 @@
 
 
     feedback.innerHTML =
-      currentStep === 3
+      currentStep === 0
 
-        ? "✅ <strong>Très bien !</strong><br><br>Cette fois, c'est toi qui as pris l'initiative de poser la question."
+        ? "✅ <strong>Très bien !</strong><br><br>Tu as répondu et retourné la question naturellement."
 
         : "✅ <strong>Compris !</strong><br><br>La conversation peut continuer.";
 
@@ -1897,7 +1867,7 @@
     document.getElementById(
       "progressLabel"
     ).textContent =
-      "5 / 5";
+      "4 / 4";
 
 
     document.getElementById(
@@ -2029,8 +1999,6 @@
   renderMissionStep();
 
 </script>
-
-
 </body>
 
 </html>

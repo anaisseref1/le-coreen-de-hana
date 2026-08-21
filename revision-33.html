@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#F7F4ED">
+  <title>Chapitre 33 — Révision</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="chapter-progress.css">
+  <style>
+    .review-card{padding:20px;margin-bottom:18px;background:var(--white);border-radius:var(--radius-large);box-shadow:var(--shadow)}
+    .item{padding:13px;margin-top:9px;background:#FBFAF6;border-radius:var(--radius-medium);line-height:1.6}
+    .weak-list{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+    .weak-button{background:var(--soft-beige);color:var(--navy)}
+    .weak-button.selected{background:var(--jade);color:white}
+  </style>
+  <script src="profile.js"></script>
+</head>
+<body>
+<main class="app">
+<a class="back-link" href="ecriture-33.html">← Écriture</a>
+<section id="hanaChapterPath" data-chapter-path></section>
+<header>
+  <span class="chapter-badge">Chapitre 33 · 🧠 Révision</span>
+  <h1>Je consolide les raisons</h1>
+</header>
+
+<section class="review-card">
+  <h2>❓ Demander</h2>
+  <div class="item"><strong>왜 한국을 좋아해요?</strong><br>Pourquoi aimes-tu la Corée ?</div>
+</section>
+
+<section class="review-card">
+  <h2>💬 Répondre</h2>
+  <div class="item"><strong>풍경이 아름다워서 좋아해요.</strong><br>J'aime parce que les paysages sont magnifiques.</div>
+  <div class="item"><strong>풍경이 아름다워서요.</strong><br>Parce que les paysages sont magnifiques.</div>
+</section>
+
+<section class="review-card">
+  <h2>➡️ 그래서</h2>
+  <div class="item"><strong>서울에 있으면 마음이 편해요. 그래서 다시 가고 싶어요.</strong><br>Je me sens bien à Séoul. C'est pourquoi je veux y retourner.</div>
+</section>
+
+<section class="review-card">
+  <h2>💙 À ne pas confondre</h2>
+  <div class="item"><strong>좋다 → 좋아서</strong><br>parce que c'est bien / parce que cela plaît</div>
+  <div class="item"><strong>좋아하다 → 좋아해서</strong><br>parce que j'aime</div>
+</section>
+
+<section class="review-card">
+  <h2>🌿 À reconnaître</h2>
+  <div class="item"><strong>왜냐하면</strong> → parce que / la raison, c'est que…<br><small>Pas besoin de le maîtriser comme structure principale pour l'instant.</small></div>
+</section>
+
+<section class="review-card">
+  <h2>🟨 Mon point à revoir</h2>
+  <div class="weak-list">
+    <button class="weak-button" data-value="formation">Former -아서/어서</button>
+    <button class="weak-button" data-value="short">Réponse courte -아서/어서요</button>
+    <button class="weak-button" data-value="geuraeseo">그래서</button>
+    <button class="weak-button" data-value="goodlike">좋다 / 좋아하다</button>
+    <button class="weak-button" data-value="why">왜</button>
+  </div>
+</section>
+
+<button id="completeButton" type="button" style="width:100%;">✅ Révision terminée</button>
+<button id="nextButton" type="button" style="display:none;width:100%;">🎯 Passer à la mission</button>
+</main>
+<script src="chapter-progress.js"></script>
+<script>
+const WRITING_KEY="hanaKorean_chapter33_writing";
+const REVIEW_KEY="hanaKorean_chapter33_review";
+const WEAK_KEY="hanaKorean_chapter33_reviewWeak";
+const complete=document.getElementById("completeButton");
+const next=document.getElementById("nextButton");
+
+function guard(){
+  if(localStorage.getItem(WRITING_KEY)!=="completed"){
+    window.location.href="ecriture-33.html";
+    return false;
+  }
+  return true;
+}
+if(!guard())throw new Error("chapter33-review-guard");
+
+let weak=new Set(JSON.parse(localStorage.getItem(WEAK_KEY)||"[]"));
+document.querySelectorAll(".weak-button").forEach(btn=>{
+  if(weak.has(btn.dataset.value))btn.classList.add("selected");
+  btn.addEventListener("click",()=>{
+    if(weak.has(btn.dataset.value)){
+      weak.delete(btn.dataset.value);
+      btn.classList.remove("selected");
+    }else{
+      weak.add(btn.dataset.value);
+      btn.classList.add("selected");
+    }
+    localStorage.setItem(WEAK_KEY,JSON.stringify([...weak]));
+  });
+});
+function refresh(){
+  if(localStorage.getItem(REVIEW_KEY)==="completed"){
+    complete.textContent="✅ Révision terminée";
+    complete.disabled=true;
+    next.style.display="block";
+  }
+  if(window.HanaChapterProgress)HanaChapterProgress.render();
+}
+complete.addEventListener("click",()=>{
+  localStorage.setItem(WEAK_KEY,JSON.stringify([...weak]));
+  localStorage.setItem(REVIEW_KEY,"completed");
+  refresh();
+});
+next.addEventListener("click",()=>window.location.href="utilise-33.html");
+window.addEventListener("pageshow",()=>{if(guard())refresh();});
+refresh();
+</script>
+</body>
+</html>
