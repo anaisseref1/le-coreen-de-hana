@@ -1,0 +1,18 @@
+<!DOCTYPE html><html lang="fr"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#F7F4ED"><title>Chapitre 49 — J'écoute</title>
+<link rel="stylesheet" href="style.css"><link rel="stylesheet" href="chapter-progress.css">
+<style>.note{padding:14px;margin:10px 0;background:#FBFAF6;border-radius:var(--radius-medium)}button{width:100%}</style><script src="profile.js"></script></head>
+<body><main class="app"><a class="back-link" href="chapitre-49.html">← Chapitre 49</a><section id="hanaChapterPath" data-chapter-path></section>
+<header><span class="chapter-badge">Chapitre 49 · 🎧</span><h1>Écouter une situation d’objet perdu</h1></header>
+<section class="card"><div class="note"><strong>지갑을 잃어버렸어요.</strong></div><div class="note"><strong>지갑을 못 찾아요.</strong></div>
+<div class="note"><strong>어디에서 잃어버렸어요?</strong></div><div class="note"><strong>혹시 보셨어요?</strong></div>
+<div class="note"><strong>작은 검은색 지갑이에요.</strong></div><div class="note"><strong>분실물 센터가 어디에 있어요?</strong></div>
+<button id="listen">🎧 Écouter</button></section>
+<button id="done">✅ J'ai écouté</button><button id="next" style="display:none">🧠 Exercice d'écoute</button></main>
+<script src="chapter-progress.js"></script><script>
+const P="hanaKorean_chapter49_understanding",K="hanaKorean_chapter49_listening";if(localStorage.getItem(P)!=="completed")location.href="chapitre-49.html";
+function speak(t){if(!("speechSynthesis"in window))return;const u=new SpeechSynthesisUtterance(HanaProfile.replacePerson(t));u.lang="ko-KR";u.rate=.82;speechSynthesis.cancel();speechSynthesis.speak(u)}
+document.getElementById("listen").onclick=()=>speak("지갑을 잃어버렸어요. 지갑을 못 찾아요. 어디에서 잃어버렸어요? 혹시 보셨어요? 작은 검은색 지갑이에요. 분실물 센터가 어디에 있어요?");
+const d=document.getElementById("done"),n=document.getElementById("next");function r(){if(localStorage.getItem(K)==="completed"){d.disabled=true;n.style.display="block"}if(window.HanaChapterProgress)HanaChapterProgress.render()}d.onclick=()=>{localStorage.setItem(K,"completed");r()};n.onclick=()=>location.href="exercice-ecoute-50.html";r();
+</script></body></html>

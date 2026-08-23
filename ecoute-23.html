@@ -56,10 +56,6 @@
       background:var(--soft-blue);
     }
 
-    .dialogue-line.jisoo {
-      background:var(--soft-beige);
-    }
-
     .speaker {
       font-weight:bold;
       margin-bottom:4px;
@@ -164,15 +160,15 @@
     </span>
 
     <p class="korean">
-      뭐를 사고 싶어요? 🛒
+      오늘 날씨가 어때요? 🌦️
     </p>
 
     <h1>
-      Faire les courses
+      Comprendre la météo
     </h1>
 
     <p>
-      Écoute Ana, Min-su et Ji-soo dans le supermarché.
+      Écoute Ana et Min-su parler du temps avant de sortir.
       Commence lentement, puis réécoute à vitesse normale.
     </p>
 
@@ -186,8 +182,8 @@
     <h2>🎧 Dialogue complet</h2>
 
     <p>
-      Essaie d'abord de repérer les produits et les expressions
-      <strong>-고 싶어요</strong>, <strong>도</strong> et <strong>저쪽</strong>.
+      Essaie d'abord de repérer les mots météo sans lire la traduction.
+      Puis réécoute en suivant les phrases.
     </p>
 
     <div class="audio-row">
@@ -217,53 +213,73 @@
 
     <h2>💬 Dialogue</h2>
 
-    <div class="dialogue-line jisoo">
-      <div class="speaker">💚 Ji-soo</div>
+    <div class="dialogue-line minsu">
+      <div class="speaker">💙 Min-su</div>
       <div class="korean-line">
-        아나 씨, 뭐를 사고 싶어요?
+        오늘 날씨가 어때요?
       </div>
       <div class="french-line">
-        Ana, qu'aimerais-tu acheter ?
+        Comment est le temps aujourd'hui ?
       </div>
     </div>
 
     <div class="dialogue-line hana">
       <div class="speaker">🌸 Ana</div>
       <div class="korean-line">
-        우유하고 딸기를 사고 싶어요.
+        조금 더워요.
       </div>
       <div class="french-line">
-        J'aimerais acheter du lait et des fraises.
+        Il fait un peu chaud.
       </div>
     </div>
 
     <div class="dialogue-line minsu">
       <div class="speaker">💙 Min-su</div>
       <div class="korean-line">
-        커피도 살까요?
+        하지만 비가 올 것 같아요.
       </div>
       <div class="french-line">
-        Et si on achetait aussi du café ?
+        Mais je crois qu'il va pleuvoir.
       </div>
     </div>
 
     <div class="dialogue-line hana">
       <div class="speaker">🌸 Ana</div>
       <div class="korean-line">
-        좋아요! 그리고 과자도 사고 싶어요.
+        맞아요. 하늘이 흐려요.
       </div>
       <div class="french-line">
-        Bonne idée ! Et j'aimerais aussi acheter des biscuits.
+        Oui. Le ciel est couvert.
       </div>
     </div>
 
-    <div class="dialogue-line jisoo">
-      <div class="speaker">💚 Ji-soo</div>
+    <div class="dialogue-line minsu">
+      <div class="speaker">💙 Min-su</div>
       <div class="korean-line">
-        과자는 저쪽에 있어요. 같이 가요!
+        우산 있어요?
       </div>
       <div class="french-line">
-        Les biscuits sont de ce côté. Allons-y ensemble !
+        Tu as un parapluie ?
+      </div>
+    </div>
+
+    <div class="dialogue-line hana">
+      <div class="speaker">🌸 Ana</div>
+      <div class="korean-line">
+        네! 가방에 있어요.
+      </div>
+      <div class="french-line">
+        Oui ! Il est dans mon sac.
+      </div>
+    </div>
+
+    <div class="dialogue-line minsu">
+      <div class="speaker">💙 Min-su</div>
+      <div class="korean-line">
+        다행이에요.
+      </div>
+      <div class="french-line">
+        Heureusement !
       </div>
     </div>
 
@@ -274,28 +290,24 @@
 
     <h2>🩵 À écouter attentivement</h2>
 
-    <strong>딸기</strong>
-    commence par le son tendu
-    <strong>ㄸ</strong>.
+    <strong>날씨</strong>
+    contient un double
+    <strong>ㅆ</strong> :
+    le son <strong>s</strong> est bien marqué.
 
     <br><br>
 
-    Essaie aussi de reconnaître :
+    Écoute aussi la différence entre :
 
     <br><br>
 
-    <strong>사고 싶어요</strong>
-    → j'aimerais acheter
+    <strong>비가 와요.</strong>
+    → Il pleut.
 
     <br>
 
-    <strong>살까요?</strong>
-    → et si on achetait ?
-
-    <br>
-
-    <strong>저쪽에 있어요</strong>
-    → c'est là-bas / de ce côté-là
+    <strong>비가 올 것 같아요.</strong>
+    → Je pense qu'il va pleuvoir.
 
   </section>
 
@@ -306,8 +318,7 @@
 
     <p>
       Lance le dialogue puis répète chaque phrase juste après le personnage.
-      Essaie d'imiter le rythme, surtout sur
-      <strong>딸기</strong> et <strong>사고 싶어요</strong>.
+      Essaie surtout d'imiter le rythme et l'intonation.
     </p>
 
     <button
@@ -362,24 +373,32 @@
 
   const dialogue = [
     {
-      character: "jisoo",
-      text: HanaProfile.replacePerson("아나 씨, 뭐를 사고 싶어요?")
+      character: "minsu",
+      text: "오늘 날씨가 어때요?"
     },
     {
       character: "hana",
-      text: "우유하고 딸기를 사고 싶어요."
+      text: "조금 더워요."
     },
     {
       character: "minsu",
-      text: "커피도 살까요?"
+      text: "하지만 비가 올 것 같아요."
     },
     {
       character: "hana",
-      text: "좋아요! 그리고 과자도 사고 싶어요."
+      text: "맞아요. 하늘이 흐려요."
     },
     {
-      character: "jisoo",
-      text: "과자는 저쪽에 있어요. 같이 가요!"
+      character: "minsu",
+      text: "우산 있어요?"
+    },
+    {
+      character: "hana",
+      text: "네! 가방에 있어요."
+    },
+    {
+      character: "minsu",
+      text: "다행이에요."
     }
   ];
 
@@ -480,9 +499,6 @@
       },
       minsu: {
         pitch: 0.94
-      },
-      jisoo: {
-        pitch: 1.02
       }
     };
 
@@ -766,7 +782,7 @@
       stopDialogue();
 
       window.location.href =
-        "exercice-ecoute-23.html";
+        "exercice-ecoute-24.html";
 
     }
   );

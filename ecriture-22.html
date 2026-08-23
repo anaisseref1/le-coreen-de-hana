@@ -165,35 +165,33 @@
     </span>
 
     <p class="korean">
-      오늘 날씨가 어때요? 🌦️
+      같이 갈래요? 🌸
     </p>
 
     <h1>
-      Décrire la météo
+      Écrire une invitation
     </h1>
 
     <p>
-      Réutilise les mots et structures du chapitre
-      pour parler du temps et de tes décisions.
+      Réutilise les structures du chapitre pour proposer,
+      répondre et fixer un rendez-vous.
     </p>
 
   </header>
 
   <section id="hanaChapterPath" data-chapter-path></section>
 
-
   <section class="exercise-card">
 
     <h2>✍️ Exercice 1 — Traduis en coréen</h2>
 
-
     <div
       class="question-block"
-      data-valid="더워요|날씨가 더워요"
+      data-type="translation"
+      data-valid="커피 마실래요|커피를 마실래요"
     >
-
       <div class="question-title">
-        1. Il fait chaud.
+        1. Tu veux boire un café ?
       </div>
 
       <input
@@ -210,17 +208,16 @@
       </button>
 
       <div class="feedback"></div>
-
     </div>
 
 
     <div
       class="question-block"
-      data-valid="추워요|날씨가 추워요"
+      data-type="translation"
+      data-valid="어디에 갈까요|어디 갈까요"
     >
-
       <div class="question-title">
-        2. Il fait froid.
+        2. Où allons-nous ?
       </div>
 
       <input
@@ -237,17 +234,16 @@
       </button>
 
       <div class="feedback"></div>
-
     </div>
 
 
     <div
       class="question-block"
-      data-valid="하늘이 흐려요"
+      data-type="translation"
+      data-valid="내일 만날까요|내일 만나요"
     >
-
       <div class="question-title">
-        3. Le ciel est couvert.
+        3. On se retrouve demain ?
       </div>
 
       <input
@@ -264,17 +260,16 @@
       </button>
 
       <div class="feedback"></div>
-
     </div>
 
 
     <div
       class="question-block"
-      data-valid="비가 올 것 같아요"
+      data-type="translation"
+      data-valid="몇 시에 만날까요"
     >
-
       <div class="question-title">
-        4. Je pense qu'il va pleuvoir.
+        4. À quelle heure se retrouve-t-on ?
       </div>
 
       <input
@@ -291,7 +286,6 @@
       </button>
 
       <div class="feedback"></div>
-
     </div>
 
   </section>
@@ -301,41 +295,13 @@
 
     <h2>🧩 Exercice 2 — Complète</h2>
 
-
     <div
       class="question-block"
-      data-valid="날씨가"
+      data-type="translation"
+      data-valid="놀러|놀러 가"
     >
-
       <div class="question-title">
-        오늘 ________ 어때요?
-      </div>
-
-      <input
-        type="text"
-        lang="ko"
-        placeholder="Complète la phrase"
-      >
-
-      <button
-        class="check-button"
-        type="button"
-      >
-        Vérifier
-      </button>
-
-      <div class="feedback"></div>
-
-    </div>
-
-
-    <div
-      class="question-block"
-      data-valid="더워요|추워요"
-    >
-
-      <div class="question-title">
-        조금 ________.
+        같이 ________ 갈래요?
       </div>
 
       <input
@@ -345,7 +311,7 @@
       >
 
       <div class="hint">
-        Deux réponses du chapitre sont acceptées.
+        Indice : « aller se promener / sortir »
       </div>
 
       <button
@@ -356,17 +322,16 @@
       </button>
 
       <div class="feedback"></div>
-
     </div>
 
 
     <div
       class="question-block"
-      data-valid="올 것"
+      data-type="translation"
+      data-valid="갈까요"
     >
-
       <div class="question-title">
-        비가 ________ 같아요.
+        어디에 ________?
       </div>
 
       <input
@@ -383,17 +348,16 @@
       </button>
 
       <div class="feedback"></div>
-
     </div>
 
 
     <div
       class="question-block"
-      data-valid="있어요"
+      data-type="translation"
+      data-valid="같이|같이 만나|만나"
     >
-
       <div class="question-title">
-        우산 ________?
+        내일 ________ 만나요.
       </div>
 
       <input
@@ -410,7 +374,32 @@
       </button>
 
       <div class="feedback"></div>
+    </div>
 
+
+    <div
+      class="question-block"
+      data-type="translation"
+      data-valid="만나요"
+    >
+      <div class="question-title">
+        오후 두 시에 ________.
+      </div>
+
+      <input
+        type="text"
+        lang="ko"
+        placeholder="Complète la phrase"
+      >
+
+      <button
+        class="check-button"
+        type="button"
+      >
+        Vérifier
+      </button>
+
+      <div class="feedback"></div>
     </div>
 
   </section>
@@ -418,48 +407,29 @@
 
   <section class="free-card">
 
-    <h2>🌦️ Exercice 3 — Réponds librement</h2>
-
-
-    <div class="question-block">
-
-      <div class="question-title">
-        오늘 날씨가 어때요?
-      </div>
-
-      <textarea
-        lang="ko"
-        placeholder="Décris le temps en coréen"
-      ></textarea>
-
-    </div>
-
+    <h2>🌸 Exercice 3 — Réponds librement</h2>
 
     <div class="question-block">
-
       <div class="question-title">
-        비를 좋아해요?
+        오늘 뭐 하고 싶어요?
       </div>
 
       <textarea
         lang="ko"
         placeholder="Réponds en coréen"
       ></textarea>
-
     </div>
 
 
     <div class="question-block">
-
       <div class="question-title">
-        여름을 좋아해요?
+        주말에 어디에 가고 싶어요?
       </div>
 
       <textarea
         lang="ko"
         placeholder="Réponds en coréen"
       ></textarea>
-
     </div>
 
   </section>
@@ -469,25 +439,20 @@
 
     <h2>📝 Mon carnet de voyage</h2>
 
-    Imagine que tu consultes la météo
-    avant de partir visiter Séoul.
+    Imagine que tu proposes une sortie à Min-su ou à Ji-soo.
+    Écris un petit dialogue de 5 ou 6 répliques.
 
     <br><br>
 
-    Écris trois ou quatre phrases pour décrire le temps
-    et ce que tu décides de faire.
-
-    <br><br>
-
-    Tu peux parler de :
+    Tu peux utiliser :
     <strong>
-      날씨 · 비 · 우산 · 흐려요 · 더워요 · 갈까요?
+      같이 · 갈래요? · 갈까요? · 몇 시에? · 좋아요
     </strong>
 
     <textarea
       id="travelNotebook"
       lang="ko"
-      placeholder="Écris ici ce que tu observes et ce que tu décides…"
+      placeholder="Écris ton mini-dialogue ici…"
     ></textarea>
 
   </section>
@@ -497,21 +462,13 @@
 
     <h2>💡 Petit rappel</h2>
 
-    Pour décrire un fait actuel :
+    Tu n'as pas besoin d'écrire exactement la même phrase
+    que le modèle si ta formulation est naturelle et correcte.
 
     <br><br>
 
-    <strong>비가 와요.</strong>
-    → Il pleut.
-
-    <br><br>
-
-    Pour exprimer ton impression ou une prévision :
-
-    <br><br>
-
-    <strong>비가 올 것 같아요.</strong>
-    → Je pense qu'il va pleuvoir.
+    Pour les réponses libres, l'objectif est surtout de
+    <strong>produire toi-même du coréen</strong>.
 
   </section>
 
@@ -545,16 +502,20 @@
 </main>
 
 
-<script src="chapter-progress.js"></script>
+<script src="chapter-progress.js">
+  renderChapterProgress();
+
+  window.addEventListener("pageshow", () => {
+    guardWritingAccess();
+    renderChapterProgress();
+  });
+
+</script>
 
 <script>
 
   const progressKey =
     "hanaKorean_chapter22_writing";
-
-
-  const notebookKey =
-    "hanaKorean_chapter22_notebook";
 
   const understandingKey =
     "hanaKorean_chapter22_understanding";
@@ -568,6 +529,7 @@
   const revisionNotionsKey =
     "hanaKorean_chapter22_revisionNotions";
 
+
   function renderChapterProgress() {
     if (
       window.HanaChapterProgress &&
@@ -580,7 +542,7 @@
   function guardWritingAccess() {
     const required = [
       [understandingKey, "chapitre-22.html"],
-      [listeningExerciseKey, "exercice-ecoute-22.html"],
+      [listeningExerciseKey, "exercice-ecoute-23.html"],
       [speakingKey, "parle-22.html"]
     ];
 
@@ -593,6 +555,7 @@
 
     return true;
   }
+
 
 
   const questionBlocks =
@@ -621,19 +584,15 @@
     );
 
 
-  function normalizeText(
-    value
-  ) {
+  const notebookKey =
+    "hanaKorean_chapter22_notebook";
+
+
+  function normalizeText(value) {
 
     return value
-      .replace(
-        /[?.!,]/g,
-        ""
-      )
-      .replace(
-        /\s+/g,
-        ""
-      )
+      .replace(/[?.!,]/g, "")
+      .replace(/\s+/g, "")
       .trim();
 
   }
@@ -762,7 +721,7 @@
 
 
             feedback.textContent =
-              "Pas encore. Relis la structure du chapitre et réessaie.";
+              "Pas encore. Regarde la structure du chapitre et réessaie.";
 
           }
 
@@ -819,7 +778,6 @@
 
 
   guardWritingAccess();
-  renderChapterProgress();
 
   if (
     localStorage.getItem(
@@ -845,10 +803,8 @@
         localStorage.setItem(revisionNotionsKey, "[]");
       }
 
-      renderChapterProgress();
-
-
       showCompletedState();
+      renderChapterProgress();
 
     }
   );
@@ -863,12 +819,6 @@
 
     }
   );
-
-
-  window.addEventListener("pageshow", () => {
-    guardWritingAccess();
-    renderChapterProgress();
-  });
 
 </script>
 </body>

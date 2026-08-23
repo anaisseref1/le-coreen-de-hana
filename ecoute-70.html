@@ -1,0 +1,17 @@
+<!DOCTYPE html><html lang="fr"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#F7F4ED"><title>Chapitre 70 — Écoute</title>
+<link rel="stylesheet" href="style.css"><link rel="stylesheet" href="chapter-progress.css">
+<script src="profile.js"></script></head><body><main class="app">
+<a class="back-link" href="chapitre-70.html">← Retour</a><section id="hanaChapterPath" data-chapter-path></section>
+<header><span class="chapter-badge">Chapitre 70 · 🎧</span><h1>Repérer le fil</h1></header>
+<section class="card"><p>처음에 → situation</p><p>그런데 / 갑자기 → changement</p><p>그래서 → conséquence</p><p>결국 → résultat</p></section>
+<button id="done" style="width:100%">✅ Terminé</button>
+<button id="next" style="display:none;width:100%">🧠 Exercice</button>
+</main><script src="chapter-progress.js"></script><script>
+const K="hanaKorean_chapter70_listening",d=document.getElementById("done"),n=document.getElementById("next");
+function r(){if(localStorage.getItem(K)==="completed"){d.disabled=true;n.style.display="block"}if(window.HanaChapterProgress)HanaChapterProgress.render()}
+d.onclick=()=>{localStorage.setItem(K,"completed");r()};
+n.onclick=()=>location.href="exercice-ecoute-71.html";
+r();
+</script></body></html>

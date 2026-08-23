@@ -1,0 +1,24 @@
+<!DOCTYPE html><html lang="fr"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#F7F4ED"><title>Chapitre 47 — J'écoute</title>
+<link rel="stylesheet" href="style.css"><link rel="stylesheet" href="chapter-progress.css">
+<style>.note{padding:14px;margin:10px 0;background:#FBFAF6;border-radius:var(--radius-medium)}button{width:100%}</style><script src="profile.js"></script></head>
+<body><main class="app">
+<a class="back-link" href="chapitre-47.html">← Chapitre 47</a><section id="hanaChapterPath" data-chapter-path></section>
+<header><span class="chapter-badge">Chapitre 47 · 🎧 J'écoute</span><h1>Écouter des demandes</h1></header>
+<section class="card">
+<div class="note"><strong>이것 좀 도와주세요.</strong><br><small>Aidez-moi avec ça, s’il vous plaît.</small></div>
+<div class="note"><strong>다시 한번 말해 주세요.</strong><br><small>Répétez encore une fois, s’il vous plaît.</small></div>
+<div class="note"><strong>좀 천천히 말해 주세요.</strong><br><small>Parlez un peu plus lentement, s’il vous plaît.</small></div>
+<div class="note"><strong>다시 보여주세요.</strong><br><small>Montrez-moi encore une fois, s’il vous plaît.</small></div>
+<div class="note"><strong>이것 좀 확인해 주세요.</strong><br><small>Vérifiez ça, s’il vous plaît.</small></div>
+<div class="note"><strong>도와줄 수 있어요?</strong><br><small>Pourriez-vous m’aider ?</small></div>
+<button id="listen">🎧 Écouter</button></section>
+<button id="done">✅ J'ai écouté</button><button id="next" style="display:none">🧠 Exercice d'écoute</button>
+</main><script src="chapter-progress.js"></script><script>
+const P="hanaKorean_chapter47_understanding",K="hanaKorean_chapter47_listening";if(localStorage.getItem(P)!=="completed")location.href="chapitre-47.html";
+function speak(t){if(!("speechSynthesis"in window))return;const u=new SpeechSynthesisUtterance(HanaProfile.replacePerson(t));u.lang="ko-KR";u.rate=.82;speechSynthesis.cancel();speechSynthesis.speak(u)}
+document.getElementById("listen").onclick=()=>speak("이것 좀 도와주세요. 다시 한번 말해 주세요. 좀 천천히 말해 주세요. 다시 보여주세요. 이것 좀 확인해 주세요. 도와줄 수 있어요?");
+const d=document.getElementById("done"),n=document.getElementById("next");function r(){if(localStorage.getItem(K)==="completed"){d.disabled=true;n.style.display="block"}if(window.HanaChapterProgress)HanaChapterProgress.render()}
+d.onclick=()=>{localStorage.setItem(K,"completed");r()};n.onclick=()=>location.href="exercice-ecoute-48.html";r();
+</script></body></html>

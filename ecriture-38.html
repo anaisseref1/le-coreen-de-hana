@@ -1,12 +1,127 @@
 <!DOCTYPE html>
-<html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#F7F4ED"><title>Chapitre 38 — J'écris</title><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="chapter-progress.css"><style>textarea,input{width:100%;box-sizing:border-box;padding:12px;margin-top:8px;border:1px solid var(--border);border-radius:var(--radius-medium)}</style>  <script src="profile.js"></script>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#F7F4ED">
+  <title>Chapitre 38 — J'écris</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="chapter-progress.css">
+  <style>
+    .writing-card{padding:20px;margin-bottom:18px;background:var(--white);border-radius:var(--radius-large);box-shadow:var(--shadow)}
+    .exercise{padding:14px;margin-top:12px;background:#FBFAF6;border-radius:var(--radius-medium)}
+    input,textarea{width:100%;box-sizing:border-box;padding:12px;margin-top:8px;border:1px solid var(--border);border-radius:var(--radius-medium);font:inherit}
+    .feedback{margin-top:7px;font-size:14px}
+  </style>
+  <script src="profile.js"></script>
 </head>
-<body><main class="app"><a class="back-link" href="parle-38.html">← Oral</a><section id="hanaChapterPath" data-chapter-path></section><header><span class="chapter-badge">Chapitre 38 · ✍️ J'écris</span><h1>Écrire dans une librairie</h1></header>
-<section class="card"><h2>-고 있어요</h2><p>읽다 → <strong>읽고 있어요</strong></p><p>공부하다 → <strong>공부하고 있어요</strong></p><p>찾다 → <strong>찾고 있어요</strong></p><p>먹다 → <strong>먹고 있어요</strong></p><p>보다 → <strong>보고 있어요</strong></p></section>
-<section class="card"><h2>📚 Phrases utiles</h2><p>한국어 책을 찾고 있어요.</p><p>이 책 있어요?</p><p>한국어 책은 어디에 있어요?</p><p>어떤 책을 추천해요?</p><p>이 책 얼마예요?</p></section>
-<section class="card"><h2>🧩 Mon dialogue</h2><textarea id="free" rows="12" placeholder="안녕하세요.&#10;한국어 책을 찾고 있어요.&#10;..."></textarea></section>
-<button id="done" style="width:100%">✅ J'ai terminé l'écriture</button><button id="next" style="display:none;width:100%">🧠 Révision</button></main>
-<script src="chapter-progress.js"></script><script>
-const PREV="hanaKorean_chapter38_speaking",KEY="hanaKorean_chapter38_writing",F="hanaKorean_chapter38_writingFree";if(localStorage.getItem(PREV)!=="completed")location.href="parle-38.html";const d=document.getElementById("done"),n=document.getElementById("next"),f=document.getElementById("free");f.value=localStorage.getItem(F)||"";f.oninput=()=>localStorage.setItem(F,f.value);function r(){if(localStorage.getItem(KEY)==="completed"){d.disabled=true;d.textContent="✅ Écriture terminée";n.style.display="block"}if(window.HanaChapterProgress)HanaChapterProgress.render()}d.onclick=()=>{localStorage.setItem(F,f.value);localStorage.setItem(KEY,"completed");r()};n.onclick=()=>location.href="revision-38.html";r();
+<body>
+<main class="app">
+<a class="back-link" href="parle-38.html">← Oral</a>
+<section id="hanaChapterPath" data-chapter-path></section>
+<header>
+  <span class="chapter-badge">Chapitre 38 · ✍️ J'écris</span>
+  <h1>Écrire sur un film</h1>
+</header>
+
+<section class="writing-card">
+  <h2>✍️ Exercice 1 — Associe</h2>
+  <p><strong>영화</strong> → film</p>
+  <p><strong>영화관</strong> → cinéma</p>
+  <p><strong>배우</strong> → acteur / actrice</p>
+  <p><strong>장면</strong> → scène</p>
+  <p><strong>표</strong> → billet</p>
+  <p><strong>자리</strong> → siège / place</p>
+</section>
+
+<section class="writing-card">
+  <h2>✍️ Exercice 2 — Avant ou après ?</h2>
+  <div class="exercise" data-answer="avant">
+    <p><strong>재미있을 것 같아요.</strong></p>
+    <input class="answer" placeholder="avant / après"><div class="feedback"></div>
+  </div>
+  <div class="exercise" data-answer="après">
+    <p><strong>정말 재미있었어요.</strong></p>
+    <input class="answer" placeholder="avant / après"><div class="feedback"></div>
+  </div>
+  <div class="exercise" data-answer="après">
+    <p><strong>조금 무서웠어요.</strong></p>
+    <input class="answer" placeholder="avant / après"><div class="feedback"></div>
+  </div>
+  <button id="checkAnswers" type="button" style="width:100%;margin-top:12px;">✅ Vérifier</button>
+</section>
+
+<section class="writing-card">
+  <h2>🌸 Exercice 3 — Traduis</h2>
+  <p>① Quel film veux-tu voir ?<br><strong>어떤 영화 보고 싶어요?</strong></p>
+  <p>② Je veux voir un film d'action.<br><strong>액션 영화 보고 싶어요.</strong></p>
+  <p>③ Ce film a l'air intéressant.<br><strong>이 영화는 재미있을 것 같아요.</strong></p>
+  <p>④ On prend la séance de quelle heure ?<br><strong>몇 시 영화 볼까요?</strong></p>
+  <p>⑤ Comment était le film ?<br><strong>영화 어땠어요?</strong></p>
+  <p>⑥ Il était vraiment intéressant.<br><strong>정말 재미있었어요.</strong></p>
+  <p>⑦ J'ai préféré la dernière scène.<br><strong>마지막 장면이 제일 좋았어요.</strong></p>
+</section>
+
+<section class="writing-card">
+  <h2>🎬 Mon film</h2>
+  <p>Écris 4 à 6 phrases sur un film que tu connais :</p>
+  <p>① le genre</p>
+  <p>② si tu l'as aimé</p>
+  <p>③ pourquoi</p>
+  <p>④ ta scène ou ton personnage préféré</p>
+  <p>⑤ une phrase d'opinion</p>
+  <textarea id="freeText" rows="11" placeholder="이 영화는..."></textarea>
+</section>
+
+<button id="completeButton" type="button" style="width:100%;">✅ J'ai terminé l'écriture</button>
+<button id="nextButton" type="button" style="display:none;width:100%;">🧠 Passer à la révision</button>
+</main>
+
+<script src="chapter-progress.js"></script>
+<script>
+const SPEAKING_KEY="hanaKorean_chapter38_speaking";
+const WRITING_KEY="hanaKorean_chapter38_writing";
+const FREE_KEY="hanaKorean_chapter38_writingFree";
+const completeButton=document.getElementById("completeButton");
+const nextButton=document.getElementById("nextButton");
+const freeText=document.getElementById("freeText");
+
+function guard(){
+  if(localStorage.getItem(SPEAKING_KEY)!=="completed"){
+    window.location.href="parle-38.html";
+    return false;
+  }
+  return true;
+}
+if(!guard())throw new Error("chapter38-writing-guard");
+
+document.getElementById("checkAnswers").addEventListener("click",()=>{
+  document.querySelectorAll(".exercise").forEach(ex=>{
+    const value=ex.querySelector(".answer").value.trim().toLowerCase();
+    const answer=ex.dataset.answer.toLowerCase();
+    ex.querySelector(".feedback").textContent=value===answer?"✅ Correct":"💙 Réponse : "+ex.dataset.answer;
+  });
+});
+
+freeText.value=localStorage.getItem(FREE_KEY)||"";
+freeText.addEventListener("input",()=>localStorage.setItem(FREE_KEY,freeText.value));
+
+function refresh(){
+  if(localStorage.getItem(WRITING_KEY)==="completed"){
+    completeButton.textContent="✅ Écriture terminée";
+    completeButton.disabled=true;
+    nextButton.style.display="block";
+  }
+  if(window.HanaChapterProgress)HanaChapterProgress.render();
+}
+completeButton.addEventListener("click",()=>{
+  localStorage.setItem(FREE_KEY,freeText.value);
+  localStorage.setItem(WRITING_KEY,"completed");
+  refresh();
+});
+nextButton.addEventListener("click",()=>window.location.href="revision-38.html");
+window.addEventListener("pageshow",()=>{if(guard())refresh();});
+refresh();
 </script>
-</body></html>
+</body>
+</html>

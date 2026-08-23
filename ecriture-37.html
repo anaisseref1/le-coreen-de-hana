@@ -21,56 +21,58 @@
 <section id="hanaChapterPath" data-chapter-path></section>
 <header>
   <span class="chapter-badge">Chapitre 37 · ✍️ J'écris</span>
-  <h1>Écrire sur un film</h1>
+  <h1>Écrire une invitation</h1>
 </header>
 
 <section class="writing-card">
-  <h2>✍️ Exercice 1 — Associe</h2>
-  <p><strong>영화</strong> → film</p>
-  <p><strong>영화관</strong> → cinéma</p>
-  <p><strong>배우</strong> → acteur / actrice</p>
-  <p><strong>장면</strong> → scène</p>
-  <p><strong>표</strong> → billet</p>
-  <p><strong>자리</strong> → siège / place</p>
-</section>
-
-<section class="writing-card">
-  <h2>✍️ Exercice 2 — Avant ou après ?</h2>
-  <div class="exercise" data-answer="avant">
-    <p><strong>재미있을 것 같아요.</strong></p>
-    <input class="answer" placeholder="avant / après"><div class="feedback"></div>
+  <h2>✍️ Exercice 1 — 래요 ou 까요 ?</h2>
+  <div class="exercise" data-answer="볼래요">
+    <p>« Tu veux voir un film ? » → 영화 ______?</p>
+    <input class="answer"><div class="feedback"></div>
   </div>
-  <div class="exercise" data-answer="après">
-    <p><strong>정말 재미있었어요.</strong></p>
-    <input class="answer" placeholder="avant / après"><div class="feedback"></div>
+  <div class="exercise" data-answer="마실까요">
+    <p>« On boit un café ? » → 커피 ______?</p>
+    <input class="answer"><div class="feedback"></div>
   </div>
-  <div class="exercise" data-answer="après">
-    <p><strong>조금 무서웠어요.</strong></p>
-    <input class="answer" placeholder="avant / après"><div class="feedback"></div>
+  <div class="exercise" data-answer="만날까요">
+    <p>« Où est-ce qu'on se retrouve ? » → 어디에서 ______?</p>
+    <input class="answer"><div class="feedback"></div>
+  </div>
+  <div class="exercise" data-answer="갈래요">
+    <p>« Tu veux venir avec nous ? » → 같이 ______?</p>
+    <input class="answer"><div class="feedback"></div>
   </div>
   <button id="checkAnswers" type="button" style="width:100%;margin-top:12px;">✅ Vérifier</button>
 </section>
 
 <section class="writing-card">
-  <h2>🌸 Exercice 3 — Traduis</h2>
-  <p>① Quel film veux-tu voir ?<br><strong>어떤 영화 보고 싶어요?</strong></p>
-  <p>② Je veux voir un film d'action.<br><strong>액션 영화 보고 싶어요.</strong></p>
-  <p>③ Ce film a l'air intéressant.<br><strong>이 영화는 재미있을 것 같아요.</strong></p>
-  <p>④ On prend la séance de quelle heure ?<br><strong>몇 시 영화 볼까요?</strong></p>
-  <p>⑤ Comment était le film ?<br><strong>영화 어땠어요?</strong></p>
-  <p>⑥ Il était vraiment intéressant.<br><strong>정말 재미있었어요.</strong></p>
-  <p>⑦ J'ai préféré la dernière scène.<br><strong>마지막 장면이 제일 좋았어요.</strong></p>
+  <h2>🌸 Exercice 2 — Accepte ou refuse</h2>
+  <p><strong>토요일에 영화 볼래요?</strong></p>
+  <p>Accepte : <strong>네, 좋아요!</strong></p>
+  <p>Refuse poliment : <strong>미안해요. 토요일에는 약속이 있어요.</strong></p>
+  <p>Propose une alternative : <strong>일요일은 어때요?</strong></p>
 </section>
 
 <section class="writing-card">
-  <h2>🎬 Mon film</h2>
-  <p>Écris 4 à 6 phrases sur un film que tu connais :</p>
-  <p>① le genre</p>
-  <p>② si tu l'as aimé</p>
-  <p>③ pourquoi</p>
-  <p>④ ta scène ou ton personnage préféré</p>
-  <p>⑤ une phrase d'opinion</p>
-  <textarea id="freeText" rows="11" placeholder="이 영화는..."></textarea>
+  <h2>💙 Exercice 3 — Traduis</h2>
+  <p>① Tu veux voir un film ?<br><strong>영화 볼래요?</strong></p>
+  <p>② On boit un café ?<br><strong>커피 마실까요?</strong></p>
+  <p>③ Samedi, ça me va.<br><strong>토요일 괜찮아요.</strong></p>
+  <p>④ À quelle heure on se retrouve ?<br><strong>몇 시에 만날까요?</strong></p>
+  <p>⑤ Où est-ce qu'on se retrouve ?<br><strong>어디에서 만날까요?</strong></p>
+  <p>⑥ Désolée, j'ai déjà quelque chose de prévu.<br><strong>미안해요. 약속이 있어요.</strong></p>
+  <p>⑦ Et dimanche ?<br><strong>일요일은 어때요?</strong></p>
+</section>
+
+<section class="writing-card">
+  <h2>🧩 Organise une sortie</h2>
+  <p>Écris une mini-conversation avec :</p>
+  <p>① une activité</p>
+  <p>② un jour</p>
+  <p>③ une heure</p>
+  <p>④ un lieu</p>
+  <p>⑤ une conclusion naturelle</p>
+  <textarea id="freeText" rows="11" placeholder="주말에 같이 뭐 할래요?&#10;..."></textarea>
 </section>
 
 <button id="completeButton" type="button" style="width:100%;">✅ J'ai terminé l'écriture</button>
@@ -97,8 +99,8 @@ if(!guard())throw new Error("chapter37-writing-guard");
 
 document.getElementById("checkAnswers").addEventListener("click",()=>{
   document.querySelectorAll(".exercise").forEach(ex=>{
-    const value=ex.querySelector(".answer").value.trim().toLowerCase();
-    const answer=ex.dataset.answer.toLowerCase();
+    const value=ex.querySelector(".answer").value.trim().replace(/\s+/g," ");
+    const answer=ex.dataset.answer.trim().replace(/\s+/g," ");
     ex.querySelector(".feedback").textContent=value===answer?"✅ Correct":"💙 Réponse : "+ex.dataset.answer;
   });
 });

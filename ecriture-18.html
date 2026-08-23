@@ -21,9 +21,9 @@
     href="style.css"
   >
 
-  <link rel="stylesheet" href="chapter-progress.css">
+    <link rel="stylesheet" href="chapter-progress.css">
 
-  <style>
+<style>
     .writing-header {
       text-align: center;
       margin-bottom: 28px;
@@ -282,8 +282,8 @@
     </h1>
 
     <p>
-      Écris les expressions utiles pour parler de tes goûts :
-      dire ce que tu aimes, ce que tu préfères, poser une question et exprimer une préférence négative.
+      Écris les expressions utiles pour le téléphone et Internet :
+      demander le Wi-Fi, parler de ta batterie, demander un chargeur et trouver où recharger.
     </p>
 
   </header>
@@ -301,12 +301,12 @@
     <br><br>
 
     Savoir écrire les expressions essentielles du chapitre :
-    <strong>커피를 좋아해요.</strong>,
-    <strong>뭐가 제일 좋아요?</strong>,
-    <strong>저는 음악을 제일 좋아해요.</strong>,
-    <strong>어떤 음악을 제일 좋아해요?</strong>,
-    <strong>안 좋아해요.</strong>
-    et <strong>왜요?</strong>.
+    <strong>와이파이 있어요?</strong>,
+    <strong>와이파이 비밀번호가 뭐예요?</strong>,
+    <strong>배터리가 없어요.</strong>,
+    <strong>충전기 있어요?</strong>,
+    <strong>어디에서 충전할 수 있어요?</strong>
+    et <strong>인터넷이 안 돼요.</strong>.
 
   </section>
 
@@ -341,7 +341,7 @@
     </div>
 
     <h2 id="stepTitle">
-      ☕ Dire ce qu'on aime
+      📶 Demander le Wi-Fi
     </h2>
 
     <div class="prompt-box">
@@ -350,14 +350,14 @@
         class="prompt-main"
         id="promptMain"
       >
-        Écris : « J'aime le café. »
+        Écris : « Il y a du Wi-Fi ? »
       </div>
 
       <div
         class="hint-line"
         id="promptHint"
       >
-        Utilise 커피를 + 좋아해요.
+        Utilise 와이파이 + 있어요?
       </div>
 
     </div>
@@ -434,7 +434,7 @@
   >
 
     <div class="result-icon">
-      ✍️❤️
+      ✍️📱
     </div>
 
     <h2>
@@ -455,33 +455,33 @@
       <div class="notion-list">
 
         <div class="notion-line">
-          ☕ <strong>커피를 좋아해요.</strong>
-          → J'aime le café.
+          📶 <strong>와이파이 있어요?</strong>
+          → Il y a du Wi-Fi ?
         </div>
 
         <div class="notion-line">
-          ❤️ <strong>뭐가 제일 좋아요?</strong>
-          → Qu'est-ce que tu préfères ?
+          🔐 <strong>와이파이 비밀번호가 뭐예요?</strong>
+          → Quel est le mot de passe du Wi-Fi ?
         </div>
 
         <div class="notion-line">
-          🌟 <strong>저는 음악을 제일 좋아해요.</strong>
-          → Ce que je préfère, c'est la musique.
+          🔋 <strong>배터리가 없어요.</strong>
+          → Je n'ai plus de batterie.
         </div>
 
         <div class="notion-line">
-          🎵 <strong>어떤 음악을 제일 좋아해요?</strong>
-          → Quelle musique préfères-tu ?
+          🔌 <strong>충전기 있어요?</strong>
+          → Vous avez un chargeur ?
         </div>
 
         <div class="notion-line">
-          🙂 <strong>안 좋아해요.</strong>
-          → Je n'aime pas / je n'aime pas trop.
+          ⚡ <strong>어디에서 충전할 수 있어요?</strong>
+          → Où est-ce que je peux recharger ?
         </div>
 
         <div class="notion-line">
-          ❓ <strong>왜요?</strong>
-          → Pourquoi ?
+          🌐 <strong>인터넷이 안 돼요.</strong>
+          → Internet ne fonctionne pas.
         </div>
 
       </div>
@@ -516,8 +516,7 @@
 <script src="chapter-progress.js"></script>
 
 <script>
-
-  const CHAPTER = 18;
+  const CHAPTER = 17;
 
   const UNDERSTANDING_KEY =
     "hanaKorean_chapter18_understanding";
@@ -538,20 +537,37 @@
     "hanaKorean_chapter18_revisionNotions";
 
   function guardWritingAccess() {
-    const required = [
-      [UNDERSTANDING_KEY, "chapitre-18.html"],
-      [LISTENING_EXERCISE_KEY, "ecoute-18.html"],
-      [SPEAKING_KEY, "parle-18.html"]
-    ];
+    if (
+      localStorage.getItem(
+        UNDERSTANDING_KEY
+      ) !== "completed"
+    ) {
+      window.location.replace(
+        "chapitre-18.html"
+      );
+      return false;
+    }
 
-    for (const item of required) {
-      if (
-        localStorage.getItem(item[0]) !==
-        "completed"
-      ) {
-        window.location.replace(item[1]);
-        return false;
-      }
+    if (
+      localStorage.getItem(
+        LISTENING_EXERCISE_KEY
+      ) !== "completed"
+    ) {
+      window.location.replace(
+        "ecoute-18.html"
+      );
+      return false;
+    }
+
+    if (
+      localStorage.getItem(
+        SPEAKING_KEY
+      ) !== "completed"
+    ) {
+      window.location.replace(
+        "parle-18.html"
+      );
+      return false;
     }
 
     return true;
@@ -566,76 +582,75 @@
     }
   }
 
-
-  const steps = [
+const steps = [
 
     {
-      title: "☕ Dire ce qu'on aime",
-      prompt: "Écris : « J'aime le café. »",
-      hint: "Utilise 커피를 + 좋아해요.",
+      title: "📶 Demander le Wi-Fi",
+      prompt: "Écris : « Il y a du Wi-Fi ? »",
+      hint: "Utilise 와이파이 + 있어요?",
       accepted: [
-        "커피를좋아해요",
-        "커피좋아해요"
+        "와이파이있어요"
       ],
-      answer: "커피를 좋아해요.",
-      notion: "좋아해요"
+      answer: "와이파이 있어요?",
+      notion: "와이파이 있어요?"
     },
 
     {
-      title: "❤️ Demander une préférence",
-      prompt: "Écris : « Qu'est-ce que tu préfères ? »",
-      hint: "Utilise 뭐가 + 제일 + 좋아요?",
+      title: "🔐 Demander le mot de passe",
+      prompt: "Écris : « Quel est le mot de passe du Wi-Fi ? »",
+      hint: "Utilise 와이파이 비밀번호가 + 뭐예요?",
       accepted: [
-        "뭐가제일좋아요"
+        "와이파이비밀번호가뭐예요"
       ],
-      answer: "뭐가 제일 좋아요?",
-      notion: "제일"
+      answer: "와이파이 비밀번호가 뭐예요?",
+      notion: "와이파이 / 비밀번호"
     },
 
     {
-      title: "🌟 Dire ce qu'on préfère",
-      prompt: "Écris : « Ce que je préfère, c'est la musique. »",
-      hint: "Utilise 저는 음악을 + 제일 좋아해요.",
+      title: "🔋 Plus de batterie",
+      prompt: "Écris : « Je n'ai plus de batterie. »",
+      hint: "Utilise 배터리가 + 없어요.",
       accepted: [
-        "저는음악을제일좋아해요",
-        "음악을제일좋아해요"
+        "배터리가없어요",
+        "배터리없어요"
       ],
-      answer: "저는 음악을 제일 좋아해요.",
-      notion: "저는 ○○를 제일 좋아해요"
+      answer: "배터리가 없어요.",
+      notion: "배터리가 없어요"
     },
 
     {
-      title: "🎵 Poser une question",
-      prompt: "Écris : « Quelle musique préfères-tu ? »",
-      hint: "Utilise 어떤 음악을 + 제일 좋아해요?",
+      title: "🔌 Demander un chargeur",
+      prompt: "Écris : « Vous avez un chargeur ? »",
+      hint: "Utilise 충전기 + 있어요?",
       accepted: [
-        "어떤음악을제일좋아해요",
-        "어떤음악제일좋아해요"
+        "충전기있어요"
       ],
-      answer: "어떤 음악을 제일 좋아해요?",
-      notion: "어떤 음악을 제일 좋아해요?"
+      answer: "충전기 있어요?",
+      notion: "충전기 있어요?"
     },
 
     {
-      title: "🙂 Dire qu'on n'aime pas",
-      prompt: "Écris : « Je n'aime pas / je n'aime pas trop. »",
-      hint: "Utilise 안 + 좋아해요.",
+      title: "⚡ Trouver où recharger",
+      prompt: "Écris : « Où est-ce que je peux recharger ? »",
+      hint: "Utilise 어디에서 + 충전할 수 있어요?",
       accepted: [
-        "안좋아해요"
+        "어디에서충전할수있어요",
+        "어디서충전할수있어요"
       ],
-      answer: "안 좋아해요.",
-      notion: "안 좋아해요"
+      answer: "어디에서 충전할 수 있어요?",
+      notion: "충전할 수 있어요"
     },
 
     {
-      title: "❓ Demander pourquoi",
-      prompt: "Écris : « Pourquoi ? »",
-      hint: "Une toute petite question : 왜요?",
+      title: "🌐 Signaler un problème",
+      prompt: "Écris : « Internet ne fonctionne pas. »",
+      hint: "Utilise 인터넷이 + 안 돼요.",
       accepted: [
-        "왜요"
+        "인터넷이안돼요",
+        "인터넷안돼요"
       ],
-      answer: "왜요?",
-      notion: "왜요?"
+      answer: "인터넷이 안 돼요.",
+      notion: "안 돼요"
     }
 
   ];
@@ -888,38 +903,38 @@
 
     if (currentStep === 0) {
       feedback.innerHTML =
-        "❌ <strong>Repère 좋아해요.</strong><br><br>" +
-        "Utilise <strong>커피를 좋아해요.</strong>.";
+        "❌ <strong>Repère 와이파이.</strong><br><br>" +
+        "Utilise <strong>와이파이 있어요?</strong> pour demander si le Wi-Fi est disponible.";
     }
 
     if (currentStep === 1) {
       feedback.innerHTML =
-        "❌ <strong>Repère 제일.</strong><br><br>" +
-        "La question attendue est <strong>뭐가 제일 좋아요?</strong>.";
+        "❌ <strong>Repère 비밀번호.</strong><br><br>" +
+        "La phrase attendue est <strong>와이파이 비밀번호가 뭐예요?</strong>.";
     }
 
     if (currentStep === 2) {
       feedback.innerHTML =
-        "❌ <strong>Utilise le modèle de préférence.</strong><br><br>" +
-        "Écris <strong>저는 음악을 제일 좋아해요.</strong>.";
+        "❌ <strong>Repère 없어요.</strong><br><br>" +
+        "Utilise <strong>배터리가 없어요.</strong> pour dire que tu n'as plus de batterie.";
     }
 
     if (currentStep === 3) {
       feedback.innerHTML =
-        "❌ <strong>Repère 어떤 음악.</strong><br><br>" +
-        "La phrase attendue est <strong>어떤 음악을 제일 좋아해요?</strong>.";
+        "❌ <strong>Repère 충전기.</strong><br><br>" +
+        "La question attendue est <strong>충전기 있어요?</strong>.";
     }
 
     if (currentStep === 4) {
       feedback.innerHTML =
-        "❌ <strong>Utilise la négation avec 안.</strong><br><br>" +
-        "Écris <strong>안 좋아해요.</strong>.";
+        "❌ <strong>Repère 어디에서 et 충전.</strong><br><br>" +
+        "Utilise <strong>어디에서 충전할 수 있어요?</strong>.";
     }
 
     if (currentStep === 5) {
       feedback.innerHTML =
-        "❌ <strong>C'est une toute petite question.</strong><br><br>" +
-        "Écris <strong>왜요?</strong>.";
+        "❌ <strong>Repère 안 돼요.</strong><br><br>" +
+        "La phrase attendue est <strong>인터넷이 안 돼요.</strong>.";
     }
 
 

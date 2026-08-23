@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,141 +8,861 @@
   <title>Chapitre 31 — J'écris</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="chapter-progress.css">
+
   <style>
-    .writing-card{padding:20px;margin-bottom:18px;background:var(--white);border-radius:var(--radius-large);box-shadow:var(--shadow);}
-    .exercise{padding:14px;margin-top:12px;background:#FBFAF6;border-radius:var(--radius-medium);}
-    input,textarea{width:100%;box-sizing:border-box;padding:12px;border:1px solid var(--border);border-radius:var(--radius-medium);font:inherit;margin-top:8px;}
-    .feedback{margin-top:8px;font-size:14px;}
+    .writing-header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .exercise-card,
+    .journal-card,
+    .tip-card {
+      padding: 20px;
+      margin-bottom: 18px;
+      background: var(--white);
+      border-radius: var(--radius-large);
+      box-shadow: var(--shadow);
+    }
+
+    .exercise {
+      padding: 16px;
+      margin-top: 14px;
+      background: #FBFAF6;
+      border-radius: var(--radius-medium);
+    }
+
+    .exercise-title {
+      margin-bottom: 10px;
+      color: var(--navy);
+      font-weight: bold;
+      line-height: 1.6;
+    }
+
+    .answer-input,
+    .journal-input {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 12px 14px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-medium);
+      background: white;
+      color: var(--text);
+      font: inherit;
+    }
+
+    .answer-input {
+      margin-top: 8px;
+    }
+
+    .journal-input {
+      min-height: 92px;
+      resize: vertical;
+      margin-top: 8px;
+    }
+
+    .check-button {
+      width: 100%;
+      margin-top: 10px;
+      background: var(--soft-blue);
+      color: var(--navy);
+      font-weight: bold;
+    }
+
+    .feedback {
+      display: none;
+      margin-top: 10px;
+      padding: 12px 14px;
+      border-radius: var(--radius-medium);
+      line-height: 1.6;
+    }
+
+    .feedback.show {
+      display: block;
+    }
+
+    .feedback.success {
+      background: var(--success-light);
+      color: var(--success);
+    }
+
+    .feedback.error {
+      background: var(--error-light);
+      color: var(--error);
+    }
+
+    .word-bank {
+      margin-top: 12px;
+      padding: 14px;
+      background: var(--soft-beige);
+      border-radius: var(--radius-medium);
+      line-height: 1.7;
+    }
+
+    .journal-example {
+      margin-top: 12px;
+      padding: 14px;
+      background: var(--soft-green);
+      border-radius: var(--radius-medium);
+      line-height: 1.7;
+    }
+
+    .complete-button,
+    .next-button,
+    .back-button {
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    .complete-button {
+      background: var(--jade);
+      color: white;
+      font-weight: bold;
+    }
+
+    .complete-button.done {
+      background: var(--success);
+    }
+
+    .next-button {
+      display: none;
+      background: var(--navy);
+      color: white;
+      font-weight: bold;
+    }
+
+    .back-button {
+      background: var(--soft-beige);
+      color: var(--navy);
+    }
   </style>
   <script src="profile.js"></script>
 </head>
+
 <body>
+
 <main class="app">
-<a class="back-link" href="parle-31.html">← Oral</a>
-<section id="hanaChapterPath" data-chapter-path></section>
 
-<header>
-  <span class="chapter-badge">Chapitre 31 · ✍️ J'écris</span>
-  <p class="korean">나의 습관</p>
-  <h1>Écrire sur tes habitudes</h1>
-  <p>Associe, complète, traduis et construis tes propres phrases.</p>
-</header>
+  <a class="back-link" href="parle-31.html">
+    ← Oral
+  </a>
 
-<section class="writing-card">
-  <h2>✍️ Exercice 1 — Associe</h2>
-  <p><strong>항상</strong> → toujours</p>
-  <p><strong>자주</strong> → souvent</p>
-  <p><strong>가끔</strong> → parfois</p>
-  <p><strong>보통</strong> → généralement</p>
-  <p><strong>거의 안</strong> → presque jamais</p>
-  <p><strong>전혀 안</strong> → jamais / pas du tout</p>
-</section>
+  <section id="hanaChapterPath" data-chapter-path></section>
 
-<section class="writing-card">
-  <h2>✍️ Exercice 2 — Complète</h2>
+  <header class="writing-header">
 
-  <div class="exercise" data-answer="항상">
-    <p>저는 ______ 커피를 마셔요.<br><small>Je bois toujours du café.</small></p>
-    <input type="text" class="answer">
-    <div class="feedback"></div>
-  </div>
+    <span class="chapter-badge">
+      Chapitre 31 · ✍️ J'écris
+    </span>
 
-  <div class="exercise" data-answer="자주">
-    <p>저는 ______ 영화를 봐요.<br><small>Je regarde souvent des films.</small></p>
-    <input type="text" class="answer">
-    <div class="feedback"></div>
-  </div>
+    <p class="korean">
+      내일 뭐 할 거예요? 🌸
+    </p>
 
-  <div class="exercise" data-answer="가끔">
-    <p>저는 ______ 운동해요.<br><small>Je fais parfois du sport.</small></p>
-    <input type="text" class="answer">
-    <div class="feedback"></div>
-  </div>
+    <h1>Écrire ses projets</h1>
 
-  <div class="exercise" data-answer="보통">
-    <p>저는 ______ 저녁에 공부해요.<br><small>Généralement, j'étudie le soir.</small></p>
-    <input type="text" class="answer">
-    <div class="feedback"></div>
-  </div>
+    <p>
+      Transforme les verbes, traduis quelques phrases
+      puis écris ton propre programme pour demain.
+    </p>
 
-  <button id="checkAnswers" type="button" style="width:100%;margin-top:12px;">✅ Vérifier</button>
-</section>
+  </header>
 
-<section class="writing-card">
-  <h2>🌸 Exercice 3 — Traduis</h2>
-  <p>① J'étudie le coréen tous les jours.<br><strong>매일 한국어를 공부해요.</strong></p>
-  <p>② Je bois souvent du café.<br><strong>커피를 자주 마셔요.</strong></p>
-  <p>③ Je fais parfois du sport.<br><strong>가끔 운동해요.</strong></p>
-  <p>④ Je lis généralement le soir.<br><strong>보통 저녁에 책을 읽어요.</strong></p>
-  <p>⑤ Je ne bois jamais de café.<br><strong>커피를 전혀 안 마셔요.</strong></p>
-</section>
 
-<section class="writing-card">
-  <h2>🧠 Exercice 4 — Remets dans l'ordre</h2>
-  <p>커피를 / 자주 / 마셔요 → <strong>커피를 자주 마셔요.</strong></p>
-  <p>한국어를 / 매일 / 공부해요 → <strong>한국어를 매일 공부해요.</strong></p>
-  <p>운동해요 / 가끔 → <strong>가끔 운동해요.</strong></p>
-  <p>집에서 / 보통 / 쉬어요 → <strong>보통 집에서 쉬어요.</strong></p>
-</section>
+  <section class="exercise-card">
 
-<section class="writing-card">
-  <h2>🌸 Ma vie en coréen</h2>
-  <p>Écris au moins cinq phrases sur tes habitudes. Essaie d'utiliser <strong>매일, 자주, 가끔</strong> et <strong>보통</strong>.</p>
-  <textarea id="freeText" rows="8" placeholder="매일..."></textarea>
-</section>
+    <h2>✍️ Exercice 1 — Transforme</h2>
 
-<button id="completeButton" type="button" style="width:100%;">✅ J'ai terminé l'écriture</button>
-<button id="nextButton" type="button" style="display:none;width:100%;">🧠 Passer à la révision</button>
+    <p>
+      Écris chaque verbe avec
+      <strong>-(으)ㄹ 거예요</strong>.
+    </p>
+
+
+    <div class="exercise" data-answer="갈 거예요">
+
+      <div class="exercise-title">
+        ① 가다
+      </div>
+
+      <input
+        class="answer-input"
+        type="text"
+        lang="ko"
+        autocapitalize="off"
+        autocomplete="off"
+        spellcheck="false"
+        placeholder="Écris en coréen"
+      >
+
+      <button
+        class="check-button"
+        type="button"
+      >
+        Vérifier
+      </button>
+
+      <div class="feedback"></div>
+
+    </div>
+
+
+    <div class="exercise" data-answer="먹을 거예요">
+
+      <div class="exercise-title">
+        ② 먹다
+      </div>
+
+      <input
+        class="answer-input"
+        type="text"
+        lang="ko"
+        autocapitalize="off"
+        autocomplete="off"
+        spellcheck="false"
+        placeholder="Écris en coréen"
+      >
+
+      <button class="check-button" type="button">
+        Vérifier
+      </button>
+
+      <div class="feedback"></div>
+
+    </div>
+
+
+    <div class="exercise" data-answer="볼 거예요">
+
+      <div class="exercise-title">
+        ③ 보다
+      </div>
+
+      <input
+        class="answer-input"
+        type="text"
+        lang="ko"
+        autocapitalize="off"
+        autocomplete="off"
+        spellcheck="false"
+        placeholder="Écris en coréen"
+      >
+
+      <button class="check-button" type="button">
+        Vérifier
+      </button>
+
+      <div class="feedback"></div>
+
+    </div>
+
+
+    <div class="exercise" data-answer="마실 거예요">
+
+      <div class="exercise-title">
+        ④ 마시다
+      </div>
+
+      <input
+        class="answer-input"
+        type="text"
+        lang="ko"
+        autocapitalize="off"
+        autocomplete="off"
+        spellcheck="false"
+        placeholder="Écris en coréen"
+      >
+
+      <button class="check-button" type="button">
+        Vérifier
+      </button>
+
+      <div class="feedback"></div>
+
+    </div>
+
+
+    <div class="exercise" data-answer="쉴 거예요">
+
+      <div class="exercise-title">
+        ⑤ 쉬다
+      </div>
+
+      <input
+        class="answer-input"
+        type="text"
+        lang="ko"
+        autocapitalize="off"
+        autocomplete="off"
+        spellcheck="false"
+        placeholder="Écris en coréen"
+      >
+
+      <button class="check-button" type="button">
+        Vérifier
+      </button>
+
+      <div class="feedback"></div>
+
+    </div>
+
+
+    <div class="exercise" data-answer="공부할 거예요">
+
+      <div class="exercise-title">
+        ⑥ 공부하다
+      </div>
+
+      <input
+        class="answer-input"
+        type="text"
+        lang="ko"
+        autocapitalize="off"
+        autocomplete="off"
+        spellcheck="false"
+        placeholder="Écris en coréen"
+      >
+
+      <button class="check-button" type="button">
+        Vérifier
+      </button>
+
+      <div class="feedback"></div>
+
+    </div>
+
+  </section>
+
+
+  <section class="exercise-card">
+
+    <h2>✍️ Exercice 2 — Traduis</h2>
+
+
+    <div
+      class="exercise"
+      data-answers="부산에 갈 거예요"
+    >
+
+      <div class="exercise-title">
+        ① Je vais aller à Busan.
+      </div>
+
+      <input
+        class="answer-input"
+        type="text"
+        lang="ko"
+        autocapitalize="off"
+        autocomplete="off"
+        spellcheck="false"
+        placeholder="Écris en coréen"
+      >
+
+      <button class="check-button" type="button">
+        Vérifier
+      </button>
+
+      <div class="feedback"></div>
+
+    </div>
+
+
+    <div
+      class="exercise"
+      data-answers="먹을 거예요"
+    >
+
+      <div class="exercise-title">
+        ② Je vais manger.
+      </div>
+
+      <input
+        class="answer-input"
+        type="text"
+        lang="ko"
+        autocapitalize="off"
+        autocomplete="off"
+        spellcheck="false"
+        placeholder="Écris en coréen"
+      >
+
+      <button class="check-button" type="button">
+        Vérifier
+      </button>
+
+      <div class="feedback"></div>
+
+    </div>
+
+
+    <div
+      class="exercise"
+      data-answers="사진을 찍을 거예요|사진을 많이 찍을 거예요"
+    >
+
+      <div class="exercise-title">
+        ③ Je vais prendre des photos.
+      </div>
+
+      <input
+        class="answer-input"
+        type="text"
+        lang="ko"
+        autocapitalize="off"
+        autocomplete="off"
+        spellcheck="false"
+        placeholder="Écris en coréen"
+      >
+
+      <button class="check-button" type="button">
+        Vérifier
+      </button>
+
+      <div class="feedback"></div>
+
+    </div>
+
+
+    <div
+      class="exercise"
+      data-answers="호텔에서 쉴 거예요"
+    >
+
+      <div class="exercise-title">
+        ④ Je vais me reposer à l'hôtel.
+      </div>
+
+      <input
+        class="answer-input"
+        type="text"
+        lang="ko"
+        autocapitalize="off"
+        autocomplete="off"
+        spellcheck="false"
+        placeholder="Écris en coréen"
+      >
+
+      <button class="check-button" type="button">
+        Vérifier
+      </button>
+
+      <div class="feedback"></div>
+
+    </div>
+
+
+    <div
+      class="exercise"
+      data-answers="내일 서울에 돌아갈 거예요|서울에 내일 돌아갈 거예요"
+    >
+
+      <div class="exercise-title">
+        ⑤ Je vais retourner à Séoul demain.
+      </div>
+
+      <input
+        class="answer-input"
+        type="text"
+        lang="ko"
+        autocapitalize="off"
+        autocomplete="off"
+        spellcheck="false"
+        placeholder="Écris en coréen"
+      >
+
+      <button class="check-button" type="button">
+        Vérifier
+      </button>
+
+      <div class="feedback"></div>
+
+    </div>
+
+
+    <div
+      class="exercise"
+      data-answers="내일 뭐 할 거예요"
+    >
+
+      <div class="exercise-title">
+        ⑥ Qu'est-ce que tu vas faire demain ?
+      </div>
+
+      <input
+        class="answer-input"
+        type="text"
+        lang="ko"
+        autocapitalize="off"
+        autocomplete="off"
+        spellcheck="false"
+        placeholder="Écris en coréen"
+      >
+
+      <button class="check-button" type="button">
+        Vérifier
+      </button>
+
+      <div class="feedback"></div>
+
+    </div>
+
+  </section>
+
+
+  <section class="exercise-card">
+
+    <h2>✍️ Exercice 3 — Complète</h2>
+
+    <div class="word-bank">
+      <strong>Mots à utiliser :</strong><br>
+      갈 거예요 · 먹을 거예요 · 찍을 거예요 · 쉴 거예요
+    </div>
+
+
+    <div class="exercise" data-answer="갈 거예요">
+
+      <div class="exercise-title">
+        ① 해운대에 ________.<br>
+        <small>Je vais aller à Haeundae.</small>
+      </div>
+
+      <input
+        class="answer-input"
+        type="text"
+        lang="ko"
+        autocapitalize="off"
+        autocomplete="off"
+        spellcheck="false"
+      >
+
+      <button class="check-button" type="button">
+        Vérifier
+      </button>
+
+      <div class="feedback"></div>
+
+    </div>
+
+
+    <div class="exercise" data-answer="찍을 거예요">
+
+      <div class="exercise-title">
+        ② 사진을 많이 ________.<br>
+        <small>Je vais prendre beaucoup de photos.</small>
+      </div>
+
+      <input
+        class="answer-input"
+        type="text"
+        lang="ko"
+        autocapitalize="off"
+        autocomplete="off"
+        spellcheck="false"
+      >
+
+      <button class="check-button" type="button">
+        Vérifier
+      </button>
+
+      <div class="feedback"></div>
+
+    </div>
+
+
+    <div class="exercise" data-answer="먹을 거예요">
+
+      <div class="exercise-title">
+        ③ 맛있는 음식을 ________.<br>
+        <small>Je vais manger quelque chose de délicieux.</small>
+      </div>
+
+      <input
+        class="answer-input"
+        type="text"
+        lang="ko"
+        autocapitalize="off"
+        autocomplete="off"
+        spellcheck="false"
+      >
+
+      <button class="check-button" type="button">
+        Vérifier
+      </button>
+
+      <div class="feedback"></div>
+
+    </div>
+
+
+    <div class="exercise" data-answer="쉴 거예요">
+
+      <div class="exercise-title">
+        ④ 호텔에서 ________.<br>
+        <small>Je vais me reposer à l'hôtel.</small>
+      </div>
+
+      <input
+        class="answer-input"
+        type="text"
+        lang="ko"
+        autocapitalize="off"
+        autocomplete="off"
+        spellcheck="false"
+      >
+
+      <button class="check-button" type="button">
+        Vérifier
+      </button>
+
+      <div class="feedback"></div>
+
+    </div>
+
+  </section>
+
+
+  <section class="journal-card">
+
+    <h2>📝 Mon carnet de voyage</h2>
+
+    <p>
+      Imagine que tu es encore à Busan.
+      Écris ton programme pour demain.
+    </p>
+
+    <div class="journal-example">
+      <strong>🌸 내일의 계획 — Mon programme de demain</strong><br><br>
+      Tu peux utiliser :<br>
+      갈 거예요 · 먹을 거예요 · 볼 거예요 · 마실 거예요 ·
+      찍을 거예요 · 쉴 거예요 · 만날 거예요
+    </div>
+
+    <label>
+      <strong>1.</strong>
+      <textarea class="journal-input" placeholder="내일..."></textarea>
+    </label>
+
+    <label>
+      <strong>2.</strong>
+      <textarea class="journal-input" placeholder="내일..."></textarea>
+    </label>
+
+    <label>
+      <strong>3.</strong>
+      <textarea class="journal-input" placeholder="내일..."></textarea>
+    </label>
+
+    <label>
+      <strong>4.</strong>
+      <textarea class="journal-input" placeholder="내일..."></textarea>
+    </label>
+
+  </section>
+
+
+  <section class="tip-card">
+
+    <h2>💚 Conseil de Ji-soo</h2>
+
+    Quand tu écris une phrase sur ton futur,
+    commence par choisir :
+
+    <br><br>
+
+    <strong>1. Quand ?</strong>
+    → 오늘, 내일, 다음 주…
+
+    <br><br>
+
+    <strong>2. Quoi ?</strong>
+    → 가다, 먹다, 보다, 쉬다…
+
+    <br><br>
+
+    <strong>3. Transforme le verbe</strong>
+    → 갈 거예요, 먹을 거예요, 볼 거예요…
+
+  </section>
+
+
+  <button
+    class="complete-button"
+    id="completeButton"
+    type="button"
+  >
+    ✅ J'ai terminé l'écriture
+  </button>
+
+
+  <button
+    class="next-button"
+    id="nextButton"
+    type="button"
+  >
+    🧠 Passer à la révision
+  </button>
+
+
+  <button
+    class="back-button"
+    type="button"
+    onclick="window.location.href='parle-31.html'"
+  >
+    ← Retour à l'oral
+  </button>
+
 </main>
 
-<script src="chapter-progress.js"></script>
-<script>
-const SPEAKING_KEY="hanaKorean_chapter31_speaking";
-const WRITING_KEY="hanaKorean_chapter31_writing";
-const FREE_KEY="hanaKorean_chapter31_writingFree";
-const completeButton=document.getElementById("completeButton");
-const nextButton=document.getElementById("nextButton");
-const freeText=document.getElementById("freeText");
 
-function guard(){
-  if(localStorage.getItem(SPEAKING_KEY)!=="completed"){
-    window.location.href="parle-31.html";
+<script src="chapter-progress.js"></script>
+
+<script>
+const UNDERSTANDING_KEY = "hanaKorean_chapter31_understanding";
+const LISTENING_EXERCISE_KEY = "hanaKorean_chapter31_listeningExercise";
+const SPEAKING_KEY = "hanaKorean_chapter31_speaking";
+const WRITING_KEY = "hanaKorean_chapter31_writing";
+const MISTAKES_KEY = "hanaKorean_chapter31_writingMistakes";
+const REVISION_NOTIONS_KEY = "hanaKorean_chapter31_revisionNotions";
+const JOURNAL_KEY = "hanaKorean_chapter31_writingJournal";
+
+function guardWritingPage() {
+  if (localStorage.getItem(UNDERSTANDING_KEY) !== "completed") {
+    window.location.href = "chapitre-31.html";
+    return false;
+  }
+  if (localStorage.getItem(LISTENING_EXERCISE_KEY) !== "completed") {
+    window.location.href = "exercice-ecoute-32.html";
+    return false;
+  }
+  if (localStorage.getItem(SPEAKING_KEY) !== "completed") {
+    window.location.href = "parle-31.html";
     return false;
   }
   return true;
 }
-if(!guard()) throw new Error("chapter31-writing-guard");
 
-document.getElementById("checkAnswers").addEventListener("click",()=>{
-  document.querySelectorAll(".exercise").forEach(ex=>{
-    const input=ex.querySelector(".answer");
-    const value=input.value.replace(/\s+/g,"").trim();
-    const answer=ex.dataset.answer.replace(/\s+/g,"");
-    const fb=ex.querySelector(".feedback");
-    fb.textContent=value===answer ? "✅ Correct" : "💙 Réponse : "+ex.dataset.answer;
+if (!guardWritingPage()) throw new Error("chapter31-writing-guard");
+
+const completeButton = document.getElementById("completeButton");
+const nextButton = document.getElementById("nextButton");
+const exercises = Array.from(document.querySelectorAll(".exercise"));
+const journalInputs = Array.from(document.querySelectorAll(".journal-input"));
+let mistakes = Number(localStorage.getItem(MISTAKES_KEY) || 0);
+const weakNotions = new Set(
+  (localStorage.getItem(REVISION_NOTIONS_KEY) || "")
+    .split("|")
+    .map(item => item.trim())
+    .filter(Boolean)
+);
+
+function normalizeAnswer(value) {
+  return value
+    .trim()
+    .replace(/[.!?！？。,，]/g, "")
+    .replace(/\s+/g, "");
+}
+
+function saveJournal() {
+  localStorage.setItem(JOURNAL_KEY, JSON.stringify(journalInputs.map(input => input.value)));
+}
+
+function restoreJournal() {
+  try {
+    const saved = JSON.parse(localStorage.getItem(JOURNAL_KEY) || "[]");
+    journalInputs.forEach((input, index) => {
+      if (typeof saved[index] === "string") input.value = saved[index];
+    });
+  } catch (error) {}
+}
+
+function completedExerciseCount() {
+  return exercises.filter(exercise => exercise.dataset.done === "true").length;
+}
+
+function updateCompletionAvailability() {
+  if (localStorage.getItem(WRITING_KEY) === "completed" || completedExerciseCount() === exercises.length) {
+    completeButton.style.display = "block";
+  } else {
+    completeButton.style.display = "none";
+  }
+}
+
+exercises.forEach(exercise => {
+  const input = exercise.querySelector(".answer-input");
+  const button = exercise.querySelector(".check-button");
+  const feedback = exercise.querySelector(".feedback");
+  const rawAnswers = exercise.dataset.answers || exercise.dataset.answer || "";
+  const acceptedAnswers = rawAnswers.split("|").map(normalizeAnswer).filter(Boolean);
+  const notion = rawAnswers.split("|")[0].trim();
+
+  button.addEventListener("click", () => {
+    if (exercise.dataset.done === "true") return;
+    const userAnswer = normalizeAnswer(input.value);
+    if (!userAnswer) {
+      feedback.className = "feedback show error";
+      feedback.textContent = "Écris d'abord une réponse en coréen.";
+      return;
+    }
+
+    if (acceptedAnswers.includes(userAnswer)) {
+      exercise.dataset.done = "true";
+      feedback.className = "feedback show success";
+      feedback.innerHTML = "✅ Très bien ! <strong>" + rawAnswers.split("|")[0].trim() + "</strong>";
+      button.disabled = true;
+      updateCompletionAvailability();
+    } else {
+      mistakes++;
+      if (notion) weakNotions.add(notion);
+      feedback.className = "feedback show error";
+      if (userAnswer.includes(normalizeAnswer("거예요"))) {
+        feedback.innerHTML = "Tu as bien pensé à <strong>거예요</strong> 💙 Vérifie maintenant la forme du verbe juste avant.";
+      } else {
+        feedback.innerHTML = "Pas encore. Pour parler d'un projet, la phrase doit se terminer par <strong>-(으)ㄹ 거예요</strong>. Réessaie.";
+      }
+    }
+  });
+
+  input.addEventListener("keydown", event => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      button.click();
+    }
   });
 });
 
-freeText.value=localStorage.getItem(FREE_KEY)||"";
-freeText.addEventListener("input",()=>localStorage.setItem(FREE_KEY,freeText.value));
+journalInputs.forEach(input => input.addEventListener("input", saveJournal));
+restoreJournal();
 
-function refresh(){
-  if(localStorage.getItem(WRITING_KEY)==="completed"){
-    completeButton.textContent="✅ Écriture terminée";
-    completeButton.disabled=true;
-    nextButton.style.display="block";
-  }
-  if(window.HanaChapterProgress)HanaChapterProgress.render();
+function showCompletedState() {
+  completeButton.style.display = "block";
+  completeButton.textContent = "✅ Écriture terminée";
+  completeButton.classList.add("done");
+  completeButton.disabled = true;
+  nextButton.style.display = "block";
 }
 
-completeButton.addEventListener("click",()=>{
-  localStorage.setItem(FREE_KEY,freeText.value);
-  localStorage.setItem(WRITING_KEY,"completed");
-  refresh();
+if (localStorage.getItem(WRITING_KEY) === "completed") showCompletedState();
+else updateCompletionAvailability();
+
+completeButton.addEventListener("click", () => {
+  if (completedExerciseCount() !== exercises.length && localStorage.getItem(WRITING_KEY) !== "completed") return;
+  saveJournal();
+  localStorage.setItem(WRITING_KEY, "completed");
+  localStorage.setItem(MISTAKES_KEY, String(mistakes));
+  localStorage.setItem(REVISION_NOTIONS_KEY, Array.from(weakNotions).join("|"));
+  showCompletedState();
+  if (window.HanaChapterProgress) HanaChapterProgress.render();
 });
-nextButton.addEventListener("click",()=>window.location.href="revision-31.html");
-window.addEventListener("pageshow",()=>{if(guard())refresh();});
-refresh();
+
+nextButton.addEventListener("click", () => { window.location.href = "revision-31.html"; });
+window.addEventListener("pageshow", () => {
+  if (!guardWritingPage()) return;
+  restoreJournal();
+  if (localStorage.getItem(WRITING_KEY) === "completed") showCompletedState();
+  else updateCompletionAvailability();
+  if (window.HanaChapterProgress) HanaChapterProgress.render();
+});
+if (window.HanaChapterProgress) HanaChapterProgress.render();
 </script>
 </body>
 </html>

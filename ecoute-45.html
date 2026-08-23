@@ -1,0 +1,38 @@
+<!DOCTYPE html><html lang="fr"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#F7F4ED">
+<title>Chapitre 45 — J'écoute</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="chapter-progress.css">
+<style>.note{padding:14px;margin:10px 0;background:#FBFAF6;border-radius:var(--radius-medium)}button{width:100%}</style>
+<script src="profile.js"></script>
+</head><body><main class="app">
+<a class="back-link" href="chapitre-45.html">← Chapitre 45</a>
+<section id="hanaChapterPath" data-chapter-path></section>
+<header><span class="chapter-badge">Chapitre 45 · 🎧 J'écoute</span><h1>Écouter ce qu’on peut faire</h1></header>
+<section class="card">
+<div class="note"><strong>제가 할 수 있어요?</strong><br><small>Est-ce que je peux le faire ? / Est-ce que j’en suis capable ?</small></div>
+<div class="note"><strong>한글을 읽을 수 있어요.</strong><br><small>Je peux lire le hangeul.</small></div>
+<div class="note"><strong>한국어도 조금 말할 수 있어요.</strong><br><small>Je peux aussi parler un peu coréen.</small></div>
+<div class="note"><strong>아직 빨리 말할 수 없어요.</strong><br><small>Je ne peux pas encore parler rapidement.</small></div>
+<div class="note"><strong>모르면 저한테 물어볼 수 있어요.</strong><br><small>Si tu ne sais pas, tu peux me demander.</small></div>
+<div class="note"><strong>요리할 수 있어요?</strong><br><small>Tu sais cuisiner ?</small></div>
+<button id="listen">🎧 Écouter</button>
+</section>
+<button id="done">✅ J'ai écouté</button>
+<button id="next" style="display:none">🧠 Exercice d'écoute</button>
+</main>
+<script src="chapter-progress.js"></script>
+<script>
+const P="hanaKorean_chapter45_understanding",K="hanaKorean_chapter45_listening";
+if(localStorage.getItem(P)!=="completed")location.href="chapitre-45.html";
+function speak(t){if(!("speechSynthesis" in window))return;const u=new SpeechSynthesisUtterance(HanaProfile.replacePerson(t));u.lang="ko-KR";u.rate=.82;speechSynthesis.cancel();speechSynthesis.speak(u)}
+document.getElementById("listen").onclick=()=>speak("제가 할 수 있어요? 한글을 읽을 수 있어요. 한국어도 조금 말할 수 있어요. 아직 빨리 말할 수 없어요. 모르면 저한테 물어볼 수 있어요. 요리할 수 있어요?");
+const d=document.getElementById("done"),n=document.getElementById("next");
+function r(){if(localStorage.getItem(K)==="completed"){d.disabled=true;n.style.display="block"}if(window.HanaChapterProgress)HanaChapterProgress.render()}
+d.onclick=()=>{localStorage.setItem(K,"completed");r()};
+n.onclick=()=>location.href="exercice-ecoute-46.html";
+r();
+</script>
+</body></html>

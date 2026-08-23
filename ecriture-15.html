@@ -78,7 +78,7 @@
     }
 
     .progress-fill {
-      width: 16.6667%;
+      width: 20%;
       height: 100%;
       background: var(--jade);
       border-radius: 20px;
@@ -285,8 +285,8 @@
     </h1>
 
     <p>
-      Écris les expressions utiles pour commander au restaurant,
-      demander une recommandation, préciser une restriction alimentaire et demander l'addition.
+      Écris les expressions utiles pour commander dans un café,
+      choisir chaud ou froid, emporter ta boisson et payer.
     </p>
 
   </header>
@@ -305,12 +305,11 @@
     <br><br>
 
     Savoir écrire les expressions essentielles du chapitre :
-    <strong>메뉴 주세요.</strong>,
-    <strong>추천해 주세요.</strong>,
-    <strong>돼지고기를 안 먹어요.</strong>,
-    <strong>많이 매워요?</strong>,
-    <strong>비빔밥 하나 주세요.</strong>
-    et <strong>계산해 주세요.</strong>.
+    <strong>커피 한 잔 주세요.</strong>,
+    <strong>뜨거운 커피 주세요.</strong>,
+    <strong>포장해 주세요.</strong>,
+    <strong>카드로 할게요.</strong>
+    et <strong>정말 맛있어요!</strong>.
 
   </section>
 
@@ -319,7 +318,7 @@
 
     <div class="progress-info">
       <span>Expression écrite</span>
-      <span id="progressLabel">1 / 6</span>
+      <span id="progressLabel">1 / 5</span>
     </div>
 
     <div class="progress-bar">
@@ -341,11 +340,11 @@
       class="step-label"
       id="stepLabel"
     >
-      Étape 1 / 6
+      Étape 1 / 5
     </div>
 
     <h2 id="stepTitle">
-      📖 Demander le menu
+      ☕ Commander un café
     </h2>
 
     <div class="prompt-box">
@@ -354,14 +353,14 @@
         class="prompt-main"
         id="promptMain"
       >
-        Écris : « Le menu, s'il vous plaît. »
+        Écris : « Un café, s'il vous plaît. »
       </div>
 
       <div
         class="hint-line"
         id="promptHint"
       >
-        Utilise 메뉴 + 주세요.
+        Utilise 커피 + 한 잔 + 주세요.
       </div>
 
     </div>
@@ -438,7 +437,7 @@
   >
 
     <div class="result-icon">
-      ✍️🍜
+      ✍️☕
     </div>
 
     <h2>
@@ -459,33 +458,28 @@
       <div class="notion-list">
 
         <div class="notion-line">
-          📖 <strong>메뉴 주세요.</strong>
-          → Le menu, s'il vous plaît.
+          ☕ <strong>커피 한 잔 주세요.</strong>
+          → Un café, s'il vous plaît.
         </div>
 
         <div class="notion-line">
-          ⭐ <strong>추천해 주세요.</strong>
-          → Recommandez-moi quelque chose, s'il vous plaît.
+          🔥 <strong>뜨거운 커피 주세요.</strong>
+          → Un café chaud, s'il vous plaît.
         </div>
 
         <div class="notion-line">
-          🐷 <strong>돼지고기를 안 먹어요.</strong>
-          → Je ne mange pas de porc.
+          🥤 <strong>포장해 주세요.</strong>
+          → À emporter, s'il vous plaît.
         </div>
 
         <div class="notion-line">
-          🌶️ <strong>많이 매워요?</strong>
-          → C'est très épicé ?
+          💳 <strong>카드로 할게요.</strong>
+          → Je vais payer par carte.
         </div>
 
         <div class="notion-line">
-          🍚 <strong>비빔밥 하나 주세요.</strong>
-          → Un bibimbap, s'il vous plaît.
-        </div>
-
-        <div class="notion-line">
-          💳 <strong>계산해 주세요.</strong>
-          → L'addition, s'il vous plaît.
+          😋 <strong>정말 맛있어요!</strong>
+          → C'est vraiment délicieux !
         </div>
 
       </div>
@@ -520,7 +514,7 @@
 <script src="chapter-progress.js"></script>
 
 <script>
-  const CHAPTER = 15;
+  const CHAPTER = 14;
 
   const UNDERSTANDING_KEY =
     "hanaKorean_chapter15_understanding";
@@ -584,7 +578,8 @@
 
     if (
       window.HanaChapterProgress &&
-      typeof window.HanaChapterProgress.render === "function"
+      typeof window.HanaChapterProgress.render ===
+        "function"
     ) {
       window.HanaChapterProgress.render();
     }
@@ -594,70 +589,58 @@
   const steps = [
 
     {
-      title: "📖 Demander le menu",
-      prompt: "Écris : « Le menu, s'il vous plaît. »",
-      hint: "Utilise 메뉴 + 주세요.",
+      title: "☕ Commander un café",
+      prompt: "Écris : « Un café, s'il vous plaît. »",
+      hint: "Utilise 커피 + 한 잔 + 주세요.",
       accepted: [
-        "메뉴주세요"
+        "커피한잔주세요"
       ],
-      answer: "메뉴 주세요.",
-      notion: "메뉴 / 주세요"
+      answer: "커피 한 잔 주세요.",
+      notion: "한 잔 / 주세요"
     },
 
     {
-      title: "⭐ Demander une recommandation",
-      prompt: "Écris : « Recommandez-moi quelque chose, s'il vous plaît. »",
-      hint: "Utilise 추천해 주세요.",
+      title: "🔥 Commander chaud",
+      prompt: "Écris : « Un café chaud, s'il vous plaît. »",
+      hint: "Utilise 뜨거운 커피 + 주세요.",
       accepted: [
-        "추천해주세요"
+        "뜨거운커피주세요"
       ],
-      answer: "추천해 주세요.",
-      notion: "추천해 주세요"
+      answer: "뜨거운 커피 주세요.",
+      notion: "뜨거운"
     },
 
     {
-      title: "🐷 Préciser une restriction alimentaire",
-      prompt: "Écris : « Je ne mange pas de porc. »",
-      hint: "Utilise 돼지고기를 + 안 먹어요.",
+      title: "🥤 À emporter",
+      prompt: "Écris : « À emporter, s'il vous plaît. »",
+      hint: "Utilise 포장해 주세요.",
       accepted: [
-        "돼지고기를안먹어요",
-        "돼지고기안먹어요"
+        "포장해주세요"
       ],
-      answer: "돼지고기를 안 먹어요.",
-      notion: "돼지고기 / 안 먹어요"
+      answer: "포장해 주세요.",
+      notion: "포장"
     },
 
     {
-      title: "🌶️ Demander si c'est épicé",
-      prompt: "Écris : « C'est très épicé ? »",
-      hint: "Utilise 많이 + 매워요?",
+      title: "💳 Payer par carte",
+      prompt: "Écris : « Je vais payer par carte. »",
+      hint: "Utilise 카드로 + 할게요.",
       accepted: [
-        "많이매워요"
+        "카드로할게요"
       ],
-      answer: "많이 매워요?",
-      notion: "많이 매워요?"
+      answer: "카드로 할게요.",
+      notion: "카드로 할게요"
     },
 
     {
-      title: "🍚 Commander un plat",
-      prompt: "Écris : « Un bibimbap, s'il vous plaît. »",
-      hint: "Utilise 비빔밥 + 하나 + 주세요.",
+      title: "😋 Dire que c'est délicieux",
+      prompt: "Écris : « C'est vraiment délicieux ! »",
+      hint: "Utilise 정말 + 맛있어요.",
       accepted: [
-        "비빔밥하나주세요"
+        "정말맛있어요"
       ],
-      answer: "비빔밥 하나 주세요.",
-      notion: "하나 / 주세요"
-    },
-
-    {
-      title: "💳 Demander l'addition",
-      prompt: "Écris : « L'addition, s'il vous plaît. »",
-      hint: "Utilise 계산해 주세요.",
-      accepted: [
-        "계산해주세요"
-      ],
-      answer: "계산해 주세요.",
-      notion: "계산해 주세요"
+      answer: "정말 맛있어요!",
+      notion: "맛있어요"
     }
 
   ];
@@ -673,7 +656,7 @@
 
     return text
       .replace(/[.,!?~…'"]/g, "")
-      .replace(/\s+/g, "")
+      .replace(/\s+/g, " ")
       .trim();
 
   }
@@ -911,66 +894,41 @@
     if (
       currentStep === 0
     ) {
-
       feedback.innerHTML =
         "❌ <strong>Pas encore.</strong><br><br>" +
-        "Utilise <strong>메뉴</strong> puis ajoute <strong>주세요</strong>.";
-
+        "Commence par <strong>커피</strong>, ajoute <strong>한 잔</strong>, puis termine avec <strong>주세요</strong>.";
     }
-
 
     if (
       currentStep === 1
     ) {
-
       feedback.innerHTML =
-        "❌ <strong>Repère l'expression de recommandation.</strong><br><br>" +
-        "La formule attendue est <strong>추천해 주세요.</strong>";
-
+        "❌ <strong>Regarde le mot « chaud ».</strong><br><br>" +
+        "Pour commander un café chaud, commence par <strong>뜨거운 커피</strong>, puis ajoute <strong>주세요</strong>.";
     }
-
 
     if (
       currentStep === 2
     ) {
-
       feedback.innerHTML =
-        "❌ <strong>Attention à la négation.</strong><br><br>" +
-        "Commence par <strong>돼지고기를</strong> puis ajoute <strong>안 먹어요</strong>.";
-
+        "❌ <strong>Repère l'expression pour « à emporter ».</strong><br><br>" +
+        "Utilise <strong>포장해 주세요.</strong> comme un bloc pratique.";
     }
-
 
     if (
       currentStep === 3
     ) {
-
       feedback.innerHTML =
-        "❌ <strong>Réessaie.</strong><br><br>" +
-        "Pour demander si c'est très épicé, utilise <strong>많이 매워요?</strong>";
-
+        "❌ <strong>Attention au paiement.</strong><br><br>" +
+        "Pour dire « Je vais payer par carte », utilise <strong>카드로 할게요.</strong>";
     }
-
 
     if (
       currentStep === 4
     ) {
-
       feedback.innerHTML =
-        "❌ <strong>Regarde la structure de commande.</strong><br><br>" +
-        "Utilise <strong>비빔밥 + 하나 + 주세요</strong>.";
-
-    }
-
-
-    if (
-      currentStep === 5
-    ) {
-
-      feedback.innerHTML =
-        "❌ <strong>Repère le mot 계산.</strong><br><br>" +
-        "Pour demander l'addition, utilise <strong>계산해 주세요.</strong>";
-
+        "❌ <strong>Réessaie la formule complète.</strong><br><br>" +
+        "Pour dire « C'est vraiment délicieux », combine <strong>정말</strong> et <strong>맛있어요</strong>.";
     }
 
 

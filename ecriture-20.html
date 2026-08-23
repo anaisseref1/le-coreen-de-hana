@@ -74,7 +74,7 @@
     }
 
     .progress-fill {
-      width: 16.6667%;
+      width: 20%;
       height: 100%;
       background: var(--jade);
       border-radius: 20px;
@@ -273,7 +273,7 @@
     </span>
 
     <p class="korean">
-      저를 소개할게요 ✍️
+      써 봐요 ✍️
     </p>
 
     <h1>
@@ -281,8 +281,8 @@
     </h1>
 
     <p>
-      Écris des phrases simples pour faire connaissance :
-      ton pays, ton métier, tes loisirs et ce que tu aimes.
+      Écris les expressions utiles pour raconter le passé :
+      dire où tu es allé(e), ce que tu as mangé, ce que tu as photographié et comment c'était.
     </p>
 
   </header>
@@ -300,12 +300,12 @@
     <br><br>
 
     Savoir écrire les expressions essentielles du chapitre :
-    <strong>프랑스에서 왔어요.</strong>,
-    <strong>회사에서 일해요.</strong>,
-    <strong>취미가 뭐예요?</strong>,
-    <strong>사진 찍는 것을 좋아해요.</strong>,
-    <strong>커피도 좋아해요.</strong>
-    et <strong>저도 커피를 좋아해요.</strong>.
+    <strong>서울에 갔어요.</strong>,
+    <strong>비빔밥을 먹었어요.</strong>,
+    <strong>사진을 많이 찍었어요.</strong>,
+    <strong>정말 좋았어요.</strong>,
+    <strong>어땠어요?</strong>
+    et <strong>한국에 처음 갔어요.</strong>.
 
   </section>
 
@@ -340,7 +340,7 @@
     </div>
 
     <h2 id="stepTitle">
-      🌍 Dire d'où tu viens
+      🚶 Dire où tu es allé(e)
     </h2>
 
     <div class="prompt-box">
@@ -349,14 +349,14 @@
         class="prompt-main"
         id="promptMain"
       >
-        Écris : « Je viens de France. »
+        Écris : « Je suis allé(e) à Séoul. »
       </div>
 
       <div
         class="hint-line"
         id="promptHint"
       >
-        Utilise 프랑스에서 + 왔어요.
+        Utilise 서울에 + 갔어요.
       </div>
 
     </div>
@@ -433,7 +433,7 @@
   >
 
     <div class="result-icon">
-      ✍️👋
+      ✍️📸
     </div>
 
     <h2>
@@ -454,33 +454,33 @@
       <div class="notion-list">
 
         <div class="notion-line">
-          🌍 <strong>프랑스에서 왔어요.</strong>
-          → Je viens de France.
+          🚶 <strong>서울에 갔어요.</strong>
+          → Je suis allé(e) à Séoul.
         </div>
 
         <div class="notion-line">
-          💼 <strong>회사에서 일해요.</strong>
-          → Je travaille dans une entreprise.
+          🍚 <strong>비빔밥을 먹었어요.</strong>
+          → J'ai mangé un bibimbap.
         </div>
 
         <div class="notion-line">
-          🎨 <strong>취미가 뭐예요?</strong>
-          → Quels sont vos loisirs ?
+          📷 <strong>사진을 많이 찍었어요.</strong>
+          → J'ai pris beaucoup de photos.
         </div>
 
         <div class="notion-line">
-          📷 <strong>사진 찍는 것을 좋아해요.</strong>
-          → J'aime prendre des photos.
+          🌟 <strong>정말 좋았어요.</strong>
+          → C'était vraiment bien.
         </div>
 
         <div class="notion-line">
-          ➕ <strong>커피도 좋아해요.</strong>
-          → J'aime aussi le café.
+          ❓ <strong>어땠어요?</strong>
+          → Comment c'était ?
         </div>
 
         <div class="notion-line">
-          🤝 <strong>저도 커피를 좋아해요.</strong>
-          → Moi aussi, j'aime le café.
+          🧳 <strong>한국에 처음 갔어요.</strong>
+          → Je suis allé(e) en Corée pour la première fois.
         </div>
 
       </div>
@@ -516,7 +516,7 @@
 
 <script>
 
-  const CHAPTER = 20;
+  const CHAPTER = 19;
 
   const UNDERSTANDING_KEY =
     "hanaKorean_chapter20_understanding";
@@ -565,74 +565,77 @@
     }
   }
 
+
+
   const steps = [
 
     {
-      title: "🌍 Dire d'où tu viens",
-      prompt: "Écris : « Je viens de France. »",
-      hint: "Utilise 프랑스에서 + 왔어요.",
+      title: "🚶 Dire où tu es allé(e)",
+      prompt: "Écris : « Je suis allé(e) à Séoul. »",
+      hint: "Utilise 서울에 + 갔어요.",
       accepted: [
-        "프랑스에서왔어요"
+        "서울에갔어요"
       ],
-      answer: "프랑스에서 왔어요.",
-      notion: "프랑스에서 왔어요"
+      answer: "서울에 갔어요.",
+      notion: "갔어요"
     },
 
     {
-      title: "💼 Parler de ton travail",
-      prompt: "Écris : « Je travaille dans une entreprise. »",
-      hint: "Utilise 회사에서 + 일해요.",
+      title: "🍚 Dire ce que tu as mangé",
+      prompt: "Écris : « J'ai mangé un bibimbap. »",
+      hint: "Utilise 비빔밥을 + 먹었어요.",
       accepted: [
-        "회사에서일해요"
+        "비빔밥을먹었어요",
+        "비빔밥먹었어요"
       ],
-      answer: "회사에서 일해요.",
-      notion: "회사에서 일해요"
+      answer: "비빔밥을 먹었어요.",
+      notion: "먹었어요"
     },
 
     {
-      title: "🎨 Demander les loisirs",
-      prompt: "Écris : « Quels sont vos loisirs ? »",
-      hint: "Utilise 취미가 + 뭐예요?",
+      title: "📷 Parler des photos",
+      prompt: "Écris : « J'ai pris beaucoup de photos. »",
+      hint: "Utilise 사진을 + 많이 + 찍었어요.",
       accepted: [
-        "취미가뭐예요"
+        "사진을많이찍었어요",
+        "사진많이찍었어요"
       ],
-      answer: "취미가 뭐예요?",
-      notion: "취미가 뭐예요?"
+      answer: "사진을 많이 찍었어요.",
+      notion: "찍었어요"
     },
 
     {
-      title: "📷 Parler d'un loisir",
-      prompt: "Écris : « J'aime prendre des photos. »",
-      hint: "Utilise 사진 찍는 것을 + 좋아해요.",
+      title: "🌟 Donner ton impression",
+      prompt: "Écris : « C'était vraiment bien. »",
+      hint: "Utilise 정말 + 좋았어요.",
       accepted: [
-        "사진찍는것을좋아해요",
-        "사진찍는걸좋아해요"
+        "정말좋았어요",
+        "좋았어요"
       ],
-      answer: "사진 찍는 것을 좋아해요.",
-      notion: "사진 찍는 것을 좋아해요"
+      answer: "정말 좋았어요.",
+      notion: "좋았어요"
     },
 
     {
-      title: "➕ Ajouter une préférence",
-      prompt: "Écris : « J'aime aussi le café. »",
-      hint: "Utilise 커피도 + 좋아해요.",
+      title: "❓ Demander comment c'était",
+      prompt: "Écris : « Comment c'était ? »",
+      hint: "Utilise 어땠어요?",
       accepted: [
-        "커피도좋아해요"
+        "어땠어요"
       ],
-      answer: "커피도 좋아해요.",
-      notion: "커피도 좋아해요"
+      answer: "어땠어요?",
+      notion: "어땠어요?"
     },
 
     {
-      title: "🤝 Dire « moi aussi »",
-      prompt: "Écris : « Moi aussi, j'aime le café. »",
-      hint: "Commence par 저도.",
+      title: "🧳 Première fois",
+      prompt: "Écris : « Je suis allé(e) en Corée pour la première fois. »",
+      hint: "Utilise 한국에 + 처음 + 갔어요.",
       accepted: [
-        "저도커피를좋아해요",
-        "저도커피좋아해요"
+        "한국에처음갔어요"
       ],
-      answer: "저도 커피를 좋아해요.",
-      notion: "저도"
+      answer: "한국에 처음 갔어요.",
+      notion: "처음"
     }
 
   ];
@@ -883,54 +886,18 @@
       "feedback show wrong";
 
 
-    if (
-      currentStep === 0
-    ) {
-      feedback.innerHTML =
-        "❌ <strong>Pas encore.</strong><br><br>" +
-        "Utilise <strong>프랑스에서 + 왔어요</strong>.";
-    }
+    const correctionMessages = [
+      "❌ <strong>Repère 갔어요.</strong><br><br>Utilise <strong>서울에 갔어요.</strong>",
+      "❌ <strong>Repère 먹었어요.</strong><br><br>Utilise <strong>비빔밥을 먹었어요.</strong>",
+      "❌ <strong>Repère 찍었어요.</strong><br><br>Utilise <strong>사진을 많이 찍었어요.</strong>",
+      "❌ <strong>Donne une impression au passé.</strong><br><br>Utilise <strong>정말 좋았어요.</strong>",
+      "❌ <strong>Pour demander « Comment c'était ? »</strong><br><br>Utilise <strong>어땠어요?</strong>",
+      "❌ <strong>Ajoute 처음 pour « pour la première fois ».</strong><br><br>Utilise <strong>한국에 처음 갔어요.</strong>"
+    ];
 
-    if (
-      currentStep === 1
-    ) {
-      feedback.innerHTML =
-        "❌ <strong>Attention.</strong><br><br>" +
-        "Pour parler de ton travail ici, utilise <strong>회사에서 일해요</strong>.";
-    }
-
-    if (
-      currentStep === 2
-    ) {
-      feedback.innerHTML =
-        "❌ <strong>Réessaie.</strong><br><br>" +
-        "La question attendue est <strong>취미가 뭐예요?</strong>.";
-    }
-
-    if (
-      currentStep === 3
-    ) {
-      feedback.innerHTML =
-        "❌ <strong>Réessaie.</strong><br><br>" +
-        "Utilise <strong>사진 찍는 것을 좋아해요</strong>. La forme <strong>사진 찍는 걸 좋아해요</strong> est aussi acceptée.";
-    }
-
-    if (
-      currentStep === 4
-    ) {
-      feedback.innerHTML =
-        "❌ <strong>Pense à 도.</strong><br><br>" +
-        "<strong>커피도 좋아해요</strong> signifie « J'aime aussi le café ».";
-    }
-
-    if (
-      currentStep === 5
-    ) {
-      feedback.innerHTML =
-        "❌ <strong>Pense à 저도.</strong><br><br>" +
-        "Pour dire « Moi aussi », commence par <strong>저도</strong> : <strong>저도 커피를 좋아해요</strong>.";
-    }
-
+    feedback.innerHTML =
+      correctionMessages[currentStep] ||
+      "❌ <strong>Réessaie en utilisant la forme passée attendue.</strong>";
 
     document.getElementById(
       "retryButton"

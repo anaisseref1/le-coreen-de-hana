@@ -15,7 +15,7 @@
     content="#F7F4ED"
   >
 
-  <title>Chapitre 22 — J'écoute</title>
+  <title>Chapitre 22 — J’écoute</title>
 
   <link
     rel="stylesheet"
@@ -23,133 +23,311 @@
   >
   <link rel="stylesheet" href="chapter-progress.css">
 
+
   <style>
 
     .listen-header {
-      text-align:center;
-      margin-bottom:24px;
+      text-align: center;
+      margin-bottom: 28px;
     }
 
-    .listen-card,
-    .dialogue-card,
-    .shadowing-card,
-    .tip-card {
-      padding:20px;
-      margin-bottom:18px;
-      background:var(--white);
-      border-radius:var(--radius-large);
-      box-shadow:var(--shadow);
+
+    .listen-header h1 {
+      margin-bottom: 8px;
     }
+
+
+    .listen-header p {
+      color: var(--text-light);
+      line-height: 1.7;
+    }
+
+
+    .goal-card,
+    .audio-card,
+    .tip-card {
+      padding: 20px;
+      margin-bottom: 18px;
+      background: var(--white);
+      border-radius: var(--radius-large);
+      box-shadow: var(--shadow);
+    }
+
+
+    .goal-card {
+      background: var(--soft-green);
+      color: var(--navy);
+      line-height: 1.7;
+    }
+
+
+    .audio-card h2 {
+      margin-top: 0;
+      color: var(--navy);
+    }
+
+
+    .expression-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+
+    .expression-item {
+      padding: 15px;
+      background: #FBFAF6;
+      border-radius: var(--radius-medium);
+    }
+
+
+    .expression-korean {
+      color: var(--navy);
+      font-size: 21px;
+      font-weight: bold;
+    }
+
+
+    .expression-french {
+      margin-top: 4px;
+      color: var(--text-light);
+    }
+
+
+    .expression-actions,
+    .line-actions,
+    .dialogue-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+
+    .expression-actions button,
+    .line-actions button,
+    .dialogue-controls button {
+      flex: 1;
+      min-width: 135px;
+    }
+
+
+    .slow,
+    .dialogue-slow-button {
+      background: var(--soft-beige);
+      color: var(--navy);
+    }
+
+
+    .dialogue-play-button {
+      background: var(--jade);
+      color: white;
+      font-weight: bold;
+    }
+
 
     .dialogue-line {
-      padding:15px;
-      margin-bottom:10px;
-      border-radius:var(--radius-medium);
-      line-height:1.7;
+      padding: 15px;
+      margin-top: 12px;
+      border-radius: var(--radius-medium);
+      line-height: 1.7;
     }
+
 
     .dialogue-line.hana {
-      background:var(--soft-green);
+      background: var(--soft-green);
     }
 
-    .dialogue-line.minsu {
-      background:var(--soft-blue);
+
+    .dialogue-line.joonho {
+      background: var(--soft-blue);
     }
+
 
     .speaker {
-      font-weight:bold;
-      margin-bottom:4px;
+      margin-bottom: 4px;
+      font-weight: bold;
     }
 
-    .korean-line {
-      color:var(--navy);
-      font-size:19px;
-      font-weight:bold;
+
+    .dialogue-korean {
+      color: var(--navy);
+      font-size: 19px;
+      font-weight: bold;
     }
 
-    .french-line {
-      margin-top:5px;
-      color:var(--text-light);
+
+    .dialogue-french {
+      margin-top: 5px;
+      color: var(--text-light);
     }
 
-    .audio-row {
-      display:flex;
-      gap:10px;
-      margin-top:12px;
-      flex-wrap:wrap;
+
+    .recognition-box {
+      padding: 16px;
+      margin-top: 14px;
+      background: var(--soft-beige);
+      border-radius: var(--radius-medium);
+      color: var(--navy);
+      line-height: 1.7;
     }
 
-    .audio-row button {
-      flex:1;
-      min-width:135px;
+
+    .tip-card {
+      background: var(--soft-beige);
+      color: var(--navy);
+      line-height: 1.7;
     }
 
-    .dialogue-play {
-      background:var(--jade);
-      color:white;
-      font-weight:bold;
-    }
 
-    .dialogue-slow {
-      background:var(--soft-beige);
-      color:var(--navy);
-      font-weight:bold;
-    }
-
-    .shadowing-button {
-      background:var(--navy);
-      color:white;
-      font-weight:bold;
-    }
-
-    .complete-button,
     .next-button,
-    .back-button {
-      width:100%;
-      margin-top:10px;
+    .chapter-button {
+      width: 100%;
+      margin-top: 10px;
     }
 
-    .complete-button {
-      background:var(--jade);
-      color:white;
-      font-weight:bold;
-    }
-
-    .complete-button.done {
-      background:var(--success);
-    }
 
     .next-button {
-      display:none;
-      background:var(--navy);
-      color:white;
-      font-weight:bold;
+      background: var(--jade);
+      color: white;
+      font-weight: bold;
     }
 
-    .back-button {
-      background:var(--soft-beige);
-      color:var(--navy);
+
+    .chapter-button {
+      background: var(--soft-beige);
+      color: var(--navy);
     }
+
 
     .playing {
-      background:var(--navy) !important;
-      color:white !important;
+      background: var(--navy) !important;
+      color: white !important;
     }
 
   </style>
 
+
+<style>
+  .listen-header {
+    text-align:center;
+    margin-bottom:24px;
+  }
+
+  .listen-card,
+  .dialogue-card,
+  .shadowing-card,
+  .tip-card {
+    padding:20px;
+    margin-bottom:18px;
+    background:var(--white);
+    border-radius:var(--radius-large);
+    box-shadow:var(--shadow);
+  }
+
+  .dialogue-line {
+    padding:15px;
+    margin-bottom:10px;
+    border-radius:var(--radius-medium);
+    line-height:1.7;
+  }
+
+  .dialogue-line.hana {
+    background:var(--soft-green);
+  }
+
+  .dialogue-line.minsu {
+    background:var(--soft-blue);
+  }
+
+  .speaker {
+    font-weight:bold;
+    margin-bottom:4px;
+  }
+
+  .korean-line {
+    color:var(--navy);
+    font-size:19px;
+    font-weight:bold;
+  }
+
+  .french-line {
+    margin-top:5px;
+    color:var(--text-light);
+  }
+
+  .audio-row {
+    display:flex;
+    gap:10px;
+    margin-top:12px;
+    flex-wrap:wrap;
+  }
+
+  .audio-row button {
+    flex:1;
+    min-width:135px;
+  }
+
+  .dialogue-play {
+    background:var(--jade);
+    color:white;
+    font-weight:bold;
+  }
+
+  .dialogue-slow {
+    background:var(--soft-beige);
+    color:var(--navy);
+    font-weight:bold;
+  }
+
+  .shadowing-button {
+    background:var(--navy);
+    color:white;
+    font-weight:bold;
+  }
+
+  .complete-button,
+  .next-button,
+  .back-button {
+    width:100%;
+    margin-top:10px;
+  }
+
+  .complete-button {
+    background:var(--jade);
+    color:white;
+    font-weight:bold;
+  }
+
+  .complete-button.done {
+    background:var(--success);
+  }
+
+  .next-button {
+    display:none;
+    background:var(--navy);
+    color:white;
+    font-weight:bold;
+  }
+
+  .back-button {
+    background:var(--soft-beige);
+    color:var(--navy);
+  }
+
+  .playing {
+    background:var(--navy) !important;
+    color:white !important;
+  }
+</style>
   <script src="profile.js"></script>
 </head>
-
 
 <body>
 
 <main class="app">
 
-  <a
-    class="back-link"
-    href="chapitre-22.html"
-  >
+  <a class="back-link" href="chapitre-22.html">
     ← Chapitre 22
   </a>
 
@@ -160,15 +338,15 @@
     </span>
 
     <p class="korean">
-      오늘 날씨가 어때요? 🌦️
+      같이 갈래요? 🌸
     </p>
 
     <h1>
-      Comprendre la météo
+      Écouter une invitation
     </h1>
 
     <p>
-      Écoute Ana et Min-su parler du temps avant de sortir.
+      Écoute Ana et Min-su organiser une sortie.
       Commence lentement, puis réécoute à vitesse normale.
     </p>
 
@@ -182,8 +360,8 @@
     <h2>🎧 Dialogue complet</h2>
 
     <p>
-      Essaie d'abord de repérer les mots météo sans lire la traduction.
-      Puis réécoute en suivant les phrases.
+      Écoute d'abord sans lire la traduction si tu peux.
+      Puis rejoue le dialogue en suivant les phrases.
     </p>
 
     <div class="audio-row">
@@ -216,70 +394,60 @@
     <div class="dialogue-line minsu">
       <div class="speaker">💙 Min-su</div>
       <div class="korean-line">
-        오늘 날씨가 어때요?
+        아나 씨, 오늘 같이 놀러 갈래요?
       </div>
       <div class="french-line">
-        Comment est le temps aujourd'hui ?
+        Ana, ça te dit de sortir ensemble aujourd'hui ?
       </div>
     </div>
 
     <div class="dialogue-line hana">
       <div class="speaker">🌸 Ana</div>
       <div class="korean-line">
-        조금 더워요.
+        좋아요! 어디에 갈까요?
       </div>
       <div class="french-line">
-        Il fait un peu chaud.
+        Avec plaisir ! Où allons-nous ?
       </div>
     </div>
 
     <div class="dialogue-line minsu">
       <div class="speaker">💙 Min-su</div>
       <div class="korean-line">
-        하지만 비가 올 것 같아요.
+        한강 공원에 갈까요?
       </div>
       <div class="french-line">
-        Mais je crois qu'il va pleuvoir.
+        Et si nous allions au parc de la rivière Han ?
       </div>
     </div>
 
     <div class="dialogue-line hana">
       <div class="speaker">🌸 Ana</div>
       <div class="korean-line">
-        맞아요. 하늘이 흐려요.
+        좋아요! 몇 시에 만날까요?
       </div>
       <div class="french-line">
-        Oui. Le ciel est couvert.
+        Bonne idée ! À quelle heure se retrouve-t-on ?
       </div>
     </div>
 
     <div class="dialogue-line minsu">
       <div class="speaker">💙 Min-su</div>
       <div class="korean-line">
-        우산 있어요?
+        오후 두 시에 만나요.
       </div>
       <div class="french-line">
-        Tu as un parapluie ?
+        À deux heures de l'après-midi.
       </div>
     </div>
 
     <div class="dialogue-line hana">
       <div class="speaker">🌸 Ana</div>
       <div class="korean-line">
-        네! 가방에 있어요.
+        네! 그때 봬요!
       </div>
       <div class="french-line">
-        Oui ! Il est dans mon sac.
-      </div>
-    </div>
-
-    <div class="dialogue-line minsu">
-      <div class="speaker">💙 Min-su</div>
-      <div class="korean-line">
-        다행이에요.
-      </div>
-      <div class="french-line">
-        Heureusement !
+        D'accord ! À tout à l'heure !
       </div>
     </div>
 
@@ -290,10 +458,8 @@
 
     <h2>🩵 À écouter attentivement</h2>
 
-    <strong>날씨</strong>
-    contient un double
-    <strong>ㅆ</strong> :
-    le son <strong>s</strong> est bien marqué.
+    <strong>같이</strong> se prononce presque
+    <strong>가치</strong>.
 
     <br><br>
 
@@ -301,13 +467,13 @@
 
     <br><br>
 
-    <strong>비가 와요.</strong>
-    → Il pleut.
+    <strong>갈래요?</strong>
+    → « Tu veux y aller ? »
 
     <br>
 
-    <strong>비가 올 것 같아요.</strong>
-    → Je pense qu'il va pleuvoir.
+    <strong>갈까요?</strong>
+    → « Et si on y allait ? »
 
   </section>
 
@@ -318,7 +484,7 @@
 
     <p>
       Lance le dialogue puis répète chaque phrase juste après le personnage.
-      Essaie surtout d'imiter le rythme et l'intonation.
+      Ne cherche pas encore la perfection : imite surtout le rythme.
     </p>
 
     <button
@@ -361,7 +527,15 @@
 </main>
 
 
-<script src="chapter-progress.js"></script>
+<script src="chapter-progress.js">
+  renderChapterProgress();
+
+  window.addEventListener("pageshow", () => {
+    guardListeningAccess();
+    renderChapterProgress();
+  });
+
+</script>
 
 <script>
 
@@ -374,31 +548,27 @@
   const dialogue = [
     {
       character: "minsu",
-      text: "오늘 날씨가 어때요?"
+      text: HanaProfile.replacePerson("아나 씨, 오늘 같이 놀러 갈래요?")
     },
     {
       character: "hana",
-      text: "조금 더워요."
+      text: "좋아요! 어디에 갈까요?"
     },
     {
       character: "minsu",
-      text: "하지만 비가 올 것 같아요."
+      text: "한강 공원에 갈까요?"
     },
     {
       character: "hana",
-      text: "맞아요. 하늘이 흐려요."
+      text: "좋아요! 몇 시에 만날까요?"
     },
     {
       character: "minsu",
-      text: "우산 있어요?"
+      text: "오후 두 시에 만나요."
     },
     {
       character: "hana",
-      text: "네! 가방에 있어요."
-    },
-    {
-      character: "minsu",
-      text: "다행이에요."
+      text: "네! 그때 봬요!"
     }
   ];
 
@@ -411,6 +581,7 @@
 
   const listeningExerciseKey =
     "hanaKorean_chapter22_listeningExercise";
+
 
   function renderChapterProgress() {
     if (
@@ -440,6 +611,7 @@
 
     return true;
   }
+
 
 
   const slowDialogueButton =
@@ -492,6 +664,12 @@
 
 
   function getCharacterSettings(character) {
+
+    /*
+      Safari peut actuellement n'exposer qu'une seule voix coréenne.
+      Les personnages restent néanmoins identifiés séparément
+      pour permettre plusieurs voix plus tard.
+    */
 
     const settings = {
       hana: {
@@ -662,10 +840,28 @@
           index++;
 
 
-          setTimeout(
-            speakNext,
-            shadowingMode ? 1600 : 220
-          );
+          if (
+            shadowingMode
+          ) {
+
+            /*
+              Petite pause volontaire pour laisser le temps
+              à l'apprenant de répéter la phrase.
+            */
+
+            setTimeout(
+              speakNext,
+              1600
+            );
+
+          } else {
+
+            setTimeout(
+              speakNext,
+              220
+            );
+
+          }
 
         };
 
@@ -746,7 +942,6 @@
 
 
   guardListeningAccess();
-  renderChapterProgress();
 
   if (
     localStorage.getItem(
@@ -782,7 +977,7 @@
       stopDialogue();
 
       window.location.href =
-        "exercice-ecoute-22.html";
+        "exercice-ecoute-23.html";
 
     }
   );
@@ -798,12 +993,6 @@
     () => {
       getKoreanVoice();
     };
-
-
-  window.addEventListener("pageshow", () => {
-    guardListeningAccess();
-    renderChapterProgress();
-  });
 
 </script>
 </body>

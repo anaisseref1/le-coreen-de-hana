@@ -108,10 +108,6 @@
       font-size:14px;
     }
 
-    .shopping-list {
-      min-height:145px;
-    }
-
     .complete-button,
     .next-button,
     .back-button {
@@ -151,12 +147,9 @@
   <script src="profile.js"></script>
 </head>
 
-
 <body>
 
-
 <main class="app">
-
 
   <a
     class="back-link"
@@ -165,7 +158,6 @@
     ← Oral
   </a>
 
-
   <header class="write-header">
 
     <span class="chapter-badge">
@@ -173,16 +165,16 @@
     </span>
 
     <p class="korean">
-      뭐를 사고 싶어요? 🛒
+      오늘 날씨가 어때요? 🌦️
     </p>
 
     <h1>
-      Écrire sa liste de courses
+      Décrire la météo
     </h1>
 
     <p>
       Réutilise les mots et structures du chapitre
-      pour dire ce que tu veux acheter et où se trouvent les produits.
+      pour parler du temps et de tes décisions.
     </p>
 
   </header>
@@ -197,11 +189,11 @@
 
     <div
       class="question-block"
-      data-valid="딸기를 사고 싶어요"
+      data-valid="더워요|날씨가 더워요"
     >
 
       <div class="question-title">
-        1. Je voudrais acheter des fraises.
+        1. Il fait chaud.
       </div>
 
       <input
@@ -224,11 +216,11 @@
 
     <div
       class="question-block"
-      data-valid="커피를 사고 싶어요|커피 사고 싶어요"
+      data-valid="추워요|날씨가 추워요"
     >
 
       <div class="question-title">
-        2. Je voudrais acheter du café.
+        2. Il fait froid.
       </div>
 
       <input
@@ -251,11 +243,11 @@
 
     <div
       class="question-block"
-      data-valid="장바구니는 저쪽에 있어요|장바구니가 저쪽에 있어요"
+      data-valid="하늘이 흐려요"
     >
 
       <div class="question-title">
-        3. Le panier est là-bas.
+        3. Le ciel est couvert.
       </div>
 
       <input
@@ -278,11 +270,11 @@
 
     <div
       class="question-block"
-      data-valid="우유도 살까요"
+      data-valid="비가 올 것 같아요"
     >
 
       <div class="question-title">
-        4. Et si on achetait du lait ?
+        4. Je pense qu'il va pleuvoir.
       </div>
 
       <input
@@ -312,11 +304,11 @@
 
     <div
       class="question-block"
-      data-valid="사고"
+      data-valid="날씨가"
     >
 
       <div class="question-title">
-        마트에서 ________ 싶어요.
+        오늘 ________ 어때요?
       </div>
 
       <input
@@ -339,11 +331,42 @@
 
     <div
       class="question-block"
-      data-valid="살까요"
+      data-valid="더워요|추워요"
     >
 
       <div class="question-title">
-        커피도 ________?
+        조금 ________.
+      </div>
+
+      <input
+        type="text"
+        lang="ko"
+        placeholder="Complète la phrase"
+      >
+
+      <div class="hint">
+        Deux réponses du chapitre sont acceptées.
+      </div>
+
+      <button
+        class="check-button"
+        type="button"
+      >
+        Vérifier
+      </button>
+
+      <div class="feedback"></div>
+
+    </div>
+
+
+    <div
+      class="question-block"
+      data-valid="올 것"
+    >
+
+      <div class="question-title">
+        비가 ________ 같아요.
       </div>
 
       <input
@@ -366,38 +389,11 @@
 
     <div
       class="question-block"
-      data-valid="저쪽에"
+      data-valid="있어요"
     >
 
       <div class="question-title">
-        과자는 ________ 있어요.
-      </div>
-
-      <input
-        type="text"
-        lang="ko"
-        placeholder="Complète la phrase"
-      >
-
-      <button
-        class="check-button"
-        type="button"
-      >
-        Vérifier
-      </button>
-
-      <div class="feedback"></div>
-
-    </div>
-
-
-    <div
-      class="question-block"
-      data-valid="샀어요"
-    >
-
-      <div class="question-title">
-        그리고 우유도 ________.
+        우산 ________?
       </div>
 
       <input
@@ -422,22 +418,49 @@
 
   <section class="free-card">
 
-    <h2>🛒 Exercice 3 — À toi</h2>
+    <h2>🌦️ Exercice 3 — Réponds librement</h2>
 
-    <p>
-      Imagine que tu es dans un supermarché coréen.
-      Qu'aimerais-tu acheter ?
-    </p>
 
-    <p>
-      Écris quatre phrases en coréen.
-    </p>
+    <div class="question-block">
 
-    <textarea
-      id="freeExercise"
-      lang="ko"
-      placeholder="Exemple : 우유를 사고 싶어요."
-    ></textarea>
+      <div class="question-title">
+        오늘 날씨가 어때요?
+      </div>
+
+      <textarea
+        lang="ko"
+        placeholder="Décris le temps en coréen"
+      ></textarea>
+
+    </div>
+
+
+    <div class="question-block">
+
+      <div class="question-title">
+        비를 좋아해요?
+      </div>
+
+      <textarea
+        lang="ko"
+        placeholder="Réponds en coréen"
+      ></textarea>
+
+    </div>
+
+
+    <div class="question-block">
+
+      <div class="question-title">
+        여름을 좋아해요?
+      </div>
+
+      <textarea
+        lang="ko"
+        placeholder="Réponds en coréen"
+      ></textarea>
+
+    </div>
 
   </section>
 
@@ -446,37 +469,25 @@
 
     <h2>📝 Mon carnet de voyage</h2>
 
-    Tu entres dans un supermarché à Séoul.
+    Imagine que tu consultes la météo
+    avant de partir visiter Séoul.
 
     <br><br>
 
-    Prépare une petite liste de courses
-    avec <strong>au moins six produits</strong>.
+    Écris trois ou quatre phrases pour décrire le temps
+    et ce que tu décides de faire.
 
     <br><br>
 
-    Par exemple :
-
+    Tu peux parler de :
     <strong>
-      우유 · 커피 · 딸기 · 물 · 빵 · 과자
+      날씨 · 비 · 우산 · 흐려요 · 더워요 · 갈까요?
     </strong>
-
-    <textarea
-      class="shopping-list"
-      id="shoppingList"
-      lang="ko"
-      placeholder="Écris ici ta liste de courses…"
-    ></textarea>
-
-    <p>
-      Puis écris une phrase avec
-      <strong>« Je voudrais acheter... »</strong>
-    </p>
 
     <textarea
       id="travelNotebook"
       lang="ko"
-      placeholder="Exemple : 우유하고 딸기를 사고 싶어요."
+      placeholder="Écris ici ce que tu observes et ce que tu décides…"
     ></textarea>
 
   </section>
@@ -486,20 +497,21 @@
 
     <h2>💡 Petit rappel</h2>
 
-    Dans une phrase complète, garde de préférence
-    la particule objet lorsque tu apprends :
+    Pour décrire un fait actuel :
 
     <br><br>
 
-    <strong>우유를 사고 싶어요.</strong>
+    <strong>비가 와요.</strong>
+    → Il pleut.
 
     <br><br>
 
-    Dans la langue parlée, tu peux cependant entendre :
+    Pour exprimer ton impression ou une prévision :
 
     <br><br>
 
-    <strong>우유 사고 싶어요.</strong>
+    <strong>비가 올 것 같아요.</strong>
+    → Je pense qu'il va pleuvoir.
 
   </section>
 
@@ -530,7 +542,6 @@
     ← Retour à l'oral
   </button>
 
-
 </main>
 
 
@@ -540,10 +551,6 @@
 
   const progressKey =
     "hanaKorean_chapter23_writing";
-
-
-  const shoppingListKey =
-    "hanaKorean_chapter23_shoppingList";
 
 
   const notebookKey =
@@ -573,7 +580,7 @@
   function guardWritingAccess() {
     const required = [
       [understandingKey, "chapitre-23.html"],
-      [listeningExerciseKey, "exercice-ecoute-23.html"],
+      [listeningExerciseKey, "exercice-ecoute-24.html"],
       [speakingKey, "parle-23.html"]
     ];
 
@@ -586,10 +593,6 @@
 
     return true;
   }
-
-
-  const freeExerciseKey =
-    "hanaKorean_chapter23_freeExercise";
 
 
   const questionBlocks =
@@ -612,21 +615,9 @@
     );
 
 
-  const shoppingList =
-    document.getElementById(
-      "shoppingList"
-    );
-
-
   const travelNotebook =
     document.getElementById(
       "travelNotebook"
-    );
-
-
-  const freeExercise =
-    document.getElementById(
-      "freeExercise"
     );
 
 
@@ -782,57 +773,29 @@
   );
 
 
-  function restoreAndSave(
-    element,
-    key
+  if (
+    travelNotebook
   ) {
 
-    if (
-      !element
-    ) {
-
-      return;
-
-    }
-
-
-    element.value =
+    travelNotebook.value =
       localStorage.getItem(
-        key
+        notebookKey
       ) || "";
 
 
-    element.addEventListener(
+    travelNotebook.addEventListener(
       "input",
       () => {
 
         localStorage.setItem(
-          key,
-          element.value
+          notebookKey,
+          travelNotebook.value
         );
 
       }
     );
 
   }
-
-
-  restoreAndSave(
-    shoppingList,
-    shoppingListKey
-  );
-
-
-  restoreAndSave(
-    travelNotebook,
-    notebookKey
-  );
-
-
-  restoreAndSave(
-    freeExercise,
-    freeExerciseKey
-  );
 
 
   function showCompletedState() {

@@ -14,7 +14,7 @@
     content="#F7F4ED"
   >
 
-  <title>J'écris — Chapitre 14</title>
+  <title>Chapitre 14 — J'écris</title>
 
   <link
     rel="stylesheet"
@@ -156,6 +156,16 @@
       display: block;
     }
 
+    .feedback.correct {
+      background: var(--success-light);
+      color: var(--navy);
+    }
+
+    .feedback.wrong {
+      background: var(--error-light);
+      color: var(--navy);
+    }
+
     .help-button {
       margin-top: 10px;
       background: var(--soft-beige);
@@ -269,7 +279,6 @@
     ← Je parle
   </a>
 
-
   <header class="writing-header">
 
     <span class="chapter-badge">
@@ -285,18 +294,16 @@
     </h1>
 
     <p>
-      Écris les expressions utiles pour commander dans un café,
-      choisir chaud ou froid, emporter ta boisson et payer.
+      Écris les expressions utiles pour prendre le métro,
+      demander une ligne, une sortie et une correspondance.
     </p>
 
   </header>
-
 
   <section
     id="hanaChapterPath"
     data-chapter-path
   ></section>
-
 
   <section class="intro-card">
 
@@ -305,14 +312,13 @@
     <br><br>
 
     Savoir écrire les expressions essentielles du chapitre :
-    <strong>커피 한 잔 주세요.</strong>,
-    <strong>뜨거운 커피 주세요.</strong>,
-    <strong>포장해 주세요.</strong>,
-    <strong>카드로 할게요.</strong>
-    et <strong>정말 맛있어요!</strong>.
+    <strong>몇 호선이에요?</strong>,
+    <strong>사호선을 타세요.</strong>,
+    <strong>서울역에서 갈아타세요.</strong>,
+    <strong>몇 번 출구예요?</strong>
+    et une question complète pour demander quelle ligne prendre.
 
   </section>
-
 
   <div class="exercise-progress">
 
@@ -330,7 +336,6 @@
 
   </div>
 
-
   <section
     class="writing-card"
     id="writingCard"
@@ -344,7 +349,7 @@
     </div>
 
     <h2 id="stepTitle">
-      ☕ Commander un café
+      🚇 Demander la ligne
     </h2>
 
     <div class="prompt-box">
@@ -353,18 +358,17 @@
         class="prompt-main"
         id="promptMain"
       >
-        Écris : « Un café, s'il vous plaît. »
+        Écris : « Quelle ligne est-ce ? »
       </div>
 
       <div
         class="hint-line"
         id="promptHint"
       >
-        Utilise 커피 + 한 잔 + 주세요.
+        Utilise 몇 호선 + 이에요?
       </div>
 
     </div>
-
 
     <input
       class="writing-input"
@@ -377,7 +381,6 @@
       placeholder="Écris en coréen…"
     >
 
-
     <button
       class="check-button"
       id="checkButton"
@@ -387,12 +390,10 @@
       Vérifier
     </button>
 
-
     <div
       class="feedback"
       id="feedback"
     ></div>
-
 
     <button
       class="help-button"
@@ -402,12 +403,10 @@
       💡 Besoin d'aide ?
     </button>
 
-
     <div
       class="help-box"
       id="helpBox"
     ></div>
-
 
     <button
       class="retry-button"
@@ -417,7 +416,6 @@
     >
       ✍️ Réessayer
     </button>
-
 
     <button
       class="next-button"
@@ -430,14 +428,13 @@
 
   </section>
 
-
   <section
     class="result-card"
     id="resultCard"
   >
 
     <div class="result-icon">
-      ✍️☕
+      ✍️🚇
     </div>
 
     <h2>
@@ -448,7 +445,6 @@
       Tu as terminé l'expression écrite du chapitre 14.
     </p>
 
-
     <div class="summary-box">
 
       <strong>
@@ -458,28 +454,28 @@
       <div class="notion-list">
 
         <div class="notion-line">
-          ☕ <strong>커피 한 잔 주세요.</strong>
-          → Un café, s'il vous plaît.
+          🚇 <strong>몇 호선이에요?</strong>
+          → Quelle ligne est-ce ?
         </div>
 
         <div class="notion-line">
-          🔥 <strong>뜨거운 커피 주세요.</strong>
-          → Un café chaud, s'il vous plaît.
+          4️⃣ <strong>사호선을 타세요.</strong>
+          → Prenez la ligne 4.
         </div>
 
         <div class="notion-line">
-          🥤 <strong>포장해 주세요.</strong>
-          → À emporter, s'il vous plaît.
+          🔁 <strong>서울역에서 갈아타세요.</strong>
+          → Changez à Seoul Station.
         </div>
 
         <div class="notion-line">
-          💳 <strong>카드로 할게요.</strong>
-          → Je vais payer par carte.
+          🚪 <strong>몇 번 출구예요?</strong>
+          → Quelle sortie ?
         </div>
 
         <div class="notion-line">
-          😋 <strong>정말 맛있어요!</strong>
-          → C'est vraiment délicieux !
+          📍 <strong>명동에 가려면 몇 호선을 타야 해요?</strong>
+          → Quelle ligne dois-je prendre pour aller à Myeong-dong ?
         </div>
 
       </div>
@@ -488,7 +484,6 @@
 
     </div>
 
-
     <button
       class="continue-button"
       type="button"
@@ -496,7 +491,6 @@
     >
       🧠 Passer à « Je révise »
     </button>
-
 
     <button
       class="back-button"
@@ -510,11 +504,10 @@
 
 </main>
 
-
 <script src="chapter-progress.js"></script>
 
 <script>
-  const CHAPTER = 14;
+  const CHAPTER = 13;
 
   const UNDERSTANDING_KEY =
     "hanaKorean_chapter14_understanding";
@@ -574,6 +567,108 @@
   }
 
 
+  const steps = [
+
+    {
+      title: "🚇 Demander la ligne",
+      prompt:
+        "Écris : « Quelle ligne est-ce ? »",
+      hint:
+        "Utilise 몇 호선 + 이에요?",
+      accepted: [
+        "몇호선이에요",
+        "몇호선이예요"
+      ],
+      answer:
+        "몇 호선이에요?",
+      notion:
+        "몇 호선",
+      wrongFeedback:
+        "Repère d'abord <strong>몇 호선</strong> (« quelle ligne »), puis ajoute <strong>이에요?</strong>."
+    },
+
+    {
+      title:
+        "4️⃣ Prendre la ligne 4",
+      prompt:
+        "Écris : « Prenez la ligne 4. »",
+      hint:
+        "Utilise 사호선을 + 타세요.",
+      accepted: [
+        "사호선을타세요"
+      ],
+      answer:
+        "사호선을 타세요.",
+      notion:
+        "타세요",
+      wrongFeedback:
+        "Commence par <strong>사호선을</strong> (« la ligne 4 »), puis ajoute <strong>타세요</strong> (« prenez / montez »)."
+    },
+
+    {
+      title:
+        "🔁 Faire une correspondance",
+      prompt:
+        "Écris : « Changez à Seoul Station. »",
+      hint:
+        "Utilise 서울역에서 + 갈아타세요.",
+      accepted: [
+        "서울역에서갈아타세요"
+      ],
+      answer:
+        "서울역에서 갈아타세요.",
+      notion:
+        "갈아타세요",
+      wrongFeedback:
+        "Garde le lieu <strong>서울역에서</strong>, puis utilise <strong>갈아타세요</strong> pour « faites une correspondance »."
+    },
+
+    {
+      title:
+        "🚪 Demander la sortie",
+      prompt:
+        "Écris : « Quelle sortie ? »",
+      hint:
+        "Utilise 몇 번 + 출구예요?",
+      accepted: [
+        "몇번출구예요",
+        "몇번출구에요"
+      ],
+      answer:
+        "몇 번 출구예요?",
+      notion:
+        "출구",
+      wrongFeedback:
+        "Pour demander le numéro de sortie, construis <strong>몇 번 + 출구예요?</strong>."
+    },
+
+    {
+      title:
+        "📍 Demander quelle ligne prendre",
+      prompt:
+        "Écris : « Quelle ligne dois-je prendre pour aller à Myeong-dong ? »",
+      hint:
+        "Utilise 명동에 가려면 + 몇 호선을 타야 해요?",
+      accepted: [
+        "명동에가려면몇호선을타야해요"
+      ],
+      answer:
+        "명동에 가려면 몇 호선을 타야 해요?",
+      notion:
+        "가려면 / 타야 해요",
+      wrongFeedback:
+        "Réutilise le modèle complet : <strong>명동에 가려면</strong> + <strong>몇 호선을 타야 해요?</strong>"
+    }
+
+  ];
+
+
+  let currentStep = 0;
+  let mistakes = 0;
+  let helpCount = 0;
+  const weakNotions = [];
+
+
   function renderChapterProgress() {
 
     if (
@@ -586,77 +681,11 @@
   }
 
 
-  const steps = [
-
-    {
-      title: "☕ Commander un café",
-      prompt: "Écris : « Un café, s'il vous plaît. »",
-      hint: "Utilise 커피 + 한 잔 + 주세요.",
-      accepted: [
-        "커피한잔주세요"
-      ],
-      answer: "커피 한 잔 주세요.",
-      notion: "한 잔 / 주세요"
-    },
-
-    {
-      title: "🔥 Commander chaud",
-      prompt: "Écris : « Un café chaud, s'il vous plaît. »",
-      hint: "Utilise 뜨거운 커피 + 주세요.",
-      accepted: [
-        "뜨거운커피주세요"
-      ],
-      answer: "뜨거운 커피 주세요.",
-      notion: "뜨거운"
-    },
-
-    {
-      title: "🥤 À emporter",
-      prompt: "Écris : « À emporter, s'il vous plaît. »",
-      hint: "Utilise 포장해 주세요.",
-      accepted: [
-        "포장해주세요"
-      ],
-      answer: "포장해 주세요.",
-      notion: "포장"
-    },
-
-    {
-      title: "💳 Payer par carte",
-      prompt: "Écris : « Je vais payer par carte. »",
-      hint: "Utilise 카드로 + 할게요.",
-      accepted: [
-        "카드로할게요"
-      ],
-      answer: "카드로 할게요.",
-      notion: "카드로 할게요"
-    },
-
-    {
-      title: "😋 Dire que c'est délicieux",
-      prompt: "Écris : « C'est vraiment délicieux ! »",
-      hint: "Utilise 정말 + 맛있어요.",
-      accepted: [
-        "정말맛있어요"
-      ],
-      answer: "정말 맛있어요!",
-      notion: "맛있어요"
-    }
-
-  ];
-
-
-  let currentStep = 0;
-  let mistakes = 0;
-  let helpCount = 0;
-  const weakNotions = [];
-
-
   function normalizeKorean(text) {
 
     return text
       .replace(/[.,!?~…'"]/g, "")
-      .replace(/\s+/g, " ")
+      .replace(/\s+/g, "")
       .trim();
 
   }
@@ -667,7 +696,6 @@
     const step =
       steps[currentStep];
 
-
     document.getElementById(
       "stepLabel"
     ).textContent =
@@ -676,31 +704,28 @@
       " / " +
       steps.length;
 
-
     document.getElementById(
       "stepTitle"
     ).textContent =
       step.title;
-
 
     document.getElementById(
       "promptMain"
     ).textContent =
       step.prompt;
 
-
     document.getElementById(
       "promptHint"
     ).textContent =
       step.hint;
 
-
     document.getElementById(
       "helpBox"
-    ).textContent =
+    ).innerHTML =
       "💡 Réponse attendue : " +
-      step.answer;
-
+      "<strong>" +
+      step.answer +
+      "</strong>";
 
     document.getElementById(
       "progressLabel"
@@ -708,7 +733,6 @@
       (currentStep + 1) +
       " / " +
       steps.length;
-
 
     document.getElementById(
       "progressFill"
@@ -720,45 +744,34 @@
       ) +
       "%";
 
-
     const input =
       document.getElementById(
         "writingInput"
       );
 
-
-    input.value =
-      "";
-
-
-    input.disabled =
-      false;
-
+    input.value = "";
+    input.disabled = false;
 
     document.getElementById(
       "checkButton"
     ).disabled =
       false;
 
-
     document.getElementById(
       "feedback"
     ).className =
       "feedback";
-
 
     document.getElementById(
       "feedback"
     ).innerHTML =
       "";
 
-
     document.getElementById(
       "helpBox"
     ).classList.remove(
       "show"
     );
-
 
     document.getElementById(
       "retryButton"
@@ -766,19 +779,16 @@
       "show"
     );
 
-
     document.getElementById(
       "nextButton"
     ).classList.remove(
       "show"
     );
 
-
     setTimeout(
       () => input.focus(),
       200
     );
-
   }
 
 
@@ -786,13 +796,14 @@
 
     helpCount++;
 
+    const box =
+      document.getElementById(
+        "helpBox"
+      );
 
-    document.getElementById(
-      "helpBox"
-    ).classList.toggle(
+    box.classList.toggle(
       "show"
     );
-
   }
 
 
@@ -801,39 +812,37 @@
     const step =
       steps[currentStep];
 
-
     const input =
       document.getElementById(
         "writingInput"
       );
-
 
     const value =
       normalizeKorean(
         input.value
       );
 
-
     const accepted =
       step.accepted.map(
         answer =>
-          normalizeKorean(answer)
+          normalizeKorean(
+            answer
+          )
       );
-
 
     const feedback =
       document.getElementById(
         "feedback"
       );
 
-
     if (
-      accepted.includes(value)
+      accepted.includes(
+        value
+      )
     ) {
 
       feedback.className =
         "feedback show correct";
-
 
       feedback.innerHTML =
         "✅ <strong>Très bien !</strong>" +
@@ -841,16 +850,13 @@
         step.answer +
         "</div>";
 
-
       input.disabled =
         true;
-
 
       document.getElementById(
         "checkButton"
       ).disabled =
         true;
-
 
       document.getElementById(
         "retryButton"
@@ -858,86 +864,39 @@
         "show"
       );
 
-
       document.getElementById(
         "nextButton"
       ).classList.add(
         "show"
       );
 
-
       return;
-
     }
 
-
     mistakes++;
-
 
     if (
       !weakNotions.includes(
         step.notion
       )
     ) {
-
       weakNotions.push(
         step.notion
       );
-
     }
-
 
     feedback.className =
       "feedback show wrong";
 
-
-    if (
-      currentStep === 0
-    ) {
-      feedback.innerHTML =
-        "❌ <strong>Pas encore.</strong><br><br>" +
-        "Commence par <strong>커피</strong>, ajoute <strong>한 잔</strong>, puis termine avec <strong>주세요</strong>.";
-    }
-
-    if (
-      currentStep === 1
-    ) {
-      feedback.innerHTML =
-        "❌ <strong>Regarde le mot « chaud ».</strong><br><br>" +
-        "Pour commander un café chaud, commence par <strong>뜨거운 커피</strong>, puis ajoute <strong>주세요</strong>.";
-    }
-
-    if (
-      currentStep === 2
-    ) {
-      feedback.innerHTML =
-        "❌ <strong>Repère l'expression pour « à emporter ».</strong><br><br>" +
-        "Utilise <strong>포장해 주세요.</strong> comme un bloc pratique.";
-    }
-
-    if (
-      currentStep === 3
-    ) {
-      feedback.innerHTML =
-        "❌ <strong>Attention au paiement.</strong><br><br>" +
-        "Pour dire « Je vais payer par carte », utilise <strong>카드로 할게요.</strong>";
-    }
-
-    if (
-      currentStep === 4
-    ) {
-      feedback.innerHTML =
-        "❌ <strong>Réessaie la formule complète.</strong><br><br>" +
-        "Pour dire « C'est vraiment délicieux », combine <strong>정말</strong> et <strong>맛있어요</strong>.";
-    }
-
+    feedback.innerHTML =
+      "❌ <strong>Pas encore.</strong><br><br>" +
+      step.wrongFeedback;
 
     document.getElementById(
       "retryButton"
     ).classList.add(
       "show"
     );
-
   }
 
 
@@ -948,26 +907,19 @@
         "writingInput"
       );
 
-
-    input.value =
-      "";
-
-
+    input.value = "";
     input.focus();
-
 
     document.getElementById(
       "feedback"
     ).className =
       "feedback";
 
-
     document.getElementById(
       "retryButton"
     ).classList.remove(
       "show"
     );
-
   }
 
 
@@ -980,101 +932,31 @@
 
       currentStep++;
 
-
       renderStep();
-
 
       window.scrollTo({
         top: 0,
         behavior: "smooth"
       });
 
-
       return;
-
     }
 
-
     finishWriting();
-
   }
 
 
   function finishWriting() {
-
-    document.getElementById(
-      "writingCard"
-    ).style.display =
-      "none";
-
-
-    document.getElementById(
-      "resultCard"
-    ).classList.add(
-      "show"
-    );
-
-
-    let summary = "";
-
-
-    if (
-      mistakes === 0
-    ) {
-
-      summary =
-        "🌟 Toutes les réponses ont été écrites correctement du premier coup.";
-
-    }
-
-    else if (
-      mistakes === 1
-    ) {
-
-      summary =
-        "💡 Tu as eu 1 tentative incorrecte pendant la séance.";
-
-    }
-
-    else {
-
-      summary =
-        "💡 Tu as eu " +
-        mistakes +
-        " tentatives incorrectes pendant la séance.";
-
-    }
-
-
-    if (
-      helpCount > 0
-    ) {
-
-      summary +=
-        "<br><br>Tu as consulté l'aide " +
-        helpCount +
-        " fois.";
-
-    }
-
-
-    document.getElementById(
-      "mistakeSummary"
-    ).innerHTML =
-      summary;
-
 
     localStorage.setItem(
       WRITING_KEY,
       "completed"
     );
 
-
     localStorage.setItem(
       WRITING_MISTAKES_KEY,
       String(mistakes)
     );
-
 
     localStorage.setItem(
       REVISION_NOTIONS_KEY,
@@ -1083,15 +965,67 @@
       )
     );
 
-
     renderChapterProgress();
 
+    document.getElementById(
+      "writingCard"
+    ).style.display =
+      "none";
+
+    document.getElementById(
+      "resultCard"
+    ).classList.add(
+      "show"
+    );
+
+    let summary = "";
+
+    if (
+      mistakes === 0
+    ) {
+      summary =
+        "🌟 Toutes les réponses ont été écrites correctement du premier coup.";
+    }
+    else if (
+      mistakes === 1
+    ) {
+      summary =
+        "💡 Tu as eu 1 tentative incorrecte pendant la séance.";
+    }
+    else {
+      summary =
+        "💡 Tu as eu " +
+        mistakes +
+        " tentatives incorrectes pendant la séance.";
+    }
+
+    if (
+      helpCount > 0
+    ) {
+      summary +=
+        "<br><br>Tu as consulté l'aide " +
+        helpCount +
+        " fois.";
+    }
+
+    if (
+      weakNotions.length > 0
+    ) {
+      summary +=
+        "<br><br>🧠 À revoir pendant la prochaine étape : <strong>" +
+        weakNotions.join(", ") +
+        "</strong>.";
+    }
+
+    document.getElementById(
+      "mistakeSummary"
+    ).innerHTML =
+      summary;
 
     window.scrollTo({
       top: 0,
       behavior: "smooth"
     });
-
   }
 
 
@@ -1122,11 +1056,8 @@
           "checkButton"
         ).disabled
       ) {
-
         checkWriting();
-
       }
-
     }
   );
 
@@ -1147,5 +1078,4 @@
   }
 </script>
 </body>
-
 </html>

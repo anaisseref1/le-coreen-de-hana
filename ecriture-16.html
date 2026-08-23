@@ -3,13 +3,28 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#F7F4ED">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="theme-color"
+    content="#F7F4ED"
+  >
 
   <title>J'écris — Chapitre 16</title>
 
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="chapter-progress.css">
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="chapter-progress.css"
+  >
 
   <style>
     .writing-header {
@@ -141,16 +156,6 @@
       display: block;
     }
 
-    .feedback.correct {
-      background: var(--success-light);
-      color: var(--navy);
-    }
-
-    .feedback.wrong {
-      background: var(--error-light);
-      color: var(--navy);
-    }
-
     .help-button {
       margin-top: 10px;
       background: var(--soft-beige);
@@ -224,6 +229,10 @@
       line-height: 1.7;
     }
 
+    .notion-list {
+      margin-top: 14px;
+    }
+
     .notion-line {
       padding: 10px 0;
       border-bottom: 1px solid var(--border);
@@ -253,9 +262,13 @@
 
 <main class="app">
 
-  <a class="back-link" href="parle-16.html">
+  <a
+    class="back-link"
+    href="parle-16.html"
+  >
     ← Je parle
   </a>
+
 
   <header class="writing-header">
 
@@ -272,16 +285,18 @@
     </h1>
 
     <p>
-      Écris les expressions essentielles pour ton arrivée à l'hôtel,
-      ta chambre, le Wi-Fi et une demande d'aide.
+      Écris les expressions utiles pour commander au restaurant,
+      demander une recommandation, préciser une restriction alimentaire et demander l'addition.
     </p>
 
   </header>
+
 
   <section
     id="hanaChapterPath"
     data-chapter-path
   ></section>
+
 
   <section class="intro-card">
 
@@ -289,15 +304,16 @@
 
     <br><br>
 
-    Savoir écrire :
-    <strong>예약했어요.</strong>,
-    <strong>아나예요.</strong>,
-    <strong>제 방이 어디예요?</strong>,
-    <strong>와이파이 비밀번호가 뭐예요?</strong>,
-    <strong>와이파이가 안 돼요. 도와주세요.</strong>
-    et <strong>감사합니다.</strong>.
+    Savoir écrire les expressions essentielles du chapitre :
+    <strong>메뉴 주세요.</strong>,
+    <strong>추천해 주세요.</strong>,
+    <strong>돼지고기를 안 먹어요.</strong>,
+    <strong>많이 매워요?</strong>,
+    <strong>비빔밥 하나 주세요.</strong>
+    et <strong>계산해 주세요.</strong>.
 
   </section>
+
 
   <div class="exercise-progress">
 
@@ -315,6 +331,7 @@
 
   </div>
 
+
   <section
     class="writing-card"
     id="writingCard"
@@ -328,7 +345,7 @@
     </div>
 
     <h2 id="stepTitle">
-      🛎️ Une réservation
+      📖 Demander le menu
     </h2>
 
     <div class="prompt-box">
@@ -337,17 +354,18 @@
         class="prompt-main"
         id="promptMain"
       >
-        Écris : « J'ai une réservation. »
+        Écris : « Le menu, s'il vous plaît. »
       </div>
 
       <div
         class="hint-line"
         id="promptHint"
       >
-        Utilise 예약했어요.
+        Utilise 메뉴 + 주세요.
       </div>
 
     </div>
+
 
     <input
       class="writing-input"
@@ -360,6 +378,7 @@
       placeholder="Écris en coréen…"
     >
 
+
     <button
       class="check-button"
       id="checkButton"
@@ -369,10 +388,12 @@
       Vérifier
     </button>
 
+
     <div
       class="feedback"
       id="feedback"
     ></div>
+
 
     <button
       class="help-button"
@@ -382,10 +403,12 @@
       💡 Besoin d'aide ?
     </button>
 
+
     <div
       class="help-box"
       id="helpBox"
     ></div>
+
 
     <button
       class="retry-button"
@@ -395,6 +418,7 @@
     >
       ✍️ Réessayer
     </button>
+
 
     <button
       class="next-button"
@@ -407,13 +431,14 @@
 
   </section>
 
+
   <section
     class="result-card"
     id="resultCard"
   >
 
     <div class="result-icon">
-      ✍️🏨
+      ✍️🍜
     </div>
 
     <h2>
@@ -424,45 +449,51 @@
       Tu as terminé l'expression écrite du chapitre 16.
     </p>
 
+
     <div class="summary-box">
 
       <strong>
         🌿 À retenir
       </strong>
 
-      <div class="notion-line">
-        🛎️ <strong>예약했어요.</strong>
-        → J'ai une réservation.
-      </div>
+      <div class="notion-list">
 
-      <div class="notion-line">
-        👤 <strong>아나예요.</strong>
-        → Je m'appelle Ana.
-      </div>
+        <div class="notion-line">
+          📖 <strong>메뉴 주세요.</strong>
+          → Le menu, s'il vous plaît.
+        </div>
 
-      <div class="notion-line">
-        🚪 <strong>제 방이 어디예요?</strong>
-        → Où est ma chambre ?
-      </div>
+        <div class="notion-line">
+          ⭐ <strong>추천해 주세요.</strong>
+          → Recommandez-moi quelque chose, s'il vous plaît.
+        </div>
 
-      <div class="notion-line">
-        📶 <strong>와이파이 비밀번호가 뭐예요?</strong>
-        → Quel est le mot de passe du Wi-Fi ?
-      </div>
+        <div class="notion-line">
+          🐷 <strong>돼지고기를 안 먹어요.</strong>
+          → Je ne mange pas de porc.
+        </div>
 
-      <div class="notion-line">
-        🆘 <strong>와이파이가 안 돼요. 도와주세요.</strong>
-        → Le Wi-Fi ne fonctionne pas. Aidez-moi, s'il vous plaît.
-      </div>
+        <div class="notion-line">
+          🌶️ <strong>많이 매워요?</strong>
+          → C'est très épicé ?
+        </div>
 
-      <div class="notion-line">
-        🙏 <strong>감사합니다.</strong>
-        → Merci.
+        <div class="notion-line">
+          🍚 <strong>비빔밥 하나 주세요.</strong>
+          → Un bibimbap, s'il vous plaît.
+        </div>
+
+        <div class="notion-line">
+          💳 <strong>계산해 주세요.</strong>
+          → L'addition, s'il vous plaît.
+        </div>
+
       </div>
 
       <p id="mistakeSummary"></p>
 
     </div>
+
 
     <button
       class="continue-button"
@@ -471,6 +502,7 @@
     >
       🧠 Passer à « Je révise »
     </button>
+
 
     <button
       class="back-button"
@@ -484,10 +516,11 @@
 
 </main>
 
+
 <script src="chapter-progress.js"></script>
 
 <script>
-  const CHAPTER = 16;
+  const CHAPTER = 15;
 
   const UNDERSTANDING_KEY =
     "hanaKorean_chapter16_understanding";
@@ -508,109 +541,6 @@
     "hanaKorean_chapter16_revisionNotions";
 
 
-  const steps = [
-
-    {
-      title: "🛎️ Une réservation",
-      prompt:
-        "Écris : « J'ai une réservation. »",
-      hint:
-        "Utilise 예약했어요.",
-      accepted: [
-        "예약했어요"
-      ],
-      answer:
-        "예약했어요.",
-      notion:
-        "예약했어요"
-    },
-
-    {
-      title: "👤 Donner ton nom",
-      prompt:
-        "Écris : « Je m'appelle Ana. »",
-      hint:
-        HanaProfile.replacePerson("Réponds simplement 아나예요."),
-      accepted: [
-        HanaProfile.replacePerson("아나예요")
-      ],
-      answer:
-        HanaProfile.replacePerson("아나예요."),
-      notion:
-        HanaProfile.replacePerson("아나예요")
-    },
-
-    {
-      title: "🚪 Demander ta chambre",
-      prompt:
-        "Écris : « Où est ma chambre ? »",
-      hint:
-        "Utilise 제 방이 + 어디예요?",
-      accepted: [
-        "제방이어디예요"
-      ],
-      answer:
-        "제 방이 어디예요?",
-      notion:
-        "제 방이 어디예요?"
-    },
-
-    {
-      title: "📶 Demander le mot de passe",
-      prompt:
-        "Écris : « Quel est le mot de passe du Wi-Fi ? »",
-      hint:
-        "Utilise 와이파이 + 비밀번호가 + 뭐예요?",
-      accepted: [
-        "와이파이비밀번호가뭐예요"
-      ],
-      answer:
-        "와이파이 비밀번호가 뭐예요?",
-      notion:
-        "와이파이 / 비밀번호"
-    },
-
-    {
-      title: "🆘 Demander de l'aide",
-      prompt:
-        "Écris : « Le Wi-Fi ne fonctionne pas. Aidez-moi, s'il vous plaît. »",
-      hint:
-        "Utilise 와이파이가 안 돼요 puis 도와주세요.",
-      accepted: [
-        "와이파이가안돼요도와주세요",
-        "와이파이안돼요도와주세요"
-      ],
-      answer:
-        "와이파이가 안 돼요. 도와주세요.",
-      notion:
-        "안 돼요 / 도와주세요"
-    },
-
-    {
-      title: "🙏 Remercier",
-      prompt:
-        "Écris : « Merci. »",
-      hint:
-        "Utilise 감사합니다.",
-      accepted: [
-        "감사합니다"
-      ],
-      answer:
-        "감사합니다.",
-      notion:
-        "감사합니다"
-    }
-
-  ];
-
-
-  let currentStep = 0;
-  let mistakes = 0;
-  let helpCount = 0;
-
-  const weakNotions = [];
-
-
   function guardWritingAccess() {
 
     if (
@@ -621,7 +551,6 @@
       window.location.replace(
         "chapitre-16.html"
       );
-
       return false;
     }
 
@@ -633,7 +562,6 @@
       window.location.replace(
         "ecoute-16.html"
       );
-
       return false;
     }
 
@@ -645,7 +573,6 @@
       window.location.replace(
         "parle-16.html"
       );
-
       return false;
     }
 
@@ -664,20 +591,91 @@
   }
 
 
-  function normalizeKorean(
-    text
-  ) {
+  const steps = [
+
+    {
+      title: "📖 Demander le menu",
+      prompt: "Écris : « Le menu, s'il vous plaît. »",
+      hint: "Utilise 메뉴 + 주세요.",
+      accepted: [
+        "메뉴주세요"
+      ],
+      answer: "메뉴 주세요.",
+      notion: "메뉴 / 주세요"
+    },
+
+    {
+      title: "⭐ Demander une recommandation",
+      prompt: "Écris : « Recommandez-moi quelque chose, s'il vous plaît. »",
+      hint: "Utilise 추천해 주세요.",
+      accepted: [
+        "추천해주세요"
+      ],
+      answer: "추천해 주세요.",
+      notion: "추천해 주세요"
+    },
+
+    {
+      title: "🐷 Préciser une restriction alimentaire",
+      prompt: "Écris : « Je ne mange pas de porc. »",
+      hint: "Utilise 돼지고기를 + 안 먹어요.",
+      accepted: [
+        "돼지고기를안먹어요",
+        "돼지고기안먹어요"
+      ],
+      answer: "돼지고기를 안 먹어요.",
+      notion: "돼지고기 / 안 먹어요"
+    },
+
+    {
+      title: "🌶️ Demander si c'est épicé",
+      prompt: "Écris : « C'est très épicé ? »",
+      hint: "Utilise 많이 + 매워요?",
+      accepted: [
+        "많이매워요"
+      ],
+      answer: "많이 매워요?",
+      notion: "많이 매워요?"
+    },
+
+    {
+      title: "🍚 Commander un plat",
+      prompt: "Écris : « Un bibimbap, s'il vous plaît. »",
+      hint: "Utilise 비빔밥 + 하나 + 주세요.",
+      accepted: [
+        "비빔밥하나주세요"
+      ],
+      answer: "비빔밥 하나 주세요.",
+      notion: "하나 / 주세요"
+    },
+
+    {
+      title: "💳 Demander l'addition",
+      prompt: "Écris : « L'addition, s'il vous plaît. »",
+      hint: "Utilise 계산해 주세요.",
+      accepted: [
+        "계산해주세요"
+      ],
+      answer: "계산해 주세요.",
+      notion: "계산해 주세요"
+    }
+
+  ];
+
+
+  let currentStep = 0;
+  let mistakes = 0;
+  let helpCount = 0;
+  const weakNotions = [];
+
+
+  function normalizeKorean(text) {
 
     return text
-      .replace(
-        /[.,!?~…'"]/g,
-        ""
-      )
-      .replace(
-        /\s+/g,
-        ""
-      )
+      .replace(/[.,!?~…'"]/g, "")
+      .replace(/\s+/g, "")
       .trim();
+
   }
 
 
@@ -733,10 +731,8 @@
       "progressFill"
     ).style.width =
       (
-        (
-          currentStep + 1
-        ) /
-        steps.length *
+        ((currentStep + 1) /
+          steps.length) *
         100
       ) +
       "%";
@@ -795,12 +791,11 @@
     );
 
 
-    window.setTimeout(
-      function() {
-        input.focus();
-      },
+    setTimeout(
+      () => input.focus(),
       200
     );
+
   }
 
 
@@ -808,11 +803,13 @@
 
     helpCount++;
 
+
     document.getElementById(
       "helpBox"
     ).classList.toggle(
       "show"
     );
+
   }
 
 
@@ -837,9 +834,7 @@
     const accepted =
       step.accepted.map(
         answer =>
-          normalizeKorean(
-            answer
-          )
+          normalizeKorean(answer)
       );
 
 
@@ -850,9 +845,7 @@
 
 
     if (
-      accepted.includes(
-        value
-      )
+      accepted.includes(value)
     ) {
 
       feedback.className =
@@ -861,7 +854,7 @@
 
       feedback.innerHTML =
         "✅ <strong>Très bien !</strong>" +
-        "<div class='answer-revealHanaProfile.replacePerson('>" +
+        "<div class='answer-reveal'>" +
         step.answer +
         "</div>";
 
@@ -891,6 +884,7 @@
 
 
       return;
+
     }
 
 
@@ -902,9 +896,11 @@
         step.notion
       )
     ) {
+
       weakNotions.push(
         step.notion
       );
+
     }
 
 
@@ -915,54 +911,66 @@
     if (
       currentStep === 0
     ) {
+
       feedback.innerHTML =
-        "❌ <strong>Repère 예약.</strong><br><br>" +
-        "La phrase attendue est <strong>예약했어요.</strong>";
+        "❌ <strong>Pas encore.</strong><br><br>" +
+        "Utilise <strong>메뉴</strong> puis ajoute <strong>주세요</strong>.";
+
     }
 
 
     if (
       currentStep === 1
     ) {
+
       feedback.innerHTML =
-        "❌ <strong>Réponds simplement avec ton nom.</strong><br><br>" +
-        "Ici : <strong>아나예요.</strong>";
+        "❌ <strong>Repère l'expression de recommandation.</strong><br><br>" +
+        "La formule attendue est <strong>추천해 주세요.</strong>";
+
     }
 
 
     if (
       currentStep === 2
     ) {
+
       feedback.innerHTML =
-        "❌ <strong>Regarde la structure.</strong><br><br>" +
-        "<strong>제 방이</strong> = ma chambre, puis <strong>어디예요?</strong> = où est… ?";
+        "❌ <strong>Attention à la négation.</strong><br><br>" +
+        "Commence par <strong>돼지고기를</strong> puis ajoute <strong>안 먹어요</strong>.";
+
     }
 
 
     if (
       currentStep === 3
     ) {
+
       feedback.innerHTML =
-        "❌ <strong>Repère 비밀번호.</strong><br><br>" +
-        "Utilise <strong>와이파이 비밀번호가 뭐예요?</strong>";
+        "❌ <strong>Réessaie.</strong><br><br>" +
+        "Pour demander si c'est très épicé, utilise <strong>많이 매워요?</strong>";
+
     }
 
 
     if (
       currentStep === 4
     ) {
+
       feedback.innerHTML =
-        "❌ <strong>Il faut deux idées.</strong><br><br>" +
-        "<strong>안 돼요</strong> = ça ne fonctionne pas, puis <strong>도와주세요</strong> = aidez-moi.";
+        "❌ <strong>Regarde la structure de commande.</strong><br><br>" +
+        "Utilise <strong>비빔밥 + 하나 + 주세요</strong>.";
+
     }
 
 
     if (
       currentStep === 5
     ) {
+
       feedback.innerHTML =
-        "❌ <strong>Pour remercier poliment :</strong><br><br>" +
-        "<strong>감사합니다.</strong>";
+        "❌ <strong>Repère le mot 계산.</strong><br><br>" +
+        "Pour demander l'addition, utilise <strong>계산해 주세요.</strong>";
+
     }
 
 
@@ -971,6 +979,7 @@
     ).classList.add(
       "show"
     );
+
   }
 
 
@@ -1000,6 +1009,7 @@
     ).classList.remove(
       "show"
     );
+
   }
 
 
@@ -1012,18 +1022,23 @@
 
       currentStep++;
 
+
       renderStep();
+
 
       window.scrollTo({
         top: 0,
         behavior: "smooth"
       });
 
+
       return;
+
     }
 
 
     finishWriting();
+
   }
 
 
@@ -1042,39 +1057,46 @@
     );
 
 
-    let summary =
-      "";
+    let summary = "";
 
 
     if (
       mistakes === 0
     ) {
+
       summary =
         "🌟 Toutes les réponses ont été écrites correctement du premier coup.";
+
     }
 
     else if (
       mistakes === 1
     ) {
+
       summary =
         "💡 Tu as eu 1 tentative incorrecte pendant la séance.";
+
     }
 
     else {
+
       summary =
         "💡 Tu as eu " +
         mistakes +
         " tentatives incorrectes pendant la séance.";
+
     }
 
 
     if (
       helpCount > 0
     ) {
+
       summary +=
-        "<br><br>Tu as consulté l')aide " +
+        "<br><br>Tu as consulté l'aide " +
         helpCount +
         " fois.";
+
     }
 
 
@@ -1092,9 +1114,7 @@
 
     localStorage.setItem(
       WRITING_MISTAKES_KEY,
-      String(
-        mistakes
-      )
+      String(mistakes)
     );
 
 
@@ -1113,6 +1133,7 @@
       top: 0,
       behavior: "smooth"
     });
+
   }
 
 
@@ -1143,8 +1164,11 @@
           "checkButton"
         ).disabled
       ) {
+
         checkWriting();
+
       }
+
     }
   );
 
@@ -1154,9 +1178,7 @@
   ) {
 
     renderChapterProgress();
-
     renderStep();
-
 
     window.addEventListener(
       "pageshow",
@@ -1167,4 +1189,5 @@
   }
 </script>
 </body>
+
 </html>

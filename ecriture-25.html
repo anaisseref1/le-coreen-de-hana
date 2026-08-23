@@ -68,7 +68,7 @@
     }
 
     textarea {
-      min-height:140px;
+      min-height:130px;
       resize:vertical;
     }
 
@@ -102,18 +102,19 @@
       color:var(--error);
     }
 
-    .word-bank {
-      display:flex;
-      flex-wrap:wrap;
-      gap:8px;
-      margin:12px 0;
+    .choice-grid {
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0, 1fr));
+      gap:10px;
+      margin-top:12px;
     }
 
-    .word-chip {
-      padding:9px 12px;
+    .gift-chip {
+      padding:12px;
       background:var(--soft-beige);
+      border-radius:var(--radius-medium);
       color:var(--navy);
-      border-radius:999px;
+      text-align:center;
       font-weight:600;
     }
 
@@ -151,6 +152,14 @@
       color:var(--navy);
     }
 
+    @media (max-width:430px) {
+
+      .choice-grid {
+        grid-template-columns:1fr;
+      }
+
+    }
+
   </style>
 
   <script src="profile.js"></script>
@@ -173,6 +182,7 @@
 <section id="hanaChapterPath" data-chapter-path></section>
 
 
+
   <header class="write-header">
 
     <span class="chapter-badge">
@@ -180,20 +190,19 @@
     </span>
 
     <p class="korean">
-      프랑스로 보내요. 📮
+      친구에게 선물을 줘요. 🎁
     </p>
 
     <h1>
-      Écrire à la poste
+      Écrire autour d'un cadeau
     </h1>
 
     <p>
       Réutilise
-      <strong>-고 싶어요</strong>,
-      <strong>-(으)로</strong>,
-      <strong>얼마예요?</strong>
-      et
-      <strong>얼마나 걸려요?</strong>.
+      <strong>에게</strong>,
+      <strong>주다</strong>,
+      <strong>받다</strong>
+      et les expressions du chapitre.
     </p>
 
   </header>
@@ -206,11 +215,11 @@
 
     <div
       class="question-block"
-      data-valid="편지를 보내고 싶어요"
+      data-valid="친구에게 선물을 줘요"
     >
 
       <div class="question-title">
-        1. Je voudrais envoyer une lettre.
+        1. J'offre / Je donne un cadeau à mon ami.
       </div>
 
       <input
@@ -233,11 +242,11 @@
 
     <div
       class="question-block"
-      data-valid="소포를 보내고 싶어요"
+      data-valid="선물을 받아요"
     >
 
       <div class="question-title">
-        2. Je voudrais envoyer un colis.
+        2. Je reçois un cadeau.
       </div>
 
       <input
@@ -260,11 +269,11 @@
 
     <div
       class="question-block"
-      data-valid="얼마예요"
+      data-valid="가족에게 선물하고 싶어요"
     >
 
       <div class="question-title">
-        3. Combien ça coûte ?
+        3. Je veux offrir un cadeau à ma famille.
       </div>
 
       <input
@@ -287,38 +296,11 @@
 
     <div
       class="question-block"
-      data-valid="얼마나 걸려요"
+      data-valid="선물을 사요"
     >
 
       <div class="question-title">
-        4. Combien de temps cela prend-il ?
-      </div>
-
-      <input
-        type="text"
-        lang="ko"
-        placeholder="Écris en coréen"
-      >
-
-      <button
-        class="check-button"
-        type="button"
-      >
-        Vérifier
-      </button>
-
-      <div class="feedback"></div>
-
-    </div>
-
-
-    <div
-      class="question-block"
-      data-valid="프랑스로 보내요"
-    >
-
-      <div class="question-title">
-        5. Je l'envoie en France.
+        4. J'achète un cadeau.
       </div>
 
       <input
@@ -345,222 +327,135 @@
 
     <h2>🧩 Exercice 2 — Complète</h2>
 
-    <div class="word-bank">
-      <span class="word-chip">소포</span>
-      <span class="word-chip">보내고</span>
-      <span class="word-chip">얼마</span>
-      <span class="word-chip">얼마나</span>
-      <span class="word-chip">주소</span>
+    <p>
+      Complète avec :
+      <strong>에게 / 을 / 줘요 / 받아요</strong>
+    </p>
+
+
+    <div
+      class="question-block"
+      data-valid="에게 줘요"
+      data-mode="parts"
+    >
+
+      <div class="question-title">
+        ① 친구_____ 선물을 ________.
+        <br>
+        → Je donne un cadeau à mon ami.
+      </div>
+
+      <input
+        type="text"
+        lang="ko"
+        placeholder="Exemple : 에게 줘요"
+      >
+
+      <button
+        class="check-button"
+        type="button"
+      >
+        Vérifier
+      </button>
+
+      <div class="feedback"></div>
+
     </div>
 
 
     <div
       class="question-block"
-      data-valid="소포"
+      data-valid="을 받아요"
+      data-mode="parts"
     >
+
       <div class="question-title">
-        ① ________를 보내고 싶어요.
+        ② 선물_____ ________.
         <br>
-        → Je voudrais envoyer un colis.
+        → Je reçois un cadeau.
       </div>
 
-      <input type="text" lang="ko" placeholder="Complète la phrase">
+      <input
+        type="text"
+        lang="ko"
+        placeholder="Exemple : 을 받아요"
+      >
 
-      <button class="check-button" type="button">
+      <button
+        class="check-button"
+        type="button"
+      >
         Vérifier
       </button>
 
       <div class="feedback"></div>
+
     </div>
 
 
     <div
       class="question-block"
-      data-valid="얼마"
+      data-valid="에게"
     >
+
       <div class="question-title">
-        ② ________예요?
+        ③ 가족_____ 선물하고 싶어요.
         <br>
-        → Combien ça coûte ?
+        → Je veux offrir un cadeau à ma famille.
       </div>
 
-      <input type="text" lang="ko" placeholder="Complète la phrase">
+      <input
+        type="text"
+        lang="ko"
+        placeholder="Complète la phrase"
+      >
 
-      <button class="check-button" type="button">
+      <button
+        class="check-button"
+        type="button"
+      >
         Vérifier
       </button>
 
       <div class="feedback"></div>
-    </div>
 
-
-    <div
-      class="question-block"
-      data-valid="얼마나"
-    >
-      <div class="question-title">
-        ③ ________ 걸려요?
-        <br>
-        → Combien de temps cela prend-il ?
-      </div>
-
-      <input type="text" lang="ko" placeholder="Complète la phrase">
-
-      <button class="check-button" type="button">
-        Vérifier
-      </button>
-
-      <div class="feedback"></div>
-    </div>
-
-
-    <div
-      class="question-block"
-      data-valid="주소"
-    >
-      <div class="question-title">
-        ④ ________가 뭐예요?
-        <br>
-        → Quelle est l'adresse ?
-      </div>
-
-      <input type="text" lang="ko" placeholder="Complète la phrase">
-
-      <button class="check-button" type="button">
-        Vérifier
-      </button>
-
-      <div class="feedback"></div>
-    </div>
-
-
-    <div
-      class="question-block"
-      data-valid="보내고"
-    >
-      <div class="question-title">
-        ⑤ 프랑스로 ________ 싶어요.
-        <br>
-        → Je voudrais envoyer en France.
-      </div>
-
-      <input type="text" lang="ko" placeholder="Complète la phrase">
-
-      <button class="check-button" type="button">
-        Vérifier
-      </button>
-
-      <div class="feedback"></div>
     </div>
 
   </section>
 
 
-  <section class="exercise-card">
+  <section class="free-card">
 
-    <h2>🔗 Exercice 3 — Associe</h2>
+    <h2>🎁 Exercice 3 — Que choisirais-tu ?</h2>
 
     <p>
-      Écris la lettre correspondant à chaque mot.
+      Tu veux offrir un cadeau à quelqu'un.
+      Choisis un objet :
     </p>
 
-    <div class="word-bank">
-      <span class="word-chip">A. adresse</span>
-      <span class="word-chip">B. lettre</span>
-      <span class="word-chip">C. poste</span>
-      <span class="word-chip">D. timbre</span>
-      <span class="word-chip">E. colis</span>
+    <div class="choice-grid">
+
+      <div class="gift-chip">🎁 선물</div>
+      <div class="gift-chip">📖 책</div>
+      <div class="gift-chip">🌸 꽃</div>
+      <div class="gift-chip">🍫 초콜릿</div>
+      <div class="gift-chip">🍵 차</div>
+
     </div>
 
+    <p>
+      Puis construis une phrase avec :
+    </p>
 
-    <div
-      class="question-block"
-      data-valid="c"
-    >
-      <div class="question-title">
-        ① 우체국
-      </div>
+    <strong>
+      ______에게 ______을/를 선물하고 싶어요.
+    </strong>
 
-      <input type="text" placeholder="A, B, C, D ou E">
-
-      <button class="check-button" type="button">
-        Vérifier
-      </button>
-
-      <div class="feedback"></div>
-    </div>
-
-
-    <div
-      class="question-block"
-      data-valid="b"
-    >
-      <div class="question-title">
-        ② 편지
-      </div>
-
-      <input type="text" placeholder="A, B, C, D ou E">
-
-      <button class="check-button" type="button">
-        Vérifier
-      </button>
-
-      <div class="feedback"></div>
-    </div>
-
-
-    <div
-      class="question-block"
-      data-valid="e"
-    >
-      <div class="question-title">
-        ③ 소포
-      </div>
-
-      <input type="text" placeholder="A, B, C, D ou E">
-
-      <button class="check-button" type="button">
-        Vérifier
-      </button>
-
-      <div class="feedback"></div>
-    </div>
-
-
-    <div
-      class="question-block"
-      data-valid="a"
-    >
-      <div class="question-title">
-        ④ 주소
-      </div>
-
-      <input type="text" placeholder="A, B, C, D ou E">
-
-      <button class="check-button" type="button">
-        Vérifier
-      </button>
-
-      <div class="feedback"></div>
-    </div>
-
-
-    <div
-      class="question-block"
-      data-valid="d"
-    >
-      <div class="question-title">
-        ⑤ 우표
-      </div>
-
-      <input type="text" placeholder="A, B, C, D ou E">
-
-      <button class="check-button" type="button">
-        Vérifier
-      </button>
-
-      <div class="feedback"></div>
-    </div>
+    <textarea
+      id="choiceExercise"
+      lang="ko"
+      placeholder="Exemple : 친구에게 책을 선물하고 싶어요."
+    ></textarea>
 
   </section>
 
@@ -570,28 +465,36 @@
     <h2>📝 Mon carnet de voyage</h2>
 
     <p>
-      Imagine que tu es à Séoul.
-      Tu veux envoyer une carte postale
-      à quelqu'un en France.
+      Imagine que tu veux remercier quelqu'un
+      rencontré pendant ton voyage en Corée.
     </p>
 
     <p>
-      Écris un petit dialogue avec l'employé de la poste.
+      À qui veux-tu offrir un cadeau ?
+      Que veux-tu lui offrir ?
+      Pourquoi ?
     </p>
 
-    <div class="word-bank">
-      <span class="word-chip">안녕하세요.</span>
-      <span class="word-chip">엽서를 보내고 싶어요.</span>
-      <span class="word-chip">프랑스로 보내요.</span>
-      <span class="word-chip">얼마예요?</span>
-      <span class="word-chip">얼마나 걸려요?</span>
-      <span class="word-chip">감사합니다.</span>
+    <p>
+      Écris <strong>3 à 5 phrases en coréen</strong>.
+    </p>
+
+    <div class="choice-grid">
+
+      <div class="gift-chip">친구에게</div>
+      <div class="gift-chip">가족에게</div>
+      <div class="gift-chip">선물을 줘요.</div>
+      <div class="gift-chip">선물하고 싶어요.</div>
+      <div class="gift-chip">책을 좋아해요.</div>
+      <div class="gift-chip">차를 좋아해요.</div>
+      <div class="gift-chip">꽃을 좋아해요.</div>
+
     </div>
 
     <textarea
       id="travelNotebook"
       lang="ko"
-      placeholder="Écris ton dialogue ici…"
+      placeholder="Écris ici 3 à 5 phrases…"
     ></textarea>
 
   </section>
@@ -601,26 +504,35 @@
 
     <h2>💡 À retenir</h2>
 
-    <strong>프랑스로 보내요.</strong>
+    <strong>친구에게 선물을 줘요.</strong>
 
     <br>
 
-    → Je l'envoie en France.
+    → Je donne un cadeau à un ami.
 
     <br><br>
 
-    Ici, <strong>-로</strong>
-    indique la destination de l'envoi.
+    <strong>선물을 받아요.</strong>
+
+    <br>
+
+    → Je reçois un cadeau.
 
     <br><br>
 
-    <strong>얼마예요?</strong>
-    demande un prix.
+    Avec <strong>받다</strong>,
+    tu peux aussi rencontrer
+    <strong>에게서</strong>
+    pour préciser la personne
+    <strong>de qui</strong> vient quelque chose.
 
     <br><br>
 
-    <strong>얼마나 걸려요?</strong>
-    demande une durée.
+    <strong>친구에게서 선물을 받아요.</strong>
+
+    <br>
+
+    → Je reçois un cadeau d'un ami.
 
   </section>
 
@@ -655,10 +567,16 @@
 </main>
 
 
+<script src="chapter-progress.js"></script>
+
 <script>
 
   const progressKey =
     "hanaKorean_chapter25_writing";
+
+
+  const choiceExerciseKey =
+    "hanaKorean_chapter25_choiceExercise";
 
 
   const notebookKey =
@@ -685,6 +603,12 @@
     );
 
 
+  const choiceExercise =
+    document.getElementById(
+      "choiceExercise"
+    );
+
+
   const travelNotebook =
     document.getElementById(
       "travelNotebook"
@@ -696,12 +620,14 @@
   ) {
 
     return value
-      .toLowerCase()
       .replace(
         /[?.!,]/g,
         ""
       )
-      .replace(/\s+/g, "")
+      .replace(
+        /\s+/g,
+        ""
+      )
       .trim();
 
   }
@@ -829,8 +755,20 @@
               "feedback show error";
 
 
-            feedback.textContent =
-              "Pas encore. Relis la phrase et réessaie.";
+            if (
+              block.dataset.mode ===
+              "parts"
+            ) {
+
+              feedback.textContent =
+                "Pas encore. Vérifie les deux éléments à compléter et réessaie.";
+
+            } else {
+
+              feedback.textContent =
+                "Pas encore. Relis la structure du chapitre et réessaie.";
+
+            }
 
           }
 
@@ -841,22 +779,50 @@
   );
 
 
-  travelNotebook.value =
-    localStorage.getItem(
-      notebookKey
-    ) || "";
+  function restoreAndSave(
+    element,
+    key
+  ) {
 
+    if (
+      !element
+    ) {
 
-  travelNotebook.addEventListener(
-    "input",
-    () => {
-
-      localStorage.setItem(
-        notebookKey,
-        travelNotebook.value
-      );
+      return;
 
     }
+
+
+    element.value =
+      localStorage.getItem(
+        key
+      ) || "";
+
+
+    element.addEventListener(
+      "input",
+      () => {
+
+        localStorage.setItem(
+          key,
+          element.value
+        );
+
+      }
+    );
+
+  }
+
+
+  restoreAndSave(
+    choiceExercise,
+    choiceExerciseKey
+  );
+
+
+  restoreAndSave(
+    travelNotebook,
+    notebookKey
   );
 
 
@@ -921,9 +887,7 @@
 
 
 
-<script src="chapter-progress.js"></script>
 <script>
-
 (function () {
   const UNDERSTANDING_KEY = "hanaKorean_chapter25_understanding";
   const LISTENING_EXERCISE_KEY = "hanaKorean_chapter25_listeningExercise";
@@ -931,24 +895,20 @@
   const WRITING_KEY = "hanaKorean_chapter25_writing";
   const WRITING_MISTAKES_KEY = "hanaKorean_chapter25_writingMistakes";
   const REVISION_NOTIONS_KEY = "hanaKorean_chapter25_revisionNotions";
-  let mistakeCount = Number(localStorage.getItem(WRITING_MISTAKES_KEY) || "0");
-  let notions = [];
-  try {
-    const stored = JSON.parse(localStorage.getItem(REVISION_NOTIONS_KEY) || "[]");
-    if (Array.isArray(stored)) notions = stored;
-  } catch (_) {}
+
   function renderChapterProgress() {
     if (window.HanaChapterProgress && typeof window.HanaChapterProgress.render === "function") {
       window.HanaChapterProgress.render();
     }
   }
+
   function guardWritingAccess() {
     if (localStorage.getItem(UNDERSTANDING_KEY) !== "completed") {
       window.location.href = "chapitre-25.html";
       return false;
     }
     if (localStorage.getItem(LISTENING_EXERCISE_KEY) !== "completed") {
-      window.location.href = "exercice-ecoute-25.html";
+      window.location.href = "exercice-ecoute-26.html";
       return false;
     }
     if (localStorage.getItem(SPEAKING_KEY) !== "completed") {
@@ -957,37 +917,27 @@
     }
     return true;
   }
+
   if (guardWritingAccess()) renderChapterProgress();
-  document.addEventListener("click", event => {
-    const button = event.target.closest(".check-button");
-    if (!button) return;
-    setTimeout(() => {
-      const block = button.closest(".question-block");
-      const feedback = block ? block.querySelector(".feedback") : null;
-      if (feedback && feedback.classList.contains("error")) {
-        mistakeCount += 1;
-        const title = block.querySelector(".question-title");
-        const notion = title ? title.textContent.replace(/\s+/g, " ").trim() : "";
-        if (notion && !notions.includes(notion)) notions.push(notion);
-        localStorage.setItem(WRITING_MISTAKES_KEY, String(mistakeCount));
-        localStorage.setItem(REVISION_NOTIONS_KEY, JSON.stringify(notions));
-      }
-    }, 0);
-  });
-  const completeButton = document.getElementById("completeButton");
-  if (completeButton) {
-    completeButton.addEventListener("click", () => {
+
+  const button = document.getElementById("completeButton");
+  if (button) {
+    button.addEventListener("click", () => {
       localStorage.setItem(WRITING_KEY, "completed");
-      localStorage.setItem(WRITING_MISTAKES_KEY, String(mistakeCount));
-      localStorage.setItem(REVISION_NOTIONS_KEY, JSON.stringify(notions));
+      if (localStorage.getItem(WRITING_MISTAKES_KEY) === null) {
+        localStorage.setItem(WRITING_MISTAKES_KEY, "0");
+      }
+      if (localStorage.getItem(REVISION_NOTIONS_KEY) === null) {
+        localStorage.setItem(REVISION_NOTIONS_KEY, "[]");
+      }
       renderChapterProgress();
     });
   }
+
   window.addEventListener("pageshow", () => {
     if (guardWritingAccess()) renderChapterProgress();
   });
 })();
-
 </script>
 </body>
 

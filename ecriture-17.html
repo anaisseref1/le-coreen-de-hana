@@ -3,27 +3,15 @@
 
 <head>
   <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
-
-  <meta
-    name="theme-color"
-    content="#F7F4ED"
-  >
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#F7F4ED">
 
   <title>J'écris — Chapitre 17</title>
 
-  <link
-    rel="stylesheet"
-    href="style.css"
-  >
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="chapter-progress.css">
 
-    <link rel="stylesheet" href="chapter-progress.css">
-
-<style>
+  <style>
     .writing-header {
       text-align: center;
       margin-bottom: 28px;
@@ -153,6 +141,16 @@
       display: block;
     }
 
+    .feedback.correct {
+      background: var(--success-light);
+      color: var(--navy);
+    }
+
+    .feedback.wrong {
+      background: var(--error-light);
+      color: var(--navy);
+    }
+
     .help-button {
       margin-top: 10px;
       background: var(--soft-beige);
@@ -226,10 +224,6 @@
       line-height: 1.7;
     }
 
-    .notion-list {
-      margin-top: 14px;
-    }
-
     .notion-line {
       padding: 10px 0;
       border-bottom: 1px solid var(--border);
@@ -259,13 +253,9 @@
 
 <main class="app">
 
-  <a
-    class="back-link"
-    href="parle-17.html"
-  >
+  <a class="back-link" href="parle-17.html">
     ← Je parle
   </a>
-
 
   <header class="writing-header">
 
@@ -282,8 +272,8 @@
     </h1>
 
     <p>
-      Écris les expressions utiles pour le téléphone et Internet :
-      demander le Wi-Fi, parler de ta batterie, demander un chargeur et trouver où recharger.
+      Écris les expressions essentielles pour ton arrivée à l'hôtel,
+      ta chambre, le Wi-Fi et une demande d'aide.
     </p>
 
   </header>
@@ -293,23 +283,21 @@
     data-chapter-path
   ></section>
 
-
   <section class="intro-card">
 
     <strong>🎯 Objectif</strong>
 
     <br><br>
 
-    Savoir écrire les expressions essentielles du chapitre :
-    <strong>와이파이 있어요?</strong>,
+    Savoir écrire :
+    <strong>예약했어요.</strong>,
+    <strong>아나예요.</strong>,
+    <strong>제 방이 어디예요?</strong>,
     <strong>와이파이 비밀번호가 뭐예요?</strong>,
-    <strong>배터리가 없어요.</strong>,
-    <strong>충전기 있어요?</strong>,
-    <strong>어디에서 충전할 수 있어요?</strong>
-    et <strong>인터넷이 안 돼요.</strong>.
+    <strong>와이파이가 안 돼요. 도와주세요.</strong>
+    et <strong>감사합니다.</strong>.
 
   </section>
-
 
   <div class="exercise-progress">
 
@@ -327,7 +315,6 @@
 
   </div>
 
-
   <section
     class="writing-card"
     id="writingCard"
@@ -341,7 +328,7 @@
     </div>
 
     <h2 id="stepTitle">
-      📶 Demander le Wi-Fi
+      🛎️ Une réservation
     </h2>
 
     <div class="prompt-box">
@@ -350,18 +337,17 @@
         class="prompt-main"
         id="promptMain"
       >
-        Écris : « Il y a du Wi-Fi ? »
+        Écris : « J'ai une réservation. »
       </div>
 
       <div
         class="hint-line"
         id="promptHint"
       >
-        Utilise 와이파이 + 있어요?
+        Utilise 예약했어요.
       </div>
 
     </div>
-
 
     <input
       class="writing-input"
@@ -374,7 +360,6 @@
       placeholder="Écris en coréen…"
     >
 
-
     <button
       class="check-button"
       id="checkButton"
@@ -384,12 +369,10 @@
       Vérifier
     </button>
 
-
     <div
       class="feedback"
       id="feedback"
     ></div>
-
 
     <button
       class="help-button"
@@ -399,12 +382,10 @@
       💡 Besoin d'aide ?
     </button>
 
-
     <div
       class="help-box"
       id="helpBox"
     ></div>
-
 
     <button
       class="retry-button"
@@ -414,7 +395,6 @@
     >
       ✍️ Réessayer
     </button>
-
 
     <button
       class="next-button"
@@ -427,14 +407,13 @@
 
   </section>
 
-
   <section
     class="result-card"
     id="resultCard"
   >
 
     <div class="result-icon">
-      ✍️📱
+      ✍️🏨
     </div>
 
     <h2>
@@ -445,60 +424,53 @@
       Tu as terminé l'expression écrite du chapitre 17.
     </p>
 
-
     <div class="summary-box">
 
       <strong>
         🌿 À retenir
       </strong>
 
-      <div class="notion-list">
+      <div class="notion-line">
+        🛎️ <strong>예약했어요.</strong>
+        → J'ai une réservation.
+      </div>
 
-        <div class="notion-line">
-          📶 <strong>와이파이 있어요?</strong>
-          → Il y a du Wi-Fi ?
-        </div>
+      <div class="notion-line">
+        👤 <strong>아나예요.</strong>
+        → Je m'appelle Ana.
+      </div>
 
-        <div class="notion-line">
-          🔐 <strong>와이파이 비밀번호가 뭐예요?</strong>
-          → Quel est le mot de passe du Wi-Fi ?
-        </div>
+      <div class="notion-line">
+        🚪 <strong>제 방이 어디예요?</strong>
+        → Où est ma chambre ?
+      </div>
 
-        <div class="notion-line">
-          🔋 <strong>배터리가 없어요.</strong>
-          → Je n'ai plus de batterie.
-        </div>
+      <div class="notion-line">
+        📶 <strong>와이파이 비밀번호가 뭐예요?</strong>
+        → Quel est le mot de passe du Wi-Fi ?
+      </div>
 
-        <div class="notion-line">
-          🔌 <strong>충전기 있어요?</strong>
-          → Vous avez un chargeur ?
-        </div>
+      <div class="notion-line">
+        🆘 <strong>와이파이가 안 돼요. 도와주세요.</strong>
+        → Le Wi-Fi ne fonctionne pas. Aidez-moi, s'il vous plaît.
+      </div>
 
-        <div class="notion-line">
-          ⚡ <strong>어디에서 충전할 수 있어요?</strong>
-          → Où est-ce que je peux recharger ?
-        </div>
-
-        <div class="notion-line">
-          🌐 <strong>인터넷이 안 돼요.</strong>
-          → Internet ne fonctionne pas.
-        </div>
-
+      <div class="notion-line">
+        🙏 <strong>감사합니다.</strong>
+        → Merci.
       </div>
 
       <p id="mistakeSummary"></p>
 
     </div>
 
-
     <button
       class="continue-button"
       type="button"
-      onclick="window.location.href='revision-17.html'"
+      onclick="goToReview()"
     >
       🧠 Passer à « Je révise »
     </button>
-
 
     <button
       class="back-button"
@@ -512,11 +484,10 @@
 
 </main>
 
-
 <script src="chapter-progress.js"></script>
 
 <script>
-  const CHAPTER = 17;
+  const CHAPTER = 16;
 
   const UNDERSTANDING_KEY =
     "hanaKorean_chapter17_understanding";
@@ -536,7 +507,112 @@
   const REVISION_NOTIONS_KEY =
     "hanaKorean_chapter17_revisionNotions";
 
+
+  const steps = [
+
+    {
+      title: "🛎️ Une réservation",
+      prompt:
+        "Écris : « J'ai une réservation. »",
+      hint:
+        "Utilise 예약했어요.",
+      accepted: [
+        "예약했어요"
+      ],
+      answer:
+        "예약했어요.",
+      notion:
+        "예약했어요"
+    },
+
+    {
+      title: "👤 Donner ton nom",
+      prompt:
+        "Écris : « Je m'appelle Ana. »",
+      hint:
+        HanaProfile.replacePerson("Réponds simplement 아나예요."),
+      accepted: [
+        HanaProfile.replacePerson("아나예요")
+      ],
+      answer:
+        HanaProfile.replacePerson("아나예요."),
+      notion:
+        HanaProfile.replacePerson("아나예요")
+    },
+
+    {
+      title: "🚪 Demander ta chambre",
+      prompt:
+        "Écris : « Où est ma chambre ? »",
+      hint:
+        "Utilise 제 방이 + 어디예요?",
+      accepted: [
+        "제방이어디예요"
+      ],
+      answer:
+        "제 방이 어디예요?",
+      notion:
+        "제 방이 어디예요?"
+    },
+
+    {
+      title: "📶 Demander le mot de passe",
+      prompt:
+        "Écris : « Quel est le mot de passe du Wi-Fi ? »",
+      hint:
+        "Utilise 와이파이 + 비밀번호가 + 뭐예요?",
+      accepted: [
+        "와이파이비밀번호가뭐예요"
+      ],
+      answer:
+        "와이파이 비밀번호가 뭐예요?",
+      notion:
+        "와이파이 / 비밀번호"
+    },
+
+    {
+      title: "🆘 Demander de l'aide",
+      prompt:
+        "Écris : « Le Wi-Fi ne fonctionne pas. Aidez-moi, s'il vous plaît. »",
+      hint:
+        "Utilise 와이파이가 안 돼요 puis 도와주세요.",
+      accepted: [
+        "와이파이가안돼요도와주세요",
+        "와이파이안돼요도와주세요"
+      ],
+      answer:
+        "와이파이가 안 돼요. 도와주세요.",
+      notion:
+        "안 돼요 / 도와주세요"
+    },
+
+    {
+      title: "🙏 Remercier",
+      prompt:
+        "Écris : « Merci. »",
+      hint:
+        "Utilise 감사합니다.",
+      accepted: [
+        "감사합니다"
+      ],
+      answer:
+        "감사합니다.",
+      notion:
+        "감사합니다"
+    }
+
+  ];
+
+
+  let currentStep = 0;
+  let mistakes = 0;
+  let helpCount = 0;
+
+  const weakNotions = [];
+
+
   function guardWritingAccess() {
+
     if (
       localStorage.getItem(
         UNDERSTANDING_KEY
@@ -545,6 +621,7 @@
       window.location.replace(
         "chapitre-17.html"
       );
+
       return false;
     }
 
@@ -556,6 +633,7 @@
       window.location.replace(
         "ecoute-17.html"
       );
+
       return false;
     }
 
@@ -567,13 +645,16 @@
       window.location.replace(
         "parle-17.html"
       );
+
       return false;
     }
 
     return true;
   }
 
+
   function renderChapterProgress() {
+
     if (
       window.HanaChapterProgress &&
       typeof window.HanaChapterProgress.render === "function"
@@ -582,93 +663,21 @@
     }
   }
 
-const steps = [
 
-    {
-      title: "📶 Demander le Wi-Fi",
-      prompt: "Écris : « Il y a du Wi-Fi ? »",
-      hint: "Utilise 와이파이 + 있어요?",
-      accepted: [
-        "와이파이있어요"
-      ],
-      answer: "와이파이 있어요?",
-      notion: "와이파이 있어요?"
-    },
-
-    {
-      title: "🔐 Demander le mot de passe",
-      prompt: "Écris : « Quel est le mot de passe du Wi-Fi ? »",
-      hint: "Utilise 와이파이 비밀번호가 + 뭐예요?",
-      accepted: [
-        "와이파이비밀번호가뭐예요"
-      ],
-      answer: "와이파이 비밀번호가 뭐예요?",
-      notion: "와이파이 / 비밀번호"
-    },
-
-    {
-      title: "🔋 Plus de batterie",
-      prompt: "Écris : « Je n'ai plus de batterie. »",
-      hint: "Utilise 배터리가 + 없어요.",
-      accepted: [
-        "배터리가없어요",
-        "배터리없어요"
-      ],
-      answer: "배터리가 없어요.",
-      notion: "배터리가 없어요"
-    },
-
-    {
-      title: "🔌 Demander un chargeur",
-      prompt: "Écris : « Vous avez un chargeur ? »",
-      hint: "Utilise 충전기 + 있어요?",
-      accepted: [
-        "충전기있어요"
-      ],
-      answer: "충전기 있어요?",
-      notion: "충전기 있어요?"
-    },
-
-    {
-      title: "⚡ Trouver où recharger",
-      prompt: "Écris : « Où est-ce que je peux recharger ? »",
-      hint: "Utilise 어디에서 + 충전할 수 있어요?",
-      accepted: [
-        "어디에서충전할수있어요",
-        "어디서충전할수있어요"
-      ],
-      answer: "어디에서 충전할 수 있어요?",
-      notion: "충전할 수 있어요"
-    },
-
-    {
-      title: "🌐 Signaler un problème",
-      prompt: "Écris : « Internet ne fonctionne pas. »",
-      hint: "Utilise 인터넷이 + 안 돼요.",
-      accepted: [
-        "인터넷이안돼요",
-        "인터넷안돼요"
-      ],
-      answer: "인터넷이 안 돼요.",
-      notion: "안 돼요"
-    }
-
-  ];
-
-
-  let currentStep = 0;
-  let mistakes = 0;
-  let helpCount = 0;
-  const weakNotions = [];
-
-
-  function normalizeKorean(text) {
+  function normalizeKorean(
+    text
+  ) {
 
     return text
-      .replace(/[.,!?~…'"]/g, "")
-      .replace(/\s+/g, "")
+      .replace(
+        /[.,!?~…'"]/g,
+        ""
+      )
+      .replace(
+        /\s+/g,
+        ""
+      )
       .trim();
-
   }
 
 
@@ -724,8 +733,10 @@ const steps = [
       "progressFill"
     ).style.width =
       (
-        ((currentStep + 1) /
-          steps.length) *
+        (
+          currentStep + 1
+        ) /
+        steps.length *
         100
       ) +
       "%";
@@ -784,11 +795,12 @@ const steps = [
     );
 
 
-    setTimeout(
-      () => input.focus(),
+    window.setTimeout(
+      function() {
+        input.focus();
+      },
       200
     );
-
   }
 
 
@@ -796,13 +808,11 @@ const steps = [
 
     helpCount++;
 
-
     document.getElementById(
       "helpBox"
     ).classList.toggle(
       "show"
     );
-
   }
 
 
@@ -827,7 +837,9 @@ const steps = [
     const accepted =
       step.accepted.map(
         answer =>
-          normalizeKorean(answer)
+          normalizeKorean(
+            answer
+          )
       );
 
 
@@ -838,7 +850,9 @@ const steps = [
 
 
     if (
-      accepted.includes(value)
+      accepted.includes(
+        value
+      )
     ) {
 
       feedback.className =
@@ -847,7 +861,7 @@ const steps = [
 
       feedback.innerHTML =
         "✅ <strong>Très bien !</strong>" +
-        "<div class='answer-reveal'>" +
+        "<div class='answer-revealHanaProfile.replacePerson('>" +
         step.answer +
         "</div>";
 
@@ -877,7 +891,6 @@ const steps = [
 
 
       return;
-
     }
 
 
@@ -889,11 +902,9 @@ const steps = [
         step.notion
       )
     ) {
-
       weakNotions.push(
         step.notion
       );
-
     }
 
 
@@ -901,40 +912,57 @@ const steps = [
       "feedback show wrong";
 
 
-    if (currentStep === 0) {
+    if (
+      currentStep === 0
+    ) {
       feedback.innerHTML =
-        "❌ <strong>Repère 와이파이.</strong><br><br>" +
-        "Utilise <strong>와이파이 있어요?</strong> pour demander si le Wi-Fi est disponible.";
+        "❌ <strong>Repère 예약.</strong><br><br>" +
+        "La phrase attendue est <strong>예약했어요.</strong>";
     }
 
-    if (currentStep === 1) {
+
+    if (
+      currentStep === 1
+    ) {
+      feedback.innerHTML =
+        "❌ <strong>Réponds simplement avec ton nom.</strong><br><br>" +
+        "Ici : <strong>아나예요.</strong>";
+    }
+
+
+    if (
+      currentStep === 2
+    ) {
+      feedback.innerHTML =
+        "❌ <strong>Regarde la structure.</strong><br><br>" +
+        "<strong>제 방이</strong> = ma chambre, puis <strong>어디예요?</strong> = où est… ?";
+    }
+
+
+    if (
+      currentStep === 3
+    ) {
       feedback.innerHTML =
         "❌ <strong>Repère 비밀번호.</strong><br><br>" +
-        "La phrase attendue est <strong>와이파이 비밀번호가 뭐예요?</strong>.";
+        "Utilise <strong>와이파이 비밀번호가 뭐예요?</strong>";
     }
 
-    if (currentStep === 2) {
+
+    if (
+      currentStep === 4
+    ) {
       feedback.innerHTML =
-        "❌ <strong>Repère 없어요.</strong><br><br>" +
-        "Utilise <strong>배터리가 없어요.</strong> pour dire que tu n'as plus de batterie.";
+        "❌ <strong>Il faut deux idées.</strong><br><br>" +
+        "<strong>안 돼요</strong> = ça ne fonctionne pas, puis <strong>도와주세요</strong> = aidez-moi.";
     }
 
-    if (currentStep === 3) {
-      feedback.innerHTML =
-        "❌ <strong>Repère 충전기.</strong><br><br>" +
-        "La question attendue est <strong>충전기 있어요?</strong>.";
-    }
 
-    if (currentStep === 4) {
+    if (
+      currentStep === 5
+    ) {
       feedback.innerHTML =
-        "❌ <strong>Repère 어디에서 et 충전.</strong><br><br>" +
-        "Utilise <strong>어디에서 충전할 수 있어요?</strong>.";
-    }
-
-    if (currentStep === 5) {
-      feedback.innerHTML =
-        "❌ <strong>Repère 안 돼요.</strong><br><br>" +
-        "La phrase attendue est <strong>인터넷이 안 돼요.</strong>.";
+        "❌ <strong>Pour remercier poliment :</strong><br><br>" +
+        "<strong>감사합니다.</strong>";
     }
 
 
@@ -943,7 +971,6 @@ const steps = [
     ).classList.add(
       "show"
     );
-
   }
 
 
@@ -973,7 +1000,6 @@ const steps = [
     ).classList.remove(
       "show"
     );
-
   }
 
 
@@ -986,23 +1012,18 @@ const steps = [
 
       currentStep++;
 
-
       renderStep();
-
 
       window.scrollTo({
         top: 0,
         behavior: "smooth"
       });
 
-
       return;
-
     }
 
 
     finishWriting();
-
   }
 
 
@@ -1021,46 +1042,39 @@ const steps = [
     );
 
 
-    let summary = "";
+    let summary =
+      "";
 
 
     if (
       mistakes === 0
     ) {
-
       summary =
         "🌟 Toutes les réponses ont été écrites correctement du premier coup.";
-
     }
 
     else if (
       mistakes === 1
     ) {
-
       summary =
         "💡 Tu as eu 1 tentative incorrecte pendant la séance.";
-
     }
 
     else {
-
       summary =
         "💡 Tu as eu " +
         mistakes +
         " tentatives incorrectes pendant la séance.";
-
     }
 
 
     if (
       helpCount > 0
     ) {
-
       summary +=
-        "<br><br>Tu as consulté l'aide " +
+        "<br><br>Tu as consulté l')aide " +
         helpCount +
         " fois.";
-
     }
 
 
@@ -1078,7 +1092,9 @@ const steps = [
 
     localStorage.setItem(
       WRITING_MISTAKES_KEY,
-      String(mistakes)
+      String(
+        mistakes
+      )
     );
 
 
@@ -1089,6 +1105,7 @@ const steps = [
       )
     );
 
+
     renderChapterProgress();
 
 
@@ -1096,7 +1113,21 @@ const steps = [
       top: 0,
       behavior: "smooth"
     });
+  }
 
+
+  function goToReview() {
+
+    if (
+      localStorage.getItem(
+        WRITING_KEY
+      ) !== "completed"
+    ) {
+      return;
+    }
+
+    window.location.href =
+      "revision-17.html";
   }
 
 
@@ -1112,18 +1143,20 @@ const steps = [
           "checkButton"
         ).disabled
       ) {
-
         checkWriting();
-
       }
-
     }
   );
 
 
-  if (guardWritingAccess()) {
+  if (
+    guardWritingAccess()
+  ) {
+
     renderChapterProgress();
+
     renderStep();
+
 
     window.addEventListener(
       "pageshow",
@@ -1134,5 +1167,4 @@ const steps = [
   }
 </script>
 </body>
-
 </html>

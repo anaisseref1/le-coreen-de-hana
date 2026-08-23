@@ -20,6 +20,7 @@
     rel="stylesheet"
     href="style.css"
   >
+
   <link rel="stylesheet" href="chapter-progress.css">
 
   <style>
@@ -74,7 +75,7 @@
     }
 
     .progress-fill {
-      width: 20%;
+      width: 16.6667%;
       height: 100%;
       background: var(--jade);
       border-radius: 20px;
@@ -281,8 +282,8 @@
     </h1>
 
     <p>
-      Écris les expressions utiles pour raconter le passé :
-      dire où tu es allé(e), ce que tu as mangé, ce que tu as photographié et comment c'était.
+      Écris les expressions utiles pour parler de tes goûts :
+      dire ce que tu aimes, ce que tu préfères, poser une question et exprimer une préférence négative.
     </p>
 
   </header>
@@ -300,12 +301,12 @@
     <br><br>
 
     Savoir écrire les expressions essentielles du chapitre :
-    <strong>서울에 갔어요.</strong>,
-    <strong>비빔밥을 먹었어요.</strong>,
-    <strong>사진을 많이 찍었어요.</strong>,
-    <strong>정말 좋았어요.</strong>,
-    <strong>어땠어요?</strong>
-    et <strong>한국에 처음 갔어요.</strong>.
+    <strong>커피를 좋아해요.</strong>,
+    <strong>뭐가 제일 좋아요?</strong>,
+    <strong>저는 음악을 제일 좋아해요.</strong>,
+    <strong>어떤 음악을 제일 좋아해요?</strong>,
+    <strong>안 좋아해요.</strong>
+    et <strong>왜요?</strong>.
 
   </section>
 
@@ -340,7 +341,7 @@
     </div>
 
     <h2 id="stepTitle">
-      🚶 Dire où tu es allé(e)
+      ☕ Dire ce qu'on aime
     </h2>
 
     <div class="prompt-box">
@@ -349,14 +350,14 @@
         class="prompt-main"
         id="promptMain"
       >
-        Écris : « Je suis allé(e) à Séoul. »
+        Écris : « J'aime le café. »
       </div>
 
       <div
         class="hint-line"
         id="promptHint"
       >
-        Utilise 서울에 + 갔어요.
+        Utilise 커피를 + 좋아해요.
       </div>
 
     </div>
@@ -433,7 +434,7 @@
   >
 
     <div class="result-icon">
-      ✍️📸
+      ✍️❤️
     </div>
 
     <h2>
@@ -454,33 +455,33 @@
       <div class="notion-list">
 
         <div class="notion-line">
-          🚶 <strong>서울에 갔어요.</strong>
-          → Je suis allé(e) à Séoul.
+          ☕ <strong>커피를 좋아해요.</strong>
+          → J'aime le café.
         </div>
 
         <div class="notion-line">
-          🍚 <strong>비빔밥을 먹었어요.</strong>
-          → J'ai mangé un bibimbap.
+          ❤️ <strong>뭐가 제일 좋아요?</strong>
+          → Qu'est-ce que tu préfères ?
         </div>
 
         <div class="notion-line">
-          📷 <strong>사진을 많이 찍었어요.</strong>
-          → J'ai pris beaucoup de photos.
+          🌟 <strong>저는 음악을 제일 좋아해요.</strong>
+          → Ce que je préfère, c'est la musique.
         </div>
 
         <div class="notion-line">
-          🌟 <strong>정말 좋았어요.</strong>
-          → C'était vraiment bien.
+          🎵 <strong>어떤 음악을 제일 좋아해요?</strong>
+          → Quelle musique préfères-tu ?
         </div>
 
         <div class="notion-line">
-          ❓ <strong>어땠어요?</strong>
-          → Comment c'était ?
+          🙂 <strong>안 좋아해요.</strong>
+          → Je n'aime pas / je n'aime pas trop.
         </div>
 
         <div class="notion-line">
-          🧳 <strong>한국에 처음 갔어요.</strong>
-          → Je suis allé(e) en Corée pour la première fois.
+          ❓ <strong>왜요?</strong>
+          → Pourquoi ?
         </div>
 
       </div>
@@ -516,7 +517,7 @@
 
 <script>
 
-  const CHAPTER = 19;
+  const CHAPTER = 18;
 
   const UNDERSTANDING_KEY =
     "hanaKorean_chapter19_understanding";
@@ -566,76 +567,75 @@
   }
 
 
-
   const steps = [
 
     {
-      title: "🚶 Dire où tu es allé(e)",
-      prompt: "Écris : « Je suis allé(e) à Séoul. »",
-      hint: "Utilise 서울에 + 갔어요.",
+      title: "☕ Dire ce qu'on aime",
+      prompt: "Écris : « J'aime le café. »",
+      hint: "Utilise 커피를 + 좋아해요.",
       accepted: [
-        "서울에갔어요"
+        "커피를좋아해요",
+        "커피좋아해요"
       ],
-      answer: "서울에 갔어요.",
-      notion: "갔어요"
+      answer: "커피를 좋아해요.",
+      notion: "좋아해요"
     },
 
     {
-      title: "🍚 Dire ce que tu as mangé",
-      prompt: "Écris : « J'ai mangé un bibimbap. »",
-      hint: "Utilise 비빔밥을 + 먹었어요.",
+      title: "❤️ Demander une préférence",
+      prompt: "Écris : « Qu'est-ce que tu préfères ? »",
+      hint: "Utilise 뭐가 + 제일 + 좋아요?",
       accepted: [
-        "비빔밥을먹었어요",
-        "비빔밥먹었어요"
+        "뭐가제일좋아요"
       ],
-      answer: "비빔밥을 먹었어요.",
-      notion: "먹었어요"
+      answer: "뭐가 제일 좋아요?",
+      notion: "제일"
     },
 
     {
-      title: "📷 Parler des photos",
-      prompt: "Écris : « J'ai pris beaucoup de photos. »",
-      hint: "Utilise 사진을 + 많이 + 찍었어요.",
+      title: "🌟 Dire ce qu'on préfère",
+      prompt: "Écris : « Ce que je préfère, c'est la musique. »",
+      hint: "Utilise 저는 음악을 + 제일 좋아해요.",
       accepted: [
-        "사진을많이찍었어요",
-        "사진많이찍었어요"
+        "저는음악을제일좋아해요",
+        "음악을제일좋아해요"
       ],
-      answer: "사진을 많이 찍었어요.",
-      notion: "찍었어요"
+      answer: "저는 음악을 제일 좋아해요.",
+      notion: "저는 ○○를 제일 좋아해요"
     },
 
     {
-      title: "🌟 Donner ton impression",
-      prompt: "Écris : « C'était vraiment bien. »",
-      hint: "Utilise 정말 + 좋았어요.",
+      title: "🎵 Poser une question",
+      prompt: "Écris : « Quelle musique préfères-tu ? »",
+      hint: "Utilise 어떤 음악을 + 제일 좋아해요?",
       accepted: [
-        "정말좋았어요",
-        "좋았어요"
+        "어떤음악을제일좋아해요",
+        "어떤음악제일좋아해요"
       ],
-      answer: "정말 좋았어요.",
-      notion: "좋았어요"
+      answer: "어떤 음악을 제일 좋아해요?",
+      notion: "어떤 음악을 제일 좋아해요?"
     },
 
     {
-      title: "❓ Demander comment c'était",
-      prompt: "Écris : « Comment c'était ? »",
-      hint: "Utilise 어땠어요?",
+      title: "🙂 Dire qu'on n'aime pas",
+      prompt: "Écris : « Je n'aime pas / je n'aime pas trop. »",
+      hint: "Utilise 안 + 좋아해요.",
       accepted: [
-        "어땠어요"
+        "안좋아해요"
       ],
-      answer: "어땠어요?",
-      notion: "어땠어요?"
+      answer: "안 좋아해요.",
+      notion: "안 좋아해요"
     },
 
     {
-      title: "🧳 Première fois",
-      prompt: "Écris : « Je suis allé(e) en Corée pour la première fois. »",
-      hint: "Utilise 한국에 + 처음 + 갔어요.",
+      title: "❓ Demander pourquoi",
+      prompt: "Écris : « Pourquoi ? »",
+      hint: "Une toute petite question : 왜요?",
       accepted: [
-        "한국에처음갔어요"
+        "왜요"
       ],
-      answer: "한국에 처음 갔어요.",
-      notion: "처음"
+      answer: "왜요?",
+      notion: "왜요?"
     }
 
   ];
@@ -886,18 +886,42 @@
       "feedback show wrong";
 
 
-    const correctionMessages = [
-      "❌ <strong>Repère 갔어요.</strong><br><br>Utilise <strong>서울에 갔어요.</strong>",
-      "❌ <strong>Repère 먹었어요.</strong><br><br>Utilise <strong>비빔밥을 먹었어요.</strong>",
-      "❌ <strong>Repère 찍었어요.</strong><br><br>Utilise <strong>사진을 많이 찍었어요.</strong>",
-      "❌ <strong>Donne une impression au passé.</strong><br><br>Utilise <strong>정말 좋았어요.</strong>",
-      "❌ <strong>Pour demander « Comment c'était ? »</strong><br><br>Utilise <strong>어땠어요?</strong>",
-      "❌ <strong>Ajoute 처음 pour « pour la première fois ».</strong><br><br>Utilise <strong>한국에 처음 갔어요.</strong>"
-    ];
+    if (currentStep === 0) {
+      feedback.innerHTML =
+        "❌ <strong>Repère 좋아해요.</strong><br><br>" +
+        "Utilise <strong>커피를 좋아해요.</strong>.";
+    }
 
-    feedback.innerHTML =
-      correctionMessages[currentStep] ||
-      "❌ <strong>Réessaie en utilisant la forme passée attendue.</strong>";
+    if (currentStep === 1) {
+      feedback.innerHTML =
+        "❌ <strong>Repère 제일.</strong><br><br>" +
+        "La question attendue est <strong>뭐가 제일 좋아요?</strong>.";
+    }
+
+    if (currentStep === 2) {
+      feedback.innerHTML =
+        "❌ <strong>Utilise le modèle de préférence.</strong><br><br>" +
+        "Écris <strong>저는 음악을 제일 좋아해요.</strong>.";
+    }
+
+    if (currentStep === 3) {
+      feedback.innerHTML =
+        "❌ <strong>Repère 어떤 음악.</strong><br><br>" +
+        "La phrase attendue est <strong>어떤 음악을 제일 좋아해요?</strong>.";
+    }
+
+    if (currentStep === 4) {
+      feedback.innerHTML =
+        "❌ <strong>Utilise la négation avec 안.</strong><br><br>" +
+        "Écris <strong>안 좋아해요.</strong>.";
+    }
+
+    if (currentStep === 5) {
+      feedback.innerHTML =
+        "❌ <strong>C'est une toute petite question.</strong><br><br>" +
+        "Écris <strong>왜요?</strong>.";
+    }
+
 
     document.getElementById(
       "retryButton"

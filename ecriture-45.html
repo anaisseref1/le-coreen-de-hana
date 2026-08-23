@@ -1,0 +1,21 @@
+<!DOCTYPE html><html lang="fr"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#F7F4ED">
+<title>Chapitre 45 — Écriture</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="chapter-progress.css">
+<style>textarea{width:100%;box-sizing:border-box}</style>
+<script src="profile.js"></script>
+</head><body><main class="app">
+<a class="back-link" href="parle-45.html">← Retour</a><section id="hanaChapterPath" data-chapter-path></section>
+<header><span class="chapter-badge">Chapitre 45 · ✍️</span><h1>Construire la capacité</h1></header>
+<section class="card"><h2>Transforme</h2><p>가다 → ________</p><p>먹다 → ________</p><p>읽다 → ________</p><p>보다 → ________</p><p>살다 → ________</p><p>요리하다 → ________</p><p>운전하다 → ________</p><p>주문하다 → ________</p></section>
+<section class="card"><textarea id="free" rows="14" placeholder="한국어를 조금 말할 수 있어요.&#10;한글을 읽을 수 있어요.&#10;아직 빨리 말할 수 없어요."></textarea></section>
+<button id="done" style="width:100%">✅ Terminé</button><button id="next" style="display:none;width:100%">🧠 Révision</button>
+</main><script src="chapter-progress.js"></script><script>
+const K="hanaKorean_chapter45_writing",F="hanaKorean_chapter45_writingFree",f=document.getElementById("free"),d=document.getElementById("done"),n=document.getElementById("next");
+f.value=localStorage.getItem(F)||"";f.oninput=()=>localStorage.setItem(F,f.value);
+function r(){if(localStorage.getItem(K)==="completed"){d.disabled=true;n.style.display="block"}if(window.HanaChapterProgress)HanaChapterProgress.render()}
+d.onclick=()=>{localStorage.setItem(F,f.value);localStorage.setItem(K,"completed");r()};n.onclick=()=>location.href="revision-45.html";r();
+</script></body></html>
