@@ -20,6 +20,7 @@
     rel="stylesheet"
     href="style.css"
   >
+
   <link rel="stylesheet" href="chapter-progress.css">
 
   <style>
@@ -277,7 +278,7 @@
 
   <a
     class="back-link"
-    href="exercice-ecoute-19.html"
+    href="exercice-ecoute-20.html"
   >
     ← Mini défi d'écoute
   </a>
@@ -298,8 +299,8 @@
     </h1>
 
     <p>
-      Répète les formes essentielles du passé,
-      puis raconte de petites expériences et réponds à Min-su.
+      Répète les mots et expressions essentiels pour parler de tes goûts,
+      puis réponds à Min-su dans de petites situations de conversation.
     </p>
 
   </header>
@@ -316,9 +317,10 @@
 
     <br><br>
 
-    Savoir dire où tu es allé(e), ce que tu as mangé ou photographié,
-    donner une impression au passé
-    et demander <strong>어땠어요?</strong>.
+    Savoir dire ce que tu aimes et ce que tu préfères,
+    demander les goûts de quelqu'un, parler de musique,
+    exprimer une préférence négative
+    et relancer la conversation avec <strong>왜요?</strong>.
 
   </section>
 
@@ -353,7 +355,7 @@
     </div>
 
     <h2 id="stepTitle">
-      📍 Mot 1
+      ❤️ Mot 1
     </h2>
 
     <div
@@ -396,14 +398,14 @@
         class="prompt-korean"
         id="promptKorean"
       >
-        어디예요?
+        제일
       </div>
 
       <div
         class="prompt-french"
         id="promptFrench"
       >
-        Où est… ?
+        le plus
       </div>
 
     </div>
@@ -505,7 +507,7 @@
   >
 
     <div class="result-icon">
-      📸🗣️
+      ❤️🗣️
     </div>
 
     <h2>
@@ -524,27 +526,27 @@
 
       <br><br>
 
-      🚶 <strong>서울에 갔어요.</strong>
+      ❤️ <strong>뭐가 제일 좋아요?</strong>
 
       <br>
 
-      🍚 <strong>비빔밥을 먹었어요.</strong>
+      ☕ <strong>커피를 좋아해요.</strong>
 
       <br>
 
-      👀 <strong>영화를 봤어요.</strong>
+      🌟 <strong>저는 ○○를 제일 좋아해요.</strong>
 
       <br>
 
-      📷 <strong>사진을 많이 찍었어요.</strong>
+      🎵 <strong>어떤 음악을 제일 좋아해요?</strong>
 
       <br>
 
-      🌟 <strong>정말 좋았어요.</strong>
+      🙂 <strong>안 좋아해요.</strong>
 
       <br>
 
-      ❓ <strong>어땠어요?</strong>
+      ❓ <strong>왜요?</strong>
 
       <br><br>
 
@@ -579,7 +581,7 @@
 
 <script>
 
-  const CHAPTER = 19;
+  const CHAPTER = 18;
 
   const UNDERSTANDING_KEY =
     "hanaKorean_chapter19_understanding";
@@ -632,7 +634,6 @@
   }
 
 
-
   const AUDIO_SETTINGS = {
     normalRate: 0.82,
     slowRate: 0.25
@@ -642,146 +643,149 @@
   const steps = [
 
     {
-      title: "🚶 Mot 1",
-      target: "갔어요",
-      french: "je suis allé(e)",
+      title: "❤️ Mot 1",
+      target: "제일",
+      french: "le plus",
       accepted: [
-        "갔어요"
+        "제일"
       ],
       help:
-        "Prononce 갔어요 naturellement. C'est le passé de 가요."
+        "Prononce 제일 en deux syllabes : 제-일."
     },
 
     {
-      title: "🍚 Mot 2",
-      target: "먹었어요",
-      french: "j'ai mangé",
+      title: "🎵 Mot 2",
+      target: "음악",
+      french: "musique",
       accepted: [
-        "먹었어요"
+        "음악"
       ],
       help:
-        "Prononce 먹었어요 en gardant le rythme naturel de la forme passée."
+        "Prononce 음악 naturellement : 음-악."
     },
 
     {
       title: "📷 Mot 3",
-      target: "찍었어요",
-      french: "j'ai pris une photo",
+      target: "사진",
+      french: "photo / photographie",
       accepted: [
-        "찍었어요"
+        "사진"
       ],
       help:
-        "Prononce 찍었어요. Tu réutiliseras cette forme avec 사진."
+        "Prononce 사진 : 사-진."
     },
 
     {
-      title: "🚶 Phrase 1",
-      target: "서울에 갔어요.",
-      french: "Je suis allé(e) à Séoul.",
+      title: "☕ Phrase 1",
+      target: "커피를 좋아해요.",
+      french: "J'aime le café.",
       accepted: [
-        "서울에갔어요"
+        "커피를좋아해요",
+        "커피좋아해요"
       ],
       help:
-        "Utilise 서울에 + 갔어요."
+        "Utilise 커피를 + 좋아해요."
     },
 
     {
-      title: "🍚 Phrase 2",
-      target: "비빔밥을 먹었어요.",
-      french: "J'ai mangé un bibimbap.",
+      title: "❤️ Phrase 2",
+      target: "뭐가 제일 좋아요?",
+      french: "Qu'est-ce que tu préfères ?",
       accepted: [
-        "비빔밥을먹었어요",
-        "비빔밥먹었어요"
+        "뭐가제일좋아요"
       ],
       help:
-        "Utilise 비빔밥을 + 먹었어요."
+        "Utilise 뭐가 + 제일 + 좋아요?"
     },
 
     {
-      title: "📷 Phrase 3",
-      target: "사진을 많이 찍었어요.",
-      french: "J'ai pris beaucoup de photos.",
+      title: "🎵 Phrase 3",
+      target: "어떤 음악을 제일 좋아해요?",
+      french: "Quelle musique préfères-tu ?",
       accepted: [
-        "사진을많이찍었어요",
-        "사진많이찍었어요"
+        "어떤음악을제일좋아해요",
+        "어떤음악제일좋아해요"
       ],
       help:
-        "Utilise 사진을 + 많이 + 찍었어요."
+        "Utilise 어떤 음악을 + 제일 좋아해요?"
     },
 
     {
       title: "🌟 Situation 1",
-      target: "정말 좋았어요.",
-      french: "Dis que c'était vraiment bien.",
+      target: "저는 케이팝을 제일 좋아해요.",
+      french: "Dis que ce que tu préfères, c'est la K-pop.",
       accepted: [
-        "정말좋았어요",
-        "좋았어요"
+        "저는케이팝을제일좋아해요",
+        "케이팝을제일좋아해요",
+        "저는케이팝제일좋아해요",
+        "케이팝제일좋아해요"
       ],
       scenario:
-        "💙 Min-su te demande comment s'est passé ton voyage.",
+        "🎧 Min-su te demande quelle musique tu préfères.",
       seller:
         {
-          korean: "여행 어땠어요?",
-          french: "Comment était le voyage ?"
+          korean: "어떤 음악을 제일 좋아해요?",
+          french: "Quelle musique préfères-tu ?"
         },
       help:
-        "Réponds 정말 좋았어요."
+        "Tu peux répondre 저는 케이팝을 제일 좋아해요."
     },
 
     {
-      title: "🗓️ Situation 2",
-      target: "어제 비빔밥을 먹었어요.",
-      french: "Dis qu'hier tu as mangé un bibimbap.",
+      title: "🙂 Situation 2",
+      target: "매운 음식을 안 좋아해요.",
+      french: "Dis que tu n'aimes pas trop la nourriture épicée.",
       accepted: [
-        "어제비빔밥을먹었어요",
-        "어제비빔밥먹었어요"
+        "매운음식을안좋아해요",
+        "매운음식안좋아해요"
       ],
       scenario:
-        "🍽️ Min-su te demande ce que tu as mangé hier.",
+        "🍜 Min-su te demande si tu aimes les plats très épicés.",
       seller:
         {
-          korean: "어제 뭐 먹었어요?",
-          french: "Qu'est-ce que tu as mangé hier ?"
+          korean: "매운 음식 좋아해요?",
+          french: "Tu aimes la nourriture épicée ?"
         },
       help:
-        "Commence par 어제, puis 비빔밥을 먹었어요."
+        "Utilise 매운 음식을 + 안 좋아해요."
     },
 
     {
       title: "❓ Situation 3",
-      target: "어땠어요?",
-      french: "Demande : « Comment c'était ? »",
+      target: "왜요?",
+      french: "Demande : « Pourquoi ? »",
       accepted: [
-        "어땠어요"
+        "왜요"
       ],
       scenario:
-        "🎬 Min-su te dit qu'il a vu un film hier.",
+        "💬 Min-su vient de dire ce qu'il préfère.",
       seller:
         {
-          korean: "어제 영화를 봤어요.",
-          french: "Hier, j'ai vu un film."
+          korean: "저는 바다가 제일 좋아요.",
+          french: "Moi, ce que je préfère, c'est la mer."
         },
       help:
-        "Réponds simplement 어땠어요?"
+        "Réponds simplement 왜요?"
     },
 
     {
       title: "💬 Situation 4",
-      target: "서울에 갔어요. 비빔밥을 먹었어요. 사진을 많이 찍었어요.",
-      french: "Raconte trois choses de ton voyage.",
+      target: "뭐가 제일 좋아요? 왜요?",
+      french: "Demande ce que Min-su préfère, puis pourquoi.",
       accepted: [
-        "서울에갔어요비빔밥을먹었어요사진을많이찍었어요",
-        "서울에갔어요비빔밥먹었어요사진많이찍었어요"
+        "뭐가제일좋아요왜요",
+        "뭐를제일좋아해요왜요",
+        "뭘제일좋아해요왜요"
       ],
       scenario:
-        "📸 Min-su te demande de raconter rapidement ton voyage.",
+        "🌿 Tu veux apprendre à mieux connaître Min-su.",
       seller:
         {
-          korean: "한국에서 뭐 했어요?",
-          french: "Qu'est-ce que tu as fait en Corée ?"
+          korean: "궁금한 게 있어요?",
+          french: "Tu veux me demander quelque chose ?"
         },
       help:
-        "Enchaîne trois petites phrases : 서울에 갔어요. 비빔밥을 먹었어요. 사진을 많이 찍었어요."
+        "Enchaîne 뭐가 제일 좋아요? puis 왜요?"
     }
 
   ];

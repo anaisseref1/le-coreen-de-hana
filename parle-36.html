@@ -15,38 +15,38 @@
 </head>
 <body>
 <main class="app">
-<a class="back-link" href="exercice-ecoute-36.html">← Exercice d'écoute</a>
+<a class="back-link" href="exercice-ecoute-37.html">← Exercice d'écoute</a>
 <section id="hanaChapterPath" data-chapter-path></section>
 <header>
   <span class="chapter-badge">Chapitre 36 · 🗣️ Je parle</span>
-  <h1>Inviter et organiser</h1>
-  <p>Répète puis organise ta propre sortie.</p>
+  <h1>Dire comment tu te sens</h1>
+  <p>Répète puis réponds avec tes propres émotions.</p>
 </header>
 
 <section class="speak-card">
   <h2>🌸 Répète</h2>
-  <div class="prompt"><strong>주말에 같이 뭐 할래요?</strong><br><small>Tu veux qu'on fasse quelque chose ensemble ce week-end ?</small></div>
-  <div class="prompt"><strong>영화 볼래요?</strong><br><small>Tu veux voir un film ?</small></div>
-  <div class="prompt"><strong>토요일 어때요?</strong><br><small>Et samedi ? / Samedi, ça te va ?</small></div>
-  <div class="prompt"><strong>몇 시에 만날까요?</strong><br><small>À quelle heure on se retrouve ?</small></div>
-  <div class="prompt"><strong>어디에서 만날까요?</strong><br><small>Où est-ce qu'on se retrouve ?</small></div>
-  <div class="prompt"><strong>다음에 같이 가요.</strong><br><small>On ira ensemble une prochaine fois.</small></div>
+  <div class="prompt"><strong>오늘 기분이 어때요?</strong><br><small>Comment tu te sens aujourd'hui ?</small></div>
+  <div class="prompt"><strong>기분이 좋아요.</strong><br><small>Je me sens bien.</small></div>
+  <div class="prompt"><strong>조금 피곤해요.</strong><br><small>Je suis un peu fatiguée.</small></div>
+  <div class="prompt"><strong>걱정돼요.</strong><br><small>Je suis inquiète.</small></div>
+  <div class="prompt"><strong>마음이 편해요.</strong><br><small>Je me sens apaisée.</small></div>
+  <div class="prompt"><strong>서울에 있어서 행복해요.</strong><br><small>Je suis heureuse parce que je suis à Séoul.</small></div>
   <button id="listenAll" type="button" style="width:100%;margin-top:12px;">🔊 Écouter les phrases</button>
 </section>
 
 <section class="speak-card">
   <h2>💬 À toi</h2>
-  <div class="prompt"><strong>커피 마실래요?</strong></div>
-  <div class="prompt"><strong>영화 볼까요?</strong></div>
-  <div class="prompt"><strong>일요일은 어때요?</strong></div>
-  <div class="prompt"><strong>몇 시에 만날까요?</strong></div>
-  <div class="prompt"><strong>어디에서 만날까요?</strong></div>
+  <div class="prompt"><strong>오늘 기분이 어때요?</strong></div>
+  <div class="prompt"><strong>왜 기분이 좋아요?</strong></div>
+  <div class="prompt"><strong>피곤해요?</strong></div>
+  <div class="prompt"><strong>요즘 행복해요?</strong></div>
 </section>
 
 <section class="speak-card">
   <h2>🎯 Mini-défi</h2>
-  <p>Fais une mini-conversation de 6 à 8 phrases : activité, jour, heure, lieu et réponse finale.</p>
-  <button id="doneSpeaking" type="button" style="width:100%;">✅ J'ai organisé une sortie à voix haute</button>
+  <p>Parle pendant 30 à 60 secondes : donne ton humeur, une émotion et une raison.</p>
+  <p>Exemple : <strong>오늘 기분이 좋아요. 조금 피곤해요. 하지만 행복해요.</strong></p>
+  <button id="doneSpeaking" type="button" style="width:100%;">✅ J'ai parlé de mes émotions</button>
 </section>
 
 <button id="nextButton" type="button" style="display:none;width:100%;">✍️ Passer à l'écriture</button>
@@ -61,7 +61,7 @@ const next=document.getElementById("nextButton");
 
 function guard(){
   if(localStorage.getItem(EXERCISE_KEY)!=="completed"){
-    window.location.href="exercice-ecoute-36.html";
+    window.location.href="exercice-ecoute-37.html";
     return false;
   }
   return true;
@@ -79,7 +79,7 @@ function speak(text){
   speechSynthesis.speak(u);
 }
 document.getElementById("listenAll").addEventListener("click",()=>speak(
-  "주말에 같이 뭐 할래요? 영화 볼래요? 토요일 어때요? 몇 시에 만날까요? 어디에서 만날까요? 다음에 같이 가요."
+  "오늘 기분이 어때요? 기분이 좋아요. 조금 피곤해요. 걱정돼요. 마음이 편해요. 서울에 있어서 행복해요."
 ));
 
 function refresh(){

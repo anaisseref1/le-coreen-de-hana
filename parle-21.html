@@ -2,7 +2,6 @@
 <html lang="fr">
 
 <head>
-
   <meta charset="UTF-8">
 
   <meta
@@ -15,7 +14,7 @@
     content="#F7F4ED"
   >
 
-  <title>Chapitre 21 — Je parle</title>
+  <title>Je parle — Chapitre 21</title>
 
   <link
     rel="stylesheet"
@@ -23,518 +22,605 @@
   >
   <link rel="stylesheet" href="chapter-progress.css">
 
-
   <style>
-
     .speak-header {
-      text-align:center;
-      margin-bottom:24px;
+      text-align: center;
+      margin-bottom: 28px;
     }
 
+    .chapter-badge {
+      display: inline-block;
+      padding: 7px 14px;
+      margin-bottom: 10px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: bold;
+    }
 
-    .scenario-card,
-    .speech-card,
-    .tip-card,
+    .intro-card,
+    .practice-card,
     .result-card {
-      padding:20px;
-      margin-bottom:18px;
-
-      background:var(--white);
-
-      border-radius:var(--radius-large);
-
-      box-shadow:var(--shadow);
+      padding: 20px;
+      margin-bottom: 18px;
+      background: var(--white);
+      border-radius: var(--radius-large);
+      box-shadow: var(--shadow);
     }
 
-
-    .speech-step {
-      padding:16px;
-      margin-top:14px;
-
-      background:#FBFAF6;
-
-      border-radius:var(--radius-medium);
+    .intro-card {
+      background: var(--soft-green);
+      color: var(--navy);
+      line-height: 1.7;
     }
 
-
-    .speaker {
-      margin-bottom:8px;
-
-      color:var(--navy);
-
-      font-weight:bold;
+    .step-progress {
+      margin-bottom: 20px;
     }
 
+    .progress-info {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      color: var(--text-light);
+      font-size: 13px;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 9px;
+      overflow: hidden;
+      background: var(--soft-beige);
+      border-radius: 20px;
+    }
+
+    .progress-fill {
+      width: 10%;
+      height: 100%;
+      background: var(--jade);
+      border-radius: 20px;
+      transition: width 0.3s ease;
+    }
+
+    .step-label {
+      color: var(--jade-dark);
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .prompt-box {
+      padding: 18px;
+      margin: 16px 0;
+      background: #FBFAF6;
+      border-radius: var(--radius-medium);
+      text-align: center;
+    }
 
     .prompt-korean {
-      color:var(--navy);
-
-      font-size:19px;
-      font-weight:bold;
-
-      line-height:1.6;
+      color: var(--navy);
+      font-size: 25px;
+      font-weight: bold;
+      line-height: 1.5;
     }
-
 
     .prompt-french {
-      margin-top:5px;
-
-      color:var(--text-light);
-
-      line-height:1.5;
+      margin-top: 7px;
+      color: var(--text-light);
+      line-height: 1.6;
     }
 
-
-    .listen-button,
+    .audio-buttons button,
     .mic-button,
-    .retry-button {
-      width:100%;
-      margin-top:10px;
+    .retry-button,
+    .next-button,
+    .help-button,
+    .continue-button,
+    .back-button {
+      width: 100%;
     }
 
-
-    .listen-button {
-      background:var(--soft-blue);
-      color:var(--navy);
+    .audio-buttons .slow {
+      margin-top: 8px;
     }
-
 
     .mic-button {
-      background:var(--jade);
-      color:white;
-
-      font-weight:bold;
+      margin-top: 12px;
+      background: var(--jade);
+      color: white;
+      font-weight: bold;
     }
-
 
     .mic-button.listening {
-      background:var(--navy);
+      background: var(--error);
     }
 
-
-    .retry-button {
-      background:var(--soft-beige);
-      color:var(--navy);
+    .recognition-box {
+      display: none;
+      padding: 16px;
+      margin-top: 15px;
+      background: var(--soft-blue);
+      border-radius: var(--radius-medium);
+      line-height: 1.7;
     }
 
-
-    .speech-feedback {
-      display:none;
-
-      margin-top:12px;
-      padding:12px 14px;
-
-      border-radius:var(--radius-medium);
-
-      line-height:1.6;
+    .recognition-box.show {
+      display: block;
     }
 
-
-    .speech-feedback.show {
-      display:block;
+    .heard-text {
+      margin-top: 8px;
+      color: var(--navy);
+      font-size: 20px;
+      font-weight: bold;
     }
 
-
-    .speech-feedback.success {
-      background:var(--success-light);
-      color:var(--success);
+    .feedback {
+      display: none;
+      padding: 16px;
+      margin-top: 14px;
+      border-radius: var(--radius-medium);
+      line-height: 1.7;
     }
 
-
-    .speech-feedback.error {
-      background:var(--error-light);
-      color:var(--error);
+    .feedback.show {
+      display: block;
     }
 
-
-    .transcript {
-      margin-top:8px;
-
-      color:var(--text-light);
-
-      font-size:14px;
+    .help-box {
+      display: none;
+      padding: 15px;
+      margin-top: 12px;
+      background: var(--soft-beige);
+      border-radius: var(--radius-medium);
+      color: var(--navy);
+      line-height: 1.7;
     }
 
-
-    .complete-button,
-    .next-button,
-    .back-button {
-      width:100%;
-      margin-top:10px;
+    .help-box.show {
+      display: block;
     }
 
-
-    .complete-button {
-      display:none;
-
-      background:var(--jade);
-      color:white;
-
-      font-weight:bold;
+    .help-button {
+      margin-top: 10px;
+      background: var(--soft-beige);
+      color: var(--navy);
     }
-
-
-    .complete-button.show {
-      display:block;
-    }
-
-
-    .complete-button.done {
-      background:var(--success);
-    }
-
 
     .next-button {
-      display:none;
-
-      background:var(--navy);
-      color:white;
-
-      font-weight:bold;
+      display: none;
+      margin-top: 12px;
+      background: var(--navy);
+      color: white;
+      font-weight: bold;
     }
 
+    .next-button.show {
+      display: block;
+    }
+
+    .retry-button {
+      display: none;
+      margin-top: 10px;
+    }
+
+    .retry-button.show {
+      display: block;
+    }
+
+    .scenario-card {
+      padding: 16px;
+      margin: 15px 0;
+      border-radius: var(--radius-medium);
+      background: var(--soft-blue);
+      line-height: 1.7;
+    }
+
+    .seller-line {
+      padding: 15px;
+      margin: 14px 0;
+      background: var(--soft-blue);
+      border-radius: var(--radius-medium);
+      line-height: 1.7;
+    }
+
+    .seller-name {
+      font-weight: bold;
+    }
+
+    .seller-korean {
+      margin-top: 4px;
+      color: var(--navy);
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .result-card {
+      display: none;
+      text-align: center;
+    }
+
+    .result-card.show {
+      display: block;
+    }
+
+    .result-icon {
+      font-size: 58px;
+    }
+
+    .summary-box {
+      padding: 16px;
+      margin-top: 18px;
+      background: #FBFAF6;
+      border-radius: var(--radius-medium);
+      text-align: left;
+      line-height: 1.7;
+    }
+
+    .continue-button {
+      margin-top: 18px;
+      background: var(--jade);
+      color: white;
+      font-weight: bold;
+    }
 
     .back-button {
-      background:var(--soft-beige);
-      color:var(--navy);
+      margin-top: 10px;
+      background: var(--soft-beige);
+      color: var(--navy);
     }
-
   </style>
-
   <script src="profile.js"></script>
 </head>
 
-
 <body>
-
 
 <main class="app">
 
-
   <a
     class="back-link"
-    href="exercice-ecoute-21.html"
+    href="exercice-ecoute-22.html"
   >
-    ← Exercice d'écoute
+    ← Mini défi d'écoute
   </a>
-
 
 
   <header class="speak-header">
 
     <span class="chapter-badge">
-      Chapitre 21 · 🗣️ Je parle
+      Chapitre 21 · Expression orale
     </span>
 
-
     <p class="korean">
-      같이 갈래요? 🌸
+      말해 봐요 🗣️
     </p>
 
-
     <h1>
-      Proposer une sortie à l'oral
+      Je parle
     </h1>
 
-
     <p>
-      Réponds à Min-su comme dans une vraie conversation.
-      L'objectif est de produire les phrases naturellement.
+      Répète les expressions essentielles,
+      puis réponds dans de petites situations pour faire connaissance.
     </p>
 
   </header>
 
-  <section id="hanaChapterPath" data-chapter-path></section>
+  <section
+    id="hanaChapterPath"
+    data-chapter-path
+  ></section>
 
 
+  <section class="intro-card">
 
-  <section class="scenario-card">
-
-    <h2>
-      🎭 Situation
-    </h2>
-
-    Min-su te propose une sortie aujourd'hui.
-    Tu dois répondre, choisir un lieu,
-    puis fixer une heure de rendez-vous.
-
-  </section>
-
-
-
-  <section class="speech-card">
-
-    <h2>
-      💬 Conversation guidée
-    </h2>
-
-
-    <div
-      class="speech-step"
-      data-step="1"
-      data-expected="좋아요"
-    >
-
-      <div class="speaker">
-        💙 Min-su
-      </div>
-
-
-      <div class="prompt-korean">
-        아나 씨, 오늘 같이 놀러 갈래요?
-      </div>
-
-
-      <div class="prompt-french">
-        Ana, ça te dit de sortir ensemble aujourd'hui ?
-      </div>
-
-
-      <button
-        class="listen-button"
-        type="button"
-        data-audio="아나 씨, 오늘 같이 놀러 갈래요?"
-      >
-        🔊 Écouter Min-su
-      </button>
-
-
-      <button
-        class="mic-button"
-        type="button"
-      >
-        🎤 Répondre
-      </button>
-
-
-      <div class="speech-feedback"></div>
-
-    </div>
-
-
-
-    <div
-      class="speech-step"
-      data-step="2"
-      data-expected="어디에 갈까요"
-    >
-
-      <div class="speaker">
-        🌸 À toi
-      </div>
-
-
-      <div class="prompt-french">
-        Demande : « Où allons-nous ? »
-      </div>
-
-
-      <button
-        class="listen-button"
-        type="button"
-        data-audio="어디에 갈까요?"
-      >
-        🔊 Écouter le modèle
-      </button>
-
-
-      <button
-        class="mic-button"
-        type="button"
-      >
-        🎤 Dire la phrase
-      </button>
-
-
-      <div class="speech-feedback"></div>
-
-    </div>
-
-
-
-    <div
-      class="speech-step"
-      data-step="3"
-      data-expected="몇 시에 만날까요"
-    >
-
-      <div class="speaker">
-        💙 Min-su
-      </div>
-
-
-      <div class="prompt-korean">
-        한강 공원에 갈까요?
-      </div>
-
-
-      <div class="prompt-french">
-        Et si nous allions au parc de la rivière Han ?
-      </div>
-
-
-      <button
-        class="listen-button"
-        type="button"
-        data-audio="한강 공원에 갈까요?"
-      >
-        🔊 Écouter Min-su
-      </button>
-
-
-      <div class="prompt-french" style="margin-top:12px;">
-        Réponds « Bonne idée ! » puis demande :
-        « À quelle heure se retrouve-t-on ? »
-      </div>
-
-
-      <button
-        class="mic-button"
-        type="button"
-      >
-        🎤 Répondre
-      </button>
-
-
-      <div class="speech-feedback"></div>
-
-    </div>
-
-
-
-    <div
-      class="speech-step"
-      data-step="4"
-      data-expected="그때 봬요"
-    >
-
-      <div class="speaker">
-        💙 Min-su
-      </div>
-
-
-      <div class="prompt-korean">
-        오후 두 시에 만나요.
-      </div>
-
-
-      <div class="prompt-french">
-        On se retrouve à deux heures de l'après-midi.
-      </div>
-
-
-      <button
-        class="listen-button"
-        type="button"
-        data-audio="오후 두 시에 만나요."
-      >
-        🔊 Écouter Min-su
-      </button>
-
-
-      <div class="prompt-french" style="margin-top:12px;">
-        Termine naturellement la conversation.
-      </div>
-
-
-      <button
-        class="mic-button"
-        type="button"
-      >
-        🎤 Répondre
-      </button>
-
-
-      <div class="speech-feedback"></div>
-
-    </div>
-
-  </section>
-
-
-
-  <section class="tip-card">
-
-    <h2>
-      💡 Petit rappel
-    </h2>
-
-    La reconnaissance vocale vérifie surtout
-    les mots qu'elle a compris.
+    <strong>🎯 Objectif</strong>
 
     <br><br>
 
-    Si ton téléphone transcrit mal une phrase,
-    réécoute le modèle et réessaie tranquillement.
-    Ce n'est pas encore une analyse phonétique précise.
+    Savoir dire d'où tu viens, parler de ton travail et de tes loisirs,
+    utiliser <strong>도</strong> pour « aussi »
+    et réagir naturellement avec <strong>저도</strong>.
 
   </section>
 
 
+  <div class="step-progress">
 
-  <button
-    class="complete-button"
-    id="completeButton"
-    type="button"
+    <div class="progress-info">
+      <span>Expression orale</span>
+      <span id="progressLabel">1 / 10</span>
+    </div>
+
+    <div class="progress-bar">
+      <div
+        class="progress-fill"
+        id="progressFill"
+      ></div>
+    </div>
+
+  </div>
+
+
+  <section
+    class="practice-card"
+    id="practiceCard"
   >
-    ✅ Valider l'oral
-  </button>
+
+    <div
+      class="step-label"
+      id="stepLabel"
+    >
+      Étape 1 / 10
+    </div>
+
+    <h2 id="stepTitle">
+      🌍 Expression 1
+    </h2>
+
+    <div
+      class="scenario-card"
+      id="scenarioCard"
+      style="display:none;"
+    ></div>
+
+    <div
+      class="seller-line"
+      id="sellerLine"
+      style="display:none;"
+    >
+
+      <div class="seller-name">
+        💚 Ji-Soo
+      </div>
+
+      <div
+        class="seller-korean"
+        id="sellerKorean"
+      ></div>
+
+      <div
+        id="sellerFrench"
+      ></div>
+
+      <button
+        type="button"
+        onclick="playSellerLine()"
+      >
+        🔊 Écouter l'interlocuteur
+      </button>
+
+    </div>
+
+    <div class="prompt-box">
+
+      <div
+        class="prompt-korean"
+        id="promptKorean"
+      >
+        프랑스에서 왔어요.
+      </div>
+
+      <div
+        class="prompt-french"
+        id="promptFrench"
+      >
+        Je viens de France.
+      </div>
+
+    </div>
 
 
-  <button
-    class="next-button"
-    id="nextButton"
-    type="button"
+    <div class="audio-buttons">
+
+      <button
+        type="button"
+        onclick="playTarget(false)"
+      >
+        🔊 Écouter
+      </button>
+
+      <button
+        class="slow"
+        type="button"
+        onclick="playTarget(true)"
+      >
+        🐢 Écouter lentement
+      </button>
+
+    </div>
+
+
+    <button
+      class="mic-button"
+      id="micButton"
+      type="button"
+      onclick="startRecognition()"
+    >
+      🎙️ Parler
+    </button>
+
+
+    <div
+      class="recognition-box"
+      id="recognitionBox"
+    >
+
+      <strong>
+        J'ai entendu :
+      </strong>
+
+      <div
+        class="heard-text"
+        id="heardText"
+      ></div>
+
+    </div>
+
+
+    <div
+      class="feedback"
+      id="feedback"
+    ></div>
+
+
+    <button
+      class="help-button"
+      type="button"
+      onclick="toggleHelp()"
+    >
+      💡 Besoin d'aide ?
+    </button>
+
+
+    <div
+      class="help-box"
+      id="helpBox"
+    ></div>
+
+
+    <button
+      class="retry-button"
+      id="retryButton"
+      type="button"
+      onclick="startRecognition()"
+    >
+      🎙️ Réessayer
+    </button>
+
+
+    <button
+      class="next-button"
+      id="nextButton"
+      type="button"
+      onclick="nextStep()"
+    >
+      Continuer →
+    </button>
+
+  </section>
+
+
+  <section
+    class="result-card"
+    id="resultCard"
   >
-    ✍️ Passer à l'écriture
-  </button>
+
+    <div class="result-icon">
+      👋🗣️
+    </div>
+
+    <h2>
+      잘했어요!
+    </h2>
+
+    <p>
+      Tu as terminé l'expression orale du chapitre 21.
+    </p>
+
+    <div class="summary-box">
+
+      <strong>
+        🌿 Ce que tu sais maintenant dire
+      </strong>
+
+      <br><br>
+
+      🌍 <strong>프랑스에서 왔어요.</strong>
+
+      <br>
+
+      💼 <strong>회사에서 일해요.</strong>
+
+      <br>
+
+      🎨 <strong>취미가 뭐예요?</strong>
+
+      <br>
+
+      📷 <strong>사진 찍는 것을 좋아해요.</strong>
+
+      <br>
+
+      ➕ <strong>커피도 좋아해요.</strong>
+
+      <br>
+
+      🤝 <strong>저도 좋아해요!</strong>
+
+      <br><br>
+
+      <span id="mistakeSummary"></span>
+
+    </div>
 
 
-  <button
-    class="back-button"
-    type="button"
-    onclick="window.location.href='exercice-ecoute-21.html'"
-  >
-    ← Retour à l'exercice d'écoute
-  </button>
+    <button
+      class="continue-button"
+      type="button"
+      onclick="window.location.href='ecriture-21.html'"
+    >
+      ✍️ Passer à « J'écris »
+    </button>
 
+
+    <button
+      class="back-button"
+      type="button"
+      onclick="window.location.href='chapitre-21.html'"
+    >
+      Retour au chapitre
+    </button>
+
+  </section>
 
 </main>
 
 
-
-<script src="chapter-progress.js">
-  renderChapterProgress();
-
-  window.addEventListener("pageshow", () => {
-    guardSpeakingAccess();
-    renderChapterProgress();
-  });
-
-</script>
+<script src="chapter-progress.js"></script>
 
 <script>
 
-  const AUDIO_SETTINGS = {
-    normalRate: 0.82
-  };
+  const CHAPTER = 20;
 
-
-  const progressKey =
-    "hanaKorean_chapter21_speaking";
-
-  const understandingKey =
+  const UNDERSTANDING_KEY =
     "hanaKorean_chapter21_understanding";
 
-  const listeningExerciseKey =
+  const LISTENING_EXERCISE_KEY =
     "hanaKorean_chapter21_listeningExercise";
 
-  const speakingMistakesKey =
+  const SPEAKING_KEY =
+    "hanaKorean_chapter21_speaking";
+
+  const SPEAKING_MISTAKES_KEY =
     "hanaKorean_chapter21_speakingMistakes";
 
-  const speakingHelpKey =
+  const SPEAKING_HELP_KEY =
     "hanaKorean_chapter21_speakingHelp";
 
+  function guardSpeakingAccess() {
+    if (
+      localStorage.getItem(
+        UNDERSTANDING_KEY
+      ) !== "completed"
+    ) {
+      window.location.replace(
+        "chapitre-21.html"
+      );
+      return false;
+    }
+
+    if (
+      localStorage.getItem(
+        LISTENING_EXERCISE_KEY
+      ) !== "completed"
+    ) {
+      window.location.replace(
+        "ecoute-21.html"
+      );
+      return false;
+    }
+
+    return true;
+  }
 
   function renderChapterProgress() {
     if (
@@ -545,40 +631,175 @@
     }
   }
 
-  function guardSpeakingAccess() {
-    if (localStorage.getItem(understandingKey) !== "completed") {
-      window.location.replace("chapitre-21.html");
-      return false;
+  const AUDIO_SETTINGS = {
+    normalRate: 0.82,
+    slowRate: 0.25
+  };
+
+
+  const steps = [
+
+    {
+      title: "🌍 Expression 1",
+      target: "프랑스에서 왔어요.",
+      french: "Je viens de France.",
+      accepted: [
+        "프랑스에서왔어요"
+      ],
+      help:
+        "Prononce 프랑스에서 왔어요. Garde bien 에서 après 프랑스."
+    },
+
+    {
+      title: "💼 Expression 2",
+      target: "회사에서 일해요.",
+      french: "Je travaille dans une entreprise.",
+      accepted: [
+        "회사에서일해요"
+      ],
+      help:
+        "Utilise 회사에서 + 일해요."
+    },
+
+    {
+      title: "🎨 Expression 3",
+      target: "취미가 뭐예요?",
+      french: "Quels sont vos loisirs ?",
+      accepted: [
+        "취미가뭐예요"
+      ],
+      help:
+        "Prononce 취미가 뭐예요? en gardant 취미 bien lié."
+    },
+
+    {
+      title: "🌍 Situation 1",
+      target: "프랑스에서 왔어요.",
+      french: "Dis que tu viens de France.",
+      accepted: [
+        "프랑스에서왔어요"
+      ],
+      scenario:
+        "💚 Ji-Soo te demande d'où tu viens.",
+      seller:
+        {
+          korean: "어느 나라에서 왔어요?",
+          french: "De quel pays venez-vous ?"
+        },
+      help:
+        "Réponds 프랑스에서 왔어요."
+    },
+
+    {
+      title: "💼 Situation 2",
+      target: "회사에서 일해요.",
+      french: "Dis que tu travailles dans une entreprise.",
+      accepted: [
+        "회사에서일해요"
+      ],
+      scenario:
+        "💚 Ji-Soo te demande ton métier.",
+      seller:
+        {
+          korean: "무슨 일을 하세요?",
+          french: "Quel est votre métier ?"
+        },
+      help:
+        "Réponds 회사에서 일해요."
+    },
+
+    {
+      title: "📷 Situation 3",
+      target: "사진 찍는 것을 좋아해요.",
+      french: "Dis que tu aimes prendre des photos.",
+      accepted: [
+        "사진찍는것을좋아해요",
+        "사진찍는걸좋아해요"
+      ],
+      scenario:
+        "💚 Ji-Soo te demande quels sont tes loisirs.",
+      seller:
+        {
+          korean: "취미가 뭐예요?",
+          french: "Quels sont vos loisirs ?"
+        },
+      help:
+        "Réponds 사진 찍는 것을 좋아해요."
+    },
+
+    {
+      title: "➕ Situation 4",
+      target: "커피도 좋아해요.",
+      french: "Ajoute que tu aimes aussi le café.",
+      accepted: [
+        "커피도좋아해요"
+      ],
+      scenario:
+        "📷 Tu viens de dire que tu aimes prendre des photos. Ajoute une autre chose que tu aimes.",
+      seller:
+        {
+          korean: "다른 것도 좋아해요?",
+          french: "Vous aimez autre chose aussi ?"
+        },
+      help:
+        "Réponds 커피도 좋아해요."
+    },
+
+    {
+      title: "🤝 Situation 5",
+      target: "저도 좋아해요!",
+      french: "Dis : « Moi aussi, j'aime ça ! »",
+      accepted: [
+        "저도좋아해요"
+      ],
+      scenario:
+        "💚 Ji-Soo dit qu'elle aime aussi le café.",
+      seller:
+        {
+          korean: "저도 커피를 좋아해요!",
+          french: "Moi aussi, j'aime le café !"
+        },
+      help:
+        "Réponds 저도 좋아해요!"
+    },
+
+    {
+      title: "💬 Mini-rencontre",
+      target: "프랑스에서 왔어요. 회사에서 일해요. 사진 찍는 것을 좋아해요.",
+      french: "Présente ton pays, ton travail et un loisir.",
+      accepted: [
+        "프랑스에서왔어요회사에서일해요사진찍는것을좋아해요",
+        "프랑스에서왔어요회사에서일해요사진찍는걸좋아해요"
+      ],
+      scenario:
+        "👋 Tu rencontres Ji-Soo pour la première fois.",
+      seller:
+        {
+          korean: "어느 나라에서 왔어요? 무슨 일을 하세요? 취미가 뭐예요?",
+          french: "D'où venez-vous ? Quel est votre métier ? Quels sont vos loisirs ?"
+        },
+      help:
+        "Enchaîne trois réponses : 프랑스에서 왔어요. 회사에서 일해요. 사진 찍는 것을 좋아해요."
     }
 
-    if (localStorage.getItem(listeningExerciseKey) !== "completed") {
-      window.location.replace("exercice-ecoute-21.html");
-      return false;
-    }
+  ];
 
-    return true;
+
+  let currentStep = 0;
+  let mistakes = 0;
+  let helpCount = 0;
+  let recognition = null;
+  let isListening = false;
+
+
+  function normalizeKorean(text) {
+
+    return text
+      .replace(/[.,!?~…'"]/g, "")
+      .replace(/\s+/g, "")
+      .trim();
+
   }
-
-
-
-  const completeButton =
-    document.getElementById(
-      "completeButton"
-    );
-
-
-  const nextButton =
-    document.getElementById(
-      "nextButton"
-    );
-
-
-  const speechSteps =
-    Array.from(
-      document.querySelectorAll(
-        ".speech-step"
-      )
-    );
 
 
   function getKoreanVoice() {
@@ -593,512 +814,771 @@
         voice.lang
           .toLowerCase()
           .startsWith("ko")
-    ) || null;
+    );
 
   }
 
 
-  function speak(
-    text
+  function speakKorean(
+    text,
+    slow = false
   ) {
+
+    if (
+      !("speechSynthesis" in window)
+    ) {
+      return;
+    }
+
 
     window.speechSynthesis.cancel();
 
 
-    const utterance =
+    const speech =
       new SpeechSynthesisUtterance(
         text
       );
 
 
-    utterance.lang =
+    speech.lang =
       "ko-KR";
 
-    utterance.rate =
-      AUDIO_SETTINGS.normalRate;
 
-    utterance.pitch =
+    speech.rate =
+      slow
+        ? AUDIO_SETTINGS.slowRate
+        : AUDIO_SETTINGS.normalRate;
+
+
+    speech.pitch =
       1;
 
 
-    const koreanVoice =
+    const voice =
       getKoreanVoice();
 
 
-    if (
-      koreanVoice
-    ) {
-
-      utterance.voice =
-        koreanVoice;
-
+    if (voice) {
+      speech.voice = voice;
     }
 
 
     window.speechSynthesis.speak(
-      utterance
+      speech
     );
 
   }
 
 
-  document
-    .querySelectorAll(
-      "[data-audio]"
-    )
-    .forEach(
-      button => {
+  function playTarget(slow) {
 
-        button.addEventListener(
-          "click",
-          () => {
+    const step =
+      steps[currentStep];
 
-            speak(
-              button.dataset.audio
-            );
 
-          }
-        );
-
-      }
+    speakKorean(
+      step.target,
+      slow
     );
-
-
-  function normalizeText(
-    value
-  ) {
-
-    return value
-      .replace(
-        /[?.!,]/g,
-        ""
-      )
-      .replace(
-        /\s+/g,
-        " "
-      )
-      .trim();
 
   }
 
 
-  function isAcceptable(
-    transcript,
-    expected,
-    stepNumber
-  ) {
+  function playSellerLine() {
 
-    const cleanTranscript =
-      normalizeText(
-        transcript
+    const step =
+      steps[currentStep];
+
+
+    if (
+      step.seller
+    ) {
+
+      speakKorean(
+        step.seller.korean,
+        false
       );
 
+    }
 
-    const cleanExpected =
-      normalizeText(
-        expected
+  }
+
+
+  function renderStep() {
+
+    const step =
+      steps[currentStep];
+
+
+    document.getElementById(
+      "stepLabel"
+    ).textContent =
+      "Étape " +
+      (currentStep + 1) +
+      " / " +
+      steps.length;
+
+
+    document.getElementById(
+      "stepTitle"
+    ).textContent =
+      step.title;
+
+
+    document.getElementById(
+      "promptKorean"
+    ).textContent =
+      step.target;
+
+
+    document.getElementById(
+      "promptFrench"
+    ).textContent =
+      step.french;
+
+
+    document.getElementById(
+      "progressLabel"
+    ).textContent =
+      (currentStep + 1) +
+      " / " +
+      steps.length;
+
+
+    document.getElementById(
+      "progressFill"
+    ).style.width =
+      (
+        ((currentStep + 1) /
+          steps.length) *
+        100
+      ) +
+      "%";
+
+
+    const scenarioCard =
+      document.getElementById(
+        "scenarioCard"
       );
 
 
     if (
-      cleanTranscript.includes(
-        cleanExpected
-      )
+      step.scenario
     ) {
 
-      return true;
+      scenarioCard.style.display =
+        "block";
+
+
+      scenarioCard.textContent =
+        step.scenario;
+
+    }
+
+    else {
+
+      scenarioCard.style.display =
+        "none";
 
     }
 
 
-    /*
-      Quelques réponses naturelles supplémentaires
-      sont acceptées selon la situation.
-    */
-
-    const alternatives = {
-
-      1: [
-        "네 좋아요",
-        "좋아요",
-        "네"
-      ],
-
-      2: [
-        "어디 갈까요",
-        "어디에 갈까요"
-      ],
-
-      3: [
-        "좋아요 몇 시에 만날까요",
-        "몇 시에 만날까요",
-        "좋아요"
-      ],
-
-      4: [
-        "네 그때 봬요",
-        "그때 봬요",
-        "네 좋아요"
-      ]
-
-    };
+    const sellerLine =
+      document.getElementById(
+        "sellerLine"
+      );
 
 
-    return (
-      alternatives[
-        stepNumber
-      ] || []
-    ).some(
-      alternative =>
-        cleanTranscript.includes(
-          normalizeText(
-            alternative
-          )
-        )
+    if (
+      step.seller
+    ) {
+
+      sellerLine.style.display =
+        "block";
+
+
+      document.getElementById(
+        "sellerKorean"
+      ).textContent =
+        step.seller.korean;
+
+
+      document.getElementById(
+        "sellerFrench"
+      ).textContent =
+        step.seller.french;
+
+    }
+
+    else {
+
+      sellerLine.style.display =
+        "none";
+
+    }
+
+
+    document.getElementById(
+      "helpBox"
+    ).textContent =
+      "💡 " +
+      step.help;
+
+
+    document.getElementById(
+      "helpBox"
+    ).classList.remove(
+      "show"
+    );
+
+
+    document.getElementById(
+      "recognitionBox"
+    ).classList.remove(
+      "show"
+    );
+
+
+    document.getElementById(
+      "feedback"
+    ).className =
+      "feedback";
+
+
+    document.getElementById(
+      "feedback"
+    ).innerHTML =
+      "";
+
+
+    document.getElementById(
+      "nextButton"
+    ).classList.remove(
+      "show"
+    );
+
+
+    document.getElementById(
+      "retryButton"
+    ).classList.remove(
+      "show"
+    );
+
+
+    document.getElementById(
+      "micButton"
+    ).disabled =
+      false;
+
+
+    document.getElementById(
+      "micButton"
+    ).textContent =
+      "🎙️ Parler";
+
+
+    document.getElementById(
+      "micButton"
+    ).classList.remove(
+      "listening"
     );
 
   }
 
 
-  function completedCount() {
+  function toggleHelp() {
 
-    return speechSteps.filter(
-      step =>
-        step.dataset.completed ===
-        "true"
-    ).length;
+    helpCount++;
+
+
+    document.getElementById(
+      "helpBox"
+    ).classList.toggle(
+      "show"
+    );
 
   }
 
 
-  function updateCompletion() {
+  function startRecognition() {
 
     if (
-      completedCount() ===
-      speechSteps.length
+      isListening
+    ) {
+      return;
+    }
+
+
+    const SpeechRecognition =
+      window.SpeechRecognition ||
+      window.webkitSpeechRecognition;
+
+
+    if (
+      !SpeechRecognition
     ) {
 
-      completeButton
-        .classList
-        .add(
+      const feedback =
+        document.getElementById(
+          "feedback"
+        );
+
+
+      feedback.className =
+        "feedback show wrong";
+
+
+      feedback.innerHTML =
+        "🎙️ La reconnaissance vocale n'est pas disponible dans ce navigateur.<br><br>" +
+        "Tu peux tout de même écouter et répéter la phrase à voix haute.";
+
+      return;
+    }
+
+
+    if (
+      "speechSynthesis" in window
+    ) {
+
+      window.speechSynthesis.cancel();
+
+    }
+
+
+    recognition =
+      new SpeechRecognition();
+
+
+    recognition.lang =
+      "ko-KR";
+
+
+    recognition.interimResults =
+      false;
+
+
+    recognition.continuous =
+      false;
+
+
+    recognition.maxAlternatives =
+      5;
+
+
+    recognition.onstart =
+      function() {
+
+        isListening =
+          true;
+
+
+        const micButton =
+          document.getElementById(
+            "micButton"
+          );
+
+
+        micButton.textContent =
+          "🎙️ J'écoute…";
+
+
+        micButton.classList.add(
+          "listening"
+        );
+
+      };
+
+
+    recognition.onresult =
+      function(event) {
+
+        const alternatives = [];
+
+
+        for (
+          let i = 0;
+          i < event.results[0].length;
+          i++
+        ) {
+
+          alternatives.push(
+            event.results[0][i].transcript
+          );
+
+        }
+
+
+        evaluateRecognition(
+          alternatives
+        );
+
+      };
+
+
+    recognition.onerror =
+      function() {
+
+        const feedback =
+          document.getElementById(
+            "feedback"
+          );
+
+
+        feedback.className =
+          "feedback show wrong";
+
+
+        feedback.innerHTML =
+          "Je n'ai pas réussi à t'entendre correctement. Réessaie en parlant clairement et assez près du micro.";
+
+
+        document.getElementById(
+          "retryButton"
+        ).classList.add(
           "show"
         );
 
-    }
+      };
+
+
+    recognition.onend =
+      function() {
+
+        isListening =
+          false;
+
+
+        const micButton =
+          document.getElementById(
+            "micButton"
+          );
+
+
+        micButton.textContent =
+          "🎙️ Parler";
+
+
+        micButton.classList.remove(
+          "listening"
+        );
+
+      };
+
+
+    recognition.start();
 
   }
 
 
-  const SpeechRecognition =
-    window.SpeechRecognition ||
-    window.webkitSpeechRecognition;
-
-
-  speechSteps.forEach(
-    step => {
-
-      const micButton =
-        step.querySelector(
-          ".mic-button"
-        );
-
-
-      const feedback =
-        step.querySelector(
-          ".speech-feedback"
-        );
-
-
-      const expected =
-        step.dataset.expected;
-
-
-      const stepNumber =
-        Number(
-          step.dataset.step
-        );
-
-
-      micButton.addEventListener(
-        "click",
-        () => {
-
-          if (
-            !SpeechRecognition
-          ) {
-
-            feedback.className =
-              "speech-feedback show error";
-
-
-            feedback.innerHTML =
-              "La reconnaissance vocale n'est pas disponible dans ce navigateur. Tu peux quand même répéter la phrase à voix haute puis valider l'étape.";
-
-
-            step.dataset.completed =
-              "true";
-
-
-            micButton.textContent =
-              "✅ Répété à voix haute";
-
-
-            updateCompletion();
-
-            return;
-
-          }
-
-
-          const recognition =
-            new SpeechRecognition();
-
-
-          recognition.lang =
-            "ko-KR";
-
-          recognition.interimResults =
-            false;
-
-          recognition.maxAlternatives =
-            3;
-
-
-          micButton
-            .classList
-            .add(
-              "listening"
-            );
-
-
-          micButton.textContent =
-            "🎙️ J'écoute…";
-
-
-          recognition.onresult =
-            event => {
-
-              const transcripts =
-                Array.from(
-                  event.results[0]
-                ).map(
-                  result =>
-                    result.transcript
-                );
-
-
-              const accepted =
-                transcripts.some(
-                  transcript =>
-                    isAcceptable(
-                      transcript,
-                      expected,
-                      stepNumber
-                    )
-                );
-
-
-              const firstTranscript =
-                transcripts[0] || "";
-
-
-              if (
-                accepted
-              ) {
-
-                feedback.className =
-                  "speech-feedback show success";
-
-
-                feedback.innerHTML =
-                  "✅ Très bien !<div class='transcript'>Le téléphone a compris : " +
-                  firstTranscript +
-                  "</div>";
-
-
-                step.dataset.completed =
-                  "true";
-
-
-                micButton.textContent =
-                  "✅ Réussi";
-
-
-                micButton.disabled =
-                  true;
-
-
-                updateCompletion();
-
-              } else {
-
-                feedback.className =
-                  "speech-feedback show error";
-
-
-                feedback.innerHTML =
-                  "Pas encore. Réécoute le modèle puis réessaie.<div class='transcript'>Le téléphone a compris : " +
-                  firstTranscript +
-                  "</div>";
-
-
-                micButton.textContent =
-                  "🎤 Réessayer";
-
-              }
-
-
-              micButton
-                .classList
-                .remove(
-                  "listening"
-                );
-
-            };
-
-
-          recognition.onerror =
-            () => {
-
-              feedback.className =
-                "speech-feedback show error";
-
-
-              feedback.textContent =
-                "Je n'ai pas réussi à entendre correctement. Réessaie en parlant un peu plus près du téléphone.";
-
-
-              micButton
-                .classList
-                .remove(
-                  "listening"
-                );
-
-
-              micButton.textContent =
-                "🎤 Réessayer";
-
-            };
-
-
-          recognition.onend =
-            () => {
-
-              if (
-                micButton.textContent ===
-                "🎙️ J'écoute…"
-              ) {
-
-                micButton.textContent =
-                  "🎤 Réessayer";
-
-              }
-
-
-              micButton
-                .classList
-                .remove(
-                  "listening"
-                );
-
-            };
-
-
-          recognition.start();
-
-        }
-      );
-
-    }
-  );
-
-
-  function showCompletedState() {
-
-    completeButton.textContent =
-      "✅ Oral terminé";
-
-
-    completeButton
-      .classList
-      .add(
-        "show",
-        "done"
-      );
-
-
-    nextButton.style.display =
-      "block";
-
-  }
-
-
-  guardSpeakingAccess();
-
-  if (
-    localStorage.getItem(
-      progressKey
-    ) === "completed"
+  function evaluateRecognition(
+    alternatives
   ) {
 
-    showCompletedState();
+    const step =
+      steps[currentStep];
+
+
+    const normalizedAccepted =
+      step.accepted.map(
+        answer =>
+          normalizeKorean(answer)
+      );
+
+
+    let matched = false;
+    let bestTranscript =
+      alternatives[0] || "";
+
+
+    for (
+      const transcript of alternatives
+    ) {
+
+      const normalized =
+        normalizeKorean(
+          transcript
+        );
+
+
+      if (
+        normalizedAccepted.includes(
+          normalized
+        )
+      ) {
+
+        matched =
+          true;
+
+
+        bestTranscript =
+          transcript;
+
+
+        break;
+
+      }
+
+    }
+
+
+    const recognitionBox =
+      document.getElementById(
+        "recognitionBox"
+      );
+
+
+    recognitionBox.classList.add(
+      "show"
+    );
+
+
+    document.getElementById(
+      "heardText"
+    ).textContent =
+      bestTranscript;
+
+
+    const feedback =
+      document.getElementById(
+        "feedback"
+      );
+
+
+    if (
+      matched
+    ) {
+
+      feedback.className =
+        "feedback show correct";
+
+
+      feedback.innerHTML =
+        "✅ <strong>Très bien !</strong><br><br>" +
+        "La phrase attendue était : <strong>" +
+        step.target +
+        "</strong>";
+
+
+      document.getElementById(
+        "nextButton"
+      ).classList.add(
+        "show"
+      );
+
+
+      document.getElementById(
+        "retryButton"
+      ).classList.remove(
+        "show"
+      );
+
+
+      document.getElementById(
+        "micButton"
+      ).disabled =
+        true;
+
+    }
+
+    else {
+
+      mistakes++;
+
+
+      feedback.className =
+        "feedback show wrong";
+
+
+      feedback.innerHTML =
+        "❌ <strong>Pas encore.</strong><br><br>" +
+        "Réécoute la phrase et essaie de te rapprocher de : <strong>" +
+        step.target +
+        "</strong>";
+
+
+      document.getElementById(
+        "retryButton"
+      ).classList.add(
+        "show"
+      );
+
+    }
 
   }
 
 
-  completeButton.addEventListener(
-    "click",
-    () => {
+  function nextStep() {
 
-      localStorage.setItem(
-        progressKey,
-        "completed"
-      );
+    if (
+      currentStep <
+      steps.length - 1
+    ) {
 
-      if (localStorage.getItem(speakingMistakesKey) === null) {
-        localStorage.setItem(speakingMistakesKey, "0");
-      }
-
-      if (localStorage.getItem(speakingHelpKey) === null) {
-        localStorage.setItem(speakingHelpKey, "0");
-      }
-
-      showCompletedState();
-      renderChapterProgress();
-
-    }
-  );
+      currentStep++;
 
 
-  nextButton.addEventListener(
-    "click",
-    () => {
-
-      window.speechSynthesis.cancel();
+      renderStep();
 
 
-      window.location.href =
-        "ecriture-21.html";
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+
+
+      return;
 
     }
-  );
+
+
+    finishSpeaking();
+
+  }
+
+
+  function finishSpeaking() {
+
+    document.getElementById(
+      "practiceCard"
+    ).style.display =
+      "none";
+
+
+    document.getElementById(
+      "resultCard"
+    ).classList.add(
+      "show"
+    );
+
+
+    let summary = "";
+
+
+    if (
+      mistakes === 0
+    ) {
+
+      summary =
+        "🌟 Toutes les étapes ont été reconnues sans erreur.";
+
+    }
+
+    else if (
+      mistakes === 1
+    ) {
+
+      summary =
+        "💡 Tu as eu 1 tentative incorrecte pendant la séance.";
+
+    }
+
+    else {
+
+      summary =
+        "💡 Tu as eu " +
+        mistakes +
+        " tentatives incorrectes pendant la séance.";
+
+    }
+
+
+    if (
+      helpCount > 0
+    ) {
+
+      summary +=
+        "<br><br>Tu as utilisé l'aide " +
+        helpCount +
+        " fois.";
+
+    }
+
+
+    document.getElementById(
+      "mistakeSummary"
+    ).innerHTML =
+      summary;
+
+
+    localStorage.setItem(
+      SPEAKING_KEY,
+      "completed"
+    );
+
+
+    localStorage.setItem(
+      SPEAKING_MISTAKES_KEY,
+      String(mistakes)
+    );
+
+
+    localStorage.setItem(
+      SPEAKING_HELP_KEY,
+      String(helpCount)
+    );
+
+    renderChapterProgress();
+
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+
+  }
+
+
+  if (
+    "speechSynthesis" in window
+  ) {
+
+    window.speechSynthesis.onvoiceschanged =
+      function() {
+
+        window.speechSynthesis.getVoices();
+
+      };
+
+  }
 
 
   window.addEventListener(
-    "beforeunload",
-    () => {
+    "pagehide",
+    function() {
 
-      window.speechSynthesis.cancel();
+      if (
+        "speechSynthesis" in window
+      ) {
+
+        window.speechSynthesis.cancel();
+
+      }
+
+
+      if (
+        recognition &&
+        isListening
+      ) {
+
+        recognition.abort();
+
+      }
 
     }
   );
 
 
-  window.speechSynthesis.onvoiceschanged =
-    () => {
-      getKoreanVoice();
-    };
+  if (guardSpeakingAccess()) {
+    renderChapterProgress();
+    renderStep();
 
+    window.addEventListener(
+      "pageshow",
+      function() {
+        renderChapterProgress();
+      }
+    );
+  }
 </script>
 </body>
 

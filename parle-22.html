@@ -23,6 +23,7 @@
   >
   <link rel="stylesheet" href="chapter-progress.css">
 
+
   <style>
 
     .speak-header {
@@ -30,90 +31,130 @@
       margin-bottom:24px;
     }
 
+
     .scenario-card,
     .speech-card,
-    .tip-card {
+    .tip-card,
+    .result-card {
       padding:20px;
       margin-bottom:18px;
+
       background:var(--white);
+
       border-radius:var(--radius-large);
+
       box-shadow:var(--shadow);
     }
+
 
     .speech-step {
       padding:16px;
       margin-top:14px;
+
       background:#FBFAF6;
+
       border-radius:var(--radius-medium);
     }
 
+
     .speaker {
       margin-bottom:8px;
+
       color:var(--navy);
+
       font-weight:bold;
     }
+
 
     .prompt-korean {
       color:var(--navy);
+
       font-size:19px;
       font-weight:bold;
+
       line-height:1.6;
     }
 
+
     .prompt-french {
       margin-top:5px;
+
       color:var(--text-light);
+
       line-height:1.5;
     }
 
+
     .listen-button,
-    .mic-button {
+    .mic-button,
+    .retry-button {
       width:100%;
       margin-top:10px;
     }
+
 
     .listen-button {
       background:var(--soft-blue);
       color:var(--navy);
     }
 
+
     .mic-button {
       background:var(--jade);
       color:white;
+
       font-weight:bold;
     }
+
 
     .mic-button.listening {
       background:var(--navy);
     }
 
+
+    .retry-button {
+      background:var(--soft-beige);
+      color:var(--navy);
+    }
+
+
     .speech-feedback {
       display:none;
+
       margin-top:12px;
       padding:12px 14px;
+
       border-radius:var(--radius-medium);
+
       line-height:1.6;
     }
+
 
     .speech-feedback.show {
       display:block;
     }
+
 
     .speech-feedback.success {
       background:var(--success-light);
       color:var(--success);
     }
 
+
     .speech-feedback.error {
       background:var(--error-light);
       color:var(--error);
     }
 
+
     .transcript {
       margin-top:8px;
+
       color:var(--text-light);
+
       font-size:14px;
     }
+
 
     .complete-button,
     .next-button,
@@ -122,27 +163,36 @@
       margin-top:10px;
     }
 
+
     .complete-button {
       display:none;
+
       background:var(--jade);
       color:white;
+
       font-weight:bold;
     }
+
 
     .complete-button.show {
       display:block;
     }
 
+
     .complete-button.done {
       background:var(--success);
     }
 
+
     .next-button {
       display:none;
+
       background:var(--navy);
       color:white;
+
       font-weight:bold;
     }
+
 
     .back-button {
       background:var(--soft-beige);
@@ -154,16 +204,21 @@
   <script src="profile.js"></script>
 </head>
 
+
 <body>
+
 
 <main class="app">
 
+
   <a
     class="back-link"
-    href="exercice-ecoute-22.html"
+    href="exercice-ecoute-23.html"
   >
     ← Exercice d'écoute
   </a>
+
+
 
   <header class="speak-header">
 
@@ -171,17 +226,20 @@
       Chapitre 22 · 🗣️ Je parle
     </span>
 
+
     <p class="korean">
-      오늘 날씨가 어때요? 🌦️
+      같이 갈래요? 🌸
     </p>
 
+
     <h1>
-      Parler de la météo à l'oral
+      Proposer une sortie à l'oral
     </h1>
 
+
     <p>
-      Réponds à Min-su comme dans une vraie conversation
-      et décris le temps simplement.
+      Réponds à Min-su comme dans une vraie conversation.
+      L'objectif est de produire les phrases naturellement.
     </p>
 
   </header>
@@ -189,46 +247,57 @@
   <section id="hanaChapterPath" data-chapter-path></section>
 
 
+
   <section class="scenario-card">
 
-    <h2>🎭 Situation</h2>
+    <h2>
+      🎭 Situation
+    </h2>
 
-    Tu consultes la météo avec Min-su avant de sortir.
-    Réponds à ses questions et explique ce que tu penses du temps.
+    Min-su te propose une sortie aujourd'hui.
+    Tu dois répondre, choisir un lieu,
+    puis fixer une heure de rendez-vous.
 
   </section>
 
 
+
   <section class="speech-card">
 
-    <h2>💬 Conversation guidée</h2>
+    <h2>
+      💬 Conversation guidée
+    </h2>
 
 
     <div
       class="speech-step"
       data-step="1"
-      data-expected="조금 더워요"
+      data-expected="좋아요"
     >
 
       <div class="speaker">
         💙 Min-su
       </div>
 
+
       <div class="prompt-korean">
-        오늘 날씨가 어때요?
+        아나 씨, 오늘 같이 놀러 갈래요?
       </div>
 
+
       <div class="prompt-french">
-        Quel temps fait-il aujourd'hui ?
+        Ana, ça te dit de sortir ensemble aujourd'hui ?
       </div>
+
 
       <button
         class="listen-button"
         type="button"
-        data-audio="오늘 날씨가 어때요?"
+        data-audio="아나 씨, 오늘 같이 놀러 갈래요?"
       >
         🔊 Écouter Min-su
       </button>
+
 
       <button
         class="mic-button"
@@ -237,32 +306,37 @@
         🎤 Répondre
       </button>
 
+
       <div class="speech-feedback"></div>
 
     </div>
 
 
+
     <div
       class="speech-step"
       data-step="2"
-      data-expected="비가 올 것 같아요"
+      data-expected="어디에 갈까요"
     >
 
       <div class="speaker">
         🌸 À toi
       </div>
 
+
       <div class="prompt-french">
-        Dis : « Je pense qu'il va pleuvoir. »
+        Demande : « Où allons-nous ? »
       </div>
+
 
       <button
         class="listen-button"
         type="button"
-        data-audio="비가 올 것 같아요."
+        data-audio="어디에 갈까요?"
       >
         🔊 Écouter le modèle
       </button>
+
 
       <button
         class="mic-button"
@@ -271,36 +345,48 @@
         🎤 Dire la phrase
       </button>
 
+
       <div class="speech-feedback"></div>
 
     </div>
+
 
 
     <div
       class="speech-step"
       data-step="3"
-      data-expected="하늘이 흐려요"
+      data-expected="몇 시에 만날까요"
     >
 
       <div class="speaker">
         💙 Min-su
       </div>
 
+
       <div class="prompt-korean">
-        맞아요. 하늘이 어때요?
+        한강 공원에 갈까요?
       </div>
 
+
       <div class="prompt-french">
-        Oui. Comment est le ciel ?
+        Et si nous allions au parc de la rivière Han ?
       </div>
+
 
       <button
         class="listen-button"
         type="button"
-        data-audio="맞아요. 하늘이 어때요?"
+        data-audio="한강 공원에 갈까요?"
       >
         🔊 Écouter Min-su
       </button>
+
+
+      <div class="prompt-french" style="margin-top:12px;">
+        Réponds « Bonne idée ! » puis demande :
+        « À quelle heure se retrouve-t-on ? »
+      </div>
+
 
       <button
         class="mic-button"
@@ -308,37 +394,48 @@
       >
         🎤 Répondre
       </button>
+
 
       <div class="speech-feedback"></div>
 
     </div>
 
 
+
     <div
       class="speech-step"
       data-step="4"
-      data-expected="네 가방에 있어요"
+      data-expected="그때 봬요"
     >
 
       <div class="speaker">
         💙 Min-su
       </div>
 
+
       <div class="prompt-korean">
-        우산 있어요?
+        오후 두 시에 만나요.
       </div>
 
+
       <div class="prompt-french">
-        Tu as un parapluie ?
+        On se retrouve à deux heures de l'après-midi.
       </div>
+
 
       <button
         class="listen-button"
         type="button"
-        data-audio="우산 있어요?"
+        data-audio="오후 두 시에 만나요."
       >
         🔊 Écouter Min-su
       </button>
+
+
+      <div class="prompt-french" style="margin-top:12px;">
+        Termine naturellement la conversation.
+      </div>
+
 
       <button
         class="mic-button"
@@ -346,6 +443,7 @@
       >
         🎤 Répondre
       </button>
+
 
       <div class="speech-feedback"></div>
 
@@ -354,20 +452,24 @@
   </section>
 
 
+
   <section class="tip-card">
 
-    <h2>💡 Petit rappel</h2>
+    <h2>
+      💡 Petit rappel
+    </h2>
 
     La reconnaissance vocale vérifie surtout
     les mots qu'elle a compris.
 
     <br><br>
 
-    Elle ne mesure pas encore précisément ta prononciation.
-    Si une phrase est mal transcrite, réécoute le modèle
-    et essaie de nouveau.
+    Si ton téléphone transcrit mal une phrase,
+    réécoute le modèle et réessaie tranquillement.
+    Ce n'est pas encore une analyse phonétique précise.
 
   </section>
+
 
 
   <button
@@ -391,15 +493,25 @@
   <button
     class="back-button"
     type="button"
-    onclick="window.location.href='exercice-ecoute-22.html'"
+    onclick="window.location.href='exercice-ecoute-23.html'"
   >
     ← Retour à l'exercice d'écoute
   </button>
 
+
 </main>
 
 
-<script src="chapter-progress.js"></script>
+
+<script src="chapter-progress.js">
+  renderChapterProgress();
+
+  window.addEventListener("pageshow", () => {
+    guardSpeakingAccess();
+    renderChapterProgress();
+  });
+
+</script>
 
 <script>
 
@@ -423,6 +535,7 @@
   const speakingHelpKey =
     "hanaKorean_chapter22_speakingHelp";
 
+
   function renderChapterProgress() {
     if (
       window.HanaChapterProgress &&
@@ -439,12 +552,13 @@
     }
 
     if (localStorage.getItem(listeningExerciseKey) !== "completed") {
-      window.location.replace("exercice-ecoute-22.html");
+      window.location.replace("exercice-ecoute-23.html");
       return false;
     }
 
     return true;
   }
+
 
 
   const completeButton =
@@ -597,30 +711,34 @@
     }
 
 
+    /*
+      Quelques réponses naturelles supplémentaires
+      sont acceptées selon la situation.
+    */
+
     const alternatives = {
 
       1: [
-        "더워요",
-        "조금 더워요",
-        "조금 추워요",
-        "추워요",
-        "날씨가 더워요",
-        "날씨가 추워요"
+        "네 좋아요",
+        "좋아요",
+        "네"
       ],
 
       2: [
-        "비가 올 것 같아요"
+        "어디 갈까요",
+        "어디에 갈까요"
       ],
 
       3: [
-        "흐려요",
-        "하늘이 흐려요"
+        "좋아요 몇 시에 만날까요",
+        "몇 시에 만날까요",
+        "좋아요"
       ],
 
       4: [
-        "네 있어요",
-        "가방에 있어요",
-        "네 가방에 있어요"
+        "네 그때 봬요",
+        "그때 봬요",
+        "네 좋아요"
       ]
 
     };
@@ -714,7 +832,7 @@
 
 
             feedback.innerHTML =
-              "La reconnaissance vocale n'est pas disponible dans ce navigateur. Répète la phrase à voix haute pour t'entraîner.";
+              "La reconnaissance vocale n'est pas disponible dans ce navigateur. Tu peux quand même répéter la phrase à voix haute puis valider l'étape.";
 
 
             step.dataset.completed =
@@ -916,7 +1034,6 @@
 
 
   guardSpeakingAccess();
-  renderChapterProgress();
 
   if (
     localStorage.getItem(
@@ -946,10 +1063,8 @@
         localStorage.setItem(speakingHelpKey, "0");
       }
 
-      renderChapterProgress();
-
-
       showCompletedState();
+      renderChapterProgress();
 
     }
   );
@@ -983,12 +1098,6 @@
     () => {
       getKoreanVoice();
     };
-
-
-  window.addEventListener("pageshow", () => {
-    guardSpeakingAccess();
-    renderChapterProgress();
-  });
 
 </script>
 </body>

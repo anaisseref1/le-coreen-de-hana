@@ -8,60 +8,103 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="chapter-progress.css">
   <style>
-    .speak-card{padding:20px;margin-bottom:18px;background:var(--white);border-radius:var(--radius-large);box-shadow:var(--shadow)}
-    .prompt{padding:14px;margin-top:10px;background:#FBFAF6;border-radius:var(--radius-medium);line-height:1.6}
+    .speak-card{padding:20px;margin-bottom:18px;background:var(--white);border-radius:var(--radius-large);box-shadow:var(--shadow);}
+    .prompt{padding:14px;margin-top:10px;background:#FBFAF6;border-radius:var(--radius-medium);}
+    .record-status{margin-top:9px;color:var(--text-light);font-size:14px;}
   </style>
   <script src="profile.js"></script>
 </head>
 <body>
 <main class="app">
-<a class="back-link" href="exercice-ecoute-32.html">← Exercice d'écoute</a>
+<a class="back-link" href="exercice-ecoute-33.html">← Exercice d'écoute</a>
 <section id="hanaChapterPath" data-chapter-path></section>
+
 <header>
   <span class="chapter-badge">Chapitre 32 · 🗣️ Je parle</span>
-  <h1>Donner ton avis</h1>
-  <p>Répète puis réponds spontanément.</p>
+  <p class="korean">보통 뭐 해요?</p>
+  <h1>Parler de tes habitudes</h1>
+  <p>Lis, répète puis réponds avec tes propres habitudes.</p>
 </header>
 
 <section class="speak-card">
   <h2>🌸 Répète</h2>
-  <div class="prompt"><strong>이 카페 어때요?</strong><br><small>Comment trouves-tu ce café ?</small></div>
-  <div class="prompt"><strong>재미있다고 생각해요.</strong><br><small>Je pense que c'est intéressant.</small></div>
-  <div class="prompt"><strong>조금 어려워요. 하지만 재미있어요.</strong><br><small>C'est un peu difficile, mais intéressant.</small></div>
-  <div class="prompt"><strong>맞아요. 저도 그렇게 생각해요.</strong><br><small>Exactement. Moi aussi, je pense comme ça.</small></div>
-  <div class="prompt"><strong>저는 조금 다르게 생각해요.</strong><br><small>Moi, je pense un peu différemment.</small></div>
+  <div class="prompt"><strong>매일 한국어를 공부해요.</strong><br><small>J'étudie le coréen tous les jours.</small></div>
+  <div class="prompt"><strong>커피를 자주 마셔요.</strong><br><small>Je bois souvent du café.</small></div>
+  <div class="prompt"><strong>가끔 운동해요.</strong><br><small>Je fais parfois du sport.</small></div>
+  <div class="prompt"><strong>주말에는 보통 집에서 쉬어요.</strong><br><small>Le week-end, je me repose généralement à la maison.</small></div>
   <button id="listenAll" type="button" style="width:100%;margin-top:12px;">🔊 Écouter les phrases</button>
 </section>
 
 <section class="speak-card">
-  <h2>💬 Donne ton avis</h2>
-  <div class="prompt"><strong>한국 음식 어때요?</strong><br><small>Que penses-tu de la cuisine coréenne ?</small></div>
-  <div class="prompt"><strong>한국어는 어때요?</strong><br><small>Que penses-tu du coréen ?</small></div>
-  <div class="prompt"><strong>서울은 어때요?</strong><br><small>Que penses-tu de Séoul ?</small></div>
-  <div class="prompt"><strong>한국 여행은 어때요?</strong><br><small>Que penses-tu d'un voyage en Corée ?</small></div>
+  <h2>💬 À toi</h2>
+  <p>Réponds à voix haute :</p>
+  <div class="prompt"><strong>매일 뭐 해요?</strong><br><small>Qu'est-ce que tu fais tous les jours ?</small></div>
+  <div class="prompt"><strong>커피를 자주 마셔요?</strong><br><small>Tu bois souvent du café ?</small></div>
+  <div class="prompt"><strong>주말에 뭐 해요?</strong><br><small>Qu'est-ce que tu fais le week-end ?</small></div>
+  <div class="prompt"><strong>한국어를 매일 공부해요?</strong><br><small>Tu étudies le coréen tous les jours ?</small></div>
 </section>
 
 <section class="speak-card">
-  <h2>🎯 Mini-défi</h2>
-  <p>Réponds avec une phrase complète et essaie d'utiliser au moins une fois <strong>-다고 생각해요</strong>.</p>
-  <button id="doneSpeaking" type="button" style="width:100%;">✅ J'ai donné mes opinions à voix haute</button>
+  <h2>🎯 Mini-défi 30 secondes</h2>
+  <p>Essaie de parler de tes habitudes pendant 30 secondes en utilisant au moins :</p>
+  <p><strong>매일 · 자주 · 가끔 · 보통</strong></p>
+  <button id="doneSpeaking" type="button" style="width:100%;">✅ J'ai parlé à voix haute</button>
+  <div class="record-status" id="status"></div>
 </section>
 
 <button id="nextButton" type="button" style="display:none;width:100%;">✍️ Passer à l'écriture</button>
 </main>
+
 <script src="chapter-progress.js"></script>
 <script>
-const EXERCISE_KEY="hanaKorean_chapter32_listeningExercise";
+const LISTENING_EXERCISE_KEY="hanaKorean_chapter32_listeningExercise";
 const SPEAKING_KEY="hanaKorean_chapter32_speaking";
-const done=document.getElementById("doneSpeaking"),next=document.getElementById("nextButton");
-function guard(){if(localStorage.getItem(EXERCISE_KEY)!=="completed"){window.location.href="exercice-ecoute-32.html";return false;}return true;}
-if(!guard())throw new Error("chapter32-speaking-guard");
-function speak(text){if(!("speechSynthesis" in window))return;speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.lang="ko-KR";u.rate=.82;const v=speechSynthesis.getVoices().find(x=>x.lang==="ko-KR")||speechSynthesis.getVoices().find(x=>x.lang&&x.lang.startsWith("ko"));if(v)u.voice=v;speechSynthesis.speak(u);}
-document.getElementById("listenAll").addEventListener("click",()=>speak("이 카페 어때요? 재미있다고 생각해요. 조금 어려워요. 하지만 재미있어요. 맞아요. 저도 그렇게 생각해요. 저는 조금 다르게 생각해요."));
-function refresh(){if(localStorage.getItem(SPEAKING_KEY)==="completed"){done.textContent="✅ Oral terminé";done.disabled=true;next.style.display="block";}if(window.HanaChapterProgress)HanaChapterProgress.render();}
-done.addEventListener("click",()=>{localStorage.setItem(SPEAKING_KEY,"completed");refresh();});
-next.addEventListener("click",()=>window.location.href="ecriture-32.html");
-window.addEventListener("pageshow",()=>{if(guard())refresh();});refresh();
+const doneSpeaking=document.getElementById("doneSpeaking");
+const nextButton=document.getElementById("nextButton");
+const status=document.getElementById("status");
+
+function guard(){
+  if(localStorage.getItem(LISTENING_EXERCISE_KEY)!=="completed"){
+    window.location.href="exercice-ecoute-33.html";
+    return false;
+  }
+  return true;
+}
+if(!guard()) throw new Error("chapter32-speaking-guard");
+
+function speak(text){
+  if(!("speechSynthesis" in window)) return;
+  speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(text);
+  u.lang="ko-KR";
+  u.rate=.82;
+  const voices=speechSynthesis.getVoices();
+  const v=voices.find(x=>x.lang==="ko-KR")||voices.find(x=>x.lang&&x.lang.startsWith("ko"));
+  if(v)u.voice=v;
+  speechSynthesis.speak(u);
+}
+
+document.getElementById("listenAll").addEventListener("click",()=>speak(
+  "매일 한국어를 공부해요. 커피를 자주 마셔요. 가끔 운동해요. 주말에는 보통 집에서 쉬어요."
+));
+
+function refresh(){
+  if(localStorage.getItem(SPEAKING_KEY)==="completed"){
+    doneSpeaking.textContent="✅ Oral terminé";
+    doneSpeaking.disabled=true;
+    status.textContent="Très bien 🌸 Tu peux passer à l'écriture.";
+    nextButton.style.display="block";
+  }
+  if(window.HanaChapterProgress)HanaChapterProgress.render();
+}
+
+doneSpeaking.addEventListener("click",()=>{
+  localStorage.setItem(SPEAKING_KEY,"completed");
+  refresh();
+});
+nextButton.addEventListener("click",()=>window.location.href="ecriture-32.html");
+window.addEventListener("pageshow",()=>{if(guard())refresh();});
+refresh();
 </script>
 </body>
 </html>

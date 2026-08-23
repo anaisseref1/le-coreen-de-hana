@@ -15,40 +15,40 @@
 </head>
 <body>
 <main class="app">
-<a class="back-link" href="exercice-ecoute-34.html">← Exercice d'écoute</a>
+<a class="back-link" href="exercice-ecoute-35.html">← Exercice d'écoute</a>
 <section id="hanaChapterPath" data-chapter-path></section>
 <header>
   <span class="chapter-badge">Chapitre 34 · 🗣️ Je parle</span>
-  <h1>Comparer à voix haute</h1>
-  <p>Répète puis crée tes propres comparaisons.</p>
+  <h1>Répondre à « pourquoi ? »</h1>
+  <p>Répète puis explique tes propres raisons.</p>
 </header>
 
 <section class="speak-card">
   <h2>🌸 Répète</h2>
-  <div class="prompt"><strong>서울이 파리보다 더 커요.</strong><br><small>Séoul est plus grande que Paris.</small></div>
-  <div class="prompt"><strong>파리가 서울보다 덜 복잡해요.</strong><br><small>Paris est moins fréquentée que Séoul.</small></div>
-  <div class="prompt"><strong>이 두 카페는 비슷해요.</strong><br><small>Ces deux cafés sont similaires.</small></div>
-  <div class="prompt"><strong>두 도시는 많이 달라요.</strong><br><small>Les deux villes sont très différentes.</small></div>
-  <div class="prompt"><strong>파리보다 서울이 더 좋아요.</strong><br><small>Je préfère Séoul à Paris.</small></div>
+  <div class="prompt"><strong>왜 한국을 좋아해요?</strong><br><small>Pourquoi aimes-tu la Corée ?</small></div>
+  <div class="prompt"><strong>풍경이 아름다워서 좋아해요.</strong><br><small>J'aime parce que les paysages sont magnifiques.</small></div>
+  <div class="prompt"><strong>서울에 있으면 마음이 편해요. 그래서 한국을 좋아해요.</strong><br><small>Je me sens bien à Séoul, c'est pourquoi j'aime la Corée.</small></div>
+  <div class="prompt"><strong>한국 사람들과 이야기하고 싶어서 공부해요.</strong><br><small>J'étudie parce que je veux parler avec des Coréens.</small></div>
+  <div class="prompt"><strong>풍경이 아름다워서요.</strong><br><small>Parce que les paysages sont magnifiques.</small></div>
   <button id="listenAll" type="button" style="width:100%;margin-top:12px;">🔊 Écouter les phrases</button>
 </section>
 
 <section class="speak-card">
   <h2>💬 À toi</h2>
-  <div class="prompt"><strong>서울하고 파리 중에서 어느 도시가 더 좋아요?</strong><br><small>Entre Séoul et Paris, quelle ville préfères-tu ?</small></div>
-  <div class="prompt"><strong>기차하고 버스 중에서 뭐가 더 빨라요?</strong><br><small>Entre le train et le bus, lequel est plus rapide ?</small></div>
-  <div class="prompt"><strong>이 두 카페는 어떻게 달라요?</strong><br><small>En quoi ces deux cafés sont-ils différents ?</small></div>
+  <div class="prompt"><strong>왜 한국어를 공부해요?</strong></div>
+  <div class="prompt"><strong>왜 한국을 좋아해요?</strong></div>
+  <div class="prompt"><strong>왜 음악을 좋아해요?</strong></div>
+  <div class="prompt"><strong>왜 여행을 좋아해요?</strong></div>
 </section>
 
 <section class="speak-card">
-  <h2>🎯 Mini-défi</h2>
-  <p>Fais au moins trois comparaisons en utilisant <strong>보다</strong>, puis donne une préférence avec <strong>A보다 B가 더 좋아요</strong>.</p>
-  <button id="doneSpeaking" type="button" style="width:100%;">✅ J'ai comparé à voix haute</button>
+  <h2>🎯 Défi 1 minute</h2>
+  <p>Réponds spontanément à au moins trois questions en utilisant <strong>-아서/어서(요)</strong> ou <strong>그래서</strong>.</p>
+  <button id="doneSpeaking" type="button" style="width:100%;">✅ J'ai expliqué mes raisons à voix haute</button>
 </section>
 
 <button id="nextButton" type="button" style="display:none;width:100%;">✍️ Passer à l'écriture</button>
 </main>
-
 <script src="chapter-progress.js"></script>
 <script>
 const EXERCISE_KEY="hanaKorean_chapter34_listeningExercise";
@@ -58,7 +58,7 @@ const next=document.getElementById("nextButton");
 
 function guard(){
   if(localStorage.getItem(EXERCISE_KEY)!=="completed"){
-    window.location.href="exercice-ecoute-34.html";
+    window.location.href="exercice-ecoute-35.html";
     return false;
   }
   return true;
@@ -76,7 +76,7 @@ function speak(text){
   speechSynthesis.speak(u);
 }
 document.getElementById("listenAll").addEventListener("click",()=>speak(
-  "서울이 파리보다 더 커요. 파리가 서울보다 덜 복잡해요. 이 두 카페는 비슷해요. 두 도시는 많이 달라요. 파리보다 서울이 더 좋아요."
+  "왜 한국을 좋아해요? 풍경이 아름다워서 좋아해요. 서울에 있으면 마음이 편해요. 그래서 한국을 좋아해요. 한국 사람들과 이야기하고 싶어서 공부해요. 풍경이 아름다워서요."
 ));
 
 function refresh(){

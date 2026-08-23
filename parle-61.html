@@ -1,0 +1,18 @@
+<!DOCTYPE html><html lang="fr"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#F7F4ED"><title>Chapitre 61 — Oral</title>
+<link rel="stylesheet" href="style.css"><link rel="stylesheet" href="chapter-progress.css">
+<script src="profile.js"></script></head><body><main class="app">
+<a class="back-link" href="exercice-ecoute-62.html">← Retour</a><section id="hanaChapterPath" data-chapter-path></section>
+<header><span class="chapter-badge">Chapitre 61 · 🗣️</span><h1>Phrases de secours</h1></header>
+<section class="card"><p>Dis sans hésiter :</p><p><strong>죄송하지만, 너무 빨라요.</strong></p><p><strong>조금 천천히 말해 주세요.</strong></p><p><strong>한 번 더 말해 주세요.</strong></p><p><strong>잘 못 들었어요.</strong></p></section>
+<button id="done" style="width:100%">✅ Terminé</button>
+<button id="next" style="display:none;width:100%">✍️ Écriture</button>
+</main>
+<script src="chapter-progress.js"></script><script>
+const K="hanaKorean_chapter61_speaking",d=document.getElementById("done"),n=document.getElementById("next");
+function r(){if(localStorage.getItem(K)==="completed"){d.disabled=true;n.style.display="block"}if(window.HanaChapterProgress)HanaChapterProgress.render()}
+d.onclick=()=>{localStorage.setItem(K,"completed");r()};
+n.onclick=()=>location.href="ecriture-61.html";
+r();
+</script></body></html>

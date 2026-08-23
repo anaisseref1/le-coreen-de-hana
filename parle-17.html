@@ -3,12 +3,10 @@
 
 <head>
   <meta charset="UTF-8">
-
   <meta
     name="viewport"
     content="width=device-width, initial-scale=1.0"
   >
-
   <meta
     name="theme-color"
     content="#F7F4ED"
@@ -16,14 +14,10 @@
 
   <title>Je parle — Chapitre 17</title>
 
-  <link
-    rel="stylesheet"
-    href="style.css"
-  >
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="chapter-progress.css">
 
-    <link rel="stylesheet" href="chapter-progress.css">
-
-<style>
+  <style>
     .speak-header {
       text-align: center;
       margin-bottom: 28px;
@@ -109,18 +103,59 @@
       line-height: 1.6;
     }
 
+    .scenario-card {
+      display: none;
+      padding: 16px;
+      margin: 15px 0;
+      background: var(--soft-blue);
+      border-radius: var(--radius-medium);
+      line-height: 1.7;
+    }
+
+    .seller-line {
+      display: none;
+      padding: 15px;
+      margin: 14px 0;
+      background: var(--soft-blue);
+      border-radius: var(--radius-medium);
+      line-height: 1.7;
+    }
+
+    .seller-name {
+      font-weight: bold;
+    }
+
+    .seller-korean {
+      margin-top: 5px;
+      color: var(--navy);
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .seller-french {
+      margin-top: 4px;
+      color: var(--text-light);
+    }
+
     .audio-buttons button,
     .mic-button,
     .retry-button,
     .next-button,
     .help-button,
     .continue-button,
-    .back-button {
+    .back-button,
+    .seller-line button {
       width: 100%;
     }
 
     .audio-buttons .slow {
       margin-top: 8px;
+      background: var(--soft-beige);
+      color: var(--navy);
+    }
+
+    .seller-line button {
+      margin-top: 10px;
     }
 
     .mic-button {
@@ -166,18 +201,14 @@
       display: block;
     }
 
-    .help-box {
-      display: none;
-      padding: 15px;
-      margin-top: 12px;
-      background: var(--soft-beige);
-      border-radius: var(--radius-medium);
+    .feedback.correct {
+      background: var(--success-light);
       color: var(--navy);
-      line-height: 1.7;
     }
 
-    .help-box.show {
-      display: block;
+    .feedback.wrong {
+      background: var(--error-light);
+      color: var(--navy);
     }
 
     .help-button {
@@ -186,15 +217,17 @@
       color: var(--navy);
     }
 
-    .next-button {
+    .help-box {
       display: none;
-      margin-top: 12px;
-      background: var(--navy);
-      color: white;
-      font-weight: bold;
+      padding: 15px;
+      margin-top: 10px;
+      background: var(--soft-beige);
+      border-radius: var(--radius-medium);
+      color: var(--navy);
+      line-height: 1.7;
     }
 
-    .next-button.show {
+    .help-box.show {
       display: block;
     }
 
@@ -207,31 +240,16 @@
       display: block;
     }
 
-    .scenario-card {
-      padding: 16px;
-      margin: 15px 0;
-      border-radius: var(--radius-medium);
-      background: var(--soft-blue);
-      line-height: 1.7;
-    }
-
-    .seller-line {
-      padding: 15px;
-      margin: 14px 0;
-      background: var(--soft-blue);
-      border-radius: var(--radius-medium);
-      line-height: 1.7;
-    }
-
-    .seller-name {
+    .next-button {
+      display: none;
+      margin-top: 12px;
+      background: var(--navy);
+      color: white;
       font-weight: bold;
     }
 
-    .seller-korean {
-      margin-top: 4px;
-      color: var(--navy);
-      font-size: 20px;
-      font-weight: bold;
+    .next-button.show {
+      display: block;
     }
 
     .result-card {
@@ -278,11 +296,10 @@
 
   <a
     class="back-link"
-    href="exercice-ecoute-17.html"
+    href="exercice-ecoute-18.html"
   >
     ← Mini défi d'écoute
   </a>
-
 
   <header class="speak-header">
 
@@ -299,8 +316,8 @@
     </h1>
 
     <p>
-      Répète les mots et expressions essentiels du téléphone et d'Internet,
-      puis réponds à Ji-eun dans de petites situations au café.
+      Répète les mots et expressions essentiels de l'hôtel,
+      puis réponds à Joon-ho dans de petites situations à la réception.
     </p>
 
   </header>
@@ -310,20 +327,23 @@
     data-chapter-path
   ></section>
 
-
   <section class="intro-card">
 
-    <strong>🎯 Objectif</strong>
+    <strong>
+      🎯 Objectif
+    </strong>
 
     <br><br>
 
-    Savoir demander le Wi-Fi et son mot de passe,
-    dire que tu n'as plus de batterie, demander un chargeur,
-    demander où recharger ton téléphone
-    et signaler qu'Internet ne fonctionne pas.
+    Savoir annoncer une réservation,
+    donner ton nom,
+    demander où se trouve ta chambre,
+    demander le mot de passe du Wi-Fi,
+    expliquer qu'il ne fonctionne pas,
+    demander de l'aide
+    et remercier le personnel.
 
   </section>
-
 
   <div class="step-progress">
 
@@ -341,7 +361,6 @@
 
   </div>
 
-
   <section
     class="practice-card"
     id="practiceCard"
@@ -355,23 +374,21 @@
     </div>
 
     <h2 id="stepTitle">
-      📍 Mot 1
+      🏨 Mot 1
     </h2>
 
     <div
       class="scenario-card"
       id="scenarioCard"
-      style="display:none;"
     ></div>
 
     <div
       class="seller-line"
       id="sellerLine"
-      style="display:none;"
     >
 
       <div class="seller-name">
-        💚 Ji-eun
+        🩶 Joon-ho
       </div>
 
       <div
@@ -380,6 +397,7 @@
       ></div>
 
       <div
+        class="seller-french"
         id="sellerFrench"
       ></div>
 
@@ -387,7 +405,7 @@
         type="button"
         onclick="playSellerLine()"
       >
-        🔊 Écouter l'interlocuteur
+        🔊 Écouter Joon-ho
       </button>
 
     </div>
@@ -398,18 +416,17 @@
         class="prompt-korean"
         id="promptKorean"
       >
-        어디예요?
+        호텔
       </div>
 
       <div
         class="prompt-french"
         id="promptFrench"
       >
-        Où est… ?
+        hôtel
       </div>
 
     </div>
-
 
     <div class="audio-buttons">
 
@@ -430,7 +447,6 @@
 
     </div>
 
-
     <button
       class="mic-button"
       id="micButton"
@@ -439,7 +455,6 @@
     >
       🎙️ Parler
     </button>
-
 
     <div
       class="recognition-box"
@@ -457,12 +472,10 @@
 
     </div>
 
-
     <div
       class="feedback"
       id="feedback"
     ></div>
-
 
     <button
       class="help-button"
@@ -472,12 +485,10 @@
       💡 Besoin d'aide ?
     </button>
 
-
     <div
       class="help-box"
       id="helpBox"
     ></div>
-
 
     <button
       class="retry-button"
@@ -487,7 +498,6 @@
     >
       🎙️ Réessayer
     </button>
-
 
     <button
       class="next-button"
@@ -500,14 +510,13 @@
 
   </section>
 
-
   <section
     class="result-card"
     id="resultCard"
   >
 
     <div class="result-icon">
-      📱🗣️
+      🏨🗣️
     </div>
 
     <h2>
@@ -526,27 +535,12 @@
 
       <br><br>
 
-      📶 <strong>와이파이 있어요?</strong>
-
-      <br>
-
-      🔐 <strong>와이파이 비밀번호가 뭐예요?</strong>
-
-      <br>
-
-      🔋 <strong>배터리가 없어요.</strong>
-
-      <br>
-
-      🔌 <strong>충전기 있어요?</strong>
-
-      <br>
-
-      ⚡ <strong>어디에서 충전할 수 있어요?</strong>
-
-      <br>
-
-      🌐 <strong>인터넷이 안 돼요.</strong>
+      🛎️ <strong>예약했어요.</strong><br>
+      👤 <strong>아나예요.</strong><br>
+      🚪 <strong>제 방이 어디예요?</strong><br>
+      📶 <strong>와이파이 비밀번호가 뭐예요?</strong><br>
+      🆘 <strong>와이파이가 안 돼요. 도와주세요.</strong><br>
+      🙏 <strong>감사합니다.</strong>
 
       <br><br>
 
@@ -554,15 +548,13 @@
 
     </div>
 
-
     <button
       class="continue-button"
       type="button"
-      onclick="window.location.href='ecriture-17.html'"
+      onclick="goToWriting()"
     >
       ✍️ Passer à « J'écris »
     </button>
-
 
     <button
       class="back-button"
@@ -576,11 +568,10 @@
 
 </main>
 
-
 <script src="chapter-progress.js"></script>
 
 <script>
-  const CHAPTER = 17;
+  const CHAPTER = 16;
 
   const UNDERSTANDING_KEY =
     "hanaKorean_chapter17_understanding";
@@ -597,42 +588,7 @@
   const SPEAKING_HELP_KEY =
     "hanaKorean_chapter17_speakingHelp";
 
-  function guardSpeakingAccess() {
-    if (
-      localStorage.getItem(
-        UNDERSTANDING_KEY
-      ) !== "completed"
-    ) {
-      window.location.replace(
-        "chapitre-17.html"
-      );
-      return false;
-    }
-
-    if (
-      localStorage.getItem(
-        LISTENING_EXERCISE_KEY
-      ) !== "completed"
-    ) {
-      window.location.replace(
-        "ecoute-17.html"
-      );
-      return false;
-    }
-
-    return true;
-  }
-
-  function renderChapterProgress() {
-    if (
-      window.HanaChapterProgress &&
-      typeof window.HanaChapterProgress.render === "function"
-    ) {
-      window.HanaChapterProgress.render();
-    }
-  }
-
-const AUDIO_SETTINGS = {
+  const AUDIO_SETTINGS = {
     normalRate: 0.82,
     slowRate: 0.25
   };
@@ -641,144 +597,154 @@ const AUDIO_SETTINGS = {
   const steps = [
 
     {
-      title: "📱 Mot 1",
-      target: "핸드폰",
-      french: "téléphone",
+      title: "🏨 Mot 1",
+      target: "호텔",
+      french: "hôtel",
       accepted: [
-        "핸드폰"
+        "호텔"
       ],
       help:
-        "Prononce 핸드폰 naturellement. C'est la forme très courante à l'oral."
+        "Prononce simplement 호텔."
     },
 
     {
-      title: "🔋 Mot 2",
-      target: "배터리",
-      french: "batterie",
+      title: "🚪 Mot 2",
+      target: "방",
+      french: "chambre",
       accepted: [
-        "배터리"
+        "방"
       ],
       help:
-        "Prononce 배터리 en trois blocs : 배-터-리."
+        "Prononce 방 en une seule syllabe."
     },
 
     {
-      title: "🔌 Mot 3",
-      target: "충전기",
-      french: "chargeur",
+      title: "📶 Mot 3",
+      target: "비밀번호",
+      french: "mot de passe",
       accepted: [
-        "충전기"
+        "비밀번호"
       ],
       help:
-        "Prononce 충전기 : 충-전-기."
+        "Prononce 비밀번호 en quatre blocs : 비-밀-번-호."
     },
 
     {
-      title: "📶 Phrase 1",
-      target: "와이파이 있어요?",
-      french: "Il y a du Wi-Fi ?",
+      title: "🛎️ Phrase 1",
+      target: "예약했어요.",
+      french: "J'ai une réservation.",
       accepted: [
-        "와이파이있어요"
+        "예약했어요"
       ],
       help:
-        "Utilise 와이파이 + 있어요?"
+        "Utilise 예약했어요 comme une expression prête à l'emploi."
     },
 
     {
-      title: "🔋 Phrase 2",
-      target: "배터리가 없어요.",
-      french: "Je n'ai plus de batterie.",
+      title: "👤 Phrase 2",
+      target: HanaProfile.replacePerson("아나예요."),
+      french: "Je m'appelle Ana.",
       accepted: [
-        "배터리가없어요"
+        HanaProfile.replacePerson("아나예요")
       ],
       help:
-        "Utilise 배터리가 + 없어요."
+        HanaProfile.replacePerson("Réponds simplement 아나예요.")
     },
 
     {
-      title: "🔌 Phrase 3",
-      target: "충전기 있어요?",
-      french: "Vous avez un chargeur ?",
+      title: "🚪 Phrase 3",
+      target: "제 방이 어디예요?",
+      french: "Où est ma chambre ?",
       accepted: [
-        "충전기있어요"
+        "제방이어디예요"
       ],
       help:
-        "Utilise 충전기 + 있어요?"
+        "Utilise 제 방이 + 어디예요?"
     },
 
     {
-      title: "🔐 Situation 1",
-      target: "와이파이 비밀번호가 뭐예요?",
-      french: "Demande le mot de passe du Wi-Fi.",
+      title: "📶 Situation 1",
+      target:
+        "와이파이 비밀번호가 뭐예요?",
+      french:
+        "Demande le mot de passe du Wi-Fi.",
       accepted: [
         "와이파이비밀번호가뭐예요"
       ],
       scenario:
-        "☕ Tu es au café avec Ji-eun et tu veux te connecter.",
-      seller:
-        {
-          korean: "네. 와이파이 있어요.",
-          french: "Oui. Il y a du Wi-Fi."
-        },
+        "🏨 Tu es à la réception et tu veux te connecter au Wi-Fi.",
+      seller: {
+        korean:
+          "무엇을 도와드릴까요?",
+        french:
+          "Que puis-je faire pour vous ?"
+      },
       help:
         "Utilise 와이파이 비밀번호가 뭐예요?"
     },
 
     {
-      title: "⚡ Situation 2",
-      target: "어디에서 충전할 수 있어요?",
-      french: "Demande où tu peux recharger ton téléphone.",
+      title: "🆘 Situation 2",
+      target:
+        "와이파이가 안 돼요. 도와주세요.",
+      french:
+        "Explique que le Wi-Fi ne fonctionne pas et demande de l'aide.",
       accepted: [
-        "어디에서충전할수있어요",
-        "어디서충전할수있어요"
+        "와이파이가안돼요도와주세요",
+        "와이파이안돼요도와주세요"
       ],
       scenario:
-        "🔋 Ton téléphone n'a presque plus de batterie.",
-      seller:
-        {
-          korean: "충전기가 있어요.",
-          french: "Nous avons un chargeur."
-        },
+        "📶 Le Wi-Fi de ta chambre ne fonctionne pas.",
+      seller: {
+        korean:
+          "무슨 문제가 있으세요?",
+        french:
+          "Quel problème avez-vous ?"
+      },
       help:
-        "Utilise 어디에서 + 충전할 수 있어요?"
+        "Dis 와이파이가 안 돼요 puis 도와주세요."
     },
 
     {
-      title: "🌐 Situation 3",
-      target: "인터넷이 안 돼요.",
-      french: "Explique qu'Internet ne fonctionne pas.",
+      title: "🙏 Situation 3",
+      target: "감사합니다.",
+      french:
+        "Remercie Joon-ho.",
       accepted: [
-        "인터넷이안돼요",
-        "인터넷안돼요"
+        "감사합니다"
       ],
       scenario:
-        "📱 Tu es connecté, mais aucune page ne charge.",
-      seller:
-        {
-          korean: "인터넷 괜찮아요?",
-          french: "Internet fonctionne bien ?"
-        },
+        "🩶 Joon-ho vient de t'aider.",
+      seller: {
+        korean:
+          "여기 있습니다.",
+        french:
+          "Voici."
+      },
       help:
-        "Dis 인터넷이 안 돼요."
+        "Réponds simplement 감사합니다."
     },
 
     {
       title: "💬 Situation 4",
-      target: "배터리가 없어요. 충전기 있어요?",
-      french: "Explique que tu n'as plus de batterie et demande un chargeur.",
+      target:
+        "감사합니다. 좋은 하루 보내세요.",
+      french:
+        "Remercie et souhaite une bonne journée.",
       accepted: [
-        "배터리가없어요충전기있어요",
-        "배터리없어요충전기있어요"
+        "감사합니다좋은하루보내세요",
+        "감사합니다좋은하루되세요"
       ],
       scenario:
-        "🔋 Ton téléphone est presque éteint.",
-      seller:
-        {
-          korean: "무엇이 필요하세요?",
-          french: "De quoi avez-vous besoin ?"
-        },
+        "🛎️ Ton passage à la réception est terminé.",
+      seller: {
+        korean:
+          "좋은 여행 되세요.",
+        french:
+          "Bon séjour ! / Bon voyage !"
+      },
       help:
-        "Enchaîne 배터리가 없어요 puis 충전기 있어요?"
+        "Tu peux répondre 감사합니다 puis souhaiter une bonne journée."
     }
 
   ];
@@ -791,35 +757,91 @@ const AUDIO_SETTINGS = {
   let isListening = false;
 
 
-  function normalizeKorean(text) {
+  function guardSpeakingAccess() {
+
+    if (
+      localStorage.getItem(
+        UNDERSTANDING_KEY
+      ) !== "completed"
+    ) {
+      window.location.replace(
+        "chapitre-17.html"
+      );
+
+      return false;
+    }
+
+    if (
+      localStorage.getItem(
+        LISTENING_EXERCISE_KEY
+      ) !== "completed"
+    ) {
+      window.location.replace(
+        "ecoute-17.html"
+      );
+
+      return false;
+    }
+
+    return true;
+  }
+
+
+  function renderChapterProgress() {
+
+    if (
+      window.HanaChapterProgress &&
+      typeof window.HanaChapterProgress.render === "function"
+    ) {
+      window.HanaChapterProgress.render();
+    }
+  }
+
+
+  function normalizeKorean(
+    text
+  ) {
 
     return text
-      .replace(/[.,!?~…'"]/g, "")
-      .replace(/\s+/g, "")
+      .replace(
+        /[.,!?~…'"]/g,
+        ""
+      )
+      .replace(
+        /\s+/g,
+        ""
+      )
       .trim();
-
   }
 
 
   function getKoreanVoice() {
 
+    if (
+      !("speechSynthesis" in window)
+    ) {
+      return null;
+    }
+
     const voices =
-      window.speechSynthesis.getVoices();
+      window.speechSynthesis
+        .getVoices();
 
-
-    return voices.find(
-      voice =>
-        voice.lang &&
-        voice.lang
-          .toLowerCase()
-          .startsWith("ko")
+    return (
+      voices.find(
+        voice =>
+          voice.lang &&
+          voice.lang
+            .toLowerCase()
+            .startsWith("ko")
+      ) || null
     );
-
   }
 
 
   function speakKorean(
     text,
+    character = "hana",
     slow = false
   ) {
 
@@ -829,57 +851,54 @@ const AUDIO_SETTINGS = {
       return;
     }
 
-
     window.speechSynthesis.cancel();
-
 
     const speech =
       new SpeechSynthesisUtterance(
         text
       );
 
-
     speech.lang =
       "ko-KR";
-
 
     speech.rate =
       slow
         ? AUDIO_SETTINGS.slowRate
         : AUDIO_SETTINGS.normalRate;
 
-
     speech.pitch =
-      1;
-
+      character === "joonho"
+        ? 0.94
+        : 1.06;
 
     const voice =
       getKoreanVoice();
 
-
-    if (voice) {
-      speech.voice = voice;
+    if (
+      voice
+    ) {
+      speech.voice =
+        voice;
     }
-
 
     window.speechSynthesis.speak(
       speech
     );
-
   }
 
 
-  function playTarget(slow) {
+  function playTarget(
+    slow
+  ) {
 
     const step =
       steps[currentStep];
 
-
     speakKorean(
       step.target,
+      "hana",
       slow
     );
-
   }
 
 
@@ -888,18 +907,17 @@ const AUDIO_SETTINGS = {
     const step =
       steps[currentStep];
 
-
     if (
-      step.seller
+      !step.seller
     ) {
-
-      speakKorean(
-        step.seller.korean,
-        false
-      );
-
+      return;
     }
 
+    speakKorean(
+      step.seller.korean,
+      "joonho",
+      false
+    );
   }
 
 
@@ -948,8 +966,10 @@ const AUDIO_SETTINGS = {
       "progressFill"
     ).style.width =
       (
-        ((currentStep + 1) /
-          steps.length) *
+        (
+          currentStep + 1
+        ) /
+        steps.length *
         100
       ) +
       "%";
@@ -964,21 +984,19 @@ const AUDIO_SETTINGS = {
     if (
       step.scenario
     ) {
-
       scenarioCard.style.display =
         "block";
 
-
       scenarioCard.textContent =
         step.scenario;
-
     }
 
     else {
-
       scenarioCard.style.display =
         "none";
 
+      scenarioCard.textContent =
+        "";
     }
 
 
@@ -991,29 +1009,33 @@ const AUDIO_SETTINGS = {
     if (
       step.seller
     ) {
-
       sellerLine.style.display =
         "block";
-
 
       document.getElementById(
         "sellerKorean"
       ).textContent =
         step.seller.korean;
 
-
       document.getElementById(
         "sellerFrench"
       ).textContent =
         step.seller.french;
-
     }
 
     else {
-
       sellerLine.style.display =
         "none";
 
+      document.getElementById(
+        "sellerKorean"
+      ).textContent =
+        "";
+
+      document.getElementById(
+        "sellerFrench"
+      ).textContent =
+        "";
     }
 
 
@@ -1036,6 +1058,12 @@ const AUDIO_SETTINGS = {
     ).classList.remove(
       "show"
     );
+
+
+    document.getElementById(
+      "heardText"
+    ).textContent =
+      "";
 
 
     document.getElementById(
@@ -1081,7 +1109,6 @@ const AUDIO_SETTINGS = {
     ).classList.remove(
       "listening"
     );
-
   }
 
 
@@ -1089,13 +1116,11 @@ const AUDIO_SETTINGS = {
 
     helpCount++;
 
-
     document.getElementById(
       "helpBox"
     ).classList.toggle(
       "show"
     );
-
   }
 
 
@@ -1106,7 +1131,6 @@ const AUDIO_SETTINGS = {
     ) {
       return;
     }
-
 
     const SpeechRecognition =
       window.SpeechRecognition ||
@@ -1122,10 +1146,8 @@ const AUDIO_SETTINGS = {
           "feedback"
         );
 
-
       feedback.className =
         "feedback show wrong";
-
 
       feedback.innerHTML =
         "🎙️ La reconnaissance vocale n'est pas disponible dans ce navigateur.<br><br>" +
@@ -1138,9 +1160,7 @@ const AUDIO_SETTINGS = {
     if (
       "speechSynthesis" in window
     ) {
-
       window.speechSynthesis.cancel();
-
     }
 
 
@@ -1161,7 +1181,7 @@ const AUDIO_SETTINGS = {
 
 
     recognition.maxAlternatives =
-      5;
+      3;
 
 
     recognition.onstart =
@@ -1170,47 +1190,40 @@ const AUDIO_SETTINGS = {
         isListening =
           true;
 
-
         const micButton =
           document.getElementById(
             "micButton"
           );
 
-
         micButton.textContent =
           "🎙️ J'écoute…";
-
 
         micButton.classList.add(
           "listening"
         );
-
       };
 
 
     recognition.onresult =
       function(event) {
 
-        const alternatives = [];
-
+        const alternatives =
+          [];
 
         for (
           let i = 0;
           i < event.results[0].length;
           i++
         ) {
-
           alternatives.push(
-            event.results[0][i].transcript
+            event.results[0][i]
+              .transcript
           );
-
         }
-
 
         evaluateRecognition(
           alternatives
         );
-
       };
 
 
@@ -1222,21 +1235,17 @@ const AUDIO_SETTINGS = {
             "feedback"
           );
 
-
         feedback.className =
           "feedback show wrong";
 
-
         feedback.innerHTML =
           "Je n'ai pas réussi à t'entendre correctement. Réessaie en parlant clairement et assez près du micro.";
-
 
         document.getElementById(
           "retryButton"
         ).classList.add(
           "show"
         );
-
       };
 
 
@@ -1246,26 +1255,21 @@ const AUDIO_SETTINGS = {
         isListening =
           false;
 
-
         const micButton =
           document.getElementById(
             "micButton"
           );
 
-
         micButton.textContent =
           "🎙️ Parler";
-
 
         micButton.classList.remove(
           "listening"
         );
-
       };
 
 
     recognition.start();
-
   }
 
 
@@ -1280,17 +1284,23 @@ const AUDIO_SETTINGS = {
     const normalizedAccepted =
       step.accepted.map(
         answer =>
-          normalizeKorean(answer)
+          normalizeKorean(
+            answer
+          )
       );
 
 
-    let matched = false;
+    let matched =
+      false;
+
+
     let bestTranscript =
       alternatives[0] || "";
 
 
     for (
-      const transcript of alternatives
+      const transcript
+      of alternatives
     ) {
 
       const normalized =
@@ -1304,29 +1314,20 @@ const AUDIO_SETTINGS = {
           normalized
         )
       ) {
-
         matched =
           true;
-
 
         bestTranscript =
           transcript;
 
-
         break;
-
       }
-
     }
 
 
-    const recognitionBox =
-      document.getElementById(
-        "recognitionBox"
-      );
-
-
-    recognitionBox.classList.add(
+    document.getElementById(
+      "recognitionBox"
+    ).classList.add(
       "show"
     );
 
@@ -1349,7 +1350,6 @@ const AUDIO_SETTINGS = {
 
       feedback.className =
         "feedback show correct";
-
 
       feedback.innerHTML =
         "✅ <strong>Très bien !</strong><br><br>" +
@@ -1377,32 +1377,30 @@ const AUDIO_SETTINGS = {
       ).disabled =
         true;
 
+
+      return;
     }
 
-    else {
 
-      mistakes++;
-
-
-      feedback.className =
-        "feedback show wrong";
+    mistakes++;
 
 
-      feedback.innerHTML =
-        "❌ <strong>Pas encore.</strong><br><br>" +
-        "Réécoute la phrase et essaie de te rapprocher de : <strong>" +
-        step.target +
-        "</strong>";
+    feedback.className =
+      "feedback show wrong";
 
 
-      document.getElementById(
-        "retryButton"
-      ).classList.add(
-        "show"
-      );
+    feedback.innerHTML =
+      "❌ <strong>Pas encore.</strong><br><br>" +
+      "Réécoute la phrase et essaie de te rapprocher de : <strong>" +
+      step.target +
+      "</strong>";
 
-    }
 
+    document.getElementById(
+      "retryButton"
+    ).classList.add(
+      "show"
+    );
   }
 
 
@@ -1426,12 +1424,10 @@ const AUDIO_SETTINGS = {
 
 
       return;
-
     }
 
 
     finishSpeaking();
-
   }
 
 
@@ -1450,46 +1446,39 @@ const AUDIO_SETTINGS = {
     );
 
 
-    let summary = "";
+    let summary =
+      "";
 
 
     if (
       mistakes === 0
     ) {
-
       summary =
         "🌟 Toutes les étapes ont été reconnues sans erreur.";
-
     }
 
     else if (
       mistakes === 1
     ) {
-
       summary =
         "💡 Tu as eu 1 tentative incorrecte pendant la séance.";
-
     }
 
     else {
-
       summary =
         "💡 Tu as eu " +
         mistakes +
         " tentatives incorrectes pendant la séance.";
-
     }
 
 
     if (
       helpCount > 0
     ) {
-
       summary +=
         "<br><br>Tu as utilisé l'aide " +
         helpCount +
         " fois.";
-
     }
 
 
@@ -1507,14 +1496,19 @@ const AUDIO_SETTINGS = {
 
     localStorage.setItem(
       SPEAKING_MISTAKES_KEY,
-      String(mistakes)
+      String(
+        mistakes
+      )
     );
 
 
     localStorage.setItem(
       SPEAKING_HELP_KEY,
-      String(helpCount)
+      String(
+        helpCount
+      )
     );
+
 
     renderChapterProgress();
 
@@ -1523,21 +1517,32 @@ const AUDIO_SETTINGS = {
       top: 0,
       behavior: "smooth"
     });
+  }
 
+
+  function goToWriting() {
+
+    if (
+      localStorage.getItem(
+        SPEAKING_KEY
+      ) !== "completed"
+    ) {
+      return;
+    }
+
+    window.location.href =
+      "écriture-16.html";
   }
 
 
   if (
     "speechSynthesis" in window
   ) {
-
     window.speechSynthesis.onvoiceschanged =
       function() {
-
-        window.speechSynthesis.getVoices();
-
+        window.speechSynthesis
+          .getVoices();
       };
-
   }
 
 
@@ -1548,9 +1553,8 @@ const AUDIO_SETTINGS = {
       if (
         "speechSynthesis" in window
       ) {
-
-        window.speechSynthesis.cancel();
-
+        window.speechSynthesis
+          .cancel();
       }
 
 
@@ -1558,18 +1562,20 @@ const AUDIO_SETTINGS = {
         recognition &&
         isListening
       ) {
-
         recognition.abort();
-
       }
-
     }
   );
 
 
-  if (guardSpeakingAccess()) {
+  if (
+    guardSpeakingAccess()
+  ) {
+
     renderChapterProgress();
+
     renderStep();
+
 
     window.addEventListener(
       "pageshow",
@@ -1580,5 +1586,4 @@ const AUDIO_SETTINGS = {
   }
 </script>
 </body>
-
 </html>

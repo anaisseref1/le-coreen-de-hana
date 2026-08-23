@@ -277,7 +277,7 @@
 
   <a
     class="back-link"
-    href="exercice-ecoute-20.html"
+    href="exercice-ecoute-21.html"
   >
     ← Mini défi d'écoute
   </a>
@@ -298,8 +298,8 @@
     </h1>
 
     <p>
-      Répète les expressions essentielles,
-      puis réponds dans de petites situations pour faire connaissance.
+      Répète les formes essentielles du passé,
+      puis raconte de petites expériences et réponds à Min-su.
     </p>
 
   </header>
@@ -316,9 +316,9 @@
 
     <br><br>
 
-    Savoir dire d'où tu viens, parler de ton travail et de tes loisirs,
-    utiliser <strong>도</strong> pour « aussi »
-    et réagir naturellement avec <strong>저도</strong>.
+    Savoir dire où tu es allé(e), ce que tu as mangé ou photographié,
+    donner une impression au passé
+    et demander <strong>어땠어요?</strong>.
 
   </section>
 
@@ -353,7 +353,7 @@
     </div>
 
     <h2 id="stepTitle">
-      🌍 Expression 1
+      📍 Mot 1
     </h2>
 
     <div
@@ -369,7 +369,7 @@
     >
 
       <div class="seller-name">
-        💚 Ji-Soo
+        💙 Min-su
       </div>
 
       <div
@@ -396,14 +396,14 @@
         class="prompt-korean"
         id="promptKorean"
       >
-        프랑스에서 왔어요.
+        어디예요?
       </div>
 
       <div
         class="prompt-french"
         id="promptFrench"
       >
-        Je viens de France.
+        Où est… ?
       </div>
 
     </div>
@@ -505,7 +505,7 @@
   >
 
     <div class="result-icon">
-      👋🗣️
+      📸🗣️
     </div>
 
     <h2>
@@ -524,27 +524,27 @@
 
       <br><br>
 
-      🌍 <strong>프랑스에서 왔어요.</strong>
+      🚶 <strong>서울에 갔어요.</strong>
 
       <br>
 
-      💼 <strong>회사에서 일해요.</strong>
+      🍚 <strong>비빔밥을 먹었어요.</strong>
 
       <br>
 
-      🎨 <strong>취미가 뭐예요?</strong>
+      👀 <strong>영화를 봤어요.</strong>
 
       <br>
 
-      📷 <strong>사진 찍는 것을 좋아해요.</strong>
+      📷 <strong>사진을 많이 찍었어요.</strong>
 
       <br>
 
-      ➕ <strong>커피도 좋아해요.</strong>
+      🌟 <strong>정말 좋았어요.</strong>
 
       <br>
 
-      🤝 <strong>저도 좋아해요!</strong>
+      ❓ <strong>어땠어요?</strong>
 
       <br><br>
 
@@ -579,7 +579,7 @@
 
 <script>
 
-  const CHAPTER = 20;
+  const CHAPTER = 19;
 
   const UNDERSTANDING_KEY =
     "hanaKorean_chapter20_understanding";
@@ -631,6 +631,8 @@
     }
   }
 
+
+
   const AUDIO_SETTINGS = {
     normalRate: 0.82,
     slowRate: 0.25
@@ -640,146 +642,146 @@
   const steps = [
 
     {
-      title: "🌍 Expression 1",
-      target: "프랑스에서 왔어요.",
-      french: "Je viens de France.",
+      title: "🚶 Mot 1",
+      target: "갔어요",
+      french: "je suis allé(e)",
       accepted: [
-        "프랑스에서왔어요"
+        "갔어요"
       ],
       help:
-        "Prononce 프랑스에서 왔어요. Garde bien 에서 après 프랑스."
+        "Prononce 갔어요 naturellement. C'est le passé de 가요."
     },
 
     {
-      title: "💼 Expression 2",
-      target: "회사에서 일해요.",
-      french: "Je travaille dans une entreprise.",
+      title: "🍚 Mot 2",
+      target: "먹었어요",
+      french: "j'ai mangé",
       accepted: [
-        "회사에서일해요"
+        "먹었어요"
       ],
       help:
-        "Utilise 회사에서 + 일해요."
+        "Prononce 먹었어요 en gardant le rythme naturel de la forme passée."
     },
 
     {
-      title: "🎨 Expression 3",
-      target: "취미가 뭐예요?",
-      french: "Quels sont vos loisirs ?",
+      title: "📷 Mot 3",
+      target: "찍었어요",
+      french: "j'ai pris une photo",
       accepted: [
-        "취미가뭐예요"
+        "찍었어요"
       ],
       help:
-        "Prononce 취미가 뭐예요? en gardant 취미 bien lié."
+        "Prononce 찍었어요. Tu réutiliseras cette forme avec 사진."
     },
 
     {
-      title: "🌍 Situation 1",
-      target: "프랑스에서 왔어요.",
-      french: "Dis que tu viens de France.",
+      title: "🚶 Phrase 1",
+      target: "서울에 갔어요.",
+      french: "Je suis allé(e) à Séoul.",
       accepted: [
-        "프랑스에서왔어요"
+        "서울에갔어요"
+      ],
+      help:
+        "Utilise 서울에 + 갔어요."
+    },
+
+    {
+      title: "🍚 Phrase 2",
+      target: "비빔밥을 먹었어요.",
+      french: "J'ai mangé un bibimbap.",
+      accepted: [
+        "비빔밥을먹었어요",
+        "비빔밥먹었어요"
+      ],
+      help:
+        "Utilise 비빔밥을 + 먹었어요."
+    },
+
+    {
+      title: "📷 Phrase 3",
+      target: "사진을 많이 찍었어요.",
+      french: "J'ai pris beaucoup de photos.",
+      accepted: [
+        "사진을많이찍었어요",
+        "사진많이찍었어요"
+      ],
+      help:
+        "Utilise 사진을 + 많이 + 찍었어요."
+    },
+
+    {
+      title: "🌟 Situation 1",
+      target: "정말 좋았어요.",
+      french: "Dis que c'était vraiment bien.",
+      accepted: [
+        "정말좋았어요",
+        "좋았어요"
       ],
       scenario:
-        "💚 Ji-Soo te demande d'où tu viens.",
+        "💙 Min-su te demande comment s'est passé ton voyage.",
       seller:
         {
-          korean: "어느 나라에서 왔어요?",
-          french: "De quel pays venez-vous ?"
+          korean: "여행 어땠어요?",
+          french: "Comment était le voyage ?"
         },
       help:
-        "Réponds 프랑스에서 왔어요."
+        "Réponds 정말 좋았어요."
     },
 
     {
-      title: "💼 Situation 2",
-      target: "회사에서 일해요.",
-      french: "Dis que tu travailles dans une entreprise.",
+      title: "🗓️ Situation 2",
+      target: "어제 비빔밥을 먹었어요.",
+      french: "Dis qu'hier tu as mangé un bibimbap.",
       accepted: [
-        "회사에서일해요"
+        "어제비빔밥을먹었어요",
+        "어제비빔밥먹었어요"
       ],
       scenario:
-        "💚 Ji-Soo te demande ton métier.",
+        "🍽️ Min-su te demande ce que tu as mangé hier.",
       seller:
         {
-          korean: "무슨 일을 하세요?",
-          french: "Quel est votre métier ?"
+          korean: "어제 뭐 먹었어요?",
+          french: "Qu'est-ce que tu as mangé hier ?"
         },
       help:
-        "Réponds 회사에서 일해요."
+        "Commence par 어제, puis 비빔밥을 먹었어요."
     },
 
     {
-      title: "📷 Situation 3",
-      target: "사진 찍는 것을 좋아해요.",
-      french: "Dis que tu aimes prendre des photos.",
+      title: "❓ Situation 3",
+      target: "어땠어요?",
+      french: "Demande : « Comment c'était ? »",
       accepted: [
-        "사진찍는것을좋아해요",
-        "사진찍는걸좋아해요"
+        "어땠어요"
       ],
       scenario:
-        "💚 Ji-Soo te demande quels sont tes loisirs.",
+        "🎬 Min-su te dit qu'il a vu un film hier.",
       seller:
         {
-          korean: "취미가 뭐예요?",
-          french: "Quels sont vos loisirs ?"
+          korean: "어제 영화를 봤어요.",
+          french: "Hier, j'ai vu un film."
         },
       help:
-        "Réponds 사진 찍는 것을 좋아해요."
+        "Réponds simplement 어땠어요?"
     },
 
     {
-      title: "➕ Situation 4",
-      target: "커피도 좋아해요.",
-      french: "Ajoute que tu aimes aussi le café.",
+      title: "💬 Situation 4",
+      target: "서울에 갔어요. 비빔밥을 먹었어요. 사진을 많이 찍었어요.",
+      french: "Raconte trois choses de ton voyage.",
       accepted: [
-        "커피도좋아해요"
+        "서울에갔어요비빔밥을먹었어요사진을많이찍었어요",
+        "서울에갔어요비빔밥먹었어요사진많이찍었어요"
       ],
       scenario:
-        "📷 Tu viens de dire que tu aimes prendre des photos. Ajoute une autre chose que tu aimes.",
+        "📸 Min-su te demande de raconter rapidement ton voyage.",
       seller:
         {
-          korean: "다른 것도 좋아해요?",
-          french: "Vous aimez autre chose aussi ?"
+          korean: "한국에서 뭐 했어요?",
+          french: "Qu'est-ce que tu as fait en Corée ?"
         },
       help:
-        "Réponds 커피도 좋아해요."
-    },
-
-    {
-      title: "🤝 Situation 5",
-      target: "저도 좋아해요!",
-      french: "Dis : « Moi aussi, j'aime ça ! »",
-      accepted: [
-        "저도좋아해요"
-      ],
-      scenario:
-        "💚 Ji-Soo dit qu'elle aime aussi le café.",
-      seller:
-        {
-          korean: "저도 커피를 좋아해요!",
-          french: "Moi aussi, j'aime le café !"
-        },
-      help:
-        "Réponds 저도 좋아해요!"
-    },
-
-    {
-      title: "💬 Mini-rencontre",
-      target: "프랑스에서 왔어요. 회사에서 일해요. 사진 찍는 것을 좋아해요.",
-      french: "Présente ton pays, ton travail et un loisir.",
-      accepted: [
-        "프랑스에서왔어요회사에서일해요사진찍는것을좋아해요",
-        "프랑스에서왔어요회사에서일해요사진찍는걸좋아해요"
-      ],
-      scenario:
-        "👋 Tu rencontres Ji-Soo pour la première fois.",
-      seller:
-        {
-          korean: "어느 나라에서 왔어요? 무슨 일을 하세요? 취미가 뭐예요?",
-          french: "D'où venez-vous ? Quel est votre métier ? Quels sont vos loisirs ?"
-        },
-      help:
-        "Enchaîne trois réponses : 프랑스에서 왔어요. 회사에서 일해요. 사진 찍는 것을 좋아해요."
+        "Enchaîne trois petites phrases : 서울에 갔어요. 비빔밥을 먹었어요. 사진을 많이 찍었어요."
     }
 
   ];

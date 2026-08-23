@@ -15,36 +15,36 @@
 </head>
 <body>
 <main class="app">
-<a class="back-link" href="exercice-ecoute-33.html">← Exercice d'écoute</a>
+<a class="back-link" href="exercice-ecoute-34.html">← Exercice d'écoute</a>
 <section id="hanaChapterPath" data-chapter-path></section>
 <header>
   <span class="chapter-badge">Chapitre 33 · 🗣️ Je parle</span>
-  <h1>Répondre à « pourquoi ? »</h1>
-  <p>Répète puis explique tes propres raisons.</p>
+  <h1>Donner ton avis</h1>
+  <p>Répète puis réponds spontanément.</p>
 </header>
 
 <section class="speak-card">
   <h2>🌸 Répète</h2>
-  <div class="prompt"><strong>왜 한국을 좋아해요?</strong><br><small>Pourquoi aimes-tu la Corée ?</small></div>
-  <div class="prompt"><strong>풍경이 아름다워서 좋아해요.</strong><br><small>J'aime parce que les paysages sont magnifiques.</small></div>
-  <div class="prompt"><strong>서울에 있으면 마음이 편해요. 그래서 한국을 좋아해요.</strong><br><small>Je me sens bien à Séoul, c'est pourquoi j'aime la Corée.</small></div>
-  <div class="prompt"><strong>한국 사람들과 이야기하고 싶어서 공부해요.</strong><br><small>J'étudie parce que je veux parler avec des Coréens.</small></div>
-  <div class="prompt"><strong>풍경이 아름다워서요.</strong><br><small>Parce que les paysages sont magnifiques.</small></div>
+  <div class="prompt"><strong>이 카페 어때요?</strong><br><small>Comment trouves-tu ce café ?</small></div>
+  <div class="prompt"><strong>재미있다고 생각해요.</strong><br><small>Je pense que c'est intéressant.</small></div>
+  <div class="prompt"><strong>조금 어려워요. 하지만 재미있어요.</strong><br><small>C'est un peu difficile, mais intéressant.</small></div>
+  <div class="prompt"><strong>맞아요. 저도 그렇게 생각해요.</strong><br><small>Exactement. Moi aussi, je pense comme ça.</small></div>
+  <div class="prompt"><strong>저는 조금 다르게 생각해요.</strong><br><small>Moi, je pense un peu différemment.</small></div>
   <button id="listenAll" type="button" style="width:100%;margin-top:12px;">🔊 Écouter les phrases</button>
 </section>
 
 <section class="speak-card">
-  <h2>💬 À toi</h2>
-  <div class="prompt"><strong>왜 한국어를 공부해요?</strong></div>
-  <div class="prompt"><strong>왜 한국을 좋아해요?</strong></div>
-  <div class="prompt"><strong>왜 음악을 좋아해요?</strong></div>
-  <div class="prompt"><strong>왜 여행을 좋아해요?</strong></div>
+  <h2>💬 Donne ton avis</h2>
+  <div class="prompt"><strong>한국 음식 어때요?</strong><br><small>Que penses-tu de la cuisine coréenne ?</small></div>
+  <div class="prompt"><strong>한국어는 어때요?</strong><br><small>Que penses-tu du coréen ?</small></div>
+  <div class="prompt"><strong>서울은 어때요?</strong><br><small>Que penses-tu de Séoul ?</small></div>
+  <div class="prompt"><strong>한국 여행은 어때요?</strong><br><small>Que penses-tu d'un voyage en Corée ?</small></div>
 </section>
 
 <section class="speak-card">
-  <h2>🎯 Défi 1 minute</h2>
-  <p>Réponds spontanément à au moins trois questions en utilisant <strong>-아서/어서(요)</strong> ou <strong>그래서</strong>.</p>
-  <button id="doneSpeaking" type="button" style="width:100%;">✅ J'ai expliqué mes raisons à voix haute</button>
+  <h2>🎯 Mini-défi</h2>
+  <p>Réponds avec une phrase complète et essaie d'utiliser au moins une fois <strong>-다고 생각해요</strong>.</p>
+  <button id="doneSpeaking" type="button" style="width:100%;">✅ J'ai donné mes opinions à voix haute</button>
 </section>
 
 <button id="nextButton" type="button" style="display:none;width:100%;">✍️ Passer à l'écriture</button>
@@ -53,44 +53,15 @@
 <script>
 const EXERCISE_KEY="hanaKorean_chapter33_listeningExercise";
 const SPEAKING_KEY="hanaKorean_chapter33_speaking";
-const done=document.getElementById("doneSpeaking");
-const next=document.getElementById("nextButton");
-
-function guard(){
-  if(localStorage.getItem(EXERCISE_KEY)!=="completed"){
-    window.location.href="exercice-ecoute-33.html";
-    return false;
-  }
-  return true;
-}
+const done=document.getElementById("doneSpeaking"),next=document.getElementById("nextButton");
+function guard(){if(localStorage.getItem(EXERCISE_KEY)!=="completed"){window.location.href="exercice-ecoute-34.html";return false;}return true;}
 if(!guard())throw new Error("chapter33-speaking-guard");
-
-function speak(text){
-  if(!("speechSynthesis" in window))return;
-  speechSynthesis.cancel();
-  const u=new SpeechSynthesisUtterance(text);
-  u.lang="ko-KR";u.rate=.82;
-  const voices=speechSynthesis.getVoices();
-  const v=voices.find(x=>x.lang==="ko-KR")||voices.find(x=>x.lang&&x.lang.startsWith("ko"));
-  if(v)u.voice=v;
-  speechSynthesis.speak(u);
-}
-document.getElementById("listenAll").addEventListener("click",()=>speak(
-  "왜 한국을 좋아해요? 풍경이 아름다워서 좋아해요. 서울에 있으면 마음이 편해요. 그래서 한국을 좋아해요. 한국 사람들과 이야기하고 싶어서 공부해요. 풍경이 아름다워서요."
-));
-
-function refresh(){
-  if(localStorage.getItem(SPEAKING_KEY)==="completed"){
-    done.textContent="✅ Oral terminé";
-    done.disabled=true;
-    next.style.display="block";
-  }
-  if(window.HanaChapterProgress)HanaChapterProgress.render();
-}
+function speak(text){if(!("speechSynthesis" in window))return;speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.lang="ko-KR";u.rate=.82;const v=speechSynthesis.getVoices().find(x=>x.lang==="ko-KR")||speechSynthesis.getVoices().find(x=>x.lang&&x.lang.startsWith("ko"));if(v)u.voice=v;speechSynthesis.speak(u);}
+document.getElementById("listenAll").addEventListener("click",()=>speak("이 카페 어때요? 재미있다고 생각해요. 조금 어려워요. 하지만 재미있어요. 맞아요. 저도 그렇게 생각해요. 저는 조금 다르게 생각해요."));
+function refresh(){if(localStorage.getItem(SPEAKING_KEY)==="completed"){done.textContent="✅ Oral terminé";done.disabled=true;next.style.display="block";}if(window.HanaChapterProgress)HanaChapterProgress.render();}
 done.addEventListener("click",()=>{localStorage.setItem(SPEAKING_KEY,"completed");refresh();});
 next.addEventListener("click",()=>window.location.href="ecriture-33.html");
-window.addEventListener("pageshow",()=>{if(guard())refresh();});
-refresh();
+window.addEventListener("pageshow",()=>{if(guard())refresh();});refresh();
 </script>
 </body>
 </html>

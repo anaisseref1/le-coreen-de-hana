@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,104 +8,1104 @@
   <title>Chapitre 31 — Je parle</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="chapter-progress.css">
+
   <style>
-    .speak-card{padding:20px;margin-bottom:18px;background:var(--white);border-radius:var(--radius-large);box-shadow:var(--shadow);}
-    .prompt{padding:14px;margin-top:10px;background:#FBFAF6;border-radius:var(--radius-medium);}
-    .record-status{margin-top:9px;color:var(--text-light);font-size:14px;}
+    .speak-header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .speak-card,
+    .practice-card,
+    .tip-card {
+      padding: 20px;
+      margin-bottom: 18px;
+      background: var(--white);
+      border-radius: var(--radius-large);
+      box-shadow: var(--shadow);
+    }
+
+    .practice-item {
+      padding: 16px;
+      margin-top: 14px;
+      background: #FBFAF6;
+      border-radius: var(--radius-medium);
+    }
+
+    .korean-line {
+      color: var(--navy);
+      font-size: 19px;
+      font-weight: bold;
+      line-height: 1.6;
+    }
+
+    .french-line {
+      margin-top: 5px;
+      color: var(--text-light);
+      line-height: 1.55;
+    }
+
+    .practice-controls {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 9px;
+      margin-top: 12px;
+    }
+
+    .listen-button,
+    .speak-button {
+      width: 100%;
+      font-weight: bold;
+    }
+
+    .listen-button {
+      background: var(--soft-blue);
+      color: var(--navy);
+    }
+
+    .listen-button.playing {
+      background: var(--navy);
+      color: white;
+    }
+
+    .speak-button {
+      background: var(--soft-green);
+      color: var(--jade-dark);
+    }
+
+    .speak-button.listening {
+      background: var(--jade);
+      color: white;
+    }
+
+    .recognition-box {
+      display: none;
+      margin-top: 12px;
+      padding: 13px;
+      border-radius: var(--radius-medium);
+      line-height: 1.6;
+    }
+
+    .recognition-box.show {
+      display: block;
+    }
+
+    .recognition-box.success {
+      background: var(--success-light);
+      color: var(--success);
+    }
+
+    .recognition-box.retry {
+      background: var(--warning-light);
+      color: var(--warning);
+    }
+
+    .recognition-box.error {
+      background: var(--error-light);
+      color: var(--error);
+    }
+
+    .free-practice {
+      padding: 15px;
+      margin-top: 12px;
+      background: var(--soft-beige);
+      border-radius: var(--radius-medium);
+      line-height: 1.7;
+    }
+
+    .complete-button,
+    .next-button,
+    .back-button {
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    .complete-button {
+      background: var(--jade);
+      color: white;
+      font-weight: bold;
+    }
+
+    .complete-button.done {
+      background: var(--success);
+    }
+
+    .next-button {
+      display: none;
+      background: var(--navy);
+      color: white;
+      font-weight: bold;
+    }
+
+    .back-button {
+      background: var(--soft-beige);
+      color: var(--navy);
+    }
+
+    @media (max-width: 430px) {
+      .practice-controls {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
   <script src="profile.js"></script>
 </head>
+
 <body>
+
 <main class="app">
-<a class="back-link" href="exercice-ecoute-31.html">← Exercice d'écoute</a>
-<section id="hanaChapterPath" data-chapter-path></section>
 
-<header>
-  <span class="chapter-badge">Chapitre 31 · 🗣️ Je parle</span>
-  <p class="korean">보통 뭐 해요?</p>
-  <h1>Parler de tes habitudes</h1>
-  <p>Lis, répète puis réponds avec tes propres habitudes.</p>
-</header>
+  <a class="back-link" href="exercice-ecoute-32.html">
+    ← Exercice d'écoute
+  </a>
 
-<section class="speak-card">
-  <h2>🌸 Répète</h2>
-  <div class="prompt"><strong>매일 한국어를 공부해요.</strong><br><small>J'étudie le coréen tous les jours.</small></div>
-  <div class="prompt"><strong>커피를 자주 마셔요.</strong><br><small>Je bois souvent du café.</small></div>
-  <div class="prompt"><strong>가끔 운동해요.</strong><br><small>Je fais parfois du sport.</small></div>
-  <div class="prompt"><strong>주말에는 보통 집에서 쉬어요.</strong><br><small>Le week-end, je me repose généralement à la maison.</small></div>
-  <button id="listenAll" type="button" style="width:100%;margin-top:12px;">🔊 Écouter les phrases</button>
-</section>
+  <section id="hanaChapterPath" data-chapter-path></section>
 
-<section class="speak-card">
-  <h2>💬 À toi</h2>
-  <p>Réponds à voix haute :</p>
-  <div class="prompt"><strong>매일 뭐 해요?</strong><br><small>Qu'est-ce que tu fais tous les jours ?</small></div>
-  <div class="prompt"><strong>커피를 자주 마셔요?</strong><br><small>Tu bois souvent du café ?</small></div>
-  <div class="prompt"><strong>주말에 뭐 해요?</strong><br><small>Qu'est-ce que tu fais le week-end ?</small></div>
-  <div class="prompt"><strong>한국어를 매일 공부해요?</strong><br><small>Tu étudies le coréen tous les jours ?</small></div>
-</section>
+  <header class="speak-header">
 
-<section class="speak-card">
-  <h2>🎯 Mini-défi 30 secondes</h2>
-  <p>Essaie de parler de tes habitudes pendant 30 secondes en utilisant au moins :</p>
-  <p><strong>매일 · 자주 · 가끔 · 보통</strong></p>
-  <button id="doneSpeaking" type="button" style="width:100%;">✅ J'ai parlé à voix haute</button>
-  <div class="record-status" id="status"></div>
-</section>
+    <span class="chapter-badge">
+      Chapitre 31 · 🗣️ Je parle
+    </span>
 
-<button id="nextButton" type="button" style="display:none;width:100%;">✍️ Passer à l'écriture</button>
+    <p class="korean">
+      내일 뭐 할 거예요? 🌸
+    </p>
+
+    <h1>Parler de ses projets</h1>
+
+    <p>
+      Écoute, répète et entraîne-toi à dire ce que tu vas faire.
+    </p>
+
+  </header>
+
+
+  <section class="speak-card">
+
+    <h2>🎧 Écoute puis répète</h2>
+
+    <p>
+      Appuie d'abord sur <strong>Écouter</strong>, puis sur
+      <strong>Parler</strong>. La reconnaissance vocale vérifie
+      surtout les mots reconnus : elle ne juge pas précisément ton accent.
+    </p>
+
+  </section>
+
+
+  <section class="practice-card">
+
+    <div
+      class="practice-item"
+      data-target="오늘 뭐 할 거예요"
+    >
+
+      <div class="korean-line">
+        오늘 뭐 할 거예요?
+      </div>
+
+      <div class="french-line">
+        Qu'est-ce que tu vas faire aujourd'hui ?
+      </div>
+
+      <div class="practice-controls">
+
+        <button
+          class="listen-button"
+          type="button"
+          data-speak="오늘 뭐 할 거예요?"
+        >
+          🔊 Écouter
+        </button>
+
+        <button
+          class="speak-button"
+          type="button"
+        >
+          🎙️ Parler
+        </button>
+
+      </div>
+
+      <div class="recognition-box"></div>
+
+    </div>
+
+
+    <div
+      class="practice-item"
+      data-target="해운대에 갈 거예요"
+    >
+
+      <div class="korean-line">
+        해운대에 갈 거예요.
+      </div>
+
+      <div class="french-line">
+        Je vais aller à Haeundae.
+      </div>
+
+      <div class="practice-controls">
+
+        <button
+          class="listen-button"
+          type="button"
+          data-speak="해운대에 갈 거예요."
+        >
+          🔊 Écouter
+        </button>
+
+        <button
+          class="speak-button"
+          type="button"
+        >
+          🎙️ Parler
+        </button>
+
+      </div>
+
+      <div class="recognition-box"></div>
+
+    </div>
+
+
+    <div
+      class="practice-item"
+      data-target="사진을 많이 찍을 거예요"
+    >
+
+      <div class="korean-line">
+        사진을 많이 찍을 거예요.
+      </div>
+
+      <div class="french-line">
+        Je vais prendre beaucoup de photos.
+      </div>
+
+      <div class="practice-controls">
+
+        <button
+          class="listen-button"
+          type="button"
+          data-speak="사진을 많이 찍을 거예요."
+        >
+          🔊 Écouter
+        </button>
+
+        <button
+          class="speak-button"
+          type="button"
+        >
+          🎙️ Parler
+        </button>
+
+      </div>
+
+      <div class="recognition-box"></div>
+
+    </div>
+
+
+    <div
+      class="practice-item"
+      data-target="맛있는 음식을 먹을 거예요"
+    >
+
+      <div class="korean-line">
+        맛있는 음식을 먹을 거예요.
+      </div>
+
+      <div class="french-line">
+        Je vais manger quelque chose de délicieux.
+      </div>
+
+      <div class="practice-controls">
+
+        <button
+          class="listen-button"
+          type="button"
+          data-speak="맛있는 음식을 먹을 거예요."
+        >
+          🔊 Écouter
+        </button>
+
+        <button
+          class="speak-button"
+          type="button"
+        >
+          🎙️ Parler
+        </button>
+
+      </div>
+
+      <div class="recognition-box"></div>
+
+    </div>
+
+
+    <div
+      class="practice-item"
+      data-target="호텔에서 쉴 거예요"
+    >
+
+      <div class="korean-line">
+        호텔에서 쉴 거예요.
+      </div>
+
+      <div class="french-line">
+        Je vais me reposer à l'hôtel.
+      </div>
+
+      <div class="practice-controls">
+
+        <button
+          class="listen-button"
+          type="button"
+          data-speak="호텔에서 쉴 거예요."
+        >
+          🔊 Écouter
+        </button>
+
+        <button
+          class="speak-button"
+          type="button"
+        >
+          🎙️ Parler
+        </button>
+
+      </div>
+
+      <div class="recognition-box"></div>
+
+    </div>
+
+
+    <div
+      class="practice-item"
+      data-target="서울에 돌아갈 거예요"
+    >
+
+      <div class="korean-line">
+        서울에 돌아갈 거예요.
+      </div>
+
+      <div class="french-line">
+        Je vais retourner à Séoul.
+      </div>
+
+      <div class="practice-controls">
+
+        <button
+          class="listen-button"
+          type="button"
+          data-speak="서울에 돌아갈 거예요."
+        >
+          🔊 Écouter
+        </button>
+
+        <button
+          class="speak-button"
+          type="button"
+        >
+          🎙️ Parler
+        </button>
+
+      </div>
+
+      <div class="recognition-box"></div>
+
+    </div>
+
+  </section>
+
+
+  <section class="practice-card">
+
+    <h2>🌸 À toi de parler</h2>
+
+    <div class="free-practice">
+      <strong>Min-su :</strong><br>
+      내일 뭐 할 거예요?<br><br>
+
+      Réponds avec ton propre projet.<br><br>
+
+      Tu peux commencer par :
+      <strong>내일…</strong>
+      puis utiliser
+      <strong>갈 거예요</strong>,
+      <strong>먹을 거예요</strong>,
+      <strong>볼 거예요</strong>,
+      <strong>마실 거예요</strong>,
+      <strong>공부할 거예요</strong>
+      ou
+      <strong>쉴 거예요</strong>.
+    </div>
+
+  </section>
+
+
+  <section class="tip-card">
+
+    <h2>💚 Conseil de Ji-soo</h2>
+
+    Ne cherche pas à parler vite.
+
+    <br><br>
+
+    Commence par bien faire entendre le verbe,
+    puis garde le bloc
+    <strong>거예요</strong>
+    à la fin.
+
+    <br><br>
+
+    Par exemple :
+
+    <br><br>
+
+    <strong>갈 / 거예요</strong><br>
+    <strong>먹을 / 거예요</strong><br>
+    <strong>쉴 / 거예요</strong>
+
+    <br><br>
+
+    Avec l'habitude, la phrase deviendra beaucoup plus fluide.
+  </section>
+
+
+  <button
+    class="complete-button"
+    id="completeButton"
+    type="button"
+  >
+    ✅ J'ai terminé l'oral
+  </button>
+
+
+  <button
+    class="next-button"
+    id="nextButton"
+    type="button"
+  >
+    ✍️ Passer à l'écriture
+  </button>
+
+
+  <button
+    class="back-button"
+    type="button"
+    onclick="window.location.href='exercice-ecoute-32.html'"
+  >
+    ← Retour à l'exercice d'écoute
+  </button>
+
 </main>
 
+
 <script src="chapter-progress.js"></script>
+
 <script>
-const LISTENING_EXERCISE_KEY="hanaKorean_chapter31_listeningExercise";
-const SPEAKING_KEY="hanaKorean_chapter31_speaking";
-const doneSpeaking=document.getElementById("doneSpeaking");
-const nextButton=document.getElementById("nextButton");
-const status=document.getElementById("status");
 
-function guard(){
-  if(localStorage.getItem(LISTENING_EXERCISE_KEY)!=="completed"){
-    window.location.href="exercice-ecoute-31.html";
-    return false;
+  const AUDIO_SETTINGS = {
+    normalRate: 0.82
+  };
+
+
+  const progressKey =
+    "hanaKorean_chapter31_speaking";
+  const understandingKey = "hanaKorean_chapter31_understanding";
+  const listeningExerciseKey = "hanaKorean_chapter31_listeningExercise";
+  const mistakesKey = "hanaKorean_chapter31_speakingMistakes";
+  const helpKey = "hanaKorean_chapter31_speakingHelp";
+  let speakingMistakes = Number(localStorage.getItem(mistakesKey) || 0);
+  let speakingHelp = Number(localStorage.getItem(helpKey) || 0);
+
+  function guardSpeakingPage() {
+    if (localStorage.getItem(understandingKey) !== "completed") {
+      window.location.href = "chapitre-31.html";
+      return false;
+    }
+    if (localStorage.getItem(listeningExerciseKey) !== "completed") {
+      window.location.href = "exercice-ecoute-32.html";
+      return false;
+    }
+    return true;
   }
-  return true;
-}
-if(!guard()) throw new Error("chapter31-speaking-guard");
 
-function speak(text){
-  if(!("speechSynthesis" in window)) return;
-  speechSynthesis.cancel();
-  const u=new SpeechSynthesisUtterance(text);
-  u.lang="ko-KR";
-  u.rate=.82;
-  const voices=speechSynthesis.getVoices();
-  const v=voices.find(x=>x.lang==="ko-KR")||voices.find(x=>x.lang&&x.lang.startsWith("ko"));
-  if(v)u.voice=v;
-  speechSynthesis.speak(u);
-}
+  if (!guardSpeakingPage()) { throw new Error("chapter31-speaking-guard"); }
 
-document.getElementById("listenAll").addEventListener("click",()=>speak(
-  "매일 한국어를 공부해요. 커피를 자주 마셔요. 가끔 운동해요. 주말에는 보통 집에서 쉬어요."
-));
 
-function refresh(){
-  if(localStorage.getItem(SPEAKING_KEY)==="completed"){
-    doneSpeaking.textContent="✅ Oral terminé";
-    doneSpeaking.disabled=true;
-    status.textContent="Très bien 🌸 Tu peux passer à l'écriture.";
-    nextButton.style.display="block";
+  const completeButton =
+    document.getElementById(
+      "completeButton"
+    );
+
+
+  const nextButton =
+    document.getElementById(
+      "nextButton"
+    );
+
+
+  const SpeechRecognition =
+    window.SpeechRecognition ||
+    window.webkitSpeechRecognition;
+
+
+  let currentListenButton =
+    null;
+
+
+  let activeRecognition =
+    null;
+
+
+  function normalizeKorean(text) {
+
+    return text
+      .replace(/[.,!?！？。]/g, "")
+      .replace(/\s+/g, "")
+      .trim();
+
   }
-  if(window.HanaChapterProgress)HanaChapterProgress.render();
-}
 
-doneSpeaking.addEventListener("click",()=>{
-  localStorage.setItem(SPEAKING_KEY,"completed");
-  refresh();
-});
-nextButton.addEventListener("click",()=>window.location.href="ecriture-31.html");
-window.addEventListener("pageshow",()=>{if(guard())refresh();});
-refresh();
+
+  function getKoreanVoice() {
+
+    const voices =
+      window.speechSynthesis.getVoices();
+
+
+    return voices.find(
+      voice =>
+        voice.lang &&
+        voice.lang
+          .toLowerCase()
+          .startsWith("ko")
+    ) || null;
+
+  }
+
+
+  function stopAudio() {
+
+    window.speechSynthesis.cancel();
+
+
+    if (
+      currentListenButton
+    ) {
+
+      currentListenButton
+        .classList
+        .remove(
+          "playing"
+        );
+
+
+      currentListenButton.textContent =
+        "🔊 Écouter";
+
+
+      currentListenButton =
+        null;
+
+    }
+
+  }
+
+
+  function speakText(
+    text,
+    button
+  ) {
+
+    if (
+      currentListenButton === button &&
+      window.speechSynthesis.speaking
+    ) {
+
+      stopAudio();
+      return;
+
+    }
+
+
+    stopAudio();
+
+
+    const utterance =
+      new SpeechSynthesisUtterance(
+        text
+      );
+
+
+    utterance.lang =
+      "ko-KR";
+
+    utterance.rate =
+      AUDIO_SETTINGS.normalRate;
+
+    utterance.pitch =
+      1;
+
+
+    const koreanVoice =
+      getKoreanVoice();
+
+
+    if (
+      koreanVoice
+    ) {
+
+      utterance.voice =
+        koreanVoice;
+
+    }
+
+
+    currentListenButton =
+      button;
+
+
+    button
+      .classList
+      .add(
+        "playing"
+      );
+
+
+    button.textContent =
+      "⏹️ Stop";
+
+
+    utterance.onend =
+      stopAudio;
+
+
+    utterance.onerror =
+      stopAudio;
+
+
+    window.speechSynthesis.speak(
+      utterance
+    );
+
+  }
+
+
+  document
+    .querySelectorAll(
+      ".listen-button"
+    )
+    .forEach(
+      button => {
+
+        button.addEventListener(
+          "click",
+          () => {
+
+            speakText(
+              button.dataset.speak,
+              button
+            );
+
+          }
+        );
+
+      }
+    );
+
+
+  function showRecognitionFeedback(
+    box,
+    type,
+    message
+  ) {
+
+    box.className =
+      "recognition-box show " +
+      type;
+
+
+    box.innerHTML =
+      message;
+
+  }
+
+
+  document
+    .querySelectorAll(
+      ".practice-item"
+    )
+    .forEach(
+      item => {
+
+        const speakButton =
+          item.querySelector(
+            ".speak-button"
+          );
+
+
+        const feedback =
+          item.querySelector(
+            ".recognition-box"
+          );
+
+
+        const target =
+          item.dataset.target;
+
+
+        speakButton.addEventListener(
+          "click",
+          () => {
+
+            stopAudio();
+
+
+            if (
+              !SpeechRecognition
+            ) {
+
+              speakingHelp++;
+              showRecognitionFeedback(
+                feedback,
+                "error",
+                "🎙️ La reconnaissance vocale n'est pas disponible dans ce navigateur. Tu peux tout de même écouter la phrase et la répéter à voix haute."
+              );
+
+              return;
+
+            }
+
+
+            if (
+              activeRecognition
+            ) {
+
+              try {
+                activeRecognition.stop();
+              } catch (error) {
+              }
+
+              activeRecognition =
+                null;
+
+            }
+
+
+            const recognition =
+              new SpeechRecognition();
+
+
+            activeRecognition =
+              recognition;
+
+
+            recognition.lang =
+              "ko-KR";
+
+            recognition.interimResults =
+              false;
+
+            recognition.maxAlternatives =
+              3;
+
+
+            speakButton
+              .classList
+              .add(
+                "listening"
+              );
+
+
+            speakButton.textContent =
+              "🎙️ J'écoute…";
+
+
+            showRecognitionFeedback(
+              feedback,
+              "retry",
+              "Parle maintenant en coréen…"
+            );
+
+
+            recognition.onresult =
+              event => {
+
+                const alternatives =
+                  [];
+
+
+                for (
+                  let i = 0;
+                  i <
+                  event.results[0].length;
+                  i++
+                ) {
+
+                  alternatives.push(
+                    event.results[0][i]
+                      .transcript
+                  );
+
+                }
+
+
+                const normalizedTarget =
+                  normalizeKorean(
+                    target
+                  );
+
+
+                const isMatch =
+                  alternatives.some(
+                    transcript => {
+
+                      const normalized =
+                        normalizeKorean(
+                          transcript
+                        );
+
+
+                      return (
+                        normalized ===
+                          normalizedTarget ||
+                        normalized.includes(
+                          normalizedTarget
+                        ) ||
+                        normalizedTarget.includes(
+                          normalized
+                        )
+                      );
+
+                    }
+                  );
+
+
+                const heard =
+                  alternatives[0] ||
+                  "";
+
+
+                if (
+                  isMatch
+                ) {
+
+                  showRecognitionFeedback(
+                    feedback,
+                    "success",
+                    "✅ Très bien ! Le téléphone a reconnu : <strong>" +
+                    heard +
+                    "</strong>"
+                  );
+
+                } else {
+
+                  speakingMistakes++;
+                  showRecognitionFeedback(
+                    feedback,
+                    "retry",
+                    "Presque 💙 Le téléphone a reconnu : <strong>" +
+                    heard +
+                    "</strong><br>Réécoute la phrase puis essaie encore. La reconnaissance vocale peut aussi se tromper."
+                  );
+
+                }
+
+              };
+
+
+            recognition.onerror =
+              event => {
+
+                speakingHelp++;
+
+                if (
+                  event.error ===
+                  "not-allowed" ||
+                  event.error ===
+                  "service-not-allowed"
+                ) {
+
+                  showRecognitionFeedback(
+                    feedback,
+                    "error",
+                    "🎙️ L'accès au microphone n'est pas autorisé. Autorise le micro dans Safari pour utiliser cet exercice."
+                  );
+
+                } else if (
+                  event.error ===
+                  "no-speech"
+                ) {
+
+                  showRecognitionFeedback(
+                    feedback,
+                    "retry",
+                    "Je n'ai pas entendu de phrase. Appuie de nouveau sur 🎙️ Parler et essaie encore."
+                  );
+
+                } else {
+
+                  showRecognitionFeedback(
+                    feedback,
+                    "retry",
+                    "La reconnaissance vocale n'a pas fonctionné cette fois. Tu peux réessayer."
+                  );
+
+                }
+
+              };
+
+
+            recognition.onend =
+              () => {
+
+                speakButton
+                  .classList
+                  .remove(
+                    "listening"
+                  );
+
+
+                speakButton.textContent =
+                  "🎙️ Parler";
+
+
+                if (
+                  activeRecognition ===
+                  recognition
+                ) {
+
+                  activeRecognition =
+                    null;
+
+                }
+
+              };
+
+
+            recognition.start();
+
+          }
+        );
+
+      }
+    );
+
+
+  function showCompletedState() {
+
+    completeButton.textContent =
+      "✅ Oral terminé";
+
+
+    completeButton
+      .classList
+      .add(
+        "done"
+      );
+
+
+    nextButton.style.display =
+      "block";
+
+  }
+
+
+  if (
+    localStorage.getItem(
+      progressKey
+    ) === "completed"
+  ) {
+
+    showCompletedState();
+
+  }
+
+
+  completeButton.addEventListener(
+    "click",
+    () => {
+
+      localStorage.setItem(progressKey, "completed");
+      localStorage.setItem(mistakesKey, String(speakingMistakes));
+      localStorage.setItem(helpKey, String(speakingHelp));
+
+      showCompletedState();
+      if (window.HanaChapterProgress) HanaChapterProgress.render();
+
+    }
+  );
+
+
+  nextButton.addEventListener(
+    "click",
+    () => {
+
+      stopAudio();
+
+
+      if (
+        activeRecognition
+      ) {
+
+        try {
+          activeRecognition.stop();
+        } catch (error) {
+        }
+
+      }
+
+
+      window.location.href =
+        "ecriture-31.html";
+
+    }
+  );
+
+
+  if (localStorage.getItem(progressKey) === "completed") {
+    if (localStorage.getItem(mistakesKey) === null) localStorage.setItem(mistakesKey, "0");
+    if (localStorage.getItem(helpKey) === null) localStorage.setItem(helpKey, "0");
+  }
+
+  window.addEventListener("pageshow", () => {
+    if (!guardSpeakingPage()) return;
+    if (localStorage.getItem(progressKey) === "completed") showCompletedState();
+    if (window.HanaChapterProgress) HanaChapterProgress.render();
+  });
+
+  if (window.HanaChapterProgress) HanaChapterProgress.render();
+
+  window.addEventListener(
+    "beforeunload",
+    () => {
+
+      stopAudio();
+
+
+      if (
+        activeRecognition
+      ) {
+
+        try {
+          activeRecognition.stop();
+        } catch (error) {
+        }
+
+      }
+
+    }
+  );
+
+
+  window.speechSynthesis.onvoiceschanged =
+    () => {
+      getKoreanVoice();
+    };
+
 </script>
 </body>
 </html>

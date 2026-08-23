@@ -1,0 +1,19 @@
+<!DOCTYPE html><html lang="fr"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#F7F4ED"><title>Chapitre 55 — Oral</title>
+<link rel="stylesheet" href="style.css"><link rel="stylesheet" href="chapter-progress.css">
+<script src="profile.js"></script></head><body><main class="app">
+<a class="back-link" href="exercice-ecoute-56.html">← Retour</a>
+<section id="hanaChapterPath" data-chapter-path></section>
+<header><span class="chapter-badge">Chapitre 55 · 🗣️</span><h1>Mini-défi oral</h1></header>
+<section class="card"><p>Réponds rapidement à :</p><p><strong>이거 뭐예요?</strong></p><p><strong>뭘 먹고 싶어요?</strong></p><p><strong>커피 좋아해요?</strong></p><p>Essaie d’utiliser naturellement <strong>이거 / 뭐 / 뭘 / 전</strong>.</p></section>
+<button id="done" style="width:100%">✅ Terminé</button>
+<button id="next" style="display:none;width:100%">✍️ Écriture</button>
+</main>
+<script src="chapter-progress.js"></script><script>
+const K="hanaKorean_chapter55_speaking",d=document.getElementById("done"),n=document.getElementById("next");
+function r(){if(localStorage.getItem(K)==="completed"){d.disabled=true;n.style.display="block"}if(window.HanaChapterProgress)HanaChapterProgress.render()}
+d.onclick=()=>{localStorage.setItem(K,"completed");r()};
+n.onclick=()=>location.href="ecriture-55.html";
+r();
+</script></body></html>

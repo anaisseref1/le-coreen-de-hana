@@ -15,38 +15,35 @@
 </head>
 <body>
 <main class="app">
-<a class="back-link" href="exercice-ecoute-35.html">← Exercice d'écoute</a>
+<a class="back-link" href="exercice-ecoute-36.html">← Exercice d'écoute</a>
 <section id="hanaChapterPath" data-chapter-path></section>
 <header>
   <span class="chapter-badge">Chapitre 35 · 🗣️ Je parle</span>
-  <h1>Dire comment tu te sens</h1>
-  <p>Répète puis réponds avec tes propres émotions.</p>
+  <h1>Comparer à voix haute</h1>
+  <p>Répète puis crée tes propres comparaisons.</p>
 </header>
 
 <section class="speak-card">
   <h2>🌸 Répète</h2>
-  <div class="prompt"><strong>오늘 기분이 어때요?</strong><br><small>Comment tu te sens aujourd'hui ?</small></div>
-  <div class="prompt"><strong>기분이 좋아요.</strong><br><small>Je me sens bien.</small></div>
-  <div class="prompt"><strong>조금 피곤해요.</strong><br><small>Je suis un peu fatiguée.</small></div>
-  <div class="prompt"><strong>걱정돼요.</strong><br><small>Je suis inquiète.</small></div>
-  <div class="prompt"><strong>마음이 편해요.</strong><br><small>Je me sens apaisée.</small></div>
-  <div class="prompt"><strong>서울에 있어서 행복해요.</strong><br><small>Je suis heureuse parce que je suis à Séoul.</small></div>
+  <div class="prompt"><strong>서울이 파리보다 더 커요.</strong><br><small>Séoul est plus grande que Paris.</small></div>
+  <div class="prompt"><strong>파리가 서울보다 덜 복잡해요.</strong><br><small>Paris est moins fréquentée que Séoul.</small></div>
+  <div class="prompt"><strong>이 두 카페는 비슷해요.</strong><br><small>Ces deux cafés sont similaires.</small></div>
+  <div class="prompt"><strong>두 도시는 많이 달라요.</strong><br><small>Les deux villes sont très différentes.</small></div>
+  <div class="prompt"><strong>파리보다 서울이 더 좋아요.</strong><br><small>Je préfère Séoul à Paris.</small></div>
   <button id="listenAll" type="button" style="width:100%;margin-top:12px;">🔊 Écouter les phrases</button>
 </section>
 
 <section class="speak-card">
   <h2>💬 À toi</h2>
-  <div class="prompt"><strong>오늘 기분이 어때요?</strong></div>
-  <div class="prompt"><strong>왜 기분이 좋아요?</strong></div>
-  <div class="prompt"><strong>피곤해요?</strong></div>
-  <div class="prompt"><strong>요즘 행복해요?</strong></div>
+  <div class="prompt"><strong>서울하고 파리 중에서 어느 도시가 더 좋아요?</strong><br><small>Entre Séoul et Paris, quelle ville préfères-tu ?</small></div>
+  <div class="prompt"><strong>기차하고 버스 중에서 뭐가 더 빨라요?</strong><br><small>Entre le train et le bus, lequel est plus rapide ?</small></div>
+  <div class="prompt"><strong>이 두 카페는 어떻게 달라요?</strong><br><small>En quoi ces deux cafés sont-ils différents ?</small></div>
 </section>
 
 <section class="speak-card">
   <h2>🎯 Mini-défi</h2>
-  <p>Parle pendant 30 à 60 secondes : donne ton humeur, une émotion et une raison.</p>
-  <p>Exemple : <strong>오늘 기분이 좋아요. 조금 피곤해요. 하지만 행복해요.</strong></p>
-  <button id="doneSpeaking" type="button" style="width:100%;">✅ J'ai parlé de mes émotions</button>
+  <p>Fais au moins trois comparaisons en utilisant <strong>보다</strong>, puis donne une préférence avec <strong>A보다 B가 더 좋아요</strong>.</p>
+  <button id="doneSpeaking" type="button" style="width:100%;">✅ J'ai comparé à voix haute</button>
 </section>
 
 <button id="nextButton" type="button" style="display:none;width:100%;">✍️ Passer à l'écriture</button>
@@ -61,7 +58,7 @@ const next=document.getElementById("nextButton");
 
 function guard(){
   if(localStorage.getItem(EXERCISE_KEY)!=="completed"){
-    window.location.href="exercice-ecoute-35.html";
+    window.location.href="exercice-ecoute-36.html";
     return false;
   }
   return true;
@@ -79,7 +76,7 @@ function speak(text){
   speechSynthesis.speak(u);
 }
 document.getElementById("listenAll").addEventListener("click",()=>speak(
-  "오늘 기분이 어때요? 기분이 좋아요. 조금 피곤해요. 걱정돼요. 마음이 편해요. 서울에 있어서 행복해요."
+  "서울이 파리보다 더 커요. 파리가 서울보다 덜 복잡해요. 이 두 카페는 비슷해요. 두 도시는 많이 달라요. 파리보다 서울이 더 좋아요."
 ));
 
 function refresh(){

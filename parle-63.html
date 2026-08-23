@@ -1,0 +1,18 @@
+<!DOCTYPE html><html lang="fr"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#F7F4ED"><title>Chapitre 63 — Oral</title>
+<link rel="stylesheet" href="style.css"><link rel="stylesheet" href="chapter-progress.css">
+<script src="profile.js"></script></head><body><main class="app">
+<a class="back-link" href="exercice-ecoute-64.html">← Retour</a><section id="hanaChapterPath" data-chapter-path></section>
+<header><span class="chapter-badge">Chapitre 63 · 🗣️</span><h1>Résume ce que tu as compris</h1></header>
+<section class="card"><p>Après un petit dialogue :</p><p>① « Ils parlent de… »</p><p>② cite trois mots coréens reconnus</p><p>③ répète une phrase entendue</p><p>Pas besoin d’avoir compris 100 %.</p></section>
+<button id="done" style="width:100%">✅ Terminé</button>
+<button id="next" style="display:none;width:100%">✍️ Carnet</button>
+</main>
+<script src="chapter-progress.js"></script><script>
+const K="hanaKorean_chapter63_speaking",d=document.getElementById("done"),n=document.getElementById("next");
+function r(){if(localStorage.getItem(K)==="completed"){d.disabled=true;n.style.display="block"}if(window.HanaChapterProgress)HanaChapterProgress.render()}
+d.onclick=()=>{localStorage.setItem(K,"completed");r()};
+n.onclick=()=>location.href="ecriture-63.html";
+r();
+</script></body></html>

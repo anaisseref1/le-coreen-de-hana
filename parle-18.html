@@ -21,9 +21,9 @@
     href="style.css"
   >
 
-  <link rel="stylesheet" href="chapter-progress.css">
+    <link rel="stylesheet" href="chapter-progress.css">
 
-  <style>
+<style>
     .speak-header {
       text-align: center;
       margin-bottom: 28px;
@@ -278,7 +278,7 @@
 
   <a
     class="back-link"
-    href="exercice-ecoute-18.html"
+    href="exercice-ecoute-19.html"
   >
     ← Mini défi d'écoute
   </a>
@@ -299,8 +299,8 @@
     </h1>
 
     <p>
-      Répète les mots et expressions essentiels pour parler de tes goûts,
-      puis réponds à Min-su dans de petites situations de conversation.
+      Répète les mots et expressions essentiels du téléphone et d'Internet,
+      puis réponds à Ji-eun dans de petites situations au café.
     </p>
 
   </header>
@@ -317,10 +317,10 @@
 
     <br><br>
 
-    Savoir dire ce que tu aimes et ce que tu préfères,
-    demander les goûts de quelqu'un, parler de musique,
-    exprimer une préférence négative
-    et relancer la conversation avec <strong>왜요?</strong>.
+    Savoir demander le Wi-Fi et son mot de passe,
+    dire que tu n'as plus de batterie, demander un chargeur,
+    demander où recharger ton téléphone
+    et signaler qu'Internet ne fonctionne pas.
 
   </section>
 
@@ -355,7 +355,7 @@
     </div>
 
     <h2 id="stepTitle">
-      ❤️ Mot 1
+      📍 Mot 1
     </h2>
 
     <div
@@ -371,7 +371,7 @@
     >
 
       <div class="seller-name">
-        💙 Min-su
+        💚 Ji-eun
       </div>
 
       <div
@@ -398,14 +398,14 @@
         class="prompt-korean"
         id="promptKorean"
       >
-        제일
+        어디예요?
       </div>
 
       <div
         class="prompt-french"
         id="promptFrench"
       >
-        le plus
+        Où est… ?
       </div>
 
     </div>
@@ -507,7 +507,7 @@
   >
 
     <div class="result-icon">
-      ❤️🗣️
+      📱🗣️
     </div>
 
     <h2>
@@ -526,27 +526,27 @@
 
       <br><br>
 
-      ❤️ <strong>뭐가 제일 좋아요?</strong>
+      📶 <strong>와이파이 있어요?</strong>
 
       <br>
 
-      ☕ <strong>커피를 좋아해요.</strong>
+      🔐 <strong>와이파이 비밀번호가 뭐예요?</strong>
 
       <br>
 
-      🌟 <strong>저는 ○○를 제일 좋아해요.</strong>
+      🔋 <strong>배터리가 없어요.</strong>
 
       <br>
 
-      🎵 <strong>어떤 음악을 제일 좋아해요?</strong>
+      🔌 <strong>충전기 있어요?</strong>
 
       <br>
 
-      🙂 <strong>안 좋아해요.</strong>
+      ⚡ <strong>어디에서 충전할 수 있어요?</strong>
 
       <br>
 
-      ❓ <strong>왜요?</strong>
+      🌐 <strong>인터넷이 안 돼요.</strong>
 
       <br><br>
 
@@ -580,8 +580,7 @@
 <script src="chapter-progress.js"></script>
 
 <script>
-
-  const CHAPTER = 18;
+  const CHAPTER = 17;
 
   const UNDERSTANDING_KEY =
     "hanaKorean_chapter18_understanding";
@@ -633,8 +632,7 @@
     }
   }
 
-
-  const AUDIO_SETTINGS = {
+const AUDIO_SETTINGS = {
     normalRate: 0.82,
     slowRate: 0.25
   };
@@ -643,149 +641,144 @@
   const steps = [
 
     {
-      title: "❤️ Mot 1",
-      target: "제일",
-      french: "le plus",
+      title: "📱 Mot 1",
+      target: "핸드폰",
+      french: "téléphone",
       accepted: [
-        "제일"
+        "핸드폰"
       ],
       help:
-        "Prononce 제일 en deux syllabes : 제-일."
+        "Prononce 핸드폰 naturellement. C'est la forme très courante à l'oral."
     },
 
     {
-      title: "🎵 Mot 2",
-      target: "음악",
-      french: "musique",
+      title: "🔋 Mot 2",
+      target: "배터리",
+      french: "batterie",
       accepted: [
-        "음악"
+        "배터리"
       ],
       help:
-        "Prononce 음악 naturellement : 음-악."
+        "Prononce 배터리 en trois blocs : 배-터-리."
     },
 
     {
-      title: "📷 Mot 3",
-      target: "사진",
-      french: "photo / photographie",
+      title: "🔌 Mot 3",
+      target: "충전기",
+      french: "chargeur",
       accepted: [
-        "사진"
+        "충전기"
       ],
       help:
-        "Prononce 사진 : 사-진."
+        "Prononce 충전기 : 충-전-기."
     },
 
     {
-      title: "☕ Phrase 1",
-      target: "커피를 좋아해요.",
-      french: "J'aime le café.",
+      title: "📶 Phrase 1",
+      target: "와이파이 있어요?",
+      french: "Il y a du Wi-Fi ?",
       accepted: [
-        "커피를좋아해요",
-        "커피좋아해요"
+        "와이파이있어요"
       ],
       help:
-        "Utilise 커피를 + 좋아해요."
+        "Utilise 와이파이 + 있어요?"
     },
 
     {
-      title: "❤️ Phrase 2",
-      target: "뭐가 제일 좋아요?",
-      french: "Qu'est-ce que tu préfères ?",
+      title: "🔋 Phrase 2",
+      target: "배터리가 없어요.",
+      french: "Je n'ai plus de batterie.",
       accepted: [
-        "뭐가제일좋아요"
+        "배터리가없어요"
       ],
       help:
-        "Utilise 뭐가 + 제일 + 좋아요?"
+        "Utilise 배터리가 + 없어요."
     },
 
     {
-      title: "🎵 Phrase 3",
-      target: "어떤 음악을 제일 좋아해요?",
-      french: "Quelle musique préfères-tu ?",
+      title: "🔌 Phrase 3",
+      target: "충전기 있어요?",
+      french: "Vous avez un chargeur ?",
       accepted: [
-        "어떤음악을제일좋아해요",
-        "어떤음악제일좋아해요"
+        "충전기있어요"
       ],
       help:
-        "Utilise 어떤 음악을 + 제일 좋아해요?"
+        "Utilise 충전기 + 있어요?"
     },
 
     {
-      title: "🌟 Situation 1",
-      target: "저는 케이팝을 제일 좋아해요.",
-      french: "Dis que ce que tu préfères, c'est la K-pop.",
+      title: "🔐 Situation 1",
+      target: "와이파이 비밀번호가 뭐예요?",
+      french: "Demande le mot de passe du Wi-Fi.",
       accepted: [
-        "저는케이팝을제일좋아해요",
-        "케이팝을제일좋아해요",
-        "저는케이팝제일좋아해요",
-        "케이팝제일좋아해요"
+        "와이파이비밀번호가뭐예요"
       ],
       scenario:
-        "🎧 Min-su te demande quelle musique tu préfères.",
+        "☕ Tu es au café avec Ji-eun et tu veux te connecter.",
       seller:
         {
-          korean: "어떤 음악을 제일 좋아해요?",
-          french: "Quelle musique préfères-tu ?"
+          korean: "네. 와이파이 있어요.",
+          french: "Oui. Il y a du Wi-Fi."
         },
       help:
-        "Tu peux répondre 저는 케이팝을 제일 좋아해요."
+        "Utilise 와이파이 비밀번호가 뭐예요?"
     },
 
     {
-      title: "🙂 Situation 2",
-      target: "매운 음식을 안 좋아해요.",
-      french: "Dis que tu n'aimes pas trop la nourriture épicée.",
+      title: "⚡ Situation 2",
+      target: "어디에서 충전할 수 있어요?",
+      french: "Demande où tu peux recharger ton téléphone.",
       accepted: [
-        "매운음식을안좋아해요",
-        "매운음식안좋아해요"
+        "어디에서충전할수있어요",
+        "어디서충전할수있어요"
       ],
       scenario:
-        "🍜 Min-su te demande si tu aimes les plats très épicés.",
+        "🔋 Ton téléphone n'a presque plus de batterie.",
       seller:
         {
-          korean: "매운 음식 좋아해요?",
-          french: "Tu aimes la nourriture épicée ?"
+          korean: "충전기가 있어요.",
+          french: "Nous avons un chargeur."
         },
       help:
-        "Utilise 매운 음식을 + 안 좋아해요."
+        "Utilise 어디에서 + 충전할 수 있어요?"
     },
 
     {
-      title: "❓ Situation 3",
-      target: "왜요?",
-      french: "Demande : « Pourquoi ? »",
+      title: "🌐 Situation 3",
+      target: "인터넷이 안 돼요.",
+      french: "Explique qu'Internet ne fonctionne pas.",
       accepted: [
-        "왜요"
+        "인터넷이안돼요",
+        "인터넷안돼요"
       ],
       scenario:
-        "💬 Min-su vient de dire ce qu'il préfère.",
+        "📱 Tu es connecté, mais aucune page ne charge.",
       seller:
         {
-          korean: "저는 바다가 제일 좋아요.",
-          french: "Moi, ce que je préfère, c'est la mer."
+          korean: "인터넷 괜찮아요?",
+          french: "Internet fonctionne bien ?"
         },
       help:
-        "Réponds simplement 왜요?"
+        "Dis 인터넷이 안 돼요."
     },
 
     {
       title: "💬 Situation 4",
-      target: "뭐가 제일 좋아요? 왜요?",
-      french: "Demande ce que Min-su préfère, puis pourquoi.",
+      target: "배터리가 없어요. 충전기 있어요?",
+      french: "Explique que tu n'as plus de batterie et demande un chargeur.",
       accepted: [
-        "뭐가제일좋아요왜요",
-        "뭐를제일좋아해요왜요",
-        "뭘제일좋아해요왜요"
+        "배터리가없어요충전기있어요",
+        "배터리없어요충전기있어요"
       ],
       scenario:
-        "🌿 Tu veux apprendre à mieux connaître Min-su.",
+        "🔋 Ton téléphone est presque éteint.",
       seller:
         {
-          korean: "궁금한 게 있어요?",
-          french: "Tu veux me demander quelque chose ?"
+          korean: "무엇이 필요하세요?",
+          french: "De quoi avez-vous besoin ?"
         },
       help:
-        "Enchaîne 뭐가 제일 좋아요? puis 왜요?"
+        "Enchaîne 배터리가 없어요 puis 충전기 있어요?"
     }
 
   ];

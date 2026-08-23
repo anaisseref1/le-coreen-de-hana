@@ -1,20 +1,135 @@
-<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#F7F4ED"><title>Chapitre 28 — Je parle</title><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="chapter-progress.css"><style>.speak-header{text-align:center;margin-bottom:24px}.card{padding:20px;margin-bottom:18px;background:var(--white);border-radius:var(--radius-large);box-shadow:var(--shadow)}.step{padding:15px;margin-top:12px;background:#FBFAF6;border-radius:var(--radius-medium)}.audio{width:100%;margin-top:8px;background:var(--soft-blue);color:var(--navy)}.complete-button,.next-button{width:100%;margin-top:10px}.complete-button{background:var(--jade);color:white;font-weight:bold}.next-button{display:none;background:var(--navy);color:white;font-weight:bold}</style>  <script src="profile.js"></script>
-</head><body><main class="app"><a class="back-link" href="exercice-ecoute-28.html">← Exercice d'écoute</a><section id="hanaChapterPath" data-chapter-path></section>
-<header class="speak-header"><span class="chapter-badge">Chapitre 28 · 🗣️ Je parle</span><p class="korean">부산에서 뭐 하고 싶어요?</p><h1>Parler de sa journée à Busan</h1><p>Entraîne-toi à parler de tes envies et à proposer des activités.</p></header>
-<section class="card"><h2>🎭 Situation</h2><p>Tu viens d'arriver à Busan. Min-su te demande ce que tu veux faire pendant la journée.</p></section>
-<section class="card"><h2>💬 Conversation guidée</h2>
-<div class="step"><p><strong>💙 Min-su :</strong><br>부산에서 뭐 하고 싶어요?<br><small>Qu'est-ce que tu veux faire à Busan ?</small></p><p>Réponds : « Je veux voir la mer. »</p><button class="audio" data-text="바다를 보고 싶어요." type="button">🔊 Écouter le modèle</button></div>
-<div class="step"><p><strong>🌸 À toi :</strong><br>Propose : « On va à la plage ? »</p><button class="audio" data-text="해변에 갈까요?" type="button">🔊 Écouter le modèle</button></div>
-<div class="step"><p><strong>🌸 À toi :</strong><br>Dis : « Je veux prendre beaucoup de photos. »</p><button class="audio" data-text="사진을 많이 찍고 싶어요." type="button">🔊 Écouter le modèle</button></div>
-<div class="step"><p><strong>💙 Min-su :</strong><br>같이 가요!<br><small>Allons-y ensemble !</small></p><button class="audio" data-text="같이 가요." type="button">🔊 Écouter</button></div>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#F7F4ED">
+<title>Chapitre 28 — Je parle</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="chapter-progress.css">
+<style>
+.speak-header{text-align:center;margin-bottom:24px}
+.card{padding:20px;margin-bottom:18px;background:var(--white);border-radius:var(--radius-large);box-shadow:var(--shadow)}
+.step{padding:15px;margin-top:12px;background:#FBFAF6;border-radius:var(--radius-medium)}
+.audio{width:100%;margin-top:8px;background:var(--soft-blue);color:var(--navy)}
+.complete-button,.next-button{width:100%;margin-top:10px}
+.complete-button{background:var(--jade);color:white;font-weight:bold}
+.next-button{display:none;background:var(--navy);color:white;font-weight:bold}
+</style>
+  <script src="profile.js"></script>
+</head>
+<body>
+<main class="app">
+<a class="back-link" href="exercice-ecoute-29.html">← Exercice d'écoute</a>
+<section id="hanaChapterPath" data-chapter-path></section>
+
+<header class="speak-header">
+<span class="chapter-badge">Chapitre 28 · 🗣️ Je parle</span>
+<p class="korean">승강장이 어디예요?</p>
+<h1>À la gare</h1>
+<p>Entraîne-toi à demander des informations pour prendre ton train.</p>
+</header>
+
+<section class="card">
+<h2>🎭 Situation</h2>
+<p>Tu arrives à la gare de Séoul. Tu dois prendre un train pour Busan. Tu demandes de l'aide pour trouver ton quai et ton siège.</p>
 </section>
-<section class="card"><h2>🎒 Rappel</h2><p><strong>뭐 하고 싶어요?</strong> → Qu'est-ce que tu veux faire ?</p><p><strong>바다를 보고 싶어요.</strong> → Je veux voir la mer.</p><p><strong>해변에 갈까요?</strong> → On va à la plage ?</p><p><strong>사진을 찍고 싶어요.</strong> → Je veux prendre des photos.</p><p><strong>같이 가요.</strong> → Allons-y ensemble.</p></section>
-<button id="completeButton" class="complete-button" type="button">✅ J'ai fait l'oral</button><button id="next" class="next-button" type="button">✍️ Passer à l'écriture</button></main>
-<script src="chapter-progress.js"></script><script>
-const UNDERSTANDING_KEY="hanaKorean_chapter28_understanding";const LISTENING_EXERCISE_KEY="hanaKorean_chapter28_listeningExercise";const SPEAKING_KEY="hanaKorean_chapter28_speaking";const MISTAKES_KEY="hanaKorean_chapter28_speakingMistakes";const HELP_KEY="hanaKorean_chapter28_speakingHelp";
-if(localStorage.getItem(UNDERSTANDING_KEY)!=="completed"||localStorage.getItem(LISTENING_EXERCISE_KEY)!=="completed")window.location.href="exercice-ecoute-28.html";
-function speak(text){const u=new SpeechSynthesisUtterance(text);u.lang="ko-KR";u.rate=0.8;speechSynthesis.cancel();speechSynthesis.speak(u);}document.querySelectorAll(".audio").forEach(b=>b.addEventListener("click",()=>speak(b.dataset.text)));
-const completeButton=document.getElementById("completeButton");const nextButton=document.getElementById("next");function refresh(){if(localStorage.getItem(SPEAKING_KEY)==="completed"){completeButton.textContent="✅ Oral validé";nextButton.style.display="block";}if(window.HanaChapterProgress)HanaChapterProgress.render();}
-completeButton.addEventListener("click",()=>{localStorage.setItem(SPEAKING_KEY,"completed");if(localStorage.getItem(MISTAKES_KEY)===null)localStorage.setItem(MISTAKES_KEY,"0");if(localStorage.getItem(HELP_KEY)===null)localStorage.setItem(HELP_KEY,"0");refresh();});nextButton.addEventListener("click",()=>{window.location.href="ecriture-28.html";});window.addEventListener("pageshow",refresh);refresh();
+
+<section class="card">
+<h2>💬 Conversation guidée</h2>
+
+<div class="step">
+<p><strong>Question :</strong><br>기차표 있어요?<br><small>Vous avez votre billet de train ?</small></p>
+<p>Réponds : « Oui, je l'ai. »</p>
+<button class="audio" data-text="네, 있어요." type="button">🔊 Écouter le modèle</button>
+</div>
+
+<div class="step">
+<p><strong>Question :</strong><br>어디에 가요?<br><small>Où allez-vous ?</small></p>
+<p>Réponds : « Je vais à Busan. »</p>
+<button class="audio" data-text="부산에 가요." type="button">🔊 Écouter le modèle</button>
+</div>
+
+<div class="step">
+<p><strong>🌸 À toi :</strong><br>Demande : « Où est le quai ? »</p>
+<button class="audio" data-text="승강장이 어디예요?" type="button">🔊 Écouter le modèle</button>
+</div>
+
+<div class="step">
+<p><strong>🌸 À toi :</strong><br>Demande : « À quelle heure part-il ? »</p>
+<button class="audio" data-text="몇 시에 출발해요?" type="button">🔊 Écouter le modèle</button>
+</div>
+
+<div class="step">
+<p><strong>🌸 À toi :</strong><br>Demande : « Quel est mon siège ? »</p>
+<button class="audio" data-text="제 좌석은 몇 번이에요?" type="button">🔊 Écouter le modèle</button>
+</div>
+</section>
+
+<section class="card">
+<h2>🎒 Rappel</h2>
+<p><strong>기차를 타요.</strong> → Je prends le train.</p>
+<p><strong>부산에 가요.</strong> → Je vais à Busan.</p>
+<p><strong>몇 시에 출발해요?</strong> → À quelle heure part-il ?</p>
+<p><strong>제 좌석은 몇 번이에요?</strong> → Quel est mon siège ?</p>
+</section>
+
+<button id="completeButton" class="complete-button" type="button">✅ J'ai fait l'oral</button>
+<button id="next" class="next-button" type="button">✍️ Passer à l'écriture</button>
+</main>
+
+<script src="chapter-progress.js"></script>
+<script>
+const UNDERSTANDING_KEY = "hanaKorean_chapter28_understanding";
+const LISTENING_EXERCISE_KEY = "hanaKorean_chapter28_listeningExercise";
+const SPEAKING_KEY = "hanaKorean_chapter28_speaking";
+const MISTAKES_KEY = "hanaKorean_chapter28_speakingMistakes";
+const HELP_KEY = "hanaKorean_chapter28_speakingHelp";
+
+if (
+  localStorage.getItem(UNDERSTANDING_KEY) !== "completed" ||
+  localStorage.getItem(LISTENING_EXERCISE_KEY) !== "completed"
+) {
+  window.location.href = "exercice-ecoute-29.html";
+}
+
+function speak(text) {
+  const utterance = new SpeechSynthesisUtterance(text);
+  utterance.lang = "ko-KR";
+  utterance.rate = 0.8;
+  speechSynthesis.cancel();
+  speechSynthesis.speak(utterance);
+}
+document.querySelectorAll(".audio").forEach(button => {
+  button.addEventListener("click", () => speak(button.dataset.text));
+});
+
+const completeButton = document.getElementById("completeButton");
+const nextButton = document.getElementById("next");
+
+function refresh() {
+  if (localStorage.getItem(SPEAKING_KEY) === "completed") {
+    completeButton.textContent = "✅ Oral validé";
+    nextButton.style.display = "block";
+  }
+  if (window.HanaChapterProgress) HanaChapterProgress.render();
+}
+
+completeButton.addEventListener("click", () => {
+  localStorage.setItem(SPEAKING_KEY, "completed");
+  if (localStorage.getItem(MISTAKES_KEY) === null) {
+    localStorage.setItem(MISTAKES_KEY, "0");
+  }
+  if (localStorage.getItem(HELP_KEY) === null) {
+    localStorage.setItem(HELP_KEY, "0");
+  }
+  refresh();
+});
+nextButton.addEventListener("click", () => {
+  window.location.href = "ecriture-28.html";
+});
+window.addEventListener("pageshow", refresh);
+refresh();
 </script>
-</body></html>
+</body>
+</html>
