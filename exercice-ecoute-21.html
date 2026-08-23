@@ -2,7 +2,6 @@
 <html lang="fr">
 
 <head>
-
   <meta charset="UTF-8">
 
   <meta
@@ -15,7 +14,7 @@
     content="#F7F4ED"
   >
 
-  <title>Chapitre 21 — Exercice d'écoute</title>
+  <title>Mini défi d'écoute — Chapitre 21</title>
 
   <link
     rel="stylesheet"
@@ -23,645 +22,851 @@
   >
   <link rel="stylesheet" href="chapter-progress.css">
 
-
   <style>
-
     .exercise-header {
-      text-align:center;
-      margin-bottom:24px;
+      text-align: center;
+      margin-bottom: 30px;
     }
 
-
-    .exercise-card,
-    .result-card,
-    .tip-card {
-      padding:20px;
-      margin-bottom:18px;
-
-      background:var(--white);
-
-      border-radius:var(--radius-large);
-
-      box-shadow:var(--shadow);
+    .chapter-badge {
+      display: inline-block;
+      padding: 7px 14px;
+      margin-bottom: 10px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: bold;
     }
 
-
-    .question-block {
-      padding:16px;
-      margin-top:14px;
-
-      background:#FBFAF6;
-
-      border-radius:var(--radius-medium);
+    .exercise-progress {
+      margin-bottom: 22px;
     }
 
-
-    .question-title {
-      margin-bottom:12px;
-
-      color:var(--navy);
-
-      font-weight:bold;
-      line-height:1.6;
+    .progress-info {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      color: var(--text-light);
+      font-size: 13px;
     }
 
-
-    .audio-button {
-      width:100%;
-      margin-bottom:12px;
-
-      background:var(--soft-blue);
-      color:var(--navy);
-
-      font-weight:bold;
+    .progress-bar {
+      width: 100%;
+      height: 9px;
+      background: var(--soft-beige);
+      border-radius: 20px;
+      overflow: hidden;
     }
 
-
-    .audio-button.playing {
-      background:var(--navy);
-      color:white;
+    .progress-fill {
+      width: 20%;
+      height: 100%;
+      background: var(--jade);
+      border-radius: 20px;
+      transition: width 0.3s ease;
     }
 
-
-    .answer-list {
-      display:flex;
-      flex-direction:column;
-
-      gap:9px;
+    .exercise-card {
+      padding: 20px;
+      margin-bottom: 18px;
+      background: var(--white);
+      border-radius: var(--radius-large);
+      box-shadow: var(--shadow);
     }
 
-
-    .answer-button {
-      width:100%;
-
-      padding:13px 14px;
-
-      background:var(--soft-beige);
-      color:var(--navy);
-
-      text-align:left;
+    .question-number {
+      margin-top: 0;
+      color: var(--jade-dark);
+      font-size: 14px;
+      font-weight: bold;
     }
 
-
-    .answer-button.correct {
-      background:var(--success-light);
-      color:var(--success);
-
-      font-weight:bold;
+    .question-text {
+      line-height: 1.6;
     }
 
-
-    .answer-button.wrong {
-      background:var(--error-light);
-      color:var(--error);
-
-      font-weight:bold;
+    .audio-zone {
+      padding: 18px;
+      margin: 15px 0;
+      background: var(--soft-blue);
+      border-radius: var(--radius-medium);
+      text-align: center;
     }
 
+    .audio-icon {
+      margin-bottom: 8px;
+      font-size: 38px;
+    }
+
+    .audio-note {
+      margin-bottom: 14px;
+      color: var(--text-light);
+      font-size: 14px;
+    }
+
+    .audio-main {
+      width: 100%;
+      font-weight: bold;
+    }
+
+    .slow-button {
+      width: 100%;
+      margin-top: 8px;
+    }
+
+    .answers {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    .answer {
+      width: 100%;
+      padding: 15px;
+      text-align: left;
+      border: 2px solid transparent;
+    }
 
     .feedback {
-      display:none;
-
-      margin-top:12px;
-      padding:12px 14px;
-
-      border-radius:var(--radius-medium);
-
-      line-height:1.6;
+      display: none;
+      margin-top: 16px;
+      padding: 15px;
+      border-radius: var(--radius-medium);
+      line-height: 1.7;
     }
 
-
-    .feedback.show {
-      display:block;
+    .feedback.correct,
+    .feedback.wrong {
+      display: block;
     }
 
-
-    .feedback.success {
-      background:var(--success-light);
-      color:var(--success);
+    .heard-question {
+      margin-top: 10px;
+      padding: 12px;
+      background: rgba(255, 255, 255, 0.65);
+      border-radius: var(--radius-small);
+      color: var(--navy);
+      font-size: 19px;
+      font-weight: bold;
     }
 
-
-    .feedback.error {
-      background:var(--error-light);
-      color:var(--error);
+    .next-question {
+      display: none;
+      width: 100%;
+      margin-top: 15px;
+      background: var(--jade);
+      color: white;
+      font-weight: bold;
     }
 
+    .hidden {
+      display: none;
+    }
 
     .result-card {
-      display:none;
-
-      text-align:center;
+      display: none;
+      padding: 25px;
+      background: var(--white);
+      border-radius: var(--radius-large);
+      box-shadow: var(--shadow);
+      text-align: center;
     }
 
-
-    .result-card.show {
-      display:block;
+    .result-icon {
+      font-size: 60px;
     }
-
 
     .result-score {
-      margin:12px 0;
-
-      color:var(--navy);
-
-      font-size:22px;
-      font-weight:bold;
+      color: var(--jade-dark);
+      font-size: 21px;
+      font-weight: bold;
     }
 
-
-    .complete-button,
-    .next-button,
-    .retry-button,
-    .back-button {
-      width:100%;
-      margin-top:10px;
+    .result-summary {
+      padding: 16px;
+      margin-top: 18px;
+      background: #FBFAF6;
+      border-radius: var(--radius-medium);
+      text-align: left;
+      line-height: 1.6;
     }
 
-
-    .complete-button {
-      display:none;
-
-      background:var(--jade);
-      color:white;
-
-      font-weight:bold;
+    .notion-summary {
+      margin-top: 18px;
+      text-align: left;
     }
 
-
-    .complete-button.show {
-      display:block;
+    .notion-line {
+      padding: 11px 0;
+      border-bottom: 1px solid var(--border);
     }
 
-
-    .complete-button.done {
-      background:var(--success);
+    .notion-line:last-child {
+      border-bottom: none;
     }
 
-
-    .next-button {
-      display:none;
-
-      background:var(--navy);
-      color:white;
-
-      font-weight:bold;
+    .strategy-box {
+      padding: 16px;
+      margin-top: 18px;
+      background: var(--soft-green);
+      border-radius: var(--radius-medium);
+      color: var(--navy);
+      text-align: left;
+      line-height: 1.7;
     }
 
-
-    .retry-button {
-      background:var(--soft-beige);
-      color:var(--navy);
+    .next-step-button {
+      width: 100%;
+      margin-top: 18px;
+      background: var(--jade);
+      color: white;
+      font-weight: bold;
     }
 
-
-    .back-button {
-      background:var(--soft-beige);
-      color:var(--navy);
+    .chapter-button {
+      width: 100%;
+      margin-top: 10px;
+      background: var(--soft-beige);
+      color: var(--navy);
     }
-
   </style>
-
   <script src="profile.js"></script>
 </head>
 
-
 <body>
 
-
 <main class="app">
-
 
   <a
     class="back-link"
     href="ecoute-21.html"
   >
-    ← Écoute
+    ← J'écoute
   </a>
-
 
 
   <header class="exercise-header">
 
     <span class="chapter-badge">
-      Chapitre 21 · 🎧 Je vérifie mon écoute
+      Chapitre 21 · Mini défi
     </span>
 
-
     <p class="korean">
-      같이 갈래요? 🌸
+      잘 들어 보세요 🎧
     </p>
 
-
     <h1>
-      Comprendre une invitation
+      Mini défi d'écoute
     </h1>
 
-
     <p>
-      Écoute chaque phrase et choisis ce que tu comprends.
+      Écoute chaque phrase et repère
+      l'origine, le métier, les loisirs ou l'idée de « aussi ».
     </p>
 
   </header>
 
-  <section id="hanaChapterPath" data-chapter-path></section>
+  <section
+    id="hanaChapterPath"
+    data-chapter-path
+  ></section>
 
 
+  <div class="exercise-progress">
 
-  <section class="exercise-card">
+    <div class="progress-info">
+      <span>Compréhension orale</span>
+      <span id="progressLabel">1 / 5</span>
+    </div>
 
-    <div
-      class="question-block"
-      data-question="1"
-      data-correct="b"
-    >
+    <div class="progress-bar">
+      <div
+        class="progress-fill"
+        id="progressFill"
+      ></div>
+    </div>
 
-      <div class="question-title">
-        1. Que propose Min-su ?
+  </div>
+
+
+  <!-- QUESTION 1 -->
+
+  <section class="exercise-card" id="question1">
+
+    <p class="question-number">
+      Question 1 / 5
+    </p>
+
+    <h2>
+      🌍 D'où viens-tu ?
+    </h2>
+
+    <div class="audio-zone">
+
+      <div class="audio-icon">🎧</div>
+
+      <div class="audio-note">
+        Écoute la question de Ji-Soo.
       </div>
 
-
       <button
-        class="audio-button"
+        class="audio-main"
         type="button"
-        data-audio="아나 씨, 오늘 같이 놀러 갈래요?"
+        onclick="speakKorean('어느 나라에서 왔어요?', false)"
       >
         🔊 Écouter
       </button>
 
-
-      <div class="answer-list">
-
-        <button
-          class="answer-button"
-          type="button"
-          data-answer="a"
-        >
-          A. Travailler ensemble aujourd'hui
-        </button>
-
-        <button
-          class="answer-button"
-          type="button"
-          data-answer="b"
-        >
-          B. Sortir ensemble aujourd'hui
-        </button>
-
-        <button
-          class="answer-button"
-          type="button"
-          data-answer="c"
-        >
-          C. Se retrouver demain
-        </button>
-
-      </div>
-
-
-      <div class="feedback"></div>
-
-    </div>
-
-
-
-    <div
-      class="question-block"
-      data-question="2"
-      data-correct="c"
-    >
-
-      <div class="question-title">
-        2. Où Min-su propose-t-il d'aller ?
-      </div>
-
-
       <button
-        class="audio-button"
+        class="slow-button"
         type="button"
-        data-audio="한강 공원에 갈까요?"
+        onclick="speakKorean('어느 나라에서 왔어요?', true)"
       >
-        🔊 Écouter
+        🐢 Écouter lentement
       </button>
 
-
-      <div class="answer-list">
-
-        <button
-          class="answer-button"
-          type="button"
-          data-answer="a"
-        >
-          A. Au café
-        </button>
-
-        <button
-          class="answer-button"
-          type="button"
-          data-answer="b"
-        >
-          B. Au cinéma
-        </button>
-
-        <button
-          class="answer-button"
-          type="button"
-          data-answer="c"
-        >
-          C. Au parc de la rivière Han
-        </button>
-
-      </div>
-
-
-      <div class="feedback"></div>
-
     </div>
 
+    <p class="question-text">
+      Que demande Ji-Soo ?
+    </p>
 
-
-    <div
-      class="question-block"
-      data-question="3"
-      data-correct="a"
-    >
-
-      <div class="question-title">
-        3. Que demande Ana ?
-      </div>
-
+    <div class="answers">
 
       <button
-        class="audio-button"
+        class="answer"
         type="button"
-        data-audio="좋아요! 몇 시에 만날까요?"
+        onclick="checkAnswer(1, this, true)"
       >
-        🔊 Écouter
+        De quel pays venez-vous ?
       </button>
-
-
-      <div class="answer-list">
-
-        <button
-          class="answer-button"
-          type="button"
-          data-answer="a"
-        >
-          A. À quelle heure ils se retrouvent
-        </button>
-
-        <button
-          class="answer-button"
-          type="button"
-          data-answer="b"
-        >
-          B. Quel jour ils se retrouvent
-        </button>
-
-        <button
-          class="answer-button"
-          type="button"
-          data-answer="c"
-        >
-          C. Ce qu'ils vont manger
-        </button>
-
-      </div>
-
-
-      <div class="feedback"></div>
-
-    </div>
-
-
-
-    <div
-      class="question-block"
-      data-question="4"
-      data-correct="b"
-    >
-
-      <div class="question-title">
-        4. À quelle heure ont-ils rendez-vous ?
-      </div>
-
 
       <button
-        class="audio-button"
+        class="answer"
         type="button"
-        data-audio="오후 두 시에 만나요."
+        onclick="checkAnswer(1, this, false)"
       >
-        🔊 Écouter
+        Où travaillez-vous ?
       </button>
-
-
-      <div class="answer-list">
-
-        <button
-          class="answer-button"
-          type="button"
-          data-answer="a"
-        >
-          A. À midi
-        </button>
-
-        <button
-          class="answer-button"
-          type="button"
-          data-answer="b"
-        >
-          B. À 14 h
-        </button>
-
-        <button
-          class="answer-button"
-          type="button"
-          data-answer="c"
-        >
-          C. À 16 h
-        </button>
-
-      </div>
-
-
-      <div class="feedback"></div>
-
-    </div>
-
-
-
-    <div
-      class="question-block"
-      data-question="5"
-      data-correct="c"
-    >
-
-      <div class="question-title">
-        5. Que signifie surtout 갈까요? dans ce dialogue ?
-      </div>
-
 
       <button
-        class="audio-button"
+        class="answer"
         type="button"
-        data-audio="어디에 갈까요?"
+        onclick="checkAnswer(1, this, false)"
       >
-        🔊 Écouter
+        Quels sont vos loisirs ?
       </button>
 
-
-      <div class="answer-list">
-
-        <button
-          class="answer-button"
-          type="button"
-          data-answer="a"
-        >
-          A. « Tu veux absolument y aller ? »
-        </button>
-
-        <button
-          class="answer-button"
-          type="button"
-          data-answer="b"
-        >
-          B. « J'y vais tout de suite. »
-        </button>
-
-        <button
-          class="answer-button"
-          type="button"
-          data-answer="c"
-        >
-          C. « Et si on y allait ? / Où allons-nous ? »
-        </button>
-
-      </div>
-
-
-      <div class="feedback"></div>
-
     </div>
+
+    <div class="feedback" id="feedback1"></div>
+
+    <button
+      class="next-question"
+      id="next1"
+      type="button"
+      onclick="showQuestion(2)"
+    >
+      Question suivante →
+    </button>
 
   </section>
 
 
+  <!-- QUESTION 2 -->
+
+  <section class="exercise-card hidden" id="question2">
+
+    <p class="question-number">
+      Question 2 / 5
+    </p>
+
+    <h2>
+      💼 Le métier
+    </h2>
+
+    <div class="audio-zone">
+
+      <div class="audio-icon">🎧</div>
+
+      <div class="audio-note">
+        Repère surtout 일.
+      </div>
+
+      <button
+        class="audio-main"
+        type="button"
+        onclick="speakKorean('무슨 일을 하세요?', false)"
+      >
+        🔊 Écouter
+      </button>
+
+      <button
+        class="slow-button"
+        type="button"
+        onclick="speakKorean('무슨 일을 하세요?', true)"
+      >
+        🐢 Écouter lentement
+      </button>
+
+    </div>
+
+    <p class="question-text">
+      Que demande cette phrase ?
+    </p>
+
+    <div class="answers">
+
+      <button
+        class="answer"
+        type="button"
+        onclick="checkAnswer(2, this, false)"
+      >
+        Quel pays aimez-vous ?
+      </button>
+
+      <button
+        class="answer"
+        type="button"
+        onclick="checkAnswer(2, this, true)"
+      >
+        Quel est votre métier ?
+      </button>
+
+      <button
+        class="answer"
+        type="button"
+        onclick="checkAnswer(2, this, false)"
+      >
+        Quel café aimez-vous ?
+      </button>
+
+    </div>
+
+    <div class="feedback" id="feedback2"></div>
+
+    <button
+      class="next-question"
+      id="next2"
+      type="button"
+      onclick="showQuestion(3)"
+    >
+      Question suivante →
+    </button>
+
+  </section>
+
+
+  <!-- QUESTION 3 -->
+
+  <section class="exercise-card hidden" id="question3">
+
+    <p class="question-number">
+      Question 3 / 5
+    </p>
+
+    <h2>
+      🏢 Où se déroule l'action ?
+    </h2>
+
+    <div class="audio-zone">
+
+      <div class="audio-icon">🎧</div>
+
+      <div class="audio-note">
+        Écoute 회사에서 일해요.
+      </div>
+
+      <button
+        class="audio-main"
+        type="button"
+        onclick="speakKorean('회사에서 일해요.', false)"
+      >
+        🔊 Écouter
+      </button>
+
+      <button
+        class="slow-button"
+        type="button"
+        onclick="speakKorean('회사에서 일해요.', true)"
+      >
+        🐢 Écouter lentement
+      </button>
+
+    </div>
+
+    <p class="question-text">
+      Que dit Ana ?
+    </p>
+
+    <div class="answers">
+
+      <button
+        class="answer"
+        type="button"
+        onclick="checkAnswer(3, this, true)"
+      >
+        Je travaille dans une entreprise.
+      </button>
+
+      <button
+        class="answer"
+        type="button"
+        onclick="checkAnswer(3, this, false)"
+      >
+        Je vais dans une entreprise.
+      </button>
+
+      <button
+        class="answer"
+        type="button"
+        onclick="checkAnswer(3, this, false)"
+      >
+        J'aime mon entreprise.
+      </button>
+
+    </div>
+
+    <div class="feedback" id="feedback3"></div>
+
+    <button
+      class="next-question"
+      id="next3"
+      type="button"
+      onclick="showQuestion(4)"
+    >
+      Question suivante →
+    </button>
+
+  </section>
+
+
+  <!-- QUESTION 4 -->
+
+  <section class="exercise-card hidden" id="question4">
+
+    <p class="question-number">
+      Question 4 / 5
+    </p>
+
+    <h2>
+      🎨 Les loisirs
+    </h2>
+
+    <div class="audio-zone">
+
+      <div class="audio-icon">🎧</div>
+
+      <div class="audio-note">
+        Repère 취미.
+      </div>
+
+      <button
+        class="audio-main"
+        type="button"
+        onclick="speakKorean('취미가 뭐예요?', false)"
+      >
+        🔊 Écouter
+      </button>
+
+      <button
+        class="slow-button"
+        type="button"
+        onclick="speakKorean('취미가 뭐예요?', true)"
+      >
+        🐢 Écouter lentement
+      </button>
+
+    </div>
+
+    <p class="question-text">
+      Que demande Ji-Soo ?
+    </p>
+
+    <div class="answers">
+
+      <button
+        class="answer"
+        type="button"
+        onclick="checkAnswer(4, this, false)"
+      >
+        Quel est votre métier ?
+      </button>
+
+      <button
+        class="answer"
+        type="button"
+        onclick="checkAnswer(4, this, true)"
+      >
+        Quels sont vos loisirs ?
+      </button>
+
+      <button
+        class="answer"
+        type="button"
+        onclick="checkAnswer(4, this, false)"
+      >
+        Où habitez-vous ?
+      </button>
+
+    </div>
+
+    <div class="feedback" id="feedback4"></div>
+
+    <button
+      class="next-question"
+      id="next4"
+      type="button"
+      onclick="showQuestion(5)"
+    >
+      Dernière question →
+    </button>
+
+  </section>
+
+
+  <!-- QUESTION 5 -->
+
+  <section class="exercise-card hidden" id="question5">
+
+    <p class="question-number">
+      Question 5 / 5
+    </p>
+
+    <h2>
+      🤝 Trouver un point commun
+    </h2>
+
+    <div class="audio-zone">
+
+      <div class="audio-icon">🎧</div>
+
+      <div class="audio-note">
+        Écoute bien 저도.
+      </div>
+
+      <button
+        class="audio-main"
+        type="button"
+        onclick="speakKorean('저도 커피를 좋아해요.', false)"
+      >
+        🔊 Écouter
+      </button>
+
+      <button
+        class="slow-button"
+        type="button"
+        onclick="speakKorean('저도 커피를 좋아해요.', true)"
+      >
+        🐢 Écouter lentement
+      </button>
+
+    </div>
+
+    <p class="question-text">
+      Que signifie cette phrase ?
+    </p>
+
+    <div class="answers">
+
+      <button
+        class="answer"
+        type="button"
+        onclick="checkAnswer(5, this, false)"
+      >
+        Je n'aime pas le café.
+      </button>
+
+      <button
+        class="answer"
+        type="button"
+        onclick="checkAnswer(5, this, true)"
+      >
+        Moi aussi, j'aime le café.
+      </button>
+
+      <button
+        class="answer"
+        type="button"
+        onclick="checkAnswer(5, this, false)"
+      >
+        J'aime seulement le café.
+      </button>
+
+    </div>
+
+    <div class="feedback" id="feedback5"></div>
+
+    <button
+      class="next-question"
+      id="next5"
+      type="button"
+      onclick="finishExercise()"
+    >
+      Voir mon résultat 🌿
+    </button>
+
+  </section>
+
+
+  <!-- RÉSULTAT -->
 
   <section
     class="result-card"
     id="resultCard"
   >
 
+    <div class="result-icon">
+      🎧👋
+    </div>
+
     <h2>
-      🌸 Résultat
+      잘했어요!
     </h2>
 
+    <p>
+      Tu as terminé le mini défi d'écoute du chapitre 21.
+    </p>
 
-    <div
-      class="result-score"
-      id="resultScore"
-    >
-      0 / 5
+    <p class="result-score">
+      5 expressions pour faire connaissance reconnues ✅
+    </p>
+
+
+    <div class="result-summary">
+
+      <strong>
+        📊 Ta séance
+      </strong>
+
+      <p id="attemptText"></p>
+
     </div>
 
 
-    <p
-      id="resultMessage"
-    ></p>
+    <div class="notion-summary">
+
+      <div class="notion-line">
+        🌍 <strong>어느 나라에서 왔어요?</strong> → De quel pays venez-vous ?
+      </div>
+
+      <div class="notion-line">
+        💼 <strong>무슨 일을 하세요?</strong> → Quel est votre métier ?
+      </div>
+
+      <div class="notion-line">
+        🏢 <strong>회사에서 일해요.</strong> → Je travaille dans une entreprise.
+      </div>
+
+      <div class="notion-line">
+        🎨 <strong>취미가 뭐예요?</strong> → Quels sont vos loisirs ?
+      </div>
+
+      <div class="notion-line">
+        🤝 <strong>저도 커피를 좋아해요.</strong> → Moi aussi, j'aime le café.
+      </div>
+
+    </div>
+
+
+    <div class="strategy-box">
+
+      <strong>
+        🧠 Stratégie d'écoute
+      </strong>
+
+      <br><br>
+
+      Repère quelques mots-clés :
+
+      <br><br>
+
+      <strong>나라</strong> → pays
+
+      <br>
+
+      <strong>일</strong> → travail
+
+      <br>
+
+      <strong>회사</strong> → entreprise
+
+      <br>
+
+      <strong>취미</strong> → loisir
+
+      <br>
+
+      <strong>저도</strong> → moi aussi
+
+    </div>
 
 
     <button
-      class="retry-button"
-      id="retryButton"
+      class="next-step-button"
       type="button"
+      onclick="window.location.href='parle-21.html'"
     >
-      🔄 Refaire l'exercice
+      🗣️ Passer à « Je parle »
+    </button>
+
+
+    <button
+      class="chapter-button"
+      type="button"
+      onclick="window.location.href='chapitre-21.html'"
+    >
+      Retour au chapitre
     </button>
 
   </section>
 
-
-
-  <section class="tip-card">
-
-    <h2>
-      💡 À retenir
-    </h2>
-
-    <strong>갈래요?</strong>
-    demande plutôt l'envie de l'autre personne.
-
-    <br><br>
-
-    <strong>갈까요?</strong>
-    sert plutôt à proposer ou décider ensemble.
-
-  </section>
-
-
-
-  <button
-    class="complete-button"
-    id="completeButton"
-    type="button"
-  >
-    ✅ Valider l'exercice d'écoute
-  </button>
-
-
-  <button
-    class="next-button"
-    id="nextButton"
-    type="button"
-  >
-    🗣️ Passer à l'oral
-  </button>
-
-
-  <button
-    class="back-button"
-    type="button"
-    onclick="window.location.href='ecoute-21.html'"
-  >
-    ← Retour à l'écoute
-  </button>
-
-
 </main>
 
 
-
-<script src="chapter-progress.js">
-  renderChapterProgress();
-
-  window.addEventListener("pageshow", () => {
-    guardListeningExerciseAccess();
-    renderChapterProgress();
-  });
-
-</script>
+<script src="chapter-progress.js"></script>
 
 <script>
 
-  const AUDIO_SETTINGS = {
-    normalRate: 0.82
-  };
+  const CHAPTER = 20;
 
-
-  const progressKey =
-    "hanaKorean_chapter21_listeningExercise";
-
-  const understandingKey =
+  const UNDERSTANDING_KEY =
     "hanaKorean_chapter21_understanding";
 
-  const listeningKey =
+  const LISTENING_KEY =
     "hanaKorean_chapter21_listening";
 
-  const listeningMistakesKey =
+  const LISTENING_EXERCISE_KEY =
+    "hanaKorean_chapter21_listeningExercise";
+
+  const LISTENING_MISTAKES_KEY =
     "hanaKorean_chapter21_listeningMistakes";
 
-  let incorrectAttempts = 0;
+  function guardListeningExerciseAccess() {
+    if (
+      localStorage.getItem(
+        UNDERSTANDING_KEY
+      ) !== "completed"
+    ) {
+      window.location.replace(
+        "chapitre-21.html"
+      );
+      return false;
+    }
 
+    if (
+      localStorage.getItem(
+        LISTENING_KEY
+      ) === null
+    ) {
+      window.location.replace(
+        "ecoute-21.html"
+      );
+      return false;
+    }
+
+    return true;
+  }
 
   function renderChapterProgress() {
     if (
@@ -672,67 +877,16 @@
     }
   }
 
-  function guardListeningExerciseAccess() {
-    if (localStorage.getItem(understandingKey) !== "completed") {
-      window.location.replace("chapitre-21.html");
-      return false;
-    }
-
-    if (localStorage.getItem(listeningKey) === null) {
-      window.location.replace("ecoute-21.html");
-      return false;
-    }
-
-    return true;
-  }
+  let incorrectAttempts = 0;
 
 
-
-  let currentAudioButton = null;
-
-
-  const questionBlocks =
-    Array.from(
-      document.querySelectorAll(
-        ".question-block"
-      )
-    );
-
-
-  const resultCard =
-    document.getElementById(
-      "resultCard"
-    );
-
-
-  const resultScore =
-    document.getElementById(
-      "resultScore"
-    );
-
-
-  const resultMessage =
-    document.getElementById(
-      "resultMessage"
-    );
-
-
-  const retryButton =
-    document.getElementById(
-      "retryButton"
-    );
-
-
-  const completeButton =
-    document.getElementById(
-      "completeButton"
-    );
-
-
-  const nextButton =
-    document.getElementById(
-      "nextButton"
-    );
+  const completedQuestions = {
+    1: false,
+    2: false,
+    3: false,
+    4: false,
+    5: false
+  };
 
 
   function getKoreanVoice() {
@@ -747,502 +901,625 @@
         voice.lang
           .toLowerCase()
           .startsWith("ko")
-    ) || null;
+    );
 
   }
 
 
-  function stopSpeech() {
+  function speakKorean(
+    text,
+    slow = false
+  ) {
+
+    if (
+      !("speechSynthesis" in window)
+    ) {
+      return;
+    }
+
 
     window.speechSynthesis.cancel();
 
 
-    if (
-      currentAudioButton
-    ) {
-
-      currentAudioButton
-        .classList
-        .remove(
-          "playing"
-        );
-
-
-      currentAudioButton.textContent =
-        "🔊 Écouter";
-
-
-      currentAudioButton =
-        null;
-
-    }
-
-  }
-
-
-  function speak(
-    text,
-    button
-  ) {
-
-    if (
-      currentAudioButton === button &&
-      window.speechSynthesis.speaking
-    ) {
-
-      stopSpeech();
-      return;
-
-    }
-
-
-    stopSpeech();
-
-
-    const utterance =
+    const speech =
       new SpeechSynthesisUtterance(
         text
       );
 
 
-    utterance.lang =
+    speech.lang =
       "ko-KR";
 
-    utterance.rate =
-      AUDIO_SETTINGS.normalRate;
 
-    utterance.pitch =
+    speech.rate =
+      slow
+        ? 0.25
+        : 0.82;
+
+
+    speech.pitch =
       1;
 
 
-    const koreanVoice =
+    const voice =
       getKoreanVoice();
 
 
-    if (
-      koreanVoice
-    ) {
+    if (voice) {
 
-      utterance.voice =
-        koreanVoice;
+      speech.voice =
+        voice;
 
     }
 
 
-    currentAudioButton =
-      button;
-
-
-    button
-      .classList
-      .add(
-        "playing"
-      );
-
-
-    button.textContent =
-      "⏹️ Stop";
-
-
-    utterance.onend =
-      () => {
-
-        button
-          .classList
-          .remove(
-            "playing"
-          );
-
-
-        button.textContent =
-          "🔊 Écouter";
-
-
-        currentAudioButton =
-          null;
-
-      };
-
-
-    utterance.onerror =
-      stopSpeech;
-
-
     window.speechSynthesis.speak(
-      utterance
+      speech
     );
 
   }
 
 
-  document
-    .querySelectorAll(
-      "[data-audio]"
-    )
-    .forEach(
-      button => {
+  function playOriginalMetroChime() {
 
-        button.addEventListener(
-          "click",
-          () => {
+    return new Promise(
+      resolve => {
 
-            speak(
-              button.dataset.audio,
-              button
-            );
+        try {
+
+          const AudioContext =
+            window.AudioContext ||
+            window.webkitAudioContext;
+
+
+          if (!AudioContext) {
+
+            resolve();
+
+            return;
 
           }
-        );
+
+
+          const context =
+            new AudioContext();
+
+
+          const notes = [
+            {
+              frequency: 659.25,
+              start: 0,
+              duration: 0.18
+            },
+            {
+              frequency: 783.99,
+              start: 0.20,
+              duration: 0.22
+            }
+          ];
+
+
+          notes.forEach(
+            note => {
+
+              const oscillator =
+                context.createOscillator();
+
+
+              const gain =
+                context.createGain();
+
+
+              oscillator.type =
+                "sine";
+
+
+              oscillator.frequency.value =
+                note.frequency;
+
+
+              gain.gain.setValueAtTime(
+                0.0001,
+                context.currentTime +
+                  note.start
+              );
+
+
+              gain.gain.exponentialRampToValueAtTime(
+                0.12,
+                context.currentTime +
+                  note.start +
+                  0.02
+              );
+
+
+              gain.gain.exponentialRampToValueAtTime(
+                0.0001,
+                context.currentTime +
+                  note.start +
+                  note.duration
+              );
+
+
+              oscillator.connect(
+                gain
+              );
+
+
+              gain.connect(
+                context.destination
+              );
+
+
+              oscillator.start(
+                context.currentTime +
+                  note.start
+              );
+
+
+              oscillator.stop(
+                context.currentTime +
+                  note.start +
+                  note.duration +
+                  0.02
+              );
+
+            }
+          );
+
+
+          window.setTimeout(
+            function() {
+
+              try {
+                context.close();
+              }
+              catch (error) {
+              }
+
+              resolve();
+
+            },
+            520
+          );
+
+        }
+
+        catch (error) {
+
+          resolve();
+
+        }
 
       }
     );
 
-
-  function answeredCount() {
-
-    return questionBlocks.filter(
-      block =>
-        block.dataset.answered ===
-        "true"
-    ).length;
-
   }
 
 
-  function correctCount() {
-
-    return questionBlocks.filter(
-      block =>
-        block.dataset.isCorrect ===
-        "true"
-    ).length;
-
-  }
-
-
-  function showResultsIfComplete() {
+  async function playMetroAnnouncement(
+    text,
+    slow = false
+  ) {
 
     if (
-      answeredCount() !==
-      questionBlocks.length
+      "speechSynthesis" in window
     ) {
+
+      window.speechSynthesis.cancel();
+
+    }
+
+
+    await playOriginalMetroChime();
+
+
+    speakKorean(
+      text,
+      slow
+    );
+
+  }
+
+
+  function checkAnswer(
+    number,
+    button,
+    isCorrect
+  ) {
+
+    if (
+      completedQuestions[number]
+    ) {
+      return;
+    }
+
+
+    const feedback =
+      document.getElementById(
+        "feedback" + number
+      );
+
+
+    const question =
+      document.getElementById(
+        "question" + number
+      );
+
+
+    const answers =
+      question.querySelectorAll(
+        ".answer"
+      );
+
+
+    if (isCorrect) {
+
+      completedQuestions[number] =
+        true;
+
+
+      button.classList.add(
+        "correct"
+      );
+
+
+      feedback.className =
+        "feedback correct";
+
+
+      if (number === 1) {
+
+        feedback.innerHTML =
+          "✅ <strong>Exact !</strong>" +
+          "<br><br>" +
+          "Tu as entendu :" +
+          "<div class='heard-question'>어느 나라에서 왔어요?</div>" +
+          "<strong>어느 나라</strong> = quel pays.";
+
+      }
+
+
+      if (number === 2) {
+
+        feedback.innerHTML =
+          "✅ <strong>Très bien !</strong>" +
+          "<br><br>" +
+          "Tu as entendu :" +
+          "<div class='heard-question'>무슨 일을 하세요?</div>" +
+          "<strong>일</strong> signifie « travail ».";
+
+      }
+
+
+      if (number === 3) {
+
+        feedback.innerHTML =
+          "✅ <strong>Exact !</strong>" +
+          "<br><br>" +
+          "Tu as entendu :" +
+          "<div class='heard-question'>회사에서 일해요.</div>" +
+          "<strong>에서</strong> indique ici le lieu où l'action se déroule.";
+
+      }
+
+
+      if (number === 4) {
+
+        feedback.innerHTML =
+          "✅ <strong>Très bien !</strong>" +
+          "<br><br>" +
+          "Tu as entendu :" +
+          "<div class='heard-question'>취미가 뭐예요?</div>" +
+          "<strong>취미</strong> = loisir.";
+
+      }
+
+
+      if (number === 5) {
+
+        feedback.innerHTML =
+          "✅ <strong>Parfait !</strong>" +
+          "<br><br>" +
+          "Tu as entendu :" +
+          "<div class='heard-question'>저도 커피를 좋아해요.</div>" +
+          "<strong>저도</strong> signifie ici « moi aussi ».";
+
+      }
+
+
+      answers.forEach(
+        answer => {
+
+          answer.disabled =
+            true;
+
+        }
+      );
+
+
+      document.getElementById(
+        "next" + number
+      ).style.display =
+        "block";
+
 
       return;
 
     }
 
 
-    const score =
-      correctCount();
+    incorrectAttempts++;
 
 
-    resultScore.textContent =
-      score +
-      " / " +
-      questionBlocks.length;
+    button.classList.add(
+      "wrong"
+    );
 
 
-    if (
-      score === 5
-    ) {
+    feedback.className =
+      "feedback wrong";
 
-      resultMessage.textContent =
-        "Excellent 🌸 Tu as très bien compris le dialogue.";
 
-    } else if (
-      score >= 4
-    ) {
+    if (number === 1) {
 
-      resultMessage.textContent =
-        "Très bien 🌿 Une petite réécoute et ce sera parfait.";
-
-    } else {
-
-      resultMessage.textContent =
-        "Réécoute les phrases tranquillement puis essaie encore. Les erreurs servent à repérer ce qu'il faut retravailler.";
+      feedback.innerHTML =
+        "❌ <strong>Repère 나라.</strong>" +
+        "<br><br>" +
+        "💡 <strong>어느 나라에서 왔어요?</strong> = De quel pays venez-vous ?";
 
     }
 
 
-    resultCard
-      .classList
-      .add(
-        "show"
-      );
+    if (number === 2) {
+
+      feedback.innerHTML =
+        "❌ <strong>Repère 일.</strong>" +
+        "<br><br>" +
+        "💡 <strong>무슨 일을 하세요?</strong> sert à demander le métier.";
+
+    }
 
 
-    completeButton
-      .classList
-      .add(
-        "show"
-      );
+    if (number === 3) {
+
+      feedback.innerHTML =
+        "❌ <strong>Repère 회사에서 일해요.</strong>" +
+        "<br><br>" +
+        "💡 <strong>일해요</strong> = je travaille.";
+
+    }
+
+
+    if (number === 4) {
+
+      feedback.innerHTML =
+        "❌ <strong>Repère 취미.</strong>" +
+        "<br><br>" +
+        "💡 <strong>취미가 뭐예요?</strong> = Quels sont vos loisirs ?";
+
+    }
+
+
+    if (number === 5) {
+
+      feedback.innerHTML =
+        "❌ <strong>Repère 저도.</strong>" +
+        "<br><br>" +
+        "💡 <strong>저도</strong> = moi aussi.";
+
+    }
+
+
+    setTimeout(
+      () => {
+
+        button.classList.remove(
+          "wrong"
+        );
+
+      },
+      800
+    );
 
   }
 
 
-  questionBlocks.forEach(
-    block => {
+  function showQuestion(number) {
 
-      const correct =
-        block.dataset.correct;
+    if (
+      "speechSynthesis" in window
+    ) {
 
+      window.speechSynthesis.cancel();
 
-      const feedback =
-        block.querySelector(
-          ".feedback"
-        );
+    }
 
 
-      const buttons =
-        block.querySelectorAll(
-          ".answer-button"
-        );
+    document
+      .querySelectorAll(
+        ".exercise-card"
+      )
+      .forEach(
+        card => {
 
-
-      buttons.forEach(
-        button => {
-
-          button.addEventListener(
-            "click",
-            () => {
-
-              if (
-                block.dataset.answered ===
-                "true"
-              ) {
-
-                return;
-
-              }
-
-
-              const answer =
-                button.dataset.answer;
-
-
-              if (
-                answer === correct
-              ) {
-
-                block.dataset.answered =
-                  "true";
-
-                block.dataset.isCorrect =
-                  "true";
-
-
-                button
-                  .classList
-                  .add(
-                    "correct"
-                  );
-
-
-                feedback.className =
-                  "feedback show success";
-
-
-                feedback.textContent =
-                  "✅ Exact !";
-
-
-                buttons.forEach(
-                  item =>
-                    item.disabled =
-                      true
-                );
-
-
-                showResultsIfComplete();
-
-              } else {
-
-                button
-                  .classList
-                  .add(
-                    "wrong"
-                  );
-
-
-                feedback.className =
-                  "feedback show error";
-
-
-                incorrectAttempts++;
-
-                feedback.textContent =
-                  "Pas encore. Réécoute la phrase et essaie une autre réponse.";
-
-
-                button.disabled =
-                  true;
-
-              }
-
-            }
+          card.classList.add(
+            "hidden"
           );
 
         }
       );
 
+
+    document.getElementById(
+      "question" + number
+    ).classList.remove(
+      "hidden"
+    );
+
+
+    const percentages = {
+      1: 20,
+      2: 40,
+      3: 60,
+      4: 80,
+      5: 100
+    };
+
+
+    document.getElementById(
+      "progressFill"
+    ).style.width =
+      percentages[number] +
+      "%";
+
+
+    document.getElementById(
+      "progressLabel"
+    ).textContent =
+      number +
+      " / 5";
+
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+
+  }
+
+
+  function finishExercise() {
+
+    if (
+      "speechSynthesis" in window
+    ) {
+
+      window.speechSynthesis.cancel();
+
     }
-  );
 
 
-  retryButton.addEventListener(
-    "click",
-    () => {
+    document
+      .querySelectorAll(
+        ".exercise-card"
+      )
+      .forEach(
+        card => {
 
-      stopSpeech();
-
-
-      questionBlocks.forEach(
-        block => {
-
-          delete block.dataset.answered;
-          delete block.dataset.isCorrect;
-
-
-          const feedback =
-            block.querySelector(
-              ".feedback"
-            );
-
-
-          feedback.className =
-            "feedback";
-
-
-          feedback.textContent =
-            "";
-
-
-          block
-            .querySelectorAll(
-              ".answer-button"
-            )
-            .forEach(
-              button => {
-
-                button.disabled =
-                  false;
-
-
-                button
-                  .classList
-                  .remove(
-                    "correct",
-                    "wrong"
-                  );
-
-              }
-            );
+          card.classList.add(
+            "hidden"
+          );
 
         }
       );
 
 
-      resultCard
-        .classList
-        .remove(
-          "show"
-        );
+    document.getElementById(
+      "progressFill"
+    ).style.width =
+      "100%";
 
 
-      completeButton
-        .classList
-        .remove(
-          "show"
-        );
-
-    }
-  );
+    document.getElementById(
+      "progressLabel"
+    ).textContent =
+      "5 / 5";
 
 
-  function showCompletedState() {
-
-    completeButton.textContent =
-      "✅ Exercice d'écoute terminé";
-
-
-    completeButton
-      .classList
-      .add(
-        "show",
-        "done"
-      );
-
-
-    nextButton.style.display =
+    document.getElementById(
+      "resultCard"
+    ).style.display =
       "block";
 
+
+    let message = "";
+
+
+    if (
+      incorrectAttempts === 0
+    ) {
+
+      message =
+        "🌟 Tu as reconnu les 5 éléments du premier coup.";
+
+    }
+
+    else if (
+      incorrectAttempts === 1
+    ) {
+
+      message =
+        "💡 1 tentative incorrecte, puis les 5 éléments ont été reconnus.";
+
+    }
+
+    else {
+
+      message =
+        "💡 " +
+        incorrectAttempts +
+        " tentatives incorrectes. Les 5 éléments ont malgré tout été validés.";
+
+    }
+
+
+    document.getElementById(
+      "attemptText"
+    ).textContent =
+      message;
+
+
+    localStorage.setItem(
+      LISTENING_KEY,
+      "completed"
+    );
+
+    localStorage.setItem(
+      LISTENING_EXERCISE_KEY,
+      "completed"
+    );
+
+    localStorage.setItem(
+      LISTENING_MISTAKES_KEY,
+      String(incorrectAttempts)
+    );
+
+    renderChapterProgress();
+
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+
   }
 
-
-  guardListeningExerciseAccess();
 
   if (
-    localStorage.getItem(
-      progressKey
-    ) === "completed"
+    "speechSynthesis" in window
   ) {
 
-    showCompletedState();
+    window.speechSynthesis.onvoiceschanged =
+      function() {
+
+        window.speechSynthesis.getVoices();
+
+      };
 
   }
 
 
-  completeButton.addEventListener(
-    "click",
-    () => {
+  if (guardListeningExerciseAccess()) {
+    renderChapterProgress();
 
-      localStorage.setItem(
-        progressKey,
-        "completed"
-      );
-
-      localStorage.setItem(
-        listeningKey,
-        "completed"
-      );
-
-      localStorage.setItem(
-        listeningMistakesKey,
-        String(incorrectAttempts)
-      );
-
-      showCompletedState();
-      renderChapterProgress();
-
-    }
-  );
-
-
-  nextButton.addEventListener(
-    "click",
-    () => {
-
-      stopSpeech();
-
-
-      window.location.href =
-        "parle-21.html";
-
-    }
-  );
-
-
-  window.addEventListener(
-    "beforeunload",
-    stopSpeech
-  );
-
-
-  window.speechSynthesis.onvoiceschanged =
-    () => {
-      getKoreanVoice();
-    };
-
+    window.addEventListener(
+      "pageshow",
+      function() {
+        renderChapterProgress();
+      }
+    );
+  }
 </script>
 </body>
 

@@ -241,6 +241,8 @@
 
 <main class="app">
 
+  <section id="hanaChapterPath" data-chapter-path></section>
+
   <a
     class="back-link"
     href="ecoute-14.html"
@@ -260,21 +262,15 @@
     </p>
 
     <h1>
-      Commander un café
+      Prendre les transports
     </h1>
 
     <p>
-      Écoute chaque phrase et repère
-      l'intention : chaud ou froid, sur place ou à emporter, prix ou paiement.
+      Écoute chaque phrase ou annonce et repère
+      la ligne, la correspondance ou la station.
     </p>
 
   </header>
-
-
-  <section
-    id="hanaChapterPath"
-    data-chapter-path
-  ></section>
 
 
   <div class="exercise-progress">
@@ -306,7 +302,7 @@
     </p>
 
     <h2>
-      🔥 Chaud ou froid ?
+      🚇 Quelle ligne ?
     </h2>
 
     <div class="audio-zone">
@@ -316,13 +312,13 @@
       </div>
 
       <div class="audio-note">
-        Écoute la question de Ji-eun.
+        Écoute la réponse de Monsieur Park.
       </div>
 
       <button
         class="audio-main"
         type="button"
-        onclick="speakKorean('뜨거운 커피요?', false)"
+        onclick="speakKorean('사호선을 타세요.', false)"
       >
         🔊 Écouter
       </button>
@@ -330,7 +326,7 @@
       <button
         class="slow-button"
         type="button"
-        onclick="speakKorean('뜨거운 커피요?', true)"
+        onclick="speakKorean('사호선을 타세요.', true)"
       >
         🐢 Écouter lentement
       </button>
@@ -338,7 +334,7 @@
     </div>
 
     <p class="question-text">
-      Que demande Ji-eun ?
+      Quelle ligne Ana doit-elle prendre ?
     </p>
 
     <div class="answers">
@@ -346,9 +342,17 @@
       <button
         class="answer"
         type="button"
+        onclick="checkAnswer(1, this, false)"
+      >
+        La ligne 2
+      </button>
+
+      <button
+        class="answer"
+        type="button"
         onclick="checkAnswer(1, this, true)"
       >
-        Si Ana veut un café chaud.
+        La ligne 4
       </button>
 
       <button
@@ -356,15 +360,7 @@
         type="button"
         onclick="checkAnswer(1, this, false)"
       >
-        Si Ana veut un jus.
-      </button>
-
-      <button
-        class="answer"
-        type="button"
-        onclick="checkAnswer(1, this, false)"
-      >
-        Si Ana veut payer par carte.
+        La ligne 7
       </button>
 
     </div>
@@ -398,7 +394,7 @@
     </p>
 
     <h2>
-      🥤 Sur place ou à emporter ?
+      🔁 Comprends la correspondance
     </h2>
 
     <div class="audio-zone">
@@ -408,13 +404,13 @@
       </div>
 
       <div class="audio-note">
-        Repère surtout le mot 포장.
+        Repère le verbe important.
       </div>
 
       <button
         class="audio-main"
         type="button"
-        onclick="speakKorean('드시고 가세요? 포장이세요?', false)"
+        onclick="speakKorean('서울역에서 갈아타세요.', false)"
       >
         🔊 Écouter
       </button>
@@ -422,7 +418,7 @@
       <button
         class="slow-button"
         type="button"
-        onclick="speakKorean('드시고 가세요? 포장이세요?', true)"
+        onclick="speakKorean('서울역에서 갈아타세요.', true)"
       >
         🐢 Écouter lentement
       </button>
@@ -430,7 +426,7 @@
     </div>
 
     <p class="question-text">
-      Que veut savoir Ji-eun ?
+      Que doit faire Ana à Seoul Station ?
     </p>
 
     <div class="answers">
@@ -440,7 +436,7 @@
         type="button"
         onclick="checkAnswer(2, this, false)"
       >
-        Quel café Ana veut commander.
+        Descendre et sortir.
       </button>
 
       <button
@@ -448,7 +444,7 @@
         type="button"
         onclick="checkAnswer(2, this, true)"
       >
-        Si Ana consomme sur place ou à emporter.
+        Faire une correspondance.
       </button>
 
       <button
@@ -456,7 +452,7 @@
         type="button"
         onclick="checkAnswer(2, this, false)"
       >
-        Si Ana veut du sucre.
+        Prendre un bus.
       </button>
 
     </div>
@@ -490,7 +486,7 @@
     </p>
 
     <h2>
-      💰 Comprends le prix
+      🚪 Repère la sortie
     </h2>
 
     <div class="audio-zone">
@@ -500,13 +496,13 @@
       </div>
 
       <div class="audio-note">
-        Écoute le montant annoncé.
+        Écoute la question.
       </div>
 
       <button
         class="audio-main"
         type="button"
-        onclick="speakKorean('오천 원입니다.', false)"
+        onclick="speakKorean('몇 번 출구예요?', false)"
       >
         🔊 Écouter
       </button>
@@ -514,7 +510,7 @@
       <button
         class="slow-button"
         type="button"
-        onclick="speakKorean('오천 원입니다.', true)"
+        onclick="speakKorean('몇 번 출구예요?', true)"
       >
         🐢 Écouter lentement
       </button>
@@ -522,7 +518,7 @@
     </div>
 
     <p class="question-text">
-      Quel prix est annoncé ?
+      Que demande Ana ?
     </p>
 
     <div class="answers">
@@ -530,17 +526,9 @@
       <button
         class="answer"
         type="button"
-        onclick="checkAnswer(3, this, false)"
-      >
-        3 000 wons
-      </button>
-
-      <button
-        class="answer"
-        type="button"
         onclick="checkAnswer(3, this, true)"
       >
-        5 000 wons
+        Quelle sortie ?
       </button>
 
       <button
@@ -548,7 +536,15 @@
         type="button"
         onclick="checkAnswer(3, this, false)"
       >
-        10 000 wons
+        Quelle station ?
+      </button>
+
+      <button
+        class="answer"
+        type="button"
+        onclick="checkAnswer(3, this, false)"
+      >
+        Quelle ligne ?
       </button>
 
     </div>
@@ -582,31 +578,31 @@
     </p>
 
     <h2>
-      💳 Le moyen de paiement
+      📢 Reconnais la station actuelle
     </h2>
 
     <div class="audio-zone">
 
       <div class="audio-icon">
-        🎧
+        🚇
       </div>
 
       <div class="audio-note">
-        Repère le mot 카드.
+        Écoute l'annonce simulée du métro.
       </div>
 
       <button
         class="audio-main"
         type="button"
-        onclick="speakKorean('카드로 하시겠어요?', false)"
+        onclick="playMetroAnnouncement('이번 역은 명동역입니다.', false)"
       >
-        🔊 Écouter
+        🎵 Écouter l'annonce
       </button>
 
       <button
         class="slow-button"
         type="button"
-        onclick="speakKorean('카드로 하시겠어요?', true)"
+        onclick="playMetroAnnouncement('이번 역은 명동역입니다.', true)"
       >
         🐢 Écouter lentement
       </button>
@@ -614,7 +610,7 @@
     </div>
 
     <p class="question-text">
-      Que demande Ji-eun ?
+      Que dit l'annonce ?
     </p>
 
     <div class="answers">
@@ -622,9 +618,17 @@
       <button
         class="answer"
         type="button"
+        onclick="checkAnswer(4, this, false)"
+      >
+        La prochaine station est Myeong-dong.
+      </button>
+
+      <button
+        class="answer"
+        type="button"
         onclick="checkAnswer(4, this, true)"
       >
-        Si Ana paie par carte.
+        Cette station est Myeong-dong.
       </button>
 
       <button
@@ -632,15 +636,7 @@
         type="button"
         onclick="checkAnswer(4, this, false)"
       >
-        Si Ana veut une carte de fidélité.
-      </button>
-
-      <button
-        class="answer"
-        type="button"
-        onclick="checkAnswer(4, this, false)"
-      >
-        Si Ana veut emporter son café.
+        Il faut changer à Myeong-dong.
       </button>
 
     </div>
@@ -674,31 +670,31 @@
     </p>
 
     <h2>
-      😋 La fin de l'échange
+      📢 Reconnais la station suivante
     </h2>
 
     <div class="audio-zone">
 
       <div class="audio-icon">
-        🎧
+        🚇
       </div>
 
       <div class="audio-note">
-        Écoute la formule de Ji-eun.
+        Repère surtout 다음 역.
       </div>
 
       <button
         class="audio-main"
         type="button"
-        onclick="speakKorean('맛있게 드세요!', false)"
+        onclick="playMetroAnnouncement('다음 역은 서울역입니다.', false)"
       >
-        🔊 Écouter
+        🎵 Écouter l'annonce
       </button>
 
       <button
         class="slow-button"
         type="button"
-        onclick="speakKorean('맛있게 드세요!', true)"
+        onclick="playMetroAnnouncement('다음 역은 서울역입니다.', true)"
       >
         🐢 Écouter lentement
       </button>
@@ -706,7 +702,7 @@
     </div>
 
     <p class="question-text">
-      Que souhaite Ji-eun à Ana ?
+      Que dois-tu comprendre ?
     </p>
 
     <div class="answers">
@@ -714,17 +710,9 @@
       <button
         class="answer"
         type="button"
-        onclick="checkAnswer(5, this, false)"
-      >
-        Bon voyage !
-      </button>
-
-      <button
-        class="answer"
-        type="button"
         onclick="checkAnswer(5, this, true)"
       >
-        Bonne dégustation !
+        La prochaine station est Seoul Station.
       </button>
 
       <button
@@ -732,7 +720,15 @@
         type="button"
         onclick="checkAnswer(5, this, false)"
       >
-        Bonne journée de travail !
+        Cette station est Seoul Station.
+      </button>
+
+      <button
+        class="answer"
+        type="button"
+        onclick="checkAnswer(5, this, false)"
+      >
+        La sortie est à Seoul Station.
       </button>
 
     </div>
@@ -762,7 +758,7 @@
   >
 
     <div class="result-icon">
-      🎧☕
+      🎧🚇
     </div>
 
     <h2>
@@ -774,7 +770,7 @@
     </p>
 
     <p class="result-score">
-      5 intentions du café reconnues ✅
+      5 éléments du métro reconnus ✅
     </p>
 
 
@@ -792,23 +788,23 @@
     <div class="notion-summary">
 
       <div class="notion-line">
-        🔥 <strong>뜨거운 커피요?</strong> → Un café chaud ?
+        4️⃣ <strong>사호선을 타세요.</strong> → Prenez la ligne 4.
       </div>
 
       <div class="notion-line">
-        🥤 <strong>드시고 가세요? 포장이세요?</strong> → Sur place ou à emporter ?
+        🔁 <strong>서울역에서 갈아타세요.</strong> → Changez à Seoul Station.
       </div>
 
       <div class="notion-line">
-        💰 <strong>오천 원입니다.</strong> → Ça fait 5 000 wons.
+        🚪 <strong>몇 번 출구예요?</strong> → Quelle sortie ?
       </div>
 
       <div class="notion-line">
-        💳 <strong>카드로 하시겠어요?</strong> → Vous payez par carte ?
+        📢 <strong>이번 역은 명동역입니다.</strong> → Cette station est Myeong-dong.
       </div>
 
       <div class="notion-line">
-        😋 <strong>맛있게 드세요!</strong> → Bonne dégustation !
+        📢 <strong>다음 역은 서울역입니다.</strong> → La prochaine station est Seoul Station.
       </div>
 
     </div>
@@ -822,16 +818,20 @@
 
       <br><br>
 
-      Au comptoir, tu n'as pas besoin de comprendre toute la grammaire.
+      Dans le métro, ne cherche pas à tout traduire mot à mot.
 
       <br><br>
 
-      Repère quelques mots-clés :
-      <strong>뜨거운 / 아이스</strong> pour chaud ou froid,
-      <strong>포장</strong> pour à emporter,
-      <strong>원</strong> pour le prix,
-      <strong>카드</strong> pour le paiement
-      et <strong>맛있게 드세요</strong> pour la formule de fin.
+      Repère d'abord les mots-clés :
+      <strong>호선</strong> pour la ligne,
+      <strong>갈아타세요</strong> pour une correspondance,
+      <strong>이번 역</strong> pour la station actuelle
+      et <strong>다음 역</strong> pour la station suivante.
+
+      <br><br>
+
+      Le petit signal sonore utilisé dans les annonces de cet exercice
+      est une simulation originale créée pour l'application.
 
     </div>
 
@@ -858,7 +858,35 @@
 </main>
 
 
+<script src="chapter-progress.js"></script>
+
 <script>
+  const understandingState = localStorage.getItem(
+    "hanaKorean_chapter14_understanding"
+  );
+
+  if (understandingState !== "completed") {
+    window.location.href = "chapitre-14.html";
+  }
+
+  if (
+    localStorage.getItem(
+      "hanaKorean_chapter14_listeningExercise"
+    ) !== "completed"
+  ) {
+    localStorage.setItem(
+      "hanaKorean_chapter14_listeningExercise",
+      "in_progress"
+    );
+  }
+
+  if (
+    window.HanaChapterProgress &&
+    typeof window.HanaChapterProgress.render === "function"
+  ) {
+    window.HanaChapterProgress.render();
+  }
+
   let incorrectAttempts = 0;
 
 
@@ -1156,8 +1184,8 @@
           "✅ <strong>Exact !</strong>" +
           "<br><br>" +
           "Tu as entendu :" +
-          "<div class='heard-question'>뜨거운 커피요?</div>" +
-          "<strong>뜨거운</strong> signifie « chaud ».";
+          "<div class='heard-question'>사호선을 타세요.</div>" +
+          "<strong>사호선</strong> = ligne 4.";
 
       }
 
@@ -1168,8 +1196,8 @@
           "✅ <strong>Très bien !</strong>" +
           "<br><br>" +
           "Tu as entendu :" +
-          "<div class='heard-question'>드시고 가세요? 포장이세요?</div>" +
-          "<strong>포장</strong> te permet de repérer l'idée « à emporter ».";
+          "<div class='heard-question'>서울역에서 갈아타세요.</div>" +
+          "<strong>갈아타세요</strong> indique qu'il faut faire une correspondance.";
 
       }
 
@@ -1180,8 +1208,8 @@
           "✅ <strong>Exact !</strong>" +
           "<br><br>" +
           "Tu as entendu :" +
-          "<div class='heard-question'>오천 원입니다.</div>" +
-          "<strong>오천 원</strong> = 5 000 wons.";
+          "<div class='heard-question'>몇 번 출구예요?</div>" +
+          "<strong>출구</strong> signifie « sortie ».";
 
       }
 
@@ -1191,9 +1219,9 @@
         feedback.innerHTML =
           "✅ <strong>Très bien !</strong>" +
           "<br><br>" +
-          "Tu as entendu :" +
-          "<div class='heard-question'>카드로 하시겠어요?</div>" +
-          "<strong>카드</strong> indique le paiement par carte.";
+          "L'annonce était :" +
+          "<div class='heard-question'>이번 역은 명동역입니다.</div>" +
+          "<strong>이번 역</strong> signifie « cette station ».";
 
       }
 
@@ -1203,9 +1231,9 @@
         feedback.innerHTML =
           "✅ <strong>Parfait !</strong>" +
           "<br><br>" +
-          "Tu as entendu :" +
-          "<div class='heard-question'>맛있게 드세요!</div>" +
-          "C'est une formule naturelle pour souhaiter une bonne dégustation.";
+          "L'annonce était :" +
+          "<div class='heard-question'>다음 역은 서울역입니다.</div>" +
+          "<strong>다음 역</strong> signifie « station suivante ».";
 
       }
 
@@ -1246,9 +1274,9 @@
     if (number === 1) {
 
       feedback.innerHTML =
-        "❌ <strong>Repère 뜨거운.</strong>" +
+        "❌ <strong>Réécoute le numéro de ligne.</strong>" +
         "<br><br>" +
-        "💡 <strong>뜨거운</strong> = chaud.";
+        "💡 <strong>사</strong> correspond à 4 dans <strong>사호선</strong>.";
 
     }
 
@@ -1256,9 +1284,9 @@
     if (number === 2) {
 
       feedback.innerHTML =
-        "❌ <strong>Repère 포장.</strong>" +
+        "❌ <strong>Repère 갈아타세요.</strong>" +
         "<br><br>" +
-        "💡 <strong>포장</strong> est le mot-clé pour « à emporter ».";
+        "💡 Ce verbe indique une correspondance.";
 
     }
 
@@ -1266,9 +1294,9 @@
     if (number === 3) {
 
       feedback.innerHTML =
-        "❌ <strong>Réécoute le nombre.</strong>" +
+        "❌ <strong>Repère 출구.</strong>" +
         "<br><br>" +
-        "💡 <strong>오천</strong> = cinq mille.";
+        "💡 <strong>출구</strong> = sortie.";
 
     }
 
@@ -1276,9 +1304,9 @@
     if (number === 4) {
 
       feedback.innerHTML =
-        "❌ <strong>Repère 카드.</strong>" +
+        "❌ <strong>Écoute le début de l'annonce.</strong>" +
         "<br><br>" +
-        "💡 <strong>카드</strong> = carte bancaire.";
+        "💡 <strong>이번 역</strong> = cette station.";
 
     }
 
@@ -1286,9 +1314,9 @@
     if (number === 5) {
 
       feedback.innerHTML =
-        "❌ <strong>Cette formule concerne ce que Ana va manger ou boire.</strong>" +
+        "❌ <strong>Écoute le début de l'annonce.</strong>" +
         "<br><br>" +
-        "💡 <strong>맛있게 드세요</strong> = bonne dégustation.";
+        "💡 <strong>다음 역</strong> = la station suivante.";
 
     }
 
@@ -1453,16 +1481,23 @@
 
 
     localStorage.setItem(
-      LISTENING_KEY,
+      "hanaKorean_chapter14_listening",
       "completed"
     );
+
 
     localStorage.setItem(
-      LISTENING_EXERCISE_KEY,
+      "hanaKorean_chapter14_listeningExercise",
       "completed"
     );
 
-    renderChapterProgress();
+
+    if (
+      window.HanaChapterProgress &&
+      typeof window.HanaChapterProgress.render === "function"
+    ) {
+      window.HanaChapterProgress.render();
+    }
 
 
     localStorage.setItem(
@@ -1493,23 +1528,17 @@
   }
 
 
-  if (
-    guardExerciseAccess()
-  ) {
-
-    renderChapterProgress();
-
-    window.addEventListener(
-      "pageshow",
-      function() {
-
-        renderChapterProgress();
-
+  window.addEventListener(
+    "pageshow",
+    function() {
+      if (
+        window.HanaChapterProgress &&
+        typeof window.HanaChapterProgress.render === "function"
+      ) {
+        window.HanaChapterProgress.render();
       }
-    );
-
-  }
-
+    }
+  );
 </script>
 </body>
 

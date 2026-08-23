@@ -14,16 +14,11 @@
     content="#F7F4ED"
   >
 
-  <title>Mini défi d'écoute — Chapitre 13</title>
+  <title>Mini défi d'écoute — Chapitre 12</title>
 
   <link
     rel="stylesheet"
     href="style.css"
-  >
-
-  <link
-    rel="stylesheet"
-    href="chapter-progress.css"
   >
 
   <style>
@@ -241,8 +236,6 @@
 
 <main class="app">
 
-  <section id="hanaChapterPath" data-chapter-path></section>
-
   <a
     class="back-link"
     href="ecoute-13.html"
@@ -262,12 +255,12 @@
     </p>
 
     <h1>
-      Prendre les transports
+      Demander son chemin
     </h1>
 
     <p>
-      Écoute chaque phrase ou annonce et repère
-      la ligne, la correspondance ou la station.
+      Écoute chaque phrase et repère
+      le lieu ou l'indication donnée.
     </p>
 
   </header>
@@ -302,7 +295,7 @@
     </p>
 
     <h2>
-      🚇 Quelle ligne ?
+      📍 Reconnais la question
     </h2>
 
     <div class="audio-zone">
@@ -312,13 +305,13 @@
       </div>
 
       <div class="audio-note">
-        Écoute la réponse de Monsieur Park.
+        Écoute la question sur le lieu.
       </div>
 
       <button
         class="audio-main"
         type="button"
-        onclick="speakKorean('사호선을 타세요.', false)"
+        onclick="speakKorean('경복궁이 어디에 있어요?', false)"
       >
         🔊 Écouter
       </button>
@@ -326,7 +319,7 @@
       <button
         class="slow-button"
         type="button"
-        onclick="speakKorean('사호선을 타세요.', true)"
+        onclick="speakKorean('경복궁이 어디에 있어요?', true)"
       >
         🐢 Écouter lentement
       </button>
@@ -334,7 +327,7 @@
     </div>
 
     <p class="question-text">
-      Quelle ligne Ana doit-elle prendre ?
+      Que demande Ana ?
     </p>
 
     <div class="answers">
@@ -342,17 +335,9 @@
       <button
         class="answer"
         type="button"
-        onclick="checkAnswer(1, this, false)"
-      >
-        La ligne 2
-      </button>
-
-      <button
-        class="answer"
-        type="button"
         onclick="checkAnswer(1, this, true)"
       >
-        La ligne 4
+        Où se trouve le palais de Gyeongbokgung ?
       </button>
 
       <button
@@ -360,7 +345,15 @@
         type="button"
         onclick="checkAnswer(1, this, false)"
       >
-        La ligne 7
+        Combien coûte l'entrée du palais ?
+      </button>
+
+      <button
+        class="answer"
+        type="button"
+        onclick="checkAnswer(1, this, false)"
+      >
+        Est-ce que le palais est ouvert ?
       </button>
 
     </div>
@@ -394,7 +387,7 @@
     </p>
 
     <h2>
-      🔁 Comprends la correspondance
+      ⬆️ Comprends la direction
     </h2>
 
     <div class="audio-zone">
@@ -404,13 +397,13 @@
       </div>
 
       <div class="audio-note">
-        Repère le verbe important.
+        Repère l'indication principale.
       </div>
 
       <button
         class="audio-main"
         type="button"
-        onclick="speakKorean('서울역에서 갈아타세요.', false)"
+        onclick="speakKorean('직진하세요.', false)"
       >
         🔊 Écouter
       </button>
@@ -418,7 +411,7 @@
       <button
         class="slow-button"
         type="button"
-        onclick="speakKorean('서울역에서 갈아타세요.', true)"
+        onclick="speakKorean('직진하세요.', true)"
       >
         🐢 Écouter lentement
       </button>
@@ -426,7 +419,7 @@
     </div>
 
     <p class="question-text">
-      Que doit faire Ana à Seoul Station ?
+      Quelle indication entends-tu ?
     </p>
 
     <div class="answers">
@@ -436,7 +429,7 @@
         type="button"
         onclick="checkAnswer(2, this, false)"
       >
-        Descendre et sortir.
+        Tournez à gauche.
       </button>
 
       <button
@@ -444,7 +437,7 @@
         type="button"
         onclick="checkAnswer(2, this, true)"
       >
-        Faire une correspondance.
+        Allez tout droit.
       </button>
 
       <button
@@ -452,7 +445,7 @@
         type="button"
         onclick="checkAnswer(2, this, false)"
       >
-        Prendre un bus.
+        Revenez en arrière.
       </button>
 
     </div>
@@ -486,7 +479,7 @@
     </p>
 
     <h2>
-      🚪 Repère la sortie
+      ➡️ Gauche ou droite ?
     </h2>
 
     <div class="audio-zone">
@@ -496,13 +489,13 @@
       </div>
 
       <div class="audio-note">
-        Écoute la question.
+        Écoute le mot de direction.
       </div>
 
       <button
         class="audio-main"
         type="button"
-        onclick="speakKorean('몇 번 출구예요?', false)"
+        onclick="speakKorean('오른쪽', false)"
       >
         🔊 Écouter
       </button>
@@ -510,7 +503,7 @@
       <button
         class="slow-button"
         type="button"
-        onclick="speakKorean('몇 번 출구예요?', true)"
+        onclick="speakKorean('오른쪽', true)"
       >
         🐢 Écouter lentement
       </button>
@@ -518,7 +511,7 @@
     </div>
 
     <p class="question-text">
-      Que demande Ana ?
+      Quel mot as-tu entendu ?
     </p>
 
     <div class="answers">
@@ -526,9 +519,17 @@
       <button
         class="answer"
         type="button"
+        onclick="checkAnswer(3, this, false)"
+      >
+        gauche
+      </button>
+
+      <button
+        class="answer"
+        type="button"
         onclick="checkAnswer(3, this, true)"
       >
-        Quelle sortie ?
+        droite
       </button>
 
       <button
@@ -536,15 +537,7 @@
         type="button"
         onclick="checkAnswer(3, this, false)"
       >
-        Quelle station ?
-      </button>
-
-      <button
-        class="answer"
-        type="button"
-        onclick="checkAnswer(3, this, false)"
-      >
-        Quelle ligne ?
+        devant
       </button>
 
     </div>
@@ -578,31 +571,31 @@
     </p>
 
     <h2>
-      📢 Reconnais la station actuelle
+      👀 Ici ou là-bas ?
     </h2>
 
     <div class="audio-zone">
 
       <div class="audio-icon">
-        🚇
+        🎧
       </div>
 
       <div class="audio-note">
-        Écoute l'annonce simulée du métro.
+        Repère le mot qui indique l'endroit.
       </div>
 
       <button
         class="audio-main"
         type="button"
-        onclick="playMetroAnnouncement('이번 역은 명동역입니다.', false)"
+        onclick="speakKorean('저기예요.', false)"
       >
-        🎵 Écouter l'annonce
+        🔊 Écouter
       </button>
 
       <button
         class="slow-button"
         type="button"
-        onclick="playMetroAnnouncement('이번 역은 명동역입니다.', true)"
+        onclick="speakKorean('저기예요.', true)"
       >
         🐢 Écouter lentement
       </button>
@@ -610,7 +603,7 @@
     </div>
 
     <p class="question-text">
-      Que dit l'annonce ?
+      Que signifie la phrase ?
     </p>
 
     <div class="answers">
@@ -620,7 +613,7 @@
         type="button"
         onclick="checkAnswer(4, this, false)"
       >
-        La prochaine station est Myeong-dong.
+        C'est ici.
       </button>
 
       <button
@@ -628,7 +621,7 @@
         type="button"
         onclick="checkAnswer(4, this, true)"
       >
-        Cette station est Myeong-dong.
+        C'est là-bas.
       </button>
 
       <button
@@ -636,7 +629,7 @@
         type="button"
         onclick="checkAnswer(4, this, false)"
       >
-        Il faut changer à Myeong-dong.
+        C'est derrière.
       </button>
 
     </div>
@@ -670,31 +663,31 @@
     </p>
 
     <h2>
-      📢 Reconnais la station suivante
+      🧭 Comprends l'indication complète
     </h2>
 
     <div class="audio-zone">
 
       <div class="audio-icon">
-        🚇
+        🎧
       </div>
 
       <div class="audio-note">
-        Repère surtout 다음 역.
+        Écoute les deux indications.
       </div>
 
       <button
         class="audio-main"
         type="button"
-        onclick="playMetroAnnouncement('다음 역은 서울역입니다.', false)"
+        onclick="speakKorean('직진하세요. 그리고 오른쪽이에요.', false)"
       >
-        🎵 Écouter l'annonce
+        🔊 Écouter
       </button>
 
       <button
         class="slow-button"
         type="button"
-        onclick="playMetroAnnouncement('다음 역은 서울역입니다.', true)"
+        onclick="speakKorean('직진하세요. 그리고 오른쪽이에요.', true)"
       >
         🐢 Écouter lentement
       </button>
@@ -702,7 +695,7 @@
     </div>
 
     <p class="question-text">
-      Que dois-tu comprendre ?
+      Quel trajet est indiqué ?
     </p>
 
     <div class="answers">
@@ -712,7 +705,7 @@
         type="button"
         onclick="checkAnswer(5, this, true)"
       >
-        La prochaine station est Seoul Station.
+        Tout droit, puis à droite.
       </button>
 
       <button
@@ -720,7 +713,7 @@
         type="button"
         onclick="checkAnswer(5, this, false)"
       >
-        Cette station est Seoul Station.
+        À gauche, puis tout droit.
       </button>
 
       <button
@@ -728,7 +721,7 @@
         type="button"
         onclick="checkAnswer(5, this, false)"
       >
-        La sortie est à Seoul Station.
+        Derrière, puis en face.
       </button>
 
     </div>
@@ -758,7 +751,7 @@
   >
 
     <div class="result-icon">
-      🎧🚇
+      🎧🗺️
     </div>
 
     <h2>
@@ -770,7 +763,7 @@
     </p>
 
     <p class="result-score">
-      5 éléments du métro reconnus ✅
+      5 éléments reconnus ✅
     </p>
 
 
@@ -788,23 +781,23 @@
     <div class="notion-summary">
 
       <div class="notion-line">
-        4️⃣ <strong>사호선을 타세요.</strong> → Prenez la ligne 4.
+        📍 <strong>경복궁이 어디에 있어요?</strong> → Où se trouve le palais de Gyeongbokgung ?
       </div>
 
       <div class="notion-line">
-        🔁 <strong>서울역에서 갈아타세요.</strong> → Changez à Seoul Station.
+        ⬆️ <strong>직진하세요.</strong> → Allez tout droit.
       </div>
 
       <div class="notion-line">
-        🚪 <strong>몇 번 출구예요?</strong> → Quelle sortie ?
+        ➡️ <strong>오른쪽</strong> → droite
       </div>
 
       <div class="notion-line">
-        📢 <strong>이번 역은 명동역입니다.</strong> → Cette station est Myeong-dong.
+        👀 <strong>저기예요.</strong> → C'est là-bas.
       </div>
 
       <div class="notion-line">
-        📢 <strong>다음 역은 서울역입니다.</strong> → La prochaine station est Seoul Station.
+        🧭 <strong>직진하세요. 그리고 오른쪽이에요.</strong> → Tout droit, puis à droite.
       </div>
 
     </div>
@@ -818,20 +811,16 @@
 
       <br><br>
 
-      Dans le métro, ne cherche pas à tout traduire mot à mot.
+      Quand tu demandes ton chemin,
+      repère d'abord <strong>어디에 있어요?</strong>
+      pour comprendre qu'on parle de l'emplacement d'un lieu.
 
       <br><br>
 
-      Repère d'abord les mots-clés :
-      <strong>호선</strong> pour la ligne,
-      <strong>갈아타세요</strong> pour une correspondance,
-      <strong>이번 역</strong> pour la station actuelle
-      et <strong>다음 역</strong> pour la station suivante.
-
-      <br><br>
-
-      Le petit signal sonore utilisé dans les annonces de cet exercice
-      est une simulation originale créée pour l'application.
+      Dans la réponse, concentre-toi sur les mots de direction :
+      <strong>직진</strong> = tout droit,
+      <strong>왼쪽</strong> = gauche
+      et <strong>오른쪽</strong> = droite.
 
     </div>
 
@@ -858,35 +847,7 @@
 </main>
 
 
-<script src="chapter-progress.js"></script>
-
 <script>
-  const understandingState = localStorage.getItem(
-    "hanaKorean_chapter13_understanding"
-  );
-
-  if (understandingState !== "completed") {
-    window.location.href = "chapitre-13.html";
-  }
-
-  if (
-    localStorage.getItem(
-      "hanaKorean_chapter13_listeningExercise"
-    ) !== "completed"
-  ) {
-    localStorage.setItem(
-      "hanaKorean_chapter13_listeningExercise",
-      "in_progress"
-    );
-  }
-
-  if (
-    window.HanaChapterProgress &&
-    typeof window.HanaChapterProgress.render === "function"
-  ) {
-    window.HanaChapterProgress.render();
-  }
-
   let incorrectAttempts = 0;
 
 
@@ -970,168 +931,6 @@
   }
 
 
-  function playOriginalMetroChime() {
-
-    return new Promise(
-      resolve => {
-
-        try {
-
-          const AudioContext =
-            window.AudioContext ||
-            window.webkitAudioContext;
-
-
-          if (!AudioContext) {
-
-            resolve();
-
-            return;
-
-          }
-
-
-          const context =
-            new AudioContext();
-
-
-          const notes = [
-            {
-              frequency: 659.25,
-              start: 0,
-              duration: 0.18
-            },
-            {
-              frequency: 783.99,
-              start: 0.20,
-              duration: 0.22
-            }
-          ];
-
-
-          notes.forEach(
-            note => {
-
-              const oscillator =
-                context.createOscillator();
-
-
-              const gain =
-                context.createGain();
-
-
-              oscillator.type =
-                "sine";
-
-
-              oscillator.frequency.value =
-                note.frequency;
-
-
-              gain.gain.setValueAtTime(
-                0.0001,
-                context.currentTime +
-                  note.start
-              );
-
-
-              gain.gain.exponentialRampToValueAtTime(
-                0.12,
-                context.currentTime +
-                  note.start +
-                  0.02
-              );
-
-
-              gain.gain.exponentialRampToValueAtTime(
-                0.0001,
-                context.currentTime +
-                  note.start +
-                  note.duration
-              );
-
-
-              oscillator.connect(
-                gain
-              );
-
-
-              gain.connect(
-                context.destination
-              );
-
-
-              oscillator.start(
-                context.currentTime +
-                  note.start
-              );
-
-
-              oscillator.stop(
-                context.currentTime +
-                  note.start +
-                  note.duration +
-                  0.02
-              );
-
-            }
-          );
-
-
-          window.setTimeout(
-            function() {
-
-              try {
-                context.close();
-              }
-              catch (error) {
-              }
-
-              resolve();
-
-            },
-            520
-          );
-
-        }
-
-        catch (error) {
-
-          resolve();
-
-        }
-
-      }
-    );
-
-  }
-
-
-  async function playMetroAnnouncement(
-    text,
-    slow = false
-  ) {
-
-    if (
-      "speechSynthesis" in window
-    ) {
-
-      window.speechSynthesis.cancel();
-
-    }
-
-
-    await playOriginalMetroChime();
-
-
-    speakKorean(
-      text,
-      slow
-    );
-
-  }
-
-
   function checkAnswer(
     number,
     button,
@@ -1184,8 +983,8 @@
           "✅ <strong>Exact !</strong>" +
           "<br><br>" +
           "Tu as entendu :" +
-          "<div class='heard-question'>사호선을 타세요.</div>" +
-          "<strong>사호선</strong> = ligne 4.";
+          "<div class='heard-question'>경복궁이 어디에 있어요?</div>" +
+          "<strong>어디에 있어요?</strong> sert à demander où se trouve un lieu.";
 
       }
 
@@ -1196,8 +995,8 @@
           "✅ <strong>Très bien !</strong>" +
           "<br><br>" +
           "Tu as entendu :" +
-          "<div class='heard-question'>서울역에서 갈아타세요.</div>" +
-          "<strong>갈아타세요</strong> indique qu'il faut faire une correspondance.";
+          "<div class='heard-question'>직진하세요.</div>" +
+          "<strong>직진</strong> indique qu'il faut aller tout droit.";
 
       }
 
@@ -1208,8 +1007,8 @@
           "✅ <strong>Exact !</strong>" +
           "<br><br>" +
           "Tu as entendu :" +
-          "<div class='heard-question'>몇 번 출구예요?</div>" +
-          "<strong>출구</strong> signifie « sortie ».";
+          "<div class='heard-question'>오른쪽</div>" +
+          "<strong>오른쪽</strong> = droite.";
 
       }
 
@@ -1219,9 +1018,9 @@
         feedback.innerHTML =
           "✅ <strong>Très bien !</strong>" +
           "<br><br>" +
-          "L'annonce était :" +
-          "<div class='heard-question'>이번 역은 명동역입니다.</div>" +
-          "<strong>이번 역</strong> signifie « cette station ».";
+          "La phrase était :" +
+          "<div class='heard-question'>저기예요.</div>" +
+          "<strong>저기</strong> désigne un endroit là-bas.";
 
       }
 
@@ -1231,9 +1030,9 @@
         feedback.innerHTML =
           "✅ <strong>Parfait !</strong>" +
           "<br><br>" +
-          "L'annonce était :" +
-          "<div class='heard-question'>다음 역은 서울역입니다.</div>" +
-          "<strong>다음 역</strong> signifie « station suivante ».";
+          "Tu as entendu :" +
+          "<div class='heard-question'>직진하세요. 그리고 오른쪽이에요.</div>" +
+          "L'indication est : <strong>tout droit, puis à droite</strong>.";
 
       }
 
@@ -1274,9 +1073,9 @@
     if (number === 1) {
 
       feedback.innerHTML =
-        "❌ <strong>Réécoute le numéro de ligne.</strong>" +
+        "❌ <strong>Réécoute la question.</strong>" +
         "<br><br>" +
-        "💡 <strong>사</strong> correspond à 4 dans <strong>사호선</strong>.";
+        "💡 Repère <strong>어디에 있어요?</strong> : on demande où se trouve un lieu.";
 
     }
 
@@ -1284,9 +1083,9 @@
     if (number === 2) {
 
       feedback.innerHTML =
-        "❌ <strong>Repère 갈아타세요.</strong>" +
+        "❌ <strong>Réécoute l'indication.</strong>" +
         "<br><br>" +
-        "💡 Ce verbe indique une correspondance.";
+        "💡 <strong>직진</strong> = tout droit.";
 
     }
 
@@ -1294,9 +1093,9 @@
     if (number === 3) {
 
       feedback.innerHTML =
-        "❌ <strong>Repère 출구.</strong>" +
+        "❌ <strong>Attention au mot de direction.</strong>" +
         "<br><br>" +
-        "💡 <strong>출구</strong> = sortie.";
+        "💡 <strong>오른쪽</strong> = droite ; <strong>왼쪽</strong> = gauche.";
 
     }
 
@@ -1304,9 +1103,9 @@
     if (number === 4) {
 
       feedback.innerHTML =
-        "❌ <strong>Écoute le début de l'annonce.</strong>" +
+        "❌ <strong>Repère 저기.</strong>" +
         "<br><br>" +
-        "💡 <strong>이번 역</strong> = cette station.";
+        "💡 <strong>저기</strong> = là-bas ; <strong>여기</strong> = ici.";
 
     }
 
@@ -1314,9 +1113,9 @@
     if (number === 5) {
 
       feedback.innerHTML =
-        "❌ <strong>Écoute le début de l'annonce.</strong>" +
+        "❌ <strong>Écoute les deux indications.</strong>" +
         "<br><br>" +
-        "💡 <strong>다음 역</strong> = la station suivante.";
+        "💡 <strong>직진</strong> = tout droit et <strong>오른쪽</strong> = droite.";
 
     }
 
@@ -1487,20 +1286,6 @@
 
 
     localStorage.setItem(
-      "hanaKorean_chapter13_listeningExercise",
-      "completed"
-    );
-
-
-    if (
-      window.HanaChapterProgress &&
-      typeof window.HanaChapterProgress.render === "function"
-    ) {
-      window.HanaChapterProgress.render();
-    }
-
-
-    localStorage.setItem(
       "hanaKorean_chapter13_listeningMistakes",
       incorrectAttempts
     );
@@ -1526,19 +1311,6 @@
       };
 
   }
-
-
-  window.addEventListener(
-    "pageshow",
-    function() {
-      if (
-        window.HanaChapterProgress &&
-        typeof window.HanaChapterProgress.render === "function"
-      ) {
-        window.HanaChapterProgress.render();
-      }
-    }
-  );
 </script>
 </body>
 

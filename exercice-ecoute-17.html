@@ -21,9 +21,12 @@
     href="style.css"
   >
 
-    <link rel="stylesheet" href="chapter-progress.css">
+  <link
+    rel="stylesheet"
+    href="chapter-progress.css"
+  >
 
-<style>
+  <style>
     .exercise-header {
       text-align: center;
       margin-bottom: 30px;
@@ -257,15 +260,16 @@
     </p>
 
     <h1>
-      Mini défi d'écoute
+      À l'hôtel
     </h1>
 
     <p>
       Écoute chaque phrase et repère
-      l'intention : Wi-Fi, mot de passe, batterie, chargeur ou recharge.
+      l'intention : réservation, nom, chambre, Wi-Fi ou demande d'aide.
     </p>
 
   </header>
+
 
   <section
     id="hanaChapterPath"
@@ -299,7 +303,7 @@
     </p>
 
     <h2>
-      📶 Le Wi-Fi
+      🛎️ Une réservation
     </h2>
 
     <div class="audio-zone">
@@ -313,7 +317,7 @@
       <button
         class="audio-main"
         type="button"
-        onclick="speakKorean('와이파이 있어요?', false)"
+        onclick="speakKorean('예약했어요.', false)"
       >
         🔊 Écouter
       </button>
@@ -321,7 +325,7 @@
       <button
         class="slow-button"
         type="button"
-        onclick="speakKorean('와이파이 있어요?', true)"
+        onclick="speakKorean('예약했어요.', true)"
       >
         🐢 Écouter lentement
       </button>
@@ -329,7 +333,7 @@
     </div>
 
     <p class="question-text">
-      Que demande Ana ?
+      Que dit Ana ?
     </p>
 
     <div class="answers">
@@ -339,7 +343,7 @@
         type="button"
         onclick="checkAnswer(1, this, true)"
       >
-        S'il y a du Wi-Fi.
+        J'ai une réservation.
       </button>
 
       <button
@@ -347,7 +351,7 @@
         type="button"
         onclick="checkAnswer(1, this, false)"
       >
-        Où est la prise électrique.
+        Où est ma chambre ?
       </button>
 
       <button
@@ -355,7 +359,7 @@
         type="button"
         onclick="checkAnswer(1, this, false)"
       >
-        Le prix du café.
+        Aidez-moi.
       </button>
 
     </div>
@@ -383,7 +387,175 @@
     </p>
 
     <h2>
-      🔐 Le mot de passe
+      👤 À la réception
+    </h2>
+
+    <div class="audio-zone">
+
+      <div class="audio-icon">🎧</div>
+
+      <div class="audio-note">
+        Écoute la question de Joon-ho.
+      </div>
+
+      <button
+        class="audio-main"
+        type="button"
+        onclick="speakKorean('성함이 어떻게 되세요?', false)"
+      >
+        🔊 Écouter
+      </button>
+
+      <button
+        class="slow-button"
+        type="button"
+        onclick="speakKorean('성함이 어떻게 되세요?', true)"
+      >
+        🐢 Écouter lentement
+      </button>
+
+    </div>
+
+    <p class="question-text">
+      Que demande Joon-ho ?
+    </p>
+
+    <div class="answers">
+
+      <button
+        class="answer"
+        type="button"
+        onclick="checkAnswer(2, this, false)"
+      >
+        Votre numéro de chambre.
+      </button>
+
+      <button
+        class="answer"
+        type="button"
+        onclick="checkAnswer(2, this, true)"
+      >
+        Votre nom.
+      </button>
+
+      <button
+        class="answer"
+        type="button"
+        onclick="checkAnswer(2, this, false)"
+      >
+        Votre mot de passe.
+      </button>
+
+    </div>
+
+    <div class="feedback" id="feedback2"></div>
+
+    <button
+      class="next-question"
+      id="next2"
+      type="button"
+      onclick="showQuestion(3)"
+    >
+      Question suivante →
+    </button>
+
+  </section>
+
+
+  <!-- QUESTION 3 -->
+
+  <section class="exercise-card hidden" id="question3">
+
+    <p class="question-number">
+      Question 3 / 5
+    </p>
+
+    <h2>
+      🚪 Trouver sa chambre
+    </h2>
+
+    <div class="audio-zone">
+
+      <div class="audio-icon">🎧</div>
+
+      <div class="audio-note">
+        Écoute la phrase de Ana.
+      </div>
+
+      <button
+        class="audio-main"
+        type="button"
+        onclick="speakKorean('제 방이 어디예요?', false)"
+      >
+        🔊 Écouter
+      </button>
+
+      <button
+        class="slow-button"
+        type="button"
+        onclick="speakKorean('제 방이 어디예요?', true)"
+      >
+        🐢 Écouter lentement
+      </button>
+
+    </div>
+
+    <p class="question-text">
+      Que demande Ana ?
+    </p>
+
+    <div class="answers">
+
+      <button
+        class="answer"
+        type="button"
+        onclick="checkAnswer(3, this, true)"
+      >
+        Où est ma chambre ?
+      </button>
+
+      <button
+        class="answer"
+        type="button"
+        onclick="checkAnswer(3, this, false)"
+      >
+        Où est l'ascenseur ?
+      </button>
+
+      <button
+        class="answer"
+        type="button"
+        onclick="checkAnswer(3, this, false)"
+      >
+        Où est la réception ?
+      </button>
+
+    </div>
+
+    <div class="feedback" id="feedback3"></div>
+
+    <button
+      class="next-question"
+      id="next3"
+      type="button"
+      onclick="showQuestion(4)"
+    >
+      Question suivante →
+    </button>
+
+  </section>
+
+
+  <!-- QUESTION 4 -->
+
+  <section class="exercise-card hidden" id="question4">
+
+    <p class="question-number">
+      Question 4 / 5
+    </p>
+
+    <h2>
+      📶 Le Wi-Fi
     </h2>
 
     <div class="audio-zone">
@@ -421,177 +593,9 @@
       <button
         class="answer"
         type="button"
-        onclick="checkAnswer(2, this, false)"
-      >
-        Le nom du réseau.
-      </button>
-
-      <button
-        class="answer"
-        type="button"
-        onclick="checkAnswer(2, this, true)"
-      >
-        Le mot de passe du Wi-Fi.
-      </button>
-
-      <button
-        class="answer"
-        type="button"
-        onclick="checkAnswer(2, this, false)"
-      >
-        Un nouveau téléphone.
-      </button>
-
-    </div>
-
-    <div class="feedback" id="feedback2"></div>
-
-    <button
-      class="next-question"
-      id="next2"
-      type="button"
-      onclick="showQuestion(3)"
-    >
-      Question suivante →
-    </button>
-
-  </section>
-
-
-  <!-- QUESTION 3 -->
-
-  <section class="exercise-card hidden" id="question3">
-
-    <p class="question-number">
-      Question 3 / 5
-    </p>
-
-    <h2>
-      🔋 Plus de batterie
-    </h2>
-
-    <div class="audio-zone">
-
-      <div class="audio-icon">🎧</div>
-
-      <div class="audio-note">
-        Écoute la phrase complète.
-      </div>
-
-      <button
-        class="audio-main"
-        type="button"
-        onclick="speakKorean('배터리가 없어요.', false)"
-      >
-        🔊 Écouter
-      </button>
-
-      <button
-        class="slow-button"
-        type="button"
-        onclick="speakKorean('배터리가 없어요.', true)"
-      >
-        🐢 Écouter lentement
-      </button>
-
-    </div>
-
-    <p class="question-text">
-      Que dit Ana ?
-    </p>
-
-    <div class="answers">
-
-      <button
-        class="answer"
-        type="button"
-        onclick="checkAnswer(3, this, true)"
-      >
-        Je n'ai plus de batterie.
-      </button>
-
-      <button
-        class="answer"
-        type="button"
-        onclick="checkAnswer(3, this, false)"
-      >
-        Ma batterie est pleine.
-      </button>
-
-      <button
-        class="answer"
-        type="button"
-        onclick="checkAnswer(3, this, false)"
-      >
-        Je n'ai pas de Wi-Fi.
-      </button>
-
-    </div>
-
-    <div class="feedback" id="feedback3"></div>
-
-    <button
-      class="next-question"
-      id="next3"
-      type="button"
-      onclick="showQuestion(4)"
-    >
-      Question suivante →
-    </button>
-
-  </section>
-
-
-  <!-- QUESTION 4 -->
-
-  <section class="exercise-card hidden" id="question4">
-
-    <p class="question-number">
-      Question 4 / 5
-    </p>
-
-    <h2>
-      🔌 Un chargeur
-    </h2>
-
-    <div class="audio-zone">
-
-      <div class="audio-icon">🎧</div>
-
-      <div class="audio-note">
-        Repère 충전기.
-      </div>
-
-      <button
-        class="audio-main"
-        type="button"
-        onclick="speakKorean('충전기 있어요?', false)"
-      >
-        🔊 Écouter
-      </button>
-
-      <button
-        class="slow-button"
-        type="button"
-        onclick="speakKorean('충전기 있어요?', true)"
-      >
-        🐢 Écouter lentement
-      </button>
-
-    </div>
-
-    <p class="question-text">
-      Que demande Ana ?
-    </p>
-
-    <div class="answers">
-
-      <button
-        class="answer"
-        type="button"
         onclick="checkAnswer(4, this, false)"
       >
-        S'il y a Internet.
+        Le prix du Wi-Fi.
       </button>
 
       <button
@@ -599,7 +603,7 @@
         type="button"
         onclick="checkAnswer(4, this, true)"
       >
-        S'ils ont un chargeur.
+        Le mot de passe du Wi-Fi.
       </button>
 
       <button
@@ -607,7 +611,7 @@
         type="button"
         onclick="checkAnswer(4, this, false)"
       >
-        Où est son téléphone.
+        Le numéro de la chambre.
       </button>
 
     </div>
@@ -635,7 +639,7 @@
     </p>
 
     <h2>
-      ⚡ Où recharger ?
+      🆘 Demander de l'aide
     </h2>
 
     <div class="audio-zone">
@@ -643,13 +647,13 @@
       <div class="audio-icon">🎧</div>
 
       <div class="audio-note">
-        Écoute la réponse de Ji-eun.
+        Écoute la situation complète.
       </div>
 
       <button
         class="audio-main"
         type="button"
-        onclick="speakKorean('저기에서 충전할 수 있어요.', false)"
+        onclick="speakKorean('와이파이가 안 돼요. 도와주세요.', false)"
       >
         🔊 Écouter
       </button>
@@ -657,7 +661,7 @@
       <button
         class="slow-button"
         type="button"
-        onclick="speakKorean('저기에서 충전할 수 있어요.', true)"
+        onclick="speakKorean('와이파이가 안 돼요. 도와주세요.', true)"
       >
         🐢 Écouter lentement
       </button>
@@ -665,7 +669,7 @@
     </div>
 
     <p class="question-text">
-      Que dit Ji-eun ?
+      Que se passe-t-il ?
     </p>
 
     <div class="answers">
@@ -675,7 +679,7 @@
         type="button"
         onclick="checkAnswer(5, this, false)"
       >
-        Il n'y a pas de chargeur.
+        Ana demande une nouvelle chambre.
       </button>
 
       <button
@@ -683,7 +687,7 @@
         type="button"
         onclick="checkAnswer(5, this, true)"
       >
-        Vous pouvez recharger là-bas.
+        Le Wi-Fi ne fonctionne pas et Ana demande de l'aide.
       </button>
 
       <button
@@ -691,7 +695,7 @@
         type="button"
         onclick="checkAnswer(5, this, false)"
       >
-        Le Wi-Fi ne fonctionne pas.
+        Ana veut quitter l'hôtel.
       </button>
 
     </div>
@@ -718,7 +722,7 @@
   >
 
     <div class="result-icon">
-      🎧📱
+      🎧🏨
     </div>
 
     <h2>
@@ -730,7 +734,7 @@
     </p>
 
     <p class="result-score">
-      5 situations téléphone / Internet reconnues ✅
+      5 situations de l'hôtel reconnues ✅
     </p>
 
 
@@ -748,23 +752,23 @@
     <div class="notion-summary">
 
       <div class="notion-line">
-        📶 <strong>와이파이 있어요?</strong> → Il y a du Wi-Fi ?
+        🛎️ <strong>예약했어요.</strong> → J'ai une réservation.
       </div>
 
       <div class="notion-line">
-        🔐 <strong>와이파이 비밀번호가 뭐예요?</strong> → Quel est le mot de passe du Wi-Fi ?
+        👤 <strong>성함이 어떻게 되세요?</strong> → Quel est votre nom ?
       </div>
 
       <div class="notion-line">
-        🔋 <strong>배터리가 없어요.</strong> → Je n'ai plus de batterie.
+        🚪 <strong>제 방이 어디예요?</strong> → Où est ma chambre ?
       </div>
 
       <div class="notion-line">
-        🔌 <strong>충전기 있어요?</strong> → Vous avez un chargeur ?
+        📶 <strong>와이파이 비밀번호가 뭐예요?</strong> → Quel est le mot de passe du Wi-Fi ?
       </div>
 
       <div class="notion-line">
-        ⚡ <strong>저기에서 충전할 수 있어요.</strong> → Vous pouvez recharger là-bas.
+        🆘 <strong>도와주세요.</strong> → Aidez-moi, s'il vous plaît.
       </div>
 
     </div>
@@ -778,11 +782,19 @@
 
       <br><br>
 
-      Repère d'abord les mots-clés :
+      À l'hôtel, repère d'abord quelques mots-clés.
 
       <br><br>
 
-      <strong>와이파이</strong> → Wi-Fi
+      <strong>예약</strong> → réservation
+
+      <br>
+
+      <strong>성함</strong> → nom, forme respectueuse
+
+      <br>
+
+      <strong>방</strong> → chambre
 
       <br>
 
@@ -790,19 +802,11 @@
 
       <br>
 
-      <strong>배터리</strong> → batterie
+      <strong>안 돼요</strong> → ça ne fonctionne pas
 
       <br>
 
-      <strong>충전기</strong> → chargeur
-
-      <br>
-
-      <strong>충전</strong> → recharge
-
-      <br>
-
-      <strong>있어요 / 없어요</strong> → il y a / il n'y a pas
+      <strong>도와주세요</strong> → aidez-moi
 
     </div>
 
@@ -810,7 +814,7 @@
     <button
       class="next-step-button"
       type="button"
-      onclick="window.location.href='parle-17.html'"
+      onclick="goToSpeaking()"
     >
       🗣️ Passer à « Je parle »
     </button>
@@ -832,7 +836,7 @@
 <script src="chapter-progress.js"></script>
 
 <script>
-  const CHAPTER = 17;
+  const CHAPTER = 16;
 
   const UNDERSTANDING_KEY =
     "hanaKorean_chapter17_understanding";
@@ -846,7 +850,12 @@
   const LISTENING_MISTAKES_KEY =
     "hanaKorean_chapter17_listeningMistakes";
 
-  function guardListeningExerciseAccess() {
+  const LISTENING_INCORRECT_ATTEMPTS_KEY =
+    "hanaKorean_chapter17_listeningIncorrectAttempts";
+
+
+  function guardExerciseAccess() {
+
     if (
       localStorage.getItem(
         UNDERSTANDING_KEY
@@ -855,24 +864,27 @@
       window.location.replace(
         "chapitre-17.html"
       );
+
       return false;
     }
 
     if (
       localStorage.getItem(
-        LISTENING_KEY
-      ) === null
+        LISTENING_EXERCISE_KEY
+      ) !== "completed"
     ) {
-      window.location.replace(
-        "ecoute-17.html"
+      localStorage.setItem(
+        LISTENING_EXERCISE_KEY,
+        "in_progress"
       );
-      return false;
     }
 
     return true;
   }
 
+
   function renderChapterProgress() {
+
     if (
       window.HanaChapterProgress &&
       typeof window.HanaChapterProgress.render === "function"
@@ -881,7 +893,10 @@
     }
   }
 
-let incorrectAttempts = 0;
+
+  let incorrectAttempts = 0;
+
+  const weakNotions = [];
 
 
   const completedQuestions = {
@@ -964,173 +979,22 @@ let incorrectAttempts = 0;
   }
 
 
-  function playOriginalMetroChime() {
-
-    return new Promise(
-      resolve => {
-
-        try {
-
-          const AudioContext =
-            window.AudioContext ||
-            window.webkitAudioContext;
-
-
-          if (!AudioContext) {
-
-            resolve();
-
-            return;
-
-          }
-
-
-          const context =
-            new AudioContext();
-
-
-          const notes = [
-            {
-              frequency: 659.25,
-              start: 0,
-              duration: 0.18
-            },
-            {
-              frequency: 783.99,
-              start: 0.20,
-              duration: 0.22
-            }
-          ];
-
-
-          notes.forEach(
-            note => {
-
-              const oscillator =
-                context.createOscillator();
-
-
-              const gain =
-                context.createGain();
-
-
-              oscillator.type =
-                "sine";
-
-
-              oscillator.frequency.value =
-                note.frequency;
-
-
-              gain.gain.setValueAtTime(
-                0.0001,
-                context.currentTime +
-                  note.start
-              );
-
-
-              gain.gain.exponentialRampToValueAtTime(
-                0.12,
-                context.currentTime +
-                  note.start +
-                  0.02
-              );
-
-
-              gain.gain.exponentialRampToValueAtTime(
-                0.0001,
-                context.currentTime +
-                  note.start +
-                  note.duration
-              );
-
-
-              oscillator.connect(
-                gain
-              );
-
-
-              gain.connect(
-                context.destination
-              );
-
-
-              oscillator.start(
-                context.currentTime +
-                  note.start
-              );
-
-
-              oscillator.stop(
-                context.currentTime +
-                  note.start +
-                  note.duration +
-                  0.02
-              );
-
-            }
-          );
-
-
-          window.setTimeout(
-            function() {
-
-              try {
-                context.close();
-              }
-              catch (error) {
-              }
-
-              resolve();
-
-            },
-            520
-          );
-
-        }
-
-        catch (error) {
-
-          resolve();
-
-        }
-
-      }
-    );
-
-  }
-
-
-  async function playMetroAnnouncement(
-    text,
-    slow = false
-  ) {
-
-    if (
-      "speechSynthesis" in window
-    ) {
-
-      window.speechSynthesis.cancel();
-
-    }
-
-
-    await playOriginalMetroChime();
-
-
-    speakKorean(
-      text,
-      slow
-    );
-
-  }
-
-
   function checkAnswer(
     number,
     button,
     isCorrect
   ) {
+
+    const notions = {
+      1: "예약했어요",
+      2: "성함이 어떻게 되세요?",
+      3: "제 방이 어디예요?",
+      4: "와이파이 비밀번호가 뭐예요?",
+      5: "안 돼요 / 도와주세요"
+    };
+
+    const notion =
+      notions[number];
 
     if (
       completedQuestions[number]
@@ -1178,8 +1042,8 @@ let incorrectAttempts = 0;
           "✅ <strong>Exact !</strong>" +
           "<br><br>" +
           "Tu as entendu :" +
-          "<div class='heard-question'>와이파이 있어요?</div>" +
-          "<strong>있어요?</strong> sert ici à demander si le Wi-Fi est disponible.";
+          "<div class='heard-question'>예약했어요.</div>" +
+          "<strong>예약</strong> renvoie à la réservation.";
 
       }
 
@@ -1190,8 +1054,8 @@ let incorrectAttempts = 0;
           "✅ <strong>Très bien !</strong>" +
           "<br><br>" +
           "Tu as entendu :" +
-          "<div class='heard-question'>와이파이 비밀번호가 뭐예요?</div>" +
-          "<strong>비밀번호</strong> = mot de passe.";
+          "<div class='heard-question'>성함이 어떻게 되세요?</div>" +
+          "<strong>성함</strong> est une manière respectueuse de parler du nom.";
 
       }
 
@@ -1202,8 +1066,8 @@ let incorrectAttempts = 0;
           "✅ <strong>Exact !</strong>" +
           "<br><br>" +
           "Tu as entendu :" +
-          "<div class='heard-question'>배터리가 없어요.</div>" +
-          "<strong>없어요</strong> signifie ici « je n'ai plus ».";
+          "<div class='heard-question'>제 방이 어디예요?</div>" +
+          "<strong>방</strong> signifie « chambre ».";
 
       }
 
@@ -1214,8 +1078,8 @@ let incorrectAttempts = 0;
           "✅ <strong>Très bien !</strong>" +
           "<br><br>" +
           "Tu as entendu :" +
-          "<div class='heard-question'>충전기 있어요?</div>" +
-          "<strong>충전기</strong> = chargeur.";
+          "<div class='heard-question'>와이파이 비밀번호가 뭐예요?</div>" +
+          "<strong>비밀번호</strong> signifie « mot de passe ».";
 
       }
 
@@ -1226,8 +1090,8 @@ let incorrectAttempts = 0;
           "✅ <strong>Parfait !</strong>" +
           "<br><br>" +
           "Tu as entendu :" +
-          "<div class='heard-question'>저기에서 충전할 수 있어요.</div>" +
-          "Ji-eun indique que l'on peut recharger là-bas.";
+          "<div class='heard-question'>와이파이가 안 돼요. 도와주세요.</div>" +
+          "Le Wi-Fi ne fonctionne pas et Ana demande de l'aide.";
 
       }
 
@@ -1255,6 +1119,17 @@ let incorrectAttempts = 0;
 
     incorrectAttempts++;
 
+    if (
+      notion &&
+      !weakNotions.includes(
+        notion
+      )
+    ) {
+      weakNotions.push(
+        notion
+      );
+    }
+
 
     button.classList.add(
       "wrong"
@@ -1268,14 +1143,34 @@ let incorrectAttempts = 0;
     if (number === 1) {
 
       feedback.innerHTML =
-        "❌ <strong>Repère 와이파이 et 있어요?</strong>" +
+        "❌ <strong>Repère 예약.</strong>" +
         "<br><br>" +
-        "💡 Ana demande si le Wi-Fi est disponible.";
+        "💡 <strong>예약</strong> = réservation.";
 
     }
 
 
     if (number === 2) {
+
+      feedback.innerHTML =
+        "❌ <strong>Repère 성함.</strong>" +
+        "<br><br>" +
+        "💡 <strong>성함</strong> est une forme respectueuse pour parler du nom.";
+
+    }
+
+
+    if (number === 3) {
+
+      feedback.innerHTML =
+        "❌ <strong>Repère 방.</strong>" +
+        "<br><br>" +
+        "💡 <strong>방</strong> = chambre.";
+
+    }
+
+
+    if (number === 4) {
 
       feedback.innerHTML =
         "❌ <strong>Repère 비밀번호.</strong>" +
@@ -1285,32 +1180,12 @@ let incorrectAttempts = 0;
     }
 
 
-    if (number === 3) {
-
-      feedback.innerHTML =
-        "❌ <strong>Repère 없어요.</strong>" +
-        "<br><br>" +
-        "💡 Ici, <strong>없어요</strong> indique que Ana n'a plus de batterie.";
-
-    }
-
-
-    if (number === 4) {
-
-      feedback.innerHTML =
-        "❌ <strong>Repère 충전기.</strong>" +
-        "<br><br>" +
-        "💡 <strong>충전기</strong> = chargeur.";
-
-    }
-
-
     if (number === 5) {
 
       feedback.innerHTML =
-        "❌ <strong>Repère 저기 et 충전.</strong>" +
+        "❌ <strong>Repère 안 돼요 et 도와주세요.</strong>" +
         "<br><br>" +
-        "💡 <strong>저기</strong> = là-bas et <strong>충전</strong> = recharge.";
+        "💡 <strong>안 돼요</strong> indique que quelque chose ne fonctionne pas, et <strong>도와주세요</strong> signifie « Aidez-moi ».";
 
     }
 
@@ -1479,15 +1354,28 @@ let incorrectAttempts = 0;
       "completed"
     );
 
+
     localStorage.setItem(
       LISTENING_EXERCISE_KEY,
       "completed"
     );
 
+
     localStorage.setItem(
       LISTENING_MISTAKES_KEY,
-      String(incorrectAttempts)
+      JSON.stringify(
+        weakNotions
+      )
     );
+
+
+    localStorage.setItem(
+      LISTENING_INCORRECT_ATTEMPTS_KEY,
+      String(
+        incorrectAttempts
+      )
+    );
+
 
     renderChapterProgress();
 
@@ -1497,6 +1385,21 @@ let incorrectAttempts = 0;
       behavior: "smooth"
     });
 
+  }
+
+
+  function goToSpeaking() {
+
+    if (
+      localStorage.getItem(
+        LISTENING_EXERCISE_KEY
+      ) !== "completed"
+    ) {
+      return;
+    }
+
+    window.location.href =
+      "parle-17.html";
   }
 
 
@@ -1513,7 +1416,11 @@ let incorrectAttempts = 0;
 
   }
 
-  if (guardListeningExerciseAccess()) {
+
+  if (
+    guardExerciseAccess()
+  ) {
+
     renderChapterProgress();
 
     window.addEventListener(

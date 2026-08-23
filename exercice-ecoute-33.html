@@ -22,33 +22,30 @@
 <section id="hanaChapterPath" data-chapter-path></section>
 <header>
   <span class="chapter-badge">Chapitre 33 · 🎧 Exercice</span>
-  <h1>Comprendre une raison</h1>
+  <h1>Comprendre une opinion</h1>
+  <p>Écoute puis choisis le sens correct.</p>
 </header>
 
 <section class="quiz">
-  <div class="q" data-answer="b" data-audio="왜 한국을 좋아해요?">
-    <p><strong>1.</strong> 왜 한국을 좋아해요?</p><button class="listen">🎧 Écouter</button>
-    <div class="choices"><button data-choice="a">Quand vas-tu en Corée ?</button><button data-choice="b">Pourquoi aimes-tu la Corée ?</button><button data-choice="c">Que fais-tu en Corée ?</button></div><div class="feedback"></div>
+  <div class="q" data-answer="b" data-audio="이 영화 어떻게 생각해요?">
+    <p><strong>1.</strong> 이 영화 어떻게 생각해요?</p><button class="listen">🎧 Écouter</button>
+    <div class="choices"><button data-choice="a">Quel film veux-tu voir ?</button><button data-choice="b">Que penses-tu de ce film ?</button><button data-choice="c">Où est le cinéma ?</button></div><div class="feedback"></div>
   </div>
-
-  <div class="q" data-answer="a" data-audio="풍경이 아름다워서 좋아해요.">
-    <p><strong>2.</strong> 풍경이 아름다워서 좋아해요.</p><button class="listen">🎧 Écouter</button>
-    <div class="choices"><button data-choice="a">J'aime parce que les paysages sont magnifiques.</button><button data-choice="b">Je pense que les paysages sont difficiles.</button><button data-choice="c">Je vais voir les paysages demain.</button></div><div class="feedback"></div>
+  <div class="q" data-answer="a" data-audio="재미있다고 생각해요.">
+    <p><strong>2.</strong> 재미있다고 생각해요.</p><button class="listen">🎧 Écouter</button>
+    <div class="choices"><button data-choice="a">Je pense que c'est intéressant.</button><button data-choice="b">Je pense que c'est difficile.</button><button data-choice="c">Je ne trouve pas ça intéressant.</button></div><div class="feedback"></div>
   </div>
-
-  <div class="q" data-answer="c" data-audio="서울에 있으면 마음이 편해요. 그래서 한국을 좋아해요.">
-    <p><strong>3.</strong> 서울에 있으면 마음이 편해요. 그래서 한국을 좋아해요.</p><button class="listen">🎧 Écouter</button>
-    <div class="choices"><button data-choice="a">Séoul est loin, donc je n'aime pas la Corée.</button><button data-choice="b">Je préfère Paris à Séoul.</button><button data-choice="c">Je me sens bien à Séoul, c'est pourquoi j'aime la Corée.</button></div><div class="feedback"></div>
+  <div class="q" data-answer="c" data-audio="조금 어려워요. 하지만 재미있어요.">
+    <p><strong>3.</strong> 조금 어려워요. 하지만 재미있어요.</p><button class="listen">🎧 Écouter</button>
+    <div class="choices"><button data-choice="a">C'est très facile et amusant.</button><button data-choice="b">C'est difficile et ennuyeux.</button><button data-choice="c">C'est un peu difficile, mais intéressant.</button></div><div class="feedback"></div>
   </div>
-
-  <div class="q" data-answer="b" data-audio="한국 사람들과 이야기하고 싶어서 공부해요.">
-    <p><strong>4.</strong> 한국 사람들과 이야기하고 싶어서 공부해요.</p><button class="listen">🎧 Écouter</button>
-    <div class="choices"><button data-choice="a">J'étudie avant de parler avec des Coréens.</button><button data-choice="b">J'étudie parce que je veux parler avec des Coréens.</button><button data-choice="c">Je parle coréen parce que j'étudie.</button></div><div class="feedback"></div>
+  <div class="q" data-answer="b" data-audio="맞아요. 저도 그렇게 생각해요.">
+    <p><strong>4.</strong> 맞아요. 저도 그렇게 생각해요.</p><button class="listen">🎧 Écouter</button>
+    <div class="choices"><button data-choice="a">Je ne suis pas du tout d'accord.</button><button data-choice="b">Exactement. Moi aussi, je pense comme ça.</button><button data-choice="c">Je ne sais pas quoi penser.</button></div><div class="feedback"></div>
   </div>
-
-  <div class="q" data-answer="a" data-audio="네, 조금 그리워요.">
-    <p><strong>5.</strong> 네, 조금 그리워요.</p><button class="listen">🎧 Écouter</button>
-    <div class="choices"><button data-choice="a">Oui, ça me manque un peu.</button><button data-choice="b">Oui, c'est un peu loin.</button><button data-choice="c">Oui, c'est très joli.</button></div><div class="feedback"></div>
+  <div class="q" data-answer="a" data-audio="저는 조금 다르게 생각해요.">
+    <p><strong>5.</strong> 저는 조금 다르게 생각해요.</p><button class="listen">🎧 Écouter</button>
+    <div class="choices"><button data-choice="a">Moi, je pense un peu différemment.</button><button data-choice="b">Moi aussi, je pense pareil.</button><button data-choice="c">Je trouve cela très joli.</button></div><div class="feedback"></div>
   </div>
 </section>
 
@@ -59,26 +56,10 @@
 const LISTENING_KEY="hanaKorean_chapter33_listening";
 const EXERCISE_KEY="hanaKorean_chapter33_listeningExercise";
 const nextButton=document.getElementById("nextButton");
-
-function guard(){
-  if(localStorage.getItem(LISTENING_KEY)!=="completed"){
-    window.location.href="ecoute-33.html";
-    return false;
-  }
-  return true;
-}
+function guard(){if(localStorage.getItem(LISTENING_KEY)!=="completed"){window.location.href="ecoute-33.html";return false;}return true;}
 if(!guard())throw new Error("chapter33-listening-exercise-guard");
 
-function speak(text){
-  if(!("speechSynthesis" in window))return;
-  speechSynthesis.cancel();
-  const u=new SpeechSynthesisUtterance(text);
-  u.lang="ko-KR";u.rate=.82;
-  const voices=speechSynthesis.getVoices();
-  const v=voices.find(x=>x.lang==="ko-KR")||voices.find(x=>x.lang&&x.lang.startsWith("ko"));
-  if(v)u.voice=v;
-  speechSynthesis.speak(u);
-}
+function speak(text){if(!("speechSynthesis" in window))return;speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.lang="ko-KR";u.rate=.82;const v=speechSynthesis.getVoices().find(x=>x.lang==="ko-KR")||speechSynthesis.getVoices().find(x=>x.lang&&x.lang.startsWith("ko"));if(v)u.voice=v;speechSynthesis.speak(u);}
 const qs=[...document.querySelectorAll(".q")];
 qs.forEach(q=>{
   q.querySelector(".listen").addEventListener("click",()=>speak(q.dataset.audio));
@@ -87,8 +68,7 @@ qs.forEach(q=>{
       if(q.dataset.done==="true")return;
       const fb=q.querySelector(".feedback");
       if(btn.dataset.choice===q.dataset.answer){
-        q.dataset.done="true";
-        fb.textContent="✅ Très bien !";
+        q.dataset.done="true";fb.textContent="✅ Très bien !";
         q.querySelectorAll("[data-choice]").forEach(b=>b.disabled=true);
         if(qs.every(x=>x.dataset.done==="true")){
           localStorage.setItem(EXERCISE_KEY,"completed");
@@ -96,8 +76,7 @@ qs.forEach(q=>{
           if(window.HanaChapterProgress)HanaChapterProgress.render();
         }
       }else{
-        btn.disabled=true;
-        fb.textContent="💙 Réécoute et cherche la relation cause → conséquence.";
+        btn.disabled=true;fb.textContent="💙 Réécoute la phrase et repère le mot-clé.";
       }
     });
   });

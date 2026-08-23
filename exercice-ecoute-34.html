@@ -22,39 +22,38 @@
 <section id="hanaChapterPath" data-chapter-path></section>
 <header>
   <span class="chapter-badge">Chapitre 34 · 🎧 Exercice</span>
-  <h1>Comprendre une comparaison</h1>
+  <h1>Comprendre une raison</h1>
 </header>
 
 <section class="quiz">
-  <div class="q" data-answer="b" data-audio="서울이 파리보다 더 커요.">
-    <p><strong>1.</strong> 서울이 파리보다 더 커요.</p><button class="listen">🎧 Écouter</button>
-    <div class="choices"><button data-choice="a">Paris est plus grande que Séoul.</button><button data-choice="b">Séoul est plus grande que Paris.</button><button data-choice="c">Séoul et Paris sont pareilles.</button></div><div class="feedback"></div>
+  <div class="q" data-answer="b" data-audio="왜 한국을 좋아해요?">
+    <p><strong>1.</strong> 왜 한국을 좋아해요?</p><button class="listen">🎧 Écouter</button>
+    <div class="choices"><button data-choice="a">Quand vas-tu en Corée ?</button><button data-choice="b">Pourquoi aimes-tu la Corée ?</button><button data-choice="c">Que fais-tu en Corée ?</button></div><div class="feedback"></div>
   </div>
 
-  <div class="q" data-answer="a" data-audio="파리가 서울보다 덜 복잡해요.">
-    <p><strong>2.</strong> 파리가 서울보다 덜 복잡해요.</p><button class="listen">🎧 Écouter</button>
-    <div class="choices"><button data-choice="a">Paris est moins fréquentée que Séoul.</button><button data-choice="b">Paris est plus fréquentée que Séoul.</button><button data-choice="c">Paris est plus grande que Séoul.</button></div><div class="feedback"></div>
+  <div class="q" data-answer="a" data-audio="풍경이 아름다워서 좋아해요.">
+    <p><strong>2.</strong> 풍경이 아름다워서 좋아해요.</p><button class="listen">🎧 Écouter</button>
+    <div class="choices"><button data-choice="a">J'aime parce que les paysages sont magnifiques.</button><button data-choice="b">Je pense que les paysages sont difficiles.</button><button data-choice="c">Je vais voir les paysages demain.</button></div><div class="feedback"></div>
   </div>
 
-  <div class="q" data-answer="c" data-audio="이 두 카페는 비슷해요.">
-    <p><strong>3.</strong> 이 두 카페는 비슷해요.</p><button class="listen">🎧 Écouter</button>
-    <div class="choices"><button data-choice="a">Ces deux cafés sont très différents.</button><button data-choice="b">Ces deux cafés sont chers.</button><button data-choice="c">Ces deux cafés sont similaires.</button></div><div class="feedback"></div>
+  <div class="q" data-answer="c" data-audio="서울에 있으면 마음이 편해요. 그래서 한국을 좋아해요.">
+    <p><strong>3.</strong> 서울에 있으면 마음이 편해요. 그래서 한국을 좋아해요.</p><button class="listen">🎧 Écouter</button>
+    <div class="choices"><button data-choice="a">Séoul est loin, donc je n'aime pas la Corée.</button><button data-choice="b">Je préfère Paris à Séoul.</button><button data-choice="c">Je me sens bien à Séoul, c'est pourquoi j'aime la Corée.</button></div><div class="feedback"></div>
   </div>
 
-  <div class="q" data-answer="b" data-audio="파리보다 서울이 더 좋아요.">
-    <p><strong>4.</strong> 파리보다 서울이 더 좋아요.</p><button class="listen">🎧 Écouter</button>
-    <div class="choices"><button data-choice="a">Je préfère Paris à Séoul.</button><button data-choice="b">Je préfère Séoul à Paris.</button><button data-choice="c">Je n'aime ni Paris ni Séoul.</button></div><div class="feedback"></div>
+  <div class="q" data-answer="b" data-audio="한국 사람들과 이야기하고 싶어서 공부해요.">
+    <p><strong>4.</strong> 한국 사람들과 이야기하고 싶어서 공부해요.</p><button class="listen">🎧 Écouter</button>
+    <div class="choices"><button data-choice="a">J'étudie avant de parler avec des Coréens.</button><button data-choice="b">J'étudie parce que je veux parler avec des Coréens.</button><button data-choice="c">Je parle coréen parce que j'étudie.</button></div><div class="feedback"></div>
   </div>
 
-  <div class="q" data-answer="a" data-audio="두 도시는 많이 달라요.">
-    <p><strong>5.</strong> 두 도시는 많이 달라요.</p><button class="listen">🎧 Écouter</button>
-    <div class="choices"><button data-choice="a">Les deux villes sont très différentes.</button><button data-choice="b">Les deux villes sont identiques.</button><button data-choice="c">Les deux villes sont très calmes.</button></div><div class="feedback"></div>
+  <div class="q" data-answer="a" data-audio="네, 조금 그리워요.">
+    <p><strong>5.</strong> 네, 조금 그리워요.</p><button class="listen">🎧 Écouter</button>
+    <div class="choices"><button data-choice="a">Oui, ça me manque un peu.</button><button data-choice="b">Oui, c'est un peu loin.</button><button data-choice="c">Oui, c'est très joli.</button></div><div class="feedback"></div>
   </div>
 </section>
 
 <button id="nextButton" type="button" style="display:none;width:100%;">🗣️ Passer à l'oral</button>
 </main>
-
 <script src="chapter-progress.js"></script>
 <script>
 const LISTENING_KEY="hanaKorean_chapter34_listening";
@@ -80,7 +79,6 @@ function speak(text){
   if(v)u.voice=v;
   speechSynthesis.speak(u);
 }
-
 const qs=[...document.querySelectorAll(".q")];
 qs.forEach(q=>{
   q.querySelector(".listen").addEventListener("click",()=>speak(q.dataset.audio));
@@ -99,12 +97,11 @@ qs.forEach(q=>{
         }
       }else{
         btn.disabled=true;
-        fb.textContent="💙 Réécoute et repère 보다, 더 ou 덜.";
+        fb.textContent="💙 Réécoute et cherche la relation cause → conséquence.";
       }
     });
   });
 });
-
 if(localStorage.getItem(EXERCISE_KEY)==="completed"){
   qs.forEach(q=>q.querySelectorAll("[data-choice]").forEach(b=>b.disabled=true));
   nextButton.style.display="block";

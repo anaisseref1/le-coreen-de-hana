@@ -1,0 +1,15 @@
+<!DOCTYPE html><html lang="fr"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#F7F4ED"><title>Chapitre 51 — Exercice</title>
+<link rel="stylesheet" href="style.css"><link rel="stylesheet" href="chapter-progress.css">
+<style>.q{padding:14px;margin:12px 0;background:#FBFAF6;border-radius:var(--radius-medium)}.q button{width:100%;margin-top:7px;text-align:left;background:var(--soft-beige);color:var(--navy)}</style><script src="profile.js"></script></head>
+<body><main class="app"><a class="back-link" href="ecoute-51.html">← Écoute</a><section id="hanaChapterPath" data-chapter-path></section>
+<header><span class="chapter-badge">Chapitre 51 · 🎧 Exercice</span><h1>112, 119 ou 1330 ?</h1></header>
+<section class="card">
+<div class="q" data-answer="a"><p>1. Police / sécurité</p><button data-choice="a">112</button><button data-choice="b">119</button><div class="f"></div></div>
+<div class="q" data-answer="b"><p>2. Ambulance / urgence médicale</p><button data-choice="a">112</button><button data-choice="b">119</button><div class="f"></div></div>
+<div class="q" data-answer="a"><p>3. Assistance touristique non vitale</p><button data-choice="a">1330</button><button data-choice="b">119</button><div class="f"></div></div>
+</section><button id="next" style="display:none;width:100%">🗣️ Passer à l'oral</button></main>
+<script src="chapter-progress.js"></script><script>
+const P="hanaKorean_chapter51_listening",K="hanaKorean_chapter51_listeningExercise";if(localStorage.getItem(P)!=="completed")location.href="ecoute-51.html";const qs=[...document.querySelectorAll(".q")],n=document.getElementById("next");qs.forEach(q=>q.querySelectorAll("button").forEach(b=>b.onclick=()=>{if(q.dataset.done==="true")return;if(b.dataset.choice===q.dataset.answer){q.dataset.done="true";q.querySelector(".f").textContent="✅ Très bien !";q.querySelectorAll("button").forEach(x=>x.disabled=true);if(qs.every(x=>x.dataset.done==="true")){localStorage.setItem(K,"completed");n.style.display="block";if(window.HanaChapterProgress)HanaChapterProgress.render()}}else{b.disabled=true;q.querySelector(".f").textContent="💙 Essaie encore."}}));if(localStorage.getItem(K)==="completed")n.style.display="block";n.onclick=()=>location.href="parle-51.html";if(window.HanaChapterProgress)HanaChapterProgress.render();
+</script></body></html>

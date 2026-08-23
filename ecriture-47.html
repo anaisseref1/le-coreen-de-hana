@@ -1,0 +1,19 @@
+<!DOCTYPE html><html lang="fr"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#F7F4ED"><title>Chapitre 47 — Écriture</title>
+<link rel="stylesheet" href="style.css"><link rel="stylesheet" href="chapter-progress.css">
+<style>textarea{width:100%;box-sizing:border-box}</style><script src="profile.js"></script></head>
+<body><main class="app"><a class="back-link" href="parle-47.html">← Retour</a><section id="hanaChapterPath" data-chapter-path></section>
+<header><span class="chapter-badge">Chapitre 47 · ✍️</span><h1>Construire une demande</h1></header>
+<section class="card"><h2>Transforme avec -아/어 주세요</h2>
+<p>도와주다 → ________</p><p>다시 말하다 → ________</p><p>보여주다 → ________</p>
+<p>설명하다 → ________</p><p>확인하다 → ________</p><p>기다리다 → ________</p></section>
+<section class="card"><h2>Écris tes propres demandes</h2>
+<textarea id="free" rows="14" placeholder="이것 좀 도와주세요.&#10;다시 한번 말해 주세요.&#10;좀 천천히 말해 주세요.&#10;이 주소를 확인해 주세요."></textarea></section>
+<button id="done" style="width:100%">✅ Terminé</button><button id="next" style="display:none;width:100%">🧠 Révision</button>
+</main><script src="chapter-progress.js"></script><script>
+const K="hanaKorean_chapter47_writing",F="hanaKorean_chapter47_writingFree",f=document.getElementById("free"),d=document.getElementById("done"),n=document.getElementById("next");
+f.value=localStorage.getItem(F)||"";f.oninput=()=>localStorage.setItem(F,f.value);
+function r(){if(localStorage.getItem(K)==="completed"){d.disabled=true;n.style.display="block"}if(window.HanaChapterProgress)HanaChapterProgress.render()}
+d.onclick=()=>{localStorage.setItem(F,f.value);localStorage.setItem(K,"completed");r()};n.onclick=()=>location.href="revision-47.html";r();
+</script></body></html>

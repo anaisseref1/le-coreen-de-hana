@@ -1,0 +1,14 @@
+<!DOCTYPE html><html lang="fr"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#F7F4ED"><title>Chapitre 49 — Écriture</title>
+<link rel="stylesheet" href="style.css"><link rel="stylesheet" href="chapter-progress.css">
+<style>textarea{width:100%;box-sizing:border-box}</style><script src="profile.js"></script></head>
+<body><main class="app"><a class="back-link" href="parle-49.html">← Retour</a><section id="hanaChapterPath" data-chapter-path></section>
+<header><span class="chapter-badge">Chapitre 49 · ✍️</span><h1>Décrire un objet perdu</h1></header>
+<section class="card"><p>Construis des phrases :</p><p>portefeuille / noir / petit</p><p>parapluie / bleu</p><p>sac / rouge / grand</p>
+<textarea id="free" rows="14" placeholder="지갑을 잃어버렸어요.&#10;지갑을 못 찾아요.&#10;작은 검은색 지갑이에요.&#10;혹시 보셨어요?"></textarea></section>
+<button id="done" style="width:100%">✅ Terminé</button><button id="next" style="display:none;width:100%">🧠 Révision</button></main>
+<script src="chapter-progress.js"></script><script>
+const K="hanaKorean_chapter49_writing",F="hanaKorean_chapter49_writingFree",f=document.getElementById("free"),d=document.getElementById("done"),n=document.getElementById("next");f.value=localStorage.getItem(F)||"";f.oninput=()=>localStorage.setItem(F,f.value);function r(){if(localStorage.getItem(K)==="completed"){d.disabled=true;n.style.display="block"}if(window.HanaChapterProgress)HanaChapterProgress.render()}
+d.onclick=()=>{localStorage.setItem(F,f.value);localStorage.setItem(K,"completed");r()};n.onclick=()=>location.href="revision-49.html";r();
+</script></body></html>

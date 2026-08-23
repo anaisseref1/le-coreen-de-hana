@@ -1,0 +1,18 @@
+<!DOCTYPE html><html lang="fr"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#F7F4ED"><title>Chapitre 50 — Exercice d’écoute</title>
+<link rel="stylesheet" href="style.css"><link rel="stylesheet" href="chapter-progress.css">
+<style>.q{padding:14px;margin:12px 0;background:#FBFAF6;border-radius:var(--radius-medium)}.q button{width:100%;margin-top:7px;text-align:left;background:var(--soft-beige);color:var(--navy)}</style><script src="profile.js"></script></head>
+<body><main class="app"><a class="back-link" href="ecoute-50.html">← Écoute</a><section id="hanaChapterPath" data-chapter-path></section>
+<header><span class="chapter-badge">Chapitre 50 · 🎧 Exercice</span><h1>Quelle information ?</h1></header>
+<section class="card">
+<div class="q" data-answer="a"><p>1. 하루에 몇 번 먹어요?</p><button data-choice="a">Combien de fois par jour ?</button><button data-choice="b">Combien de comprimés ?</button><div class="f"></div></div>
+<div class="q" data-answer="b"><p>2. 한 번에 몇 알 먹어요?</p><button data-choice="a">Quand ?</button><button data-choice="b">Combien de comprimés par prise ?</button><div class="f"></div></div>
+<div class="q" data-answer="a"><p>3. 식사 후에 드세요.</p><button data-choice="a">Après le repas.</button><button data-choice="b">Avant le repas.</button><div class="f"></div></div>
+<div class="q" data-answer="b"><p>4. 물하고 같이 드세요.</p><button data-choice="a">Sans eau.</button><button data-choice="b">Avec de l’eau.</button><div class="f"></div></div>
+</section><button id="next" style="display:none;width:100%">🗣️ Passer à l'oral</button></main>
+<script src="chapter-progress.js"></script><script>
+const P="hanaKorean_chapter50_listening",K="hanaKorean_chapter50_listeningExercise";if(localStorage.getItem(P)!=="completed")location.href="ecoute-50.html";
+const qs=[...document.querySelectorAll(".q")],n=document.getElementById("next");qs.forEach(q=>q.querySelectorAll("button").forEach(b=>b.onclick=()=>{if(q.dataset.done==="true")return;if(b.dataset.choice===q.dataset.answer){q.dataset.done="true";q.querySelector(".f").textContent="✅ Très bien !";q.querySelectorAll("button").forEach(x=>x.disabled=true);if(qs.every(x=>x.dataset.done==="true")){localStorage.setItem(K,"completed");n.style.display="block";if(window.HanaChapterProgress)HanaChapterProgress.render()}}else{b.disabled=true;q.querySelector(".f").textContent="💙 Essaie encore."}}));
+if(localStorage.getItem(K)==="completed")n.style.display="block";n.onclick=()=>location.href="parle-50.html";if(window.HanaChapterProgress)HanaChapterProgress.render();
+</script></body></html>

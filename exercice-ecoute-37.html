@@ -22,33 +22,33 @@
 <section id="hanaChapterPath" data-chapter-path></section>
 <header>
   <span class="chapter-badge">Chapitre 37 · 🎧 Exercice</span>
-  <h1>Comprendre au cinéma</h1>
+  <h1>Comprendre une invitation</h1>
 </header>
 
 <section class="quiz">
-  <div class="q" data-answer="b" data-audio="어떤 영화 보고 싶어요?">
-    <p><strong>1.</strong> 어떤 영화 보고 싶어요?</p><button class="listen">🎧 Écouter</button>
-    <div class="choices"><button data-choice="a">Quel film as-tu vu ?</button><button data-choice="b">Quel film veux-tu voir ?</button><button data-choice="c">Quel acteur aimes-tu ?</button></div><div class="feedback"></div>
+  <div class="q" data-answer="b" data-audio="영화 볼래요?">
+    <p><strong>1.</strong> 영화 볼래요?</p><button class="listen">🎧 Écouter</button>
+    <div class="choices"><button data-choice="a">On a vu un film ?</button><button data-choice="b">Tu veux voir un film ?</button><button data-choice="c">Quel film as-tu vu ?</button></div><div class="feedback"></div>
   </div>
 
-  <div class="q" data-answer="a" data-audio="재미있을 것 같아요.">
-    <p><strong>2.</strong> 재미있을 것 같아요.</p><button class="listen">🎧 Écouter</button>
-    <div class="choices"><button data-choice="a">Ça a l'air intéressant.</button><button data-choice="b">C'était intéressant.</button><button data-choice="c">C'est ennuyeux.</button></div><div class="feedback"></div>
+  <div class="q" data-answer="a" data-audio="몇 시에 만날까요?">
+    <p><strong>2.</strong> 몇 시에 만날까요?</p><button class="listen">🎧 Écouter</button>
+    <div class="choices"><button data-choice="a">À quelle heure on se retrouve ?</button><button data-choice="b">Quel jour on se retrouve ?</button><button data-choice="c">Où on se retrouve ?</button></div><div class="feedback"></div>
   </div>
 
-  <div class="q" data-answer="c" data-audio="영화 어땠어요?">
-    <p><strong>3.</strong> 영화 어땠어요?</p><button class="listen">🎧 Écouter</button>
-    <div class="choices"><button data-choice="a">Quel film veux-tu voir ?</button><button data-choice="b">À quelle heure commence le film ?</button><button data-choice="c">Comment était le film ?</button></div><div class="feedback"></div>
+  <div class="q" data-answer="c" data-audio="토요일 오후 어때요?">
+    <p><strong>3.</strong> 토요일 오후 어때요?</p><button class="listen">🎧 Écouter</button>
+    <div class="choices"><button data-choice="a">Tu travailles samedi après-midi ?</button><button data-choice="b">Tu préfères dimanche matin ?</button><button data-choice="c">Samedi après-midi, ça te va ?</button></div><div class="feedback"></div>
   </div>
 
-  <div class="q" data-answer="b" data-audio="정말 재미있었어요. 배우도 멋있었어요.">
-    <p><strong>4.</strong> 정말 재미있었어요. 배우도 멋있었어요.</p><button class="listen">🎧 Écouter</button>
-    <div class="choices"><button data-choice="a">Le film était effrayant et l'acteur mauvais.</button><button data-choice="b">Le film était très intéressant et l'acteur super.</button><button data-choice="c">Le film était long mais drôle.</button></div><div class="feedback"></div>
+  <div class="q" data-answer="b" data-audio="영화관 앞에서 만나요.">
+    <p><strong>4.</strong> 영화관 앞에서 만나요.</p><button class="listen">🎧 Écouter</button>
+    <div class="choices"><button data-choice="a">Entrons dans le cinéma.</button><button data-choice="b">Retrouvons-nous devant le cinéma.</button><button data-choice="c">Le cinéma est devant nous.</button></div><div class="feedback"></div>
   </div>
 
-  <div class="q" data-answer="a" data-audio="마지막 장면이 제일 좋았어요.">
-    <p><strong>5.</strong> 마지막 장면이 제일 좋았어요.</p><button class="listen">🎧 Écouter</button>
-    <div class="choices"><button data-choice="a">J'ai préféré la dernière scène.</button><button data-choice="b">La dernière scène était la plus triste.</button><button data-choice="c">Je n'ai pas aimé la dernière scène.</button></div><div class="feedback"></div>
+  <div class="q" data-answer="a" data-audio="미안해요. 토요일에는 약속이 있어요.">
+    <p><strong>5.</strong> 미안해요. 토요일에는 약속이 있어요.</p><button class="listen">🎧 Écouter</button>
+    <div class="choices"><button data-choice="a">Désolée, j'ai déjà quelque chose de prévu samedi.</button><button data-choice="b">Désolée, je suis libre samedi.</button><button data-choice="c">Samedi, retrouvons-nous.</button></div><div class="feedback"></div>
   </div>
 </section>
 
@@ -80,6 +80,7 @@ function speak(text){
   if(v)u.voice=v;
   speechSynthesis.speak(u);
 }
+
 const qs=[...document.querySelectorAll(".q")];
 qs.forEach(q=>{
   q.querySelector(".listen").addEventListener("click",()=>speak(q.dataset.audio));
@@ -98,11 +99,12 @@ qs.forEach(q=>{
         }
       }else{
         btn.disabled=true;
-        fb.textContent="💙 Réécoute et repère si on parle d'avant ou d'après le film.";
+        fb.textContent="💙 Réécoute et repère la proposition, l'heure ou le lieu.";
       }
     });
   });
 });
+
 if(localStorage.getItem(EXERCISE_KEY)==="completed"){
   qs.forEach(q=>q.querySelectorAll("[data-choice]").forEach(b=>b.disabled=true));
   nextButton.style.display="block";

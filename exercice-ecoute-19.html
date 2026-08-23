@@ -20,6 +20,7 @@
     rel="stylesheet"
     href="style.css"
   >
+
   <link rel="stylesheet" href="chapter-progress.css">
 
   <style>
@@ -261,7 +262,7 @@
 
     <p>
       Écoute chaque phrase et repère
-      l'action passée, le repère temporel ou l'impression exprimée.
+      l'idée : préférence, goût, musique, négation ou raison.
     </p>
 
   </header>
@@ -298,7 +299,7 @@
     </p>
 
     <h2>
-      🚶 Une action passée
+      ❤️ Une préférence
     </h2>
 
     <div class="audio-zone">
@@ -306,13 +307,13 @@
       <div class="audio-icon">🎧</div>
 
       <div class="audio-note">
-        Écoute la phrase de Ana.
+        Écoute la question de Min-su.
       </div>
 
       <button
         class="audio-main"
         type="button"
-        onclick="speakKorean('서울에 갔어요.', false)"
+        onclick="speakKorean('뭐가 제일 좋아요?', false)"
       >
         🔊 Écouter
       </button>
@@ -320,7 +321,7 @@
       <button
         class="slow-button"
         type="button"
-        onclick="speakKorean('서울에 갔어요.', true)"
+        onclick="speakKorean('뭐가 제일 좋아요?', true)"
       >
         🐢 Écouter lentement
       </button>
@@ -328,7 +329,7 @@
     </div>
 
     <p class="question-text">
-      Que dit Ana ?
+      Que demande Min-su ?
     </p>
 
     <div class="answers">
@@ -338,7 +339,7 @@
         type="button"
         onclick="checkAnswer(1, this, true)"
       >
-        Je suis allé(e) à Séoul.
+        Qu'est-ce que tu préfères ?
       </button>
 
       <button
@@ -346,7 +347,7 @@
         type="button"
         onclick="checkAnswer(1, this, false)"
       >
-        Je vais à Séoul.
+        Où vas-tu ?
       </button>
 
       <button
@@ -354,7 +355,7 @@
         type="button"
         onclick="checkAnswer(1, this, false)"
       >
-        J'habite à Séoul.
+        Qu'est-ce que tu n'aimes pas ?
       </button>
 
     </div>
@@ -382,7 +383,7 @@
     </p>
 
     <h2>
-      🍚 Ce que Ana a mangé
+      ☕ Un goût
     </h2>
 
     <div class="audio-zone">
@@ -390,13 +391,13 @@
       <div class="audio-icon">🎧</div>
 
       <div class="audio-note">
-        Repère surtout 먹었어요.
+        Écoute la phrase de Ana.
       </div>
 
       <button
         class="audio-main"
         type="button"
-        onclick="speakKorean('어제 비빔밥을 먹었어요.', false)"
+        onclick="speakKorean('커피를 좋아해요.', false)"
       >
         🔊 Écouter
       </button>
@@ -404,7 +405,7 @@
       <button
         class="slow-button"
         type="button"
-        onclick="speakKorean('어제 비빔밥을 먹었어요.', true)"
+        onclick="speakKorean('커피를 좋아해요.', true)"
       >
         🐢 Écouter lentement
       </button>
@@ -412,7 +413,7 @@
     </div>
 
     <p class="question-text">
-      Que s'est-il passé ?
+      Que dit Ana ?
     </p>
 
     <div class="answers">
@@ -422,7 +423,7 @@
         type="button"
         onclick="checkAnswer(2, this, false)"
       >
-        Ana va manger un bibimbap demain.
+        Elle n'aime pas le café.
       </button>
 
       <button
@@ -430,7 +431,7 @@
         type="button"
         onclick="checkAnswer(2, this, true)"
       >
-        Hier, Ana a mangé un bibimbap.
+        Elle aime le café.
       </button>
 
       <button
@@ -438,7 +439,7 @@
         type="button"
         onclick="checkAnswer(2, this, false)"
       >
-        Ana n'aime pas le bibimbap.
+        Elle veut commander un café.
       </button>
 
     </div>
@@ -466,7 +467,7 @@
     </p>
 
     <h2>
-      📷 Des souvenirs
+      🎵 La musique préférée
     </h2>
 
     <div class="audio-zone">
@@ -474,13 +475,13 @@
       <div class="audio-icon">🎧</div>
 
       <div class="audio-note">
-        Repère 사진 et 찍었어요.
+        Repère 어떤 음악 et 제일 좋아해요.
       </div>
 
       <button
         class="audio-main"
         type="button"
-        onclick="speakKorean('사진을 많이 찍었어요.', false)"
+        onclick="speakKorean('어떤 음악을 제일 좋아해요?', false)"
       >
         🔊 Écouter
       </button>
@@ -488,7 +489,7 @@
       <button
         class="slow-button"
         type="button"
-        onclick="speakKorean('사진을 많이 찍었어요.', true)"
+        onclick="speakKorean('어떤 음악을 제일 좋아해요?', true)"
       >
         🐢 Écouter lentement
       </button>
@@ -496,7 +497,7 @@
     </div>
 
     <p class="question-text">
-      Que dit Ana ?
+      Que demande Min-su ?
     </p>
 
     <div class="answers">
@@ -506,7 +507,7 @@
         type="button"
         onclick="checkAnswer(3, this, true)"
       >
-        J'ai pris beaucoup de photos.
+        Quelle musique préfères-tu ?
       </button>
 
       <button
@@ -514,7 +515,7 @@
         type="button"
         onclick="checkAnswer(3, this, false)"
       >
-        J'ai regardé beaucoup de photos.
+        Quel film préfères-tu ?
       </button>
 
       <button
@@ -522,7 +523,7 @@
         type="button"
         onclick="checkAnswer(3, this, false)"
       >
-        Je veux prendre une photo.
+        Tu écoutes de la musique maintenant ?
       </button>
 
     </div>
@@ -550,7 +551,7 @@
     </p>
 
     <h2>
-      🌟 Une impression
+      🙂 Une préférence négative
     </h2>
 
     <div class="audio-zone">
@@ -558,13 +559,13 @@
       <div class="audio-icon">🎧</div>
 
       <div class="audio-note">
-        Écoute la réponse courte.
+        Écoute le mot placé avant 좋아해요.
       </div>
 
       <button
         class="audio-main"
         type="button"
-        onclick="speakKorean('정말 좋았어요.', false)"
+        onclick="speakKorean('안 좋아해요.', false)"
       >
         🔊 Écouter
       </button>
@@ -572,7 +573,7 @@
       <button
         class="slow-button"
         type="button"
-        onclick="speakKorean('정말 좋았어요.', true)"
+        onclick="speakKorean('안 좋아해요.', true)"
       >
         🐢 Écouter lentement
       </button>
@@ -590,7 +591,7 @@
         type="button"
         onclick="checkAnswer(4, this, false)"
       >
-        Ce sera vraiment bien.
+        J'adore ça.
       </button>
 
       <button
@@ -598,7 +599,7 @@
         type="button"
         onclick="checkAnswer(4, this, true)"
       >
-        C'était vraiment bien.
+        Je n'aime pas / je n'aime pas trop.
       </button>
 
       <button
@@ -606,7 +607,7 @@
         type="button"
         onclick="checkAnswer(4, this, false)"
       >
-        Ce n'est vraiment pas bien.
+        Je préfère ça.
       </button>
 
     </div>
@@ -634,7 +635,7 @@
     </p>
 
     <h2>
-      ❓ Comment c'était ?
+      ❓ Pourquoi ?
     </h2>
 
     <div class="audio-zone">
@@ -642,13 +643,13 @@
       <div class="audio-icon">🎧</div>
 
       <div class="audio-note">
-        Écoute la question de Min-su.
+        Une toute petite question très utile.
       </div>
 
       <button
         class="audio-main"
         type="button"
-        onclick="speakKorean('여행 어땠어요?', false)"
+        onclick="speakKorean('왜요?', false)"
       >
         🔊 Écouter
       </button>
@@ -656,7 +657,7 @@
       <button
         class="slow-button"
         type="button"
-        onclick="speakKorean('여행 어땠어요?', true)"
+        onclick="speakKorean('왜요?', true)"
       >
         🐢 Écouter lentement
       </button>
@@ -674,7 +675,7 @@
         type="button"
         onclick="checkAnswer(5, this, false)"
       >
-        Où était le voyage ?
+        Quand ?
       </button>
 
       <button
@@ -682,7 +683,7 @@
         type="button"
         onclick="checkAnswer(5, this, true)"
       >
-        Comment était le voyage ?
+        Pourquoi ?
       </button>
 
       <button
@@ -690,7 +691,7 @@
         type="button"
         onclick="checkAnswer(5, this, false)"
       >
-        Quand commence le voyage ?
+        Avec qui ?
       </button>
 
     </div>
@@ -717,7 +718,7 @@
   >
 
     <div class="result-icon">
-      🎧📸
+      🎧❤️
     </div>
 
     <h2>
@@ -729,7 +730,7 @@
     </p>
 
     <p class="result-score">
-      5 expressions du passé reconnues ✅
+      5 expressions de goûts reconnues ✅
     </p>
 
 
@@ -747,23 +748,23 @@
     <div class="notion-summary">
 
       <div class="notion-line">
-        🚶 <strong>서울에 갔어요.</strong> → Je suis allé(e) à Séoul.
+        ❤️ <strong>뭐가 제일 좋아요?</strong> → Qu'est-ce que tu préfères ?
       </div>
 
       <div class="notion-line">
-        🍚 <strong>어제 비빔밥을 먹었어요.</strong> → Hier, j'ai mangé un bibimbap.
+        ☕ <strong>커피를 좋아해요.</strong> → J'aime le café.
       </div>
 
       <div class="notion-line">
-        📷 <strong>사진을 많이 찍었어요.</strong> → J'ai pris beaucoup de photos.
+        🎵 <strong>어떤 음악을 제일 좋아해요?</strong> → Quelle musique préfères-tu ?
       </div>
 
       <div class="notion-line">
-        🌟 <strong>정말 좋았어요.</strong> → C'était vraiment bien.
+        🙂 <strong>안 좋아해요.</strong> → Je n'aime pas / pas trop.
       </div>
 
       <div class="notion-line">
-        ❓ <strong>여행 어땠어요?</strong> → Comment était le voyage ?
+        ❓ <strong>왜요?</strong> → Pourquoi ?
       </div>
 
     </div>
@@ -777,35 +778,27 @@
 
       <br><br>
 
-      Repère surtout les fins du passé :
+      Repère d'abord les mots-clés :
 
       <br><br>
 
-      <strong>갔어요</strong> → est allé(e)
+      <strong>제일</strong> → le plus
 
       <br>
 
-      <strong>먹었어요</strong> → a mangé
+      <strong>좋아해요</strong> → aimer
 
       <br>
 
-      <strong>찍었어요</strong> → a pris une photo
+      <strong>안</strong> → négation
 
       <br>
 
-      <strong>좋았어요</strong> → c'était bien
-
-      <br><br>
-
-      Et pour comprendre le moment :
-
-      <br><br>
-
-      <strong>어제</strong> → hier
+      <strong>음악</strong> → musique
 
       <br>
 
-      <strong>지난주</strong> → la semaine dernière
+      <strong>왜요?</strong> → pourquoi ?
 
     </div>
 
@@ -836,7 +829,7 @@
 
 <script>
 
-  const CHAPTER = 19;
+  const CHAPTER = 18;
 
   const UNDERSTANDING_KEY =
     "hanaKorean_chapter19_understanding";
@@ -884,7 +877,6 @@
       window.HanaChapterProgress.render();
     }
   }
-
 
 
   let incorrectAttempts = 0;
@@ -1184,8 +1176,8 @@
           "✅ <strong>Exact !</strong>" +
           "<br><br>" +
           "Tu as entendu :" +
-          "<div class='heard-question'>서울에 갔어요.</div>" +
-          "<strong>갔어요</strong> est le passé de 가요 : « je suis allé(e) ».";
+          "<div class='heard-question'>뭐가 제일 좋아요?</div>" +
+          "<strong>제일</strong> indique ici l'idée de préférence : « le plus ».";
 
       }
 
@@ -1196,8 +1188,8 @@
           "✅ <strong>Très bien !</strong>" +
           "<br><br>" +
           "Tu as entendu :" +
-          "<div class='heard-question'>어제 비빔밥을 먹었어요.</div>" +
-          "<strong>어제</strong> = hier et <strong>먹었어요</strong> = j'ai mangé.";
+          "<div class='heard-question'>커피를 좋아해요.</div>" +
+          "<strong>좋아해요</strong> signifie « aimer ».";
 
       }
 
@@ -1208,8 +1200,8 @@
           "✅ <strong>Exact !</strong>" +
           "<br><br>" +
           "Tu as entendu :" +
-          "<div class='heard-question'>사진을 많이 찍었어요.</div>" +
-          "<strong>찍었어요</strong> indique ici que Ana a pris des photos.";
+          "<div class='heard-question'>어떤 음악을 제일 좋아해요?</div>" +
+          "<strong>음악</strong> = musique et <strong>제일 좋아해요</strong> = aimer le plus.";
 
       }
 
@@ -1220,8 +1212,8 @@
           "✅ <strong>Très bien !</strong>" +
           "<br><br>" +
           "Tu as entendu :" +
-          "<div class='heard-question'>정말 좋았어요.</div>" +
-          "<strong>좋았어요</strong> signifie ici « c'était bien ».";
+          "<div class='heard-question'>안 좋아해요.</div>" +
+          "<strong>안</strong> rend ici la phrase négative.";
 
       }
 
@@ -1232,8 +1224,8 @@
           "✅ <strong>Parfait !</strong>" +
           "<br><br>" +
           "Tu as entendu :" +
-          "<div class='heard-question'>여행 어땠어요?</div>" +
-          "<strong>어땠어요?</strong> signifie « Comment c'était ? ».";
+          "<div class='heard-question'>왜요?</div>" +
+          "Cette petite question signifie « Pourquoi ? ».";
 
       }
 
@@ -1274,9 +1266,9 @@
     if (number === 1) {
 
       feedback.innerHTML =
-        "❌ <strong>Repère 갔어요.</strong>" +
+        "❌ <strong>Repère 제일.</strong>" +
         "<br><br>" +
-        "💡 <strong>갔어요</strong> = je suis allé(e).";
+        "💡 <strong>제일</strong> = le plus, ici pour demander une préférence.";
 
     }
 
@@ -1284,9 +1276,9 @@
     if (number === 2) {
 
       feedback.innerHTML =
-        "❌ <strong>Repère 어제 et 먹었어요.</strong>" +
+        "❌ <strong>Repère 좋아해요.</strong>" +
         "<br><br>" +
-        "💡 <strong>어제</strong> = hier ; <strong>먹었어요</strong> = j'ai mangé.";
+        "💡 <strong>좋아해요</strong> = aimer.";
 
     }
 
@@ -1294,9 +1286,9 @@
     if (number === 3) {
 
       feedback.innerHTML =
-        "❌ <strong>Repère 사진 et 찍었어요.</strong>" +
+        "❌ <strong>Repère 음악.</strong>" +
         "<br><br>" +
-        "💡 <strong>사진</strong> = photo ; <strong>찍었어요</strong> = a pris une photo.";
+        "💡 <strong>음악</strong> = musique.";
 
     }
 
@@ -1304,9 +1296,9 @@
     if (number === 4) {
 
       feedback.innerHTML =
-        "❌ <strong>Repère 좋았어요.</strong>" +
+        "❌ <strong>Repère 안.</strong>" +
         "<br><br>" +
-        "💡 <strong>정말 좋았어요</strong> = c'était vraiment bien.";
+        "💡 <strong>안 좋아해요</strong> = ne pas aimer / ne pas trop aimer.";
 
     }
 
@@ -1314,9 +1306,9 @@
     if (number === 5) {
 
       feedback.innerHTML =
-        "❌ <strong>Repère 어땠어요?</strong>" +
+        "❌ <strong>Cette question est très courte.</strong>" +
         "<br><br>" +
-        "💡 <strong>어땠어요?</strong> = Comment c'était ?";
+        "💡 <strong>왜요?</strong> = Pourquoi ?";
 
     }
 
@@ -1478,7 +1470,9 @@
       "attemptText"
     ).textContent =
       message;
-    localStorage.setItem(
+
+
+        localStorage.setItem(
       LISTENING_KEY,
       "completed"
     );
@@ -1516,6 +1510,7 @@
       };
 
   }
+
 
   if (guardListeningExerciseAccess()) {
     renderChapterProgress();

@@ -1,0 +1,15 @@
+<!DOCTYPE html><html lang="fr"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#F7F4ED"><title>Chapitre 52 — Exercice</title>
+<link rel="stylesheet" href="style.css"><link rel="stylesheet" href="chapter-progress.css">
+<style>.q{padding:14px;margin:12px 0;background:#FBFAF6;border-radius:var(--radius-medium)}.q button{width:100%;margin-top:7px;text-align:left;background:var(--soft-beige);color:var(--navy)}</style><script src="profile.js"></script></head>
+<body><main class="app"><a class="back-link" href="ecoute-52.html">← Écoute</a><section id="hanaChapterPath" data-chapter-path></section>
+<header><span class="chapter-badge">Chapitre 52 · 🎧 Exercice</span><h1>Promesse ou estimation ?</h1></header>
+<section class="card">
+<div class="q" data-answer="a"><p>1. 도착하면 연락할게요.</p><button data-choice="a">Je te contacterai quand j’arriverai.</button><button data-choice="b">Je pense que tu arrives.</button><div class="f"></div></div>
+<div class="q" data-answer="b"><p>2. 조금 늦을 것 같아요.</p><button data-choice="a">Je promets d’être en retard.</button><button data-choice="b">Je pense que je vais être un peu en retard.</button><div class="f"></div></div>
+<div class="q" data-answer="a"><p>3. 기다릴게요.</p><button data-choice="a">Je vais t’attendre.</button><button data-choice="b">Je pense que tu attends.</button><div class="f"></div></div>
+</section><button id="next" style="display:none;width:100%">🗣️ Passer à l'oral</button></main>
+<script src="chapter-progress.js"></script><script>
+const P="hanaKorean_chapter52_listening",K="hanaKorean_chapter52_listeningExercise";if(localStorage.getItem(P)!=="completed")location.href="ecoute-52.html";const qs=[...document.querySelectorAll(".q")],n=document.getElementById("next");qs.forEach(q=>q.querySelectorAll("button").forEach(b=>b.onclick=()=>{if(q.dataset.done==="true")return;if(b.dataset.choice===q.dataset.answer){q.dataset.done="true";q.querySelector(".f").textContent="✅ Très bien !";q.querySelectorAll("button").forEach(x=>x.disabled=true);if(qs.every(x=>x.dataset.done==="true")){localStorage.setItem(K,"completed");n.style.display="block";if(window.HanaChapterProgress)HanaChapterProgress.render()}}else{b.disabled=true;q.querySelector(".f").textContent="💙 Essaie encore."}}));if(localStorage.getItem(K)==="completed")n.style.display="block";n.onclick=()=>location.href="parle-52.html";if(window.HanaChapterProgress)HanaChapterProgress.render();
+</script></body></html>

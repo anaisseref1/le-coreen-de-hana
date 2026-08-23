@@ -21,9 +21,9 @@
     href="style.css"
   >
 
-  <link rel="stylesheet" href="chapter-progress.css">
+    <link rel="stylesheet" href="chapter-progress.css">
 
-  <style>
+<style>
     .exercise-header {
       text-align: center;
       margin-bottom: 30px;
@@ -262,7 +262,7 @@
 
     <p>
       Écoute chaque phrase et repère
-      l'idée : préférence, goût, musique, négation ou raison.
+      l'intention : Wi-Fi, mot de passe, batterie, chargeur ou recharge.
     </p>
 
   </header>
@@ -299,7 +299,7 @@
     </p>
 
     <h2>
-      ❤️ Une préférence
+      📶 Le Wi-Fi
     </h2>
 
     <div class="audio-zone">
@@ -307,13 +307,13 @@
       <div class="audio-icon">🎧</div>
 
       <div class="audio-note">
-        Écoute la question de Min-su.
+        Écoute la phrase de Ana.
       </div>
 
       <button
         class="audio-main"
         type="button"
-        onclick="speakKorean('뭐가 제일 좋아요?', false)"
+        onclick="speakKorean('와이파이 있어요?', false)"
       >
         🔊 Écouter
       </button>
@@ -321,7 +321,7 @@
       <button
         class="slow-button"
         type="button"
-        onclick="speakKorean('뭐가 제일 좋아요?', true)"
+        onclick="speakKorean('와이파이 있어요?', true)"
       >
         🐢 Écouter lentement
       </button>
@@ -329,7 +329,7 @@
     </div>
 
     <p class="question-text">
-      Que demande Min-su ?
+      Que demande Ana ?
     </p>
 
     <div class="answers">
@@ -339,7 +339,7 @@
         type="button"
         onclick="checkAnswer(1, this, true)"
       >
-        Qu'est-ce que tu préfères ?
+        S'il y a du Wi-Fi.
       </button>
 
       <button
@@ -347,7 +347,7 @@
         type="button"
         onclick="checkAnswer(1, this, false)"
       >
-        Où vas-tu ?
+        Où est la prise électrique.
       </button>
 
       <button
@@ -355,7 +355,7 @@
         type="button"
         onclick="checkAnswer(1, this, false)"
       >
-        Qu'est-ce que tu n'aimes pas ?
+        Le prix du café.
       </button>
 
     </div>
@@ -383,7 +383,7 @@
     </p>
 
     <h2>
-      ☕ Un goût
+      🔐 Le mot de passe
     </h2>
 
     <div class="audio-zone">
@@ -391,13 +391,13 @@
       <div class="audio-icon">🎧</div>
 
       <div class="audio-note">
-        Écoute la phrase de Ana.
+        Repère surtout 비밀번호.
       </div>
 
       <button
         class="audio-main"
         type="button"
-        onclick="speakKorean('커피를 좋아해요.', false)"
+        onclick="speakKorean('와이파이 비밀번호가 뭐예요?', false)"
       >
         🔊 Écouter
       </button>
@@ -405,7 +405,7 @@
       <button
         class="slow-button"
         type="button"
-        onclick="speakKorean('커피를 좋아해요.', true)"
+        onclick="speakKorean('와이파이 비밀번호가 뭐예요?', true)"
       >
         🐢 Écouter lentement
       </button>
@@ -413,7 +413,7 @@
     </div>
 
     <p class="question-text">
-      Que dit Ana ?
+      Que demande Ana ?
     </p>
 
     <div class="answers">
@@ -423,7 +423,7 @@
         type="button"
         onclick="checkAnswer(2, this, false)"
       >
-        Elle n'aime pas le café.
+        Le nom du réseau.
       </button>
 
       <button
@@ -431,7 +431,7 @@
         type="button"
         onclick="checkAnswer(2, this, true)"
       >
-        Elle aime le café.
+        Le mot de passe du Wi-Fi.
       </button>
 
       <button
@@ -439,7 +439,7 @@
         type="button"
         onclick="checkAnswer(2, this, false)"
       >
-        Elle veut commander un café.
+        Un nouveau téléphone.
       </button>
 
     </div>
@@ -467,7 +467,7 @@
     </p>
 
     <h2>
-      🎵 La musique préférée
+      🔋 Plus de batterie
     </h2>
 
     <div class="audio-zone">
@@ -475,13 +475,13 @@
       <div class="audio-icon">🎧</div>
 
       <div class="audio-note">
-        Repère 어떤 음악 et 제일 좋아해요.
+        Écoute la phrase complète.
       </div>
 
       <button
         class="audio-main"
         type="button"
-        onclick="speakKorean('어떤 음악을 제일 좋아해요?', false)"
+        onclick="speakKorean('배터리가 없어요.', false)"
       >
         🔊 Écouter
       </button>
@@ -489,7 +489,7 @@
       <button
         class="slow-button"
         type="button"
-        onclick="speakKorean('어떤 음악을 제일 좋아해요?', true)"
+        onclick="speakKorean('배터리가 없어요.', true)"
       >
         🐢 Écouter lentement
       </button>
@@ -497,7 +497,7 @@
     </div>
 
     <p class="question-text">
-      Que demande Min-su ?
+      Que dit Ana ?
     </p>
 
     <div class="answers">
@@ -507,7 +507,7 @@
         type="button"
         onclick="checkAnswer(3, this, true)"
       >
-        Quelle musique préfères-tu ?
+        Je n'ai plus de batterie.
       </button>
 
       <button
@@ -515,7 +515,7 @@
         type="button"
         onclick="checkAnswer(3, this, false)"
       >
-        Quel film préfères-tu ?
+        Ma batterie est pleine.
       </button>
 
       <button
@@ -523,7 +523,7 @@
         type="button"
         onclick="checkAnswer(3, this, false)"
       >
-        Tu écoutes de la musique maintenant ?
+        Je n'ai pas de Wi-Fi.
       </button>
 
     </div>
@@ -551,7 +551,7 @@
     </p>
 
     <h2>
-      🙂 Une préférence négative
+      🔌 Un chargeur
     </h2>
 
     <div class="audio-zone">
@@ -559,13 +559,13 @@
       <div class="audio-icon">🎧</div>
 
       <div class="audio-note">
-        Écoute le mot placé avant 좋아해요.
+        Repère 충전기.
       </div>
 
       <button
         class="audio-main"
         type="button"
-        onclick="speakKorean('안 좋아해요.', false)"
+        onclick="speakKorean('충전기 있어요?', false)"
       >
         🔊 Écouter
       </button>
@@ -573,7 +573,7 @@
       <button
         class="slow-button"
         type="button"
-        onclick="speakKorean('안 좋아해요.', true)"
+        onclick="speakKorean('충전기 있어요?', true)"
       >
         🐢 Écouter lentement
       </button>
@@ -581,7 +581,7 @@
     </div>
 
     <p class="question-text">
-      Que signifie cette phrase ?
+      Que demande Ana ?
     </p>
 
     <div class="answers">
@@ -591,7 +591,7 @@
         type="button"
         onclick="checkAnswer(4, this, false)"
       >
-        J'adore ça.
+        S'il y a Internet.
       </button>
 
       <button
@@ -599,7 +599,7 @@
         type="button"
         onclick="checkAnswer(4, this, true)"
       >
-        Je n'aime pas / je n'aime pas trop.
+        S'ils ont un chargeur.
       </button>
 
       <button
@@ -607,7 +607,7 @@
         type="button"
         onclick="checkAnswer(4, this, false)"
       >
-        Je préfère ça.
+        Où est son téléphone.
       </button>
 
     </div>
@@ -635,7 +635,7 @@
     </p>
 
     <h2>
-      ❓ Pourquoi ?
+      ⚡ Où recharger ?
     </h2>
 
     <div class="audio-zone">
@@ -643,13 +643,13 @@
       <div class="audio-icon">🎧</div>
 
       <div class="audio-note">
-        Une toute petite question très utile.
+        Écoute la réponse de Ji-eun.
       </div>
 
       <button
         class="audio-main"
         type="button"
-        onclick="speakKorean('왜요?', false)"
+        onclick="speakKorean('저기에서 충전할 수 있어요.', false)"
       >
         🔊 Écouter
       </button>
@@ -657,7 +657,7 @@
       <button
         class="slow-button"
         type="button"
-        onclick="speakKorean('왜요?', true)"
+        onclick="speakKorean('저기에서 충전할 수 있어요.', true)"
       >
         🐢 Écouter lentement
       </button>
@@ -665,7 +665,7 @@
     </div>
 
     <p class="question-text">
-      Que demande Min-su ?
+      Que dit Ji-eun ?
     </p>
 
     <div class="answers">
@@ -675,7 +675,7 @@
         type="button"
         onclick="checkAnswer(5, this, false)"
       >
-        Quand ?
+        Il n'y a pas de chargeur.
       </button>
 
       <button
@@ -683,7 +683,7 @@
         type="button"
         onclick="checkAnswer(5, this, true)"
       >
-        Pourquoi ?
+        Vous pouvez recharger là-bas.
       </button>
 
       <button
@@ -691,7 +691,7 @@
         type="button"
         onclick="checkAnswer(5, this, false)"
       >
-        Avec qui ?
+        Le Wi-Fi ne fonctionne pas.
       </button>
 
     </div>
@@ -718,7 +718,7 @@
   >
 
     <div class="result-icon">
-      🎧❤️
+      🎧📱
     </div>
 
     <h2>
@@ -730,7 +730,7 @@
     </p>
 
     <p class="result-score">
-      5 expressions de goûts reconnues ✅
+      5 situations téléphone / Internet reconnues ✅
     </p>
 
 
@@ -748,23 +748,23 @@
     <div class="notion-summary">
 
       <div class="notion-line">
-        ❤️ <strong>뭐가 제일 좋아요?</strong> → Qu'est-ce que tu préfères ?
+        📶 <strong>와이파이 있어요?</strong> → Il y a du Wi-Fi ?
       </div>
 
       <div class="notion-line">
-        ☕ <strong>커피를 좋아해요.</strong> → J'aime le café.
+        🔐 <strong>와이파이 비밀번호가 뭐예요?</strong> → Quel est le mot de passe du Wi-Fi ?
       </div>
 
       <div class="notion-line">
-        🎵 <strong>어떤 음악을 제일 좋아해요?</strong> → Quelle musique préfères-tu ?
+        🔋 <strong>배터리가 없어요.</strong> → Je n'ai plus de batterie.
       </div>
 
       <div class="notion-line">
-        🙂 <strong>안 좋아해요.</strong> → Je n'aime pas / pas trop.
+        🔌 <strong>충전기 있어요?</strong> → Vous avez un chargeur ?
       </div>
 
       <div class="notion-line">
-        ❓ <strong>왜요?</strong> → Pourquoi ?
+        ⚡ <strong>저기에서 충전할 수 있어요.</strong> → Vous pouvez recharger là-bas.
       </div>
 
     </div>
@@ -782,23 +782,27 @@
 
       <br><br>
 
-      <strong>제일</strong> → le plus
+      <strong>와이파이</strong> → Wi-Fi
 
       <br>
 
-      <strong>좋아해요</strong> → aimer
+      <strong>비밀번호</strong> → mot de passe
 
       <br>
 
-      <strong>안</strong> → négation
+      <strong>배터리</strong> → batterie
 
       <br>
 
-      <strong>음악</strong> → musique
+      <strong>충전기</strong> → chargeur
 
       <br>
 
-      <strong>왜요?</strong> → pourquoi ?
+      <strong>충전</strong> → recharge
+
+      <br>
+
+      <strong>있어요 / 없어요</strong> → il y a / il n'y a pas
 
     </div>
 
@@ -828,8 +832,7 @@
 <script src="chapter-progress.js"></script>
 
 <script>
-
-  const CHAPTER = 18;
+  const CHAPTER = 17;
 
   const UNDERSTANDING_KEY =
     "hanaKorean_chapter18_understanding";
@@ -878,8 +881,7 @@
     }
   }
 
-
-  let incorrectAttempts = 0;
+let incorrectAttempts = 0;
 
 
   const completedQuestions = {
@@ -1176,8 +1178,8 @@
           "✅ <strong>Exact !</strong>" +
           "<br><br>" +
           "Tu as entendu :" +
-          "<div class='heard-question'>뭐가 제일 좋아요?</div>" +
-          "<strong>제일</strong> indique ici l'idée de préférence : « le plus ».";
+          "<div class='heard-question'>와이파이 있어요?</div>" +
+          "<strong>있어요?</strong> sert ici à demander si le Wi-Fi est disponible.";
 
       }
 
@@ -1188,8 +1190,8 @@
           "✅ <strong>Très bien !</strong>" +
           "<br><br>" +
           "Tu as entendu :" +
-          "<div class='heard-question'>커피를 좋아해요.</div>" +
-          "<strong>좋아해요</strong> signifie « aimer ».";
+          "<div class='heard-question'>와이파이 비밀번호가 뭐예요?</div>" +
+          "<strong>비밀번호</strong> = mot de passe.";
 
       }
 
@@ -1200,8 +1202,8 @@
           "✅ <strong>Exact !</strong>" +
           "<br><br>" +
           "Tu as entendu :" +
-          "<div class='heard-question'>어떤 음악을 제일 좋아해요?</div>" +
-          "<strong>음악</strong> = musique et <strong>제일 좋아해요</strong> = aimer le plus.";
+          "<div class='heard-question'>배터리가 없어요.</div>" +
+          "<strong>없어요</strong> signifie ici « je n'ai plus ».";
 
       }
 
@@ -1212,8 +1214,8 @@
           "✅ <strong>Très bien !</strong>" +
           "<br><br>" +
           "Tu as entendu :" +
-          "<div class='heard-question'>안 좋아해요.</div>" +
-          "<strong>안</strong> rend ici la phrase négative.";
+          "<div class='heard-question'>충전기 있어요?</div>" +
+          "<strong>충전기</strong> = chargeur.";
 
       }
 
@@ -1224,8 +1226,8 @@
           "✅ <strong>Parfait !</strong>" +
           "<br><br>" +
           "Tu as entendu :" +
-          "<div class='heard-question'>왜요?</div>" +
-          "Cette petite question signifie « Pourquoi ? ».";
+          "<div class='heard-question'>저기에서 충전할 수 있어요.</div>" +
+          "Ji-eun indique que l'on peut recharger là-bas.";
 
       }
 
@@ -1266,9 +1268,9 @@
     if (number === 1) {
 
       feedback.innerHTML =
-        "❌ <strong>Repère 제일.</strong>" +
+        "❌ <strong>Repère 와이파이 et 있어요?</strong>" +
         "<br><br>" +
-        "💡 <strong>제일</strong> = le plus, ici pour demander une préférence.";
+        "💡 Ana demande si le Wi-Fi est disponible.";
 
     }
 
@@ -1276,9 +1278,9 @@
     if (number === 2) {
 
       feedback.innerHTML =
-        "❌ <strong>Repère 좋아해요.</strong>" +
+        "❌ <strong>Repère 비밀번호.</strong>" +
         "<br><br>" +
-        "💡 <strong>좋아해요</strong> = aimer.";
+        "💡 <strong>비밀번호</strong> = mot de passe.";
 
     }
 
@@ -1286,9 +1288,9 @@
     if (number === 3) {
 
       feedback.innerHTML =
-        "❌ <strong>Repère 음악.</strong>" +
+        "❌ <strong>Repère 없어요.</strong>" +
         "<br><br>" +
-        "💡 <strong>음악</strong> = musique.";
+        "💡 Ici, <strong>없어요</strong> indique que Ana n'a plus de batterie.";
 
     }
 
@@ -1296,9 +1298,9 @@
     if (number === 4) {
 
       feedback.innerHTML =
-        "❌ <strong>Repère 안.</strong>" +
+        "❌ <strong>Repère 충전기.</strong>" +
         "<br><br>" +
-        "💡 <strong>안 좋아해요</strong> = ne pas aimer / ne pas trop aimer.";
+        "💡 <strong>충전기</strong> = chargeur.";
 
     }
 
@@ -1306,9 +1308,9 @@
     if (number === 5) {
 
       feedback.innerHTML =
-        "❌ <strong>Cette question est très courte.</strong>" +
+        "❌ <strong>Repère 저기 et 충전.</strong>" +
         "<br><br>" +
-        "💡 <strong>왜요?</strong> = Pourquoi ?";
+        "💡 <strong>저기</strong> = là-bas et <strong>충전</strong> = recharge.";
 
     }
 
@@ -1472,7 +1474,7 @@
       message;
 
 
-        localStorage.setItem(
+    localStorage.setItem(
       LISTENING_KEY,
       "completed"
     );
@@ -1510,7 +1512,6 @@
       };
 
   }
-
 
   if (guardListeningExerciseAccess()) {
     renderChapterProgress();

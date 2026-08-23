@@ -1,0 +1,19 @@
+<!DOCTYPE html><html lang="fr"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#F7F4ED"><title>Chapitre 48 — Exercice d’écoute</title>
+<link rel="stylesheet" href="style.css"><link rel="stylesheet" href="chapter-progress.css">
+<style>.q{padding:14px;margin:12px 0;background:#FBFAF6;border-radius:var(--radius-medium)}.q button{width:100%;margin-top:7px;text-align:left;background:var(--soft-beige);color:var(--navy)}</style><script src="profile.js"></script></head>
+<body><main class="app"><a class="back-link" href="ecoute-48.html">← Écoute</a><section id="hanaChapterPath" data-chapter-path></section>
+<header><span class="chapter-badge">Chapitre 48 · 🎧 Exercice</span><h1>Quel est le problème ?</h1></header>
+<section class="card">
+<div class="q" data-answer="a"><p>1. 와이파이가 안 돼요.</p><button data-choice="a">Le Wi-Fi ne fonctionne pas.</button><button data-choice="b">Le Wi-Fi est rapide.</button><div class="f"></div></div>
+<div class="q" data-answer="b"><p>2. 에어컨이 고장 났어요.</p><button data-choice="a">La clim est froide.</button><button data-choice="b">La clim est en panne.</button><div class="f"></div></div>
+<div class="q" data-answer="a"><p>3. 문이 안 열려요.</p><button data-choice="a">La porte ne s’ouvre pas.</button><button data-choice="b">La porte est ouverte.</button><div class="f"></div></div>
+<div class="q" data-answer="b"><p>4. 수건이 없어요.</p><button data-choice="a">La serviette est sale.</button><button data-choice="b">Il n’y a pas de serviette.</button><div class="f"></div></div>
+<div class="q" data-answer="a"><p>5. 너무 시끄러워요.</p><button data-choice="a">C’est trop bruyant.</button><button data-choice="b">C’est très calme.</button><div class="f"></div></div>
+</section><button id="next" style="display:none;width:100%">🗣️ Passer à l'oral</button></main>
+<script src="chapter-progress.js"></script><script>
+const P="hanaKorean_chapter48_listening",K="hanaKorean_chapter48_listeningExercise";if(localStorage.getItem(P)!=="completed")location.href="ecoute-48.html";
+const qs=[...document.querySelectorAll(".q")],n=document.getElementById("next");qs.forEach(q=>q.querySelectorAll("button").forEach(b=>b.onclick=()=>{if(q.dataset.done==="true")return;if(b.dataset.choice===q.dataset.answer){q.dataset.done="true";q.querySelector(".f").textContent="✅ Très bien !";q.querySelectorAll("button").forEach(x=>x.disabled=true);if(qs.every(x=>x.dataset.done==="true")){localStorage.setItem(K,"completed");n.style.display="block";if(window.HanaChapterProgress)HanaChapterProgress.render()}}else{b.disabled=true;q.querySelector(".f").textContent="💙 Essaie encore."}}));
+if(localStorage.getItem(K)==="completed")n.style.display="block";n.onclick=()=>location.href="parle-48.html";if(window.HanaChapterProgress)HanaChapterProgress.render();
+</script></body></html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html><html lang="fr"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#F7F4ED"><title>Chapitre 46 — Exercice d’écoute</title>
+<link rel="stylesheet" href="style.css"><link rel="stylesheet" href="chapter-progress.css">
+<style>.q{padding:14px;margin:12px 0;background:#FBFAF6;border-radius:var(--radius-medium)}.q button{width:100%;margin-top:7px;text-align:left;background:var(--soft-beige);color:var(--navy)}</style><script src="profile.js"></script></head><body><main class="app">
+<a class="back-link" href="ecoute-46.html">← Écoute</a><section id="hanaChapterPath" data-chapter-path></section>
+<header><span class="chapter-badge">Chapitre 46 · 🎧 Exercice</span><h1>Permission ou interdiction ?</h1></header>
+<section class="card">
+<div class="q" data-answer="a"><p>1. 사진을 찍어도 돼요?</p><button data-choice="a">Puis-je prendre une photo ?</button><button data-choice="b">Je sais prendre une photo.</button><div class="f"></div></div>
+<div class="q" data-answer="b"><p>2. 들어가면 안 돼요.</p><button data-choice="a">Vous devez entrer.</button><button data-choice="b">Vous ne pouvez pas entrer.</button><div class="f"></div></div>
+<div class="q" data-answer="a"><p>3. 여기 앉아도 돼요?</p><button data-choice="a">Puis-je m’asseoir ici ?</button><button data-choice="b">Puis-je venir ici ?</button><div class="f"></div></div>
+<div class="q" data-answer="b"><p>4. 플래시를 사용하면 안 돼요.</p><button data-choice="a">Il faut utiliser le flash.</button><button data-choice="b">Il ne faut pas utiliser le flash.</button><div class="f"></div></div>
+<div class="q" data-answer="a"><p>5. 입어 봐도 돼요?</p><button data-choice="a">Puis-je l’essayer ?</button><button data-choice="b">Dois-je l’acheter ?</button><div class="f"></div></div>
+</section><button id="next" style="display:none;width:100%">🗣️ Passer à l'oral</button></main>
+<script src="chapter-progress.js"></script><script>
+const P="hanaKorean_chapter46_listening",K="hanaKorean_chapter46_listeningExercise";if(localStorage.getItem(P)!=="completed")location.href="ecoute-46.html";
+const qs=[...document.querySelectorAll(".q")],n=document.getElementById("next");
+qs.forEach(q=>q.querySelectorAll("button").forEach(b=>b.onclick=()=>{if(q.dataset.done==="true")return;if(b.dataset.choice===q.dataset.answer){q.dataset.done="true";q.querySelector(".f").textContent="✅ Très bien !";q.querySelectorAll("button").forEach(x=>x.disabled=true);if(qs.every(x=>x.dataset.done==="true")){localStorage.setItem(K,"completed");n.style.display="block";if(window.HanaChapterProgress)HanaChapterProgress.render()}}else{b.disabled=true;q.querySelector(".f").textContent="💙 Essaie encore."}}));
+if(localStorage.getItem(K)==="completed")n.style.display="block";n.onclick=()=>location.href="parle-46.html";if(window.HanaChapterProgress)HanaChapterProgress.render();
+</script></body></html>

@@ -23,6 +23,7 @@
   >
   <link rel="stylesheet" href="chapter-progress.css">
 
+
   <style>
 
     .exercise-header {
@@ -30,106 +31,144 @@
       margin-bottom:24px;
     }
 
+
     .exercise-card,
     .result-card,
     .tip-card {
       padding:20px;
       margin-bottom:18px;
+
       background:var(--white);
+
       border-radius:var(--radius-large);
+
       box-shadow:var(--shadow);
     }
+
 
     .question-block {
       padding:16px;
       margin-top:14px;
+
       background:#FBFAF6;
+
       border-radius:var(--radius-medium);
     }
 
+
     .question-title {
       margin-bottom:12px;
+
       color:var(--navy);
+
       font-weight:bold;
       line-height:1.6;
     }
 
+
     .audio-button {
       width:100%;
       margin-bottom:12px;
+
       background:var(--soft-blue);
       color:var(--navy);
+
       font-weight:bold;
     }
+
 
     .audio-button.playing {
       background:var(--navy);
       color:white;
     }
 
+
     .answer-list {
       display:flex;
       flex-direction:column;
+
       gap:9px;
     }
 
+
     .answer-button {
       width:100%;
+
       padding:13px 14px;
+
       background:var(--soft-beige);
       color:var(--navy);
+
       text-align:left;
     }
+
 
     .answer-button.correct {
       background:var(--success-light);
       color:var(--success);
+
       font-weight:bold;
     }
+
 
     .answer-button.wrong {
       background:var(--error-light);
       color:var(--error);
+
       font-weight:bold;
     }
 
+
     .feedback {
       display:none;
+
       margin-top:12px;
       padding:12px 14px;
+
       border-radius:var(--radius-medium);
+
       line-height:1.6;
     }
+
 
     .feedback.show {
       display:block;
     }
+
 
     .feedback.success {
       background:var(--success-light);
       color:var(--success);
     }
 
+
     .feedback.error {
       background:var(--error-light);
       color:var(--error);
     }
 
+
     .result-card {
       display:none;
+
       text-align:center;
     }
+
 
     .result-card.show {
       display:block;
     }
 
+
     .result-score {
       margin:12px 0;
+
       color:var(--navy);
+
       font-size:22px;
       font-weight:bold;
     }
+
 
     .complete-button,
     .next-button,
@@ -139,29 +178,43 @@
       margin-top:10px;
     }
 
+
     .complete-button {
       display:none;
+
       background:var(--jade);
       color:white;
+
       font-weight:bold;
     }
+
 
     .complete-button.show {
       display:block;
     }
 
+
     .complete-button.done {
       background:var(--success);
     }
 
+
     .next-button {
       display:none;
+
       background:var(--navy);
       color:white;
+
       font-weight:bold;
     }
 
-    .retry-button,
+
+    .retry-button {
+      background:var(--soft-beige);
+      color:var(--navy);
+    }
+
+
     .back-button {
       background:var(--soft-beige);
       color:var(--navy);
@@ -187,19 +240,23 @@
   </a>
 
 
+
   <header class="exercise-header">
 
     <span class="chapter-badge">
       Chapitre 22 · 🎧 Je vérifie mon écoute
     </span>
 
+
     <p class="korean">
-      오늘 날씨가 어때요? 🌦️
+      같이 갈래요? 🌸
     </p>
 
+
     <h1>
-      Comprendre la météo
+      Comprendre une invitation
     </h1>
+
 
     <p>
       Écoute chaque phrase et choisis ce que tu comprends.
@@ -210,230 +267,277 @@
   <section id="hanaChapterPath" data-chapter-path></section>
 
 
+
   <section class="exercise-card">
 
     <div
       class="question-block"
+      data-question="1"
       data-correct="b"
     >
 
       <div class="question-title">
-        1. Que demande Min-su ?
+        1. Que propose Min-su ?
       </div>
+
 
       <button
         class="audio-button"
         type="button"
-        data-audio="오늘 날씨가 어때요?"
+        data-audio="아나 씨, 오늘 같이 놀러 갈래요?"
       >
         🔊 Écouter
       </button>
 
+
       <div class="answer-list">
 
-        <button class="answer-button" type="button" data-answer="a">
-          A. Où vas-tu aujourd'hui ?
+        <button
+          class="answer-button"
+          type="button"
+          data-answer="a"
+        >
+          A. Travailler ensemble aujourd'hui
         </button>
 
-        <button class="answer-button" type="button" data-answer="b">
-          B. Quel temps fait-il aujourd'hui ?
+        <button
+          class="answer-button"
+          type="button"
+          data-answer="b"
+        >
+          B. Sortir ensemble aujourd'hui
         </button>
 
-        <button class="answer-button" type="button" data-answer="c">
-          C. Est-ce que tu aimes l'été ?
+        <button
+          class="answer-button"
+          type="button"
+          data-answer="c"
+        >
+          C. Se retrouver demain
         </button>
 
       </div>
+
 
       <div class="feedback"></div>
 
     </div>
 
 
-    <div
-      class="question-block"
-      data-correct="a"
-    >
-
-      <div class="question-title">
-        2. Comment Ana décrit-elle la température ?
-      </div>
-
-      <button
-        class="audio-button"
-        type="button"
-        data-audio="조금 더워요."
-      >
-        🔊 Écouter
-      </button>
-
-      <div class="answer-list">
-
-        <button class="answer-button" type="button" data-answer="a">
-          A. Il fait un peu chaud.
-        </button>
-
-        <button class="answer-button" type="button" data-answer="b">
-          B. Il fait très froid.
-        </button>
-
-        <button class="answer-button" type="button" data-answer="c">
-          C. Il y a beaucoup de vent.
-        </button>
-
-      </div>
-
-      <div class="feedback"></div>
-
-    </div>
-
 
     <div
       class="question-block"
+      data-question="2"
       data-correct="c"
     >
 
       <div class="question-title">
-        3. Que pense Min-su ?
+        2. Où Min-su propose-t-il d'aller ?
       </div>
+
 
       <button
         class="audio-button"
         type="button"
-        data-audio="하지만 비가 올 것 같아요."
+        data-audio="한강 공원에 갈까요?"
       >
         🔊 Écouter
       </button>
 
+
       <div class="answer-list">
 
-        <button class="answer-button" type="button" data-answer="a">
-          A. Il pense qu'il va neiger.
+        <button
+          class="answer-button"
+          type="button"
+          data-answer="a"
+        >
+          A. Au café
         </button>
 
-        <button class="answer-button" type="button" data-answer="b">
-          B. Il pense que le ciel va se dégager.
+        <button
+          class="answer-button"
+          type="button"
+          data-answer="b"
+        >
+          B. Au cinéma
         </button>
 
-        <button class="answer-button" type="button" data-answer="c">
-          C. Il pense qu'il va pleuvoir.
+        <button
+          class="answer-button"
+          type="button"
+          data-answer="c"
+        >
+          C. Au parc de la rivière Han
         </button>
 
       </div>
+
 
       <div class="feedback"></div>
 
     </div>
 
 
+
     <div
       class="question-block"
+      data-question="3"
+      data-correct="a"
+    >
+
+      <div class="question-title">
+        3. Que demande Ana ?
+      </div>
+
+
+      <button
+        class="audio-button"
+        type="button"
+        data-audio="좋아요! 몇 시에 만날까요?"
+      >
+        🔊 Écouter
+      </button>
+
+
+      <div class="answer-list">
+
+        <button
+          class="answer-button"
+          type="button"
+          data-answer="a"
+        >
+          A. À quelle heure ils se retrouvent
+        </button>
+
+        <button
+          class="answer-button"
+          type="button"
+          data-answer="b"
+        >
+          B. Quel jour ils se retrouvent
+        </button>
+
+        <button
+          class="answer-button"
+          type="button"
+          data-answer="c"
+        >
+          C. Ce qu'ils vont manger
+        </button>
+
+      </div>
+
+
+      <div class="feedback"></div>
+
+    </div>
+
+
+
+    <div
+      class="question-block"
+      data-question="4"
       data-correct="b"
     >
 
       <div class="question-title">
-        4. Comment est le ciel ?
+        4. À quelle heure ont-ils rendez-vous ?
       </div>
+
 
       <button
         class="audio-button"
         type="button"
-        data-audio="맞아요. 하늘이 흐려요."
+        data-audio="오후 두 시에 만나요."
       >
         🔊 Écouter
       </button>
 
+
       <div class="answer-list">
 
-        <button class="answer-button" type="button" data-answer="a">
-          A. Il est dégagé.
+        <button
+          class="answer-button"
+          type="button"
+          data-answer="a"
+        >
+          A. À midi
         </button>
 
-        <button class="answer-button" type="button" data-answer="b">
-          B. Il est couvert.
+        <button
+          class="answer-button"
+          type="button"
+          data-answer="b"
+        >
+          B. À 14 h
         </button>
 
-        <button class="answer-button" type="button" data-answer="c">
-          C. Il est enneigé.
+        <button
+          class="answer-button"
+          type="button"
+          data-answer="c"
+        >
+          C. À 16 h
         </button>
 
       </div>
+
 
       <div class="feedback"></div>
 
     </div>
 
 
-    <div
-      class="question-block"
-      data-correct="a"
-    >
-
-      <div class="question-title">
-        5. Qu'est-ce que Min-su demande à Ana ?
-      </div>
-
-      <button
-        class="audio-button"
-        type="button"
-        data-audio="우산 있어요?"
-      >
-        🔊 Écouter
-      </button>
-
-      <div class="answer-list">
-
-        <button class="answer-button" type="button" data-answer="a">
-          A. Si elle a un parapluie.
-        </button>
-
-        <button class="answer-button" type="button" data-answer="b">
-          B. Si elle a un manteau.
-        </button>
-
-        <button class="answer-button" type="button" data-answer="c">
-          C. Si elle a son téléphone.
-        </button>
-
-      </div>
-
-      <div class="feedback"></div>
-
-    </div>
-
 
     <div
       class="question-block"
+      data-question="5"
       data-correct="c"
     >
 
       <div class="question-title">
-        6. Quelle différence entends-tu entre les deux phrases ?
+        5. Que signifie surtout 갈까요? dans ce dialogue ?
       </div>
+
 
       <button
         class="audio-button"
         type="button"
-        data-audio="비가 와요. 비가 올 것 같아요."
+        data-audio="어디에 갈까요?"
       >
         🔊 Écouter
       </button>
 
+
       <div class="answer-list">
 
-        <button class="answer-button" type="button" data-answer="a">
-          A. Les deux veulent dire exactement la même chose.
+        <button
+          class="answer-button"
+          type="button"
+          data-answer="a"
+        >
+          A. « Tu veux absolument y aller ? »
         </button>
 
-        <button class="answer-button" type="button" data-answer="b">
-          B. La première parle de neige et la seconde de pluie.
+        <button
+          class="answer-button"
+          type="button"
+          data-answer="b"
+        >
+          B. « J'y vais tout de suite. »
         </button>
 
-        <button class="answer-button" type="button" data-answer="c">
-          C. La première constate qu'il pleut ; la seconde exprime une impression ou une prévision.
+        <button
+          class="answer-button"
+          type="button"
+          data-answer="c"
+        >
+          C. « Et si on y allait ? / Où allons-nous ? »
         </button>
 
       </div>
+
 
       <div class="feedback"></div>
 
@@ -442,21 +546,29 @@
   </section>
 
 
+
   <section
     class="result-card"
     id="resultCard"
   >
 
-    <h2>🌦️ Résultat</h2>
+    <h2>
+      🌸 Résultat
+    </h2>
+
 
     <div
       class="result-score"
       id="resultScore"
     >
-      0 / 6
+      0 / 5
     </div>
 
-    <p id="resultMessage"></p>
+
+    <p
+      id="resultMessage"
+    ></p>
+
 
     <button
       class="retry-button"
@@ -469,24 +581,23 @@
   </section>
 
 
+
   <section class="tip-card">
 
-    <h2>💡 À retenir</h2>
+    <h2>
+      💡 À retenir
+    </h2>
 
-    <strong>조금</strong>
-    → un peu
+    <strong>갈래요?</strong>
+    demande plutôt l'envie de l'autre personne.
 
     <br><br>
 
-    <strong>비가 와요.</strong>
-    → Il pleut.
-
-    <br>
-
-    <strong>비가 올 것 같아요.</strong>
-    → Je pense qu'il va pleuvoir.
+    <strong>갈까요?</strong>
+    sert plutôt à proposer ou décider ensemble.
 
   </section>
+
 
 
   <button
@@ -519,7 +630,16 @@
 </main>
 
 
-<script src="chapter-progress.js"></script>
+
+<script src="chapter-progress.js">
+  renderChapterProgress();
+
+  window.addEventListener("pageshow", () => {
+    guardListeningExerciseAccess();
+    renderChapterProgress();
+  });
+
+</script>
 
 <script>
 
@@ -541,6 +661,7 @@
     "hanaKorean_chapter22_listeningMistakes";
 
   let incorrectAttempts = 0;
+
 
   function renderChapterProgress() {
     if (
@@ -566,8 +687,8 @@
   }
 
 
-  let currentAudioButton =
-    null;
+
+  let currentAudioButton = null;
 
 
   const questionBlocks =
@@ -822,14 +943,14 @@
 
 
     if (
-      score === questionBlocks.length
+      score === 5
     ) {
 
       resultMessage.textContent =
-        "Excellent 🌦️ Tu as très bien compris la conversation météo.";
+        "Excellent 🌸 Tu as très bien compris le dialogue.";
 
     } else if (
-      score >= 5
+      score >= 4
     ) {
 
       resultMessage.textContent =
@@ -838,7 +959,7 @@
     } else {
 
       resultMessage.textContent =
-        "Réécoute tranquillement les phrases. Repère surtout 날씨, 더워요, 비, 흐려요 et 우산.";
+        "Réécoute les phrases tranquillement puis essaie encore. Les erreurs servent à repérer ce qu'il faut retravailler.";
 
     }
 
@@ -936,8 +1057,6 @@
 
               } else {
 
-                incorrectAttempts++;
-
                 button
                   .classList
                   .add(
@@ -948,6 +1067,8 @@
                 feedback.className =
                   "feedback show error";
 
+
+                incorrectAttempts++;
 
                 feedback.textContent =
                   "Pas encore. Réécoute la phrase et essaie une autre réponse.";
@@ -1059,7 +1180,6 @@
 
 
   guardListeningExerciseAccess();
-  renderChapterProgress();
 
   if (
     localStorage.getItem(
@@ -1091,10 +1211,8 @@
         String(incorrectAttempts)
       );
 
-      renderChapterProgress();
-
-
       showCompletedState();
+      renderChapterProgress();
 
     }
   );
@@ -1105,6 +1223,7 @@
     () => {
 
       stopSpeech();
+
 
       window.location.href =
         "parle-22.html";
@@ -1123,12 +1242,6 @@
     () => {
       getKoreanVoice();
     };
-
-
-  window.addEventListener("pageshow", () => {
-    guardListeningExerciseAccess();
-    renderChapterProgress();
-  });
 
 </script>
 </body>

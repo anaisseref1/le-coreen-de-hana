@@ -107,14 +107,19 @@
       font-size: 14px;
     }
 
-    .audio-main {
+    .audio-main,
+    .slow-button {
       width: 100%;
+    }
+
+    .audio-main {
       font-weight: bold;
     }
 
     .slow-button {
-      width: 100%;
       margin-top: 8px;
+      background: var(--soft-beige);
+      color: var(--navy);
     }
 
     .answers {
@@ -128,7 +133,19 @@
       width: 100%;
       padding: 15px;
       text-align: left;
-      border: 2px solid transparent;
+      background: #FBFAF6;
+      color: var(--navy);
+      border: 1px solid var(--border);
+    }
+
+    .answer.correct {
+      background: var(--success-light);
+      color: var(--success);
+    }
+
+    .answer.wrong {
+      background: var(--error-light);
+      color: var(--error);
     }
 
     .feedback {
@@ -139,9 +156,16 @@
       line-height: 1.7;
     }
 
-    .feedback.correct,
+    .feedback.correct {
+      display: block;
+      background: var(--success-light);
+      color: var(--navy);
+    }
+
     .feedback.wrong {
       display: block;
+      background: var(--error-light);
+      color: var(--navy);
     }
 
     .heard-question {
@@ -158,7 +182,7 @@
       display: none;
       width: 100%;
       margin-top: 15px;
-      background: var(--jade);
+      background: var(--navy);
       color: white;
       font-weight: bold;
     }
@@ -176,6 +200,10 @@
       text-align: center;
     }
 
+    .result-card.show {
+      display: block;
+    }
+
     .result-icon {
       font-size: 60px;
     }
@@ -186,13 +214,17 @@
       font-weight: bold;
     }
 
-    .result-summary {
+    .result-summary,
+    .strategy-box {
       padding: 16px;
       margin-top: 18px;
-      background: #FBFAF6;
       border-radius: var(--radius-medium);
       text-align: left;
-      line-height: 1.6;
+      line-height: 1.7;
+    }
+
+    .result-summary {
+      background: #FBFAF6;
     }
 
     .notion-summary {
@@ -210,17 +242,17 @@
     }
 
     .strategy-box {
-      padding: 16px;
-      margin-top: 18px;
       background: var(--soft-green);
-      border-radius: var(--radius-medium);
       color: var(--navy);
-      text-align: left;
-      line-height: 1.7;
+    }
+
+    .next-step-button,
+    .chapter-button {
+      width: 100%;
+      margin-top: 10px;
     }
 
     .next-step-button {
-      width: 100%;
       margin-top: 18px;
       background: var(--jade);
       color: white;
@@ -228,8 +260,6 @@
     }
 
     .chapter-button {
-      width: 100%;
-      margin-top: 10px;
       background: var(--soft-beige);
       color: var(--navy);
     }
@@ -248,7 +278,6 @@
     ← J'écoute
   </a>
 
-
   <header class="exercise-header">
 
     <span class="chapter-badge">
@@ -260,22 +289,21 @@
     </p>
 
     <h1>
-      À l'hôtel
+      Commander au restaurant
     </h1>
 
     <p>
-      Écoute chaque phrase et repère
-      l'intention : réservation, nom, chambre, Wi-Fi ou demande d'aide.
+      Écoute chaque phrase et repère l'intention :
+      recommandation, restriction alimentaire,
+      niveau de piment, commande ou paiement.
     </p>
 
   </header>
-
 
   <section
     id="hanaChapterPath"
     data-chapter-path
   ></section>
-
 
   <div class="exercise-progress">
 
@@ -296,19 +324,24 @@
 
   <!-- QUESTION 1 -->
 
-  <section class="exercise-card" id="question1">
+  <section
+    class="exercise-card"
+    id="question1"
+  >
 
     <p class="question-number">
       Question 1 / 5
     </p>
 
     <h2>
-      🛎️ Une réservation
+      ⭐ Une recommandation
     </h2>
 
     <div class="audio-zone">
 
-      <div class="audio-icon">🎧</div>
+      <div class="audio-icon">
+        🎧
+      </div>
 
       <div class="audio-note">
         Écoute la phrase de Ana.
@@ -317,7 +350,7 @@
       <button
         class="audio-main"
         type="button"
-        onclick="speakKorean('예약했어요.', false)"
+        onclick="speakKorean('추천해 주세요.', false)"
       >
         🔊 Écouter
       </button>
@@ -325,7 +358,7 @@
       <button
         class="slow-button"
         type="button"
-        onclick="speakKorean('예약했어요.', true)"
+        onclick="speakKorean('추천해 주세요.', true)"
       >
         🐢 Écouter lentement
       </button>
@@ -333,7 +366,7 @@
     </div>
 
     <p class="question-text">
-      Que dit Ana ?
+      Que demande Ana ?
     </p>
 
     <div class="answers">
@@ -343,7 +376,7 @@
         type="button"
         onclick="checkAnswer(1, this, true)"
       >
-        J'ai une réservation.
+        Une recommandation.
       </button>
 
       <button
@@ -351,7 +384,7 @@
         type="button"
         onclick="checkAnswer(1, this, false)"
       >
-        Où est ma chambre ?
+        L'addition.
       </button>
 
       <button
@@ -359,12 +392,15 @@
         type="button"
         onclick="checkAnswer(1, this, false)"
       >
-        Aidez-moi.
+        De l'eau.
       </button>
 
     </div>
 
-    <div class="feedback" id="feedback1"></div>
+    <div
+      class="feedback"
+      id="feedback1"
+    ></div>
 
     <button
       class="next-question"
@@ -380,28 +416,33 @@
 
   <!-- QUESTION 2 -->
 
-  <section class="exercise-card hidden" id="question2">
+  <section
+    class="exercise-card hidden"
+    id="question2"
+  >
 
     <p class="question-number">
       Question 2 / 5
     </p>
 
     <h2>
-      👤 À la réception
+      🐷 Une restriction alimentaire
     </h2>
 
     <div class="audio-zone">
 
-      <div class="audio-icon">🎧</div>
+      <div class="audio-icon">
+        🎧
+      </div>
 
       <div class="audio-note">
-        Écoute la question de Joon-ho.
+        Repère surtout 돼지고기.
       </div>
 
       <button
         class="audio-main"
         type="button"
-        onclick="speakKorean('성함이 어떻게 되세요?', false)"
+        onclick="speakKorean('돼지고기를 안 먹어요.', false)"
       >
         🔊 Écouter
       </button>
@@ -409,7 +450,7 @@
       <button
         class="slow-button"
         type="button"
-        onclick="speakKorean('성함이 어떻게 되세요?', true)"
+        onclick="speakKorean('돼지고기를 안 먹어요.', true)"
       >
         🐢 Écouter lentement
       </button>
@@ -417,7 +458,7 @@
     </div>
 
     <p class="question-text">
-      Que demande Joon-ho ?
+      Que dit Ana ?
     </p>
 
     <div class="answers">
@@ -427,7 +468,7 @@
         type="button"
         onclick="checkAnswer(2, this, false)"
       >
-        Votre numéro de chambre.
+        Elle aime beaucoup le porc.
       </button>
 
       <button
@@ -435,7 +476,7 @@
         type="button"
         onclick="checkAnswer(2, this, true)"
       >
-        Votre nom.
+        Elle ne mange pas de porc.
       </button>
 
       <button
@@ -443,12 +484,15 @@
         type="button"
         onclick="checkAnswer(2, this, false)"
       >
-        Votre mot de passe.
+        Elle veut du porc en plus.
       </button>
 
     </div>
 
-    <div class="feedback" id="feedback2"></div>
+    <div
+      class="feedback"
+      id="feedback2"
+    ></div>
 
     <button
       class="next-question"
@@ -464,28 +508,33 @@
 
   <!-- QUESTION 3 -->
 
-  <section class="exercise-card hidden" id="question3">
+  <section
+    class="exercise-card hidden"
+    id="question3"
+  >
 
     <p class="question-number">
       Question 3 / 5
     </p>
 
     <h2>
-      🚪 Trouver sa chambre
+      🌶️ Le niveau de piment
     </h2>
 
     <div class="audio-zone">
 
-      <div class="audio-icon">🎧</div>
+      <div class="audio-icon">
+        🎧
+      </div>
 
       <div class="audio-note">
-        Écoute la phrase de Ana.
+        Écoute la réponse de Madame Kim.
       </div>
 
       <button
         class="audio-main"
         type="button"
-        onclick="speakKorean('제 방이 어디예요?', false)"
+        onclick="speakKorean('비빔밥은 많이 안 매워요.', false)"
       >
         🔊 Écouter
       </button>
@@ -493,7 +542,7 @@
       <button
         class="slow-button"
         type="button"
-        onclick="speakKorean('제 방이 어디예요?', true)"
+        onclick="speakKorean('비빔밥은 많이 안 매워요.', true)"
       >
         🐢 Écouter lentement
       </button>
@@ -501,7 +550,7 @@
     </div>
 
     <p class="question-text">
-      Que demande Ana ?
+      Que dit Madame Kim à propos du bibimbap ?
     </p>
 
     <div class="answers">
@@ -511,7 +560,7 @@
         type="button"
         onclick="checkAnswer(3, this, true)"
       >
-        Où est ma chambre ?
+        Il n'est pas très épicé.
       </button>
 
       <button
@@ -519,7 +568,7 @@
         type="button"
         onclick="checkAnswer(3, this, false)"
       >
-        Où est l'ascenseur ?
+        Il est extrêmement épicé.
       </button>
 
       <button
@@ -527,12 +576,15 @@
         type="button"
         onclick="checkAnswer(3, this, false)"
       >
-        Où est la réception ?
+        Il contient du porc.
       </button>
 
     </div>
 
-    <div class="feedback" id="feedback3"></div>
+    <div
+      class="feedback"
+      id="feedback3"
+    ></div>
 
     <button
       class="next-question"
@@ -548,28 +600,33 @@
 
   <!-- QUESTION 4 -->
 
-  <section class="exercise-card hidden" id="question4">
+  <section
+    class="exercise-card hidden"
+    id="question4"
+  >
 
     <p class="question-number">
       Question 4 / 5
     </p>
 
     <h2>
-      📶 Le Wi-Fi
+      🍚 Commander un plat
     </h2>
 
     <div class="audio-zone">
 
-      <div class="audio-icon">🎧</div>
+      <div class="audio-icon">
+        🎧
+      </div>
 
       <div class="audio-note">
-        Repère surtout 비밀번호.
+        Écoute ce que commande Ana.
       </div>
 
       <button
         class="audio-main"
         type="button"
-        onclick="speakKorean('와이파이 비밀번호가 뭐예요?', false)"
+        onclick="speakKorean('비빔밥 하나 주세요.', false)"
       >
         🔊 Écouter
       </button>
@@ -577,7 +634,7 @@
       <button
         class="slow-button"
         type="button"
-        onclick="speakKorean('와이파이 비밀번호가 뭐예요?', true)"
+        onclick="speakKorean('비빔밥 하나 주세요.', true)"
       >
         🐢 Écouter lentement
       </button>
@@ -585,7 +642,7 @@
     </div>
 
     <p class="question-text">
-      Que demande Ana ?
+      Que commande Ana ?
     </p>
 
     <div class="answers">
@@ -595,7 +652,7 @@
         type="button"
         onclick="checkAnswer(4, this, false)"
       >
-        Le prix du Wi-Fi.
+        Un dakgalbi.
       </button>
 
       <button
@@ -603,7 +660,7 @@
         type="button"
         onclick="checkAnswer(4, this, true)"
       >
-        Le mot de passe du Wi-Fi.
+        Un bibimbap.
       </button>
 
       <button
@@ -611,12 +668,15 @@
         type="button"
         onclick="checkAnswer(4, this, false)"
       >
-        Le numéro de la chambre.
+        Deux bibimbaps.
       </button>
 
     </div>
 
-    <div class="feedback" id="feedback4"></div>
+    <div
+      class="feedback"
+      id="feedback4"
+    ></div>
 
     <button
       class="next-question"
@@ -632,28 +692,33 @@
 
   <!-- QUESTION 5 -->
 
-  <section class="exercise-card hidden" id="question5">
+  <section
+    class="exercise-card hidden"
+    id="question5"
+  >
 
     <p class="question-number">
       Question 5 / 5
     </p>
 
     <h2>
-      🆘 Demander de l'aide
+      💳 La fin du repas
     </h2>
 
     <div class="audio-zone">
 
-      <div class="audio-icon">🎧</div>
+      <div class="audio-icon">
+        🎧
+      </div>
 
       <div class="audio-note">
-        Écoute la situation complète.
+        Écoute la phrase de Ana.
       </div>
 
       <button
         class="audio-main"
         type="button"
-        onclick="speakKorean('와이파이가 안 돼요. 도와주세요.', false)"
+        onclick="speakKorean('계산해 주세요.', false)"
       >
         🔊 Écouter
       </button>
@@ -661,7 +726,7 @@
       <button
         class="slow-button"
         type="button"
-        onclick="speakKorean('와이파이가 안 돼요. 도와주세요.', true)"
+        onclick="speakKorean('계산해 주세요.', true)"
       >
         🐢 Écouter lentement
       </button>
@@ -669,7 +734,7 @@
     </div>
 
     <p class="question-text">
-      Que se passe-t-il ?
+      Que demande Ana ?
     </p>
 
     <div class="answers">
@@ -679,7 +744,7 @@
         type="button"
         onclick="checkAnswer(5, this, false)"
       >
-        Ana demande une nouvelle chambre.
+        Le menu.
       </button>
 
       <button
@@ -687,7 +752,7 @@
         type="button"
         onclick="checkAnswer(5, this, true)"
       >
-        Le Wi-Fi ne fonctionne pas et Ana demande de l'aide.
+        L'addition.
       </button>
 
       <button
@@ -695,12 +760,15 @@
         type="button"
         onclick="checkAnswer(5, this, false)"
       >
-        Ana veut quitter l'hôtel.
+        Une recommandation.
       </button>
 
     </div>
 
-    <div class="feedback" id="feedback5"></div>
+    <div
+      class="feedback"
+      id="feedback5"
+    ></div>
 
     <button
       class="next-question"
@@ -714,7 +782,7 @@
   </section>
 
 
-  <!-- RÉSULTAT -->
+  <!-- RESULTAT -->
 
   <section
     class="result-card"
@@ -722,7 +790,7 @@
   >
 
     <div class="result-icon">
-      🎧🏨
+      🎧🍜
     </div>
 
     <h2>
@@ -734,9 +802,8 @@
     </p>
 
     <p class="result-score">
-      5 situations de l'hôtel reconnues ✅
+      5 intentions du restaurant reconnues ✅
     </p>
-
 
     <div class="result-summary">
 
@@ -748,31 +815,34 @@
 
     </div>
 
-
     <div class="notion-summary">
 
       <div class="notion-line">
-        🛎️ <strong>예약했어요.</strong> → J'ai une réservation.
+        ⭐ <strong>추천해 주세요.</strong>
+        → Recommandez-moi quelque chose.
       </div>
 
       <div class="notion-line">
-        👤 <strong>성함이 어떻게 되세요?</strong> → Quel est votre nom ?
+        🐷 <strong>돼지고기를 안 먹어요.</strong>
+        → Je ne mange pas de porc.
       </div>
 
       <div class="notion-line">
-        🚪 <strong>제 방이 어디예요?</strong> → Où est ma chambre ?
+        🌶️ <strong>비빔밥은 많이 안 매워요.</strong>
+        → Le bibimbap n'est pas très épicé.
       </div>
 
       <div class="notion-line">
-        📶 <strong>와이파이 비밀번호가 뭐예요?</strong> → Quel est le mot de passe du Wi-Fi ?
+        🍚 <strong>비빔밥 하나 주세요.</strong>
+        → Un bibimbap, s'il vous plaît.
       </div>
 
       <div class="notion-line">
-        🆘 <strong>도와주세요.</strong> → Aidez-moi, s'il vous plaît.
+        💳 <strong>계산해 주세요.</strong>
+        → L'addition, s'il vous plaît.
       </div>
 
     </div>
-
 
     <div class="strategy-box">
 
@@ -782,34 +852,17 @@
 
       <br><br>
 
-      À l'hôtel, repère d'abord quelques mots-clés.
+      Au restaurant, repère d'abord quelques mots-clés.
 
       <br><br>
 
-      <strong>예약</strong> → réservation
-
-      <br>
-
-      <strong>성함</strong> → nom, forme respectueuse
-
-      <br>
-
-      <strong>방</strong> → chambre
-
-      <br>
-
-      <strong>비밀번호</strong> → mot de passe
-
-      <br>
-
-      <strong>안 돼요</strong> → ça ne fonctionne pas
-
-      <br>
-
-      <strong>도와주세요</strong> → aidez-moi
+      <strong>추천</strong> → recommandation<br>
+      <strong>돼지고기</strong> → porc<br>
+      <strong>매워요</strong> → épicé<br>
+      <strong>하나 주세요</strong> → une unité, s'il vous plaît<br>
+      <strong>계산</strong> → addition / paiement
 
     </div>
-
 
     <button
       class="next-step-button"
@@ -818,7 +871,6 @@
     >
       🗣️ Passer à « Je parle »
     </button>
-
 
     <button
       class="chapter-button"
@@ -836,7 +888,7 @@
 <script src="chapter-progress.js"></script>
 
 <script>
-  const CHAPTER = 16;
+  const CHAPTER = 15;
 
   const UNDERSTANDING_KEY =
     "hanaKorean_chapter16_understanding";
@@ -852,6 +904,23 @@
 
   const LISTENING_INCORRECT_ATTEMPTS_KEY =
     "hanaKorean_chapter16_listeningIncorrectAttempts";
+
+  const AUDIO_SETTINGS = {
+    normalRate: 0.82,
+    slowRate: 0.25
+  };
+
+  let incorrectAttempts = 0;
+
+  const weakNotions = [];
+
+  const completedQuestions = {
+    1: false,
+    2: false,
+    3: false,
+    4: false,
+    5: false
+  };
 
 
   function guardExerciseAccess() {
@@ -894,34 +963,26 @@
   }
 
 
-  let incorrectAttempts = 0;
-
-  const weakNotions = [];
-
-
-  const completedQuestions = {
-    1: false,
-    2: false,
-    3: false,
-    4: false,
-    5: false
-  };
-
-
   function getKoreanVoice() {
+
+    if (
+      !("speechSynthesis" in window)
+    ) {
+      return null;
+    }
 
     const voices =
       window.speechSynthesis.getVoices();
 
-
-    return voices.find(
-      voice =>
-        voice.lang &&
-        voice.lang
-          .toLowerCase()
-          .startsWith("ko")
+    return (
+      voices.find(
+        voice =>
+          voice.lang &&
+          voice.lang
+            .toLowerCase()
+            .startsWith("ko")
+      ) || null
     );
-
   }
 
 
@@ -936,46 +997,37 @@
       return;
     }
 
-
     window.speechSynthesis.cancel();
-
 
     const speech =
       new SpeechSynthesisUtterance(
         text
       );
 
-
     speech.lang =
       "ko-KR";
 
-
     speech.rate =
       slow
-        ? 0.25
-        : 0.82;
-
+        ? AUDIO_SETTINGS.slowRate
+        : AUDIO_SETTINGS.normalRate;
 
     speech.pitch =
       1;
 
-
     const voice =
       getKoreanVoice();
 
-
-    if (voice) {
-
+    if (
+      voice
+    ) {
       speech.voice =
         voice;
-
     }
-
 
     window.speechSynthesis.speak(
       speech
     );
-
   }
 
 
@@ -985,35 +1037,32 @@
     isCorrect
   ) {
 
-    const notions = {
-      1: "예약했어요",
-      2: "성함이 어떻게 되세요?",
-      3: "제 방이 어디예요?",
-      4: "와이파이 비밀번호가 뭐예요?",
-      5: "안 돼요 / 도와주세요"
-    };
-
-    const notion =
-      notions[number];
-
     if (
       completedQuestions[number]
     ) {
       return;
     }
 
+    const notions = {
+      1: "추천해 주세요",
+      2: "돼지고기 / 안 먹어요",
+      3: "안 매워요",
+      4: "하나 / 주세요",
+      5: "계산해 주세요"
+    };
+
+    const notion =
+      notions[number];
 
     const feedback =
       document.getElementById(
         "feedback" + number
       );
 
-
     const question =
       document.getElementById(
         "question" + number
       );
-
 
     const answers =
       question.querySelectorAll(
@@ -1021,99 +1070,98 @@
       );
 
 
-    if (isCorrect) {
+    if (
+      isCorrect
+    ) {
 
       completedQuestions[number] =
         true;
 
+      button.classList.remove(
+        "wrong"
+      );
 
       button.classList.add(
         "correct"
       );
 
-
       feedback.className =
         "feedback correct";
 
 
-      if (number === 1) {
-
+      if (
+        number === 1
+      ) {
         feedback.innerHTML =
           "✅ <strong>Exact !</strong>" +
           "<br><br>" +
           "Tu as entendu :" +
-          "<div class='heard-question'>예약했어요.</div>" +
-          "<strong>예약</strong> renvoie à la réservation.";
-
+          "<div class='heard-question'>추천해 주세요.</div>" +
+          "<strong>추천</strong> renvoie à une recommandation.";
       }
 
 
-      if (number === 2) {
-
+      if (
+        number === 2
+      ) {
         feedback.innerHTML =
           "✅ <strong>Très bien !</strong>" +
           "<br><br>" +
           "Tu as entendu :" +
-          "<div class='heard-question'>성함이 어떻게 되세요?</div>" +
-          "<strong>성함</strong> est une manière respectueuse de parler du nom.";
-
+          "<div class='heard-question'>돼지고기를 안 먹어요.</div>" +
+          "<strong>안 먹어요</strong> signifie ici « je ne mange pas ».";
       }
 
 
-      if (number === 3) {
-
+      if (
+        number === 3
+      ) {
         feedback.innerHTML =
           "✅ <strong>Exact !</strong>" +
           "<br><br>" +
           "Tu as entendu :" +
-          "<div class='heard-question'>제 방이 어디예요?</div>" +
-          "<strong>방</strong> signifie « chambre ».";
-
+          "<div class='heard-question'>비빔밥은 많이 안 매워요.</div>" +
+          "<strong>많이 안 매워요</strong> signifie « ce n'est pas très épicé ».";
       }
 
 
-      if (number === 4) {
-
+      if (
+        number === 4
+      ) {
         feedback.innerHTML =
           "✅ <strong>Très bien !</strong>" +
           "<br><br>" +
           "Tu as entendu :" +
-          "<div class='heard-question'>와이파이 비밀번호가 뭐예요?</div>" +
-          "<strong>비밀번호</strong> signifie « mot de passe ».";
-
+          "<div class='heard-question'>비빔밥 하나 주세요.</div>" +
+          "<strong>하나 주세요</strong> indique ici qu'Ana commande un bibimbap.";
       }
 
 
-      if (number === 5) {
-
+      if (
+        number === 5
+      ) {
         feedback.innerHTML =
           "✅ <strong>Parfait !</strong>" +
           "<br><br>" +
           "Tu as entendu :" +
-          "<div class='heard-question'>와이파이가 안 돼요. 도와주세요.</div>" +
-          "Le Wi-Fi ne fonctionne pas et Ana demande de l'aide.";
-
+          "<div class='heard-question'>계산해 주세요.</div>" +
+          "Cette expression permet de demander l'addition.";
       }
 
 
       answers.forEach(
         answer => {
-
           answer.disabled =
             true;
-
         }
       );
-
 
       document.getElementById(
         "next" + number
       ).style.display =
         "block";
 
-
       return;
-
     }
 
 
@@ -1130,90 +1178,84 @@
       );
     }
 
-
     button.classList.add(
       "wrong"
     );
-
 
     feedback.className =
       "feedback wrong";
 
 
-    if (number === 1) {
-
+    if (
+      number === 1
+    ) {
       feedback.innerHTML =
-        "❌ <strong>Repère 예약.</strong>" +
+        "❌ <strong>Repère 추천.</strong>" +
         "<br><br>" +
-        "💡 <strong>예약</strong> = réservation.";
-
+        "💡 <strong>추천</strong> = recommandation.";
     }
 
 
-    if (number === 2) {
-
+    if (
+      number === 2
+    ) {
       feedback.innerHTML =
-        "❌ <strong>Repère 성함.</strong>" +
+        "❌ <strong>Repère 안 먹어요.</strong>" +
         "<br><br>" +
-        "💡 <strong>성함</strong> est une forme respectueuse pour parler du nom.";
-
+        "💡 <strong>안 먹어요</strong> signifie ici « je ne mange pas ».";
     }
 
 
-    if (number === 3) {
-
+    if (
+      number === 3
+    ) {
       feedback.innerHTML =
-        "❌ <strong>Repère 방.</strong>" +
+        "❌ <strong>Repère 많이 안 매워요.</strong>" +
         "<br><br>" +
-        "💡 <strong>방</strong> = chambre.";
-
+        "💡 Le mot <strong>안</strong> apporte ici la négation : le bibimbap n'est pas très épicé.";
     }
 
 
-    if (number === 4) {
-
+    if (
+      number === 4
+    ) {
       feedback.innerHTML =
-        "❌ <strong>Repère 비밀번호.</strong>" +
+        "❌ <strong>Repère 비빔밥 et 하나 주세요.</strong>" +
         "<br><br>" +
-        "💡 <strong>비밀번호</strong> = mot de passe.";
-
+        "💡 Ana commande <strong>un bibimbap</strong>.";
     }
 
 
-    if (number === 5) {
-
+    if (
+      number === 5
+    ) {
       feedback.innerHTML =
-        "❌ <strong>Repère 안 돼요 et 도와주세요.</strong>" +
+        "❌ <strong>Repère 계산.</strong>" +
         "<br><br>" +
-        "💡 <strong>안 돼요</strong> indique que quelque chose ne fonctionne pas, et <strong>도와주세요</strong> signifie « Aidez-moi ».";
-
+        "💡 <strong>계산해 주세요</strong> sert à demander l'addition.";
     }
 
 
-    setTimeout(
-      () => {
-
+    window.setTimeout(
+      function() {
         button.classList.remove(
           "wrong"
         );
-
       },
       800
     );
-
   }
 
 
-  function showQuestion(number) {
+  function showQuestion(
+    number
+  ) {
 
     if (
       "speechSynthesis" in window
     ) {
-
       window.speechSynthesis.cancel();
-
     }
-
 
     document
       .querySelectorAll(
@@ -1221,14 +1263,11 @@
       )
       .forEach(
         card => {
-
           card.classList.add(
             "hidden"
           );
-
         }
       );
-
 
     document.getElementById(
       "question" + number
@@ -1236,22 +1275,11 @@
       "hidden"
     );
 
-
-    const percentages = {
-      1: 20,
-      2: 40,
-      3: 60,
-      4: 80,
-      5: 100
-    };
-
-
     document.getElementById(
       "progressFill"
     ).style.width =
-      percentages[number] +
+      (number * 20) +
       "%";
-
 
     document.getElementById(
       "progressLabel"
@@ -1259,25 +1287,26 @@
       number +
       " / 5";
 
-
     window.scrollTo({
       top: 0,
       behavior: "smooth"
     });
-
   }
 
 
   function finishExercise() {
 
     if (
-      "speechSynthesis" in window
+      !completedQuestions[5]
     ) {
-
-      window.speechSynthesis.cancel();
-
+      return;
     }
 
+    if (
+      "speechSynthesis" in window
+    ) {
+      window.speechSynthesis.cancel();
+    }
 
     document
       .querySelectorAll(
@@ -1285,31 +1314,27 @@
       )
       .forEach(
         card => {
-
           card.classList.add(
             "hidden"
           );
-
         }
       );
-
 
     document.getElementById(
       "progressFill"
     ).style.width =
       "100%";
 
-
     document.getElementById(
       "progressLabel"
     ).textContent =
       "5 / 5";
 
-
     document.getElementById(
       "resultCard"
-    ).style.display =
-      "block";
+    ).classList.add(
+      "show"
+    );
 
 
     let message = "";
@@ -1318,28 +1343,22 @@
     if (
       incorrectAttempts === 0
     ) {
-
       message =
         "🌟 Tu as reconnu les 5 éléments du premier coup.";
-
     }
 
     else if (
       incorrectAttempts === 1
     ) {
-
       message =
         "💡 1 tentative incorrecte, puis les 5 éléments ont été reconnus.";
-
     }
 
     else {
-
       message =
         "💡 " +
         incorrectAttempts +
         " tentatives incorrectes. Les 5 éléments ont malgré tout été validés.";
-
     }
 
 
@@ -1354,12 +1373,10 @@
       "completed"
     );
 
-
     localStorage.setItem(
       LISTENING_EXERCISE_KEY,
       "completed"
     );
-
 
     localStorage.setItem(
       LISTENING_MISTAKES_KEY,
@@ -1368,7 +1385,6 @@
       )
     );
 
-
     localStorage.setItem(
       LISTENING_INCORRECT_ATTEMPTS_KEY,
       String(
@@ -1376,15 +1392,12 @@
       )
     );
 
-
     renderChapterProgress();
-
 
     window.scrollTo({
       top: 0,
       behavior: "smooth"
     });
-
   }
 
 
@@ -1406,14 +1419,10 @@
   if (
     "speechSynthesis" in window
   ) {
-
     window.speechSynthesis.onvoiceschanged =
       function() {
-
         window.speechSynthesis.getVoices();
-
       };
-
   }
 
 
@@ -1432,5 +1441,4 @@
   }
 </script>
 </body>
-
 </html>

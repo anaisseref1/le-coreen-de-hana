@@ -107,19 +107,14 @@
       font-size: 14px;
     }
 
-    .audio-main,
-    .slow-button {
-      width: 100%;
-    }
-
     .audio-main {
+      width: 100%;
       font-weight: bold;
     }
 
     .slow-button {
+      width: 100%;
       margin-top: 8px;
-      background: var(--soft-beige);
-      color: var(--navy);
     }
 
     .answers {
@@ -133,19 +128,7 @@
       width: 100%;
       padding: 15px;
       text-align: left;
-      background: #FBFAF6;
-      color: var(--navy);
-      border: 1px solid var(--border);
-    }
-
-    .answer.correct {
-      background: var(--success-light);
-      color: var(--success);
-    }
-
-    .answer.wrong {
-      background: var(--error-light);
-      color: var(--error);
+      border: 2px solid transparent;
     }
 
     .feedback {
@@ -156,16 +139,9 @@
       line-height: 1.7;
     }
 
-    .feedback.correct {
-      display: block;
-      background: var(--success-light);
-      color: var(--navy);
-    }
-
+    .feedback.correct,
     .feedback.wrong {
       display: block;
-      background: var(--error-light);
-      color: var(--navy);
     }
 
     .heard-question {
@@ -182,7 +158,7 @@
       display: none;
       width: 100%;
       margin-top: 15px;
-      background: var(--navy);
+      background: var(--jade);
       color: white;
       font-weight: bold;
     }
@@ -200,10 +176,6 @@
       text-align: center;
     }
 
-    .result-card.show {
-      display: block;
-    }
-
     .result-icon {
       font-size: 60px;
     }
@@ -214,17 +186,13 @@
       font-weight: bold;
     }
 
-    .result-summary,
-    .strategy-box {
+    .result-summary {
       padding: 16px;
       margin-top: 18px;
+      background: #FBFAF6;
       border-radius: var(--radius-medium);
       text-align: left;
-      line-height: 1.7;
-    }
-
-    .result-summary {
-      background: #FBFAF6;
+      line-height: 1.6;
     }
 
     .notion-summary {
@@ -242,17 +210,17 @@
     }
 
     .strategy-box {
+      padding: 16px;
+      margin-top: 18px;
       background: var(--soft-green);
+      border-radius: var(--radius-medium);
       color: var(--navy);
-    }
-
-    .next-step-button,
-    .chapter-button {
-      width: 100%;
-      margin-top: 10px;
+      text-align: left;
+      line-height: 1.7;
     }
 
     .next-step-button {
+      width: 100%;
       margin-top: 18px;
       background: var(--jade);
       color: white;
@@ -260,6 +228,8 @@
     }
 
     .chapter-button {
+      width: 100%;
+      margin-top: 10px;
       background: var(--soft-beige);
       color: var(--navy);
     }
@@ -278,6 +248,7 @@
     ← J'écoute
   </a>
 
+
   <header class="exercise-header">
 
     <span class="chapter-badge">
@@ -289,21 +260,22 @@
     </p>
 
     <h1>
-      Commander au restaurant
+      Commander un café
     </h1>
 
     <p>
-      Écoute chaque phrase et repère l'intention :
-      recommandation, restriction alimentaire,
-      niveau de piment, commande ou paiement.
+      Écoute chaque phrase et repère
+      l'intention : chaud ou froid, sur place ou à emporter, prix ou paiement.
     </p>
 
   </header>
+
 
   <section
     id="hanaChapterPath"
     data-chapter-path
   ></section>
+
 
   <div class="exercise-progress">
 
@@ -334,7 +306,7 @@
     </p>
 
     <h2>
-      ⭐ Une recommandation
+      🔥 Chaud ou froid ?
     </h2>
 
     <div class="audio-zone">
@@ -344,13 +316,13 @@
       </div>
 
       <div class="audio-note">
-        Écoute la phrase de Ana.
+        Écoute la question de Ji-eun.
       </div>
 
       <button
         class="audio-main"
         type="button"
-        onclick="speakKorean('추천해 주세요.', false)"
+        onclick="speakKorean('뜨거운 커피요?', false)"
       >
         🔊 Écouter
       </button>
@@ -358,7 +330,7 @@
       <button
         class="slow-button"
         type="button"
-        onclick="speakKorean('추천해 주세요.', true)"
+        onclick="speakKorean('뜨거운 커피요?', true)"
       >
         🐢 Écouter lentement
       </button>
@@ -366,7 +338,7 @@
     </div>
 
     <p class="question-text">
-      Que demande Ana ?
+      Que demande Ji-eun ?
     </p>
 
     <div class="answers">
@@ -376,7 +348,7 @@
         type="button"
         onclick="checkAnswer(1, this, true)"
       >
-        Une recommandation.
+        Si Ana veut un café chaud.
       </button>
 
       <button
@@ -384,7 +356,7 @@
         type="button"
         onclick="checkAnswer(1, this, false)"
       >
-        L'addition.
+        Si Ana veut un jus.
       </button>
 
       <button
@@ -392,7 +364,7 @@
         type="button"
         onclick="checkAnswer(1, this, false)"
       >
-        De l'eau.
+        Si Ana veut payer par carte.
       </button>
 
     </div>
@@ -426,7 +398,7 @@
     </p>
 
     <h2>
-      🐷 Une restriction alimentaire
+      🥤 Sur place ou à emporter ?
     </h2>
 
     <div class="audio-zone">
@@ -436,13 +408,13 @@
       </div>
 
       <div class="audio-note">
-        Repère surtout 돼지고기.
+        Repère surtout le mot 포장.
       </div>
 
       <button
         class="audio-main"
         type="button"
-        onclick="speakKorean('돼지고기를 안 먹어요.', false)"
+        onclick="speakKorean('드시고 가세요? 포장이세요?', false)"
       >
         🔊 Écouter
       </button>
@@ -450,7 +422,7 @@
       <button
         class="slow-button"
         type="button"
-        onclick="speakKorean('돼지고기를 안 먹어요.', true)"
+        onclick="speakKorean('드시고 가세요? 포장이세요?', true)"
       >
         🐢 Écouter lentement
       </button>
@@ -458,7 +430,7 @@
     </div>
 
     <p class="question-text">
-      Que dit Ana ?
+      Que veut savoir Ji-eun ?
     </p>
 
     <div class="answers">
@@ -468,7 +440,7 @@
         type="button"
         onclick="checkAnswer(2, this, false)"
       >
-        Elle aime beaucoup le porc.
+        Quel café Ana veut commander.
       </button>
 
       <button
@@ -476,7 +448,7 @@
         type="button"
         onclick="checkAnswer(2, this, true)"
       >
-        Elle ne mange pas de porc.
+        Si Ana consomme sur place ou à emporter.
       </button>
 
       <button
@@ -484,7 +456,7 @@
         type="button"
         onclick="checkAnswer(2, this, false)"
       >
-        Elle veut du porc en plus.
+        Si Ana veut du sucre.
       </button>
 
     </div>
@@ -518,7 +490,7 @@
     </p>
 
     <h2>
-      🌶️ Le niveau de piment
+      💰 Comprends le prix
     </h2>
 
     <div class="audio-zone">
@@ -528,13 +500,13 @@
       </div>
 
       <div class="audio-note">
-        Écoute la réponse de Madame Kim.
+        Écoute le montant annoncé.
       </div>
 
       <button
         class="audio-main"
         type="button"
-        onclick="speakKorean('비빔밥은 많이 안 매워요.', false)"
+        onclick="speakKorean('오천 원입니다.', false)"
       >
         🔊 Écouter
       </button>
@@ -542,7 +514,7 @@
       <button
         class="slow-button"
         type="button"
-        onclick="speakKorean('비빔밥은 많이 안 매워요.', true)"
+        onclick="speakKorean('오천 원입니다.', true)"
       >
         🐢 Écouter lentement
       </button>
@@ -550,7 +522,7 @@
     </div>
 
     <p class="question-text">
-      Que dit Madame Kim à propos du bibimbap ?
+      Quel prix est annoncé ?
     </p>
 
     <div class="answers">
@@ -558,9 +530,17 @@
       <button
         class="answer"
         type="button"
+        onclick="checkAnswer(3, this, false)"
+      >
+        3 000 wons
+      </button>
+
+      <button
+        class="answer"
+        type="button"
         onclick="checkAnswer(3, this, true)"
       >
-        Il n'est pas très épicé.
+        5 000 wons
       </button>
 
       <button
@@ -568,15 +548,7 @@
         type="button"
         onclick="checkAnswer(3, this, false)"
       >
-        Il est extrêmement épicé.
-      </button>
-
-      <button
-        class="answer"
-        type="button"
-        onclick="checkAnswer(3, this, false)"
-      >
-        Il contient du porc.
+        10 000 wons
       </button>
 
     </div>
@@ -610,7 +582,7 @@
     </p>
 
     <h2>
-      🍚 Commander un plat
+      💳 Le moyen de paiement
     </h2>
 
     <div class="audio-zone">
@@ -620,13 +592,13 @@
       </div>
 
       <div class="audio-note">
-        Écoute ce que commande Ana.
+        Repère le mot 카드.
       </div>
 
       <button
         class="audio-main"
         type="button"
-        onclick="speakKorean('비빔밥 하나 주세요.', false)"
+        onclick="speakKorean('카드로 하시겠어요?', false)"
       >
         🔊 Écouter
       </button>
@@ -634,7 +606,7 @@
       <button
         class="slow-button"
         type="button"
-        onclick="speakKorean('비빔밥 하나 주세요.', true)"
+        onclick="speakKorean('카드로 하시겠어요?', true)"
       >
         🐢 Écouter lentement
       </button>
@@ -642,7 +614,7 @@
     </div>
 
     <p class="question-text">
-      Que commande Ana ?
+      Que demande Ji-eun ?
     </p>
 
     <div class="answers">
@@ -650,17 +622,9 @@
       <button
         class="answer"
         type="button"
-        onclick="checkAnswer(4, this, false)"
-      >
-        Un dakgalbi.
-      </button>
-
-      <button
-        class="answer"
-        type="button"
         onclick="checkAnswer(4, this, true)"
       >
-        Un bibimbap.
+        Si Ana paie par carte.
       </button>
 
       <button
@@ -668,7 +632,15 @@
         type="button"
         onclick="checkAnswer(4, this, false)"
       >
-        Deux bibimbaps.
+        Si Ana veut une carte de fidélité.
+      </button>
+
+      <button
+        class="answer"
+        type="button"
+        onclick="checkAnswer(4, this, false)"
+      >
+        Si Ana veut emporter son café.
       </button>
 
     </div>
@@ -702,7 +674,7 @@
     </p>
 
     <h2>
-      💳 La fin du repas
+      😋 La fin de l'échange
     </h2>
 
     <div class="audio-zone">
@@ -712,13 +684,13 @@
       </div>
 
       <div class="audio-note">
-        Écoute la phrase de Ana.
+        Écoute la formule de Ji-eun.
       </div>
 
       <button
         class="audio-main"
         type="button"
-        onclick="speakKorean('계산해 주세요.', false)"
+        onclick="speakKorean('맛있게 드세요!', false)"
       >
         🔊 Écouter
       </button>
@@ -726,7 +698,7 @@
       <button
         class="slow-button"
         type="button"
-        onclick="speakKorean('계산해 주세요.', true)"
+        onclick="speakKorean('맛있게 드세요!', true)"
       >
         🐢 Écouter lentement
       </button>
@@ -734,7 +706,7 @@
     </div>
 
     <p class="question-text">
-      Que demande Ana ?
+      Que souhaite Ji-eun à Ana ?
     </p>
 
     <div class="answers">
@@ -744,7 +716,7 @@
         type="button"
         onclick="checkAnswer(5, this, false)"
       >
-        Le menu.
+        Bon voyage !
       </button>
 
       <button
@@ -752,7 +724,7 @@
         type="button"
         onclick="checkAnswer(5, this, true)"
       >
-        L'addition.
+        Bonne dégustation !
       </button>
 
       <button
@@ -760,7 +732,7 @@
         type="button"
         onclick="checkAnswer(5, this, false)"
       >
-        Une recommandation.
+        Bonne journée de travail !
       </button>
 
     </div>
@@ -782,7 +754,7 @@
   </section>
 
 
-  <!-- RESULTAT -->
+  <!-- RÉSULTAT -->
 
   <section
     class="result-card"
@@ -790,7 +762,7 @@
   >
 
     <div class="result-icon">
-      🎧🍜
+      🎧☕
     </div>
 
     <h2>
@@ -802,8 +774,9 @@
     </p>
 
     <p class="result-score">
-      5 intentions du restaurant reconnues ✅
+      5 intentions du café reconnues ✅
     </p>
+
 
     <div class="result-summary">
 
@@ -815,34 +788,31 @@
 
     </div>
 
+
     <div class="notion-summary">
 
       <div class="notion-line">
-        ⭐ <strong>추천해 주세요.</strong>
-        → Recommandez-moi quelque chose.
+        🔥 <strong>뜨거운 커피요?</strong> → Un café chaud ?
       </div>
 
       <div class="notion-line">
-        🐷 <strong>돼지고기를 안 먹어요.</strong>
-        → Je ne mange pas de porc.
+        🥤 <strong>드시고 가세요? 포장이세요?</strong> → Sur place ou à emporter ?
       </div>
 
       <div class="notion-line">
-        🌶️ <strong>비빔밥은 많이 안 매워요.</strong>
-        → Le bibimbap n'est pas très épicé.
+        💰 <strong>오천 원입니다.</strong> → Ça fait 5 000 wons.
       </div>
 
       <div class="notion-line">
-        🍚 <strong>비빔밥 하나 주세요.</strong>
-        → Un bibimbap, s'il vous plaît.
+        💳 <strong>카드로 하시겠어요?</strong> → Vous payez par carte ?
       </div>
 
       <div class="notion-line">
-        💳 <strong>계산해 주세요.</strong>
-        → L'addition, s'il vous plaît.
+        😋 <strong>맛있게 드세요!</strong> → Bonne dégustation !
       </div>
 
     </div>
+
 
     <div class="strategy-box">
 
@@ -852,25 +822,28 @@
 
       <br><br>
 
-      Au restaurant, repère d'abord quelques mots-clés.
+      Au comptoir, tu n'as pas besoin de comprendre toute la grammaire.
 
       <br><br>
 
-      <strong>추천</strong> → recommandation<br>
-      <strong>돼지고기</strong> → porc<br>
-      <strong>매워요</strong> → épicé<br>
-      <strong>하나 주세요</strong> → une unité, s'il vous plaît<br>
-      <strong>계산</strong> → addition / paiement
+      Repère quelques mots-clés :
+      <strong>뜨거운 / 아이스</strong> pour chaud ou froid,
+      <strong>포장</strong> pour à emporter,
+      <strong>원</strong> pour le prix,
+      <strong>카드</strong> pour le paiement
+      et <strong>맛있게 드세요</strong> pour la formule de fin.
 
     </div>
+
 
     <button
       class="next-step-button"
       type="button"
-      onclick="goToSpeaking()"
+      onclick="window.location.href='parle-15.html'"
     >
       🗣️ Passer à « Je parle »
     </button>
+
 
     <button
       class="chapter-button"
@@ -885,34 +858,9 @@
 </main>
 
 
-<script src="chapter-progress.js"></script>
-
 <script>
-  const CHAPTER = 15;
-
-  const UNDERSTANDING_KEY =
-    "hanaKorean_chapter15_understanding";
-
-  const LISTENING_KEY =
-    "hanaKorean_chapter15_listening";
-
-  const LISTENING_EXERCISE_KEY =
-    "hanaKorean_chapter15_listeningExercise";
-
-  const LISTENING_MISTAKES_KEY =
-    "hanaKorean_chapter15_listeningMistakes";
-
-  const LISTENING_INCORRECT_ATTEMPTS_KEY =
-    "hanaKorean_chapter15_listeningIncorrectAttempts";
-
-  const AUDIO_SETTINGS = {
-    normalRate: 0.82,
-    slowRate: 0.25
-  };
-
   let incorrectAttempts = 0;
 
-  const weakNotions = [];
 
   const completedQuestions = {
     1: false,
@@ -923,66 +871,20 @@
   };
 
 
-  function guardExerciseAccess() {
-
-    if (
-      localStorage.getItem(
-        UNDERSTANDING_KEY
-      ) !== "completed"
-    ) {
-      window.location.replace(
-        "chapitre-15.html"
-      );
-
-      return false;
-    }
-
-    if (
-      localStorage.getItem(
-        LISTENING_EXERCISE_KEY
-      ) !== "completed"
-    ) {
-      localStorage.setItem(
-        LISTENING_EXERCISE_KEY,
-        "in_progress"
-      );
-    }
-
-    return true;
-  }
-
-
-  function renderChapterProgress() {
-
-    if (
-      window.HanaChapterProgress &&
-      typeof window.HanaChapterProgress.render === "function"
-    ) {
-      window.HanaChapterProgress.render();
-    }
-  }
-
-
   function getKoreanVoice() {
-
-    if (
-      !("speechSynthesis" in window)
-    ) {
-      return null;
-    }
 
     const voices =
       window.speechSynthesis.getVoices();
 
-    return (
-      voices.find(
-        voice =>
-          voice.lang &&
-          voice.lang
-            .toLowerCase()
-            .startsWith("ko")
-      ) || null
+
+    return voices.find(
+      voice =>
+        voice.lang &&
+        voice.lang
+          .toLowerCase()
+          .startsWith("ko")
     );
+
   }
 
 
@@ -997,37 +899,208 @@
       return;
     }
 
+
     window.speechSynthesis.cancel();
+
 
     const speech =
       new SpeechSynthesisUtterance(
         text
       );
 
+
     speech.lang =
       "ko-KR";
 
+
     speech.rate =
       slow
-        ? AUDIO_SETTINGS.slowRate
-        : AUDIO_SETTINGS.normalRate;
+        ? 0.25
+        : 0.82;
+
 
     speech.pitch =
       1;
 
+
     const voice =
       getKoreanVoice();
 
-    if (
-      voice
-    ) {
+
+    if (voice) {
+
       speech.voice =
         voice;
+
     }
+
 
     window.speechSynthesis.speak(
       speech
     );
+
+  }
+
+
+  function playOriginalMetroChime() {
+
+    return new Promise(
+      resolve => {
+
+        try {
+
+          const AudioContext =
+            window.AudioContext ||
+            window.webkitAudioContext;
+
+
+          if (!AudioContext) {
+
+            resolve();
+
+            return;
+
+          }
+
+
+          const context =
+            new AudioContext();
+
+
+          const notes = [
+            {
+              frequency: 659.25,
+              start: 0,
+              duration: 0.18
+            },
+            {
+              frequency: 783.99,
+              start: 0.20,
+              duration: 0.22
+            }
+          ];
+
+
+          notes.forEach(
+            note => {
+
+              const oscillator =
+                context.createOscillator();
+
+
+              const gain =
+                context.createGain();
+
+
+              oscillator.type =
+                "sine";
+
+
+              oscillator.frequency.value =
+                note.frequency;
+
+
+              gain.gain.setValueAtTime(
+                0.0001,
+                context.currentTime +
+                  note.start
+              );
+
+
+              gain.gain.exponentialRampToValueAtTime(
+                0.12,
+                context.currentTime +
+                  note.start +
+                  0.02
+              );
+
+
+              gain.gain.exponentialRampToValueAtTime(
+                0.0001,
+                context.currentTime +
+                  note.start +
+                  note.duration
+              );
+
+
+              oscillator.connect(
+                gain
+              );
+
+
+              gain.connect(
+                context.destination
+              );
+
+
+              oscillator.start(
+                context.currentTime +
+                  note.start
+              );
+
+
+              oscillator.stop(
+                context.currentTime +
+                  note.start +
+                  note.duration +
+                  0.02
+              );
+
+            }
+          );
+
+
+          window.setTimeout(
+            function() {
+
+              try {
+                context.close();
+              }
+              catch (error) {
+              }
+
+              resolve();
+
+            },
+            520
+          );
+
+        }
+
+        catch (error) {
+
+          resolve();
+
+        }
+
+      }
+    );
+
+  }
+
+
+  async function playMetroAnnouncement(
+    text,
+    slow = false
+  ) {
+
+    if (
+      "speechSynthesis" in window
+    ) {
+
+      window.speechSynthesis.cancel();
+
+    }
+
+
+    await playOriginalMetroChime();
+
+
+    speakKorean(
+      text,
+      slow
+    );
+
   }
 
 
@@ -1043,26 +1116,18 @@
       return;
     }
 
-    const notions = {
-      1: "추천해 주세요",
-      2: "돼지고기 / 안 먹어요",
-      3: "안 매워요",
-      4: "하나 / 주세요",
-      5: "계산해 주세요"
-    };
-
-    const notion =
-      notions[number];
 
     const feedback =
       document.getElementById(
         "feedback" + number
       );
 
+
     const question =
       document.getElementById(
         "question" + number
       );
+
 
     const answers =
       question.querySelectorAll(
@@ -1070,192 +1135,188 @@
       );
 
 
-    if (
-      isCorrect
-    ) {
+    if (isCorrect) {
 
       completedQuestions[number] =
         true;
 
-      button.classList.remove(
-        "wrong"
-      );
 
       button.classList.add(
         "correct"
       );
 
+
       feedback.className =
         "feedback correct";
 
 
-      if (
-        number === 1
-      ) {
+      if (number === 1) {
+
         feedback.innerHTML =
           "✅ <strong>Exact !</strong>" +
           "<br><br>" +
           "Tu as entendu :" +
-          "<div class='heard-question'>추천해 주세요.</div>" +
-          "<strong>추천</strong> renvoie à une recommandation.";
+          "<div class='heard-question'>뜨거운 커피요?</div>" +
+          "<strong>뜨거운</strong> signifie « chaud ».";
+
       }
 
 
-      if (
-        number === 2
-      ) {
+      if (number === 2) {
+
         feedback.innerHTML =
           "✅ <strong>Très bien !</strong>" +
           "<br><br>" +
           "Tu as entendu :" +
-          "<div class='heard-question'>돼지고기를 안 먹어요.</div>" +
-          "<strong>안 먹어요</strong> signifie ici « je ne mange pas ».";
+          "<div class='heard-question'>드시고 가세요? 포장이세요?</div>" +
+          "<strong>포장</strong> te permet de repérer l'idée « à emporter ».";
+
       }
 
 
-      if (
-        number === 3
-      ) {
+      if (number === 3) {
+
         feedback.innerHTML =
           "✅ <strong>Exact !</strong>" +
           "<br><br>" +
           "Tu as entendu :" +
-          "<div class='heard-question'>비빔밥은 많이 안 매워요.</div>" +
-          "<strong>많이 안 매워요</strong> signifie « ce n'est pas très épicé ».";
+          "<div class='heard-question'>오천 원입니다.</div>" +
+          "<strong>오천 원</strong> = 5 000 wons.";
+
       }
 
 
-      if (
-        number === 4
-      ) {
+      if (number === 4) {
+
         feedback.innerHTML =
           "✅ <strong>Très bien !</strong>" +
           "<br><br>" +
           "Tu as entendu :" +
-          "<div class='heard-question'>비빔밥 하나 주세요.</div>" +
-          "<strong>하나 주세요</strong> indique ici qu'Ana commande un bibimbap.";
+          "<div class='heard-question'>카드로 하시겠어요?</div>" +
+          "<strong>카드</strong> indique le paiement par carte.";
+
       }
 
 
-      if (
-        number === 5
-      ) {
+      if (number === 5) {
+
         feedback.innerHTML =
           "✅ <strong>Parfait !</strong>" +
           "<br><br>" +
           "Tu as entendu :" +
-          "<div class='heard-question'>계산해 주세요.</div>" +
-          "Cette expression permet de demander l'addition.";
+          "<div class='heard-question'>맛있게 드세요!</div>" +
+          "C'est une formule naturelle pour souhaiter une bonne dégustation.";
+
       }
 
 
       answers.forEach(
         answer => {
+
           answer.disabled =
             true;
+
         }
       );
+
 
       document.getElementById(
         "next" + number
       ).style.display =
         "block";
 
+
       return;
+
     }
 
 
     incorrectAttempts++;
 
-    if (
-      notion &&
-      !weakNotions.includes(
-        notion
-      )
-    ) {
-      weakNotions.push(
-        notion
-      );
-    }
 
     button.classList.add(
       "wrong"
     );
 
+
     feedback.className =
       "feedback wrong";
 
 
-    if (
-      number === 1
-    ) {
+    if (number === 1) {
+
       feedback.innerHTML =
-        "❌ <strong>Repère 추천.</strong>" +
+        "❌ <strong>Repère 뜨거운.</strong>" +
         "<br><br>" +
-        "💡 <strong>추천</strong> = recommandation.";
+        "💡 <strong>뜨거운</strong> = chaud.";
+
     }
 
 
-    if (
-      number === 2
-    ) {
+    if (number === 2) {
+
       feedback.innerHTML =
-        "❌ <strong>Repère 안 먹어요.</strong>" +
+        "❌ <strong>Repère 포장.</strong>" +
         "<br><br>" +
-        "💡 <strong>안 먹어요</strong> signifie ici « je ne mange pas ».";
+        "💡 <strong>포장</strong> est le mot-clé pour « à emporter ».";
+
     }
 
 
-    if (
-      number === 3
-    ) {
+    if (number === 3) {
+
       feedback.innerHTML =
-        "❌ <strong>Repère 많이 안 매워요.</strong>" +
+        "❌ <strong>Réécoute le nombre.</strong>" +
         "<br><br>" +
-        "💡 Le mot <strong>안</strong> apporte ici la négation : le bibimbap n'est pas très épicé.";
+        "💡 <strong>오천</strong> = cinq mille.";
+
     }
 
 
-    if (
-      number === 4
-    ) {
+    if (number === 4) {
+
       feedback.innerHTML =
-        "❌ <strong>Repère 비빔밥 et 하나 주세요.</strong>" +
+        "❌ <strong>Repère 카드.</strong>" +
         "<br><br>" +
-        "💡 Ana commande <strong>un bibimbap</strong>.";
+        "💡 <strong>카드</strong> = carte bancaire.";
+
     }
 
 
-    if (
-      number === 5
-    ) {
+    if (number === 5) {
+
       feedback.innerHTML =
-        "❌ <strong>Repère 계산.</strong>" +
+        "❌ <strong>Cette formule concerne ce que Ana va manger ou boire.</strong>" +
         "<br><br>" +
-        "💡 <strong>계산해 주세요</strong> sert à demander l'addition.";
+        "💡 <strong>맛있게 드세요</strong> = bonne dégustation.";
+
     }
 
 
-    window.setTimeout(
-      function() {
+    setTimeout(
+      () => {
+
         button.classList.remove(
           "wrong"
         );
+
       },
       800
     );
+
   }
 
 
-  function showQuestion(
-    number
-  ) {
+  function showQuestion(number) {
 
     if (
       "speechSynthesis" in window
     ) {
+
       window.speechSynthesis.cancel();
+
     }
+
 
     document
       .querySelectorAll(
@@ -1263,11 +1324,14 @@
       )
       .forEach(
         card => {
+
           card.classList.add(
             "hidden"
           );
+
         }
       );
+
 
     document.getElementById(
       "question" + number
@@ -1275,11 +1339,22 @@
       "hidden"
     );
 
+
+    const percentages = {
+      1: 20,
+      2: 40,
+      3: 60,
+      4: 80,
+      5: 100
+    };
+
+
     document.getElementById(
       "progressFill"
     ).style.width =
-      (number * 20) +
+      percentages[number] +
       "%";
+
 
     document.getElementById(
       "progressLabel"
@@ -1287,26 +1362,25 @@
       number +
       " / 5";
 
+
     window.scrollTo({
       top: 0,
       behavior: "smooth"
     });
+
   }
 
 
   function finishExercise() {
 
     if (
-      !completedQuestions[5]
-    ) {
-      return;
-    }
-
-    if (
       "speechSynthesis" in window
     ) {
+
       window.speechSynthesis.cancel();
+
     }
+
 
     document
       .querySelectorAll(
@@ -1314,27 +1388,31 @@
       )
       .forEach(
         card => {
+
           card.classList.add(
             "hidden"
           );
+
         }
       );
+
 
     document.getElementById(
       "progressFill"
     ).style.width =
       "100%";
 
+
     document.getElementById(
       "progressLabel"
     ).textContent =
       "5 / 5";
 
+
     document.getElementById(
       "resultCard"
-    ).classList.add(
-      "show"
-    );
+    ).style.display =
+      "block";
 
 
     let message = "";
@@ -1343,22 +1421,28 @@
     if (
       incorrectAttempts === 0
     ) {
+
       message =
         "🌟 Tu as reconnu les 5 éléments du premier coup.";
+
     }
 
     else if (
       incorrectAttempts === 1
     ) {
+
       message =
         "💡 1 tentative incorrecte, puis les 5 éléments ont été reconnus.";
+
     }
 
     else {
+
       message =
         "💡 " +
         incorrectAttempts +
         " tentatives incorrectes. Les 5 éléments ont malgré tout été validés.";
+
     }
 
 
@@ -1378,51 +1462,34 @@
       "completed"
     );
 
-    localStorage.setItem(
-      LISTENING_MISTAKES_KEY,
-      JSON.stringify(
-        weakNotions
-      )
-    );
-
-    localStorage.setItem(
-      LISTENING_INCORRECT_ATTEMPTS_KEY,
-      String(
-        incorrectAttempts
-      )
-    );
-
     renderChapterProgress();
+
+
+    localStorage.setItem(
+      "hanaKorean_chapter15_listeningMistakes",
+      incorrectAttempts
+    );
+
 
     window.scrollTo({
       top: 0,
       behavior: "smooth"
     });
-  }
 
-
-  function goToSpeaking() {
-
-    if (
-      localStorage.getItem(
-        LISTENING_EXERCISE_KEY
-      ) !== "completed"
-    ) {
-      return;
-    }
-
-    window.location.href =
-      "parle-15.html";
   }
 
 
   if (
     "speechSynthesis" in window
   ) {
+
     window.speechSynthesis.onvoiceschanged =
       function() {
+
         window.speechSynthesis.getVoices();
+
       };
+
   }
 
 
@@ -1435,10 +1502,15 @@
     window.addEventListener(
       "pageshow",
       function() {
+
         renderChapterProgress();
+
       }
     );
+
   }
+
 </script>
 </body>
+
 </html>
