@@ -382,15 +382,6 @@
       color: var(--navy);
     }
 
-  
-
-    .summary-button {
-      width: 100%;
-      margin-top: 12px;
-      background: var(--jade);
-      color: white;
-      font-weight: bold;
-    }
   </style>
 
   <script src="profile.js"></script>
@@ -411,6 +402,7 @@
   </a>
 
 
+
   <header class="mission-header">
 
     <span class="chapter-badge">
@@ -429,18 +421,13 @@
 
 
     <p>
-      Tu arrives à l'hôtel et tu échanges avec Joon-ho à la réception.
-      Utilise ce que tu as appris pour annoncer ta réservation,
-      donner ton nom, trouver ta chambre et gérer le Wi-Fi.
+      Tu entres dans le restaurant de Madame Kim.
+      Utilise ce que tu as appris pour demander le menu,
+      choisir un plat, préciser ta restriction alimentaire et payer.
     </p>
 
   </header>
 
-
-  <section
-    id="hanaChapterPath"
-    data-chapter-path
-  ></section>
 
 
   <section class="mission-intro">
@@ -449,17 +436,20 @@
 
     <br><br>
 
-    Tu arrives à l'hôtel où travaille
-    <strong>Joon-ho</strong>.
+    Tu dînes dans le restaurant de
+    <strong>Madame Kim</strong>.
 
     <br><br>
 
-    Annonce ta réservation,
-    réponds quand il te demande ton nom,
-    demande où est ta chambre et le mot de passe du Wi-Fi,
-    puis demande de l'aide si le Wi-Fi ne fonctionne pas.
+    Demande le menu,
+    demande une recommandation,
+    précise que tu ne manges pas de porc,
+    vérifie si le plat est très épicé,
+    commande un bibimbap
+    puis demande l'addition.
 
   </section>
+
 
 
   <div class="mission-progress">
@@ -489,313 +479,264 @@
   </div>
 
 
-  <!-- ETAPE 1 -->
+
+  <!-- =====================================================
+       ETAPE 1
+       ===================================================== -->
 
   <section class="mission-card" id="step1">
 
     <div class="scene-card">
-      🏨 Tu arrives à la réception avec ta valise.
-      Tu veux annoncer que tu as une réservation.
-    </div>
-
-    <div class="npc-line">
-
-      <div class="npc-name">
-        🩶 Joon-ho
-      </div>
-
-      <div class="npc-korean">
-        안녕하세요.
-      </div>
-
-      <div class="npc-french">
-        Bonjour.
-      </div>
-
+      🍜 Tu viens de t'installer à table.
+      <br><br>
+      Madame Kim s'approche.
     </div>
 
     <h2 class="mission-question">
-      Que réponds-tu ?
+      Que dis-tu pour demander le menu ?
     </h2>
 
     <div class="answers">
 
       <button class="answer" type="button"
         onclick="checkAnswer(1, this, true)">
-        안녕하세요. 예약했어요.
+        메뉴 주세요.
       </button>
 
       <button class="answer" type="button"
         onclick="checkAnswer(1, this, false)">
-        와이파이가 안 돼요.
+        계산해 주세요.
       </button>
 
       <button class="answer" type="button"
         onclick="checkAnswer(1, this, false)">
-        제 방이 어디예요?
+        많이 매워요?
       </button>
 
     </div>
 
     <div class="feedback" id="feedback1"></div>
 
-    <div class="hint-box" id="hint1">
-      💡 <strong>예약</strong> signifie « réservation ».
-      La phrase prête à utiliser est <strong>예약했어요.</strong>
-    </div>
-
-    <button
-      class="hint-button"
-      type="button"
-      onclick="toggleHint(1)"
-    >
-      💡 Voir un indice
+    <button class="hint-button" type="button"
+      onclick="toggleHint(1)">
+      💡 Un indice
     </button>
 
-    <button
-      class="next-button"
-      id="next1"
-      type="button"
-      onclick="showStep(2)"
-    >
+    <div class="hint-box" id="hint1">
+      Pense au mot
+      <strong>메뉴</strong>
+      puis ajoute
+      <strong>주세요</strong>.
+    </div>
+
+    <button class="next-button" id="next1" type="button"
+      onclick="showStep(2)">
       Continuer →
     </button>
 
   </section>
 
 
-  <!-- ETAPE 2 -->
+  <!-- =====================================================
+       ETAPE 2
+       ===================================================== -->
 
   <section class="mission-card hidden" id="step2">
-
-    <div class="scene-card">
-      👤 Joon-ho retrouve ta réservation et te demande ton nom.
-    </div>
 
     <div class="npc-line">
 
       <div class="npc-name">
-        🩶 Joon-ho
+        🧡 Madame Kim
       </div>
 
       <div class="npc-korean">
-        성함이 어떻게 되세요?
-      </div>
-
-      <div class="npc-french">
-        Quel est votre nom ?
+        추천 음식도 있어요.
       </div>
 
     </div>
 
     <h2 class="mission-question">
+      Tu veux une recommandation et tu ne manges pas de porc.
       Que réponds-tu ?
     </h2>
 
     <div class="answers">
 
       <button class="answer" type="button"
-        onclick="checkAnswer(2, this, false)">
-        방 열쇠 주세요.
-      </button>
-
-      <button class="answer" type="button"
         onclick="checkAnswer(2, this, true)">
-        아나예요.
+        추천해 주세요. 그리고 돼지고기를 안 먹어요.
       </button>
 
       <button class="answer" type="button"
         onclick="checkAnswer(2, this, false)">
-        감사합니다.
+        돼지고기 주세요.
+      </button>
+
+      <button class="answer" type="button"
+        onclick="checkAnswer(2, this, false)">
+        계산해 주세요.
       </button>
 
     </div>
 
     <div class="feedback" id="feedback2"></div>
 
-    <div class="hint-box" id="hint2">
-      💡 Pour répondre simplement avec ton nom :
-      <strong>아나예요.</strong>
-    </div>
-
-    <button
-      class="hint-button"
-      type="button"
-      onclick="toggleHint(2)"
-    >
-      💡 Voir un indice
+    <button class="hint-button" type="button"
+      onclick="toggleHint(2)">
+      💡 Un indice
     </button>
 
-    <button
-      class="next-button"
-      id="next2"
-      type="button"
-      onclick="showStep(3)"
-    >
+    <div class="hint-box" id="hint2">
+      Utilise
+      <strong>추천해 주세요</strong>
+      puis
+      <strong>돼지고기를 안 먹어요</strong>.
+    </div>
+
+    <button class="next-button" id="next2" type="button"
+      onclick="showStep(3)">
       Continuer →
     </button>
 
   </section>
 
 
-  <!-- ETAPE 3 -->
+  <!-- =====================================================
+       ETAPE 3
+       ===================================================== -->
 
   <section class="mission-card hidden" id="step3">
-
-    <div class="scene-card">
-      🚪 Ton check-in est terminé.
-      Tu veux maintenant savoir où se trouve ta chambre
-      et obtenir le mot de passe du Wi-Fi.
-    </div>
 
     <div class="npc-line">
 
       <div class="npc-name">
-        🩶 Joon-ho
+        🧡 Madame Kim
       </div>
 
       <div class="npc-korean">
-        네. 여기 있습니다.
-      </div>
-
-      <div class="npc-french">
-        Oui. Voici.
+        그럼 비빔밥하고 닭갈비는 어때요?
       </div>
 
     </div>
 
     <h2 class="mission-question">
-      Quelle réponse utilise les deux bonnes questions ?
+      Tu veux vérifier le niveau de piment avant de choisir.
+      Que demandes-tu ?
     </h2>
 
     <div class="answers">
 
       <button class="answer" type="button"
+        onclick="checkAnswer(3, this, false)">
+        얼마예요?
+      </button>
+
+      <button class="answer" type="button"
         onclick="checkAnswer(3, this, true)">
-        제 방이 어디예요?<br>
-        와이파이 비밀번호가 뭐예요?
+        많이 매워요?
       </button>
 
       <button class="answer" type="button"
         onclick="checkAnswer(3, this, false)">
-        방 열쇠 주세요.<br>
-        감사합니다.
-      </button>
-
-      <button class="answer" type="button"
-        onclick="checkAnswer(3, this, false)">
-        엘리베이터가 어디예요?<br>
-        와이파이가 안 돼요.
+        카드로 할게요.
       </button>
 
     </div>
 
     <div class="feedback" id="feedback3"></div>
 
-    <div class="hint-box" id="hint3">
-      💡 Pour la chambre, pense à
-      <strong>제 방이 어디예요?</strong><br><br>
-      Pour le mot de passe :
-      <strong>와이파이 비밀번호가 뭐예요?</strong>
-    </div>
-
-    <button
-      class="hint-button"
-      type="button"
-      onclick="toggleHint(3)"
-    >
-      💡 Voir un indice
+    <button class="hint-button" type="button"
+      onclick="toggleHint(3)">
+      💡 Un indice
     </button>
 
-    <button
-      class="next-button"
-      id="next3"
-      type="button"
-      onclick="showStep(4)"
-    >
+    <div class="hint-box" id="hint3">
+      <strong>매워요?</strong>
+      signifie « C'est épicé ? ».
+      Ajoute <strong>많이</strong> pour « très ».
+    </div>
+
+    <button class="next-button" id="next3" type="button"
+      onclick="showStep(4)">
       Continuer →
     </button>
 
   </section>
 
 
-  <!-- ETAPE 4 -->
+  <!-- =====================================================
+       ETAPE 4
+       ===================================================== -->
 
   <section class="mission-card hidden" id="step4">
-
-    <div class="scene-card">
-      📶 Dans ta chambre, le Wi-Fi ne fonctionne pas.
-      Tu retournes à la réception pour expliquer le problème
-      et demander de l'aide.
-    </div>
 
     <div class="npc-line">
 
       <div class="npc-name">
-        🩶 Joon-ho
+        🧡 Madame Kim
       </div>
 
       <div class="npc-korean">
-        네?
-      </div>
-
-      <div class="npc-french">
-        Oui ? / Pardon ?
+        비빔밥은 많이 안 매워요.
       </div>
 
     </div>
 
+    <div class="scene-card">
+      🍚 Le bibimbap te convient.
+      <br><br>
+      Tu le commandes, puis plus tard tu demandes l'addition.
+    </div>
+
     <h2 class="mission-question">
-      Que dis-tu ?
+      Quelle réponse complète est la plus naturelle ?
     </h2>
 
     <div class="answers">
 
       <button class="answer" type="button"
         onclick="checkAnswer(4, this, false)">
-        와이파이 비밀번호가 뭐예요?
+        비빔밥은 안 먹어요. 메뉴 주세요.
       </button>
 
       <button class="answer" type="button"
         onclick="checkAnswer(4, this, true)">
-        와이파이가 안 돼요. 도와주세요.
+        비빔밥 하나 주세요. 그리고 계산해 주세요.
       </button>
 
       <button class="answer" type="button"
         onclick="checkAnswer(4, this, false)">
-        제 방이 어디예요?
+        많이 매워요? 추천해 주세요.
       </button>
 
     </div>
 
     <div class="feedback" id="feedback4"></div>
 
-    <div class="hint-box" id="hint4">
-      💡 <strong>안 돼요</strong> = ça ne fonctionne pas.<br>
-      <strong>도와주세요</strong> = aidez-moi, s'il vous plaît.
-    </div>
-
-    <button
-      class="hint-button"
-      type="button"
-      onclick="toggleHint(4)"
-    >
-      💡 Voir un indice
+    <button class="hint-button" type="button"
+      onclick="toggleHint(4)">
+      💡 Un indice
     </button>
 
-    <button
-      class="next-button"
-      id="next4"
-      type="button"
-      onclick="finishMission()"
-    >
-      Terminer la mission →
+    <div class="hint-box" id="hint4">
+      Pour commander :
+      <strong>비빔밥 하나 주세요.</strong>
+      <br>
+      Pour demander l'addition :
+      <strong>계산해 주세요.</strong>
+    </div>
+
+    <button class="next-button" id="next4" type="button"
+      onclick="finishMission()">
+      Terminer la mission 🌿
     </button>
 
   </section>
 
 
-  <!-- RESULTAT -->
+  <!-- =====================================================
+       RESULTAT
+       ===================================================== -->
 
   <section
     class="result-card"
@@ -803,23 +744,24 @@
   >
 
     <div class="result-icon">
-      🏨
+      🎯🍜
     </div>
 
+
     <h2>
-      Mission réussie !
+      미션 성공!
     </h2>
 
 
     <p>
-      Tu as géré ton arrivée à l'hôtel,
-      ta réservation, ton nom, ta chambre
-      et un problème de Wi-Fi.
+      Mission réussie :
+      tu as demandé le menu,
+      géré une restriction alimentaire, choisi un plat et demandé l'addition.
     </p>
 
 
     <p class="result-score">
-      Chapitre 16 terminé ✅
+      Chapitre 13 terminé ✅
     </p>
 
 
@@ -843,27 +785,27 @@
       <br><br>
 
       <div class="skill-line">
-        🛎️ Annoncer une réservation
+        📖 Demander le menu
       </div>
 
       <div class="skill-line">
-        👤 Comprendre une question sur ton nom et répondre
+        ⭐ Demander une recommandation
       </div>
 
       <div class="skill-line">
-        🚪 Demander où se trouve ta chambre
+        🐷 Dire que tu ne manges pas de porc
       </div>
 
       <div class="skill-line">
-        📶 Demander le mot de passe du Wi-Fi
+        🌶️ Demander si un plat est très épicé
       </div>
 
       <div class="skill-line">
-        🆘 Signaler un problème et demander de l'aide
+        🍚 Commander un plat
       </div>
 
       <div class="skill-line">
-        🙏 Remercier avec <strong>감사합니다.</strong>
+        💳 Demander l'addition
       </div>
 
     </div>
@@ -877,58 +819,41 @@
 
       <br><br>
 
-      Imagine ton arrivée dans un hôtel en Corée.
+      Imagine ton prochain repas dans un restaurant coréen.
 
       <br><br>
 
-      Essaie de reconstruire mentalement cet échange :
+      Quel plat aimerais-tu commander ?
+
+      <br><br>
+
+      Essaie de construire mentalement ton échange :
 
       <br><br>
 
       <strong>
-        예약했어요.
+        메뉴 주세요.
       </strong>
 
       <br>
 
       <strong>
-        아나예요.
+        추천해 주세요.
       </strong>
 
       <br>
 
       <strong>
-        제 방이 어디예요?
+        ___ 하나 주세요.
       </strong>
 
       <br>
 
       <strong>
-        와이파이 비밀번호가 뭐예요?
-      </strong>
-
-      <br>
-
-      <strong>
-        도와주세요.
-      </strong>
-
-      <br>
-
-      <strong>
-        감사합니다.
+        계산해 주세요.
       </strong>
 
     </div>
-
-
-    <button
-      class="summary-button"
-      type="button"
-      onclick="goToSummary()"
-    >
-      📚 Voir le résumé du chapitre
-    </button>
 
 
     <button
@@ -954,11 +879,12 @@
 </main>
 
 
+
 <script src="chapter-progress.js"></script>
 
 <script>
 
-  const CHAPTER = 16;
+  const CHAPTER = 15;
 
   const UNDERSTANDING_KEY =
     "hanaKorean_chapter16_understanding";
@@ -978,18 +904,6 @@
   const USE_KEY =
     "hanaKorean_chapter16_use";
 
-  const MISSION_KEY =
-    "hanaKorean_chapter16_mission";
-
-  const COMPLETED_KEY =
-    "hanaKorean_chapter16_completed";
-
-  const MISSION_MISTAKES_KEY =
-    "hanaKorean_chapter16_missionMistakes";
-
-  const MISSION_HINTS_KEY =
-    "hanaKorean_chapter16_missionHints";
-
 
   function guardUseAccess() {
 
@@ -997,7 +911,7 @@
       [UNDERSTANDING_KEY, "chapitre-16.html"],
       [LISTENING_EXERCISE_KEY, "ecoute-16.html"],
       [SPEAKING_KEY, "parle-16.html"],
-      [WRITING_KEY, "écriture-16.html"],
+      [WRITING_KEY, "écriture-15.html"],
       [REVIEW_KEY, "revision-16.html"]
     ];
 
@@ -1026,28 +940,9 @@
   }
 
 
-  function migrateLegacyMissionProgress() {
-
-    if (
-      localStorage.getItem(USE_KEY) === "completed"
-    ) {
-      return;
-    }
-
-    if (
-      localStorage.getItem(MISSION_KEY) === "completed" ||
-      localStorage.getItem(COMPLETED_KEY) === "completed"
-    ) {
-      localStorage.setItem(
-        USE_KEY,
-        "completed"
-      );
-    }
-  }
-
-
   let incorrectAttempts =
     0;
+
 
   let hintCount =
     0;
@@ -1059,6 +954,7 @@
     3: false,
     4: false
   };
+
 
 
   function toggleHint(
@@ -1083,9 +979,13 @@
 
 
     if (wasHidden) {
+
       hintCount++;
+
     }
+
   }
+
 
 
   function checkAnswer(
@@ -1144,7 +1044,8 @@
         feedback.innerHTML =
           "✅ <strong>Exact !</strong>" +
           "<br><br>" +
-          "<strong>예약했어요.</strong> annonce clairement que tu as une réservation.";
+          "<strong>메뉴 주세요.</strong> permet de demander le menu.";
+
       }
 
 
@@ -1155,7 +1056,8 @@
         feedback.innerHTML =
           "✅ <strong>Très bien !</strong>" +
           "<br><br>" +
-          HanaProfile.replacePerson("À <strong>성함이 어떻게 되세요?</strong>, tu peux répondre simplement <strong>아나예요.</strong>");
+          "Tu demandes une recommandation et tu précises clairement que tu ne manges pas de porc.";
+
       }
 
 
@@ -1166,7 +1068,8 @@
         feedback.innerHTML =
           "✅ <strong>Exact !</strong>" +
           "<br><br>" +
-          "Tu demandes ta chambre avec <strong>제 방이 어디예요?</strong> et le Wi-Fi avec <strong>와이파이 비밀번호가 뭐예요?</strong>.";
+          "<strong>많이 매워요?</strong> permet de demander si le plat est très épicé.";
+
       }
 
 
@@ -1177,7 +1080,8 @@
         feedback.innerHTML =
           "✅ <strong>Mission réussie !</strong>" +
           "<br><br>" +
-          "<strong>와이파이가 안 돼요. 도와주세요.</strong> explique le problème et demande de l'aide. Une fois aidée, tu peux ajouter <strong>감사합니다.</strong>";
+          "Tu commandes avec <strong>비빔밥 하나 주세요.</strong> puis tu demandes l'addition avec <strong>계산해 주세요.</strong>";
+
       }
 
 
@@ -1198,6 +1102,7 @@
 
 
       return;
+
     }
 
 
@@ -1218,9 +1123,10 @@
     ) {
 
       feedback.innerHTML =
-        "❌ <strong>Tu veux annoncer une réservation.</strong>" +
+        "❌ <strong>Tu veux le menu.</strong>" +
         "<br><br>" +
-        "💡 Pense à <strong>예약했어요.</strong>";
+        "💡 <strong>메뉴</strong> = menu.";
+
     }
 
 
@@ -1229,9 +1135,10 @@
     ) {
 
       feedback.innerHTML =
-        "❌ <strong>Joon-ho te demande ton nom.</strong>" +
+        "❌ <strong>Tu dois donner deux informations.</strong>" +
         "<br><br>" +
-        HanaProfile.replacePerson("💡 Réponds simplement : <strong>아나예요.</strong>");
+        "💡 Demande une recommandation puis précise : <strong>돼지고기를 안 먹어요.</strong>";
+
     }
 
 
@@ -1240,9 +1147,10 @@
     ) {
 
       feedback.innerHTML =
-        "❌ <strong>Tu dois demander deux informations.</strong>" +
+        "❌ <strong>Tu veux parler du niveau de piment.</strong>" +
         "<br><br>" +
-        "💡 Pense à <strong>제 방이 어디예요?</strong> puis <strong>와이파이 비밀번호가 뭐예요?</strong>.";
+        "💡 <strong>매워요?</strong> signifie « C'est épicé ? ».";
+
     }
 
 
@@ -1251,12 +1159,17 @@
     ) {
 
       feedback.innerHTML =
-        "❌ <strong>Tu dois expliquer que le Wi-Fi ne fonctionne pas puis demander de l'aide.</strong>" +
+        "❌ <strong>Tu dois d'abord commander, puis demander l'addition.</strong>" +
         "<br><br>" +
-        "💡 <strong>안 돼요</strong> = ça ne fonctionne pas et <strong>도와주세요</strong> = aidez-moi.";
+        "💡 Pense à <strong>하나 주세요</strong> et <strong>계산해 주세요</strong>.";
+
     }
 
   }
+
+
+
+
 
 
   function showStep(
@@ -1305,7 +1218,9 @@
       top: 0,
       behavior: "smooth"
     });
+
   }
+
 
 
   function finishMission() {
@@ -1358,19 +1273,13 @@
 
 
     localStorage.setItem(
-      USE_KEY,
+      "hanaKorean_chapter16_mission",
       "completed"
     );
 
 
     localStorage.setItem(
-      MISSION_KEY,
-      "completed"
-    );
-
-
-    localStorage.setItem(
-      MISSION_MISTAKES_KEY,
+      "hanaKorean_chapter16_missionMistakes",
       String(
         incorrectAttempts
       )
@@ -1378,7 +1287,7 @@
 
 
     localStorage.setItem(
-      MISSION_HINTS_KEY,
+      "hanaKorean_chapter16_missionHints",
       String(
         hintCount
       )
@@ -1386,37 +1295,18 @@
 
 
     localStorage.setItem(
-      COMPLETED_KEY,
+      "hanaKorean_chapter16_completed",
       "completed"
     );
-
-
-    renderChapterProgress();
 
 
     window.scrollTo({
       top: 0,
       behavior: "smooth"
     });
+
   }
 
-
-  function goToSummary() {
-
-    if (
-      localStorage.getItem(
-        USE_KEY
-      ) !== "completed"
-    ) {
-      return;
-    }
-
-    window.location.href =
-      "resume-16.html";
-  }
-
-
-  migrateLegacyMissionProgress();
 
 
   if (
@@ -1428,7 +1318,6 @@
     window.addEventListener(
       "pageshow",
       function() {
-        migrateLegacyMissionProgress();
         renderChapterProgress();
       }
     );
@@ -1436,4 +1325,5 @@
 
 </script>
 </body>
+
 </html>

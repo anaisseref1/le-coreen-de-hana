@@ -1,0 +1,14 @@
+<!DOCTYPE html><html lang="fr"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#F7F4ED"><title>Chapitre 52 — Mission</title>
+<link rel="stylesheet" href="style.css"><link rel="stylesheet" href="chapter-progress.css">
+<style>textarea{width:100%;box-sizing:border-box}</style><script src="profile.js"></script></head>
+<body><main class="app"><a class="back-link" href="revision-52.html">← Révision</a><section id="hanaChapterPath" data-chapter-path></section>
+<header><span class="chapter-badge">Chapitre 52 · 🎯</span><h1>Mission — Je préviens quelqu’un 📱</h1></header>
+<section class="card"><p>Choisis une situation : retard, impossibilité de venir, presque arrivée, impossible de téléphoner, batterie faible.</p>
+<p>Écris 6 à 8 messages et utilise au moins <strong>-(으)ㄹ게요</strong>, <strong>-(으)면</strong> et un rappel en <strong>-(으)ㄹ 것 같아요</strong>.</p>
+<textarea id="free" rows="16"></textarea></section>
+<button id="finish" style="width:100%">✅ Terminer le chapitre 52</button><button id="summary" style="display:none;width:100%">📚 Voir le résumé</button></main>
+<script src="chapter-progress.js"></script><script>
+const USE="hanaKorean_chapter52_use",MIS="hanaKorean_chapter52_mission",COMP="hanaKorean_chapter52_completed",F="hanaKorean_chapter52_missionFreeAnswer",f=document.getElementById("free"),b=document.getElementById("finish"),s=document.getElementById("summary");f.value=localStorage.getItem(F)||"";f.oninput=()=>localStorage.setItem(F,f.value);function r(){if(localStorage.getItem(USE)==="completed"||localStorage.getItem(COMP)==="completed"){b.disabled=true;b.textContent="✅ Chapitre 52 terminé";s.style.display="block"}if(window.HanaChapterProgress)HanaChapterProgress.render()}b.onclick=()=>{localStorage.setItem(F,f.value);localStorage.setItem(USE,"completed");localStorage.setItem(MIS,"completed");localStorage.setItem(COMP,"completed");r()};s.onclick=()=>location.href="resume-52.html";r();
+</script></body></html>

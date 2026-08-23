@@ -1,81 +1,23 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#F7F4ED">
-  <title>Chapitre 30 — Je l'utilise</title>
-  <link rel="stylesheet" href="style.css"><link rel="stylesheet" href="chapter-progress.css">
-  <script src="profile.js"></script>
-</head>
-<body><main class="app">
-<a class="back-link" href="revision-30.html">← Révision</a>
-<section id="hanaChapterPath" data-chapter-path></section>
-<header><span class="chapter-badge">Chapitre 30 · 🎯 Je l'utilise</span><p class="korean">내일 뭐 할 거예요?</p><h1>Mission finale : parler de ses projets</h1><p>Ana termine son séjour à Busan. Aide-la à expliquer ce qu'elle prévoit de faire.</p></header>
-<section class="card"><h2>🌸 Situation</h2><p>Min-su et Ji-soo demandent à Ana ce qu'elle compte faire aujourd'hui, demain et la semaine prochaine.</p><p>Choisis la réponse la plus naturelle à chaque étape.</p></section>
-<section class="card">
-<div class="mission" data-answer="b"><p><strong>1. Min-su :</strong> 오늘 뭐 할 거예요?</p><button type="button" data-choice="a">오늘 부산에 갔어요.</button><button type="button" data-choice="b">오늘 부산을 더 구경할 거예요.</button><button type="button" data-choice="c">오늘 부산에 가요?</button><div class="feedback"></div></div>
-<div class="mission" data-answer="c"><p><strong>2. Ji-soo :</strong> 어디에 갈 거예요?</p><button type="button" data-choice="a">사진을 찍을 거예요.</button><button type="button" data-choice="b">맛있는 음식을 먹을 거예요.</button><button type="button" data-choice="c">해운대에 갈 거예요.</button><div class="feedback"></div></div>
-<div class="mission" data-answer="a"><p><strong>3. Min-su :</strong> 저녁에는 뭐 할 거예요?</p><button type="button" data-choice="a">호텔에서 쉴 거예요.</button><button type="button" data-choice="b">호텔에서 쉬었어요.</button><button type="button" data-choice="c">호텔에 쉴까요?</button><div class="feedback"></div></div>
-<div class="mission" data-answer="b"><p><strong>4. Ji-soo :</strong> 내일은요?</p><button type="button" data-choice="a">서울에 돌아갔어요.</button><button type="button" data-choice="b">서울에 돌아갈 거예요.</button><button type="button" data-choice="c">서울에서 돌아갈 거예요.</button><div class="feedback"></div></div>
-<div class="mission" data-answer="c"><p><strong>5. Ana veut proposer une activité à Min-su.</strong></p><button type="button" data-choice="a">같이 먹었어요.</button><button type="button" data-choice="b">같이 먹을 거예요.</button><button type="button" data-choice="c">같이 먹을까요?</button><div class="feedback"></div></div>
+<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#F7F4ED"><title>Chapitre 30 — Je l'utilise</title><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="chapter-progress.css"><style>
+.mission-header{text-align:center;margin-bottom:24px}.card{padding:20px;margin-bottom:18px;background:var(--white);border-radius:var(--radius-large);box-shadow:var(--shadow)}.scene{padding:15px;margin-top:12px;background:#FBFAF6;border-radius:var(--radius-medium)}.scene button{width:100%;margin-top:8px}.feedback{margin-top:8px}.summary-button{display:none;width:100%;margin-top:10px;background:var(--navy);color:white;font-weight:bold}
+</style>  <script src="profile.js"></script>
+</head><body><main class="app"><a class="back-link" href="revision-30.html">← Révision</a><section id="hanaChapterPath" data-chapter-path></section>
+<header class="mission-header"><span class="chapter-badge">Chapitre 30 · 🎯 Je l'utilise</span><p class="korean">오늘 뭐 했어요?</p><h1>Mission : raconter sa journée</h1><p>Utilise le passé pour raconter ton voyage à Busan.</p></header>
+<section class="card"><h2>🎭 Situation</h2><p>Tu retrouves Min-su après une journée de visite à Busan. Il te demande ce que tu as fait. Réponds en utilisant les formes au passé.</p></section>
+<section class="card"><h2>💬 Choisis la bonne réponse</h2>
+<div class="scene" data-answer="b"><p><strong>Min-su :</strong> 오늘 뭐 했어요?</p><p>Tu réponds : « Je suis allé(e) à Busan. »</p><button data-choice="a" type="button">부산에 가요.</button><button data-choice="b" type="button">부산에 갔어요.</button><button data-choice="c" type="button">부산에 갈까요?</button><div class="feedback"></div></div>
+<div class="scene" data-answer="a"><p>Tu veux dire : « J'ai vu la mer. »</p><button data-choice="a" type="button">바다를 봤어요.</button><button data-choice="b" type="button">바다를 봐요.</button><button data-choice="c" type="button">바다를 먹었어요.</button><div class="feedback"></div></div>
+<div class="scene" data-answer="c"><p>Tu veux raconter tes photos.</p><button data-choice="a" type="button">사진을 찍어요.</button><button data-choice="b" type="button">사진을 봤어요.</button><button data-choice="c" type="button">사진을 많이 찍었어요.</button><div class="feedback"></div></div>
+<div class="scene" data-answer="b"><p>Min-su demande ce que tu as mangé.</p><p><strong>뭐 먹었어요?</strong></p><button data-choice="a" type="button">커피를 마셨어요.</button><button data-choice="b" type="button">맛있는 음식을 먹었어요.</button><button data-choice="c" type="button">해변을 걸었어요.</button><div class="feedback"></div></div>
+<div class="scene" data-answer="a"><p>Tu veux dire : « C'était vraiment amusant. »</p><button data-choice="a" type="button">정말 재미있었어요.</button><button data-choice="b" type="button">정말 재미있어요.</button><button data-choice="c" type="button">정말 재미없어요.</button><div class="feedback"></div></div>
 </section>
-<section class="card"><h2>📝 Ta propre réponse</h2><p>Imagine maintenant ton propre programme. Essaie de dire au moins trois phrases :</p><p><strong>오늘…</strong><br><strong>내일…</strong><br><strong>다음 주…</strong></p><textarea id="freeAnswer" rows="6" style="width:100%;box-sizing:border-box;" placeholder="내일..."></textarea></section>
-<section class="card"><h2>💚 Le conseil de Ji-soo</h2><p>Tu n'as pas besoin d'une phrase compliquée. Commence par le moment, puis ajoute ton action :</p><p><strong>내일 + 서울에 + 갈 거예요.</strong></p><p>Avec cette structure, tu peux déjà expliquer beaucoup de projets.</p></section>
-<button id="finishButton" type="button" style="display:none;width:100%;">✅ Terminer le chapitre 30</button>
-<button id="summaryButton" type="button" style="display:none;width:100%;">📚 Voir le résumé du chapitre</button>
-</main>
-<script src="chapter-progress.js"></script>
-<script>
-const UNDERSTANDING_KEY="hanaKorean_chapter30_understanding";
-const LISTENING_EXERCISE_KEY="hanaKorean_chapter30_listeningExercise";
-const SPEAKING_KEY="hanaKorean_chapter30_speaking";
-const WRITING_KEY="hanaKorean_chapter30_writing";
-const REVIEW_KEY="hanaKorean_chapter30_review";
-const USE_KEY="hanaKorean_chapter30_use";
-const MISSION_KEY="hanaKorean_chapter30_mission";
-const COMPLETED_KEY="hanaKorean_chapter30_completed";
-const MISTAKES_KEY="hanaKorean_chapter30_missionMistakes";
-const HINTS_KEY="hanaKorean_chapter30_missionHints";
-const FREE_KEY="hanaKorean_chapter30_missionFreeAnswer";
-
-function guardMissionPage(){
-  const required=[UNDERSTANDING_KEY,LISTENING_EXERCISE_KEY,SPEAKING_KEY,WRITING_KEY,REVIEW_KEY];
-  if(required.some(key=>localStorage.getItem(key)!=="completed")){window.location.href="revision-30.html";return false;} return true;
-}
-if(!guardMissionPage()) throw new Error("chapter30-mission-guard");
-function migrateLegacyMissionProgress(){if(localStorage.getItem(USE_KEY)!=="completed"&&(localStorage.getItem(MISSION_KEY)==="completed"||localStorage.getItem(COMPLETED_KEY)==="completed"))localStorage.setItem(USE_KEY,"completed");}
-migrateLegacyMissionProgress();
-
-const missions=Array.from(document.querySelectorAll(".mission"));
-const finishButton=document.getElementById("finishButton");
-const summaryButton=document.getElementById("summaryButton");
-const freeAnswer=document.getElementById("freeAnswer");
-let mistakes=Number(localStorage.getItem(MISTAKES_KEY)||0);
-let hints=Number(localStorage.getItem(HINTS_KEY)||0);
-function completedMissionCount(){return missions.filter(item=>item.dataset.done==="true").length;}
-function updateFinishButton(){if(completedMissionCount()===missions.length)finishButton.style.display="block";}
-function hintFor(index){return [
-  "Pas encore 💙 Ici, Min-su demande ce que Ana <strong>va faire</strong>. Cherche la forme en <strong>-(으)ㄹ 거예요</strong>.",
-  "La question porte sur <strong>où</strong> Ana va aller. Il faut donc répondre avec une destination.",
-  "Ici Ana parle d'un projet pour le soir, donc il faut <strong>쉴 거예요</strong>, pas le passé <strong>쉬었어요</strong>.",
-  "Pour une destination, utilise <strong>서울에</strong>. Et comme il s'agit de demain, il faut le projet : <strong>돌아갈 거예요</strong>.",
-  "Pour proposer une activité ensemble, utilise <strong>-까요?</strong> : <strong>같이 먹을까요?</strong>"
-][index];}
-missions.forEach((mission,index)=>mission.querySelectorAll("button").forEach(button=>button.addEventListener("click",()=>{
-  if(mission.dataset.done==="true")return;
-  const feedback=mission.querySelector(".feedback");
-  if(button.dataset.choice===mission.dataset.answer){mission.dataset.done="true";feedback.innerHTML="✅ Très bien !";mission.querySelectorAll("button").forEach(item=>item.disabled=true);updateFinishButton();}
-  else{mistakes++;hints++;button.disabled=true;feedback.innerHTML=hintFor(index);}
-})));
-freeAnswer.value=localStorage.getItem(FREE_KEY)||"";
-freeAnswer.addEventListener("input",()=>localStorage.setItem(FREE_KEY,freeAnswer.value));
-function showCompletedState(){finishButton.style.display="block";finishButton.textContent="✅ Chapitre 30 terminé";finishButton.disabled=true;summaryButton.style.display="block";}
-if(localStorage.getItem(USE_KEY)==="completed")showCompletedState();
-finishButton.addEventListener("click",()=>{
-  if(completedMissionCount()!==missions.length&&localStorage.getItem(USE_KEY)!=="completed")return;
-  localStorage.setItem(USE_KEY,"completed");localStorage.setItem(MISSION_KEY,"completed");localStorage.setItem(COMPLETED_KEY,"completed");localStorage.setItem(MISTAKES_KEY,String(mistakes));localStorage.setItem(HINTS_KEY,String(hints));localStorage.setItem(FREE_KEY,freeAnswer.value);showCompletedState();if(window.HanaChapterProgress)HanaChapterProgress.render();
-});
-summaryButton.addEventListener("click",()=>window.location.href="resume-30.html");
-window.addEventListener("pageshow",()=>{if(!guardMissionPage())return;migrateLegacyMissionProgress();if(localStorage.getItem(USE_KEY)==="completed")showCompletedState();if(window.HanaChapterProgress)HanaChapterProgress.render();});
-if(window.HanaChapterProgress)HanaChapterProgress.render();
+<section class="card"><h2>🎒 Ton histoire</h2><p>Essaie de raconter ta journée :</p><p>오늘 부산에 갔어요.<br>바다를 봤어요.<br>사진을 찍었어요.<br>맛있는 음식을 먹었어요.<br>정말 재미있었어요.</p></section>
+<button id="next" class="summary-button" type="button">📚 Voir le résumé du chapitre</button></main>
+<script src="chapter-progress.js"></script><script>
+const UNDERSTANDING_KEY="hanaKorean_chapter30_understanding",LISTENING_EXERCISE_KEY="hanaKorean_chapter30_listeningExercise",SPEAKING_KEY="hanaKorean_chapter30_speaking",WRITING_KEY="hanaKorean_chapter30_writing",REVIEW_KEY="hanaKorean_chapter30_review",USE_KEY="hanaKorean_chapter30_use",MISSION_KEY="hanaKorean_chapter30_mission",COMPLETED_KEY="hanaKorean_chapter30_completed",MISTAKES_KEY="hanaKorean_chapter30_missionMistakes",HINTS_KEY="hanaKorean_chapter30_missionHints";
+if([UNDERSTANDING_KEY,LISTENING_EXERCISE_KEY,SPEAKING_KEY,WRITING_KEY,REVIEW_KEY].some(key=>localStorage.getItem(key)!=="completed"))window.location.href="revision-30.html";
+function migrateLegacyMissionProgress(){if(localStorage.getItem(USE_KEY)!=="completed"&&(localStorage.getItem(MISSION_KEY)==="completed"||localStorage.getItem(COMPLETED_KEY)==="completed"))localStorage.setItem(USE_KEY,"completed");}migrateLegacyMissionProgress();
+let done=0,mistakes=0;const scenes=Array.from(document.querySelectorAll(".scene")),nextButton=document.getElementById("next");scenes.forEach(scene=>scene.querySelectorAll("button").forEach(btn=>btn.addEventListener("click",()=>{if(scene.dataset.done)return;const feedback=scene.querySelector(".feedback");if(btn.dataset.choice===scene.dataset.answer){scene.dataset.done="true";done++;feedback.textContent="✅ Très bien !";}else{mistakes++;feedback.textContent="❌ Réessaie.";}if(done===scenes.length){localStorage.setItem(USE_KEY,"completed");localStorage.setItem(MISSION_KEY,"completed");localStorage.setItem(COMPLETED_KEY,"completed");localStorage.setItem(MISTAKES_KEY,String(mistakes));if(localStorage.getItem(HINTS_KEY)===null)localStorage.setItem(HINTS_KEY,"0");nextButton.style.display="block";if(window.HanaChapterProgress)HanaChapterProgress.render();}})));
+if(localStorage.getItem(USE_KEY)==="completed")nextButton.style.display="block";nextButton.addEventListener("click",()=>window.location.href="resume-30.html");window.addEventListener("pageshow",()=>{migrateLegacyMissionProgress();if(localStorage.getItem(USE_KEY)==="completed")nextButton.style.display="block";if(window.HanaChapterProgress)HanaChapterProgress.render();});if(window.HanaChapterProgress)HanaChapterProgress.render();
 </script>
 </body></html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html><html lang="fr"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#F7F4ED"><title>Chapitre 51 — Révision</title>
+<link rel="stylesheet" href="style.css"><link rel="stylesheet" href="chapter-progress.css">
+<script src="profile.js"></script></head><body><main class="app"><a class="back-link" href="ecriture-51.html">← Retour</a>
+<section id="hanaChapterPath" data-chapter-path></section>
+<header><span class="chapter-badge">Chapitre 51 · 🧠</span><h1>Révision</h1></header>
+<section class="card">
+<p><strong>112</strong> → police</p><p><strong>119</strong> → ambulance / pompiers</p><p><strong>1330</strong> → assistance touristique</p>
+<p><strong>도움이 필요해요.</strong> → j’ai besoin d’aide</p><p><strong>구급차를 불러 주세요.</strong></p><p><strong>의식이 없어요.</strong></p>
+<p><strong>홍대역 근처예요.</strong> → près de Hongdae</p></section>
+<button id="done" style="width:100%">✅ Terminé</button>
+<button id="next" style="display:none;width:100%">Continuer →</button>
+</main>
+<script src="chapter-progress.js"></script><script>
+const K="hanaKorean_chapter51_review",d=document.getElementById("done"),n=document.getElementById("next");
+function r(){if(localStorage.getItem(K)==="completed"){d.disabled=true;n.style.display="block"}if(window.HanaChapterProgress)HanaChapterProgress.render()}
+d.onclick=()=>{localStorage.setItem(K,"completed");r()};n.onclick=()=>location.href="utilise-51.html";r();
+</script></body></html>

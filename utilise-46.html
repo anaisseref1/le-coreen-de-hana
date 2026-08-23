@@ -1,0 +1,17 @@
+<!DOCTYPE html><html lang="fr"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#F7F4ED"><title>Chapitre 46 — Mission</title>
+<link rel="stylesheet" href="style.css"><link rel="stylesheet" href="chapter-progress.css">
+<style>textarea{width:100%;box-sizing:border-box}</style><script src="profile.js"></script></head><body><main class="app">
+<a class="back-link" href="revision-46.html">← Révision</a><section id="hanaChapterPath" data-chapter-path></section>
+<header><span class="chapter-badge">Chapitre 46 · 🎯</span><h1>Mission — Est-ce que j’ai le droit ? 🏛️</h1></header>
+<section class="card"><p>Pose <strong>5 questions de permission</strong>, puis imagine <strong>2 permissions</strong>, <strong>2 interdictions</strong> et <strong>1 obligation</strong>.</p>
+<p><strong>사진을 찍어도 돼요?</strong></p><p><strong>여기 앉아도 돼요?</strong></p><p><strong>이거 만져도 돼요?</strong></p><p><strong>여기에서 먹어도 돼요?</strong></p><p><strong>안쪽에 들어가도 돼요?</strong></p>
+<textarea id="free" rows="16"></textarea></section>
+<button id="finish" style="width:100%">✅ Terminer le chapitre 46</button><button id="summary" style="display:none;width:100%">📚 Voir le résumé</button></main>
+<script src="chapter-progress.js"></script><script>
+const USE="hanaKorean_chapter46_use",MIS="hanaKorean_chapter46_mission",COMP="hanaKorean_chapter46_completed",F="hanaKorean_chapter46_missionFreeAnswer",f=document.getElementById("free"),b=document.getElementById("finish"),s=document.getElementById("summary");
+f.value=localStorage.getItem(F)||"";f.oninput=()=>localStorage.setItem(F,f.value);
+function r(){if(localStorage.getItem(USE)==="completed"||localStorage.getItem(COMP)==="completed"){b.disabled=true;b.textContent="✅ Chapitre 46 terminé";s.style.display="block"}if(window.HanaChapterProgress)HanaChapterProgress.render()}
+b.onclick=()=>{localStorage.setItem(F,f.value);localStorage.setItem(USE,"completed");localStorage.setItem(MIS,"completed");localStorage.setItem(COMP,"completed");r()};s.onclick=()=>location.href="resume-46.html";r();
+</script></body></html>

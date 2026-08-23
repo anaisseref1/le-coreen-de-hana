@@ -22,10 +22,10 @@
     href="style.css"
   >
 
-  <link rel="stylesheet" href="chapter-progress.css">
 
+    <link rel="stylesheet" href="chapter-progress.css">
 
-  <style>
+<style>
 
     .mission-header {
       text-align: center;
@@ -418,9 +418,9 @@
 
 
     <p>
-      Tu discutes avec Min-su pour apprendre à mieux vous connaître.
-      Utilise ce que tu as appris pour parler de tes goûts,
-      demander ses préférences et poursuivre naturellement la conversation.
+      Tu es dans un café avec Ji-eun.
+      Utilise ce que tu as appris pour demander le Wi-Fi,
+      obtenir le mot de passe, parler de ta batterie et trouver où recharger ton téléphone.
     </p>
 
   </header>
@@ -438,15 +438,15 @@
 
     <br><br>
 
-    Tu discutes tranquillement avec Min-su.
+    Tu es dans un café en Corée.
 
     <br><br>
 
-    Dis ce que tu aimes,
-    demande ce qu'il préfère,
-    parle de ta musique préférée
-    puis relance la conversation avec
-    <strong>왜요?</strong>.
+    Demande à Ji-eun s'il y a du Wi-Fi,
+    récupère le mot de passe,
+    explique que tu n'as plus de batterie,
+    demande un chargeur
+    puis demande où tu peux recharger ton téléphone.
 
   </section>
 
@@ -487,28 +487,30 @@
   <section class="mission-card" id="step1">
 
     <div class="scene-card">
-      ☕ Min-su te demande ce que tu aimes.
+      ☕ Tu t'installes dans un café.
+      <br><br>
+      Tu veux te connecter à Internet.
     </div>
 
     <h2 class="mission-question">
-      Comment dis-tu que tu aimes le café ?
+      Que demandes-tu à Ji-eun ?
     </h2>
 
     <div class="answers">
 
       <button class="answer" type="button"
         onclick="checkAnswer(1, this, true)">
-        커피를 좋아해요.
+        와이파이 있어요?
       </button>
 
       <button class="answer" type="button"
         onclick="checkAnswer(1, this, false)">
-        커피가 없어요.
+        배터리가 없어요.
       </button>
 
       <button class="answer" type="button"
         onclick="checkAnswer(1, this, false)">
-        커피를 안 마셔요.
+        충전기 있어요?
       </button>
 
     </div>
@@ -521,7 +523,7 @@
     </button>
 
     <div class="hint-box" id="hint1">
-      Utilise <strong>커피를</strong> + <strong>좋아해요</strong>.
+      Pense à <strong>와이파이</strong> + <strong>있어요?</strong>
     </div>
 
     <button class="next-button" id="next1" type="button"
@@ -541,35 +543,34 @@
     <div class="npc-line">
 
       <div class="npc-name">
-        💙 Min-su
+        💚 Ji-eun
       </div>
 
       <div class="npc-korean">
-        저는 사진 찍는 걸 좋아해요.
+        네. 여기 있어요.
       </div>
 
     </div>
 
     <h2 class="mission-question">
-      Tu veux savoir ce qu'il préfère vraiment.
-      Que demandes-tu ?
+      Le Wi-Fi est disponible. Que demandes-tu maintenant ?
     </h2>
 
     <div class="answers">
 
       <button class="answer" type="button"
         onclick="checkAnswer(2, this, true)">
-        뭐가 제일 좋아요?
+        와이파이 비밀번호가 뭐예요?
       </button>
 
       <button class="answer" type="button"
         onclick="checkAnswer(2, this, false)">
-        어디에 가요?
+        제 방이 어디예요?
       </button>
 
       <button class="answer" type="button"
         onclick="checkAnswer(2, this, false)">
-        몇 시예요?
+        계산해 주세요.
       </button>
 
     </div>
@@ -582,7 +583,7 @@
     </button>
 
     <div class="hint-box" id="hint2">
-      <strong>제일</strong> apporte l'idée de « le plus ».
+      <strong>비밀번호</strong> signifie « mot de passe ».
     </div>
 
     <button class="next-button" id="next2" type="button"
@@ -602,35 +603,40 @@
     <div class="npc-line">
 
       <div class="npc-name">
-        💙 Min-su
+        💚 Ji-eun
       </div>
 
       <div class="npc-korean">
-        어떤 음악을 제일 좋아해요?
+        여기 있습니다.
       </div>
 
     </div>
 
+    <div class="scene-card">
+      🔋 Quelques minutes plus tard,
+      ton téléphone est presque éteint.
+    </div>
+
     <h2 class="mission-question">
-      Min-su te demande quelle musique tu préfères.
-      Que réponds-tu ?
+      Que dis-tu pour expliquer le problème
+      et demander un chargeur ?
     </h2>
 
     <div class="answers">
 
       <button class="answer" type="button"
         onclick="checkAnswer(3, this, false)">
-        음악을 안 좋아해요.
+        인터넷이 안 돼요. 와이파이 있어요?
       </button>
 
       <button class="answer" type="button"
         onclick="checkAnswer(3, this, true)">
-        저는 케이팝을 제일 좋아해요.
+        배터리가 없어요. 충전기 있어요?
       </button>
 
       <button class="answer" type="button"
         onclick="checkAnswer(3, this, false)">
-        어떤 영화가 좋아요?
+        핸드폰 있어요? 감사합니다.
       </button>
 
     </div>
@@ -643,8 +649,11 @@
     </button>
 
     <div class="hint-box" id="hint3">
-      Utilise le modèle :
-      <strong>저는 ○○를 제일 좋아해요.</strong>
+      <strong>배터리가 없어요.</strong>
+      = Je n'ai plus de batterie.
+      <br><br>
+      <strong>충전기 있어요?</strong>
+      = Vous avez un chargeur ?
     </div>
 
     <button class="next-button" id="next3" type="button"
@@ -664,35 +673,35 @@
     <div class="npc-line">
 
       <div class="npc-name">
-        💙 Min-su
+        💚 Ji-eun
       </div>
 
       <div class="npc-korean">
-        저는 바다가 제일 좋아요.
+        네. 있어요.
       </div>
 
     </div>
 
     <h2 class="mission-question">
-      Tu veux continuer la conversation.
-      Quelle petite question poses-tu ?
+      Tu as trouvé un chargeur.
+      Que demandes-tu pour savoir où recharger ?
     </h2>
 
     <div class="answers">
 
       <button class="answer" type="button"
         onclick="checkAnswer(4, this, false)">
-        누구예요?
+        인터넷이 안 돼요.
       </button>
 
       <button class="answer" type="button"
         onclick="checkAnswer(4, this, true)">
-        왜요?
+        어디에서 충전할 수 있어요?
       </button>
 
       <button class="answer" type="button"
         onclick="checkAnswer(4, this, false)">
-        얼마예요?
+        와이파이 비밀번호가 뭐예요?
       </button>
 
     </div>
@@ -705,8 +714,10 @@
     </button>
 
     <div class="hint-box" id="hint4">
-      La petite question pour demander la raison est
-      <strong>왜요?</strong>
+      <strong>어디에서</strong> = où
+      <br>
+      <strong>충전할 수 있어요?</strong>
+      = est-ce que je peux recharger ?
     </div>
 
     <button class="next-button" id="next4" type="button"
@@ -727,7 +738,7 @@
   >
 
     <div class="result-icon">
-      🎯❤️
+      🎯📱
     </div>
 
 
@@ -738,8 +749,8 @@
 
     <p>
       Mission réussie :
-      tu as parlé de tes goûts,
-      demandé une préférence, donné ta musique préférée et relancé la conversation.
+      tu as demandé le Wi-Fi,
+      obtenu le mot de passe, parlé de ta batterie et trouvé où recharger ton téléphone.
     </p>
 
 
@@ -768,27 +779,27 @@
       <br><br>
 
       <div class="skill-line">
-        ☕ Dire ce que tu aimes
+        📶 Demander si le Wi-Fi est disponible
       </div>
 
       <div class="skill-line">
-        ❤️ Demander ce que quelqu'un préfère
+        🔐 Demander le mot de passe
       </div>
 
       <div class="skill-line">
-        🌟 Dire ce que tu préfères
+        🔋 Dire que tu n'as plus de batterie
       </div>
 
       <div class="skill-line">
-        🎵 Demander la musique préférée de quelqu'un
+        🔌 Demander un chargeur
       </div>
 
       <div class="skill-line">
-        🙂 Dire que tu n'aimes pas quelque chose
+        ⚡ Demander où recharger ton téléphone
       </div>
 
       <div class="skill-line">
-        ❓ Relancer avec « Pourquoi ? »
+        🌐 Dire qu'Internet ne fonctionne pas
       </div>
 
     </div>
@@ -802,40 +813,40 @@
 
       <br><br>
 
-      Qu'est-ce que tu préfères en Corée ?
+      Quelle photo aimerais-tu envoyer
+      à ta famille pendant ton voyage ?
 
       <br><br>
 
-      Et pourquoi ?
+      Imagine que ton téléphone n'a presque plus de batterie
+      juste avant de l'envoyer.
 
       <br><br>
 
-      Essaie de construire mentalement une petite réponse :
-
-      <br><br>
-
-      <strong>
-        한국에서 ○○가 제일 좋아요.
-      </strong>
-
-      <br>
-
-      puis ajoute une raison simple si tu peux.
-
-      <br><br>
-
-      Et pour mieux connaître quelqu'un :
+      Essaie de reconstruire mentalement :
 
       <br><br>
 
       <strong>
-        뭐가 제일 좋아요?
+        와이파이 있어요?
       </strong>
 
       <br>
 
       <strong>
-        왜요?
+        와이파이 비밀번호가 뭐예요?
+      </strong>
+
+      <br>
+
+      <strong>
+        배터리가 없어요. 충전기 있어요?
+      </strong>
+
+      <br>
+
+      <strong>
+        어디에서 충전할 수 있어요?
       </strong>
 
     </div>
@@ -877,8 +888,7 @@
 <script src="chapter-progress.js"></script>
 
 <script>
-
-  const CHAPTER = 18;
+  const CHAPTER = 17;
 
   const UNDERSTANDING_KEY =
     "hanaKorean_chapter18_understanding";
@@ -962,9 +972,7 @@
     }
   }
 
-
-
-  let incorrectAttempts =
+let incorrectAttempts =
     0;
 
 
@@ -1068,7 +1076,7 @@
         feedback.innerHTML =
           "✅ <strong>Exact !</strong>" +
           "<br><br>" +
-          "<strong>커피를 좋아해요.</strong> signifie « J'aime le café. »";
+          "<strong>와이파이 있어요?</strong> permet de demander si le Wi-Fi est disponible.";
 
       }
 
@@ -1080,7 +1088,7 @@
         feedback.innerHTML =
           "✅ <strong>Très bien !</strong>" +
           "<br><br>" +
-          "<strong>뭐가 제일 좋아요?</strong> permet de demander ce que quelqu'un préfère.";
+          "<strong>와이파이 비밀번호가 뭐예요?</strong> permet de demander le mot de passe du Wi-Fi.";
 
       }
 
@@ -1092,7 +1100,7 @@
         feedback.innerHTML =
           "✅ <strong>Exact !</strong>" +
           "<br><br>" +
-          "<strong>저는 케이팝을 제일 좋아해요.</strong> suit le modèle pour dire ce que tu préfères.";
+          "<strong>배터리가 없어요.</strong> explique que tu n'as plus de batterie, puis <strong>충전기 있어요?</strong> demande un chargeur.";
 
       }
 
@@ -1104,7 +1112,7 @@
         feedback.innerHTML =
           "✅ <strong>Mission réussie !</strong>" +
           "<br><br>" +
-          "<strong>왜요?</strong> signifie « Pourquoi ? » et permet de faire continuer naturellement la conversation.";
+          "<strong>어디에서 충전할 수 있어요?</strong> permet de demander où tu peux recharger ton téléphone.";
 
       }
 
@@ -1147,9 +1155,9 @@
     ) {
 
       feedback.innerHTML =
-        "❌ <strong>Tu veux dire que tu aimes le café.</strong>" +
+        "❌ <strong>Tu veux demander le Wi-Fi.</strong>" +
         "<br><br>" +
-        "💡 Utilise <strong>커피를 좋아해요.</strong>";
+        "💡 Utilise <strong>와이파이 있어요?</strong>";
 
     }
 
@@ -1159,9 +1167,9 @@
     ) {
 
       feedback.innerHTML =
-        "❌ <strong>Tu veux demander une préférence.</strong>" +
+        "❌ <strong>Tu veux le mot de passe.</strong>" +
         "<br><br>" +
-        "💡 Repère <strong>제일</strong> = « le plus ».";
+        "💡 <strong>비밀번호</strong> = mot de passe.";
 
     }
 
@@ -1171,9 +1179,9 @@
     ) {
 
       feedback.innerHTML =
-        "❌ <strong>Min-su te demande ta musique préférée.</strong>" +
+        "❌ <strong>Le problème est la batterie.</strong>" +
         "<br><br>" +
-        "💡 Utilise le modèle <strong>저는 ○○를 제일 좋아해요.</strong>";
+        "💡 Utilise <strong>배터리가 없어요.</strong> puis <strong>충전기 있어요?</strong>";
 
     }
 
@@ -1183,16 +1191,13 @@
     ) {
 
       feedback.innerHTML =
-        "❌ <strong>Tu veux demander la raison.</strong>" +
+        "❌ <strong>Tu veux savoir où recharger.</strong>" +
         "<br><br>" +
-        "💡 <strong>왜요?</strong> = Pourquoi ?";
+        "💡 Repère <strong>어디에서</strong> et <strong>충전</strong>.";
 
     }
 
   }
-
-
-
 
 
 
@@ -1342,7 +1347,6 @@
     });
 
   }
-
 
 
   function goToSummary() {

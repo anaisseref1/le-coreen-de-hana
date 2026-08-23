@@ -421,13 +421,18 @@
 
 
     <p>
-      Tu entres dans le restaurant de Madame Kim.
-      Utilise ce que tu as appris pour demander le menu,
-      choisir un plat, préciser ta restriction alimentaire et payer.
+      Tu entres dans le café de Ji-eun.
+      Utilise ce que tu as appris pour commander,
+      répondre à ses questions et terminer naturellement l'échange.
     </p>
 
   </header>
 
+
+  <section
+    id="hanaChapterPath"
+    data-chapter-path
+  ></section>
 
 
   <section class="mission-intro">
@@ -436,17 +441,17 @@
 
     <br><br>
 
-    Tu dînes dans le restaurant de
-    <strong>Madame Kim</strong>.
+    Tu veux commander
+    <strong>un café chaud</strong>
+    dans le café de Ji-eun.
 
     <br><br>
 
-    Demande le menu,
-    demande une recommandation,
-    précise que tu ne manges pas de porc,
-    vérifie si le plat est très épicé,
-    commande un bibimbap
-    puis demande l'addition.
+    Commande ta boisson,
+    choisis sur place ou à emporter,
+    comprends le prix,
+    indique que tu paies par carte
+    puis réagis naturellement à la fin.
 
   </section>
 
@@ -487,30 +492,28 @@
   <section class="mission-card" id="step1">
 
     <div class="scene-card">
-      🍜 Tu viens de t'installer à table.
+      ☕ Tu arrives au comptoir.
       <br><br>
-      Madame Kim s'approche.
+      Ji-eun te sourit et attend ta commande.
     </div>
 
-    <h2 class="mission-question">
-      Que dis-tu pour demander le menu ?
-    </h2>
+    <h2 class="mission-question">Que dis-tu ?</h2>
 
     <div class="answers">
 
       <button class="answer" type="button"
         onclick="checkAnswer(1, this, true)">
-        메뉴 주세요.
+        안녕하세요. 뜨거운 커피 한 잔 주세요.
       </button>
 
       <button class="answer" type="button"
         onclick="checkAnswer(1, this, false)">
-        계산해 주세요.
+        안녕하세요. 커피 얼마예요?
       </button>
 
       <button class="answer" type="button"
         onclick="checkAnswer(1, this, false)">
-        많이 매워요?
+        안녕하세요. 맛있어요.
       </button>
 
     </div>
@@ -523,10 +526,8 @@
     </button>
 
     <div class="hint-box" id="hint1">
-      Pense au mot
-      <strong>메뉴</strong>
-      puis ajoute
-      <strong>주세요</strong>.
+      Tu commandes <strong>un café chaud</strong>.
+      Pense à <strong>뜨거운 커피 한 잔 주세요.</strong>
     </div>
 
     <button class="next-button" id="next1" type="button"
@@ -546,35 +547,34 @@
     <div class="npc-line">
 
       <div class="npc-name">
-        🧡 Madame Kim
+        💚 Ji-eun
       </div>
 
       <div class="npc-korean">
-        추천 음식도 있어요.
+        드시고 가세요? 포장이세요?
       </div>
 
     </div>
 
     <h2 class="mission-question">
-      Tu veux une recommandation et tu ne manges pas de porc.
-      Que réponds-tu ?
+      Tu veux boire ton café sur place. Que réponds-tu ?
     </h2>
 
     <div class="answers">
 
       <button class="answer" type="button"
         onclick="checkAnswer(2, this, true)">
-        추천해 주세요. 그리고 돼지고기를 안 먹어요.
+        여기서 마실게요.
       </button>
 
       <button class="answer" type="button"
         onclick="checkAnswer(2, this, false)">
-        돼지고기 주세요.
+        포장해 주세요.
       </button>
 
       <button class="answer" type="button"
         onclick="checkAnswer(2, this, false)">
-        계산해 주세요.
+        카드로 할게요.
       </button>
 
     </div>
@@ -587,10 +587,8 @@
     </button>
 
     <div class="hint-box" id="hint2">
-      Utilise
-      <strong>추천해 주세요</strong>
-      puis
-      <strong>돼지고기를 안 먹어요</strong>.
+      Pour dire que tu vas boire ici,
+      utilise <strong>여기서 마실게요.</strong>
     </div>
 
     <button class="next-button" id="next2" type="button"
@@ -610,35 +608,34 @@
     <div class="npc-line">
 
       <div class="npc-name">
-        🧡 Madame Kim
+        💚 Ji-eun
       </div>
 
       <div class="npc-korean">
-        그럼 비빔밥하고 닭갈비는 어때요?
+        오천 원입니다. 카드로 하시겠어요?
       </div>
 
     </div>
 
     <h2 class="mission-question">
-      Tu veux vérifier le niveau de piment avant de choisir.
-      Que demandes-tu ?
+      Que comprends-tu et que réponds-tu ?
     </h2>
 
     <div class="answers">
 
       <button class="answer" type="button"
         onclick="checkAnswer(3, this, false)">
-        얼마예요?
+        C'est 3 000 wons, et je paie en espèces.
       </button>
 
       <button class="answer" type="button"
         onclick="checkAnswer(3, this, true)">
-        많이 매워요?
+        C'est 5 000 wons, et je vais payer par carte.
       </button>
 
       <button class="answer" type="button"
         onclick="checkAnswer(3, this, false)">
-        카드로 할게요.
+        C'est 10 000 wons, et je veux emporter.
       </button>
 
     </div>
@@ -651,9 +648,8 @@
     </button>
 
     <div class="hint-box" id="hint3">
-      <strong>매워요?</strong>
-      signifie « C'est épicé ? ».
-      Ajoute <strong>많이</strong> pour « très ».
+      <strong>오천 원</strong> = 5 000 wons
+      et <strong>카드</strong> = carte bancaire.
     </div>
 
     <button class="next-button" id="next3" type="button"
@@ -673,40 +669,40 @@
     <div class="npc-line">
 
       <div class="npc-name">
-        🧡 Madame Kim
+        💚 Ji-eun
       </div>
 
       <div class="npc-korean">
-        비빔밥은 많이 안 매워요.
+        맛있게 드세요!
       </div>
 
     </div>
 
     <div class="scene-card">
-      🍚 Le bibimbap te convient.
+      😋 Tu goûtes ton café.
       <br><br>
-      Tu le commandes, puis plus tard tu demandes l'addition.
+      Il est vraiment bon.
     </div>
 
     <h2 class="mission-question">
-      Quelle réponse complète est la plus naturelle ?
+      Quelle réponse est la plus naturelle ?
     </h2>
 
     <div class="answers">
 
       <button class="answer" type="button"
         onclick="checkAnswer(4, this, false)">
-        비빔밥은 안 먹어요. 메뉴 주세요.
+        포장해 주세요.
       </button>
 
       <button class="answer" type="button"
         onclick="checkAnswer(4, this, true)">
-        비빔밥 하나 주세요. 그리고 계산해 주세요.
+        감사합니다. 정말 맛있어요!
       </button>
 
       <button class="answer" type="button"
         onclick="checkAnswer(4, this, false)">
-        많이 매워요? 추천해 주세요.
+        얼마예요?
       </button>
 
     </div>
@@ -719,11 +715,8 @@
     </button>
 
     <div class="hint-box" id="hint4">
-      Pour commander :
-      <strong>비빔밥 하나 주세요.</strong>
-      <br>
-      Pour demander l'addition :
-      <strong>계산해 주세요.</strong>
+      Ji-eun te souhaite une bonne dégustation.
+      Tu peux remercier puis dire que c'est délicieux.
     </div>
 
     <button class="next-button" id="next4" type="button"
@@ -744,7 +737,7 @@
   >
 
     <div class="result-icon">
-      🎯🍜
+      🎯☕
     </div>
 
 
@@ -755,13 +748,13 @@
 
     <p>
       Mission réussie :
-      tu as demandé le menu,
-      géré une restriction alimentaire, choisi un plat et demandé l'addition.
+      tu as commandé ton café,
+      compris les questions de Ji-eun et terminé l'échange naturellement.
     </p>
 
 
     <p class="result-score">
-      Chapitre 12 terminé ✅
+      Chapitre 13 terminé ✅
     </p>
 
 
@@ -784,29 +777,11 @@
 
       <br><br>
 
-      <div class="skill-line">
-        📖 Demander le menu
-      </div>
-
-      <div class="skill-line">
-        ⭐ Demander une recommandation
-      </div>
-
-      <div class="skill-line">
-        🐷 Dire que tu ne manges pas de porc
-      </div>
-
-      <div class="skill-line">
-        🌶️ Demander si un plat est très épicé
-      </div>
-
-      <div class="skill-line">
-        🍚 Commander un plat
-      </div>
-
-      <div class="skill-line">
-        💳 Demander l'addition
-      </div>
+      <div class="skill-line">☕ Commander une boisson</div>
+      <div class="skill-line">🔥 Choisir une boisson chaude</div>
+      <div class="skill-line">🥤 Répondre « sur place ou à emporter »</div>
+      <div class="skill-line">💳 Comprendre un prix et payer par carte</div>
+      <div class="skill-line">😋 Réagir naturellement après avoir goûté</div>
 
     </div>
 
@@ -819,39 +794,28 @@
 
       <br><br>
 
-      Imagine ton prochain repas dans un restaurant coréen.
+      Imagine maintenant ton vrai passage dans un café coréen.
 
       <br><br>
 
-      Quel plat aimerais-tu commander ?
+      Quelle boisson commanderais-tu ?
 
       <br><br>
 
-      Essaie de construire mentalement ton échange :
+      Essaie de construire mentalement une petite commande avec :
 
       <br><br>
 
       <strong>
-        메뉴 주세요.
+        ___ 한 잔 주세요.
       </strong>
 
       <br>
 
-      <strong>
-        추천해 주세요.
-      </strong>
-
-      <br>
-
-      <strong>
-        ___ 하나 주세요.
-      </strong>
-
-      <br>
-
-      <strong>
-        계산해 주세요.
-      </strong>
+      puis choisis
+      <strong>sur place</strong>
+      ou
+      <strong>à emporter</strong>.
 
     </div>
 
@@ -859,7 +823,7 @@
     <button
       class="route-button"
       type="button"
-      onclick="window.location.href='itineraire.html'"
+      onclick="window.location.href='itineraire.html#module2'"
     >
       🌿 Retour à mon itinéraire
     </button>
@@ -884,7 +848,7 @@
 
 <script>
 
-  const CHAPTER = 15;
+  const CHAPTER = 14;
 
   const UNDERSTANDING_KEY =
     "hanaKorean_chapter15_understanding";
@@ -901,28 +865,74 @@
   const REVIEW_KEY =
     "hanaKorean_chapter15_review";
 
-  const USE_KEY =
-    "hanaKorean_chapter15_use";
+  const MISSION_KEY =
+    "hanaKorean_chapter15_mission";
+
+  const COMPLETED_KEY =
+    "hanaKorean_chapter15_completed";
+
+  const MISSION_MISTAKES_KEY =
+    "hanaKorean_chapter15_missionMistakes";
+
+  const MISSION_HELP_KEY =
+    "hanaKorean_chapter15_missionHelp";
 
 
-  function guardUseAccess() {
+  function guardMissionAccess() {
 
-    const required = [
-      [UNDERSTANDING_KEY, "chapitre-15.html"],
-      [LISTENING_EXERCISE_KEY, "ecoute-15.html"],
-      [SPEAKING_KEY, "parle-15.html"],
-      [WRITING_KEY, "écriture-15.html"],
-      [REVIEW_KEY, "revision-15.html"]
-    ];
+    if (
+      localStorage.getItem(
+        UNDERSTANDING_KEY
+      ) !== "completed"
+    ) {
+      window.location.replace(
+        "chapitre-15.html"
+      );
+      return false;
+    }
 
-    for (const item of required) {
+    if (
+      localStorage.getItem(
+        LISTENING_EXERCISE_KEY
+      ) !== "completed"
+    ) {
+      window.location.replace(
+        "ecoute-15.html"
+      );
+      return false;
+    }
 
-      if (
-        localStorage.getItem(item[0]) !== "completed"
-      ) {
-        window.location.replace(item[1]);
-        return false;
-      }
+    if (
+      localStorage.getItem(
+        SPEAKING_KEY
+      ) !== "completed"
+    ) {
+      window.location.replace(
+        "parle-15.html"
+      );
+      return false;
+    }
+
+    if (
+      localStorage.getItem(
+        WRITING_KEY
+      ) !== "completed"
+    ) {
+      window.location.replace(
+        "écriture-14.html"
+      );
+      return false;
+    }
+
+    if (
+      localStorage.getItem(
+        REVIEW_KEY
+      ) !== "completed"
+    ) {
+      window.location.replace(
+        "revision-15.html"
+      );
+      return false;
     }
 
     return true;
@@ -933,7 +943,8 @@
 
     if (
       window.HanaChapterProgress &&
-      typeof window.HanaChapterProgress.render === "function"
+      typeof window.HanaChapterProgress.render ===
+        "function"
     ) {
       window.HanaChapterProgress.render();
     }
@@ -1042,9 +1053,9 @@
       ) {
 
         feedback.innerHTML =
-          "✅ <strong>Exact !</strong>" +
+          "✅ <strong>Parfait !</strong>" +
           "<br><br>" +
-          "<strong>메뉴 주세요.</strong> permet de demander le menu.";
+          "Tu commandes naturellement avec <strong>뜨거운 커피 한 잔 주세요.</strong>";
 
       }
 
@@ -1056,7 +1067,7 @@
         feedback.innerHTML =
           "✅ <strong>Très bien !</strong>" +
           "<br><br>" +
-          "Tu demandes une recommandation et tu précises clairement que tu ne manges pas de porc.";
+          "<strong>여기서 마실게요.</strong> indique que tu vas boire sur place.";
 
       }
 
@@ -1068,7 +1079,7 @@
         feedback.innerHTML =
           "✅ <strong>Exact !</strong>" +
           "<br><br>" +
-          "<strong>많이 매워요?</strong> permet de demander si le plat est très épicé.";
+          "<strong>오천 원</strong> = 5 000 wons et <strong>카드</strong> indique le paiement par carte.";
 
       }
 
@@ -1080,7 +1091,7 @@
         feedback.innerHTML =
           "✅ <strong>Mission réussie !</strong>" +
           "<br><br>" +
-          "Tu commandes avec <strong>비빔밥 하나 주세요.</strong> puis tu demandes l'addition avec <strong>계산해 주세요.</strong>";
+          "<strong>감사합니다. 정말 맛있어요!</strong> termine l'échange naturellement.";
 
       }
 
@@ -1123,9 +1134,9 @@
     ) {
 
       feedback.innerHTML =
-        "❌ <strong>Tu veux le menu.</strong>" +
+        "❌ <strong>Tu veux commander, pas demander le prix.</strong>" +
         "<br><br>" +
-        "💡 <strong>메뉴</strong> = menu.";
+        "💡 Pense à <strong>뜨거운 커피 한 잔 주세요.</strong>.";
 
     }
 
@@ -1135,9 +1146,9 @@
     ) {
 
       feedback.innerHTML =
-        "❌ <strong>Tu dois donner deux informations.</strong>" +
+        "❌ <strong>Tu veux rester sur place.</strong>" +
         "<br><br>" +
-        "💡 Demande une recommandation puis précise : <strong>돼지고기를 안 먹어요.</strong>";
+        "💡 <strong>여기서 마실게요.</strong> = je vais boire ici.";
 
     }
 
@@ -1147,9 +1158,9 @@
     ) {
 
       feedback.innerHTML =
-        "❌ <strong>Tu veux parler du niveau de piment.</strong>" +
+        "❌ <strong>Repère le prix et 카드.</strong>" +
         "<br><br>" +
-        "💡 <strong>매워요?</strong> signifie « C'est épicé ? ».";
+        "💡 <strong>오천 원</strong> = 5 000 wons ; <strong>카드</strong> = carte.";
 
     }
 
@@ -1159,16 +1170,13 @@
     ) {
 
       feedback.innerHTML =
-        "❌ <strong>Tu dois d'abord commander, puis demander l'addition.</strong>" +
+        "❌ <strong>La commande est déjà terminée.</strong>" +
         "<br><br>" +
-        "💡 Pense à <strong>하나 주세요</strong> et <strong>계산해 주세요</strong>.";
+        "💡 Remercie puis dis que c'est délicieux.";
 
     }
 
   }
-
-
-
 
 
 
@@ -1273,13 +1281,13 @@
 
 
     localStorage.setItem(
-      "hanaKorean_chapter15_mission",
+      MISSION_KEY,
       "completed"
     );
 
 
     localStorage.setItem(
-      "hanaKorean_chapter15_missionMistakes",
+      MISSION_MISTAKES_KEY,
       String(
         incorrectAttempts
       )
@@ -1287,7 +1295,7 @@
 
 
     localStorage.setItem(
-      "hanaKorean_chapter15_missionHints",
+      MISSION_HELP_KEY,
       String(
         hintCount
       )
@@ -1295,9 +1303,12 @@
 
 
     localStorage.setItem(
-      "hanaKorean_chapter15_completed",
+      COMPLETED_KEY,
       "completed"
     );
+
+
+    renderChapterProgress();
 
 
     window.scrollTo({
@@ -1310,7 +1321,7 @@
 
 
   if (
-    guardUseAccess()
+    guardMissionAccess()
   ) {
 
     renderChapterProgress();

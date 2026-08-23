@@ -1,0 +1,19 @@
+<!DOCTYPE html><html lang="fr"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#F7F4ED"><title>Chapitre 56 — Révision</title>
+<link rel="stylesheet" href="style.css"><link rel="stylesheet" href="chapter-progress.css">
+<script src="profile.js"></script></head><body><main class="app">
+<a class="back-link" href="ecriture-56.html">← Retour</a>
+<section id="hanaChapterPath" data-chapter-path></section>
+<header><span class="chapter-badge">Chapitre 56 · 🧠</span><h1>Révision</h1></header>
+<section class="card"><p>Verbe d’action → <strong>-는데</strong></p><p>Verbe descriptif → <strong>-(으)ㄴ데</strong></p><p>Nom → <strong>인데</strong></p><p>Fonctions principales : contexte · question/demande · contraste léger · phrase ouverte.</p><p>Particuliers : 있는데 · 없는데 · 맛있는데 · 어려운데 · 쉬운데.</p></section>
+<button id="done" style="width:100%">✅ Terminé</button>
+<button id="next" style="display:none;width:100%">🎯 Mission</button>
+</main>
+<script src="chapter-progress.js"></script><script>
+const K="hanaKorean_chapter56_review",d=document.getElementById("done"),n=document.getElementById("next");
+function r(){if(localStorage.getItem(K)==="completed"){d.disabled=true;n.style.display="block"}if(window.HanaChapterProgress)HanaChapterProgress.render()}
+d.onclick=()=>{localStorage.setItem(K,"completed");r()};
+n.onclick=()=>location.href="utilise-56.html";
+r();
+</script></body></html>

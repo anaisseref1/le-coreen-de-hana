@@ -1,0 +1,15 @@
+<!DOCTYPE html><html lang="fr"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#F7F4ED"><title>Chapitre 49 — Révision</title>
+<link rel="stylesheet" href="style.css"><link rel="stylesheet" href="chapter-progress.css">
+<script src="profile.js"></script></head><body><main class="app"><a class="back-link" href="ecriture-49.html">← Retour</a>
+<section id="hanaChapterPath" data-chapter-path></section><header><span class="chapter-badge">Chapitre 49 · 🧠</span><h1>Révision</h1></header><section class="card">
+<p><strong>잃어버렸어요</strong> → j’ai perdu</p><p><strong>못 + verbe</strong> → je ne peux pas / je n’y arrive pas</p>
+<p><strong>안</strong> → je ne fais pas</p><p><strong>못</strong> → je ne peux pas</p>
+<p><strong>혹시 보셨어요?</strong> → vous ne l’auriez pas vu ?</p><p><strong>분실물 센터가 어디에 있어요?</strong> → où sont les objets trouvés ?</p></section>
+<button id="done" style="width:100%">✅ Terminé</button><button id="next" style="display:none;width:100%">Continuer →</button></main>
+<script src="chapter-progress.js"></script><script>
+const K="hanaKorean_chapter49_review",d=document.getElementById("done"),n=document.getElementById("next");
+function r(){if(localStorage.getItem(K)==="completed"){d.disabled=true;n.style.display="block"}if(window.HanaChapterProgress)HanaChapterProgress.render()}
+d.onclick=()=>{localStorage.setItem(K,"completed");r()};n.onclick=()=>location.href="utilise-49.html";r();
+</script></body></html>

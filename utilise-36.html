@@ -21,62 +21,60 @@
 <section id="hanaChapterPath" data-chapter-path></section>
 <header>
   <span class="chapter-badge">Chapitre 36 · 🎯 Je l'utilise</span>
-  <h1>Mission finale : organiser une sortie</h1>
-  <p>Propose, accepte ou refuse, puis fixe le jour, l'heure et le lieu.</p>
+  <h1>Mission finale : mon carnet des émotions</h1>
+  <p>Choisis les formulations naturelles puis écris comment tu te sens.</p>
 </header>
 
 <section class="card">
   <div class="mission" data-answer="b">
-    <p><strong>1. « Tu veux voir un film ? »</strong></p>
-    <button data-choice="a">영화 볼까요?</button>
-    <button data-choice="b">영화 볼래요?</button>
-    <button data-choice="c">영화 봤어요?</button>
+    <p><strong>1. « Comment tu te sens aujourd'hui ? »</strong></p>
+    <button data-choice="a">오늘 뭐 해요?</button>
+    <button data-choice="b">오늘 기분이 어때요?</button>
+    <button data-choice="c">오늘 마음이 어디예요?</button>
     <div class="feedback"></div>
   </div>
 
   <div class="mission" data-answer="a">
-    <p><strong>2. « On boit un café ? »</strong></p>
-    <button data-choice="a">커피 마실까요?</button>
-    <button data-choice="b">커피 마실래요?</button>
-    <button data-choice="c">커피 마셨어요?</button>
+    <p><strong>2. « Je suis inquiète. »</strong></p>
+    <button data-choice="a">걱정돼요.</button>
+    <button data-choice="b">신나요.</button>
+    <button data-choice="c">행복해요.</button>
     <div class="feedback"></div>
   </div>
 
   <div class="mission" data-answer="c">
-    <p><strong>3. « À quelle heure on se retrouve ? »</strong></p>
-    <button data-choice="a">언제 만나요?</button>
-    <button data-choice="b">어디에서 만날까요?</button>
-    <button data-choice="c">몇 시에 만날까요?</button>
+    <p><strong>3. « Je me sens apaisée. »</strong></p>
+    <button data-choice="a">기분이 나빠요.</button>
+    <button data-choice="b">마음이 좋아요.</button>
+    <button data-choice="c">마음이 편해요.</button>
     <div class="feedback"></div>
   </div>
 
   <div class="mission" data-answer="b">
-    <p><strong>4. Quel refus est poli ?</strong></p>
-    <button data-choice="a">싫어요.</button>
-    <button data-choice="b">미안해요. 약속이 있어요.</button>
-    <button data-choice="c">안 가요.</button>
+    <p><strong>4. « Je me sens bien parce que je suis à Séoul. »</strong></p>
+    <button data-choice="a">서울이 좋아서 있어요.</button>
+    <button data-choice="b">서울에 있어서 기분이 좋아요.</button>
+    <button data-choice="c">서울에 기분이 있어서 좋아요.</button>
     <div class="feedback"></div>
   </div>
 
   <div class="mission" data-answer="a">
-    <p><strong>5. « Et dimanche ? »</strong></p>
-    <button data-choice="a">일요일은 어때요?</button>
-    <button data-choice="b">일요일에 뭐 했어요?</button>
-    <button data-choice="c">일요일이 어디예요?</button>
+    <p><strong>5. Quelle phrase convient le mieux après une bonne nouvelle ?</strong></p>
+    <button data-choice="a">기뻐요.</button>
+    <button data-choice="b">외로워요.</button>
+    <button data-choice="c">무서워요.</button>
     <div class="feedback"></div>
   </div>
 </section>
 
 <section class="card">
-  <h2>🧩 Organise une vraie sortie</h2>
-  <p>Min-su t'écrit : <strong>주말에 같이 뭐 할래요?</strong></p>
-  <p>Écris une mini-conversation qui contient :</p>
-  <p>① une activité</p>
-  <p>② un jour</p>
-  <p>③ une heure</p>
-  <p>④ un lieu</p>
-  <p>⑤ une conclusion naturelle</p>
-  <textarea id="freeAnswer" rows="11" placeholder="좋아요!&#10;영화 볼래요?&#10;..."></textarea>
+  <h2>🌸 Mon carnet des émotions</h2>
+  <p>Écris 2 à 4 phrases :</p>
+  <p>① ton humeur du jour</p>
+  <p>② une émotion</p>
+  <p>③ pourquoi tu te sens ainsi</p>
+  <p>④ éventuellement une nuance avec <strong>하지만</strong></p>
+  <textarea id="freeAnswer" rows="10" placeholder="오늘 기분이..."></textarea>
 </section>
 
 <button id="finishButton" type="button" style="display:none;width:100%;">✅ Terminer le chapitre 36</button>
@@ -137,11 +135,11 @@ missions.forEach((m,i)=>{
       }else{
         btn.disabled=true;
         fb.textContent=[
-          "-(으)ㄹ래요? demande ce que l'autre veut faire.",
-          "-(으)ㄹ까요? sert à proposer ensemble.",
-          "몇 시에 = à quelle heure.",
-          "미안해요 + raison = refus poli.",
-          "일요일은 어때요? = Et dimanche ?"
+          "Pour demander l'humeur : 기분이 어때요?",
+          "걱정돼요 = je suis inquiète.",
+          "마음이 편해요 = je me sens apaisée.",
+          "서울에 있어서... = parce que je suis à Séoul.",
+          "기뻐요 exprime bien la joie liée à une bonne nouvelle."
         ][i];
       }
     });
@@ -165,6 +163,7 @@ finish.addEventListener("click",()=>{
   completedState();
   if(window.HanaChapterProgress)HanaChapterProgress.render();
 });
+
 summary.addEventListener("click",()=>window.location.href="resume-36.html");
 window.addEventListener("pageshow",()=>{
   if(guardMissionPage()){

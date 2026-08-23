@@ -21,6 +21,7 @@
     rel="stylesheet"
     href="style.css"
   >
+
   <link rel="stylesheet" href="chapter-progress.css">
 
 
@@ -417,9 +418,9 @@
 
 
     <p>
-      Tu racontes ton voyage à Min-su.
-      Utilise ce que tu as appris pour dire où tu es allé(e),
-      ce que tu as mangé, ce que tu as photographié et comment c'était.
+      Tu discutes avec Min-su pour apprendre à mieux vous connaître.
+      Utilise ce que tu as appris pour parler de tes goûts,
+      demander ses préférences et poursuivre naturellement la conversation.
     </p>
 
   </header>
@@ -437,14 +438,15 @@
 
     <br><br>
 
-    Min-su te demande de raconter ton voyage.
+    Tu discutes tranquillement avec Min-su.
 
     <br><br>
 
-    Dis où tu es allé(e),
-    ce que tu as mangé,
-    ce que tu as photographié
-    puis donne ton impression.
+    Dis ce que tu aimes,
+    demande ce qu'il préfère,
+    parle de ta musique préférée
+    puis relance la conversation avec
+    <strong>왜요?</strong>.
 
   </section>
 
@@ -485,28 +487,28 @@
   <section class="mission-card" id="step1">
 
     <div class="scene-card">
-      💙 Min-su te demande ce que tu as fait en Corée.
+      ☕ Min-su te demande ce que tu aimes.
     </div>
 
     <h2 class="mission-question">
-      Comment dis-tu que tu es allé(e) à Séoul ?
+      Comment dis-tu que tu aimes le café ?
     </h2>
 
     <div class="answers">
 
       <button class="answer" type="button"
         onclick="checkAnswer(1, this, true)">
-        서울에 갔어요.
+        커피를 좋아해요.
       </button>
 
       <button class="answer" type="button"
         onclick="checkAnswer(1, this, false)">
-        서울에 가요.
+        커피가 없어요.
       </button>
 
       <button class="answer" type="button"
         onclick="checkAnswer(1, this, false)">
-        서울이 좋아요.
+        커피를 안 마셔요.
       </button>
 
     </div>
@@ -519,7 +521,7 @@
     </button>
 
     <div class="hint-box" id="hint1">
-      Utilise <strong>서울에</strong> + <strong>갔어요</strong>.
+      Utilise <strong>커피를</strong> + <strong>좋아해요</strong>.
     </div>
 
     <button class="next-button" id="next1" type="button"
@@ -543,31 +545,31 @@
       </div>
 
       <div class="npc-korean">
-        뭐 먹었어요?
+        저는 사진 찍는 걸 좋아해요.
       </div>
 
     </div>
 
     <h2 class="mission-question">
-      Min-su te demande ce que tu as mangé.
-      Que réponds-tu ?
+      Tu veux savoir ce qu'il préfère vraiment.
+      Que demandes-tu ?
     </h2>
 
     <div class="answers">
 
       <button class="answer" type="button"
         onclick="checkAnswer(2, this, true)">
-        비빔밥을 먹었어요.
+        뭐가 제일 좋아요?
       </button>
 
       <button class="answer" type="button"
         onclick="checkAnswer(2, this, false)">
-        비빔밥을 먹어요.
+        어디에 가요?
       </button>
 
       <button class="answer" type="button"
         onclick="checkAnswer(2, this, false)">
-        비빔밥이 좋아요.
+        몇 시예요?
       </button>
 
     </div>
@@ -580,7 +582,7 @@
     </button>
 
     <div class="hint-box" id="hint2">
-      <strong>먹었어요</strong> = j'ai mangé.
+      <strong>제일</strong> apporte l'idée de « le plus ».
     </div>
 
     <button class="next-button" id="next2" type="button"
@@ -604,13 +606,13 @@
       </div>
 
       <div class="npc-korean">
-        사진도 찍었어요?
+        어떤 음악을 제일 좋아해요?
       </div>
 
     </div>
 
     <h2 class="mission-question">
-      Tu as pris beaucoup de photos.
+      Min-su te demande quelle musique tu préfères.
       Que réponds-tu ?
     </h2>
 
@@ -618,17 +620,17 @@
 
       <button class="answer" type="button"
         onclick="checkAnswer(3, this, false)">
-        사진을 많이 봤어요.
+        음악을 안 좋아해요.
       </button>
 
       <button class="answer" type="button"
         onclick="checkAnswer(3, this, true)">
-        사진을 많이 찍었어요.
+        저는 케이팝을 제일 좋아해요.
       </button>
 
       <button class="answer" type="button"
         onclick="checkAnswer(3, this, false)">
-        사진을 좋아해요.
+        어떤 영화가 좋아요?
       </button>
 
     </div>
@@ -641,7 +643,8 @@
     </button>
 
     <div class="hint-box" id="hint3">
-      <strong>찍었어요</strong> = j'ai pris, ici des photos.
+      Utilise le modèle :
+      <strong>저는 ○○를 제일 좋아해요.</strong>
     </div>
 
     <button class="next-button" id="next3" type="button"
@@ -665,31 +668,31 @@
       </div>
 
       <div class="npc-korean">
-        여행 어땠어요?
+        저는 바다가 제일 좋아요.
       </div>
 
     </div>
 
     <h2 class="mission-question">
-      Min-su te demande comment était le voyage.
-      Quelle réponse termine bien ton récit ?
+      Tu veux continuer la conversation.
+      Quelle petite question poses-tu ?
     </h2>
 
     <div class="answers">
 
       <button class="answer" type="button"
         onclick="checkAnswer(4, this, false)">
-        정말 좋아요.
+        누구예요?
       </button>
 
       <button class="answer" type="button"
         onclick="checkAnswer(4, this, true)">
-        정말 좋았어요.
+        왜요?
       </button>
 
       <button class="answer" type="button"
         onclick="checkAnswer(4, this, false)">
-        정말 안 가요.
+        얼마예요?
       </button>
 
     </div>
@@ -702,8 +705,8 @@
     </button>
 
     <div class="hint-box" id="hint4">
-      Il faut une impression au passé :
-      <strong>정말 좋았어요.</strong>
+      La petite question pour demander la raison est
+      <strong>왜요?</strong>
     </div>
 
     <button class="next-button" id="next4" type="button"
@@ -724,7 +727,7 @@
   >
 
     <div class="result-icon">
-      🎯📸
+      🎯❤️
     </div>
 
 
@@ -735,8 +738,8 @@
 
     <p>
       Mission réussie :
-      tu as raconté où tu es allé(e),
-      ce que tu as mangé, ce que tu as photographié et comment était ton voyage.
+      tu as parlé de tes goûts,
+      demandé une préférence, donné ta musique préférée et relancé la conversation.
     </p>
 
 
@@ -765,27 +768,27 @@
       <br><br>
 
       <div class="skill-line">
-        🚶 Dire où tu es allé(e)
+        ☕ Dire ce que tu aimes
       </div>
 
       <div class="skill-line">
-        🍚 Dire ce que tu as mangé
+        ❤️ Demander ce que quelqu'un préfère
       </div>
 
       <div class="skill-line">
-        👀 Dire ce que tu as vu
+        🌟 Dire ce que tu préfères
       </div>
 
       <div class="skill-line">
-        📷 Dire que tu as pris des photos
+        🎵 Demander la musique préférée de quelqu'un
       </div>
 
       <div class="skill-line">
-        🌟 Donner une impression au passé
+        🙂 Dire que tu n'aimes pas quelque chose
       </div>
 
       <div class="skill-line">
-        ❓ Demander « Comment c'était ? »
+        ❓ Relancer avec « Pourquoi ? »
       </div>
 
     </div>
@@ -799,41 +802,41 @@
 
       <br><br>
 
-      Imagine que tu racontes une journée de voyage
-      à un ami coréen.
+      Qu'est-ce que tu préfères en Corée ?
 
       <br><br>
 
-      Essaie de construire 3 ou 4 phrases :
+      Et pourquoi ?
+
+      <br><br>
+
+      Essaie de construire mentalement une petite réponse :
 
       <br><br>
 
       <strong>
-        서울에 갔어요.
+        한국에서 ○○가 제일 좋아요.
+      </strong>
+
+      <br>
+
+      puis ajoute une raison simple si tu peux.
+
+      <br><br>
+
+      Et pour mieux connaître quelqu'un :
+
+      <br><br>
+
+      <strong>
+        뭐가 제일 좋아요?
       </strong>
 
       <br>
 
       <strong>
-        비빔밥을 먹었어요.
+        왜요?
       </strong>
-
-      <br>
-
-      <strong>
-        사진을 많이 찍었어요.
-      </strong>
-
-      <br>
-
-      <strong>
-        정말 좋았어요.
-      </strong>
-
-      <br><br>
-
-      Tu peux ensuite personnaliser les lieux,
-      les plats et les activités.
 
     </div>
 
@@ -875,7 +878,7 @@
 
 <script>
 
-  const CHAPTER = 19;
+  const CHAPTER = 18;
 
   const UNDERSTANDING_KEY =
     "hanaKorean_chapter19_understanding";
@@ -958,8 +961,6 @@
       );
     }
   }
-
-
 
 
 
@@ -1067,7 +1068,7 @@
         feedback.innerHTML =
           "✅ <strong>Exact !</strong>" +
           "<br><br>" +
-          "<strong>서울에 갔어요.</strong> signifie « Je suis allé(e) à Séoul. »";
+          "<strong>커피를 좋아해요.</strong> signifie « J'aime le café. »";
 
       }
 
@@ -1079,7 +1080,7 @@
         feedback.innerHTML =
           "✅ <strong>Très bien !</strong>" +
           "<br><br>" +
-          "<strong>비빔밥을 먹었어요.</strong> permet de dire que tu as mangé un bibimbap.";
+          "<strong>뭐가 제일 좋아요?</strong> permet de demander ce que quelqu'un préfère.";
 
       }
 
@@ -1091,7 +1092,7 @@
         feedback.innerHTML =
           "✅ <strong>Exact !</strong>" +
           "<br><br>" +
-          "<strong>사진을 많이 찍었어요.</strong> signifie « J'ai pris beaucoup de photos. »";
+          "<strong>저는 케이팝을 제일 좋아해요.</strong> suit le modèle pour dire ce que tu préfères.";
 
       }
 
@@ -1103,7 +1104,7 @@
         feedback.innerHTML =
           "✅ <strong>Mission réussie !</strong>" +
           "<br><br>" +
-          "<strong>정말 좋았어요.</strong> termine naturellement ton récit avec une impression au passé.";
+          "<strong>왜요?</strong> signifie « Pourquoi ? » et permet de faire continuer naturellement la conversation.";
 
       }
 
@@ -1146,9 +1147,9 @@
     ) {
 
       feedback.innerHTML =
-        "❌ <strong>Tu racontes une action passée.</strong>" +
+        "❌ <strong>Tu veux dire que tu aimes le café.</strong>" +
         "<br><br>" +
-        "💡 Utilise <strong>갔어요</strong>, pas 가요.";
+        "💡 Utilise <strong>커피를 좋아해요.</strong>";
 
     }
 
@@ -1158,9 +1159,9 @@
     ) {
 
       feedback.innerHTML =
-        "❌ <strong>Min-su demande ce que tu as mangé.</strong>" +
+        "❌ <strong>Tu veux demander une préférence.</strong>" +
         "<br><br>" +
-        "💡 <strong>먹었어요</strong> = j'ai mangé.";
+        "💡 Repère <strong>제일</strong> = « le plus ».";
 
     }
 
@@ -1170,9 +1171,9 @@
     ) {
 
       feedback.innerHTML =
-        "❌ <strong>Tu veux parler des photos que tu as prises.</strong>" +
+        "❌ <strong>Min-su te demande ta musique préférée.</strong>" +
         "<br><br>" +
-        "💡 Utilise <strong>찍었어요</strong>.";
+        "💡 Utilise le modèle <strong>저는 ○○를 제일 좋아해요.</strong>";
 
     }
 
@@ -1182,16 +1183,13 @@
     ) {
 
       feedback.innerHTML =
-        "❌ <strong>Il faut répondre au passé.</strong>" +
+        "❌ <strong>Tu veux demander la raison.</strong>" +
         "<br><br>" +
-        "💡 <strong>정말 좋았어요.</strong> = C'était vraiment bien.";
+        "💡 <strong>왜요?</strong> = Pourquoi ?";
 
     }
 
   }
-
-
-
 
 
 

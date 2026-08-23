@@ -22,48 +22,50 @@
 <section id="hanaChapterPath" data-chapter-path></section>
 <header>
   <span class="chapter-badge">Chapitre 34 · 🧠 Révision</span>
-  <h1>Je consolide les comparaisons</h1>
+  <h1>Je consolide les raisons</h1>
 </header>
 
 <section class="review-card">
-  <h2>💙 Structure principale</h2>
-  <div class="item"><strong>A가 B보다 (더) + adjectif</strong><br>A est plus… que B.</div>
-  <div class="item"><strong>서울이 파리보다 더 커요.</strong><br>Séoul est plus grande que Paris.</div>
+  <h2>❓ Demander</h2>
+  <div class="item"><strong>왜 한국을 좋아해요?</strong><br>Pourquoi aimes-tu la Corée ?</div>
 </section>
 
 <section class="review-card">
-  <h2>🌿 Moins</h2>
-  <div class="item"><strong>파리가 서울보다 덜 복잡해요.</strong><br>Paris est moins fréquentée que Séoul.</div>
+  <h2>💬 Répondre</h2>
+  <div class="item"><strong>풍경이 아름다워서 좋아해요.</strong><br>J'aime parce que les paysages sont magnifiques.</div>
+  <div class="item"><strong>풍경이 아름다워서요.</strong><br>Parce que les paysages sont magnifiques.</div>
 </section>
 
 <section class="review-card">
-  <h2>💗 Pareil / similaire / différent</h2>
-  <div class="item"><strong>같아요.</strong> → c'est pareil</div>
-  <div class="item"><strong>비슷해요.</strong> → c'est similaire</div>
-  <div class="item"><strong>달라요.</strong> → c'est différent</div>
+  <h2>➡️ 그래서</h2>
+  <div class="item"><strong>서울에 있으면 마음이 편해요. 그래서 다시 가고 싶어요.</strong><br>Je me sens bien à Séoul. C'est pourquoi je veux y retourner.</div>
 </section>
 
 <section class="review-card">
-  <h2>💙 Préférence</h2>
-  <div class="item"><strong>A보다 B가 더 좋아요.</strong><br>Je préfère B à A.</div>
-  <div class="item"><strong>파리보다 서울이 더 좋아요.</strong><br>Je préfère Séoul à Paris.</div>
+  <h2>💙 À ne pas confondre</h2>
+  <div class="item"><strong>좋다 → 좋아서</strong><br>parce que c'est bien / parce que cela plaît</div>
+  <div class="item"><strong>좋아하다 → 좋아해서</strong><br>parce que j'aime</div>
+</section>
+
+<section class="review-card">
+  <h2>🌿 À reconnaître</h2>
+  <div class="item"><strong>왜냐하면</strong> → parce que / la raison, c'est que…<br><small>Pas besoin de le maîtriser comme structure principale pour l'instant.</small></div>
 </section>
 
 <section class="review-card">
   <h2>🟨 Mon point à revoir</h2>
   <div class="weak-list">
-    <button class="weak-button" data-value="boda">보다</button>
-    <button class="weak-button" data-value="deo">더</button>
-    <button class="weak-button" data-value="deol">덜</button>
-    <button class="weak-button" data-value="same">같다 / 비슷하다 / 다르다</button>
-    <button class="weak-button" data-value="preference">Exprimer une préférence</button>
+    <button class="weak-button" data-value="formation">Former -아서/어서</button>
+    <button class="weak-button" data-value="short">Réponse courte -아서/어서요</button>
+    <button class="weak-button" data-value="geuraeseo">그래서</button>
+    <button class="weak-button" data-value="goodlike">좋다 / 좋아하다</button>
+    <button class="weak-button" data-value="why">왜</button>
   </div>
 </section>
 
 <button id="completeButton" type="button" style="width:100%;">✅ Révision terminée</button>
 <button id="nextButton" type="button" style="display:none;width:100%;">🎯 Passer à la mission</button>
 </main>
-
 <script src="chapter-progress.js"></script>
 <script>
 const WRITING_KEY="hanaKorean_chapter34_writing";
@@ -86,9 +88,11 @@ document.querySelectorAll(".weak-button").forEach(btn=>{
   if(weak.has(btn.dataset.value))btn.classList.add("selected");
   btn.addEventListener("click",()=>{
     if(weak.has(btn.dataset.value)){
-      weak.delete(btn.dataset.value);btn.classList.remove("selected");
+      weak.delete(btn.dataset.value);
+      btn.classList.remove("selected");
     }else{
-      weak.add(btn.dataset.value);btn.classList.add("selected");
+      weak.add(btn.dataset.value);
+      btn.classList.add("selected");
     }
     localStorage.setItem(WEAK_KEY,JSON.stringify([...weak]));
   });

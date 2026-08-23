@@ -22,10 +22,13 @@
     href="style.css"
   >
 
+  <link
+    rel="stylesheet"
+    href="chapter-progress.css"
+  >
 
-    <link rel="stylesheet" href="chapter-progress.css">
 
-<style>
+  <style>
 
     .mission-header {
       text-align: center;
@@ -379,6 +382,15 @@
       color: var(--navy);
     }
 
+  
+
+    .summary-button {
+      width: 100%;
+      margin-top: 12px;
+      background: var(--jade);
+      color: white;
+      font-weight: bold;
+    }
   </style>
 
   <script src="profile.js"></script>
@@ -399,7 +411,6 @@
   </a>
 
 
-
   <header class="mission-header">
 
     <span class="chapter-badge">
@@ -418,18 +429,18 @@
 
 
     <p>
-      Tu es dans un café avec Ji-eun.
-      Utilise ce que tu as appris pour demander le Wi-Fi,
-      obtenir le mot de passe, parler de ta batterie et trouver où recharger ton téléphone.
+      Tu arrives à l'hôtel et tu échanges avec Joon-ho à la réception.
+      Utilise ce que tu as appris pour annoncer ta réservation,
+      donner ton nom, trouver ta chambre et gérer le Wi-Fi.
     </p>
 
   </header>
+
 
   <section
     id="hanaChapterPath"
     data-chapter-path
   ></section>
-
 
 
   <section class="mission-intro">
@@ -438,18 +449,17 @@
 
     <br><br>
 
-    Tu es dans un café en Corée.
+    Tu arrives à l'hôtel où travaille
+    <strong>Joon-ho</strong>.
 
     <br><br>
 
-    Demande à Ji-eun s'il y a du Wi-Fi,
-    récupère le mot de passe,
-    explique que tu n'as plus de batterie,
-    demande un chargeur
-    puis demande où tu peux recharger ton téléphone.
+    Annonce ta réservation,
+    réponds quand il te demande ton nom,
+    demande où est ta chambre et le mot de passe du Wi-Fi,
+    puis demande de l'aide si le Wi-Fi ne fonctionne pas.
 
   </section>
-
 
 
   <div class="mission-progress">
@@ -479,258 +489,313 @@
   </div>
 
 
-
-  <!-- =====================================================
-       ETAPE 1
-       ===================================================== -->
+  <!-- ETAPE 1 -->
 
   <section class="mission-card" id="step1">
 
     <div class="scene-card">
-      ☕ Tu t'installes dans un café.
-      <br><br>
-      Tu veux te connecter à Internet.
+      🏨 Tu arrives à la réception avec ta valise.
+      Tu veux annoncer que tu as une réservation.
+    </div>
+
+    <div class="npc-line">
+
+      <div class="npc-name">
+        🩶 Joon-ho
+      </div>
+
+      <div class="npc-korean">
+        안녕하세요.
+      </div>
+
+      <div class="npc-french">
+        Bonjour.
+      </div>
+
     </div>
 
     <h2 class="mission-question">
-      Que demandes-tu à Ji-eun ?
+      Que réponds-tu ?
     </h2>
 
     <div class="answers">
 
       <button class="answer" type="button"
         onclick="checkAnswer(1, this, true)">
-        와이파이 있어요?
+        안녕하세요. 예약했어요.
       </button>
 
       <button class="answer" type="button"
         onclick="checkAnswer(1, this, false)">
-        배터리가 없어요.
+        와이파이가 안 돼요.
       </button>
 
       <button class="answer" type="button"
         onclick="checkAnswer(1, this, false)">
-        충전기 있어요?
+        제 방이 어디예요?
       </button>
 
     </div>
 
     <div class="feedback" id="feedback1"></div>
 
-    <button class="hint-button" type="button"
-      onclick="toggleHint(1)">
-      💡 Un indice
-    </button>
-
     <div class="hint-box" id="hint1">
-      Pense à <strong>와이파이</strong> + <strong>있어요?</strong>
+      💡 <strong>예약</strong> signifie « réservation ».
+      La phrase prête à utiliser est <strong>예약했어요.</strong>
     </div>
 
-    <button class="next-button" id="next1" type="button"
-      onclick="showStep(2)">
+    <button
+      class="hint-button"
+      type="button"
+      onclick="toggleHint(1)"
+    >
+      💡 Voir un indice
+    </button>
+
+    <button
+      class="next-button"
+      id="next1"
+      type="button"
+      onclick="showStep(2)"
+    >
       Continuer →
     </button>
 
   </section>
 
 
-  <!-- =====================================================
-       ETAPE 2
-       ===================================================== -->
+  <!-- ETAPE 2 -->
 
   <section class="mission-card hidden" id="step2">
+
+    <div class="scene-card">
+      👤 Joon-ho retrouve ta réservation et te demande ton nom.
+    </div>
 
     <div class="npc-line">
 
       <div class="npc-name">
-        💚 Ji-eun
+        🩶 Joon-ho
       </div>
 
       <div class="npc-korean">
-        네. 여기 있어요.
+        성함이 어떻게 되세요?
+      </div>
+
+      <div class="npc-french">
+        Quel est votre nom ?
       </div>
 
     </div>
 
     <h2 class="mission-question">
-      Le Wi-Fi est disponible. Que demandes-tu maintenant ?
+      Que réponds-tu ?
     </h2>
 
     <div class="answers">
 
       <button class="answer" type="button"
+        onclick="checkAnswer(2, this, false)">
+        방 열쇠 주세요.
+      </button>
+
+      <button class="answer" type="button"
         onclick="checkAnswer(2, this, true)">
-        와이파이 비밀번호가 뭐예요?
+        아나예요.
       </button>
 
       <button class="answer" type="button"
         onclick="checkAnswer(2, this, false)">
-        제 방이 어디예요?
-      </button>
-
-      <button class="answer" type="button"
-        onclick="checkAnswer(2, this, false)">
-        계산해 주세요.
+        감사합니다.
       </button>
 
     </div>
 
     <div class="feedback" id="feedback2"></div>
 
-    <button class="hint-button" type="button"
-      onclick="toggleHint(2)">
-      💡 Un indice
-    </button>
-
     <div class="hint-box" id="hint2">
-      <strong>비밀번호</strong> signifie « mot de passe ».
+      💡 Pour répondre simplement avec ton nom :
+      <strong>아나예요.</strong>
     </div>
 
-    <button class="next-button" id="next2" type="button"
-      onclick="showStep(3)">
+    <button
+      class="hint-button"
+      type="button"
+      onclick="toggleHint(2)"
+    >
+      💡 Voir un indice
+    </button>
+
+    <button
+      class="next-button"
+      id="next2"
+      type="button"
+      onclick="showStep(3)"
+    >
       Continuer →
     </button>
 
   </section>
 
 
-  <!-- =====================================================
-       ETAPE 3
-       ===================================================== -->
+  <!-- ETAPE 3 -->
 
   <section class="mission-card hidden" id="step3">
+
+    <div class="scene-card">
+      🚪 Ton check-in est terminé.
+      Tu veux maintenant savoir où se trouve ta chambre
+      et obtenir le mot de passe du Wi-Fi.
+    </div>
 
     <div class="npc-line">
 
       <div class="npc-name">
-        💚 Ji-eun
+        🩶 Joon-ho
       </div>
 
       <div class="npc-korean">
-        여기 있습니다.
+        네. 여기 있습니다.
+      </div>
+
+      <div class="npc-french">
+        Oui. Voici.
       </div>
 
     </div>
 
-    <div class="scene-card">
-      🔋 Quelques minutes plus tard,
-      ton téléphone est presque éteint.
-    </div>
-
     <h2 class="mission-question">
-      Que dis-tu pour expliquer le problème
-      et demander un chargeur ?
+      Quelle réponse utilise les deux bonnes questions ?
     </h2>
 
     <div class="answers">
 
       <button class="answer" type="button"
-        onclick="checkAnswer(3, this, false)">
-        인터넷이 안 돼요. 와이파이 있어요?
-      </button>
-
-      <button class="answer" type="button"
         onclick="checkAnswer(3, this, true)">
-        배터리가 없어요. 충전기 있어요?
+        제 방이 어디예요?<br>
+        와이파이 비밀번호가 뭐예요?
       </button>
 
       <button class="answer" type="button"
         onclick="checkAnswer(3, this, false)">
-        핸드폰 있어요? 감사합니다.
+        방 열쇠 주세요.<br>
+        감사합니다.
+      </button>
+
+      <button class="answer" type="button"
+        onclick="checkAnswer(3, this, false)">
+        엘리베이터가 어디예요?<br>
+        와이파이가 안 돼요.
       </button>
 
     </div>
 
     <div class="feedback" id="feedback3"></div>
 
-    <button class="hint-button" type="button"
-      onclick="toggleHint(3)">
-      💡 Un indice
-    </button>
-
     <div class="hint-box" id="hint3">
-      <strong>배터리가 없어요.</strong>
-      = Je n'ai plus de batterie.
-      <br><br>
-      <strong>충전기 있어요?</strong>
-      = Vous avez un chargeur ?
+      💡 Pour la chambre, pense à
+      <strong>제 방이 어디예요?</strong><br><br>
+      Pour le mot de passe :
+      <strong>와이파이 비밀번호가 뭐예요?</strong>
     </div>
 
-    <button class="next-button" id="next3" type="button"
-      onclick="showStep(4)">
+    <button
+      class="hint-button"
+      type="button"
+      onclick="toggleHint(3)"
+    >
+      💡 Voir un indice
+    </button>
+
+    <button
+      class="next-button"
+      id="next3"
+      type="button"
+      onclick="showStep(4)"
+    >
       Continuer →
     </button>
 
   </section>
 
 
-  <!-- =====================================================
-       ETAPE 4
-       ===================================================== -->
+  <!-- ETAPE 4 -->
 
   <section class="mission-card hidden" id="step4">
+
+    <div class="scene-card">
+      📶 Dans ta chambre, le Wi-Fi ne fonctionne pas.
+      Tu retournes à la réception pour expliquer le problème
+      et demander de l'aide.
+    </div>
 
     <div class="npc-line">
 
       <div class="npc-name">
-        💚 Ji-eun
+        🩶 Joon-ho
       </div>
 
       <div class="npc-korean">
-        네. 있어요.
+        네?
+      </div>
+
+      <div class="npc-french">
+        Oui ? / Pardon ?
       </div>
 
     </div>
 
     <h2 class="mission-question">
-      Tu as trouvé un chargeur.
-      Que demandes-tu pour savoir où recharger ?
+      Que dis-tu ?
     </h2>
 
     <div class="answers">
 
       <button class="answer" type="button"
         onclick="checkAnswer(4, this, false)">
-        인터넷이 안 돼요.
+        와이파이 비밀번호가 뭐예요?
       </button>
 
       <button class="answer" type="button"
         onclick="checkAnswer(4, this, true)">
-        어디에서 충전할 수 있어요?
+        와이파이가 안 돼요. 도와주세요.
       </button>
 
       <button class="answer" type="button"
         onclick="checkAnswer(4, this, false)">
-        와이파이 비밀번호가 뭐예요?
+        제 방이 어디예요?
       </button>
 
     </div>
 
     <div class="feedback" id="feedback4"></div>
 
-    <button class="hint-button" type="button"
-      onclick="toggleHint(4)">
-      💡 Un indice
-    </button>
-
     <div class="hint-box" id="hint4">
-      <strong>어디에서</strong> = où
-      <br>
-      <strong>충전할 수 있어요?</strong>
-      = est-ce que je peux recharger ?
+      💡 <strong>안 돼요</strong> = ça ne fonctionne pas.<br>
+      <strong>도와주세요</strong> = aidez-moi, s'il vous plaît.
     </div>
 
-    <button class="next-button" id="next4" type="button"
-      onclick="finishMission()">
-      Terminer la mission 🌿
+    <button
+      class="hint-button"
+      type="button"
+      onclick="toggleHint(4)"
+    >
+      💡 Voir un indice
+    </button>
+
+    <button
+      class="next-button"
+      id="next4"
+      type="button"
+      onclick="finishMission()"
+    >
+      Terminer la mission →
     </button>
 
   </section>
 
 
-  <!-- =====================================================
-       RESULTAT
-       ===================================================== -->
+  <!-- RESULTAT -->
 
   <section
     class="result-card"
@@ -738,19 +803,18 @@
   >
 
     <div class="result-icon">
-      🎯📱
+      🏨
     </div>
 
-
     <h2>
-      미션 성공!
+      Mission réussie !
     </h2>
 
 
     <p>
-      Mission réussie :
-      tu as demandé le Wi-Fi,
-      obtenu le mot de passe, parlé de ta batterie et trouvé où recharger ton téléphone.
+      Tu as géré ton arrivée à l'hôtel,
+      ta réservation, ton nom, ta chambre
+      et un problème de Wi-Fi.
     </p>
 
 
@@ -779,27 +843,27 @@
       <br><br>
 
       <div class="skill-line">
-        📶 Demander si le Wi-Fi est disponible
+        🛎️ Annoncer une réservation
       </div>
 
       <div class="skill-line">
-        🔐 Demander le mot de passe
+        👤 Comprendre une question sur ton nom et répondre
       </div>
 
       <div class="skill-line">
-        🔋 Dire que tu n'as plus de batterie
+        🚪 Demander où se trouve ta chambre
       </div>
 
       <div class="skill-line">
-        🔌 Demander un chargeur
+        📶 Demander le mot de passe du Wi-Fi
       </div>
 
       <div class="skill-line">
-        ⚡ Demander où recharger ton téléphone
+        🆘 Signaler un problème et demander de l'aide
       </div>
 
       <div class="skill-line">
-        🌐 Dire qu'Internet ne fonctionne pas
+        🙏 Remercier avec <strong>감사합니다.</strong>
       </div>
 
     </div>
@@ -813,22 +877,28 @@
 
       <br><br>
 
-      Quelle photo aimerais-tu envoyer
-      à ta famille pendant ton voyage ?
+      Imagine ton arrivée dans un hôtel en Corée.
 
       <br><br>
 
-      Imagine que ton téléphone n'a presque plus de batterie
-      juste avant de l'envoyer.
-
-      <br><br>
-
-      Essaie de reconstruire mentalement :
+      Essaie de reconstruire mentalement cet échange :
 
       <br><br>
 
       <strong>
-        와이파이 있어요?
+        예약했어요.
+      </strong>
+
+      <br>
+
+      <strong>
+        아나예요.
+      </strong>
+
+      <br>
+
+      <strong>
+        제 방이 어디예요?
       </strong>
 
       <br>
@@ -840,24 +910,24 @@
       <br>
 
       <strong>
-        배터리가 없어요. 충전기 있어요?
+        도와주세요.
       </strong>
 
       <br>
 
       <strong>
-        어디에서 충전할 수 있어요?
+        감사합니다.
       </strong>
 
     </div>
 
 
     <button
-      class="route-button"
+      class="summary-button"
       type="button"
       onclick="goToSummary()"
     >
-      📘 Ouvrir le résumé du chapitre
+      📚 Voir le résumé du chapitre
     </button>
 
 
@@ -884,11 +954,11 @@
 </main>
 
 
-
 <script src="chapter-progress.js"></script>
 
 <script>
-  const CHAPTER = 17;
+
+  const CHAPTER = 16;
 
   const UNDERSTANDING_KEY =
     "hanaKorean_chapter17_understanding";
@@ -920,19 +990,21 @@
   const MISSION_HINTS_KEY =
     "hanaKorean_chapter17_missionHints";
 
+
   function guardUseAccess() {
+
     const required = [
       [UNDERSTANDING_KEY, "chapitre-17.html"],
       [LISTENING_EXERCISE_KEY, "ecoute-17.html"],
       [SPEAKING_KEY, "parle-17.html"],
-      [WRITING_KEY, "ecriture-17.html"],
+      [WRITING_KEY, "écriture-16.html"],
       [REVIEW_KEY, "revision-17.html"]
     ];
 
     for (const item of required) {
+
       if (
-        localStorage.getItem(item[0]) !==
-        "completed"
+        localStorage.getItem(item[0]) !== "completed"
       ) {
         window.location.replace(item[1]);
         return false;
@@ -942,7 +1014,9 @@
     return true;
   }
 
+
   function renderChapterProgress() {
+
     if (
       window.HanaChapterProgress &&
       typeof window.HanaChapterProgress.render === "function"
@@ -951,19 +1025,18 @@
     }
   }
 
+
   function migrateLegacyMissionProgress() {
+
     if (
-      localStorage.getItem(USE_KEY) ===
-      "completed"
+      localStorage.getItem(USE_KEY) === "completed"
     ) {
       return;
     }
 
     if (
-      localStorage.getItem(MISSION_KEY) ===
-        "completed" ||
-      localStorage.getItem(COMPLETED_KEY) ===
-        "completed"
+      localStorage.getItem(MISSION_KEY) === "completed" ||
+      localStorage.getItem(COMPLETED_KEY) === "completed"
     ) {
       localStorage.setItem(
         USE_KEY,
@@ -972,9 +1045,9 @@
     }
   }
 
-let incorrectAttempts =
-    0;
 
+  let incorrectAttempts =
+    0;
 
   let hintCount =
     0;
@@ -986,7 +1059,6 @@ let incorrectAttempts =
     3: false,
     4: false
   };
-
 
 
   function toggleHint(
@@ -1011,13 +1083,9 @@ let incorrectAttempts =
 
 
     if (wasHidden) {
-
       hintCount++;
-
     }
-
   }
-
 
 
   function checkAnswer(
@@ -1076,8 +1144,7 @@ let incorrectAttempts =
         feedback.innerHTML =
           "✅ <strong>Exact !</strong>" +
           "<br><br>" +
-          "<strong>와이파이 있어요?</strong> permet de demander si le Wi-Fi est disponible.";
-
+          "<strong>예약했어요.</strong> annonce clairement que tu as une réservation.";
       }
 
 
@@ -1088,8 +1155,7 @@ let incorrectAttempts =
         feedback.innerHTML =
           "✅ <strong>Très bien !</strong>" +
           "<br><br>" +
-          "<strong>와이파이 비밀번호가 뭐예요?</strong> permet de demander le mot de passe du Wi-Fi.";
-
+          HanaProfile.replacePerson("À <strong>성함이 어떻게 되세요?</strong>, tu peux répondre simplement <strong>아나예요.</strong>");
       }
 
 
@@ -1100,8 +1166,7 @@ let incorrectAttempts =
         feedback.innerHTML =
           "✅ <strong>Exact !</strong>" +
           "<br><br>" +
-          "<strong>배터리가 없어요.</strong> explique que tu n'as plus de batterie, puis <strong>충전기 있어요?</strong> demande un chargeur.";
-
+          "Tu demandes ta chambre avec <strong>제 방이 어디예요?</strong> et le Wi-Fi avec <strong>와이파이 비밀번호가 뭐예요?</strong>.";
       }
 
 
@@ -1112,8 +1177,7 @@ let incorrectAttempts =
         feedback.innerHTML =
           "✅ <strong>Mission réussie !</strong>" +
           "<br><br>" +
-          "<strong>어디에서 충전할 수 있어요?</strong> permet de demander où tu peux recharger ton téléphone.";
-
+          "<strong>와이파이가 안 돼요. 도와주세요.</strong> explique le problème et demande de l'aide. Une fois aidée, tu peux ajouter <strong>감사합니다.</strong>";
       }
 
 
@@ -1134,7 +1198,6 @@ let incorrectAttempts =
 
 
       return;
-
     }
 
 
@@ -1155,10 +1218,9 @@ let incorrectAttempts =
     ) {
 
       feedback.innerHTML =
-        "❌ <strong>Tu veux demander le Wi-Fi.</strong>" +
+        "❌ <strong>Tu veux annoncer une réservation.</strong>" +
         "<br><br>" +
-        "💡 Utilise <strong>와이파이 있어요?</strong>";
-
+        "💡 Pense à <strong>예약했어요.</strong>";
     }
 
 
@@ -1167,10 +1229,9 @@ let incorrectAttempts =
     ) {
 
       feedback.innerHTML =
-        "❌ <strong>Tu veux le mot de passe.</strong>" +
+        "❌ <strong>Joon-ho te demande ton nom.</strong>" +
         "<br><br>" +
-        "💡 <strong>비밀번호</strong> = mot de passe.";
-
+        HanaProfile.replacePerson("💡 Réponds simplement : <strong>아나예요.</strong>");
     }
 
 
@@ -1179,10 +1240,9 @@ let incorrectAttempts =
     ) {
 
       feedback.innerHTML =
-        "❌ <strong>Le problème est la batterie.</strong>" +
+        "❌ <strong>Tu dois demander deux informations.</strong>" +
         "<br><br>" +
-        "💡 Utilise <strong>배터리가 없어요.</strong> puis <strong>충전기 있어요?</strong>";
-
+        "💡 Pense à <strong>제 방이 어디예요?</strong> puis <strong>와이파이 비밀번호가 뭐예요?</strong>.";
     }
 
 
@@ -1191,23 +1251,12 @@ let incorrectAttempts =
     ) {
 
       feedback.innerHTML =
-        "❌ <strong>Tu veux savoir où recharger.</strong>" +
+        "❌ <strong>Tu dois expliquer que le Wi-Fi ne fonctionne pas puis demander de l'aide.</strong>" +
         "<br><br>" +
-        "💡 Repère <strong>어디에서</strong> et <strong>충전</strong>.";
-
+        "💡 <strong>안 돼요</strong> = ça ne fonctionne pas et <strong>도와주세요</strong> = aidez-moi.";
     }
 
   }
-
-
-
-
-
-
-
-
-
-
 
 
   function showStep(
@@ -1256,9 +1305,7 @@ let incorrectAttempts =
       top: 0,
       behavior: "smooth"
     });
-
   }
-
 
 
   function finishMission() {
@@ -1315,6 +1362,7 @@ let incorrectAttempts =
       "completed"
     );
 
+
     localStorage.setItem(
       MISSION_KEY,
       "completed"
@@ -1323,13 +1371,17 @@ let incorrectAttempts =
 
     localStorage.setItem(
       MISSION_MISTAKES_KEY,
-      String(incorrectAttempts)
+      String(
+        incorrectAttempts
+      )
     );
 
 
     localStorage.setItem(
       MISSION_HINTS_KEY,
-      String(hintCount)
+      String(
+        hintCount
+      )
     );
 
 
@@ -1338,6 +1390,7 @@ let incorrectAttempts =
       "completed"
     );
 
+
     renderChapterProgress();
 
 
@@ -1345,14 +1398,15 @@ let incorrectAttempts =
       top: 0,
       behavior: "smooth"
     });
-
   }
 
 
   function goToSummary() {
+
     if (
-      localStorage.getItem(USE_KEY) !==
-      "completed"
+      localStorage.getItem(
+        USE_KEY
+      ) !== "completed"
     ) {
       return;
     }
@@ -1361,9 +1415,14 @@ let incorrectAttempts =
       "resume-17.html";
   }
 
+
   migrateLegacyMissionProgress();
 
-  if (guardUseAccess()) {
+
+  if (
+    guardUseAccess()
+  ) {
+
     renderChapterProgress();
 
     window.addEventListener(
@@ -1374,7 +1433,7 @@ let incorrectAttempts =
       }
     );
   }
+
 </script>
 </body>
-
 </html>

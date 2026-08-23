@@ -1,0 +1,15 @@
+<!DOCTYPE html><html lang="fr"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#F7F4ED"><title>Chapitre 49 — Mission</title>
+<link rel="stylesheet" href="style.css"><link rel="stylesheet" href="chapter-progress.css">
+<style>textarea{width:100%;box-sizing:border-box}</style><script src="profile.js"></script></head>
+<body><main class="app"><a class="back-link" href="revision-49.html">← Révision</a><section id="hanaChapterPath" data-chapter-path></section>
+<header><span class="chapter-badge">Chapitre 49 · 🎯</span><h1>Mission — Mon objet a disparu 🔎</h1></header>
+<section class="card"><p>Choisis un objet : téléphone, portefeuille, passeport, parapluie, écouteurs ou sac.</p>
+<p>Explique : ce que tu as perdu → où tu étais → quand tu l’as vu → description → que tu n’arrives pas à le retrouver → demande si quelqu’un l’a vu → demande où sont les objets trouvés.</p>
+<textarea id="free" rows="16"></textarea></section>
+<button id="finish" style="width:100%">✅ Terminer le chapitre 49</button><button id="summary" style="display:none;width:100%">📚 Voir le résumé</button></main>
+<script src="chapter-progress.js"></script><script>
+const USE="hanaKorean_chapter49_use",MIS="hanaKorean_chapter49_mission",COMP="hanaKorean_chapter49_completed",F="hanaKorean_chapter49_missionFreeAnswer",f=document.getElementById("free"),b=document.getElementById("finish"),s=document.getElementById("summary");f.value=localStorage.getItem(F)||"";f.oninput=()=>localStorage.setItem(F,f.value);function r(){if(localStorage.getItem(USE)==="completed"||localStorage.getItem(COMP)==="completed"){b.disabled=true;b.textContent="✅ Chapitre 49 terminé";s.style.display="block"}if(window.HanaChapterProgress)HanaChapterProgress.render()}
+b.onclick=()=>{localStorage.setItem(F,f.value);localStorage.setItem(USE,"completed");localStorage.setItem(MIS,"completed");localStorage.setItem(COMP,"completed");r()};s.onclick=()=>location.href="resume-49.html";r();
+</script></body></html>

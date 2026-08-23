@@ -21,60 +21,58 @@
 <section id="hanaChapterPath" data-chapter-path></section>
 <header>
   <span class="chapter-badge">Chapitre 35 · 🎯 Je l'utilise</span>
-  <h1>Mission finale : mon carnet des émotions</h1>
-  <p>Choisis les formulations naturelles puis écris comment tu te sens.</p>
+  <h1>Mission finale : Paris vs Séoul</h1>
+  <p>Compare les deux villes selon ton expérience ou ton ressenti.</p>
 </header>
 
 <section class="card">
   <div class="mission" data-answer="b">
-    <p><strong>1. « Comment tu te sens aujourd'hui ? »</strong></p>
-    <button data-choice="a">오늘 뭐 해요?</button>
-    <button data-choice="b">오늘 기분이 어때요?</button>
-    <button data-choice="c">오늘 마음이 어디예요?</button>
+    <p><strong>1. « Séoul est plus grande que Paris. »</strong></p>
+    <button data-choice="a">파리가 서울보다 더 커요.</button>
+    <button data-choice="b">서울이 파리보다 더 커요.</button>
+    <button data-choice="c">서울보다 파리가 덜 커요?</button>
     <div class="feedback"></div>
   </div>
 
   <div class="mission" data-answer="a">
-    <p><strong>2. « Je suis inquiète. »</strong></p>
-    <button data-choice="a">걱정돼요.</button>
-    <button data-choice="b">신나요.</button>
-    <button data-choice="c">행복해요.</button>
+    <p><strong>2. « Paris est moins fréquentée que Séoul. »</strong></p>
+    <button data-choice="a">파리가 서울보다 덜 복잡해요.</button>
+    <button data-choice="b">파리가 서울보다 더 복잡해요.</button>
+    <button data-choice="c">서울이 파리보다 덜 조용해요.</button>
     <div class="feedback"></div>
   </div>
 
   <div class="mission" data-answer="c">
-    <p><strong>3. « Je me sens apaisée. »</strong></p>
-    <button data-choice="a">기분이 나빠요.</button>
-    <button data-choice="b">마음이 좋아요.</button>
-    <button data-choice="c">마음이 편해요.</button>
+    <p><strong>3. « Ces deux cafés sont similaires. »</strong></p>
+    <button data-choice="a">이 두 카페는 달라요.</button>
+    <button data-choice="b">이 두 카페는 더 좋아요.</button>
+    <button data-choice="c">이 두 카페는 비슷해요.</button>
     <div class="feedback"></div>
   </div>
 
   <div class="mission" data-answer="b">
-    <p><strong>4. « Je me sens bien parce que je suis à Séoul. »</strong></p>
-    <button data-choice="a">서울이 좋아서 있어요.</button>
-    <button data-choice="b">서울에 있어서 기분이 좋아요.</button>
-    <button data-choice="c">서울에 기분이 있어서 좋아요.</button>
+    <p><strong>4. « Je préfère Séoul à Paris. »</strong></p>
+    <button data-choice="a">서울보다 파리가 더 좋아요.</button>
+    <button data-choice="b">파리보다 서울이 더 좋아요.</button>
+    <button data-choice="c">서울하고 파리는 같아요.</button>
     <div class="feedback"></div>
   </div>
 
   <div class="mission" data-answer="a">
-    <p><strong>5. Quelle phrase convient le mieux après une bonne nouvelle ?</strong></p>
-    <button data-choice="a">기뻐요.</button>
-    <button data-choice="b">외로워요.</button>
-    <button data-choice="c">무서워요.</button>
+    <p><strong>5. Quelle phrase signifie « En quoi est-ce différent ? »</strong></p>
+    <button data-choice="a">어떻게 달라요?</button>
+    <button data-choice="b">뭐가 더 좋아요?</button>
+    <button data-choice="c">왜 달라요?</button>
     <div class="feedback"></div>
   </div>
 </section>
 
 <section class="card">
-  <h2>🌸 Mon carnet des émotions</h2>
-  <p>Écris 2 à 4 phrases :</p>
-  <p>① ton humeur du jour</p>
-  <p>② une émotion</p>
-  <p>③ pourquoi tu te sens ainsi</p>
-  <p>④ éventuellement une nuance avec <strong>하지만</strong></p>
-  <textarea id="freeAnswer" rows="10" placeholder="오늘 기분이..."></textarea>
+  <h2>🇫🇷 Paris vs 🇰🇷 Séoul</h2>
+  <p>Écris cinq phrases personnelles. Tu peux parler de la taille, du calme, de la fréquentation, des transports, de la propreté ou de ce que tu préfères.</p>
+  <p>Tu peux aussi réutiliser ton opinion :</p>
+  <p><strong>서울 지하철이 파리 지하철보다 더 깨끗하다고 생각해요.</strong></p>
+  <textarea id="freeAnswer" rows="10" placeholder="서울이 파리보다..."></textarea>
 </section>
 
 <button id="finishButton" type="button" style="display:none;width:100%;">✅ Terminer le chapitre 35</button>
@@ -135,11 +133,11 @@ missions.forEach((m,i)=>{
       }else{
         btn.disabled=true;
         fb.textContent=[
-          "Pour demander l'humeur : 기분이 어때요?",
-          "걱정돼요 = je suis inquiète.",
-          "마음이 편해요 = je me sens apaisée.",
-          "서울에 있어서... = parce que je suis à Séoul.",
-          "기뻐요 exprime bien la joie liée à une bonne nouvelle."
+          "A가 B보다 더 + adjectif : A est plus… que B.",
+          "덜 signifie « moins ».",
+          "비슷하다 signifie « être similaire ».",
+          "A보다 B가 더 좋아요 = je préfère B à A.",
+          "어떻게 달라요? = En quoi est-ce différent ?"
         ][i];
       }
     });

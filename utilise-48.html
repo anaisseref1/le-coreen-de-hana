@@ -1,0 +1,16 @@
+<!DOCTYPE html><html lang="fr"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#F7F4ED"><title>Chapitre 48 — Mission</title>
+<link rel="stylesheet" href="style.css"><link rel="stylesheet" href="chapter-progress.css">
+<style>textarea{width:100%;box-sizing:border-box}</style><script src="profile.js"></script></head>
+<body><main class="app"><a class="back-link" href="revision-48.html">← Révision</a><section id="hanaChapterPath" data-chapter-path></section>
+<header><span class="chapter-badge">Chapitre 48 · 🎯</span><h1>Mission — Ma chambre a un problème 🏨</h1></header>
+<section class="card"><p>Choisis <strong>3 problèmes</strong> : Wi-Fi, climatisation, eau chaude, carte-clé, bruit, porte ou serviettes.</p>
+<p>Écris 6 à 8 phrases : saluer → dire qu’il y a un problème → expliquer → demander de vérifier → demander une solution → remercier.</p>
+<textarea id="free" rows="16"></textarea></section>
+<button id="finish" style="width:100%">✅ Terminer le chapitre 48</button><button id="summary" style="display:none;width:100%">📚 Voir le résumé</button></main>
+<script src="chapter-progress.js"></script><script>
+const USE="hanaKorean_chapter48_use",MIS="hanaKorean_chapter48_mission",COMP="hanaKorean_chapter48_completed",F="hanaKorean_chapter48_missionFreeAnswer",f=document.getElementById("free"),b=document.getElementById("finish"),s=document.getElementById("summary");
+f.value=localStorage.getItem(F)||"";f.oninput=()=>localStorage.setItem(F,f.value);function r(){if(localStorage.getItem(USE)==="completed"||localStorage.getItem(COMP)==="completed"){b.disabled=true;b.textContent="✅ Chapitre 48 terminé";s.style.display="block"}if(window.HanaChapterProgress)HanaChapterProgress.render()}
+b.onclick=()=>{localStorage.setItem(F,f.value);localStorage.setItem(USE,"completed");localStorage.setItem(MIS,"completed");localStorage.setItem(COMP,"completed");r()};s.onclick=()=>location.href="resume-48.html";r();
+</script></body></html>

@@ -389,6 +389,7 @@
 
 <main class="app">
 
+
   <a
     class="back-link"
     href="revision-20.html"
@@ -397,25 +398,28 @@
   </a>
 
 
+
   <header class="mission-header">
 
     <span class="chapter-badge">
       Chapitre 20 · Mission finale
     </span>
 
+
     <p class="korean">
-      처음 뵙겠습니다 👋
+      실제로 써 봐요 🎯
     </p>
+
 
     <h1>
       Je l'utilise
     </h1>
 
+
     <p>
-      Tu rencontres Ji-Soo dans une librairie à Séoul.
-      Fais connaissance en parlant de ton pays,
-      de ton métier, de tes loisirs
-      et en trouvant un point commun.
+      Tu racontes ton voyage à Min-su.
+      Utilise ce que tu as appris pour dire où tu es allé(e),
+      ce que tu as mangé, ce que tu as photographié et comment c'était.
     </p>
 
   </header>
@@ -426,27 +430,24 @@
   ></section>
 
 
+
   <section class="mission-intro">
 
     <strong>🎯 Ta mission</strong>
 
     <br><br>
 
-    Ji-Soo vient de faire ta connaissance.
+    Min-su te demande de raconter ton voyage.
 
     <br><br>
 
-    Réponds à ses questions pour :
-
-    <br><br>
-
-    🌍 dire d'où tu viens<br>
-    💼 parler de ton métier<br>
-    🎨 parler d'un loisir<br>
-    ➕ ajouter une autre chose que tu aimes<br>
-    🤝 réagir quand vous découvrez un point commun
+    Dis où tu es allé(e),
+    ce que tu as mangé,
+    ce que tu as photographié
+    puis donne ton impression.
 
   </section>
+
 
 
   <div class="mission-progress">
@@ -454,14 +455,15 @@
     <div class="progress-info">
 
       <span>
-        Première rencontre
+        Situation réelle
       </span>
 
       <span id="progressLabel">
-        1 / 5
+        1 / 4
       </span>
 
     </div>
+
 
     <div class="progress-bar">
 
@@ -475,47 +477,36 @@
   </div>
 
 
+
   <!-- =====================================================
        ETAPE 1
        ===================================================== -->
 
   <section class="mission-card" id="step1">
 
-    <div class="npc-line">
-
-      <div class="npc-name">
-        💚 Ji-Soo
-      </div>
-
-      <div class="npc-korean">
-        안녕하세요! 처음 뵙겠습니다. 어느 나라에서 왔어요?
-      </div>
-
-      <div class="npc-french">
-        Bonjour ! Enchantée. De quel pays venez-vous ?
-      </div>
-
+    <div class="scene-card">
+      💙 Min-su te demande ce que tu as fait en Corée.
     </div>
 
     <h2 class="mission-question">
-      Comment réponds-tu que tu viens de France ?
+      Comment dis-tu que tu es allé(e) à Séoul ?
     </h2>
 
     <div class="answers">
 
       <button class="answer" type="button"
-        onclick="checkAnswer(1, this, false)">
-        프랑스에 가요.
-      </button>
-
-      <button class="answer" type="button"
         onclick="checkAnswer(1, this, true)">
-        프랑스에서 왔어요.
+        서울에 갔어요.
       </button>
 
       <button class="answer" type="button"
         onclick="checkAnswer(1, this, false)">
-        프랑스 사람이에요?
+        서울에 가요.
+      </button>
+
+      <button class="answer" type="button"
+        onclick="checkAnswer(1, this, false)">
+        서울이 좋아요.
       </button>
 
     </div>
@@ -528,7 +519,7 @@
     </button>
 
     <div class="hint-box" id="hint1">
-      Utilise <strong>프랑스에서</strong> + <strong>왔어요</strong>.
+      Utilise <strong>서울에</strong> + <strong>갔어요</strong>.
     </div>
 
     <button class="next-button" id="next1" type="button"
@@ -548,21 +539,17 @@
     <div class="npc-line">
 
       <div class="npc-name">
-        💚 Ji-Soo
+        💙 Min-su
       </div>
 
       <div class="npc-korean">
-        무슨 일을 하세요?
-      </div>
-
-      <div class="npc-french">
-        Quel est votre métier ?
+        뭐 먹었어요?
       </div>
 
     </div>
 
     <h2 class="mission-question">
-      Tu travailles dans une entreprise.
+      Min-su te demande ce que tu as mangé.
       Que réponds-tu ?
     </h2>
 
@@ -570,17 +557,17 @@
 
       <button class="answer" type="button"
         onclick="checkAnswer(2, this, true)">
-        회사에서 일해요.
+        비빔밥을 먹었어요.
       </button>
 
       <button class="answer" type="button"
         onclick="checkAnswer(2, this, false)">
-        회사에 가요.
+        비빔밥을 먹어요.
       </button>
 
       <button class="answer" type="button"
         onclick="checkAnswer(2, this, false)">
-        회사도 좋아해요.
+        비빔밥이 좋아요.
       </button>
 
     </div>
@@ -593,8 +580,7 @@
     </button>
 
     <div class="hint-box" id="hint2">
-      L'action se déroule dans l'entreprise :
-      utilise <strong>회사에서 일해요.</strong>
+      <strong>먹었어요</strong> = j'ai mangé.
     </div>
 
     <button class="next-button" id="next2" type="button"
@@ -614,21 +600,17 @@
     <div class="npc-line">
 
       <div class="npc-name">
-        💚 Ji-Soo
+        💙 Min-su
       </div>
 
       <div class="npc-korean">
-        취미가 뭐예요?
-      </div>
-
-      <div class="npc-french">
-        Quels sont vos loisirs ?
+        사진도 찍었어요?
       </div>
 
     </div>
 
     <h2 class="mission-question">
-      Tu aimes prendre des photos.
+      Tu as pris beaucoup de photos.
       Que réponds-tu ?
     </h2>
 
@@ -636,17 +618,17 @@
 
       <button class="answer" type="button"
         onclick="checkAnswer(3, this, false)">
-        사진을 봐요.
+        사진을 많이 봤어요.
       </button>
 
       <button class="answer" type="button"
         onclick="checkAnswer(3, this, true)">
-        사진 찍는 것을 좋아해요.
+        사진을 많이 찍었어요.
       </button>
 
       <button class="answer" type="button"
         onclick="checkAnswer(3, this, false)">
-        취미가 뭐예요?
+        사진을 좋아해요.
       </button>
 
     </div>
@@ -659,7 +641,7 @@
     </button>
 
     <div class="hint-box" id="hint3">
-      Utilise <strong>사진 찍는 것을 좋아해요.</strong>
+      <strong>찍었어요</strong> = j'ai pris, ici des photos.
     </div>
 
     <button class="next-button" id="next3" type="button"
@@ -679,39 +661,35 @@
     <div class="npc-line">
 
       <div class="npc-name">
-        💚 Ji-Soo
+        💙 Min-su
       </div>
 
       <div class="npc-korean">
-        다른 것도 좋아해요?
-      </div>
-
-      <div class="npc-french">
-        Vous aimez autre chose aussi ?
+        여행 어땠어요?
       </div>
 
     </div>
 
     <h2 class="mission-question">
-      Tu veux ajouter que tu aimes aussi le café.
-      Quelle phrase choisis-tu ?
+      Min-su te demande comment était le voyage.
+      Quelle réponse termine bien ton récit ?
     </h2>
 
     <div class="answers">
 
       <button class="answer" type="button"
         onclick="checkAnswer(4, this, false)">
-        저도 커피를 좋아해요.
+        정말 좋아요.
       </button>
 
       <button class="answer" type="button"
         onclick="checkAnswer(4, this, true)">
-        커피도 좋아해요.
+        정말 좋았어요.
       </button>
 
       <button class="answer" type="button"
         onclick="checkAnswer(4, this, false)">
-        커피를 안 좋아해요.
+        정말 안 가요.
       </button>
 
     </div>
@@ -724,76 +702,11 @@
     </button>
 
     <div class="hint-box" id="hint4">
-      Ici, c'est <strong>le café aussi</strong> :
-      <strong>커피도 좋아해요.</strong>
+      Il faut une impression au passé :
+      <strong>정말 좋았어요.</strong>
     </div>
 
     <button class="next-button" id="next4" type="button"
-      onclick="showStep(5)">
-      Continuer →
-    </button>
-
-  </section>
-
-
-  <!-- =====================================================
-       ETAPE 5
-       ===================================================== -->
-
-  <section class="mission-card hidden" id="step5">
-
-    <div class="npc-line">
-
-      <div class="npc-name">
-        💚 Ji-Soo
-      </div>
-
-      <div class="npc-korean">
-        저도 커피를 좋아해요!
-      </div>
-
-      <div class="npc-french">
-        Moi aussi, j'aime le café !
-      </div>
-
-    </div>
-
-    <h2 class="mission-question">
-      Vous avez trouvé un point commun.
-      Comment peux-tu répondre « Moi aussi, j'aime ça ! » ?
-    </h2>
-
-    <div class="answers">
-
-      <button class="answer" type="button"
-        onclick="checkAnswer(5, this, true)">
-        저도 좋아해요!
-      </button>
-
-      <button class="answer" type="button"
-        onclick="checkAnswer(5, this, false)">
-        커피도 좋아해요.
-      </button>
-
-      <button class="answer" type="button"
-        onclick="checkAnswer(5, this, false)">
-        저는 회사에서 일해요.
-      </button>
-
-    </div>
-
-    <div class="feedback" id="feedback5"></div>
-
-    <button class="hint-button" type="button"
-      onclick="toggleHint(5)">
-      💡 Un indice
-    </button>
-
-    <div class="hint-box" id="hint5">
-      <strong>저도</strong> signifie ici « moi aussi ».
-    </div>
-
-    <button class="next-button" id="next5" type="button"
       onclick="finishMission()">
       Terminer la mission 🌿
     </button>
@@ -811,22 +724,26 @@
   >
 
     <div class="result-icon">
-      👋🌿
+      🎯📸
     </div>
+
 
     <h2>
       미션 성공!
     </h2>
 
+
     <p>
       Mission réussie :
-      tu as fait connaissance avec Ji-Soo en coréen
-      en parlant de ton origine, de ton métier et de tes loisirs.
+      tu as raconté où tu es allé(e),
+      ce que tu as mangé, ce que tu as photographié et comment était ton voyage.
     </p>
+
 
     <p class="result-score">
       Chapitre 20 terminé ✅
     </p>
+
 
     <div class="result-summary">
 
@@ -838,6 +755,7 @@
 
     </div>
 
+
     <div class="skills-box">
 
       <strong>
@@ -847,30 +765,78 @@
       <br><br>
 
       <div class="skill-line">
-        🌍 Dire d'où tu viens
+        🚶 Dire où tu es allé(e)
       </div>
 
       <div class="skill-line">
-        💼 Parler de ton métier
+        🍚 Dire ce que tu as mangé
       </div>
 
       <div class="skill-line">
-        🎨 Parler de tes loisirs
+        👀 Dire ce que tu as vu
       </div>
 
       <div class="skill-line">
-        ➕ Ajouter une préférence avec 도
+        📷 Dire que tu as pris des photos
       </div>
 
       <div class="skill-line">
-        🤝 Réagir avec 저도
+        🌟 Donner une impression au passé
       </div>
 
       <div class="skill-line">
-        👋 Tenir une petite première conversation
+        ❓ Demander « Comment c'était ? »
       </div>
 
     </div>
+
+
+    <div class="travel-box">
+
+      <strong>
+        📝 Mon carnet de voyage
+      </strong>
+
+      <br><br>
+
+      Imagine que tu racontes une journée de voyage
+      à un ami coréen.
+
+      <br><br>
+
+      Essaie de construire 3 ou 4 phrases :
+
+      <br><br>
+
+      <strong>
+        서울에 갔어요.
+      </strong>
+
+      <br>
+
+      <strong>
+        비빔밥을 먹었어요.
+      </strong>
+
+      <br>
+
+      <strong>
+        사진을 많이 찍었어요.
+      </strong>
+
+      <br>
+
+      <strong>
+        정말 좋았어요.
+      </strong>
+
+      <br><br>
+
+      Tu peux ensuite personnaliser les lieux,
+      les plats et les activités.
+
+    </div>
+
 
     <button
       class="route-button"
@@ -880,13 +846,15 @@
       📘 Ouvrir le résumé du chapitre
     </button>
 
+
     <button
-      class="continue-button"
+      class="route-button"
       type="button"
       onclick="window.location.href='itineraire.html'"
     >
-      🌿 Retour à l'itinéraire
+      🌿 Retour à mon itinéraire
     </button>
+
 
     <button
       class="chapter-button"
@@ -898,14 +866,16 @@
 
   </section>
 
+
 </main>
+
 
 
 <script src="chapter-progress.js"></script>
 
 <script>
 
-  const CHAPTER = 20;
+  const CHAPTER = 19;
 
   const UNDERSTANDING_KEY =
     "hanaKorean_chapter20_understanding";
@@ -990,8 +960,12 @@
   }
 
 
+
+
+
   let incorrectAttempts =
     0;
+
 
   let hintCount =
     0;
@@ -1001,9 +975,9 @@
     1: false,
     2: false,
     3: false,
-    4: false,
-    5: false
+    4: false
   };
+
 
 
   function toggleHint(
@@ -1015,14 +989,17 @@
         "hint" + number
       );
 
+
     const wasHidden =
       !hint.classList.contains(
         "show"
       );
 
+
     hint.classList.toggle(
       "show"
     );
+
 
     if (wasHidden) {
 
@@ -1031,6 +1008,7 @@
     }
 
   }
+
 
 
   function checkAnswer(
@@ -1047,15 +1025,18 @@
       return;
     }
 
+
     const step =
       document.getElementById(
         "step" + number
       );
 
+
     const answers =
       step.querySelectorAll(
         ".answer"
       );
+
 
     const feedback =
       document.getElementById(
@@ -1069,37 +1050,63 @@
         number
       ] = true;
 
+
       button.classList.add(
         "correct"
       );
+
 
       feedback.className =
         "feedback correct";
 
 
-      const correctMessages = {
+      if (
+        number === 1
+      ) {
 
-        1:
-          "✅ <strong>Exact !</strong><br><br><strong>프랑스에서 왔어요.</strong> = Je viens de France.",
+        feedback.innerHTML =
+          "✅ <strong>Exact !</strong>" +
+          "<br><br>" +
+          "<strong>서울에 갔어요.</strong> signifie « Je suis allé(e) à Séoul. »";
 
-        2:
-          "✅ <strong>Très bien !</strong><br><br><strong>회사에서 일해요.</strong> = Je travaille dans une entreprise.",
+      }
 
-        3:
-          "✅ <strong>Exact !</strong><br><br><strong>사진 찍는 것을 좋아해요.</strong> = J'aime prendre des photos.",
 
-        4:
-          "✅ <strong>Très bien !</strong><br><br><strong>커피도 좋아해요.</strong> ajoute « le café aussi ».",
+      if (
+        number === 2
+      ) {
 
-        5:
-          "✅ <strong>Mission réussie !</strong><br><br><strong>저도 좋아해요!</strong> permet de répondre « Moi aussi, j'aime ça ! »."
+        feedback.innerHTML =
+          "✅ <strong>Très bien !</strong>" +
+          "<br><br>" +
+          "<strong>비빔밥을 먹었어요.</strong> permet de dire que tu as mangé un bibimbap.";
 
-      };
+      }
 
-      feedback.innerHTML =
-        correctMessages[
-          number
-        ];
+
+      if (
+        number === 3
+      ) {
+
+        feedback.innerHTML =
+          "✅ <strong>Exact !</strong>" +
+          "<br><br>" +
+          "<strong>사진을 많이 찍었어요.</strong> signifie « J'ai pris beaucoup de photos. »";
+
+      }
+
+
+      if (
+        number === 4
+      ) {
+
+        feedback.innerHTML =
+          "✅ <strong>Mission réussie !</strong>" +
+          "<br><br>" +
+          "<strong>정말 좋았어요.</strong> termine naturellement ton récit avec une impression au passé.";
+
+      }
+
 
       answers.forEach(
         answer => {
@@ -1110,10 +1117,12 @@
         }
       );
 
+
       document.getElementById(
         "next" + number
       ).style.display =
         "block";
+
 
       return;
 
@@ -1122,39 +1131,80 @@
 
     incorrectAttempts++;
 
+
     button.classList.add(
       "wrong"
     );
+
 
     feedback.className =
       "feedback wrong";
 
 
-    const wrongMessages = {
+    if (
+      number === 1
+    ) {
 
-      1:
-        "❌ <strong>Tu veux dire d'où tu viens.</strong><br><br>💡 Utilise <strong>프랑스에서 왔어요.</strong>",
+      feedback.innerHTML =
+        "❌ <strong>Tu racontes une action passée.</strong>" +
+        "<br><br>" +
+        "💡 Utilise <strong>갔어요</strong>, pas 가요.";
 
-      2:
-        "❌ <strong>Ji-Soo te demande ton métier.</strong><br><br>💡 <strong>회사에서 일해요.</strong> = Je travaille dans une entreprise.",
+    }
 
-      3:
-        "❌ <strong>Tu veux parler de ton loisir.</strong><br><br>💡 Utilise <strong>사진 찍는 것을 좋아해요.</strong>",
 
-      4:
-        "❌ <strong>Ici, c'est le café que tu ajoutes.</strong><br><br>💡 <strong>커피도 좋아해요.</strong> = J'aime aussi le café.",
+    if (
+      number === 2
+    ) {
 
-      5:
-        "❌ <strong>Ici, tu veux dire « moi aussi ».</strong><br><br>💡 Commence par <strong>저도</strong>."
+      feedback.innerHTML =
+        "❌ <strong>Min-su demande ce que tu as mangé.</strong>" +
+        "<br><br>" +
+        "💡 <strong>먹었어요</strong> = j'ai mangé.";
 
-    };
+    }
 
-    feedback.innerHTML =
-      wrongMessages[
-        number
-      ];
+
+    if (
+      number === 3
+    ) {
+
+      feedback.innerHTML =
+        "❌ <strong>Tu veux parler des photos que tu as prises.</strong>" +
+        "<br><br>" +
+        "💡 Utilise <strong>찍었어요</strong>.";
+
+    }
+
+
+    if (
+      number === 4
+    ) {
+
+      feedback.innerHTML =
+        "❌ <strong>Il faut répondre au passé.</strong>" +
+        "<br><br>" +
+        "💡 <strong>정말 좋았어요.</strong> = C'était vraiment bien.";
+
+    }
 
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
   function showStep(
@@ -1163,7 +1213,7 @@
 
     for (
       let i = 1;
-      i <= 5;
+      i <= 4;
       i++
     ) {
 
@@ -1175,25 +1225,29 @@
 
     }
 
+
     document.getElementById(
       "step" + number
     ).classList.remove(
       "hidden"
     );
 
+
     document.getElementById(
       "progressLabel"
     ).textContent =
       number +
-      " / 5";
+      " / 4";
+
 
     document.getElementById(
       "progressFill"
     ).style.width =
       (
-        number * 20
+        number * 25
       ) +
       "%";
+
 
     window.scrollTo({
       top: 0,
@@ -1203,22 +1257,26 @@
   }
 
 
+
   function finishMission() {
 
     document.getElementById(
-      "step5"
+      "step4"
     ).classList.add(
       "hidden"
     );
+
 
     const resultCard =
       document.getElementById(
         "resultCard"
       );
 
+
     resultCard.classList.add(
       "show"
     );
+
 
     const attemptText =
       document.getElementById(
@@ -1244,7 +1302,7 @@
         "Indices utilisés : <strong>" +
         hintCount +
         "</strong><br><br>" +
-        "Tu as tout de même mené la conversation jusqu'au bout.";
+        "Tu as tout de même mené la situation jusqu'au bout.";
 
     }
 
@@ -1259,15 +1317,18 @@
       "completed"
     );
 
+
     localStorage.setItem(
       MISSION_MISTAKES_KEY,
       String(incorrectAttempts)
     );
 
+
     localStorage.setItem(
       MISSION_HINTS_KEY,
       String(hintCount)
     );
+
 
     localStorage.setItem(
       COMPLETED_KEY,
@@ -1275,6 +1336,7 @@
     );
 
     renderChapterProgress();
+
 
     window.scrollTo({
       top: 0,

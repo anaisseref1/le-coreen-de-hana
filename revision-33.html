@@ -22,44 +22,43 @@
 <section id="hanaChapterPath" data-chapter-path></section>
 <header>
   <span class="chapter-badge">Chapitre 33 · 🧠 Révision</span>
-  <h1>Je consolide les raisons</h1>
+  <h1>Je consolide mon opinion</h1>
 </header>
 
 <section class="review-card">
-  <h2>❓ Demander</h2>
-  <div class="item"><strong>왜 한국을 좋아해요?</strong><br>Pourquoi aimes-tu la Corée ?</div>
+  <h2>💙 La structure</h2>
+  <div class="item"><strong>재미있다 → 재미있다고 생각해요.</strong><br>Je pense que c'est intéressant.</div>
+  <div class="item"><strong>어렵다 → 어렵다고 생각해요.</strong><br>Je pense que c'est difficile.</div>
+  <div class="item"><strong>특별하다 → 특별하다고 생각해요.</strong><br>Je pense que c'est spécial.</div>
 </section>
 
 <section class="review-card">
-  <h2>💬 Répondre</h2>
-  <div class="item"><strong>풍경이 아름다워서 좋아해요.</strong><br>J'aime parce que les paysages sont magnifiques.</div>
-  <div class="item"><strong>풍경이 아름다워서요.</strong><br>Parce que les paysages sont magnifiques.</div>
+  <h2>💬 Demander un avis</h2>
+  <div class="item"><strong>이 영화 어때요?</strong><br>Que penses-tu de ce film ?</div>
+  <div class="item"><strong>이 영화 어떻게 생각해요?</strong><br>Qu'est-ce que tu penses de ce film ?</div>
 </section>
 
 <section class="review-card">
-  <h2>➡️ 그래서</h2>
-  <div class="item"><strong>서울에 있으면 마음이 편해요. 그래서 다시 가고 싶어요.</strong><br>Je me sens bien à Séoul. C'est pourquoi je veux y retourner.</div>
+  <h2>🗣️ Réagir</h2>
+  <div class="item"><strong>맞아요.</strong> → Exactement.</div>
+  <div class="item"><strong>저도 그렇게 생각해요.</strong> → Moi aussi, je pense comme ça.</div>
+  <div class="item"><strong>저는 조금 다르게 생각해요.</strong> → Moi, je pense un peu différemment.</div>
 </section>
 
 <section class="review-card">
-  <h2>💙 À ne pas confondre</h2>
-  <div class="item"><strong>좋다 → 좋아서</strong><br>parce que c'est bien / parce que cela plaît</div>
-  <div class="item"><strong>좋아하다 → 좋아해서</strong><br>parce que j'aime</div>
-</section>
-
-<section class="review-card">
-  <h2>🌿 À reconnaître</h2>
-  <div class="item"><strong>왜냐하면</strong> → parce que / la raison, c'est que…<br><small>Pas besoin de le maîtriser comme structure principale pour l'instant.</small></div>
+  <h2>🌱 À ne pas confondre</h2>
+  <div class="item"><strong>맛있을 것 같아요.</strong> → Ça a l'air bon / supposition.</div>
+  <div class="item"><strong>맛있다고 생각해요.</strong> → Je pense que c'est bon / opinion.</div>
 </section>
 
 <section class="review-card">
   <h2>🟨 Mon point à revoir</h2>
   <div class="weak-list">
-    <button class="weak-button" data-value="formation">Former -아서/어서</button>
-    <button class="weak-button" data-value="short">Réponse courte -아서/어서요</button>
-    <button class="weak-button" data-value="geuraeseo">그래서</button>
-    <button class="weak-button" data-value="goodlike">좋다 / 좋아하다</button>
-    <button class="weak-button" data-value="why">왜</button>
+    <button class="weak-button" data-value="dago">-다고 생각해요</button>
+    <button class="weak-button" data-value="ask">어때요? / 어떻게 생각해요?</button>
+    <button class="weak-button" data-value="agree">Être d'accord</button>
+    <button class="weak-button" data-value="different">Exprimer un avis différent</button>
+    <button class="weak-button" data-value="contrast">것 같아요 vs 생각해요</button>
   </div>
 </section>
 
@@ -71,48 +70,22 @@
 const WRITING_KEY="hanaKorean_chapter33_writing";
 const REVIEW_KEY="hanaKorean_chapter33_review";
 const WEAK_KEY="hanaKorean_chapter33_reviewWeak";
-const complete=document.getElementById("completeButton");
-const next=document.getElementById("nextButton");
-
-function guard(){
-  if(localStorage.getItem(WRITING_KEY)!=="completed"){
-    window.location.href="ecriture-33.html";
-    return false;
-  }
-  return true;
-}
+const complete=document.getElementById("completeButton"),next=document.getElementById("nextButton");
+function guard(){if(localStorage.getItem(WRITING_KEY)!=="completed"){window.location.href="ecriture-33.html";return false;}return true;}
 if(!guard())throw new Error("chapter33-review-guard");
-
 let weak=new Set(JSON.parse(localStorage.getItem(WEAK_KEY)||"[]"));
 document.querySelectorAll(".weak-button").forEach(btn=>{
   if(weak.has(btn.dataset.value))btn.classList.add("selected");
   btn.addEventListener("click",()=>{
-    if(weak.has(btn.dataset.value)){
-      weak.delete(btn.dataset.value);
-      btn.classList.remove("selected");
-    }else{
-      weak.add(btn.dataset.value);
-      btn.classList.add("selected");
-    }
+    if(weak.has(btn.dataset.value)){weak.delete(btn.dataset.value);btn.classList.remove("selected");}
+    else{weak.add(btn.dataset.value);btn.classList.add("selected");}
     localStorage.setItem(WEAK_KEY,JSON.stringify([...weak]));
   });
 });
-function refresh(){
-  if(localStorage.getItem(REVIEW_KEY)==="completed"){
-    complete.textContent="✅ Révision terminée";
-    complete.disabled=true;
-    next.style.display="block";
-  }
-  if(window.HanaChapterProgress)HanaChapterProgress.render();
-}
-complete.addEventListener("click",()=>{
-  localStorage.setItem(WEAK_KEY,JSON.stringify([...weak]));
-  localStorage.setItem(REVIEW_KEY,"completed");
-  refresh();
-});
+function refresh(){if(localStorage.getItem(REVIEW_KEY)==="completed"){complete.textContent="✅ Révision terminée";complete.disabled=true;next.style.display="block";}if(window.HanaChapterProgress)HanaChapterProgress.render();}
+complete.addEventListener("click",()=>{localStorage.setItem(WEAK_KEY,JSON.stringify([...weak]));localStorage.setItem(REVIEW_KEY,"completed");refresh();});
 next.addEventListener("click",()=>window.location.href="utilise-33.html");
-window.addEventListener("pageshow",()=>{if(guard())refresh();});
-refresh();
+window.addEventListener("pageshow",()=>{if(guard())refresh();});refresh();
 </script>
 </body>
 </html>

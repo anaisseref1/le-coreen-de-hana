@@ -421,9 +421,9 @@
 
 
     <p>
-      Tu entres dans le café de Ji-eun.
-      Utilise ce que tu as appris pour commander,
-      répondre à ses questions et terminer naturellement l'échange.
+      Tu es dans le métro de Séoul.
+      Cette fois, utilise ce que tu as appris
+      pour choisir la bonne ligne et comprendre ton trajet.
     </p>
 
   </header>
@@ -437,21 +437,21 @@
 
   <section class="mission-intro">
 
-    <strong>🎯 Ta mission</strong>
+    <strong>
+      🎯 Ta mission
+    </strong>
 
     <br><br>
 
-    Tu veux commander
-    <strong>un café chaud</strong>
-    dans le café de Ji-eun.
+    Tu veux rejoindre
+    <strong>명동 — Myeong-dong</strong>.
 
     <br><br>
 
-    Commande ta boisson,
-    choisis sur place ou à emporter,
-    comprends le prix,
-    indique que tu paies par carte
-    puis réagis naturellement à la fin.
+    Demande quelle ligne prendre,
+    comprends où faire la correspondance,
+    repère la prochaine station
+    et vérifie la bonne sortie.
 
   </section>
 
@@ -492,28 +492,30 @@
   <section class="mission-card" id="step1">
 
     <div class="scene-card">
-      ☕ Tu arrives au comptoir.
+      🚇 Tu es dans le métro de Séoul.
       <br><br>
-      Ji-eun te sourit et attend ta commande.
+      Tu veux aller à Myeong-dong et tu demandes de l'aide à Monsieur Park.
     </div>
 
-    <h2 class="mission-question">Que dis-tu ?</h2>
+    <h2 class="mission-question">
+      Que dis-tu ?
+    </h2>
 
     <div class="answers">
 
       <button class="answer" type="button"
         onclick="checkAnswer(1, this, true)">
-        안녕하세요. 뜨거운 커피 한 잔 주세요.
+        실례합니다. 명동에 가려면 몇 호선을 타야 해요?
       </button>
 
       <button class="answer" type="button"
         onclick="checkAnswer(1, this, false)">
-        안녕하세요. 커피 얼마예요?
+        명동이 어디에 있어요?
       </button>
 
       <button class="answer" type="button"
         onclick="checkAnswer(1, this, false)">
-        안녕하세요. 맛있어요.
+        몇 번 출구예요?
       </button>
 
     </div>
@@ -526,8 +528,9 @@
     </button>
 
     <div class="hint-box" id="hint1">
-      Tu commandes <strong>un café chaud</strong>.
-      Pense à <strong>뜨거운 커피 한 잔 주세요.</strong>
+      Tu veux demander <strong>quelle ligne prendre</strong> pour aller à une destination.
+      Pense au modèle
+      <strong>___에 가려면 몇 호선을 타야 해요?</strong>.
     </div>
 
     <button class="next-button" id="next1" type="button"
@@ -547,34 +550,34 @@
     <div class="npc-line">
 
       <div class="npc-name">
-        💚 Ji-eun
+        👨 Monsieur Park
       </div>
 
       <div class="npc-korean">
-        드시고 가세요? 포장이세요?
+        사호선을 타세요. 서울역에서 갈아타세요.
       </div>
 
     </div>
 
     <h2 class="mission-question">
-      Tu veux boire ton café sur place. Que réponds-tu ?
+      Que dois-tu faire ?
     </h2>
 
     <div class="answers">
 
       <button class="answer" type="button"
+        onclick="checkAnswer(2, this, false)">
+        Prendre la ligne 2 et descendre à Seoul Station.
+      </button>
+
+      <button class="answer" type="button"
         onclick="checkAnswer(2, this, true)">
-        여기서 마실게요.
+        Prendre la ligne 4 et changer à Seoul Station.
       </button>
 
       <button class="answer" type="button"
         onclick="checkAnswer(2, this, false)">
-        포장해 주세요.
-      </button>
-
-      <button class="answer" type="button"
-        onclick="checkAnswer(2, this, false)">
-        카드로 할게요.
+        Prendre un bus à Seoul Station.
       </button>
 
     </div>
@@ -587,8 +590,8 @@
     </button>
 
     <div class="hint-box" id="hint2">
-      Pour dire que tu vas boire ici,
-      utilise <strong>여기서 마실게요.</strong>
+      <strong>사호선</strong> = ligne 4
+      et <strong>갈아타세요</strong> = changez / faites une correspondance.
     </div>
 
     <button class="next-button" id="next2" type="button"
@@ -605,37 +608,43 @@
 
   <section class="mission-card hidden" id="step3">
 
+    <div class="scene-card">
+      📢 Tu es dans le métro.
+      <br><br>
+      Une annonce retentit :
+    </div>
+
     <div class="npc-line">
 
       <div class="npc-name">
-        💚 Ji-eun
+        🚇 Annonce du métro
       </div>
 
       <div class="npc-korean">
-        오천 원입니다. 카드로 하시겠어요?
+        다음 역은 서울역입니다.
       </div>
 
     </div>
 
     <h2 class="mission-question">
-      Que comprends-tu et que réponds-tu ?
+      Que dois-tu comprendre ?
     </h2>
 
     <div class="answers">
 
       <button class="answer" type="button"
-        onclick="checkAnswer(3, this, false)">
-        C'est 3 000 wons, et je paie en espèces.
-      </button>
-
-      <button class="answer" type="button"
         onclick="checkAnswer(3, this, true)">
-        C'est 5 000 wons, et je vais payer par carte.
+        La prochaine station est Seoul Station.
       </button>
 
       <button class="answer" type="button"
         onclick="checkAnswer(3, this, false)">
-        C'est 10 000 wons, et je veux emporter.
+        Cette station est Seoul Station.
+      </button>
+
+      <button class="answer" type="button"
+        onclick="checkAnswer(3, this, false)">
+        Il faut sortir à Seoul Station.
       </button>
 
     </div>
@@ -648,8 +657,9 @@
     </button>
 
     <div class="hint-box" id="hint3">
-      <strong>오천 원</strong> = 5 000 wons
-      et <strong>카드</strong> = carte bancaire.
+      <strong>다음 역</strong>
+      signifie
+      <strong>« la station suivante »</strong>.
     </div>
 
     <button class="next-button" id="next3" type="button"
@@ -666,43 +676,31 @@
 
   <section class="mission-card hidden" id="step4">
 
-    <div class="npc-line">
-
-      <div class="npc-name">
-        💚 Ji-eun
-      </div>
-
-      <div class="npc-korean">
-        맛있게 드세요!
-      </div>
-
-    </div>
-
     <div class="scene-card">
-      😋 Tu goûtes ton café.
+      🚪 Tu arrives à destination.
       <br><br>
-      Il est vraiment bon.
+      Il y a plusieurs sorties et tu veux demander laquelle prendre.
     </div>
 
     <h2 class="mission-question">
-      Quelle réponse est la plus naturelle ?
+      Quelle question est la plus adaptée ?
     </h2>
 
     <div class="answers">
 
       <button class="answer" type="button"
         onclick="checkAnswer(4, this, false)">
-        포장해 주세요.
+        몇 호선이에요?
       </button>
 
       <button class="answer" type="button"
         onclick="checkAnswer(4, this, true)">
-        감사합니다. 정말 맛있어요!
+        몇 번 출구예요?
       </button>
 
       <button class="answer" type="button"
         onclick="checkAnswer(4, this, false)">
-        얼마예요?
+        이번 역이에요?
       </button>
 
     </div>
@@ -715,8 +713,7 @@
     </button>
 
     <div class="hint-box" id="hint4">
-      Ji-eun te souhaite une bonne dégustation.
-      Tu peux remercier puis dire que c'est délicieux.
+      Le mot <strong>출구</strong> signifie <strong>« sortie »</strong>.
     </div>
 
     <button class="next-button" id="next4" type="button"
@@ -737,7 +734,7 @@
   >
 
     <div class="result-icon">
-      🎯☕
+      🎯🚇
     </div>
 
 
@@ -748,13 +745,13 @@
 
     <p>
       Mission réussie :
-      tu as commandé ton café,
-      compris les questions de Ji-eun et terminé l'échange naturellement.
+      tu as choisi une ligne,
+      compris une correspondance et reconnu une annonce du métro.
     </p>
 
 
     <p class="result-score">
-      Chapitre 12 terminé ✅
+      Chapitre 14 terminé ✅
     </p>
 
 
@@ -777,11 +774,21 @@
 
       <br><br>
 
-      <div class="skill-line">☕ Commander une boisson</div>
-      <div class="skill-line">🔥 Choisir une boisson chaude</div>
-      <div class="skill-line">🥤 Répondre « sur place ou à emporter »</div>
-      <div class="skill-line">💳 Comprendre un prix et payer par carte</div>
-      <div class="skill-line">😋 Réagir naturellement après avoir goûté</div>
+      <div class="skill-line">
+        🚇 Demander quelle ligne prendre
+      </div>
+
+      <div class="skill-line">
+        🔁 Comprendre où faire une correspondance
+      </div>
+
+      <div class="skill-line">
+        📢 Repérer la station suivante dans une annonce
+      </div>
+
+      <div class="skill-line">
+        🚪 Demander quelle sortie prendre
+      </div>
 
     </div>
 
@@ -794,28 +801,21 @@
 
       <br><br>
 
-      Imagine maintenant ton vrai passage dans un café coréen.
+      Imagine que tu visites Séoul.
 
       <br><br>
 
-      Quelle boisson commanderais-tu ?
+      Quelle ligne aimerais-tu emprunter et pour aller où ?
 
       <br><br>
 
-      Essaie de construire mentalement une petite commande avec :
+      Essaie de construire une phrase avec le modèle :
 
       <br><br>
 
       <strong>
-        ___ 한 잔 주세요.
+        ___에 가려면 몇 호선을 타야 해요?
       </strong>
-
-      <br>
-
-      puis choisis
-      <strong>sur place</strong>
-      ou
-      <strong>à emporter</strong>.
 
     </div>
 
@@ -848,7 +848,7 @@
 
 <script>
 
-  const CHAPTER = 14;
+  const CHAPTER = 13;
 
   const UNDERSTANDING_KEY =
     "hanaKorean_chapter14_understanding";
@@ -880,58 +880,28 @@
 
   function guardMissionAccess() {
 
-    if (
-      localStorage.getItem(
-        UNDERSTANDING_KEY
-      ) !== "completed"
-    ) {
-      window.location.replace(
-        "chapitre-14.html"
-      );
+    if (localStorage.getItem(UNDERSTANDING_KEY) !== "completed") {
+      window.location.replace("chapitre-14.html");
       return false;
     }
 
-    if (
-      localStorage.getItem(
-        LISTENING_EXERCISE_KEY
-      ) !== "completed"
-    ) {
-      window.location.replace(
-        "ecoute-14.html"
-      );
+    if (localStorage.getItem(LISTENING_EXERCISE_KEY) !== "completed") {
+      window.location.replace("ecoute-14.html");
       return false;
     }
 
-    if (
-      localStorage.getItem(
-        SPEAKING_KEY
-      ) !== "completed"
-    ) {
-      window.location.replace(
-        "parle-14.html"
-      );
+    if (localStorage.getItem(SPEAKING_KEY) !== "completed") {
+      window.location.replace("parle-14.html");
       return false;
     }
 
-    if (
-      localStorage.getItem(
-        WRITING_KEY
-      ) !== "completed"
-    ) {
-      window.location.replace(
-        "écriture-14.html"
-      );
+    if (localStorage.getItem(WRITING_KEY) !== "completed") {
+      window.location.replace("écriture-13.html");
       return false;
     }
 
-    if (
-      localStorage.getItem(
-        REVIEW_KEY
-      ) !== "completed"
-    ) {
-      window.location.replace(
-        "revision-14.html"
-      );
+    if (localStorage.getItem(REVIEW_KEY) !== "completed") {
+      window.location.replace("revision-14.html");
       return false;
     }
 
@@ -940,11 +910,9 @@
 
 
   function renderChapterProgress() {
-
     if (
       window.HanaChapterProgress &&
-      typeof window.HanaChapterProgress.render ===
-        "function"
+      typeof window.HanaChapterProgress.render === "function"
     ) {
       window.HanaChapterProgress.render();
     }
@@ -1053,9 +1021,9 @@
       ) {
 
         feedback.innerHTML =
-          "✅ <strong>Parfait !</strong>" +
+          "✅ <strong>Très bien !</strong>" +
           "<br><br>" +
-          "Tu commandes naturellement avec <strong>뜨거운 커피 한 잔 주세요.</strong>";
+          "Tu utilises le modèle du chapitre pour demander quelle ligne prendre.";
 
       }
 
@@ -1065,9 +1033,9 @@
       ) {
 
         feedback.innerHTML =
-          "✅ <strong>Très bien !</strong>" +
+          "✅ <strong>Exact !</strong>" +
           "<br><br>" +
-          "<strong>여기서 마실게요.</strong> indique que tu vas boire sur place.";
+          "<strong>사호선</strong> = ligne 4 et <strong>갈아타세요</strong> indique une correspondance.";
 
       }
 
@@ -1077,9 +1045,9 @@
       ) {
 
         feedback.innerHTML =
-          "✅ <strong>Exact !</strong>" +
+          "✅ <strong>Très bien !</strong>" +
           "<br><br>" +
-          "<strong>오천 원</strong> = 5 000 wons et <strong>카드</strong> indique le paiement par carte.";
+          "<strong>다음 역</strong> signifie que Seoul Station est la prochaine station.";
 
       }
 
@@ -1091,7 +1059,7 @@
         feedback.innerHTML =
           "✅ <strong>Mission réussie !</strong>" +
           "<br><br>" +
-          "<strong>감사합니다. 정말 맛있어요!</strong> termine l'échange naturellement.";
+          "<strong>몇 번 출구예요?</strong> permet de demander quelle sortie prendre.";
 
       }
 
@@ -1134,9 +1102,9 @@
     ) {
 
       feedback.innerHTML =
-        "❌ <strong>Tu veux commander, pas demander le prix.</strong>" +
+        "❌ <strong>Tu demandes une ligne, pas seulement un lieu.</strong>" +
         "<br><br>" +
-        "💡 Pense à <strong>뜨거운 커피 한 잔 주세요.</strong>.";
+        "💡 Pense au modèle <strong>___에 가려면 몇 호선을 타야 해요?</strong>.";
 
     }
 
@@ -1146,9 +1114,9 @@
     ) {
 
       feedback.innerHTML =
-        "❌ <strong>Tu veux rester sur place.</strong>" +
+        "❌ <strong>Repère deux éléments.</strong>" +
         "<br><br>" +
-        "💡 <strong>여기서 마실게요.</strong> = je vais boire ici.";
+        "💡 <strong>사호선</strong> = ligne 4 et <strong>갈아타세요</strong> = changez.";
 
     }
 
@@ -1158,9 +1126,9 @@
     ) {
 
       feedback.innerHTML =
-        "❌ <strong>Repère le prix et 카드.</strong>" +
+        "❌ <strong>Repère 다음 역.</strong>" +
         "<br><br>" +
-        "💡 <strong>오천 원</strong> = 5 000 wons ; <strong>카드</strong> = carte.";
+        "💡 Cela signifie « la station suivante ».";
 
     }
 
@@ -1170,9 +1138,9 @@
     ) {
 
       feedback.innerHTML =
-        "❌ <strong>La commande est déjà terminée.</strong>" +
+        "❌ <strong>Repère 출구.</strong>" +
         "<br><br>" +
-        "💡 Remercie puis dis que c'est délicieux.";
+        "💡 <strong>출구</strong> signifie « sortie ».";
 
     }
 
@@ -1319,11 +1287,9 @@
   }
 
 
-
   if (
     guardMissionAccess()
   ) {
-
     renderChapterProgress();
 
     window.addEventListener(

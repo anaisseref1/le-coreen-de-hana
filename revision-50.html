@@ -1,0 +1,21 @@
+<!DOCTYPE html><html lang="fr"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#F7F4ED"><title>Chapitre 50 — Révision</title>
+<link rel="stylesheet" href="style.css"><link rel="stylesheet" href="chapter-progress.css">
+<script src="profile.js"></script></head><body><main class="app"><a class="back-link" href="ecriture-50.html">← Retour</a>
+<section id="hanaChapterPath" data-chapter-path></section>
+<header><span class="chapter-badge">Chapitre 50 · 🧠</span><h1>Révision</h1></header>
+<section class="card">
+<p><strong>하루에 몇 번?</strong> → combien de fois par jour ?</p>
+<p><strong>한 번에 몇 알?</strong> → combien de comprimés par prise ?</p>
+<p><strong>식전 / 식후</strong> → avant / après le repas</p>
+<p><strong>물하고 같이?</strong> → avec de l’eau ?</p>
+<p><strong>다시 한번 천천히 말해 주세요.</strong> → répétez lentement.</p></section>
+<button id="done" style="width:100%">✅ Terminé</button>
+<button id="next" style="display:none;width:100%">Continuer →</button>
+</main>
+<script src="chapter-progress.js"></script><script>
+const K="hanaKorean_chapter50_review",d=document.getElementById("done"),n=document.getElementById("next");
+function r(){if(localStorage.getItem(K)==="completed"){d.disabled=true;n.style.display="block"}if(window.HanaChapterProgress)HanaChapterProgress.render()}
+d.onclick=()=>{localStorage.setItem(K,"completed");r()};n.onclick=()=>location.href="utilise-50.html";r();
+</script></body></html>

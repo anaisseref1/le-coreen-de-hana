@@ -21,56 +21,62 @@
 <section id="hanaChapterPath" data-chapter-path></section>
 <header>
   <span class="chapter-badge">Chapitre 37 · 🎯 Je l'utilise</span>
-  <h1>Mission finale : mon film</h1>
-  <p>Choisis les formulations naturelles puis parle d'un film que tu connais.</p>
+  <h1>Mission finale : organiser une sortie</h1>
+  <p>Propose, accepte ou refuse, puis fixe le jour, l'heure et le lieu.</p>
 </header>
 
 <section class="card">
   <div class="mission" data-answer="b">
-    <p><strong>1. « Quel film veux-tu voir ? »</strong></p>
-    <button data-choice="a">어느 배우 좋아해요?</button>
-    <button data-choice="b">어떤 영화 보고 싶어요?</button>
-    <button data-choice="c">영화 어땠어요?</button>
+    <p><strong>1. « Tu veux voir un film ? »</strong></p>
+    <button data-choice="a">영화 볼까요?</button>
+    <button data-choice="b">영화 볼래요?</button>
+    <button data-choice="c">영화 봤어요?</button>
     <div class="feedback"></div>
   </div>
 
   <div class="mission" data-answer="a">
-    <p><strong>2. Avant le film : « Ça a l'air intéressant. »</strong></p>
-    <button data-choice="a">재미있을 것 같아요.</button>
-    <button data-choice="b">재미있었어요.</button>
-    <button data-choice="c">재미없었어요.</button>
+    <p><strong>2. « On boit un café ? »</strong></p>
+    <button data-choice="a">커피 마실까요?</button>
+    <button data-choice="b">커피 마실래요?</button>
+    <button data-choice="c">커피 마셨어요?</button>
     <div class="feedback"></div>
   </div>
 
   <div class="mission" data-answer="c">
-    <p><strong>3. « Comment était le film ? »</strong></p>
-    <button data-choice="a">어떤 영화예요?</button>
-    <button data-choice="b">영화 볼래요?</button>
-    <button data-choice="c">영화 어땠어요?</button>
+    <p><strong>3. « À quelle heure on se retrouve ? »</strong></p>
+    <button data-choice="a">언제 만나요?</button>
+    <button data-choice="b">어디에서 만날까요?</button>
+    <button data-choice="c">몇 시에 만날까요?</button>
     <div class="feedback"></div>
   </div>
 
   <div class="mission" data-answer="b">
-    <p><strong>4. « C'était vraiment intéressant. »</strong></p>
-    <button data-choice="a">정말 재미있을 것 같아요.</button>
-    <button data-choice="b">정말 재미있었어요.</button>
-    <button data-choice="c">정말 재미있어요?</button>
+    <p><strong>4. Quel refus est poli ?</strong></p>
+    <button data-choice="a">싫어요.</button>
+    <button data-choice="b">미안해요. 약속이 있어요.</button>
+    <button data-choice="c">안 가요.</button>
     <div class="feedback"></div>
   </div>
 
   <div class="mission" data-answer="a">
-    <p><strong>5. « J'ai préféré la dernière scène. »</strong></p>
-    <button data-choice="a">마지막 장면이 제일 좋았어요.</button>
-    <button data-choice="b">마지막 장면을 보고 싶어요.</button>
-    <button data-choice="c">마지막 장면이 무서워요?</button>
+    <p><strong>5. « Et dimanche ? »</strong></p>
+    <button data-choice="a">일요일은 어때요?</button>
+    <button data-choice="b">일요일에 뭐 했어요?</button>
+    <button data-choice="c">일요일이 어디예요?</button>
     <div class="feedback"></div>
   </div>
 </section>
 
 <section class="card">
-  <h2>🎬 Mon film</h2>
-  <p>Écris 4 à 6 phrases : genre, avis, raison, scène ou personnage préféré.</p>
-  <textarea id="freeAnswer" rows="11" placeholder="이 영화는..."></textarea>
+  <h2>🧩 Organise une vraie sortie</h2>
+  <p>Min-su t'écrit : <strong>주말에 같이 뭐 할래요?</strong></p>
+  <p>Écris une mini-conversation qui contient :</p>
+  <p>① une activité</p>
+  <p>② un jour</p>
+  <p>③ une heure</p>
+  <p>④ un lieu</p>
+  <p>⑤ une conclusion naturelle</p>
+  <textarea id="freeAnswer" rows="11" placeholder="좋아요!&#10;영화 볼래요?&#10;..."></textarea>
 </section>
 
 <button id="finishButton" type="button" style="display:none;width:100%;">✅ Terminer le chapitre 37</button>
@@ -131,11 +137,11 @@ missions.forEach((m,i)=>{
       }else{
         btn.disabled=true;
         fb.textContent=[
-          "어떤 영화 = quel film / quel genre de film.",
-          "Avant de voir : -을 것 같아요.",
-          "어땠어요? = comment c'était ?",
-          "Après le film, utilise le passé.",
-          "제일 좋았어요 = j'ai préféré / c'était le mieux."
+          "-(으)ㄹ래요? demande ce que l'autre veut faire.",
+          "-(으)ㄹ까요? sert à proposer ensemble.",
+          "몇 시에 = à quelle heure.",
+          "미안해요 + raison = refus poli.",
+          "일요일은 어때요? = Et dimanche ?"
         ][i];
       }
     });
