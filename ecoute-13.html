@@ -3,256 +3,412 @@
 
 <head>
 
-  <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0"
+>
 
-  <meta
-    name="theme-color"
-    content="#F7F4ED"
-  >
+<meta
+name="theme-color"
+content="#F7F4ED"
+>
 
-  <title>Chapitre 13 — J'écoute</title>
+<title>
+Chapitre 13 — J'écoute
+</title>
 
-  <link
-    rel="stylesheet"
-    href="style.css"
-  >
 
-  <link
-    rel="stylesheet"
-    href="chapter-progress.css"
-  >
+<link
+rel="stylesheet"
+href="style.css"
+>
 
 
-  <style>
+<link
+rel="stylesheet"
+href="chapter-progress.css"
+>
 
-    .listen-header {
-      text-align: center;
-      margin-bottom: 28px;
-    }
 
+<script>
 
-    .listen-header h1 {
-      margin-bottom: 8px;
-    }
+if(
+localStorage.getItem(
+"hanaKorean_chapter13_understanding"
+)!=="completed"
+){
 
+window.location.replace(
+"chapitre-13.html"
+);
 
-    .listen-header p {
-      color: var(--text-light);
-      line-height: 1.7;
-    }
+}
 
+</script>
 
-    .goal-card,
-    .audio-card,
-    .tip-card {
-      padding: 20px;
-      margin-bottom: 18px;
 
-      background: var(--white);
 
-      border-radius: var(--radius-large);
+<style>
 
-      box-shadow: var(--shadow);
-    }
 
+.listen-header{
 
-    .goal-card {
-      background: var(--soft-green);
-      color: var(--navy);
-      line-height: 1.7;
-    }
+text-align:center;
+margin-bottom:25px;
 
+}
 
-    .audio-card h2 {
-      margin-top: 0;
-      color: var(--navy);
-    }
 
 
-    .expression-list {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
+.chapter-badge{
 
+display:inline-block;
+padding:7px 14px;
+border-radius:20px;
+margin-bottom:10px;
+font-size:14px;
+font-weight:bold;
 
-    .expression-item {
-      padding: 15px;
+}
 
-      background: #FBFAF6;
 
-      border-radius: var(--radius-medium);
-    }
 
+.listen-intro{
 
-    .expression-korean {
-      color: var(--navy);
-      font-size: 21px;
-      font-weight: bold;
-    }
+color:var(--text-light);
+line-height:1.7;
 
+}
 
-    .expression-french {
-      margin-top: 4px;
-      color: var(--text-light);
-    }
 
 
-    .expression-actions,
-    .line-actions,
-    .dialogue-controls,
-    .announcement-controls {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
+/* PROGRESSION */
 
-      margin-top: 12px;
-    }
 
+.progress-card{
 
-    .expression-actions button,
-    .line-actions button,
-    .dialogue-controls button,
-    .announcement-controls button {
-      flex: 1;
-      min-width: 135px;
-    }
+padding:17px;
+margin-bottom:20px;
+background:var(--white);
+border-radius:var(--radius-large);
+box-shadow:var(--shadow);
 
+}
 
-    .slow,
-    .dialogue-slow-button {
-      background: var(--soft-beige);
-      color: var(--navy);
-    }
 
 
-    .dialogue-play-button,
-    .announcement-main {
-      background: var(--jade);
-      color: white;
-      font-weight: bold;
-    }
+.progress-top{
 
+display:flex;
+justify-content:space-between;
+margin-bottom:10px;
+font-size:13px;
+color:var(--text-light);
 
-    .dialogue-line {
-      padding: 15px;
-      margin-top: 12px;
+}
 
-      border-radius: var(--radius-medium);
 
-      line-height: 1.7;
-    }
 
+.progress-bar{
 
-    .dialogue-line.hana {
-      background: var(--soft-green);
-    }
+height:9px;
+background:var(--soft-beige);
+border-radius:20px;
+overflow:hidden;
 
+}
 
-    .dialogue-line.park {
-      background: var(--soft-blue);
-    }
 
 
-    .speaker {
-      margin-bottom: 4px;
-      font-weight: bold;
-    }
+.progress-fill{
 
+height:100%;
+width:20%;
+background:var(--jade);
+transition:.3s;
 
-    .dialogue-korean {
-      color: var(--navy);
-      font-size: 19px;
-      font-weight: bold;
-    }
+}
 
 
-    .dialogue-french {
-      margin-top: 5px;
-      color: var(--text-light);
-    }
 
+/* CARTES */
 
-    .announcement-box {
-      padding: 18px;
-      margin-top: 14px;
 
-      background: var(--soft-blue);
+.listen-card{
 
-      border-radius: var(--radius-medium);
+padding:20px;
+margin-bottom:18px;
 
-      color: var(--navy);
+}
 
-      line-height: 1.7;
-    }
 
 
-    .announcement-korean {
-      margin: 10px 0 4px;
+.hidden{
 
-      color: var(--navy);
+display:none;
 
-      font-size: 21px;
-      font-weight: bold;
-    }
+}
 
 
-    .announcement-note {
-      padding: 13px;
-      margin-top: 14px;
 
-      background: var(--soft-beige);
+.step-number{
 
-      border-radius: var(--radius-small);
+font-size:13px;
+font-weight:bold;
+color:var(--jade-dark);
+margin-bottom:8px;
 
-      color: var(--text-light);
+}
 
-      font-size: 13px;
-      line-height: 1.6;
-    }
 
 
-    .tip-card {
-      background: var(--soft-beige);
-      color: var(--navy);
-      line-height: 1.7;
-    }
+/* AUDIO */
 
 
-    .next-button,
-    .chapter-button {
-      width: 100%;
-      margin-top: 10px;
-    }
+.audio-box{
 
+padding:16px;
+margin-top:15px;
+background:var(--soft-blue);
+border-radius:var(--radius-medium);
 
-    .next-button {
-      background: var(--jade);
-      color: white;
-      font-weight: bold;
-    }
+}
 
 
-    .chapter-button {
-      background: var(--soft-beige);
-      color: var(--navy);
-    }
 
+.audio-button{
 
-    .playing {
-      background: var(--navy) !important;
-      color: white !important;
-    }
+width:100%;
+margin-top:10px;
+background:var(--jade);
+color:white;
+font-weight:bold;
 
-  </style>
+}
+
+
+
+.slow-button{
+
+width:100%;
+margin-top:8px;
+background:var(--soft-beige);
+color:var(--navy);
+font-weight:bold;
+
+}
+
+
+
+/* DIALOGUE */
+
+
+.dialogue-line{
+
+padding:15px;
+margin-top:10px;
+border-radius:var(--radius-medium);
+line-height:1.7;
+
+}
+
+
+
+.dialogue-line.hana{
+
+background:var(--soft-green);
+
+}
+
+
+
+.dialogue-line.park{
+
+background:var(--soft-blue);
+
+}
+
+
+
+.speaker{
+
+font-weight:bold;
+
+}
+
+
+
+.korean{
+
+font-size:20px;
+font-weight:bold;
+color:var(--navy);
+
+}
+
+
+
+.translation{
+
+margin-top:5px;
+color:var(--text-light);
+
+}
+
+
+
+/* QUESTIONS */
+
+
+.question-box{
+
+padding:16px;
+margin-top:15px;
+background:var(--soft-green);
+border-radius:var(--radius-medium);
+line-height:1.7;
+
+}
+
+
+
+.choice-grid{
+
+display:grid;
+gap:10px;
+margin-top:15px;
+
+}
+
+
+
+.choice{
+
+padding:14px;
+background:#FBFAF6;
+border:1px solid var(--border);
+border-radius:var(--radius-medium);
+text-align:left;
+font-weight:bold;
+
+}
+
+
+
+.choice.correct{
+
+background:var(--success-light);
+
+}
+
+
+
+.choice.wrong{
+
+background:var(--warning-light);
+
+}
+
+
+
+/* FEEDBACK */
+
+
+.feedback{
+
+display:none;
+padding:15px;
+margin-top:14px;
+border-radius:var(--radius-medium);
+line-height:1.7;
+
+}
+
+
+
+.feedback.success{
+
+display:block;
+background:var(--success-light);
+
+}
+
+
+
+.feedback.error{
+
+display:block;
+background:var(--warning-light);
+
+}
+
+
+
+/* BOUTONS */
+
+
+.next-button{
+
+display:none;
+width:100%;
+margin-top:15px;
+background:var(--jade);
+color:white;
+font-weight:bold;
+
+}
+
+
+
+.next-button.show{
+
+display:block;
+
+}
+
+
+
+/* RESULTAT */
+
+
+.result-card{
+
+display:none;
+padding:22px;
+text-align:center;
+
+}
+
+
+
+.result-card.show{
+
+display:block;
+
+}
+
+
+
+.finish-button{
+
+width:100%;
+margin-top:18px;
+background:var(--jade);
+color:white;
+font-weight:bold;
+
+}
+
+
+
+</style>
+
 
   <script src="profile.js"></script>
 </head>
+
 
 
 <body>
@@ -261,1514 +417,1208 @@
 <main class="app">
 
 
-  <a
-    class="back-link"
-    href="chapitre-13.html"
-  >
-    ← Chapitre 13
-  </a>
 
+<a
+class="back-link"
+href="chapitre-13.html"
+>
+← Chapitre 13
+</a>
 
 
-  <header class="listen-header">
 
-    <span class="chapter-badge">
-      Chapitre 13 · Compréhension orale
-    </span>
+<header class="listen-header">
 
 
-    <p class="korean">
-      잘 들어 봐요 🚇
-    </p>
+<span class="chapter-badge">
 
+Chapitre 13 · Étape 2
 
-    <h1>
-      J'écoute
-    </h1>
+</span>
 
 
-    <p>
-      Écoute les mots du métro,
-      les phrases utiles,
-      puis entraîne-toi à reconnaître
-      une annonce simple de station.
-    </p>
+<p class="korean">
 
-  </header>
+들어 봐요 🎧
 
+</p>
 
-  <section id="hanaChapterPath" data-chapter-path></section>
 
+<h1>
 
-  <section class="goal-card">
+J'écoute
 
-    <strong>
-      🎯 Objectif
-    </strong>
+</h1>
 
-    <br><br>
 
-    Reconnaître à l'oreille
-    <strong>몇 호선</strong>,
-    <strong>타세요</strong>,
-    <strong>내리다</strong>,
-    <strong>갈아타다</strong>,
-    <strong>다음 역</strong>,
-    <strong>이번 역</strong>
-    et <strong>출구</strong>.
+<p class="listen-intro">
 
-  </section>
+Écoute les indications,
+repère les directions
+et comprends une personne
+qui t'aide dans la rue.
 
+</p>
 
 
-  <!-- =====================================================
-       1. MOTS
-       ===================================================== -->
+</header>
 
-  <section class="audio-card">
 
-    <h2>
-      🚇 1. Écoute les mots utiles
-    </h2>
 
 
-    <div class="expression-list">
+<section
+id="hanaChapterPath"
+data-chapter-path
+>
+</section>
 
 
-      <div class="expression-item">
 
-        <div class="expression-korean">
-          지하철
-        </div>
 
-        <div class="expression-french">
-          métro
-        </div>
 
-        <div class="expression-actions">
+<section class="progress-card">
 
-          <button
-            type="button"
-            onclick="speakKorean('지하철', 'hana', false)"
-          >
-            🔊 Écouter
-          </button>
 
-          <button
-            class="slow"
-            type="button"
-            onclick="speakKorean('지하철', 'hana', true)"
-          >
-            🐢 Lentement
-          </button>
+<div class="progress-top">
 
-        </div>
+<span>
 
-      </div>
+Compréhension orale
 
+</span>
 
 
-      <div class="expression-item">
+<strong id="progressLabel">
 
-        <div class="expression-korean">
-          몇 호선
-        </div>
+1 / 5
 
-        <div class="expression-french">
-          quelle ligne de métro
-        </div>
+</strong>
 
-        <div class="expression-actions">
 
-          <button
-            type="button"
-            onclick="speakKorean('몇 호선', 'hana', false)"
-          >
-            🔊 Écouter
-          </button>
+</div>
 
-          <button
-            class="slow"
-            type="button"
-            onclick="speakKorean('몇 호선', 'hana', true)"
-          >
-            🐢 Lentement
-          </button>
 
-        </div>
 
-      </div>
+<div class="progress-bar">
 
 
+<div
+class="progress-fill"
+id="progressFill"
+>
 
-      <div class="expression-item">
+</div>
 
-        <div class="expression-korean">
-          갈아타다
-        </div>
 
-        <div class="expression-french">
-          faire une correspondance
-        </div>
+</div>
 
-        <div class="expression-actions">
 
-          <button
-            type="button"
-            onclick="speakKorean('갈아타다', 'hana', false)"
-          >
-            🔊 Écouter
-          </button>
+</section>
 
-          <button
-            class="slow"
-            type="button"
-            onclick="speakKorean('갈아타다', 'hana', true)"
-          >
-            🐢 Lentement
-          </button>
 
-        </div>
 
-      </div>
 
 
 
-      <div class="expression-item">
+<!-- ETAPE 1 -->
 
-        <div class="expression-korean">
-          다음 역
-        </div>
 
-        <div class="expression-french">
-          station suivante
-        </div>
+<section
+class="listen-card"
+id="step1"
+>
 
-        <div class="expression-actions">
 
-          <button
-            type="button"
-            onclick="speakKorean('다음 역', 'announcement', false)"
-          >
-            🔊 Écouter
-          </button>
+<div class="step-number">
 
-          <button
-            class="slow"
-            type="button"
-            onclick="speakKorean('다음 역', 'announcement', true)"
-          >
-            🐢 Lentement
-          </button>
+ÉTAPE 1 / 5
 
-        </div>
+</div>
 
-      </div>
 
+<h2>
 
+📍 Reconnaître la question
 
-      <div class="expression-item">
+</h2>
 
-        <div class="expression-korean">
-          이번 역
-        </div>
 
-        <div class="expression-french">
-          cette station
-        </div>
 
-        <div class="expression-actions">
+<div class="audio-box">
 
-          <button
-            type="button"
-            onclick="speakKorean('이번 역', 'announcement', false)"
-          >
-            🔊 Écouter
-          </button>
 
-          <button
-            class="slow"
-            type="button"
-            onclick="speakKorean('이번 역', 'announcement', true)"
-          >
-            🐢 Lentement
-          </button>
+Écoute puis choisis la traduction.
 
-        </div>
+<br><br>
 
-      </div>
 
+<strong>
 
+어디에 있어요?
 
-      <div class="expression-item">
+</strong>
 
-        <div class="expression-korean">
-          출구
-        </div>
 
-        <div class="expression-french">
-          sortie
-        </div>
+<button
+class="audio-button"
+onclick="speakKorean('어디에 있어요?',0.8)"
+>
 
-        <div class="expression-actions">
+🔊 Écouter
 
-          <button
-            type="button"
-            onclick="speakKorean('출구', 'hana', false)"
-          >
-            🔊 Écouter
-          </button>
+</button>
 
-          <button
-            class="slow"
-            type="button"
-            onclick="speakKorean('출구', 'hana', true)"
-          >
-            🐢 Lentement
-          </button>
 
-        </div>
+<button
+class="slow-button"
+onclick="speakKorean('어디에 있어요?',0.35)"
+>
 
-      </div>
+🐢 Lentement
 
+</button>
 
-    </div>
 
-  </section>
+</div>
 
 
 
-  <!-- =====================================================
-       2. PHRASES
-       ===================================================== -->
+<div class="choice-grid">
 
-  <section class="audio-card">
 
-    <h2>
-      🌿 2. Écoute les phrases essentielles
-    </h2>
+<button
+class="choice"
+onclick="answerChoice(1,this,true)"
+>
 
+Où se trouve... ?
 
-    <div class="expression-list">
+</button>
 
 
-      <div class="expression-item">
 
-        <div class="expression-korean">
-          몇 호선이에요?
-        </div>
+<button
+class="choice"
+onclick="answerChoice(1,this,false)"
+>
 
-        <div class="expression-french">
-          Quelle ligne est-ce ?
-        </div>
+Combien ça coûte ?
 
-        <div class="expression-actions">
+</button>
 
-          <button
-            type="button"
-            onclick="speakKorean('몇 호선이에요?', 'hana', false)"
-          >
-            🔊 Écouter
-          </button>
 
-          <button
-            class="slow"
-            type="button"
-            onclick="speakKorean('몇 호선이에요?', 'hana', true)"
-          >
-            🐢 Lentement
-          </button>
 
-        </div>
+<button
+class="choice"
+onclick="answerChoice(1,this,false)"
+>
 
-      </div>
+Je voudrais celui-ci.
 
+</button>
 
 
-      <div class="expression-item">
+</div>
 
-        <div class="expression-korean">
-          사호선을 타세요.
-        </div>
 
-        <div class="expression-french">
-          Prenez la ligne 4.
-        </div>
 
-        <div class="expression-actions">
+<div
+class="feedback"
+id="feedback1"
+></div>
 
-          <button
-            type="button"
-            onclick="speakKorean('사호선을 타세요.', 'park', false)"
-          >
-            🔊 Écouter
-          </button>
 
-          <button
-            class="slow"
-            type="button"
-            onclick="speakKorean('사호선을 타세요.', 'park', true)"
-          >
-            🐢 Lentement
-          </button>
 
-        </div>
+<button
+class="next-button"
+id="next1"
+onclick="showStep(2)"
+>
 
-      </div>
+Continuer →
 
+</button>
 
 
-      <div class="expression-item">
+</section>
 
-        <div class="expression-korean">
-          서울역에서 갈아타세요.
-        </div>
+<!-- ETAPE 2 -->
 
-        <div class="expression-french">
-          Changez à Seoul Station.
-        </div>
 
-        <div class="expression-actions">
+<section
+class="listen-card hidden"
+id="step2"
+>
 
-          <button
-            type="button"
-            onclick="speakKorean('서울역에서 갈아타세요.', 'park', false)"
-          >
-            🔊 Écouter
-          </button>
 
-          <button
-            class="slow"
-            type="button"
-            onclick="speakKorean('서울역에서 갈아타세요.', 'park', true)"
-          >
-            🐢 Lentement
-          </button>
+<div class="step-number">
 
-        </div>
+ÉTAPE 2 / 5
 
-      </div>
+</div>
 
 
+<h2>
 
-      <div class="expression-item">
+🧭 Comprendre une direction
 
-        <div class="expression-korean">
-          몇 번 출구예요?
-        </div>
+</h2>
 
-        <div class="expression-french">
-          Quelle sortie ?
-        </div>
 
-        <div class="expression-actions">
 
-          <button
-            type="button"
-            onclick="speakKorean('몇 번 출구예요?', 'hana', false)"
-          >
-            🔊 Écouter
-          </button>
+<div class="audio-box">
 
-          <button
-            class="slow"
-            type="button"
-            onclick="speakKorean('몇 번 출구예요?', 'hana', true)"
-          >
-            🐢 Lentement
-          </button>
 
-        </div>
+Écoute :
 
-      </div>
+<br><br>
 
 
-    </div>
+<strong>
 
-  </section>
+오른쪽
 
+</strong>
 
 
-  <!-- =====================================================
-       3. ANNONCES
-       ===================================================== -->
+<button
+class="audio-button"
+onclick="speakKorean('오른쪽',0.8)"
+>
 
-  <section class="audio-card">
+🔊 Écouter
 
-    <h2>
-      📢 3. Comme dans le métro
-    </h2>
+</button>
 
 
-    <p>
-      Écoute d'abord l'annonce sans lire la traduction.
-      Essaie simplement de repérer
-      <strong>이번 역</strong> ou <strong>다음 역</strong>
-      et le nom de la station.
-    </p>
+<button
+class="slow-button"
+onclick="speakKorean('오른쪽',0.35)"
+>
 
+🐢 Lentement
 
+</button>
 
-    <div class="announcement-box">
 
-      <strong>
-        🚇 Annonce 1
-      </strong>
+</div>
 
-      <div class="announcement-korean">
-        이번 역은 명동역입니다.
-      </div>
 
-      <div class="dialogue-french">
-        Cette station est Myeong-dong.
-      </div>
 
 
-      <div class="announcement-controls">
+<div class="choice-grid">
 
-        <button
-          class="announcement-main"
-          type="button"
-          onclick="playMetroAnnouncement('이번 역은 명동역입니다.', false)"
-        >
-          🎵 Écouter l'annonce
-        </button>
 
-        <button
-          class="slow"
-          type="button"
-          onclick="playMetroAnnouncement('이번 역은 명동역입니다.', true)"
-        >
-          🐢 Lentement
-        </button>
+<button
+class="choice"
+onclick="answerChoice(2,this,false)"
+>
 
-      </div>
+⬅️ Gauche
 
-    </div>
+</button>
 
 
 
-    <div class="announcement-box">
+<button
+class="choice"
+onclick="answerChoice(2,this,true)"
+>
 
-      <strong>
-        🚇 Annonce 2
-      </strong>
+➡️ Droite
 
-      <div class="announcement-korean">
-        다음 역은 서울역입니다.
-      </div>
+</button>
 
-      <div class="dialogue-french">
-        La prochaine station est Seoul Station.
-      </div>
 
 
-      <div class="announcement-controls">
+<button
+class="choice"
+onclick="answerChoice(2,this,false)"
+>
 
-        <button
-          class="announcement-main"
-          type="button"
-          onclick="playMetroAnnouncement('다음 역은 서울역입니다.', false)"
-        >
-          🎵 Écouter l'annonce
-        </button>
+⬆️ Tout droit
 
-        <button
-          class="slow"
-          type="button"
-          onclick="playMetroAnnouncement('다음 역은 서울역입니다.', true)"
-        >
-          🐢 Lentement
-        </button>
+</button>
 
-      </div>
 
-    </div>
+</div>
 
 
 
-    <div class="announcement-note">
+<div
+class="feedback"
+id="feedback2"
+></div>
 
-      🎵 Le petit signal entendu ici est une
-      <strong>simulation créée pour Le Coréen de Ana</strong>.
-      Ce n'est pas le jingle officiel du métro de Séoul.
 
-      <br><br>
 
-      Plus tard, si nous trouvons un enregistrement officiel
-      que nous avons le droit d'utiliser,
-      nous pourrons remplacer cette simulation.
+<button
+class="next-button"
+id="next2"
+onclick="showStep(3)"
+>
 
-    </div>
+Continuer →
 
-  </section>
+</button>
 
 
+</section>
 
-  <!-- =====================================================
-       4. DIALOGUE
-       ===================================================== -->
 
-  <section class="audio-card">
 
-    <h2>
-      💬 4. Dialogue — Trouver la bonne ligne
-    </h2>
 
 
-    <p>
-      Écoute le dialogue complet,
-      puis réécoute chaque phrase séparément si nécessaire.
-    </p>
 
+<!-- ETAPE 3 -->
 
-    <div class="dialogue-controls">
 
-      <button
-        class="dialogue-play-button"
-        id="dialogueButton"
-        type="button"
-        onclick="toggleDialogue(false)"
-      >
-        🎧 Écouter tout le dialogue
-      </button>
+<section
+class="listen-card hidden"
+id="step3"
+>
 
 
-      <button
-        class="dialogue-slow-button"
-        type="button"
-        onclick="toggleDialogue(true)"
-      >
-        🐢 Écouter tout lentement
-      </button>
+<div class="step-number">
 
-    </div>
+ÉTAPE 3 / 5
 
+</div>
 
 
-    <div class="dialogue-line hana">
+<h2>
 
-      <div class="speaker">
-        🌸 Ana
-      </div>
+🏯 Comprendre le dialogue
 
-      <div class="dialogue-korean">
-        실례합니다. 명동에 가려면 몇 호선을 타야 해요?
-      </div>
+</h2>
 
-      <div class="dialogue-french">
-        Excusez-moi. Quelle ligne dois-je prendre pour aller à Myeong-dong ?
-      </div>
 
 
-      <div class="line-actions">
+<div class="audio-box">
 
-        <button
-          type="button"
-          onclick="speakKorean('실례합니다. 명동에 가려면 몇 호선을 타야 해요?', 'hana', false)"
-        >
-          🔊 Écouter Ana
-        </button>
 
-        <button
-          class="slow"
-          type="button"
-          onclick="speakKorean('실례합니다. 명동에 가려면 몇 호선을 타야 해요?', 'hana', true)"
-        >
-          🐢 Lentement
-        </button>
+Dialogue :
 
-      </div>
 
-    </div>
+<br><br>
 
 
+🌸 Ana :
 
-    <div class="dialogue-line park">
+<br>
 
-      <div class="speaker">
-        👨 Monsieur Park
-      </div>
+<strong>
 
-      <div class="dialogue-korean">
-        사호선을 타세요. 서울역에서 갈아타세요.
-      </div>
+경복궁이 어디에 있어요?
 
-      <div class="dialogue-french">
-        Prenez la ligne 4. Changez à Seoul Station.
-      </div>
+</strong>
 
 
-      <div class="line-actions">
+<br><br>
 
-        <button
-          type="button"
-          onclick="speakKorean('사호선을 타세요. 서울역에서 갈아타세요.', 'park', false)"
-        >
-          🔊 Écouter Monsieur Park
-        </button>
 
-        <button
-          class="slow"
-          type="button"
-          onclick="speakKorean('사호선을 타세요. 서울역에서 갈아타세요.', 'park', true)"
-        >
-          🐢 Lentement
-        </button>
+👨 Monsieur Park :
 
-      </div>
+<br>
 
-    </div>
+<strong>
 
+저기예요. 직진하세요.
 
+</strong>
 
-    <div class="dialogue-line hana">
 
-      <div class="speaker">
-        🌸 Ana
-      </div>
+<button
+class="audio-button"
+onclick="playDialogue()"
+>
 
-      <div class="dialogue-korean">
-        감사합니다.
-      </div>
+🔊 Écouter le dialogue
 
-      <div class="dialogue-french">
-        Merci beaucoup.
-      </div>
+</button>
 
 
-      <div class="line-actions">
+</div>
 
-        <button
-          type="button"
-          onclick="speakKorean('감사합니다.', 'hana', false)"
-        >
-          🔊 Écouter Ana
-        </button>
 
-        <button
-          class="slow"
-          type="button"
-          onclick="speakKorean('감사합니다.', 'hana', true)"
-        >
-          🐢 Lentement
-        </button>
 
-      </div>
 
-    </div>
 
-  </section>
+<div class="question-box">
 
+Que répond Monsieur Park ?
 
+</div>
 
-  <section class="tip-card">
 
-    <strong>
-      👂 Astuce d'écoute
-    </strong>
 
-    <br><br>
+<div class="choice-grid">
 
-    Dans le métro,
-    ne cherche pas à comprendre toute l'annonce.
 
-    <br><br>
+<button
+class="choice"
+onclick="answerChoice(3,this,true)"
+>
 
-    Repère d'abord :
+C'est là-bas, allez tout droit.
 
-    <br>
+</button>
 
-    <strong>이번 역</strong> → la station actuelle
 
-    <br>
 
-    <strong>다음 역</strong> → la station suivante
+<button
+class="choice"
+onclick="answerChoice(3,this,false)"
+>
 
-    <br>
+C'est cher.
 
-    <strong>호선</strong> → une ligne de métro
+</button>
 
-    <br>
 
-    <strong>갈아타세요</strong> → une correspondance à effectuer
 
-  </section>
+<button
+class="choice"
+onclick="answerChoice(3,this,false)"
+>
 
+Je voudrais celui-ci.
 
+</button>
 
-  <button
-    class="next-button"
-    type="button"
-    onclick="goToListeningExercise()"
-  >
-    🎧 Faire le mini défi d'écoute
-  </button>
 
 
+</div>
 
-  <button
-    class="chapter-button"
-    type="button"
-    onclick="window.location.href='chapitre-13.html'"
-  >
-    Retour au chapitre
-  </button>
 
 
-</main>
+<div
+class="feedback"
+id="feedback3"
+></div>
+
+
+
+<button
+class="next-button"
+id="next3"
+onclick="showStep(4)"
+>
+
+Continuer →
+
+</button>
+
+
+
+</section>
+
+
+
+
+
+
+<!-- ETAPE 4 -->
+
+
+<section
+class="listen-card hidden"
+id="step4"
+>
+
+
+<div class="step-number">
+
+ÉTAPE 4 / 5
+
+</div>
+
+
+<h2>
+
+🗺️ Gauche ou droite ?
+
+</h2>
+
+
+
+<div class="audio-box">
+
+
+Écoute :
+
+
+<br><br>
+
+
+<strong>
+
+왼쪽이에요.
+
+</strong>
+
+
+
+<button
+class="audio-button"
+onclick="speakKorean('왼쪽이에요.',0.8)"
+>
+
+🔊 Écouter
+
+</button>
+
+
+
+</div>
+
+
+
+
+
+<div class="choice-grid">
+
+
+<button
+class="choice"
+onclick="answerChoice(4,this,true)"
+>
+
+⬅️ C'est à gauche.
+
+</button>
+
+
+
+<button
+class="choice"
+onclick="answerChoice(4,this,false)"
+>
+
+➡️ C'est à droite.
+
+</button>
+
+
+
+<button
+class="choice"
+onclick="answerChoice(4,this,false)"
+>
+
+⬆️ C'est tout droit.
+
+</button>
+
+
+</div>
+
+
+
+<div
+class="feedback"
+id="feedback4"
+></div>
+
+
+
+<button
+class="next-button"
+id="next4"
+onclick="showStep(5)"
+>
+
+Dernière étape →
+
+</button>
+
+
+
+</section>
+
+
+
+
+
+
+<!-- ETAPE 5 -->
+
+
+<section
+class="listen-card hidden"
+id="step5"
+>
+
+
+<div class="step-number">
+
+ÉTAPE 5 / 5
+
+</div>
+
+
+<h2>
+
+🙏 Dernière écoute
+
+</h2>
+
+
+
+<div class="audio-box">
+
+
+Écoute :
+
+<br><br>
+
+
+<strong>
+
+감사합니다.
+
+</strong>
+
+
+
+<button
+class="audio-button"
+onclick="speakKorean('감사합니다.',0.8)"
+>
+
+🔊 Écouter
+
+</button>
+
+
+
+</div>
+
+
+
+
+
+<div class="choice-grid">
+
+
+<button
+class="choice"
+onclick="answerChoice(5,this,true)"
+>
+
+Merci.
+
+</button>
+
+
+
+<button
+class="choice"
+onclick="answerChoice(5,this,false)"
+>
+
+Excusez-moi.
+
+</button>
+
+
+
+<button
+class="choice"
+onclick="answerChoice(5,this,false)"
+>
+
+Où est-ce ?
+
+</button>
+
+
+
+</div>
+
+
+
+<div
+class="feedback"
+id="feedback5"
+></div>
+
+
+
+<button
+class="next-button"
+id="next5"
+onclick="showResult()"
+>
+
+Voir mon résultat →
+
+</button>
+
+
+
+</section>
+
+
+
+
+
+
+
+<!-- RESULTAT -->
+
+
+<section
+class="result-card"
+id="resultCard"
+>
+
+
+<h2>
+
+🎉 잘했어요!
+
+</h2>
+
+
+<p>
+
+Tu as terminé
+la compréhension orale
+du chapitre 13.
+
+</p>
+
+
+
+<p>
+
+Tu sais maintenant reconnaître :
+
+<br><br>
+
+📍 어디에 있어요?
+
+<br>
+
+🧭 왼쪽 / 오른쪽
+
+<br>
+
+⬆️ 직진
+
+<br>
+
+📌 저기예요
+
+</p>
+
+
+
+<button
+class="finish-button"
+onclick="completeListening()"
+>
+
+🎤 Passer à « Je parle »
+
+</button>
+
+
+
+</section>
+
+
+
+
+
 
 
 <script src="chapter-progress.js"></script>
 
+
+
 <script>
 
-  const understandingState =
-    localStorage.getItem(
-      "hanaKorean_chapter13_understanding"
-    );
 
+const answers = {
 
-  if (
-    understandingState !== "completed"
-  ) {
+1:true,
 
-    window.location.replace(
-      "chapitre-13.html"
-    );
+2:true,
 
-  } else if (
-    localStorage.getItem(
-      "hanaKorean_chapter13_listening"
-    ) !== "completed"
-  ) {
+3:true,
 
-    localStorage.setItem(
-      "hanaKorean_chapter13_listening",
-      "in_progress"
-    );
+4:true,
 
-  }
+5:true
 
+};
 
-  const AUDIO_SETTINGS = {
-    normalRate: 0.82,
-    slowRate: 0.25
-  };
 
 
-  const dialogueLines = [
+const completed = {};
 
-    {
-      text:
-        "실례합니다. 명동에 가려면 몇 호선을 타야 해요?",
-      character:
-        "hana"
-    },
 
-    {
-      text:
-        "사호선을 타세요. 서울역에서 갈아타세요.",
-      character:
-        "park"
-    },
 
-    {
-      text:
-        "감사합니다.",
-      character:
-        "hana"
-    }
 
-  ];
 
+function speakKorean(
+text,
+rate
+){
 
-  let dialogueSessionId =
-    0;
+window.speechSynthesis.cancel();
 
 
-  let dialoguePlaying =
-    false;
+const utterance =
+new SpeechSynthesisUtterance(
+text
+);
 
 
-  let currentAudioContext =
-    null;
+utterance.lang =
+"ko-KR";
 
 
+utterance.rate =
+rate;
 
-  function getKoreanVoice() {
 
-    const voices =
-      window.speechSynthesis.getVoices();
+window.speechSynthesis.speak(
+utterance
+);
 
+}
 
-    return voices.find(
-      voice =>
-        voice.lang &&
-        voice.lang
-          .toLowerCase()
-          .startsWith(
-            "ko"
-          )
-    );
 
-  }
 
 
 
-  function getCharacterSettings(
-    character,
-    slow
-  ) {
 
-    let rate =
-      slow
-        ? AUDIO_SETTINGS.slowRate
-        : AUDIO_SETTINGS.normalRate;
+function playDialogue(){
 
+window.speechSynthesis.cancel();
 
-    /*
-      Les personnages sont déjà séparés dans le code
-      pour une future intégration de plusieurs vraies voix.
-      Safari utilise actuellement la même voix coréenne disponible.
-    */
 
-    return {
-      rate:
-        rate,
+const lines=[
 
-      pitch:
-        1
-    };
+"경복궁이 어디에 있어요?",
 
-  }
+"저기예요. 직진하세요."
 
+];
 
 
-  function speakKorean(
-    text,
-    character = "hana",
-    slow = false
-  ) {
+let index=0;
 
-    if (
-      !(
-        "speechSynthesis"
-        in window
-      )
-    ) {
-      return;
-    }
 
 
-    stopDialogue();
+function next(){
 
+if(index>=lines.length){
 
-    const speech =
-      new SpeechSynthesisUtterance(
-        text
-      );
+return;
 
+}
 
-    const settings =
-      getCharacterSettings(
-        character,
-        slow
-      );
 
+speakKorean(
+lines[index],
+0.7
+);
 
-    speech.lang =
-      "ko-KR";
 
+index++;
 
-    speech.rate =
-      settings.rate;
 
+setTimeout(
+next,
+1800
+);
 
-    speech.pitch =
-      settings.pitch;
 
+}
 
-    const koreanVoice =
-      getKoreanVoice();
 
+next();
 
-    if (
-      koreanVoice
-    ) {
+}
 
-      speech.voice =
-        koreanVoice;
 
-    }
 
 
-    window.speechSynthesis.speak(
-      speech
-    );
 
-  }
 
 
+function answerChoice(
+number,
+button,
+correct
+){
 
-  function toggleDialogue(
-    slow
-  ) {
 
-    if (
-      dialoguePlaying
-    ) {
+if(
+completed[number]
+){
 
-      stopDialogue();
+return;
 
-      return;
+}
 
-    }
 
 
-    playDialogue(
-      slow
-    );
+const feedback =
+document.getElementById(
+"feedback"+number
+);
 
-  }
 
 
+if(correct){
 
-  function playDialogue(
-    slow
-  ) {
 
-    if (
-      !(
-        "speechSynthesis"
-        in window
-      )
-    ) {
-      return;
-    }
+completed[number]=true;
 
 
-    window.speechSynthesis.cancel();
+button.classList.add(
+"correct"
+);
 
 
-    dialogueSessionId++;
 
+feedback.className =
+"feedback success";
 
-    const sessionId =
-      dialogueSessionId;
 
+feedback.innerHTML =
+"✅ Très bien !";
 
-    dialoguePlaying =
-      true;
 
+document
+.querySelectorAll(
+"#step"+number+" .choice"
+)
+.forEach(
+choice=>{
 
-    updateDialogueButton();
+choice.disabled=true;
 
+}
+);
 
-    playDialogueLine(
-      0,
-      slow,
-      sessionId
-    );
 
-  }
 
+document
+.getElementById(
+"next"+number
+)
+.classList.add(
+"show"
+);
 
 
-  function playDialogueLine(
-    index,
-    slow,
-    sessionId
-  ) {
 
-    if (
-      sessionId !==
-      dialogueSessionId
-    ) {
-      return;
-    }
+}
 
+else{
 
-    if (
-      index >=
-      dialogueLines.length
-    ) {
 
-      dialoguePlaying =
-        false;
+button.classList.add(
+"wrong"
+);
 
 
-      updateDialogueButton();
+feedback.className =
+"feedback error";
 
-      return;
 
-    }
+feedback.innerHTML =
+"❌ Réécoute attentivement. Regarde les mots clés du chapitre.";
 
+}
 
-    const line =
-      dialogueLines[
-        index
-      ];
 
+}
 
-    const speech =
-      new SpeechSynthesisUtterance(
-        line.text
-      );
 
 
-    const settings =
-      getCharacterSettings(
-        line.character,
-        slow
-      );
 
 
-    speech.lang =
-      "ko-KR";
 
 
-    speech.rate =
-      settings.rate;
+function showStep(
+number
+){
 
 
-    speech.pitch =
-      settings.pitch;
+document
+.querySelectorAll(
+".listen-card"
+)
+.forEach(
+card=>{
 
+card.classList.add(
+"hidden"
+);
 
-    const koreanVoice =
-      getKoreanVoice();
+}
+);
 
 
-    if (
-      koreanVoice
-    ) {
 
-      speech.voice =
-        koreanVoice;
+document
+.getElementById(
+"step"+number
+)
+.classList.remove(
+"hidden"
+);
 
-    }
 
 
-    speech.onend =
-      function() {
+document
+.getElementById(
+"progressLabel"
+)
+.textContent =
+number+" / 5";
 
-        if (
-          sessionId !==
-          dialogueSessionId
-        ) {
-          return;
-        }
 
 
-        window.setTimeout(
-          function() {
+document
+.getElementById(
+"progressFill"
+)
+.style.width =
+(number/5*100)+"%";
 
-            playDialogueLine(
-              index + 1,
-              slow,
-              sessionId
-            );
 
-          },
-          350
-        );
 
-      };
+window.scrollTo({
 
+top:0,
 
-    speech.onerror =
-      function() {
+behavior:"smooth"
 
-        dialoguePlaying =
-          false;
+});
 
 
-        updateDialogueButton();
+}
 
-      };
 
 
-    window.speechSynthesis.speak(
-      speech
-    );
 
-  }
 
 
 
-  function stopDialogue() {
 
-    dialogueSessionId++;
+function showResult(){
 
 
-    dialoguePlaying =
-      false;
+document
+.querySelectorAll(
+".listen-card"
+)
+.forEach(
+card=>{
 
+card.classList.add(
+"hidden"
+);
 
-    if (
-      "speechSynthesis"
-      in window
-    ) {
+}
+);
 
-      window.speechSynthesis.cancel();
 
-    }
 
+document
+.getElementById(
+"resultCard"
+)
+.classList.add(
+"show"
+);
 
-    updateDialogueButton();
 
-  }
 
+document
+.getElementById(
+"progressFill"
+)
+.style.width =
+"100%";
 
 
-  function updateDialogueButton() {
 
-    const button =
-      document.getElementById(
-        "dialogueButton"
-      );
+document
+.getElementById(
+"progressLabel"
+)
+.textContent =
+"5 / 5";
 
 
-    if (
-      !button
-    ) {
-      return;
-    }
 
+}
 
-    if (
-      dialoguePlaying
-    ) {
 
-      button.textContent =
-        "⏹️ Stopper le dialogue";
 
 
-      button.classList.add(
-        "playing"
-      );
 
 
-      return;
 
-    }
 
+function completeListening(){
 
-    button.textContent =
-      "🎧 Écouter tout le dialogue";
 
+localStorage.setItem(
+"hanaKorean_chapter13_listening",
+"completed"
+);
 
-    button.classList.remove(
-      "playing"
-    );
 
-  }
 
+if(
+window.HanaChapterProgress &&
+typeof window.HanaChapterProgress.render==="function"
+){
 
+window.HanaChapterProgress.render();
 
-  /* =====================================================
-     PETIT SIGNAL MÉTRO ORIGINAL
-     ===================================================== */
+}
 
-  function playOriginalMetroChime() {
 
-    return new Promise(
-      resolve => {
 
-        try {
+window.location.href =
+"parle-13.html";
 
-          const AudioContext =
-            window.AudioContext ||
-            window.webkitAudioContext;
 
+}
 
-          if (
-            !AudioContext
-          ) {
 
-            resolve();
 
-            return;
 
-          }
 
 
-          if (
-            currentAudioContext
-          ) {
+window.addEventListener(
+"pageshow",
+function(){
 
-            try {
-              currentAudioContext.close();
-            }
-            catch (error) {
-            }
+if(
+window.HanaChapterProgress &&
+typeof window.HanaChapterProgress.render==="function"
+){
 
-          }
+window.HanaChapterProgress.render();
 
+}
 
-          const context =
-            new AudioContext();
+}
+);
 
 
-          currentAudioContext =
-            context;
-
-
-          const notes = [
-            {
-              frequency: 659.25,
-              start: 0,
-              duration: 0.18
-            },
-            {
-              frequency: 783.99,
-              start: 0.20,
-              duration: 0.22
-            }
-          ];
-
-
-          notes.forEach(
-            note => {
-
-              const oscillator =
-                context.createOscillator();
-
-
-              const gain =
-                context.createGain();
-
-
-              oscillator.type =
-                "sine";
-
-
-              oscillator.frequency.value =
-                note.frequency;
-
-
-              gain.gain.setValueAtTime(
-                0.0001,
-                context.currentTime +
-                  note.start
-              );
-
-
-              gain.gain.exponentialRampToValueAtTime(
-                0.12,
-                context.currentTime +
-                  note.start +
-                  0.02
-              );
-
-
-              gain.gain.exponentialRampToValueAtTime(
-                0.0001,
-                context.currentTime +
-                  note.start +
-                  note.duration
-              );
-
-
-              oscillator.connect(
-                gain
-              );
-
-
-              gain.connect(
-                context.destination
-              );
-
-
-              oscillator.start(
-                context.currentTime +
-                  note.start
-              );
-
-
-              oscillator.stop(
-                context.currentTime +
-                  note.start +
-                  note.duration +
-                  0.02
-              );
-
-            }
-          );
-
-
-          window.setTimeout(
-            function() {
-
-              resolve();
-
-            },
-            520
-          );
-
-        }
-
-        catch (error) {
-
-          resolve();
-
-        }
-
-      }
-    );
-
-  }
-
-
-
-  async function playMetroAnnouncement(
-    text,
-    slow
-  ) {
-
-    stopDialogue();
-
-
-    if (
-      "speechSynthesis"
-      in window
-    ) {
-
-      window.speechSynthesis.cancel();
-
-    }
-
-
-    await playOriginalMetroChime();
-
-
-    if (
-      !(
-        "speechSynthesis"
-        in window
-      )
-    ) {
-      return;
-    }
-
-
-    const speech =
-      new SpeechSynthesisUtterance(
-        text
-      );
-
-
-    speech.lang =
-      "ko-KR";
-
-
-    speech.rate =
-      slow
-        ? AUDIO_SETTINGS.slowRate
-        : AUDIO_SETTINGS.normalRate;
-
-
-    speech.pitch =
-      1;
-
-
-    const koreanVoice =
-      getKoreanVoice();
-
-
-    if (
-      koreanVoice
-    ) {
-
-      speech.voice =
-        koreanVoice;
-
-    }
-
-
-    window.speechSynthesis.speak(
-      speech
-    );
-
-  }
-
-
-
-  function goToListeningExercise() {
-
-    if (
-      localStorage.getItem(
-        "hanaKorean_chapter13_understanding"
-      ) !== "completed"
-    ) {
-
-      window.location.href =
-        "chapitre-13.html";
-
-      return;
-
-    }
-
-
-    if (
-      localStorage.getItem(
-        "hanaKorean_chapter13_listening"
-      ) !== "completed"
-    ) {
-
-      localStorage.setItem(
-        "hanaKorean_chapter13_listening",
-        "in_progress"
-      );
-
-    }
-
-
-    window.location.href =
-      "exercice-ecoute-13.html";
-
-  }
-
-
-
-  window
-    .speechSynthesis
-    ?.getVoices();
-
-
-  if (
-    "speechSynthesis"
-    in window
-  ) {
-
-    window.speechSynthesis.onvoiceschanged =
-      function() {
-
-        window
-          .speechSynthesis
-          .getVoices();
-
-      };
-
-  }
-
-
-  window.addEventListener(
-    "pageshow",
-    function() {
-
-      if (
-        window.HanaChapterProgress &&
-        typeof window.HanaChapterProgress.render === "function"
-      ) {
-
-        window.HanaChapterProgress.render();
-
-      }
-
-    }
-  );
 
 </script>
 </body>

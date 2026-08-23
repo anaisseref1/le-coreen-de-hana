@@ -4,33 +4,34 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#F7F4ED">
-  <title>Chapitre 32 — Dire ce qu'on pense</title>
+  <title>Chapitre 32 — Parler de ses habitudes</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="chapter-progress.css">
   <style>
-    .contrast-box,.remember-box,.warning-box{
+    .frequency-scale{
+      display:grid;
+      grid-template-columns:repeat(6,minmax(95px,1fr));
+      gap:8px;
+      overflow-x:auto;
+      margin-top:14px;
+      padding-bottom:4px;
+    }
+    .frequency-step{
+      min-width:95px;
+      padding:12px 10px;
+      border-radius:14px;
+      background:var(--soft-beige);
+      text-align:center;
+      line-height:1.45;
+    }
+    .frequency-step strong{display:block;color:var(--navy);}
+    .frequency-step small{color:var(--text-light);}
+    .note-box{
       padding:14px;
       margin-top:12px;
       border-radius:var(--radius-medium);
+      background:var(--soft-green);
       line-height:1.7;
-    }
-    .contrast-box{background:var(--soft-blue);}
-    .remember-box{background:var(--soft-green);}
-    .warning-box{background:#FFF6D8;}
-    .opinion-grid{
-      display:grid;
-      grid-template-columns:1fr;
-      gap:10px;
-      margin-top:12px;
-    }
-    .opinion-item{
-      padding:13px;
-      border-radius:var(--radius-medium);
-      background:#FBFAF6;
-      line-height:1.6;
-    }
-    @media(min-width:650px){
-      .opinion-grid{grid-template-columns:1fr 1fr;}
     }
   </style>
   <script src="profile.js"></script>
@@ -41,219 +42,213 @@
 <section id="hanaChapterPath" data-chapter-path></section>
 
 <header>
-  <span class="chapter-badge">Chapitre 32 · 💭</span>
-  <p class="korean">어떻게 생각해요?</p>
-  <h1>Dire ce qu'on pense</h1>
-  <p>Apprends à demander un avis, donner ton opinion et réagir à celle de quelqu'un.</p>
+  <span class="chapter-badge">Chapitre 32 · 🌸</span>
+  <p class="korean">보통 뭐 해요?</p>
+  <h1>Parler de ses habitudes</h1>
+  <p>Apprends à dire ce que tu fais toujours, souvent, parfois ou jamais.</p>
 </header>
 
 <section class="card">
-  <h2>🌸 Illustration d'ouverture</h2>
-  <p>Ana et Ji-soo sont installées dans un petit café.</p>
-  <p>Ji-soo montre à Ana plusieurs photos sur son téléphone : un joli café, un plat coréen, puis une affiche de film.</p>
-  <p>Ana sait déjà dire si quelque chose lui plaît. Mais Ji-soo lui pose une question différente :</p>
-  <p>💚 <strong>Ji-soo :</strong><br><strong>아나 씨, 이거 어떻게 생각해요?</strong></p>
-  <p>→ Ana, qu'est-ce que tu en penses ?</p>
-  <p>Aujourd'hui, Ana va apprendre à <strong>exprimer son avis en coréen</strong>. 🌸</p>
-</section>
-
-<section class="card">
   <h2>🎯 Objectif</h2>
-  <p>✅ demander l'avis de quelqu'un</p>
-  <p>✅ dire ce que tu penses</p>
-  <p>✅ qualifier quelque chose : intéressant, facile, difficile, joli…</p>
-  <p>✅ être d'accord ou exprimer doucement un avis différent</p>
-  <p>✅ utiliser <strong>생각하다</strong> — penser</p>
+  <p>✅ parler de tes habitudes quotidiennes</p>
+  <p>✅ dire « toujours », « souvent », « parfois » ou « jamais »</p>
+  <p>✅ expliquer à quelle fréquence tu fais quelque chose</p>
+  <p>✅ poser une question sur les habitudes de quelqu'un</p>
+  <p>✅ construire de petites phrases plus naturelles</p>
 </section>
 
 <section class="card">
   <h2>🟩 Vocabulaire</h2>
-  <p><strong>생각하다</strong> (saenggakhada) → penser</p>
-  <p><strong>재미있다</strong> (jaemiitda) → être intéressant / amusant</p>
-  <p><strong>재미없다</strong> (jaemieopda) → être ennuyeux</p>
-  <p><strong>좋다</strong> (jota) → être bien / bon / plaire</p>
-  <p><strong>나쁘다</strong> (nappeuda) → être mauvais</p>
-  <p><strong>쉽다</strong> (swipda) → être facile</p>
-  <p><strong>어렵다</strong> (eoryeopda) → être difficile</p>
-  <p><strong>맛있다</strong> (masitda) → être délicieux</p>
-  <p><strong>예쁘다</strong> (yeppeuda) → être joli</p>
-  <p><strong>멋있다</strong> (meositda) → être cool / impressionnant</p>
-  <p><strong>괜찮다</strong> (gwaenchanta) → être correct / ça va</p>
-  <p><strong>특별하다</strong> (teukbyeolhada) → être spécial</p>
-  <p><strong>조용하다</strong> (joyonghada) → être calme</p>
-  <p><strong>정말</strong> (jeongmal) → vraiment</p>
-  <p><strong>아주</strong> (aju) → très</p>
-  <p><strong>조금</strong> (jogeum) → un peu</p>
-  <p><strong>하지만</strong> (hajiman) → mais / cependant</p>
-  <p><strong>맞아요</strong> (majayo) → c'est vrai / exactement</p>
-  <p><strong>그렇죠?</strong> (geureotjyo) → c'est vrai, n'est-ce pas ?</p>
+  <p><strong>매일</strong> (maeil) → tous les jours</p>
+  <p><strong>매주</strong> (maeju) → chaque semaine</p>
+  <p><strong>매달</strong> (maedal) → tous les mois</p>
+  <p><strong>항상</strong> (hangsang) → toujours</p>
+  <p><strong>자주</strong> (jaju) → souvent</p>
+  <p><strong>가끔</strong> (gakkeum) → parfois</p>
+  <p><strong>보통</strong> (botong) → généralement / d'habitude</p>
+  <p><strong>거의</strong> (geoui) → presque</p>
+  <p><strong>전혀</strong> (jeonhyeo) → pas du tout</p>
+  <p><strong>아침</strong> (achim) → matin</p>
+  <p><strong>저녁</strong> (jeonyeok) → soir</p>
+  <p><strong>주말</strong> (jumal) → week-end</p>
+  <p><strong>평일</strong> (pyeongil) → jours de semaine</p>
+  <p><strong>일어나다</strong> (ireonada) → se lever</p>
+  <p><strong>운동하다</strong> (undonghada) → faire du sport</p>
+  <p><strong>공부하다</strong> (gongbuhada) → étudier</p>
+  <p><strong>일하다</strong> (ilhada) → travailler</p>
+  <p><strong>쉬다</strong> (swida) → se reposer</p>
+  <p><strong>읽다</strong> (iktta) → lire</p>
+  <p><strong>마시다</strong> (masida) → boire</p>
+  <p><strong>만나다</strong> (mannada) → rencontrer</p>
+  <p><strong>자다</strong> (jada) → dormir</p>
 </section>
 
 <section class="card">
   <h2>💬 Dialogue</h2>
 
   <p>💚 <strong>Ji-soo</strong><br>
-  이 카페 어때요?<br>
-  <small>Comment trouves-tu ce café ?</small></p>
+  아나 씨는 매일 한국어를 공부해요?<br>
+  <small>Ana, tu étudies le coréen tous les jours ?</small></p>
 
   <p>🌸 <strong>Ana</strong><br>
-  정말 좋아요.<br>
-  <small>Je le trouve vraiment bien.</small></p>
+  네, 매일 공부해요.<br>
+  <small>Oui, j'étudie tous les jours.</small></p>
 
   <p>💚 <strong>Ji-soo</strong><br>
-  왜 좋아요?<br>
-  <small>Pourquoi tu l'aimes ?</small></p>
+  보통 언제 공부해요?<br>
+  <small>D'habitude, quand est-ce que tu étudies ?</small></p>
 
   <p>🌸 <strong>Ana</strong><br>
-  정말 예뻐요. 그리고 조용해요.<br>
-  <small>Il est vraiment joli. Et il est calme.</small></p>
+  저녁에 공부해요.<br>
+  <small>J'étudie le soir.</small></p>
 
   <p>💚 <strong>Ji-soo</strong><br>
-  이 영화 어떻게 생각해요?<br>
-  <small>Qu'est-ce que tu penses de ce film ?</small></p>
+  커피를 자주 마셔요?<br>
+  <small>Tu bois souvent du café ?</small></p>
 
   <p>🌸 <strong>Ana</strong><br>
-  재미있다고 생각해요.<br>
-  <small>Je pense qu'il est intéressant.</small></p>
+  네, 자주 마셔요.<br>
+  <small>Oui, j'en bois souvent.</small></p>
 
   <p>💚 <strong>Ji-soo</strong><br>
-  어려워요?<br>
-  <small>C'est difficile ?</small></p>
+  운동도 해요?<br>
+  <small>Tu fais aussi du sport ?</small></p>
 
   <p>🌸 <strong>Ana</strong><br>
-  조금 어려워요. 하지만 재미있어요.<br>
-  <small>C'est un peu difficile. Mais c'est intéressant.</small></p>
+  가끔 운동해요.<br>
+  <small>Je fais parfois du sport.</small></p>
 
   <p>💚 <strong>Ji-soo</strong><br>
-  맞아요. 저도 그렇게 생각해요.<br>
-  <small>Exactement. Moi aussi, je pense comme ça.</small></p>
+  주말에는 뭐 해요?<br>
+  <small>Qu'est-ce que tu fais le week-end ?</small></p>
+
+  <p>🌸 <strong>Ana</strong><br>
+  보통 집에서 쉬어요. 그리고 책을 읽어요.<br>
+  <small>D'habitude, je me repose à la maison. Et je lis des livres.</small></p>
 </section>
 
 <section class="card">
-  <h2>💙 Grammaire — 생각하다</h2>
-  <p><strong>생각하다</strong> signifie « penser ».</p>
-  <p>Dans ce chapitre, nous l'utilisons surtout avec des <strong>adjectifs / verbes descriptifs</strong>.</p>
+  <h2>💙 Grammaire — Les adverbes de fréquence</h2>
+  <p>Jusqu'ici, tu savais dire :</p>
+  <p><strong>커피를 마셔요.</strong><br>→ Je bois du café.</p>
+  <p>Mais cette phrase ne dit pas <strong>à quelle fréquence</strong>.</p>
 
-  <div class="remember-box">
-    <strong>🌸 Structure à retenir</strong><br>
-    forme dictionnaire en <strong>-다</strong> → <strong>-다고 생각해요</strong><br><br>
-    재미있다 → 재미있다고 생각해요.<br>
-    어렵다 → 어렵다고 생각해요.<br>
-    예쁘다 → 예쁘다고 생각해요.
+  <h3>🌸 Les principaux adverbes</h3>
+  <div class="frequency-scale">
+    <div class="frequency-step"><strong>항상</strong><small>toujours</small></div>
+    <div class="frequency-step"><strong>자주</strong><small>souvent</small></div>
+    <div class="frequency-step"><strong>보통</strong><small>généralement</small></div>
+    <div class="frequency-step"><strong>가끔</strong><small>parfois</small></div>
+    <div class="frequency-step"><strong>거의 안</strong><small>presque jamais</small></div>
+    <div class="frequency-step"><strong>전혀 안</strong><small>jamais / pas du tout</small></div>
   </div>
 
-  <p><strong>재미있다고 생각해요.</strong><br>→ Je pense que c'est intéressant.</p>
-  <p><strong>맛있다고 생각해요.</strong><br>→ Je pense que c'est délicieux.</p>
-  <p><strong>어렵다고 생각해요.</strong><br>→ Je pense que c'est difficile.</p>
+  <p class="note-box"><strong>🌱 À retenir :</strong> cette échelle est un repère. <strong>보통</strong> signifie surtout « généralement / d'habitude » : ce n'est pas un pourcentage précis.</p>
 
-  <div class="warning-box">
-    Pour l'instant, retiens cette construction avec les adjectifs descriptifs.
-    Les verbes d'action et les noms ne se transforment pas exactement de la même manière :
-    nous verrons cela plus tard.
-  </div>
+  <h3>🧩 Où placer l'adverbe ?</h3>
+  <p>L'idée essentielle : l'adverbe de fréquence se place généralement <strong>avant le verbe qu'il précise</strong>.</p>
+  <p><strong>저는 커피를 자주 마셔요.</strong><br>→ Je bois souvent du café.</p>
+  <p><strong>저는 자주 커피를 마셔요.</strong><br>→ Je bois souvent du café.</p>
+  <p>Les deux peuvent être possibles selon ce qu'on veut mettre en avant. Pour l'instant, retiens surtout le modèle :</p>
+  <p><strong>Sujet + complément + adverbe + verbe</strong></p>
 </section>
 
 <section class="card">
-  <h2>🟨 Pourquoi -다고 ?</h2>
-  <p>Quand on rapporte une idée sous la forme « je pense que… », la partie qui précède <strong>생각하다</strong> prend une forme spéciale.</p>
-  <p><strong>재미있다 → 재미있다고 생각해요.</strong></p>
-  <p><strong>어렵다 → 어렵다고 생각해요.</strong></p>
-  <p><strong>맛있다 → 맛있다고 생각해요.</strong></p>
-  <p>Pour ce chapitre, retiens simplement :</p>
-  <p><strong>Adjectif en -다 + 고 생각해요 = Je pense que c'est…</strong></p>
+  <h2>🟨 Pourquoi ?</h2>
+  <p>Pourquoi <strong>자주</strong> apparaît-il avant le verbe ?</p>
+  <p>En français, on peut dire : « Je bois <strong>souvent</strong> du café. »</p>
+  <p>En coréen, l'adverbe est très souvent placé avant le verbe qu'il précise :</p>
+  <p><strong>저는 커피를 자주 마셔요.</strong></p>
+  <p>Littéralement : « Moi + café + souvent + bois. »</p>
 </section>
 
 <section class="card">
-  <h2>💗 Dire « Je pense que c'est… »</h2>
-  <div class="opinion-grid">
-    <div class="opinion-item"><strong>재미있다고 생각해요.</strong><br>Je pense que c'est intéressant.</div>
-    <div class="opinion-item"><strong>맛있다고 생각해요.</strong><br>Je pense que c'est délicieux.</div>
-    <div class="opinion-item"><strong>쉽다고 생각해요.</strong><br>Je pense que c'est facile.</div>
-    <div class="opinion-item"><strong>어렵다고 생각해요.</strong><br>Je pense que c'est difficile.</div>
-    <div class="opinion-item"><strong>예쁘다고 생각해요.</strong><br>Je pense que c'est joli.</div>
-    <div class="opinion-item"><strong>특별하다고 생각해요.</strong><br>Je pense que c'est spécial.</div>
-  </div>
+  <h2>🌸 Expressions à retenir</h2>
+
+  <p><strong>항상 커피를 마셔요.</strong><br>→ Je bois toujours du café.</p>
+  <p><strong>자주 영화를 봐요.</strong><br>→ Je regarde souvent des films.</p>
+  <p><strong>가끔 운동해요.</strong><br>→ Je fais parfois du sport.</p>
+  <p><strong>보통 집에서 공부해요.</strong><br>→ Généralement, j'étudie à la maison.</p>
+
+  <h3>⭐ 거의</h3>
+  <p><strong>거의 매일 공부해요.</strong><br>→ J'étudie presque tous les jours.</p>
+  <p><strong>커피를 거의 안 마셔요.</strong><br>→ Je bois très rarement du café / presque jamais.</p>
+
+  <h3>⭐ 전혀</h3>
+  <p><strong>전혀</strong> accompagne normalement une négation dans ce type de phrase.</p>
+  <p><strong>커피를 전혀 안 마셔요.</strong><br>→ Je ne bois pas du tout de café / Je ne bois jamais de café.</p>
 </section>
 
 <section class="card">
-  <h2>🌸 Demander l'avis de quelqu'un</h2>
-  <p><strong>어때요?</strong><br>→ Comment c'est ? / Qu'est-ce que tu en penses ?</p>
-  <p><strong>이 음식 어때요?</strong><br>→ Que penses-tu de ce plat ?</p>
-  <p><strong>이 영화 어때요?</strong><br>→ Que penses-tu de ce film ?</p>
-  <p><strong>서울 어때요?</strong><br>→ Que penses-tu de Séoul ?</p>
+  <h2>💙 매일 · 매주 · 매달</h2>
+  <p><strong>매일</strong> → tous les jours</p>
+  <p><strong>매주</strong> → chaque semaine</p>
+  <p><strong>매달</strong> → tous les mois</p>
 
-  <h3>💙 Une autre expression</h3>
-  <p><strong>어떻게 생각해요?</strong><br>→ Qu'est-ce que tu en penses ?</p>
-  <p><strong>이 영화 어떻게 생각해요?</strong><br>→ Qu'est-ce que tu penses de ce film ?</p>
+  <p><strong>매일 한국어를 공부해요.</strong><br>→ J'étudie le coréen tous les jours.</p>
+  <p><strong>매주 영화를 봐요.</strong><br>→ Je regarde un film chaque semaine.</p>
+  <p><strong>매달 책을 사요.</strong><br>→ J'achète un livre tous les mois.</p>
 </section>
 
 <section class="card">
-  <h2>🌿 Donner une opinion simple</h2>
-  <p>Tu n'es pas obligée d'utiliser <strong>생각해요</strong> à chaque fois.</p>
-  <p><strong>정말 좋아요.</strong> → J'aime vraiment / C'est vraiment bien.</p>
-  <p><strong>재미있어요.</strong> → C'est intéressant.</p>
-  <p><strong>조금 어려워요.</strong> → C'est un peu difficile.</p>
-  <p><strong>맛있어요.</strong> → C'est délicieux.</p>
-  <p><strong>생각해요</strong> sert surtout à montrer clairement que tu présentes <strong>ton opinion</strong>.</p>
+  <h2>🌱 Petit rappel — 에 + 는</h2>
+  <p>Dans le dialogue, tu rencontres :</p>
+  <p><strong>주말에는 뭐 해요?</strong><br>→ Et le week-end, qu'est-ce que tu fais ?</p>
+  <p><strong>평일에는 일해요.</strong><br>→ En semaine, je travaille.</p>
+  <p>Ici, <strong>는</strong> met simplement le moment en thème : « quant au week-end », « en ce qui concerne les jours de semaine ».</p>
+  <p>Pas besoin d'apprendre une nouvelle règle aujourd'hui : reconnais simplement la forme.</p>
 </section>
 
 <section class="card">
-  <h2>🗣️ Être d'accord… ou pas tout à fait</h2>
-  <p><strong>맞아요.</strong><br>→ C'est vrai. / Exactement.</p>
-  <p><strong>저도요.</strong><br>→ Moi aussi.</p>
-  <p><strong>저도 그렇게 생각해요.</strong><br>→ Moi aussi, je pense comme ça.</p>
-  <p><strong>그렇죠?</strong><br>→ C'est vrai, n'est-ce pas ?</p>
-
-  <h3>🌱 Exprimer doucement un avis différent</h3>
-  <p><strong>저는 조금 다르게 생각해요.</strong><br>→ Moi, je pense un peu différemment.</p>
-  <p><strong>저는 그렇게 생각하지 않아요.</strong><br>→ Je ne pense pas comme ça / Je ne suis pas de cet avis.</p>
-</section>
-
-<section class="card">
-  <h2>🌱 Ne pas confondre</h2>
-  <div class="contrast-box">
-    <strong>맛있을 것 같아요.</strong><br>
-    → Ça a l'air bon / Je pense que ça va être bon.<br><br>
-    <strong>맛있다고 생각해요.</strong><br>
-    → Je pense que c'est bon / C'est mon opinion.
-  </div>
-  <p><strong>것 같아요</strong> exprime plutôt une impression ou une supposition.</p>
-  <p><strong>-다고 생각해요</strong> présente clairement ce que tu penses.</p>
+  <h2>🗣️ Poser une question</h2>
+  <p><strong>보통 뭐 해요?</strong><br>→ Qu'est-ce que tu fais habituellement ?</p>
+  <p><strong>주말에 뭐 해요?</strong><br>→ Qu'est-ce que tu fais le week-end ?</p>
+  <p><strong>매일 한국어를 공부해요?</strong><br>→ Tu étudies le coréen tous les jours ?</p>
+  <p>Une phrase affirmative peut devenir une question grâce au contexte et à l'intonation.</p>
 </section>
 
 <section class="card">
   <h2>🩵 Prononciation</h2>
-  <p><strong>생각해요</strong> — <em>saenggakhaeyo</em></p>
-  <p>Dans la parole naturelle, le contact entre le <strong>ㄱ</strong> final de 생각 et le <strong>ㅎ</strong> de 해요 rend le son plus aspiré.</p>
-  <p>🌸 Le plus important : écoute et imite le rythme naturel sans découper chaque syllabe.</p>
 
-  <p><strong>재미있어요</strong> — <em>jaemiisseoyo</em></p>
-  <p>La liaison rend le mot plus fluide qu'une lecture syllabe par syllabe.</p>
+  <p><strong>자주</strong> — <em>jaju</em></p>
+  <p>Le son <strong>ㅈ</strong> est plus léger qu'un « tch » français. Évite de forcer un « j » très français.</p>
+
+  <p><strong>매일</strong> — <em>maeil</em></p>
+  <p>Prononce bien les deux syllabes : <strong>매-일</strong>.</p>
+
+  <p><strong>항상</strong> — <em>hangsang</em></p>
+  <p>Le <strong>ㅇ</strong> final de <strong>항</strong> donne le son nasal <strong>ng</strong>.</p>
 </section>
 
 <section class="card">
-  <h2>📖 Compréhension écrite</h2>
-  <p><strong>아나와 지수는 카페에 있어요.</strong></p>
-  <p><strong>지수는 아나에게 영화를 보여 줘요.</strong></p>
-  <p><strong>지수 : 이 영화 어때요?</strong></p>
-  <p><strong>아나 : 재미있다고 생각해요.</strong></p>
-  <p><strong>지수 : 어려워요?</strong></p>
-  <p><strong>아나 : 조금 어려워요. 하지만 재미있어요.</strong></p>
-  <p><strong>지수 : 맞아요. 저도 그렇게 생각해요.</strong></p>
+  <h2>📖 Petit défi lecture</h2>
+  <p><strong>아나는 매일 아침에 커피를 마셔요.</strong></p>
+  <p><strong>그리고 평일에는 일해요.</strong></p>
+  <p><strong>저녁에는 한국어를 공부해요.</strong></p>
+  <p><strong>그리고 책도 자주 읽어요.</strong></p>
+  <p><strong>주말에는 보통 집에서 쉬어요.</strong></p>
+  <p><strong>가끔 친구를 만나요.</strong></p>
+  <p>🌸 Repère les mots qui indiquent la fréquence.</p>
+</section>
+
+<section class="card">
+  <h2>💚 Le conseil de Ji-soo</h2>
+  <p>Avec seulement quelques petits mots comme <strong>매일, 자주, 가끔</strong> et <strong>보통</strong>, tes phrases deviennent déjà beaucoup plus précises.</p>
+  <p><strong>커피를 마셔요.</strong> → Je bois du café.</p>
+  <p><strong>커피를 자주 마셔요.</strong> → Je bois souvent du café.</p>
 </section>
 
 <section class="card">
   <h2>🌟 Phrase du chapitre</h2>
-  <p>« Connaître des mots permet de parler. Donner son opinion permet de vraiment se faire comprendre. » 🌸</p>
+  <p>« Une habitude peut sembler petite, mais quand on sait en parler, elle devient une partie de notre histoire. » 🌸</p>
 </section>
 
 <section class="card">
   <h2>🌸 À suivre...</h2>
-  <p>Ji-soo range son téléphone et regarde Ana.</p>
-  <p>💚 <strong>Ji-soo :</strong><br><strong>아나 씨는 왜 한국을 좋아해요?</strong></p>
-  <p>→ Ana, pourquoi est-ce que tu aimes la Corée ?</p>
-  <p>Cette fois, Ana doit expliquer <strong>pourquoi</strong>.</p>
-  <p>➡️ Chapitre 33 — Expliquer pourquoi</p>
+  <p>Ana vient de comprendre que parler de ses habitudes lui permet de parler davantage d'elle-même.</p>
+  <p>Ji-soo lui montre alors une photo sur son téléphone.</p>
+  <p>💚 <strong>Ji-soo :</strong><br><strong>아나 씨, 이거 어떻게 생각해요?</strong></p>
+  <p>Cette fois, elle ne lui demande pas ce qu'elle fait. Elle lui demande <strong>ce qu'elle en pense</strong>.</p>
 </section>
 
 <button id="completeButton" type="button" style="width:100%;">✅ J'ai compris</button>
@@ -262,8 +257,8 @@
 
 <script src="chapter-progress.js"></script>
 <script>
-const UNDERSTANDING_KEY="hanaKorean_chapter32_understanding";
-const LATER_KEYS=[
+const UNDERSTANDING_KEY = "hanaKorean_chapter32_understanding";
+const LATER_KEYS = [
   "hanaKorean_chapter32_listening",
   "hanaKorean_chapter32_listeningExercise",
   "hanaKorean_chapter32_speaking",
@@ -274,32 +269,40 @@ const LATER_KEYS=[
   "hanaKorean_chapter32_completed",
   "hanaKorean_chapter32_resume"
 ];
-const completeButton=document.getElementById("completeButton");
-const nextButton=document.getElementById("nextButton");
+const completeButton = document.getElementById("completeButton");
+const nextButton = document.getElementById("nextButton");
 
 function migratePreviousProgress(){
   if(
-    localStorage.getItem(UNDERSTANDING_KEY)!=="completed" &&
-    LATER_KEYS.some(key=>localStorage.getItem(key)==="completed")
+    localStorage.getItem(UNDERSTANDING_KEY) !== "completed" &&
+    LATER_KEYS.some(key => localStorage.getItem(key) === "completed")
   ){
-    localStorage.setItem(UNDERSTANDING_KEY,"completed");
+    localStorage.setItem(UNDERSTANDING_KEY, "completed");
   }
 }
+
 function refresh(){
   migratePreviousProgress();
-  if(localStorage.getItem(UNDERSTANDING_KEY)==="completed"){
-    completeButton.textContent="✅ Compréhension terminée";
-    completeButton.disabled=true;
-    nextButton.style.display="block";
+
+  if(localStorage.getItem(UNDERSTANDING_KEY) === "completed"){
+    completeButton.textContent = "✅ Compréhension terminée";
+    completeButton.disabled = true;
+    nextButton.style.display = "block";
   }
-  if(window.HanaChapterProgress)HanaChapterProgress.render();
+
+  if(window.HanaChapterProgress) HanaChapterProgress.render();
 }
-completeButton.addEventListener("click",()=>{
-  localStorage.setItem(UNDERSTANDING_KEY,"completed");
+
+completeButton.addEventListener("click", () => {
+  localStorage.setItem(UNDERSTANDING_KEY, "completed");
   refresh();
 });
-nextButton.addEventListener("click",()=>window.location.href="ecoute-32.html");
-window.addEventListener("pageshow",refresh);
+
+nextButton.addEventListener("click", () => {
+  window.location.href = "ecoute-32.html";
+});
+
+window.addEventListener("pageshow", refresh);
 refresh();
 </script>
 </body>

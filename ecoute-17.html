@@ -2,14 +2,11 @@
 <html lang="fr">
 
 <head>
-
   <meta charset="UTF-8">
-
   <meta
     name="viewport"
     content="width=device-width, initial-scale=1.0"
   >
-
   <meta
     name="theme-color"
     content="#F7F4ED"
@@ -22,27 +19,25 @@
     href="style.css"
   >
 
+  <link
+    rel="stylesheet"
+    href="chapter-progress.css"
+  >
 
-    <link rel="stylesheet" href="chapter-progress.css">
-
-<style>
-
+  <style>
     .listen-header {
       text-align: center;
       margin-bottom: 28px;
     }
 
-
     .listen-header h1 {
       margin-bottom: 8px;
     }
-
 
     .listen-header p {
       color: var(--text-light);
       line-height: 1.7;
     }
-
 
     .goal-card,
     .audio-card,
@@ -54,19 +49,16 @@
       box-shadow: var(--shadow);
     }
 
-
     .goal-card {
       background: var(--soft-green);
       color: var(--navy);
       line-height: 1.7;
     }
 
-
     .audio-card h2 {
       margin-top: 0;
       color: var(--navy);
     }
-
 
     .expression-list {
       display: flex;
@@ -74,26 +66,26 @@
       gap: 12px;
     }
 
-
     .expression-item {
       padding: 15px;
       background: #FBFAF6;
       border-radius: var(--radius-medium);
     }
 
-
-    .expression-korean {
+    .expression-korean,
+    .dialogue-korean {
       color: var(--navy);
-      font-size: 21px;
+      font-size: 20px;
       font-weight: bold;
+      line-height: 1.6;
     }
 
-
-    .expression-french {
-      margin-top: 4px;
+    .expression-french,
+    .dialogue-french {
+      margin-top: 5px;
       color: var(--text-light);
+      line-height: 1.6;
     }
-
 
     .expression-actions,
     .line-actions,
@@ -104,7 +96,6 @@
       margin-top: 12px;
     }
 
-
     .expression-actions button,
     .line-actions button,
     .dialogue-controls button {
@@ -112,20 +103,17 @@
       min-width: 135px;
     }
 
-
     .slow,
     .dialogue-slow-button {
       background: var(--soft-beige);
       color: var(--navy);
     }
 
-
     .dialogue-play-button {
       background: var(--jade);
       color: white;
       font-weight: bold;
     }
-
 
     .dialogue-line {
       padding: 15px;
@@ -134,35 +122,18 @@
       line-height: 1.7;
     }
 
-
     .dialogue-line.hana {
       background: var(--soft-green);
     }
 
-
-    .dialogue-line.jieun {
+    .dialogue-line.joonho {
       background: var(--soft-blue);
     }
 
-
     .speaker {
-      margin-bottom: 4px;
+      margin-bottom: 5px;
       font-weight: bold;
     }
-
-
-    .dialogue-korean {
-      color: var(--navy);
-      font-size: 19px;
-      font-weight: bold;
-    }
-
-
-    .dialogue-french {
-      margin-top: 5px;
-      color: var(--text-light);
-    }
-
 
     .recognition-box {
       padding: 16px;
@@ -173,13 +144,11 @@
       line-height: 1.7;
     }
 
-
     .tip-card {
       background: var(--soft-beige);
       color: var(--navy);
       line-height: 1.7;
     }
-
 
     .next-button,
     .chapter-button {
@@ -187,36 +156,28 @@
       margin-top: 10px;
     }
 
-
     .next-button {
       background: var(--jade);
       color: white;
       font-weight: bold;
     }
 
-
     .chapter-button {
       background: var(--soft-beige);
       color: var(--navy);
     }
 
-
     .playing {
       background: var(--navy) !important;
       color: white !important;
     }
-
   </style>
-
   <script src="profile.js"></script>
 </head>
 
-
 <body>
 
-
 <main class="app">
-
 
   <a
     class="back-link"
@@ -225,29 +186,24 @@
     ← Chapitre 17
   </a>
 
-
-
   <header class="listen-header">
 
     <span class="chapter-badge">
       Chapitre 17 · Compréhension orale
     </span>
 
-
     <p class="korean">
-      잘 들어 봐요 📱
+      잘 들어 봐요 🏨
     </p>
-
 
     <h1>
       J'écoute
     </h1>
 
-
     <p>
-      Écoute les expressions utiles pour le téléphone et Internet,
-      puis entraîne-toi à reconnaître les demandes liées au Wi-Fi,
-      à la batterie et à la recharge.
+      Écoute les expressions utiles à l'hôtel,
+      puis entraîne-toi à reconnaître les questions
+      du réceptionniste et les réponses les plus utiles.
     </p>
 
   </header>
@@ -256,8 +212,6 @@
     id="hanaChapterPath"
     data-chapter-path
   ></section>
-
-
 
   <section class="goal-card">
 
@@ -268,89 +222,213 @@
     <br><br>
 
     Reconnaître à l'oreille
-    <strong>와이파이 있어요?</strong>,
-    <strong>와이파이 비밀번호가 뭐예요?</strong>,
-    <strong>배터리가 없어요</strong>,
-    <strong>충전기 있어요?</strong>
-    et <strong>어디에서 충전할 수 있어요?</strong>.
+    <strong>예약했어요</strong>,
+    <strong>성함이 어떻게 되세요?</strong>,
+    <strong>제 방이 어디예요?</strong>,
+    <strong>와이파이 비밀번호가 뭐예요?</strong>
+    et <strong>도와주세요</strong>.
 
   </section>
 
 
-
-  <!-- =====================================================
-       1. EXPRESSIONS ESSENTIELLES
-       ===================================================== -->
-
   <section class="audio-card">
 
     <h2>
-      📱 1. Écoute les expressions essentielles
+      🛎️ 1. Écoute les expressions essentielles
     </h2>
 
     <div class="expression-list">
 
       <div class="expression-item">
-        <div class="expression-korean">와이파이 있어요?</div>
-        <div class="expression-french">Il y a du Wi-Fi ?</div>
-        <div class="expression-actions">
-          <button type="button" onclick="speakKorean('와이파이 있어요?', 'hana', false)">🔊 Écouter</button>
-          <button class="slow" type="button" onclick="speakKorean('와이파이 있어요?', 'hana', true)">🐢 Lentement</button>
+
+        <div class="expression-korean">
+          예약했어요.
         </div>
+
+        <div class="expression-french">
+          J'ai une réservation.
+        </div>
+
+        <div class="expression-actions">
+
+          <button
+            type="button"
+            onclick="speakKorean('예약했어요.', 'hana', false)"
+          >
+            🔊 Écouter
+          </button>
+
+          <button
+            class="slow"
+            type="button"
+            onclick="speakKorean('예약했어요.', 'hana', true)"
+          >
+            🐢 Lentement
+          </button>
+
+        </div>
+
       </div>
 
-      <div class="expression-item">
-        <div class="expression-korean">와이파이 비밀번호가 뭐예요?</div>
-        <div class="expression-french">Quel est le mot de passe du Wi-Fi ?</div>
-        <div class="expression-actions">
-          <button type="button" onclick="speakKorean('와이파이 비밀번호가 뭐예요?', 'hana', false)">🔊 Écouter</button>
-          <button class="slow" type="button" onclick="speakKorean('와이파이 비밀번호가 뭐예요?', 'hana', true)">🐢 Lentement</button>
-        </div>
-      </div>
 
       <div class="expression-item">
-        <div class="expression-korean">배터리가 없어요.</div>
-        <div class="expression-french">Je n'ai plus de batterie.</div>
-        <div class="expression-actions">
-          <button type="button" onclick="speakKorean('배터리가 없어요.', 'hana', false)">🔊 Écouter</button>
-          <button class="slow" type="button" onclick="speakKorean('배터리가 없어요.', 'hana', true)">🐢 Lentement</button>
+
+        <div class="expression-korean">
+          제 방이 어디예요?
         </div>
+
+        <div class="expression-french">
+          Où est ma chambre ?
+        </div>
+
+        <div class="expression-actions">
+
+          <button
+            type="button"
+            onclick="speakKorean('제 방이 어디예요?', 'hana', false)"
+          >
+            🔊 Écouter
+          </button>
+
+          <button
+            class="slow"
+            type="button"
+            onclick="speakKorean('제 방이 어디예요?', 'hana', true)"
+          >
+            🐢 Lentement
+          </button>
+
+        </div>
+
       </div>
 
-      <div class="expression-item">
-        <div class="expression-korean">충전기 있어요?</div>
-        <div class="expression-french">Vous avez un chargeur ?</div>
-        <div class="expression-actions">
-          <button type="button" onclick="speakKorean('충전기 있어요?', 'hana', false)">🔊 Écouter</button>
-          <button class="slow" type="button" onclick="speakKorean('충전기 있어요?', 'hana', true)">🐢 Lentement</button>
-        </div>
-      </div>
 
       <div class="expression-item">
-        <div class="expression-korean">충전할 수 있어요?</div>
-        <div class="expression-french">Est-ce que je peux recharger ?</div>
-        <div class="expression-actions">
-          <button type="button" onclick="speakKorean('충전할 수 있어요?', 'hana', false)">🔊 Écouter</button>
-          <button class="slow" type="button" onclick="speakKorean('충전할 수 있어요?', 'hana', true)">🐢 Lentement</button>
+
+        <div class="expression-korean">
+          방 열쇠 주세요.
         </div>
+
+        <div class="expression-french">
+          La clé de la chambre, s'il vous plaît.
+        </div>
+
+        <div class="expression-actions">
+
+          <button
+            type="button"
+            onclick="speakKorean('방 열쇠 주세요.', 'hana', false)"
+          >
+            🔊 Écouter
+          </button>
+
+          <button
+            class="slow"
+            type="button"
+            onclick="speakKorean('방 열쇠 주세요.', 'hana', true)"
+          >
+            🐢 Lentement
+          </button>
+
+        </div>
+
       </div>
 
-      <div class="expression-item">
-        <div class="expression-korean">어디에서 충전할 수 있어요?</div>
-        <div class="expression-french">Où est-ce que je peux recharger ?</div>
-        <div class="expression-actions">
-          <button type="button" onclick="speakKorean('어디에서 충전할 수 있어요?', 'hana', false)">🔊 Écouter</button>
-          <button class="slow" type="button" onclick="speakKorean('어디에서 충전할 수 있어요?', 'hana', true)">🐢 Lentement</button>
-        </div>
-      </div>
 
       <div class="expression-item">
-        <div class="expression-korean">인터넷이 안 돼요.</div>
-        <div class="expression-french">Internet ne fonctionne pas.</div>
-        <div class="expression-actions">
-          <button type="button" onclick="speakKorean('인터넷이 안 돼요.', 'hana', false)">🔊 Écouter</button>
-          <button class="slow" type="button" onclick="speakKorean('인터넷이 안 돼요.', 'hana', true)">🐢 Lentement</button>
+
+        <div class="expression-korean">
+          와이파이 비밀번호가 뭐예요?
         </div>
+
+        <div class="expression-french">
+          Quel est le mot de passe du Wi-Fi ?
+        </div>
+
+        <div class="expression-actions">
+
+          <button
+            type="button"
+            onclick="speakKorean('와이파이 비밀번호가 뭐예요?', 'hana', false)"
+          >
+            🔊 Écouter
+          </button>
+
+          <button
+            class="slow"
+            type="button"
+            onclick="speakKorean('와이파이 비밀번호가 뭐예요?', 'hana', true)"
+          >
+            🐢 Lentement
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <div class="expression-item">
+
+        <div class="expression-korean">
+          와이파이가 안 돼요. 도와주세요.
+        </div>
+
+        <div class="expression-french">
+          Le Wi-Fi ne fonctionne pas.
+          Aidez-moi, s'il vous plaît.
+        </div>
+
+        <div class="expression-actions">
+
+          <button
+            type="button"
+            onclick="speakKorean('와이파이가 안 돼요. 도와주세요.', 'hana', false)"
+          >
+            🔊 Écouter
+          </button>
+
+          <button
+            class="slow"
+            type="button"
+            onclick="speakKorean('와이파이가 안 돼요. 도와주세요.', 'hana', true)"
+          >
+            🐢 Lentement
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <div class="expression-item">
+
+        <div class="expression-korean">
+          감사합니다.
+        </div>
+
+        <div class="expression-french">
+          Merci.
+        </div>
+
+        <div class="expression-actions">
+
+          <button
+            type="button"
+            onclick="speakKorean('감사합니다.', 'hana', false)"
+          >
+            🔊 Écouter
+          </button>
+
+          <button
+            class="slow"
+            type="button"
+            onclick="speakKorean('감사합니다.', 'hana', true)"
+          >
+            🐢 Lentement
+          </button>
+
+        </div>
+
       </div>
 
     </div>
@@ -358,14 +436,10 @@
   </section>
 
 
-  <!-- =====================================================
-       2. PHRASES A RECONNAITRE
-       ===================================================== -->
-
   <section class="audio-card">
 
     <h2>
-      👂 2. Ce que Ji-eun peut te dire
+      👂 2. Ce que Joon-ho peut te dire
     </h2>
 
     <div class="recognition-box">
@@ -376,49 +450,141 @@
       <br><br>
 
       Repère les mots
-      <strong>와이파이</strong>,
-      <strong>충전</strong>,
-      <strong>저기</strong>
-      et <strong>있어요</strong>.
+      <strong>성함</strong>,
+      <strong>층</strong>,
+      <strong>비밀번호</strong>
+      et les expressions courantes de réception.
 
     </div>
 
     <div class="expression-list">
 
-      <div class="expression-item">
-        <div class="expression-korean">네. 여기 있어요.</div>
-        <div class="expression-french">Oui. Il y en a ici.</div>
-        <div class="expression-actions">
-          <button type="button" onclick="speakKorean('네. 여기 있어요.', 'jieun', false)">🔊 Écouter Ji-eun</button>
-          <button class="slow" type="button" onclick="speakKorean('네. 여기 있어요.', 'jieun', true)">🐢 Lentement</button>
-        </div>
-      </div>
 
       <div class="expression-item">
-        <div class="expression-korean">여기 있습니다.</div>
-        <div class="expression-french">Le voici.</div>
-        <div class="expression-actions">
-          <button type="button" onclick="speakKorean('여기 있습니다.', 'jieun', false)">🔊 Écouter Ji-eun</button>
-          <button class="slow" type="button" onclick="speakKorean('여기 있습니다.', 'jieun', true)">🐢 Lentement</button>
+
+        <div class="expression-korean">
+          성함이 어떻게 되세요?
         </div>
+
+        <div class="expression-french">
+          Quel est votre nom ?
+        </div>
+
+        <div class="expression-actions">
+
+          <button
+            type="button"
+            onclick="speakKorean('성함이 어떻게 되세요?', 'joonho', false)"
+          >
+            🔊 Écouter Joon-ho
+          </button>
+
+          <button
+            class="slow"
+            type="button"
+            onclick="speakKorean('성함이 어떻게 되세요?', 'joonho', true)"
+          >
+            🐢 Lentement
+          </button>
+
+        </div>
+
       </div>
 
-      <div class="expression-item">
-        <div class="expression-korean">네. 있어요.</div>
-        <div class="expression-french">Oui, nous en avons.</div>
-        <div class="expression-actions">
-          <button type="button" onclick="speakKorean('네. 있어요.', 'jieun', false)">🔊 Écouter Ji-eun</button>
-          <button class="slow" type="button" onclick="speakKorean('네. 있어요.', 'jieun', true)">🐢 Lentement</button>
-        </div>
-      </div>
 
       <div class="expression-item">
-        <div class="expression-korean">저기에서 충전할 수 있어요.</div>
-        <div class="expression-french">Vous pouvez recharger là-bas.</div>
-        <div class="expression-actions">
-          <button type="button" onclick="speakKorean('저기에서 충전할 수 있어요.', 'jieun', false)">🔊 Écouter Ji-eun</button>
-          <button class="slow" type="button" onclick="speakKorean('저기에서 충전할 수 있어요.', 'jieun', true)">🐢 Lentement</button>
+
+        <div class="expression-korean">
+          네. 여기 있습니다.
         </div>
+
+        <div class="expression-french">
+          Oui. Voici.
+        </div>
+
+        <div class="expression-actions">
+
+          <button
+            type="button"
+            onclick="speakKorean('네. 여기 있습니다.', 'joonho', false)"
+          >
+            🔊 Écouter Joon-ho
+          </button>
+
+          <button
+            class="slow"
+            type="button"
+            onclick="speakKorean('네. 여기 있습니다.', 'joonho', true)"
+          >
+            🐢 Lentement
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <div class="expression-item">
+
+        <div class="expression-korean">
+          삼 층이에요.
+        </div>
+
+        <div class="expression-french">
+          C'est au troisième étage.
+        </div>
+
+        <div class="expression-actions">
+
+          <button
+            type="button"
+            onclick="speakKorean('삼 층이에요.', 'joonho', false)"
+          >
+            🔊 Écouter Joon-ho
+          </button>
+
+          <button
+            class="slow"
+            type="button"
+            onclick="speakKorean('삼 층이에요.', 'joonho', true)"
+          >
+            🐢 Lentement
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <div class="expression-item">
+
+        <div class="expression-korean">
+          좋은 여행 되세요.
+        </div>
+
+        <div class="expression-french">
+          Bon séjour ! / Bon voyage !
+        </div>
+
+        <div class="expression-actions">
+
+          <button
+            type="button"
+            onclick="speakKorean('좋은 여행 되세요.', 'joonho', false)"
+          >
+            🔊 Écouter Joon-ho
+          </button>
+
+          <button
+            class="slow"
+            type="button"
+            onclick="speakKorean('좋은 여행 되세요.', 'joonho', true)"
+          >
+            🐢 Lentement
+          </button>
+
+        </div>
+
       </div>
 
     </div>
@@ -426,14 +592,10 @@
   </section>
 
 
-  <!-- =====================================================
-       3. DIALOGUE
-       ===================================================== -->
-
   <section class="audio-card">
 
     <h2>
-      💬 3. Dialogue — Au café avec Ji-eun
+      💬 3. Dialogue — À la réception
     </h2>
 
     <p>
@@ -463,88 +625,367 @@
 
     </div>
 
-    <div class="dialogue-line hana">
-      <div class="speaker">🌸 Ana</div>
-      <div class="dialogue-korean">실례합니다. 와이파이 있어요?</div>
-      <div class="dialogue-french">Excusez-moi. Il y a du Wi-Fi ?</div>
-      <div class="line-actions">
-        <button type="button" onclick="speakKorean('실례합니다. 와이파이 있어요?', 'hana', false)">🔊 Écouter Ana</button>
-        <button class="slow" type="button" onclick="speakKorean('실례합니다. 와이파이 있어요?', 'hana', true)">🐢 Lentement</button>
-      </div>
-    </div>
-
-    <div class="dialogue-line jieun">
-      <div class="speaker">💚 Ji-eun</div>
-      <div class="dialogue-korean">네. 여기 있어요.</div>
-      <div class="dialogue-french">Oui. Il y en a ici.</div>
-      <div class="line-actions">
-        <button type="button" onclick="speakKorean('네. 여기 있어요.', 'jieun', false)">🔊 Écouter Ji-eun</button>
-        <button class="slow" type="button" onclick="speakKorean('네. 여기 있어요.', 'jieun', true)">🐢 Lentement</button>
-      </div>
-    </div>
 
     <div class="dialogue-line hana">
-      <div class="speaker">🌸 Ana</div>
-      <div class="dialogue-korean">와이파이 비밀번호가 뭐예요?</div>
-      <div class="dialogue-french">Quel est le mot de passe du Wi-Fi ?</div>
-      <div class="line-actions">
-        <button type="button" onclick="speakKorean('와이파이 비밀번호가 뭐예요?', 'hana', false)">🔊 Écouter Ana</button>
-        <button class="slow" type="button" onclick="speakKorean('와이파이 비밀번호가 뭐예요?', 'hana', true)">🐢 Lentement</button>
+
+      <div class="speaker">
+        🌸 Ana
       </div>
+
+      <div class="dialogue-korean">
+        안녕하세요. 예약했어요.
+      </div>
+
+      <div class="dialogue-french">
+        Bonjour. J'ai une réservation.
+      </div>
+
+      <div class="line-actions">
+
+        <button
+          type="button"
+          onclick="speakKorean('안녕하세요. 예약했어요.', 'hana', false)"
+        >
+          🔊 Écouter Ana
+        </button>
+
+        <button
+          class="slow"
+          type="button"
+          onclick="speakKorean('안녕하세요. 예약했어요.', 'hana', true)"
+        >
+          🐢 Lentement
+        </button>
+
+      </div>
+
     </div>
 
-    <div class="dialogue-line jieun">
-      <div class="speaker">💚 Ji-eun</div>
-      <div class="dialogue-korean">여기 있습니다.</div>
-      <div class="dialogue-french">Le voici.</div>
-      <div class="line-actions">
-        <button type="button" onclick="speakKorean('여기 있습니다.', 'jieun', false)">🔊 Écouter Ji-eun</button>
-        <button class="slow" type="button" onclick="speakKorean('여기 있습니다.', 'jieun', true)">🐢 Lentement</button>
+
+    <div class="dialogue-line joonho">
+
+      <div class="speaker">
+        🩶 Joon-ho
       </div>
+
+      <div class="dialogue-korean">
+        성함이 어떻게 되세요?
+      </div>
+
+      <div class="dialogue-french">
+        Quel est votre nom ?
+      </div>
+
+      <div class="line-actions">
+
+        <button
+          type="button"
+          onclick="speakKorean('성함이 어떻게 되세요?', 'joonho', false)"
+        >
+          🔊 Écouter Joon-ho
+        </button>
+
+        <button
+          class="slow"
+          type="button"
+          onclick="speakKorean('성함이 어떻게 되세요?', 'joonho', true)"
+        >
+          🐢 Lentement
+        </button>
+
+      </div>
+
     </div>
+
 
     <div class="dialogue-line hana">
-      <div class="speaker">🌸 Ana</div>
-      <div class="dialogue-korean">감사합니다. 충전기도 있어요?</div>
-      <div class="dialogue-french">Merci. Vous avez aussi un chargeur ?</div>
-      <div class="line-actions">
-        <button type="button" onclick="speakKorean('감사합니다. 충전기도 있어요?', 'hana', false)">🔊 Écouter Ana</button>
-        <button class="slow" type="button" onclick="speakKorean('감사합니다. 충전기도 있어요?', 'hana', true)">🐢 Lentement</button>
+
+      <div class="speaker">
+        🌸 Ana
       </div>
+
+      <div class="dialogue-korean">
+        아나예요.
+      </div>
+
+      <div class="dialogue-french">
+        Je m'appelle Ana.
+      </div>
+
+      <div class="line-actions">
+
+        <button
+          type="button"
+          onclick="speakKorean('아나예요.', 'hana', false)"
+        >
+          🔊 Écouter Ana
+        </button>
+
+        <button
+          class="slow"
+          type="button"
+          onclick="speakKorean('아나예요.', 'hana', true)"
+        >
+          🐢 Lentement
+        </button>
+
+      </div>
+
     </div>
 
-    <div class="dialogue-line jieun">
-      <div class="speaker">💚 Ji-eun</div>
-      <div class="dialogue-korean">네. 있어요.</div>
-      <div class="dialogue-french">Oui.</div>
-      <div class="line-actions">
-        <button type="button" onclick="speakKorean('네. 있어요.', 'jieun', false)">🔊 Écouter Ji-eun</button>
-        <button class="slow" type="button" onclick="speakKorean('네. 있어요.', 'jieun', true)">🐢 Lentement</button>
+
+    <div class="dialogue-line joonho">
+
+      <div class="speaker">
+        🩶 Joon-ho
       </div>
+
+      <div class="dialogue-korean">
+        네. 여기 있습니다.
+      </div>
+
+      <div class="dialogue-french">
+        Oui. Voici.
+      </div>
+
+      <div class="line-actions">
+
+        <button
+          type="button"
+          onclick="speakKorean('네. 여기 있습니다.', 'joonho', false)"
+        >
+          🔊 Écouter Joon-ho
+        </button>
+
+        <button
+          class="slow"
+          type="button"
+          onclick="speakKorean('네. 여기 있습니다.', 'joonho', true)"
+        >
+          🐢 Lentement
+        </button>
+
+      </div>
+
     </div>
+
 
     <div class="dialogue-line hana">
-      <div class="speaker">🌸 Ana</div>
-      <div class="dialogue-korean">어디에서 충전할 수 있어요?</div>
-      <div class="dialogue-french">Où est-ce que je peux recharger ?</div>
-      <div class="line-actions">
-        <button type="button" onclick="speakKorean('어디에서 충전할 수 있어요?', 'hana', false)">🔊 Écouter Ana</button>
-        <button class="slow" type="button" onclick="speakKorean('어디에서 충전할 수 있어요?', 'hana', true)">🐢 Lentement</button>
+
+      <div class="speaker">
+        🌸 Ana
       </div>
+
+      <div class="dialogue-korean">
+        감사합니다. 제 방이 어디예요?
+      </div>
+
+      <div class="dialogue-french">
+        Merci. Où est ma chambre ?
+      </div>
+
+      <div class="line-actions">
+
+        <button
+          type="button"
+          onclick="speakKorean('감사합니다. 제 방이 어디예요?', 'hana', false)"
+        >
+          🔊 Écouter Ana
+        </button>
+
+        <button
+          class="slow"
+          type="button"
+          onclick="speakKorean('감사합니다. 제 방이 어디예요?', 'hana', true)"
+        >
+          🐢 Lentement
+        </button>
+
+      </div>
+
     </div>
 
-    <div class="dialogue-line jieun">
-      <div class="speaker">💚 Ji-eun</div>
-      <div class="dialogue-korean">저기에서 충전할 수 있어요.</div>
-      <div class="dialogue-french">Vous pouvez recharger là-bas.</div>
-      <div class="line-actions">
-        <button type="button" onclick="speakKorean('저기에서 충전할 수 있어요.', 'jieun', false)">🔊 Écouter Ji-eun</button>
-        <button class="slow" type="button" onclick="speakKorean('저기에서 충전할 수 있어요.', 'jieun', true)">🐢 Lentement</button>
+
+    <div class="dialogue-line joonho">
+
+      <div class="speaker">
+        🩶 Joon-ho
       </div>
+
+      <div class="dialogue-korean">
+        삼 층이에요.
+      </div>
+
+      <div class="dialogue-french">
+        C'est au troisième étage.
+      </div>
+
+      <div class="line-actions">
+
+        <button
+          type="button"
+          onclick="speakKorean('삼 층이에요.', 'joonho', false)"
+        >
+          🔊 Écouter Joon-ho
+        </button>
+
+        <button
+          class="slow"
+          type="button"
+          onclick="speakKorean('삼 층이에요.', 'joonho', true)"
+        >
+          🐢 Lentement
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="dialogue-line hana">
+
+      <div class="speaker">
+        🌸 Ana
+      </div>
+
+      <div class="dialogue-korean">
+        와이파이 비밀번호가 뭐예요?
+      </div>
+
+      <div class="dialogue-french">
+        Quel est le mot de passe du Wi-Fi ?
+      </div>
+
+      <div class="line-actions">
+
+        <button
+          type="button"
+          onclick="speakKorean('와이파이 비밀번호가 뭐예요?', 'hana', false)"
+        >
+          🔊 Écouter Ana
+        </button>
+
+        <button
+          class="slow"
+          type="button"
+          onclick="speakKorean('와이파이 비밀번호가 뭐예요?', 'hana', true)"
+        >
+          🐢 Lentement
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="dialogue-line joonho">
+
+      <div class="speaker">
+        🩶 Joon-ho
+      </div>
+
+      <div class="dialogue-korean">
+        여기 있습니다.
+      </div>
+
+      <div class="dialogue-french">
+        Le voici.
+      </div>
+
+      <div class="line-actions">
+
+        <button
+          type="button"
+          onclick="speakKorean('여기 있습니다.', 'joonho', false)"
+        >
+          🔊 Écouter Joon-ho
+        </button>
+
+        <button
+          class="slow"
+          type="button"
+          onclick="speakKorean('여기 있습니다.', 'joonho', true)"
+        >
+          🐢 Lentement
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="dialogue-line hana">
+
+      <div class="speaker">
+        🌸 Ana
+      </div>
+
+      <div class="dialogue-korean">
+        감사합니다!
+      </div>
+
+      <div class="dialogue-french">
+        Merci !
+      </div>
+
+      <div class="line-actions">
+
+        <button
+          type="button"
+          onclick="speakKorean('감사합니다!', 'hana', false)"
+        >
+          🔊 Écouter Ana
+        </button>
+
+        <button
+          class="slow"
+          type="button"
+          onclick="speakKorean('감사합니다!', 'hana', true)"
+        >
+          🐢 Lentement
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="dialogue-line joonho">
+
+      <div class="speaker">
+        🩶 Joon-ho
+      </div>
+
+      <div class="dialogue-korean">
+        좋은 여행 되세요.
+      </div>
+
+      <div class="dialogue-french">
+        Bon séjour ! / Bon voyage !
+      </div>
+
+      <div class="line-actions">
+
+        <button
+          type="button"
+          onclick="speakKorean('좋은 여행 되세요.', 'joonho', false)"
+        >
+          🔊 Écouter Joon-ho
+        </button>
+
+        <button
+          class="slow"
+          type="button"
+          onclick="speakKorean('좋은 여행 되세요.', 'joonho', true)"
+        >
+          🐢 Lentement
+        </button>
+
+      </div>
+
     </div>
 
   </section>
-
 
 
   <section class="tip-card">
@@ -555,38 +996,18 @@
 
     <br><br>
 
-    Pour ce chapitre, repère surtout :
+    À la réception, repère surtout :
 
     <br><br>
 
-    <strong>와이파이</strong> → Wi-Fi
-
-    <br>
-
-    <strong>비밀번호</strong> → mot de passe
-
-    <br>
-
-    <strong>배터리</strong> → batterie
-
-    <br>
-
-    <strong>충전기</strong> → chargeur
-
-    <br>
-
-    <strong>충전</strong> → recharge
-
-    <br>
-
-    <strong>있어요 / 없어요</strong> → il y a / il n'y a pas
-
-    <br>
-
-    <strong>안 돼요</strong> → ça ne fonctionne pas
+    <strong>예약</strong> → réservation<br>
+    <strong>성함</strong> → nom, forme respectueuse<br>
+    <strong>방</strong> → chambre<br>
+    <strong>비밀번호</strong> → mot de passe<br>
+    <strong>안 돼요</strong> → ça ne fonctionne pas<br>
+    <strong>도와주세요</strong> → aidez-moi
 
   </section>
-
 
 
   <button
@@ -598,7 +1019,6 @@
   </button>
 
 
-
   <button
     class="chapter-button"
     type="button"
@@ -607,15 +1027,13 @@
     Retour au chapitre
   </button>
 
-
 </main>
-
 
 
 <script src="chapter-progress.js"></script>
 
 <script>
-  const CHAPTER = 17;
+  const CHAPTER = 16;
 
   const UNDERSTANDING_KEY =
     "hanaKorean_chapter17_understanding";
@@ -623,42 +1041,7 @@
   const LISTENING_KEY =
     "hanaKorean_chapter17_listening";
 
-  function guardListeningAccess() {
-    if (
-      localStorage.getItem(
-        UNDERSTANDING_KEY
-      ) !== "completed"
-    ) {
-      window.location.replace(
-        "chapitre-17.html"
-      );
-      return false;
-    }
-
-    if (
-      localStorage.getItem(
-        LISTENING_KEY
-      ) !== "completed"
-    ) {
-      localStorage.setItem(
-        LISTENING_KEY,
-        "in_progress"
-      );
-    }
-
-    return true;
-  }
-
-  function renderChapterProgress() {
-    if (
-      window.HanaChapterProgress &&
-      typeof window.HanaChapterProgress.render === "function"
-    ) {
-      window.HanaChapterProgress.render();
-    }
-  }
-
-const AUDIO_SETTINGS = {
+  const AUDIO_SETTINGS = {
     normalRate: 0.82,
     slowRate: 0.25
   };
@@ -668,16 +1051,44 @@ const AUDIO_SETTINGS = {
 
     {
       text:
-        "실례합니다. 와이파이 있어요?",
+        "안녕하세요. 예약했어요.",
       character:
         "hana"
     },
 
     {
       text:
-        "네. 여기 있어요.",
+        "성함이 어떻게 되세요?",
       character:
-        "jieun"
+        "joonho"
+    },
+
+    {
+      text:
+        HanaProfile.replacePerson("아나예요."),
+      character:
+        "hana"
+    },
+
+    {
+      text:
+        "네. 여기 있습니다.",
+      character:
+        "joonho"
+    },
+
+    {
+      text:
+        "감사합니다. 제 방이 어디예요?",
+      character:
+        "hana"
+    },
+
+    {
+      text:
+        "삼 층이에요.",
+      character:
+        "joonho"
     },
 
     {
@@ -691,35 +1102,21 @@ const AUDIO_SETTINGS = {
       text:
         "여기 있습니다.",
       character:
-        "jieun"
+        "joonho"
     },
 
     {
       text:
-        "감사합니다. 충전기도 있어요?",
+        "감사합니다!",
       character:
         "hana"
     },
 
     {
       text:
-        "네. 있어요.",
+        "좋은 여행 되세요.",
       character:
-        "jieun"
-    },
-
-    {
-      text:
-        "어디에서 충전할 수 있어요?",
-      character:
-        "hana"
-    },
-
-    {
-      text:
-        "저기에서 충전할 수 있어요.",
-      character:
-        "jieun"
+        "joonho"
     }
 
   ];
@@ -728,53 +1125,110 @@ const AUDIO_SETTINGS = {
   let dialogueSessionId =
     0;
 
-
   let dialoguePlaying =
     false;
-
 
   let dialogueSlowMode =
     false;
 
 
+  function guardListeningAccess() {
+
+    if (
+      localStorage.getItem(
+        UNDERSTANDING_KEY
+      ) !== "completed"
+    ) {
+
+      window.location.replace(
+        "chapitre-17.html"
+      );
+
+      return false;
+    }
+
+
+    if (
+      localStorage.getItem(
+        LISTENING_KEY
+      ) !== "completed"
+    ) {
+
+      localStorage.setItem(
+        LISTENING_KEY,
+        "in_progress"
+      );
+    }
+
+
+    return true;
+  }
+
+
+  function renderChapterProgress() {
+
+    if (
+      window.HanaChapterProgress &&
+      typeof window.HanaChapterProgress.render === "function"
+    ) {
+
+      window.HanaChapterProgress.render();
+    }
+  }
+
 
   function getKoreanVoice() {
 
+    if (
+      !(
+        "speechSynthesis"
+        in window
+      )
+    ) {
+      return null;
+    }
+
+
     const voices =
-      window.speechSynthesis.getVoices();
+      window
+        .speechSynthesis
+        .getVoices();
 
 
-    return voices.find(
-      voice =>
-        voice.lang &&
-        voice.lang
-          .toLowerCase()
-          .startsWith(
-            "ko"
-          )
+    return (
+      voices.find(
+        voice =>
+          voice.lang &&
+          voice.lang
+            .toLowerCase()
+            .startsWith(
+              "ko"
+            )
+      ) || null
     );
-
   }
 
 
-
-  function getCharacterSettings(
-    character,
-    slow
+  function getCharacterPitch(
+    character
   ) {
 
-    return {
-      rate:
-        slow
-          ? AUDIO_SETTINGS.slowRate
-          : AUDIO_SETTINGS.normalRate,
+    if (
+      character === "hana"
+    ) {
+      return 1.06;
+    }
 
-      pitch:
-        1
-    };
 
+    if (
+      character === "joonho"
+    ) {
+      return 0.94;
+    }
+
+
+    return 1;
   }
-
 
 
   function speakKorean(
@@ -802,23 +1256,20 @@ const AUDIO_SETTINGS = {
       );
 
 
-    const settings =
-      getCharacterSettings(
-        character,
-        slow
-      );
-
-
     speech.lang =
       "ko-KR";
 
 
     speech.rate =
-      settings.rate;
+      slow
+        ? AUDIO_SETTINGS.slowRate
+        : AUDIO_SETTINGS.normalRate;
 
 
     speech.pitch =
-      settings.pitch;
+      getCharacterPitch(
+        character
+      );
 
 
     const koreanVoice =
@@ -828,19 +1279,17 @@ const AUDIO_SETTINGS = {
     if (
       koreanVoice
     ) {
-
       speech.voice =
         koreanVoice;
-
     }
 
 
-    window.speechSynthesis.speak(
-      speech
-    );
-
+    window
+      .speechSynthesis
+      .speak(
+        speech
+      );
   }
-
 
 
   function toggleDialogue(
@@ -854,7 +1303,6 @@ const AUDIO_SETTINGS = {
       stopDialogue();
 
       return;
-
     }
 
 
@@ -865,9 +1313,7 @@ const AUDIO_SETTINGS = {
     playDialogue(
       slow
     );
-
   }
-
 
 
   function playDialogue(
@@ -884,7 +1330,9 @@ const AUDIO_SETTINGS = {
     }
 
 
-    window.speechSynthesis.cancel();
+    window
+      .speechSynthesis
+      .cancel();
 
 
     dialogueSessionId++;
@@ -910,9 +1358,7 @@ const AUDIO_SETTINGS = {
       slow,
       sessionId
     );
-
   }
-
 
 
   function playDialogueLine(
@@ -941,7 +1387,6 @@ const AUDIO_SETTINGS = {
       updateDialogueButtons();
 
       return;
-
     }
 
 
@@ -957,23 +1402,20 @@ const AUDIO_SETTINGS = {
       );
 
 
-    const settings =
-      getCharacterSettings(
-        line.character,
-        slow
-      );
-
-
     speech.lang =
       "ko-KR";
 
 
     speech.rate =
-      settings.rate;
+      slow
+        ? AUDIO_SETTINGS.slowRate
+        : AUDIO_SETTINGS.normalRate;
 
 
     speech.pitch =
-      settings.pitch;
+      getCharacterPitch(
+        line.character
+      );
 
 
     const koreanVoice =
@@ -983,10 +1425,8 @@ const AUDIO_SETTINGS = {
     if (
       koreanVoice
     ) {
-
       speech.voice =
         koreanVoice;
-
     }
 
 
@@ -1009,11 +1449,9 @@ const AUDIO_SETTINGS = {
               slow,
               sessionId
             );
-
           },
           350
         );
-
       };
 
 
@@ -1025,16 +1463,15 @@ const AUDIO_SETTINGS = {
 
 
         updateDialogueButtons();
-
       };
 
 
-    window.speechSynthesis.speak(
-      speech
-    );
-
+    window
+      .speechSynthesis
+      .speak(
+        speech
+      );
   }
-
 
 
   function stopDialogue() {
@@ -1051,15 +1488,14 @@ const AUDIO_SETTINGS = {
       in window
     ) {
 
-      window.speechSynthesis.cancel();
-
+      window
+        .speechSynthesis
+        .cancel();
     }
 
 
     updateDialogueButtons();
-
   }
-
 
 
   function updateDialogueButtons() {
@@ -1087,7 +1523,6 @@ const AUDIO_SETTINGS = {
 
       normalButton.textContent =
         "🎧 Écouter tout le dialogue";
-
     }
 
 
@@ -1102,7 +1537,6 @@ const AUDIO_SETTINGS = {
 
       slowButton.textContent =
         "🐢 Écouter tout lentement";
-
     }
 
 
@@ -1128,10 +1562,10 @@ const AUDIO_SETTINGS = {
 
         slowButton.textContent =
           "⏹️ Stopper le dialogue";
-
       }
+    }
 
-    } else {
+    else {
 
       if (
         normalButton
@@ -1144,35 +1578,42 @@ const AUDIO_SETTINGS = {
 
         normalButton.textContent =
           "⏹️ Stopper le dialogue";
-
       }
-
     }
-
   }
 
 
-
   function goToListeningExercise() {
+
     if (
       localStorage.getItem(
         UNDERSTANDING_KEY
       ) !== "completed"
     ) {
+
       window.location.href =
         "chapitre-17.html";
+
       return;
     }
 
+
+    if (
+      localStorage.getItem(
+        LISTENING_KEY
+      ) !== "completed"
+    ) {
+
+      localStorage.setItem(
+        LISTENING_KEY,
+        "in_progress"
+      );
+    }
+
+
     window.location.href =
-      "exercice-ecoute-17.html";
+      "exercice-ecoute-18.html";
   }
-
-
-
-  window
-    .speechSynthesis
-    ?.getVoices();
 
 
   if (
@@ -1180,28 +1621,42 @@ const AUDIO_SETTINGS = {
     in window
   ) {
 
-    window.speechSynthesis.onvoiceschanged =
+    window
+      .speechSynthesis
+      .onvoiceschanged =
       function() {
 
         window
           .speechSynthesis
           .getVoices();
-
       };
-
   }
 
-  if (guardListeningAccess()) {
+
+  window.addEventListener(
+    "pagehide",
+    function() {
+
+      stopDialogue();
+    }
+  );
+
+
+  if (
+    guardListeningAccess()
+  ) {
+
     renderChapterProgress();
+
 
     window.addEventListener(
       "pageshow",
       function() {
+
         renderChapterProgress();
       }
     );
   }
 </script>
 </body>
-
 </html>

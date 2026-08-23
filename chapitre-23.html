@@ -1,576 +1,254 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
-
   <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
-
-  <meta
-    name="theme-color"
-    content="#F7F4ED"
-  >
-
-  <title>Chapitre 23 — Faire les courses</title>
-
-  <link
-    rel="stylesheet"
-    href="style.css"
-  >
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#F7F4ED">
+  <title>Chapitre 23 — Parler de la météo</title>
+  <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="chapter-progress.css">
 
   <style>
-
-    .chapter-header {
-      text-align:center;
-      margin-bottom:24px;
-    }
-
-    .card,
-    .bridge-card {
-      padding:20px;
-      margin-bottom:18px;
-      background:var(--white);
-      border-radius:var(--radius-large);
-      box-shadow:var(--shadow);
-    }
-
-    .korean {
-      font-size:22px;
-      font-weight:700;
-      color:var(--navy);
-    }
-
-    .vocab-list {
-      display:flex;
-      flex-direction:column;
-      gap:9px;
-      margin-top:12px;
-    }
-
-    .vocab-row {
-      display:flex;
-      justify-content:space-between;
-      gap:16px;
-      padding:12px 14px;
-      background:#FBFAF6;
-      border-radius:var(--radius-medium);
-    }
-
-    .vocab-row strong {
-      color:var(--navy);
-      font-size:18px;
-    }
-
-    .vocab-row span {
-      color:var(--text-light);
-      text-align:right;
-    }
-
-    .dialogue-line {
-      padding:15px;
-      margin-top:10px;
-      border-radius:var(--radius-medium);
-      line-height:1.7;
-    }
-
-    .dialogue-line.hana {
-      background:var(--soft-green);
-    }
-
-    .dialogue-line.minsu {
-      background:var(--soft-blue);
-    }
-
-    .dialogue-line.jisoo {
-      background:var(--soft-beige);
-    }
-
-    .speaker {
-      font-weight:700;
-      margin-bottom:4px;
-    }
-
-    .korean-line {
-      font-size:19px;
-      font-weight:700;
-      color:var(--navy);
-    }
-
-    .french-line {
-      margin-top:5px;
-      color:var(--text-light);
-    }
-
-    .grammar-box {
-      padding:15px;
-      margin-top:12px;
-      background:var(--soft-beige);
-      border-radius:var(--radius-medium);
-      line-height:1.7;
-    }
-
-    .grammar-box h3 {
-      margin-top:0;
-      color:var(--navy);
-    }
-
-    .example {
-      color:var(--navy);
-    }
-
-    .culture-quote {
-      margin-top:14px;
-      padding:14px;
-      background:var(--soft-green);
-      border-radius:var(--radius-medium);
-      color:var(--navy);
-      line-height:1.7;
-    }
-
-    .shopping-word {
-      display:inline-block;
-      margin:4px 6px 4px 0;
-      padding:7px 10px;
-      background:var(--soft-blue);
-      border-radius:999px;
-      color:var(--navy);
-      font-weight:600;
-    }
-
-    .complete-button,
-    .next-button {
-      width:100%;
-      margin-top:10px;
-    }
-
-    .complete-button {
-      background:var(--jade);
-      color:white;
-      font-weight:700;
-    }
-
-    .complete-button.done {
-      background:var(--success);
-    }
-
-    .next-button {
-      display:none;
-      background:var(--navy);
-      color:white;
-      font-weight:700;
-    }
-
+    .chapter-header{text-align:center;margin-bottom:24px}
+    .card,.bridge-card{padding:20px;margin-bottom:18px;background:var(--white);border-radius:var(--radius-large);box-shadow:var(--shadow)}
+    .korean{font-size:22px;font-weight:700;color:var(--navy)}
+    .vocab-list{display:flex;flex-direction:column;gap:9px;margin-top:12px}
+    .vocab-row{display:flex;justify-content:space-between;gap:16px;padding:12px 14px;background:#FBFAF6;border-radius:var(--radius-medium)}
+    .vocab-row strong{color:var(--navy);font-size:18px}
+    .vocab-row span{color:var(--text-light);text-align:right}
+    .dialogue-line{padding:15px;margin-top:10px;border-radius:var(--radius-medium);line-height:1.7}
+    .dialogue-line.hana{background:var(--soft-green)}
+    .dialogue-line.minsu{background:var(--soft-blue)}
+    .speaker{font-weight:700;margin-bottom:4px}
+    .korean-line{font-size:19px;font-weight:700;color:var(--navy)}
+    .french-line{margin-top:5px;color:var(--text-light)}
+    .grammar-box{padding:15px;margin-top:12px;background:var(--soft-beige);border-radius:var(--radius-medium);line-height:1.7}
+    .grammar-box h3{margin-top:0;color:var(--navy)}
+    .example{color:var(--navy)}
+    .culture-quote{margin-top:14px;padding:14px;background:var(--soft-beige);border-radius:var(--radius-medium);color:var(--navy);line-height:1.7}
+    .weather-word{display:inline-block;margin:4px 6px 4px 0;padding:7px 10px;background:var(--soft-blue);border-radius:999px;color:var(--navy);font-weight:600}
+    .bridge-card{background:var(--soft-green);color:var(--navy);line-height:1.7}
+    .complete-button,.next-button{width:100%;margin-top:10px}
+    .complete-button{background:var(--jade);color:white;font-weight:700}
+    .complete-button.done{background:var(--success)}
+    .next-button{display:none;background:var(--navy);color:white;font-weight:700}
   </style>
-
   <script src="profile.js"></script>
 </head>
 
-
 <body>
-
-
 <main class="app">
 
-
-  <a
-    class="back-link"
-    href="itineraire.html"
-  >
-    ← Itinéraire
-  </a>
-
+  <a class="back-link" href="itineraire.html">← Itinéraire</a>
 
   <header class="chapter-header">
-
-    <span class="chapter-badge">
-      Chapitre 23 · 🛒
-    </span>
-
-    <p class="korean">
-      뭐를 사고 싶어요?
-    </p>
-
-    <h1>
-      Faire les courses
-    </h1>
-
+    <span class="chapter-badge">Chapitre 23 · 🌦️</span>
+    <p class="korean">오늘 날씨가 어때요?</p>
+    <h1>Parler de la météo</h1>
     <p>
-      Apprends à faire des achats dans un supermarché,
-      demander où se trouve un produit et parler de ce que tu veux acheter.
+      Apprends à décrire le temps, comprendre les expressions météo courantes
+      et proposer une activité selon la météo.
     </p>
-
   </header>
 
   <section id="hanaChapterPath" data-chapter-path></section>
 
-
   <section class="card">
-
     <h2>🎯 Objectif</h2>
-
-    <p>
-      À la fin de ce chapitre, tu seras capable de :
-    </p>
-
+    <p>À la fin de ce chapitre, tu seras capable de :</p>
     <ul>
-      <li>✅ faire des courses dans un supermarché ;</li>
-      <li>✅ demander où se trouve un produit ;</li>
-      <li>✅ dire ce que tu souhaites acheter ;</li>
-      <li>✅ proposer d’acheter quelque chose en plus ;</li>
-      <li>✅ utiliser quelques expressions utiles pour faire ses achats.</li>
+      <li>✅ parler du temps qu'il fait ;</li>
+      <li>✅ comprendre les expressions météorologiques les plus courantes ;</li>
+      <li>✅ proposer une activité selon la météo ;</li>
+      <li>✅ utiliser quelques adjectifs indispensables du quotidien.</li>
     </ul>
-
   </section>
 
-
   <section class="card">
-
     <h2>🟩 Vocabulaire</h2>
-
     <div class="vocab-list">
-
-      <div class="vocab-row"><strong>마트</strong><span>supermarché</span></div>
-      <div class="vocab-row"><strong>사다</strong><span>acheter</span></div>
-      <div class="vocab-row"><strong>우유</strong><span>lait</span></div>
-      <div class="vocab-row"><strong>딸기</strong><span>fraises</span></div>
-      <div class="vocab-row"><strong>커피</strong><span>café</span></div>
-      <div class="vocab-row"><strong>과자</strong><span>biscuits / snacks</span></div>
-      <div class="vocab-row"><strong>라면</strong><span>nouilles instantanées</span></div>
-      <div class="vocab-row"><strong>물</strong><span>eau</span></div>
-      <div class="vocab-row"><strong>빵</strong><span>pain</span></div>
-      <div class="vocab-row"><strong>과일</strong><span>fruits</span></div>
-      <div class="vocab-row"><strong>채소</strong><span>légumes</span></div>
-      <div class="vocab-row"><strong>계산대</strong><span>caisse</span></div>
-      <div class="vocab-row"><strong>장바구니</strong><span>panier</span></div>
-
+      <div class="vocab-row"><strong>날씨</strong><span>météo</span></div>
+      <div class="vocab-row"><strong>덥다</strong><span>faire chaud</span></div>
+      <div class="vocab-row"><strong>춥다</strong><span>faire froid</span></div>
+      <div class="vocab-row"><strong>비</strong><span>pluie</span></div>
+      <div class="vocab-row"><strong>눈</strong><span>neige</span></div>
+      <div class="vocab-row"><strong>바람</strong><span>vent</span></div>
+      <div class="vocab-row"><strong>맑다</strong><span>être dégagé</span></div>
+      <div class="vocab-row"><strong>흐리다</strong><span>être nuageux</span></div>
+      <div class="vocab-row"><strong>우산</strong><span>parapluie</span></div>
+      <div class="vocab-row"><strong>하늘</strong><span>ciel</span></div>
+      <div class="vocab-row"><strong>햇빛</strong><span>soleil (rayons)</span></div>
+      <div class="vocab-row"><strong>구름</strong><span>nuage</span></div>
     </div>
-
   </section>
 
-
   <section class="card">
-
     <h2>💬 Dialogue</h2>
 
-
-    <div class="dialogue-line jisoo">
-
-      <div class="speaker">
-        💚 Ji-soo
-      </div>
-
-      <div class="korean-line">
-        아나 씨, 뭐를 사고 싶어요?
-      </div>
-
-      <div class="french-line">
-        Ana, qu'aimerais-tu acheter ?
-      </div>
-
+    <div class="dialogue-line minsu">
+      <div class="speaker">💙 Min-su</div>
+      <div class="korean-line">오늘 날씨가 어때요?</div>
+      <div class="french-line">Comment est le temps aujourd'hui ?</div>
     </div>
-
 
     <div class="dialogue-line hana">
-
-      <div class="speaker">
-        🌸 Ana
-      </div>
-
-      <div class="korean-line">
-        우유하고 딸기를 사고 싶어요.
-      </div>
-
-      <div class="french-line">
-        J'aimerais acheter du lait et des fraises.
-      </div>
-
+      <div class="speaker">🌸 Ana</div>
+      <div class="korean-line">조금 더워요.</div>
+      <div class="french-line">Il fait un peu chaud.</div>
     </div>
-
 
     <div class="dialogue-line minsu">
-
-      <div class="speaker">
-        💙 Min-su
-      </div>
-
-      <div class="korean-line">
-        커피도 살까요?
-      </div>
-
-      <div class="french-line">
-        Et si on achetait aussi du café ?
-      </div>
-
+      <div class="speaker">💙 Min-su</div>
+      <div class="korean-line">하지만 비가 올 것 같아요.</div>
+      <div class="french-line">Mais je crois qu'il va pleuvoir.</div>
     </div>
-
 
     <div class="dialogue-line hana">
-
-      <div class="speaker">
-        🌸 Ana
-      </div>
-
-      <div class="korean-line">
-        좋아요! 그리고 과자도 사고 싶어요.
-      </div>
-
-      <div class="french-line">
-        Bonne idée ! Et j'aimerais aussi acheter des biscuits.
-      </div>
-
+      <div class="speaker">🌸 Ana</div>
+      <div class="korean-line">맞아요. 하늘이 흐려요.</div>
+      <div class="french-line">Oui. Le ciel est couvert.</div>
     </div>
 
-
-    <div class="dialogue-line jisoo">
-
-      <div class="speaker">
-        💚 Ji-soo
-      </div>
-
-      <div class="korean-line">
-        과자는 저쪽에 있어요. 같이 가요!
-      </div>
-
-      <div class="french-line">
-        Les biscuits sont de ce côté. Allons-y ensemble !
-      </div>
-
+    <div class="dialogue-line minsu">
+      <div class="speaker">💙 Min-su</div>
+      <div class="korean-line">우산 있어요?</div>
+      <div class="french-line">Tu as un parapluie ?</div>
     </div>
 
+    <div class="dialogue-line hana">
+      <div class="speaker">🌸 Ana</div>
+      <div class="korean-line">네! 가방에 있어요.</div>
+      <div class="french-line">Oui ! Il est dans mon sac.</div>
+    </div>
+
+    <div class="dialogue-line minsu">
+      <div class="speaker">💙 Min-su</div>
+      <div class="korean-line">다행이에요.</div>
+      <div class="french-line">Heureusement !</div>
+    </div>
   </section>
 
-
   <section class="card">
-
     <h2>💙 Grammaire</h2>
 
-
     <div class="grammar-box">
-
-      <h3>👉 -고 싶어요</h3>
-
-      <p>
-        Cette structure signifie :
-        <strong>« Je veux... »</strong>
-        ou
-        <strong>« J'aimerais... »</strong>
-      </p>
-
-      <p class="example">
-        우유를 사고 싶어요.
-        → Je voudrais acheter du lait.
-      </p>
-
-      <p class="example">
-        한국에 가고 싶어요.
-        → Je voudrais aller en Corée.
-      </p>
-
-      <p class="example">
-        책을 읽고 싶어요.
-        → Je voudrais lire un livre.
-      </p>
-
+      <h3>👉 날씨가 어때요?</h3>
+      <p><strong>날씨</strong> → la météo</p>
+      <p><strong>어때요?</strong> → comment est... ?</p>
+      <p class="example"><strong>날씨가 어때요?</strong> → Quel temps fait-il ?</p>
     </div>
 
-
     <div class="grammar-box">
-
-      <h3>👉 그리고</h3>
-
-      <p>
-        <strong>그리고</strong>
-        → et / ensuite
-      </p>
-
-      <p class="example">
-        커피를 샀어요. 그리고 우유도 샀어요.
-        → J'ai acheté du café. Puis j'ai aussi acheté du lait.
-      </p>
-
+      <h3>👉 조금</h3>
+      <p><strong>조금</strong> → un peu</p>
+      <p class="example">조금 더워요. → Il fait un peu chaud.</p>
+      <p class="example">조금 추워요. → Il fait un peu froid.</p>
     </div>
 
-
     <div class="grammar-box">
-
-      <h3>👉 저쪽</h3>
-
-      <p>
-        <strong>저쪽</strong>
-        → là-bas / de ce côté-là
-      </p>
-
-      <p class="example">
-        화장실은 저쪽에 있어요.
-        → Les toilettes sont par là.
-      </p>
-
-      <p class="example">
-        계산대는 저쪽에 있어요.
-        → La caisse est là-bas.
-      </p>
-
+      <h3>👉 -(으)ㄹ 것 같아요</h3>
+      <p>Cette structure signifie : <strong>« Je pense que... »</strong> ou <strong>« On dirait que... »</strong></p>
+      <p class="example">비가 올 것 같아요. → Je pense qu'il va pleuvoir.</p>
+      <p class="example">좋을 것 같아요. → Je pense que ce sera bien.</p>
+      <p class="example">맛있을 것 같아요. → Ça a l'air bon.</p>
+      <p>C'est une expression très utilisée dans les conversations du quotidien.</p>
     </div>
-
   </section>
 
-
   <section class="card">
-
     <h2>🟨 Pourquoi ?</h2>
-
-    <p>
-      Pourquoi dit-on
-      <strong>우유를 사고 싶어요</strong>
-      et non
-      <strong>우유 사고 싶어요</strong> ?
-    </p>
+    <p>Pourquoi dit-on <strong>비가 와요</strong> mais <strong>비가 올 것 같아요</strong> ?</p>
 
     <div class="grammar-box">
-
-      <strong>를</strong>
-      indique le complément d'objet.
-
-      <br><br>
-
-      Lorsque tu apprends la langue, il est préférable
-      de garder cette particule pour bien construire la phrase.
-
+      <strong>비가 와요</strong><br>
+      → Il pleut.<br><br>
+      C'est une réalité.
     </div>
 
     <div class="grammar-box">
-
-      En coréen parlé, cette particule peut parfois être omise.
-
-      <br><br>
-
-      Tu peux donc entendre :
-
-      <br><br>
-
-      <strong>우유 사고 싶어요.</strong>
-
+      <strong>비가 올 것 같아요</strong><br>
+      → Je pense qu'il va pleuvoir.<br><br>
+      C'est une impression ou une prévision.
     </div>
 
+    <p>Cette nuance permet d'exprimer une opinion avec douceur.</p>
   </section>
 
-
   <section class="card">
-
     <h2>🩵 Prononciation</h2>
-
     <p>
-      <strong>딸기</strong>
-      → <strong>ttal-gi</strong>
+      Dans <strong>날씨</strong>, le double <strong>ㅆ</strong>
+      se prononce comme un <strong>s bien marqué</strong>.
     </p>
-
-    <p>
-      Le
-      <strong>ㄸ</strong>
-      est une consonne tendue.
-      Elle est plus énergique que
-      <strong>ㄷ</strong>.
-    </p>
-
+    <p class="example">On entend : <strong>nal-ssi</strong></p>
   </section>
 
-
   <section class="card">
-
     <h2>🌸 Point culture</h2>
-
     <p>
-      Les supermarchés coréens proposent souvent de nombreux produits
-      que l'on trouve moins facilement en France :
-      différentes variétés de ramyeon, des kimbaps,
-      des mandus, des boissons au yaourt ou encore
-      du lait aromatisé à la banane.
+      Parler de la météo est l'un des sujets les plus fréquents en Corée.
+      Au printemps, les Coréens parlent souvent des cerisiers en fleurs.
+      En été, la chaleur et les pluies de mousson
+      (<strong>장마</strong>, <em>jangma</em>) sont au cœur des conversations.
+      En automne, beaucoup apprécient le ciel dégagé et les couleurs des montagnes.
+      En hiver, les premières chutes de neige sont souvent attendues avec enthousiasme.
     </p>
 
-    <p>
-      On y trouve aussi de nombreux plats préparés,
-      pratiques pour les étudiants et les employés.
-    </p>
-
+    <div class="culture-quote">
+      Tu entendras très souvent :<br><br>
+      <strong>오늘 덥네요.</strong><br>
+      <strong>오늘 춥네요.</strong>
+    </div>
   </section>
 
-
   <section class="card">
-
     <h2>📚 Le conseil de Ji-soo</h2>
-
     <p>
-      Aujourd'hui, pas encore de livre !
-      Lors de tes prochaines courses en Corée
-      — ou dans une épicerie coréenne près de chez toi —
-      prends le temps de lire les emballages.
+      Aujourd'hui, observe simplement les affiches et les applications météo en coréen.
     </p>
-
-    <p>
-      Tu reconnaîtras peut-être déjà :
-    </p>
+    <p>Essaie de reconnaître quelques mots :</p>
 
     <div>
-      <span class="shopping-word">🥛 우유</span>
-      <span class="shopping-word">💧 물</span>
-      <span class="shopping-word">☕ 커피</span>
-      <span class="shopping-word">🍓 딸기</span>
-      <span class="shopping-word">🍜 라면</span>
+      <span class="weather-word">☀️ 맑아요</span>
+      <span class="weather-word">☁️ 흐려요</span>
+      <span class="weather-word">🌧️ 비</span>
+      <span class="weather-word">❄️ 눈</span>
     </div>
 
     <p>
-      Tu verras que les mots appris dans ce chapitre
-      existent partout autour de toi.
+      Même sans tout comprendre, tu commenceras à associer naturellement les mots aux symboles.
     </p>
-
   </section>
 
+  <section class="bridge-card">
+    <strong>💙 Min-su</strong><br><br>
+    <span class="korean-line">비가 오니까 마트에 갈까요?</span><br><br>
+    Puisqu'il va pleuvoir, et si on allait au supermarché ?
+  </section>
 
   <section class="card">
-
     <h2>🌟 Phrase du chapitre</h2>
-
     <p>
-      « Chaque produit que tu reconnais sur une étagère
-      est un mot de moins à traduire… et un pas de plus
-      vers l'autonomie. » 🌸
+      « Regarder le ciel, c'est souvent le début d'une conversation.
+      En Corée comme ailleurs, quelques mots sur la météo peuvent ouvrir
+      la porte à de belles rencontres. » 🌸
     </p>
-
   </section>
 
-
-  <button
-    class="complete-button"
-    id="completeButton"
-    type="button"
-  >
+  <button class="complete-button" id="completeButton" type="button">
     ✅ J'ai compris
   </button>
 
-
-  <button
-    class="next-button"
-    id="nextButton"
-    type="button"
-  >
+  <button class="next-button" id="nextButton" type="button">
     🎧 Passer à l'écoute
   </button>
 
-
 </main>
-
 
 <script src="chapter-progress.js"></script>
 
 <script>
-
-  const progressKey =
-    "hanaKorean_chapter23_understanding";
+  const progressKey = "hanaKorean_chapter23_understanding";
 
 
   function renderChapterProgress() {
@@ -604,79 +282,31 @@
 
     if (laterKeys.some(key => localStorage.getItem(key) === "completed")) {
       localStorage.setItem(progressKey, "completed");
-    renderChapterProgress();
     }
   }
 
-
-  const completeButton =
-    document.getElementById(
-      "completeButton"
-    );
-
-
-  const nextButton =
-    document.getElementById(
-      "nextButton"
-    );
-
+  const completeButton = document.getElementById("completeButton");
+  const nextButton = document.getElementById("nextButton");
 
   function showCompletedState() {
-
-    completeButton.textContent =
-      "✅ Compréhension terminée";
-
-
-    completeButton
-      .classList
-      .add(
-        "done"
-      );
-
-
-    nextButton.style.display =
-      "block";
-
+    completeButton.textContent = "✅ Compréhension terminée";
+    completeButton.classList.add("done");
+    nextButton.style.display = "block";
   }
 
-
-  if (
-    localStorage.getItem(
-      progressKey
-    ) === "completed"
-  ) {
-
+  if (localStorage.getItem(progressKey) === "completed") {
     showCompletedState();
-
   }
 
+  completeButton.addEventListener("click", () => {
+    localStorage.setItem(progressKey, "completed");
+    showCompletedState();
+    renderChapterProgress();
+  });
 
-  completeButton.addEventListener(
-    "click",
-    () => {
-
-      localStorage.setItem(
-        progressKey,
-        "completed"
-      );
-
-
-      showCompletedState();
-
-    }
-  );
-
-
-  nextButton.addEventListener(
-    "click",
-    () => {
-
-      window.location.href =
-        "ecoute-23.html";
-
-    }
-  );
-
+  nextButton.addEventListener("click", () => {
+    window.location.href = "ecoute-23.html";
+  });
 
   window.addEventListener("pageshow", () => {
     migratePreviousProgress();
@@ -685,5 +315,4 @@
 
 </script>
 </body>
-
 </html>

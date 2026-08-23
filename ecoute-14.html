@@ -1,470 +1,1776 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
+
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#F7F4ED">
-  <title>Chapitre 14 — Commander un café</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="chapter-progress.css">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="theme-color"
+    content="#F7F4ED"
+  >
+
+  <title>Chapitre 14 — J'écoute</title>
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="chapter-progress.css"
+  >
+
 
   <style>
-    .chapter-header { text-align:center; margin-bottom:28px; }
-    .chapter-badge { display:inline-block; padding:7px 14px; margin-bottom:10px; border-radius:20px; font-size:14px; font-weight:bold; }
-    .chapter-subtitle { color:var(--text-light); line-height:1.7; }
-    .objective-card, .lesson-card, .culture-card, .note-card { padding:18px; margin-bottom:18px; border-radius:var(--radius-medium); }
-    .objective-card { background:var(--soft-green); color:var(--navy); line-height:1.7; }
-    .lesson-card { background:var(--white); border-radius:var(--radius-large); box-shadow:var(--shadow); }
-    .lesson-card h2 { margin-top:0; color:var(--navy); }
-    .lesson-card p { line-height:1.7; }
-    .vocab-grid { display:grid; grid-template-columns:1fr; gap:10px; margin-top:14px; }
-    .vocab-item { padding:14px; background:#FBFAF6; border-radius:var(--radius-medium); }
-    .vocab-korean { color:var(--navy); font-size:20px; font-weight:bold; }
-    .vocab-french { margin-top:4px; color:var(--text-light); }
-    .pronunciation-card, .grammar-box, .why-box { padding:16px; margin-top:14px; border-radius:var(--radius-medium); line-height:1.7; }
-    .pronunciation-card, .grammar-box { background:var(--soft-blue); }
-    .why-box { background:var(--soft-beige); color:var(--navy); }
-    .grammar-example { padding:11px 0; border-bottom:1px solid var(--border); }
-    .grammar-example:last-child { border-bottom:none; }
-    .dialogue-line { padding:15px; margin-bottom:10px; border-radius:var(--radius-medium); line-height:1.7; }
-    .dialogue-line.hana { background:var(--soft-green); }
-    .dialogue-line.jieun { background:var(--soft-blue); }
-    .speaker { font-weight:bold; margin-bottom:4px; }
-    .dialogue-korean { color:var(--navy); font-size:19px; font-weight:bold; }
-    .dialogue-french { margin-top:5px; color:var(--text-light); }
-    .note-card { background:var(--soft-beige); color:var(--navy); line-height:1.7; }
-    .culture-card { background:var(--soft-green); color:var(--navy); line-height:1.7; }
-    .recap-line { padding:11px 0; border-bottom:1px solid var(--border); line-height:1.6; }
-    .recap-line:last-child { border-bottom:none; }
-    .complete-button, .next-button, .back-route-button { width:100%; margin-top:10px; }
-    .complete-button { background:var(--jade); color:white; font-weight:bold; }
-    .complete-button.done { background:var(--success); }
-    .next-button { display:none; background:var(--navy); color:white; font-weight:bold; }
-    .back-route-button { background:var(--soft-beige); color:var(--navy); }
-    @media (min-width:620px) { .vocab-grid { grid-template-columns:1fr 1fr; } }
+
+    .listen-header {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+
+    .listen-header h1 {
+      margin-bottom: 8px;
+    }
+
+
+    .listen-header p {
+      color: var(--text-light);
+      line-height: 1.7;
+    }
+
+
+    .goal-card,
+    .audio-card,
+    .tip-card {
+      padding: 20px;
+      margin-bottom: 18px;
+
+      background: var(--white);
+
+      border-radius: var(--radius-large);
+
+      box-shadow: var(--shadow);
+    }
+
+
+    .goal-card {
+      background: var(--soft-green);
+      color: var(--navy);
+      line-height: 1.7;
+    }
+
+
+    .audio-card h2 {
+      margin-top: 0;
+      color: var(--navy);
+    }
+
+
+    .expression-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+
+    .expression-item {
+      padding: 15px;
+
+      background: #FBFAF6;
+
+      border-radius: var(--radius-medium);
+    }
+
+
+    .expression-korean {
+      color: var(--navy);
+      font-size: 21px;
+      font-weight: bold;
+    }
+
+
+    .expression-french {
+      margin-top: 4px;
+      color: var(--text-light);
+    }
+
+
+    .expression-actions,
+    .line-actions,
+    .dialogue-controls,
+    .announcement-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+
+      margin-top: 12px;
+    }
+
+
+    .expression-actions button,
+    .line-actions button,
+    .dialogue-controls button,
+    .announcement-controls button {
+      flex: 1;
+      min-width: 135px;
+    }
+
+
+    .slow,
+    .dialogue-slow-button {
+      background: var(--soft-beige);
+      color: var(--navy);
+    }
+
+
+    .dialogue-play-button,
+    .announcement-main {
+      background: var(--jade);
+      color: white;
+      font-weight: bold;
+    }
+
+
+    .dialogue-line {
+      padding: 15px;
+      margin-top: 12px;
+
+      border-radius: var(--radius-medium);
+
+      line-height: 1.7;
+    }
+
+
+    .dialogue-line.hana {
+      background: var(--soft-green);
+    }
+
+
+    .dialogue-line.park {
+      background: var(--soft-blue);
+    }
+
+
+    .speaker {
+      margin-bottom: 4px;
+      font-weight: bold;
+    }
+
+
+    .dialogue-korean {
+      color: var(--navy);
+      font-size: 19px;
+      font-weight: bold;
+    }
+
+
+    .dialogue-french {
+      margin-top: 5px;
+      color: var(--text-light);
+    }
+
+
+    .announcement-box {
+      padding: 18px;
+      margin-top: 14px;
+
+      background: var(--soft-blue);
+
+      border-radius: var(--radius-medium);
+
+      color: var(--navy);
+
+      line-height: 1.7;
+    }
+
+
+    .announcement-korean {
+      margin: 10px 0 4px;
+
+      color: var(--navy);
+
+      font-size: 21px;
+      font-weight: bold;
+    }
+
+
+    .announcement-note {
+      padding: 13px;
+      margin-top: 14px;
+
+      background: var(--soft-beige);
+
+      border-radius: var(--radius-small);
+
+      color: var(--text-light);
+
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+
+    .tip-card {
+      background: var(--soft-beige);
+      color: var(--navy);
+      line-height: 1.7;
+    }
+
+
+    .next-button,
+    .chapter-button {
+      width: 100%;
+      margin-top: 10px;
+    }
+
+
+    .next-button {
+      background: var(--jade);
+      color: white;
+      font-weight: bold;
+    }
+
+
+    .chapter-button {
+      background: var(--soft-beige);
+      color: var(--navy);
+    }
+
+
+    .playing {
+      background: var(--navy) !important;
+      color: white !important;
+    }
+
   </style>
+
   <script src="profile.js"></script>
 </head>
 
+
 <body>
+
+
 <main class="app">
 
-  <a class="back-link" href="itineraire.html#module2">← Itinéraire</a>
 
-  <header class="chapter-header">
-    <span class="chapter-badge">Module 2 · Chapitre 14</span>
-    <p class="korean">커피 한 잔 주세요 ☕</p>
-    <h1>Commander un café</h1>
-    <p class="chapter-subtitle">
-      Apprends à commander une boisson, choisir chaud ou froid,
-      comprendre les questions du personnel et terminer ta commande naturellement.
+  <a
+    class="back-link"
+    href="chapitre-14.html"
+  >
+    ← Chapitre 14
+  </a>
+
+
+
+  <header class="listen-header">
+
+    <span class="chapter-badge">
+      Chapitre 14 · Compréhension orale
+    </span>
+
+
+    <p class="korean">
+      잘 들어 봐요 🚇
     </p>
+
+
+    <h1>
+      J'écoute
+    </h1>
+
+
+    <p>
+      Écoute les mots du métro,
+      les phrases utiles,
+      puis entraîne-toi à reconnaître
+      une annonce simple de station.
+    </p>
+
   </header>
 
-  <section
-    id="hanaChapterPath"
-    data-chapter-path
-  ></section>
 
-  <section class="objective-card">
-    <strong>🎯 Objectif du chapitre</strong><br><br>
-    ✅ commander une boisson<br>
-    ✅ demander une boisson chaude ou froide<br>
-    ✅ comprendre une commande simple<br>
-    ✅ reconnaître « sur place ou à emporter ? »<br>
-    ✅ comprendre un prix et un paiement simple<br>
-    ✅ remercier le personnel
+  <section id="hanaChapterPath" data-chapter-path></section>
+
+
+  <section class="goal-card">
+
+    <strong>
+      🎯 Objectif
+    </strong>
+
+    <br><br>
+
+    Reconnaître à l'oreille
+    <strong>몇 호선</strong>,
+    <strong>타세요</strong>,
+    <strong>내리다</strong>,
+    <strong>갈아타다</strong>,
+    <strong>다음 역</strong>,
+    <strong>이번 역</strong>
+    et <strong>출구</strong>.
+
   </section>
 
-  <section class="lesson-card">
-    <h2>🟩 1. Vocabulaire</h2>
 
-    <div class="vocab-grid">
-      <div class="vocab-item"><div class="vocab-korean">커피</div><div class="vocab-french">café</div></div>
-      <div class="vocab-item"><div class="vocab-korean">차</div><div class="vocab-french">thé</div></div>
-      <div class="vocab-item"><div class="vocab-korean">주스</div><div class="vocab-french">jus</div></div>
-      <div class="vocab-item"><div class="vocab-korean">뜨거운</div><div class="vocab-french">chaud</div></div>
-      <div class="vocab-item"><div class="vocab-korean">차가운</div><div class="vocab-french">froid</div></div>
-      <div class="vocab-item"><div class="vocab-korean">아이스</div><div class="vocab-french">glacé / iced</div></div>
-      <div class="vocab-item"><div class="vocab-korean">한 잔</div><div class="vocab-french">une tasse / un verre</div></div>
-      <div class="vocab-item"><div class="vocab-korean">주세요</div><div class="vocab-french">s'il vous plaît / donnez-moi</div></div>
-      <div class="vocab-item"><div class="vocab-korean">맛있어요</div><div class="vocab-french">c'est délicieux</div></div>
-      <div class="vocab-item"><div class="vocab-korean">추천</div><div class="vocab-french">recommandation</div></div>
-      <div class="vocab-item"><div class="vocab-korean">추천하다</div><div class="vocab-french">recommander</div></div>
-      <div class="vocab-item"><div class="vocab-korean">포장</div><div class="vocab-french">à emporter / emballage</div></div>
-      <div class="vocab-item"><div class="vocab-korean">카드</div><div class="vocab-french">carte bancaire</div></div>
-      <div class="vocab-item"><div class="vocab-korean">현금</div><div class="vocab-french">espèces</div></div>
+
+  <!-- =====================================================
+       1. MOTS
+       ===================================================== -->
+
+  <section class="audio-card">
+
+    <h2>
+      🚇 1. Écoute les mots utiles
+    </h2>
+
+
+    <div class="expression-list">
+
+
+      <div class="expression-item">
+
+        <div class="expression-korean">
+          지하철
+        </div>
+
+        <div class="expression-french">
+          métro
+        </div>
+
+        <div class="expression-actions">
+
+          <button
+            type="button"
+            onclick="speakKorean('지하철', 'hana', false)"
+          >
+            🔊 Écouter
+          </button>
+
+          <button
+            class="slow"
+            type="button"
+            onclick="speakKorean('지하철', 'hana', true)"
+          >
+            🐢 Lentement
+          </button>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="expression-item">
+
+        <div class="expression-korean">
+          몇 호선
+        </div>
+
+        <div class="expression-french">
+          quelle ligne de métro
+        </div>
+
+        <div class="expression-actions">
+
+          <button
+            type="button"
+            onclick="speakKorean('몇 호선', 'hana', false)"
+          >
+            🔊 Écouter
+          </button>
+
+          <button
+            class="slow"
+            type="button"
+            onclick="speakKorean('몇 호선', 'hana', true)"
+          >
+            🐢 Lentement
+          </button>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="expression-item">
+
+        <div class="expression-korean">
+          갈아타다
+        </div>
+
+        <div class="expression-french">
+          faire une correspondance
+        </div>
+
+        <div class="expression-actions">
+
+          <button
+            type="button"
+            onclick="speakKorean('갈아타다', 'hana', false)"
+          >
+            🔊 Écouter
+          </button>
+
+          <button
+            class="slow"
+            type="button"
+            onclick="speakKorean('갈아타다', 'hana', true)"
+          >
+            🐢 Lentement
+          </button>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="expression-item">
+
+        <div class="expression-korean">
+          다음 역
+        </div>
+
+        <div class="expression-french">
+          station suivante
+        </div>
+
+        <div class="expression-actions">
+
+          <button
+            type="button"
+            onclick="speakKorean('다음 역', 'announcement', false)"
+          >
+            🔊 Écouter
+          </button>
+
+          <button
+            class="slow"
+            type="button"
+            onclick="speakKorean('다음 역', 'announcement', true)"
+          >
+            🐢 Lentement
+          </button>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="expression-item">
+
+        <div class="expression-korean">
+          이번 역
+        </div>
+
+        <div class="expression-french">
+          cette station
+        </div>
+
+        <div class="expression-actions">
+
+          <button
+            type="button"
+            onclick="speakKorean('이번 역', 'announcement', false)"
+          >
+            🔊 Écouter
+          </button>
+
+          <button
+            class="slow"
+            type="button"
+            onclick="speakKorean('이번 역', 'announcement', true)"
+          >
+            🐢 Lentement
+          </button>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="expression-item">
+
+        <div class="expression-korean">
+          출구
+        </div>
+
+        <div class="expression-french">
+          sortie
+        </div>
+
+        <div class="expression-actions">
+
+          <button
+            type="button"
+            onclick="speakKorean('출구', 'hana', false)"
+          >
+            🔊 Écouter
+          </button>
+
+          <button
+            class="slow"
+            type="button"
+            onclick="speakKorean('출구', 'hana', true)"
+          >
+            🐢 Lentement
+          </button>
+
+        </div>
+
+      </div>
+
+
     </div>
+
   </section>
 
-  <section class="lesson-card">
-    <h2>🩵 2. Prononciation</h2>
 
-    <div class="pronunciation-card">
-      <strong>뜨거운</strong><br><br>
-      Le <strong>ㄸ</strong> est une consonne tendue.
-      Prononce le début de manière nette, sans ajouter d'air comme pour une consonne aspirée.<br><br>
-      Le groupe reste fluide : <strong>뜨-거-운</strong>.
+
+  <!-- =====================================================
+       2. PHRASES
+       ===================================================== -->
+
+  <section class="audio-card">
+
+    <h2>
+      🌿 2. Écoute les phrases essentielles
+    </h2>
+
+
+    <div class="expression-list">
+
+
+      <div class="expression-item">
+
+        <div class="expression-korean">
+          몇 호선이에요?
+        </div>
+
+        <div class="expression-french">
+          Quelle ligne est-ce ?
+        </div>
+
+        <div class="expression-actions">
+
+          <button
+            type="button"
+            onclick="speakKorean('몇 호선이에요?', 'hana', false)"
+          >
+            🔊 Écouter
+          </button>
+
+          <button
+            class="slow"
+            type="button"
+            onclick="speakKorean('몇 호선이에요?', 'hana', true)"
+          >
+            🐢 Lentement
+          </button>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="expression-item">
+
+        <div class="expression-korean">
+          사호선을 타세요.
+        </div>
+
+        <div class="expression-french">
+          Prenez la ligne 4.
+        </div>
+
+        <div class="expression-actions">
+
+          <button
+            type="button"
+            onclick="speakKorean('사호선을 타세요.', 'park', false)"
+          >
+            🔊 Écouter
+          </button>
+
+          <button
+            class="slow"
+            type="button"
+            onclick="speakKorean('사호선을 타세요.', 'park', true)"
+          >
+            🐢 Lentement
+          </button>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="expression-item">
+
+        <div class="expression-korean">
+          서울역에서 갈아타세요.
+        </div>
+
+        <div class="expression-french">
+          Changez à Seoul Station.
+        </div>
+
+        <div class="expression-actions">
+
+          <button
+            type="button"
+            onclick="speakKorean('서울역에서 갈아타세요.', 'park', false)"
+          >
+            🔊 Écouter
+          </button>
+
+          <button
+            class="slow"
+            type="button"
+            onclick="speakKorean('서울역에서 갈아타세요.', 'park', true)"
+          >
+            🐢 Lentement
+          </button>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="expression-item">
+
+        <div class="expression-korean">
+          몇 번 출구예요?
+        </div>
+
+        <div class="expression-french">
+          Quelle sortie ?
+        </div>
+
+        <div class="expression-actions">
+
+          <button
+            type="button"
+            onclick="speakKorean('몇 번 출구예요?', 'hana', false)"
+          >
+            🔊 Écouter
+          </button>
+
+          <button
+            class="slow"
+            type="button"
+            onclick="speakKorean('몇 번 출구예요?', 'hana', true)"
+          >
+            🐢 Lentement
+          </button>
+
+        </div>
+
+      </div>
+
+
     </div>
+
   </section>
 
-  <section class="lesson-card">
-    <h2>💙 3. Grammaire — 주세요</h2>
 
-    <div class="grammar-box">
-      <strong>주세요</strong> est l'une des formules les plus utiles pour commander.
-      Dans un café ou un restaurant, elle permet de demander quelque chose poliment.
 
-      <div class="grammar-example">
-        <strong>커피 주세요.</strong><br>
-        → Un café, s'il vous plaît.
+  <!-- =====================================================
+       3. ANNONCES
+       ===================================================== -->
+
+  <section class="audio-card">
+
+    <h2>
+      📢 3. Comme dans le métro
+    </h2>
+
+
+    <p>
+      Écoute d'abord l'annonce sans lire la traduction.
+      Essaie simplement de repérer
+      <strong>이번 역</strong> ou <strong>다음 역</strong>
+      et le nom de la station.
+    </p>
+
+
+
+    <div class="announcement-box">
+
+      <strong>
+        🚇 Annonce 1
+      </strong>
+
+      <div class="announcement-korean">
+        이번 역은 명동역입니다.
       </div>
 
-      <div class="grammar-example">
-        <strong>물 주세요.</strong><br>
-        → De l'eau, s'il vous plaît.
+      <div class="dialogue-french">
+        Cette station est Myeong-dong.
       </div>
 
-      <div class="grammar-example">
-        <strong>딸기 주스 주세요.</strong><br>
-        → Un jus de fraise, s'il vous plaît.
+
+      <div class="announcement-controls">
+
+        <button
+          class="announcement-main"
+          type="button"
+          onclick="playMetroAnnouncement('이번 역은 명동역입니다.', false)"
+        >
+          🎵 Écouter l'annonce
+        </button>
+
+        <button
+          class="slow"
+          type="button"
+          onclick="playMetroAnnouncement('이번 역은 명동역입니다.', true)"
+        >
+          🐢 Lentement
+        </button>
+
       </div>
+
     </div>
-  </section>
 
-  <section class="lesson-card">
-    <h2>☕ 4. Compter une boisson avec 잔</h2>
 
-    <div class="grammar-box">
-      <strong>잔</strong> est un compteur utilisé notamment pour les boissons
-      servies dans une tasse ou un verre.<br><br>
 
-      <div class="grammar-example">
-        <strong>커피 한 잔 주세요.</strong><br>
-        → Un café, s'il vous plaît.
+    <div class="announcement-box">
+
+      <strong>
+        🚇 Annonce 2
+      </strong>
+
+      <div class="announcement-korean">
+        다음 역은 서울역입니다.
       </div>
 
-      <div class="grammar-example">
-        <strong>차 두 잔 주세요.</strong><br>
-        → Deux thés, s'il vous plaît.
+      <div class="dialogue-french">
+        La prochaine station est Seoul Station.
       </div>
 
-      Pour l'instant, retiens surtout <strong>한 잔</strong> comme un bloc très utile.
+
+      <div class="announcement-controls">
+
+        <button
+          class="announcement-main"
+          type="button"
+          onclick="playMetroAnnouncement('다음 역은 서울역입니다.', false)"
+        >
+          🎵 Écouter l'annonce
+        </button>
+
+        <button
+          class="slow"
+          type="button"
+          onclick="playMetroAnnouncement('다음 역은 서울역입니다.', true)"
+        >
+          🐢 Lentement
+        </button>
+
+      </div>
+
     </div>
-  </section>
 
-  <section class="lesson-card">
-    <h2>🧊 5. Chaud ou froid ?</h2>
 
-    <div class="grammar-box">
-      <div class="grammar-example">
-        <strong>뜨거운 커피</strong><br>
-        → café chaud
-      </div>
 
-      <div class="grammar-example">
-        <strong>차가운 커피</strong><br>
-        → café froid
-      </div>
+    <div class="announcement-note">
 
-      <div class="grammar-example">
-        <strong>아이스 아메리카노 주세요.</strong><br>
-        → Un americano glacé, s'il vous plaît.
-      </div>
+      🎵 Le petit signal entendu ici est une
+      <strong>simulation créée pour Le Coréen de Ana</strong>.
+      Ce n'est pas le jingle officiel du métro de Séoul.
 
-      🌿 Dans les cafés, <strong>아이스</strong> est un mot très fréquent
-      devant le nom d'une boisson froide.
+      <br><br>
+
+      Plus tard, si nous trouvons un enregistrement officiel
+      que nous avons le droit d'utiliser,
+      nous pourrons remplacer cette simulation.
+
     </div>
+
   </section>
 
-  <section class="lesson-card">
-    <h2>🥤 6. Sur place ou à emporter ?</h2>
 
-    <div class="why-box">
-      Au comptoir, tu peux entendre des questions comme :<br><br>
 
-      <strong>드시고 가세요?</strong><br>
-      → Vous consommez sur place ?<br><br>
+  <!-- =====================================================
+       4. DIALOGUE
+       ===================================================== -->
 
-      <strong>포장이세요?</strong><br>
-      → C'est à emporter ?<br><br>
+  <section class="audio-card">
 
-      Réponses utiles :<br><br>
+    <h2>
+      💬 4. Dialogue — Trouver la bonne ligne
+    </h2>
 
-      <strong>여기서 마실게요.</strong><br>
-      → Je vais boire ici.<br><br>
 
-      <strong>포장해 주세요.</strong><br>
-      → À emporter, s'il vous plaît.<br><br>
+    <p>
+      Écoute le dialogue complet,
+      puis réécoute chaque phrase séparément si nécessaire.
+    </p>
 
-      🌿 Ces phrases sont surtout à <strong>reconnaître</strong> pour le moment.
-      Tu n'as pas besoin d'analyser toute leur grammaire.
+
+    <div class="dialogue-controls">
+
+      <button
+        class="dialogue-play-button"
+        id="dialogueButton"
+        type="button"
+        onclick="toggleDialogue(false)"
+      >
+        🎧 Écouter tout le dialogue
+      </button>
+
+
+      <button
+        class="dialogue-slow-button"
+        type="button"
+        onclick="toggleDialogue(true)"
+      >
+        🐢 Écouter tout lentement
+      </button>
+
     </div>
-  </section>
 
-  <section class="lesson-card">
-    <h2>💳 7. Comprendre le prix et payer</h2>
 
-    <div class="grammar-box">
-      Ce chapitre réutilise du vocabulaire déjà rencontré avec
-      <strong>카드</strong> et <strong>현금</strong>.
-
-      <div class="grammar-example">
-        <strong>오천 원입니다.</strong><br>
-        → Ça fait 5 000 wons.
-      </div>
-
-      <div class="grammar-example">
-        <strong>카드로 하시겠어요?</strong><br>
-        → Vous payez par carte ?
-      </div>
-
-      <div class="grammar-example">
-        <strong>카드로 할게요.</strong><br>
-        → Je vais payer par carte.
-      </div>
-
-      🌿 Ici encore, <strong>하시겠어요?</strong> et <strong>할게요</strong>
-      sont surtout introduits comme des expressions pratiques à reconnaître et réutiliser.
-    </div>
-  </section>
-
-  <section class="lesson-card">
-    <h2>😋 8. 맛있어요 ou 맛있게 드세요 ?</h2>
-
-    <div class="grammar-box">
-      <div class="grammar-example">
-        <strong>맛있어요!</strong><br>
-        → C'est délicieux !
-      </div>
-
-      <div class="grammar-example">
-        <strong>정말 맛있어요!</strong><br>
-        → C'est vraiment délicieux !
-      </div>
-
-      <div class="grammar-example">
-        <strong>맛있게 드세요!</strong><br>
-        → Bonne dégustation ! / Régalez-vous !
-      </div>
-
-      <strong>맛있어요</strong> décrit ce que tu goûtes.<br>
-      <strong>맛있게 드세요</strong> est une formule adressée à la personne qui va manger ou boire.
-    </div>
-  </section>
-
-  <section class="lesson-card">
-    <h2>🟨 9. Pourquoi 주세요 suffit-il ?</h2>
-
-    <div class="why-box">
-      En français, on utilise souvent « Je voudrais… » pour commander.<br><br>
-
-      En coréen, <strong>주세요</strong> est déjà une formule polie et naturelle.
-      Elle signifie littéralement quelque chose comme
-      <strong>« Donnez-moi, s'il vous plaît »</strong>.<br><br>
-
-      Dans un café, <strong>커피 주세요.</strong> n'est donc pas brutal :
-      c'est une façon tout à fait normale de commander.
-    </div>
-  </section>
-
-  <section class="lesson-card">
-    <h2>💬 10. Dialogue — Au café de Ji-eun</h2>
 
     <div class="dialogue-line hana">
-      <div class="speaker">🌸 Ana</div>
-      <div class="dialogue-korean">안녕하세요. 커피 한 잔 주세요.</div>
-      <div class="dialogue-french">Bonjour. Un café, s'il vous plaît.</div>
+
+      <div class="speaker">
+        🌸 Ana
+      </div>
+
+      <div class="dialogue-korean">
+        실례합니다. 명동에 가려면 몇 호선을 타야 해요?
+      </div>
+
+      <div class="dialogue-french">
+        Excusez-moi. Quelle ligne dois-je prendre pour aller à Myeong-dong ?
+      </div>
+
+
+      <div class="line-actions">
+
+        <button
+          type="button"
+          onclick="speakKorean('실례합니다. 명동에 가려면 몇 호선을 타야 해요?', 'hana', false)"
+        >
+          🔊 Écouter Ana
+        </button>
+
+        <button
+          class="slow"
+          type="button"
+          onclick="speakKorean('실례합니다. 명동에 가려면 몇 호선을 타야 해요?', 'hana', true)"
+        >
+          🐢 Lentement
+        </button>
+
+      </div>
+
     </div>
 
-    <div class="dialogue-line jieun">
-      <div class="speaker">💚 Ji-eun</div>
-      <div class="dialogue-korean">뜨거운 커피요?</div>
-      <div class="dialogue-french">Un café chaud ?</div>
+
+
+    <div class="dialogue-line park">
+
+      <div class="speaker">
+        👨 Monsieur Park
+      </div>
+
+      <div class="dialogue-korean">
+        사호선을 타세요. 서울역에서 갈아타세요.
+      </div>
+
+      <div class="dialogue-french">
+        Prenez la ligne 4. Changez à Seoul Station.
+      </div>
+
+
+      <div class="line-actions">
+
+        <button
+          type="button"
+          onclick="speakKorean('사호선을 타세요. 서울역에서 갈아타세요.', 'park', false)"
+        >
+          🔊 Écouter Monsieur Park
+        </button>
+
+        <button
+          class="slow"
+          type="button"
+          onclick="speakKorean('사호선을 타세요. 서울역에서 갈아타세요.', 'park', true)"
+        >
+          🐢 Lentement
+        </button>
+
+      </div>
+
     </div>
+
+
 
     <div class="dialogue-line hana">
-      <div class="speaker">🌸 Ana</div>
-      <div class="dialogue-korean">네, 뜨거운 커피 주세요.</div>
-      <div class="dialogue-french">Oui, un café chaud, s'il vous plaît.</div>
+
+      <div class="speaker">
+        🌸 Ana
+      </div>
+
+      <div class="dialogue-korean">
+        감사합니다.
+      </div>
+
+      <div class="dialogue-french">
+        Merci beaucoup.
+      </div>
+
+
+      <div class="line-actions">
+
+        <button
+          type="button"
+          onclick="speakKorean('감사합니다.', 'hana', false)"
+        >
+          🔊 Écouter Ana
+        </button>
+
+        <button
+          class="slow"
+          type="button"
+          onclick="speakKorean('감사합니다.', 'hana', true)"
+        >
+          🐢 Lentement
+        </button>
+
+      </div>
+
     </div>
 
-    <div class="dialogue-line jieun">
-      <div class="speaker">💚 Ji-eun</div>
-      <div class="dialogue-korean">드시고 가세요? 포장이세요?</div>
-      <div class="dialogue-french">Sur place ou à emporter ?</div>
-    </div>
-
-    <div class="dialogue-line hana">
-      <div class="speaker">🌸 Ana</div>
-      <div class="dialogue-korean">여기서 마실게요.</div>
-      <div class="dialogue-french">Je vais boire ici.</div>
-    </div>
-
-    <div class="dialogue-line jieun">
-      <div class="speaker">💚 Ji-eun</div>
-      <div class="dialogue-korean">오천 원입니다. 카드로 하시겠어요?</div>
-      <div class="dialogue-french">Ça fait 5 000 wons. Vous payez par carte ?</div>
-    </div>
-
-    <div class="dialogue-line hana">
-      <div class="speaker">🌸 Ana</div>
-      <div class="dialogue-korean">네, 카드로 할게요. 감사합니다.</div>
-      <div class="dialogue-french">Oui, par carte. Merci.</div>
-    </div>
-
-    <div class="dialogue-line jieun">
-      <div class="speaker">💚 Ji-eun</div>
-      <div class="dialogue-korean">맛있게 드세요!</div>
-      <div class="dialogue-french">Bonne dégustation !</div>
-    </div>
-
-    <div class="dialogue-line hana">
-      <div class="speaker">🌸 Ana</div>
-      <div class="dialogue-korean">정말 맛있어요!</div>
-      <div class="dialogue-french">C'est vraiment délicieux !</div>
-    </div>
   </section>
 
-  <section class="note-card">
-    <strong>🌿 À produire / à reconnaître</strong><br><br>
 
-    <strong>À produire en priorité :</strong><br>
-    커피 한 잔 주세요.<br>
-    뜨거운 커피 주세요.<br>
-    포장해 주세요.<br>
-    몇 번 출구예요? — non, celui-ci appartient au chapitre précédent : ici, concentre-toi sur la commande.<br>
-    맛있어요.<br>
-    감사합니다.<br><br>
 
-    <strong>À reconnaître d'abord :</strong><br>
-    드시고 가세요?<br>
-    포장이세요?<br>
-    오천 원입니다.<br>
-    카드로 하시겠어요?<br>
-    여기서 마실게요.<br>
-    카드로 할게요.
+  <section class="tip-card">
+
+    <strong>
+      👂 Astuce d'écoute
+    </strong>
+
+    <br><br>
+
+    Dans le métro,
+    ne cherche pas à comprendre toute l'annonce.
+
+    <br><br>
+
+    Repère d'abord :
+
+    <br>
+
+    <strong>이번 역</strong> → la station actuelle
+
+    <br>
+
+    <strong>다음 역</strong> → la station suivante
+
+    <br>
+
+    <strong>호선</strong> → une ligne de métro
+
+    <br>
+
+    <strong>갈아타세요</strong> → une correspondance à effectuer
+
   </section>
 
-  <section class="culture-card">
-    <strong>🌸 Point culture</strong><br><br>
 
-    Les cafés occupent une place importante dans la vie quotidienne en Corée :
-    on y travaille, on y étudie, on y retrouve ses amis ou on profite simplement
-    d'un moment de calme.<br><br>
-
-    Dans l'application, ce chapitre te prépare surtout à reconnaître les questions
-    rapides du personnel pour ne pas rester bloqué(e) au comptoir.
-  </section>
-
-  <section class="lesson-card">
-    <h2>🧠 11. À retenir</h2>
-
-    <div class="recap-line">☕ <strong>커피 한 잔 주세요.</strong> → Un café, s'il vous plaît.</div>
-    <div class="recap-line">🔥 <strong>뜨거운 커피</strong> → café chaud</div>
-    <div class="recap-line">🧊 <strong>차가운 커피 / 아이스 커피</strong> → café froid / glacé</div>
-    <div class="recap-line">🥤 <strong>포장해 주세요.</strong> → À emporter, s'il vous plaît.</div>
-    <div class="recap-line">💳 <strong>카드로 할게요.</strong> → Je vais payer par carte.</div>
-    <div class="recap-line">😋 <strong>맛있어요!</strong> → C'est délicieux !</div>
-    <div class="recap-line">🌿 <strong>맛있게 드세요!</strong> → Bonne dégustation !</div>
-    <div class="recap-line">🙏 <strong>감사합니다.</strong> → Merci.</div>
-  </section>
-
-  <section class="note-card">
-    <strong>🌟 Phrase du chapitre</strong><br><br>
-    « Commander un café, c'est bien plus qu'acheter une boisson :
-    c'est prendre le temps de vivre un moment à la coréenne. » 🌸
-  </section>
 
   <button
-    class="complete-button"
+    class="next-button"
     type="button"
-    onclick="completeUnderstanding()"
+    onclick="goToListeningExercise()"
   >
-    🎧 J'ai compris · Passer à « J'écoute »
+    🎧 Faire le mini défi d'écoute
   </button>
 
+
+
+  <button
+    class="chapter-button"
+    type="button"
+    onclick="window.location.href='chapitre-14.html'"
+  >
+    Retour au chapitre
+  </button>
+
+
 </main>
+
 
 <script src="chapter-progress.js"></script>
 
 <script>
-  const UNDERSTANDING_KEY =
-    "hanaKorean_chapter14_understanding";
 
-  function completeUnderstanding() {
-    localStorage.setItem(
-      UNDERSTANDING_KEY,
-      "completed"
+  const understandingState =
+    localStorage.getItem(
+      "hanaKorean_chapter14_understanding"
     );
 
-    if (
-      window.HanaChapterProgress &&
-      typeof window.HanaChapterProgress.render === "function"
-    ) {
-      window.HanaChapterProgress.render();
-    }
 
-    window.location.href =
-      "ecoute-14.html";
+  if (
+    understandingState !== "completed"
+  ) {
+
+    window.location.replace(
+      "chapitre-14.html"
+    );
+
+  } else if (
+    localStorage.getItem(
+      "hanaKorean_chapter14_listening"
+    ) !== "completed"
+  ) {
+
+    localStorage.setItem(
+      "hanaKorean_chapter14_listening",
+      "in_progress"
+    );
+
   }
 
 
-  function migratePreviousProgress() {
-    const understanding =
-      localStorage.getItem(
-        UNDERSTANDING_KEY
-      );
+  const AUDIO_SETTINGS = {
+    normalRate: 0.82,
+    slowRate: 0.25
+  };
+
+
+  const dialogueLines = [
+
+    {
+      text:
+        "실례합니다. 명동에 가려면 몇 호선을 타야 해요?",
+      character:
+        "hana"
+    },
+
+    {
+      text:
+        "사호선을 타세요. 서울역에서 갈아타세요.",
+      character:
+        "park"
+    },
+
+    {
+      text:
+        "감사합니다.",
+      character:
+        "hana"
+    }
+
+  ];
+
+
+  let dialogueSessionId =
+    0;
+
+
+  let dialoguePlaying =
+    false;
+
+
+  let currentAudioContext =
+    null;
+
+
+
+  function getKoreanVoice() {
+
+    const voices =
+      window.speechSynthesis.getVoices();
+
+
+    return voices.find(
+      voice =>
+        voice.lang &&
+        voice.lang
+          .toLowerCase()
+          .startsWith(
+            "ko"
+          )
+    );
+
+  }
+
+
+
+  function getCharacterSettings(
+    character,
+    slow
+  ) {
+
+    let rate =
+      slow
+        ? AUDIO_SETTINGS.slowRate
+        : AUDIO_SETTINGS.normalRate;
+
+
+    /*
+      Les personnages sont déjà séparés dans le code
+      pour une future intégration de plusieurs vraies voix.
+      Safari utilise actuellement la même voix coréenne disponible.
+    */
+
+    return {
+      rate:
+        rate,
+
+      pitch:
+        1
+    };
+
+  }
+
+
+
+  function speakKorean(
+    text,
+    character = "hana",
+    slow = false
+  ) {
 
     if (
-      understanding === "completed"
+      !(
+        "speechSynthesis"
+        in window
+      )
     ) {
       return;
     }
 
-    const laterKeys = [
-      "hanaKorean_chapter14_listening",
-      "hanaKorean_chapter14_listeningExercise",
-      "hanaKorean_chapter14_speaking",
-      "hanaKorean_chapter14_writing",
-      "hanaKorean_chapter14_review",
-      "hanaKorean_chapter14_mission",
-      "hanaKorean_chapter14_completed"
-    ];
 
-    const laterProgressExists =
-      laterKeys.some(
-        key =>
-          localStorage.getItem(
-            key
-          ) === "completed"
+    stopDialogue();
+
+
+    const speech =
+      new SpeechSynthesisUtterance(
+        text
       );
+
+
+    const settings =
+      getCharacterSettings(
+        character,
+        slow
+      );
+
+
+    speech.lang =
+      "ko-KR";
+
+
+    speech.rate =
+      settings.rate;
+
+
+    speech.pitch =
+      settings.pitch;
+
+
+    const koreanVoice =
+      getKoreanVoice();
+
 
     if (
-      laterProgressExists
+      koreanVoice
     ) {
-      localStorage.setItem(
-        UNDERSTANDING_KEY,
-        "completed"
-      );
+
+      speech.voice =
+        koreanVoice;
+
     }
+
+
+    window.speechSynthesis.speak(
+      speech
+    );
+
   }
 
 
-  migratePreviousProgress();
+
+  function toggleDialogue(
+    slow
+  ) {
+
+    if (
+      dialoguePlaying
+    ) {
+
+      stopDialogue();
+
+      return;
+
+    }
+
+
+    playDialogue(
+      slow
+    );
+
+  }
+
+
+
+  function playDialogue(
+    slow
+  ) {
+
+    if (
+      !(
+        "speechSynthesis"
+        in window
+      )
+    ) {
+      return;
+    }
+
+
+    window.speechSynthesis.cancel();
+
+
+    dialogueSessionId++;
+
+
+    const sessionId =
+      dialogueSessionId;
+
+
+    dialoguePlaying =
+      true;
+
+
+    updateDialogueButton();
+
+
+    playDialogueLine(
+      0,
+      slow,
+      sessionId
+    );
+
+  }
+
+
+
+  function playDialogueLine(
+    index,
+    slow,
+    sessionId
+  ) {
+
+    if (
+      sessionId !==
+      dialogueSessionId
+    ) {
+      return;
+    }
+
+
+    if (
+      index >=
+      dialogueLines.length
+    ) {
+
+      dialoguePlaying =
+        false;
+
+
+      updateDialogueButton();
+
+      return;
+
+    }
+
+
+    const line =
+      dialogueLines[
+        index
+      ];
+
+
+    const speech =
+      new SpeechSynthesisUtterance(
+        line.text
+      );
+
+
+    const settings =
+      getCharacterSettings(
+        line.character,
+        slow
+      );
+
+
+    speech.lang =
+      "ko-KR";
+
+
+    speech.rate =
+      settings.rate;
+
+
+    speech.pitch =
+      settings.pitch;
+
+
+    const koreanVoice =
+      getKoreanVoice();
+
+
+    if (
+      koreanVoice
+    ) {
+
+      speech.voice =
+        koreanVoice;
+
+    }
+
+
+    speech.onend =
+      function() {
+
+        if (
+          sessionId !==
+          dialogueSessionId
+        ) {
+          return;
+        }
+
+
+        window.setTimeout(
+          function() {
+
+            playDialogueLine(
+              index + 1,
+              slow,
+              sessionId
+            );
+
+          },
+          350
+        );
+
+      };
+
+
+    speech.onerror =
+      function() {
+
+        dialoguePlaying =
+          false;
+
+
+        updateDialogueButton();
+
+      };
+
+
+    window.speechSynthesis.speak(
+      speech
+    );
+
+  }
+
+
+
+  function stopDialogue() {
+
+    dialogueSessionId++;
+
+
+    dialoguePlaying =
+      false;
+
+
+    if (
+      "speechSynthesis"
+      in window
+    ) {
+
+      window.speechSynthesis.cancel();
+
+    }
+
+
+    updateDialogueButton();
+
+  }
+
+
+
+  function updateDialogueButton() {
+
+    const button =
+      document.getElementById(
+        "dialogueButton"
+      );
+
+
+    if (
+      !button
+    ) {
+      return;
+    }
+
+
+    if (
+      dialoguePlaying
+    ) {
+
+      button.textContent =
+        "⏹️ Stopper le dialogue";
+
+
+      button.classList.add(
+        "playing"
+      );
+
+
+      return;
+
+    }
+
+
+    button.textContent =
+      "🎧 Écouter tout le dialogue";
+
+
+    button.classList.remove(
+      "playing"
+    );
+
+  }
+
+
+
+  /* =====================================================
+     PETIT SIGNAL MÉTRO ORIGINAL
+     ===================================================== */
+
+  function playOriginalMetroChime() {
+
+    return new Promise(
+      resolve => {
+
+        try {
+
+          const AudioContext =
+            window.AudioContext ||
+            window.webkitAudioContext;
+
+
+          if (
+            !AudioContext
+          ) {
+
+            resolve();
+
+            return;
+
+          }
+
+
+          if (
+            currentAudioContext
+          ) {
+
+            try {
+              currentAudioContext.close();
+            }
+            catch (error) {
+            }
+
+          }
+
+
+          const context =
+            new AudioContext();
+
+
+          currentAudioContext =
+            context;
+
+
+          const notes = [
+            {
+              frequency: 659.25,
+              start: 0,
+              duration: 0.18
+            },
+            {
+              frequency: 783.99,
+              start: 0.20,
+              duration: 0.22
+            }
+          ];
+
+
+          notes.forEach(
+            note => {
+
+              const oscillator =
+                context.createOscillator();
+
+
+              const gain =
+                context.createGain();
+
+
+              oscillator.type =
+                "sine";
+
+
+              oscillator.frequency.value =
+                note.frequency;
+
+
+              gain.gain.setValueAtTime(
+                0.0001,
+                context.currentTime +
+                  note.start
+              );
+
+
+              gain.gain.exponentialRampToValueAtTime(
+                0.12,
+                context.currentTime +
+                  note.start +
+                  0.02
+              );
+
+
+              gain.gain.exponentialRampToValueAtTime(
+                0.0001,
+                context.currentTime +
+                  note.start +
+                  note.duration
+              );
+
+
+              oscillator.connect(
+                gain
+              );
+
+
+              gain.connect(
+                context.destination
+              );
+
+
+              oscillator.start(
+                context.currentTime +
+                  note.start
+              );
+
+
+              oscillator.stop(
+                context.currentTime +
+                  note.start +
+                  note.duration +
+                  0.02
+              );
+
+            }
+          );
+
+
+          window.setTimeout(
+            function() {
+
+              resolve();
+
+            },
+            520
+          );
+
+        }
+
+        catch (error) {
+
+          resolve();
+
+        }
+
+      }
+    );
+
+  }
+
+
+
+  async function playMetroAnnouncement(
+    text,
+    slow
+  ) {
+
+    stopDialogue();
+
+
+    if (
+      "speechSynthesis"
+      in window
+    ) {
+
+      window.speechSynthesis.cancel();
+
+    }
+
+
+    await playOriginalMetroChime();
+
+
+    if (
+      !(
+        "speechSynthesis"
+        in window
+      )
+    ) {
+      return;
+    }
+
+
+    const speech =
+      new SpeechSynthesisUtterance(
+        text
+      );
+
+
+    speech.lang =
+      "ko-KR";
+
+
+    speech.rate =
+      slow
+        ? AUDIO_SETTINGS.slowRate
+        : AUDIO_SETTINGS.normalRate;
+
+
+    speech.pitch =
+      1;
+
+
+    const koreanVoice =
+      getKoreanVoice();
+
+
+    if (
+      koreanVoice
+    ) {
+
+      speech.voice =
+        koreanVoice;
+
+    }
+
+
+    window.speechSynthesis.speak(
+      speech
+    );
+
+  }
+
+
+
+  function goToListeningExercise() {
+
+    if (
+      localStorage.getItem(
+        "hanaKorean_chapter14_understanding"
+      ) !== "completed"
+    ) {
+
+      window.location.href =
+        "chapitre-14.html";
+
+      return;
+
+    }
+
+
+    if (
+      localStorage.getItem(
+        "hanaKorean_chapter14_listening"
+      ) !== "completed"
+    ) {
+
+      localStorage.setItem(
+        "hanaKorean_chapter14_listening",
+        "in_progress"
+      );
+
+    }
+
+
+    window.location.href =
+      "exercice-ecoute-15.html";
+
+  }
+
+
+
+  window
+    .speechSynthesis
+    ?.getVoices();
+
+
+  if (
+    "speechSynthesis"
+    in window
+  ) {
+
+    window.speechSynthesis.onvoiceschanged =
+      function() {
+
+        window
+          .speechSynthesis
+          .getVoices();
+
+      };
+
+  }
 
 
   window.addEventListener(
     "pageshow",
     function() {
+
       if (
         window.HanaChapterProgress &&
         typeof window.HanaChapterProgress.render === "function"
       ) {
+
         window.HanaChapterProgress.render();
+
       }
+
     }
   );
+
 </script>
 </body>
+
 </html>

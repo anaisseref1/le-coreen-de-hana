@@ -4,36 +4,32 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#F7F4ED">
-  <title>Chapitre 35 — Parler de ses émotions</title>
+  <title>Chapitre 35 — Comparer</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="chapter-progress.css">
   <style>
-    .emotion-scale{
-      display:grid;
-      grid-template-columns:repeat(5,minmax(120px,1fr));
-      gap:9px;
-      overflow-x:auto;
-      padding-bottom:5px;
-      margin-top:14px;
-    }
-    .emotion-step{
-      min-width:120px;
-      padding:13px 10px;
-      border-radius:14px;
-      background:#FBFAF6;
-      text-align:center;
-      line-height:1.5;
-    }
-    .emotion-step strong{display:block;color:var(--navy);}
-    .note-box,.difference-box,.warning-box{
+    .compare-box,.preference-box,.nuance-box{
       padding:14px;
       margin-top:12px;
       border-radius:var(--radius-medium);
       line-height:1.7;
     }
-    .note-box{background:var(--soft-green);}
-    .difference-box{background:var(--soft-blue);}
-    .warning-box{background:#FFF6D8;}
+    .compare-box{background:var(--soft-green);}
+    .preference-box{background:var(--soft-blue);}
+    .nuance-box{background:#FFF6D8;}
+    .compare-grid{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:10px;
+      margin-top:12px;
+    }
+    .compare-item{
+      padding:13px;
+      border-radius:var(--radius-medium);
+      background:#FBFAF6;
+      line-height:1.65;
+    }
+    @media(min-width:650px){.compare-grid{grid-template-columns:1fr 1fr;}}
   </style>
   <script src="profile.js"></script>
 </head>
@@ -43,234 +39,240 @@
 <section id="hanaChapterPath" data-chapter-path></section>
 
 <header>
-  <span class="chapter-badge">Chapitre 35 · 💗</span>
-  <p class="korean">요즘 기분이 어때요?</p>
-  <h1>Parler de ses émotions</h1>
-  <p>Apprends à dire comment tu te sens et à mettre des mots simples sur tes émotions.</p>
+  <span class="chapter-badge">Chapitre 35 · 🌸</span>
+  <p class="korean">서울하고 파리는 어떻게 달라요?</p>
+  <h1>Comparer</h1>
+  <p>Apprends à comparer deux lieux, deux objets ou deux personnes et à exprimer une préférence.</p>
 </header>
 
 <section class="card">
   <h2>🌸 Illustration d'ouverture</h2>
-  <p>Après leur conversation sur Paris et Séoul, Ana et Ji-soo quittent le café.</p>
-  <p>Elles se promènent tranquillement dans une petite rue de Séoul. Ana regarde les lumières des boutiques et sourit.</p>
-  <p>💚 <strong>Ji-soo :</strong><br><strong>아나 씨, 요즘 기분이 어때요?</strong></p>
-  <p>→ Ana, comment tu te sens en ce moment ?</p>
-  <p>Cette fois, Ana doit parler non plus du monde autour d'elle, mais de <strong>ce qu'elle ressent</strong>. 🌸</p>
+  <p>Ji-soo pose deux photos sur la table du café.</p>
+  <p>Sur la première, Ana reconnaît les rues animées de <strong>Séoul</strong>. Sur la seconde, une rue de <strong>Paris</strong>.</p>
+  <p>💚 <strong>Ji-soo :</strong><br><strong>아나 씨, 서울하고 파리는 어떻게 달라요?</strong></p>
+  <p>→ Ana, en quoi Séoul et Paris sont-elles différentes ?</p>
+  <p>Ana sait déjà décrire les deux villes. Aujourd'hui, elle va apprendre à dire qu'une chose est <strong>plus grande, moins fréquentée, plus pratique ou simplement différente d'une autre</strong>.</p>
 </section>
 
 <section class="card">
   <h2>🎯 Objectif</h2>
-  <p>✅ dire comment tu te sens</p>
-  <p>✅ exprimer des émotions simples</p>
-  <p>✅ dire que tu es heureuse, triste, fatiguée, inquiète ou nerveuse</p>
-  <p>✅ demander à quelqu'un comment il va</p>
-  <p>✅ expliquer simplement pourquoi tu ressens quelque chose</p>
-  <p>✅ utiliser <strong>기분이 좋다</strong> et <strong>기분이 안 좋다 / 나쁘다</strong></p>
-  <p>✅ différencier simplement <strong>기분</strong> et <strong>마음</strong></p>
+  <p>✅ comparer deux choses</p>
+  <p>✅ dire qu'une chose est plus grande, plus petite, plus chère, etc.</p>
+  <p>✅ dire qu'une chose est moins… qu'une autre</p>
+  <p>✅ dire que deux choses sont pareilles, similaires ou différentes</p>
+  <p>✅ utiliser <strong>보다</strong>, <strong>더</strong> et <strong>덜</strong></p>
+  <p>✅ exprimer clairement une préférence</p>
 </section>
 
 <section class="card">
   <h2>🟩 Vocabulaire</h2>
-  <p><strong>기분</strong> (gibun) → humeur / état émotionnel</p>
-  <p><strong>마음</strong> (maeum) → cœur / sentiments / état intérieur</p>
-  <p><strong>행복하다</strong> (haengbokhada) → être heureux</p>
-  <p><strong>기쁘다</strong> (gippeuda) → être content / éprouver de la joie</p>
-  <p><strong>슬프다</strong> (seulpeuda) → être triste</p>
-  <p><strong>피곤하다</strong> (pigonhada) → être fatigué</p>
-  <p><strong>바쁘다</strong> (bappeuda) → être occupé</p>
-  <p><strong>걱정되다</strong> (geokjeongdoeda) → être inquiet</p>
-  <p><strong>긴장되다</strong> (ginjangdoeda) → être nerveux</p>
-  <p><strong>스트레스 받다</strong> (seuteureseu batda) → être stressé</p>
-  <p><strong>무섭다</strong> (museopda) → avoir peur / être effrayant selon le contexte</p>
-  <p><strong>외롭다</strong> (oeropda) → se sentir seul / isolé</p>
-  <p><strong>신나다</strong> (sinnada) → être enthousiaste / emballé</p>
-  <p><strong>괜찮다</strong> (gwaenchanta) → aller bien / être correct</p>
-  <p><strong>좋다</strong> (jota) → être bien</p>
-  <p><strong>나쁘다</strong> (nappeuda) → être mauvais</p>
-  <p><strong>오늘</strong> (oneul) → aujourd'hui</p>
-  <p><strong>요즘</strong> (yojeum) → ces temps-ci / en ce moment</p>
+  <p><strong>비교하다</strong> (bigyohada) → comparer</p>
+  <p><strong>다르다</strong> (dareuda) → être différent</p>
+  <p><strong>같다</strong> (gatda) → être pareil / le même selon le contexte</p>
+  <p><strong>비슷하다</strong> (biseuthada) → être similaire</p>
+  <p><strong>더</strong> (deo) → plus / davantage</p>
+  <p><strong>덜</strong> (deol) → moins</p>
+  <p><strong>크다</strong> (keuda) → être grand</p>
+  <p><strong>작다</strong> (jakda) → être petit</p>
+  <p><strong>많다</strong> (manta) → être nombreux / beaucoup</p>
+  <p><strong>적다</strong> (jeokda) → être peu nombreux</p>
+  <p><strong>비싸다</strong> (bissada) → être cher</p>
+  <p><strong>싸다</strong> (ssada) → être bon marché</p>
+  <p><strong>빠르다</strong> (ppareuda) → être rapide</p>
+  <p><strong>느리다</strong> (neurida) → être lent</p>
+  <p><strong>가깝다</strong> (gakkapda) → être proche</p>
+  <p><strong>멀다</strong> (meolda) → être loin</p>
+  <p><strong>편하다</strong> (pyeonhada) → être pratique / confortable</p>
+  <p><strong>복잡하다</strong> (bokjaphada) → être encombré / très fréquenté / complexe</p>
+  <p><strong>조용하다</strong> (joyonghada) → être calme</p>
+  <p><strong>깨끗하다</strong> (kkaekkeuthada) → être propre</p>
 </section>
 
 <section class="card">
   <h2>💬 Dialogue</h2>
 
   <p>💚 <strong>Ji-soo</strong><br>
-  아나 씨, 요즘 기분이 어때요?<br>
-  <small>Ana, comment tu te sens en ce moment ?</small></p>
+  아나 씨, 서울하고 파리는 어떻게 달라요?<br>
+  <small>Ana, en quoi Séoul et Paris sont-elles différentes ?</small></p>
 
   <p>🌸 <strong>Ana</strong><br>
-  기분이 좋아요.<br>
-  <small>Je me sens bien.</small></p>
+  서울이 파리보다 더 커요.<br>
+  <small>Séoul est plus grande que Paris.</small></p>
 
   <p>💚 <strong>Ji-soo</strong><br>
-  왜 기분이 좋아요?<br>
-  <small>Pourquoi tu te sens bien ?</small></p>
+  서울이 더 복잡해요?<br>
+  <small>Séoul est aussi plus fréquentée ?</small></p>
 
   <p>🌸 <strong>Ana</strong><br>
-  서울에 있어서 기분이 좋아요.<br>
-  <small>Je me sens bien parce que je suis à Séoul.</small></p>
+  네, 서울이 더 복잡해요. 하지만 지하철은 정말 편해요.<br>
+  <small>Oui, Séoul est plus fréquentée. Mais le métro est vraiment pratique.</small></p>
 
   <p>💚 <strong>Ji-soo</strong><br>
-  피곤하지 않아요?<br>
-  <small>Tu n'es pas fatiguée ?</small></p>
+  파리는 어때요?<br>
+  <small>Et Paris ?</small></p>
 
   <p>🌸 <strong>Ana</strong><br>
-  조금 피곤해요. 하지만 행복해요.<br>
-  <small>Je suis un peu fatiguée. Mais je suis heureuse.</small></p>
+  제 생각에는 파리가 서울보다 더 조용해요.<br>
+  <small>À mon avis, Paris est plus calme que Séoul.</small></p>
 
   <p>💚 <strong>Ji-soo</strong><br>
-  저도 기분이 좋아요. 아나 씨와 같이 있어서요.<br>
-  <small>Moi aussi, je me sens bien. Parce que je suis avec toi.</small></p>
+  두 도시가 많이 달라요?<br>
+  <small>Les deux villes sont très différentes ?</small></p>
 
   <p>🌸 <strong>Ana</strong><br>
-  저도요!<br>
-  <small>Moi aussi !</small></p>
+  네, 많이 달라요. 하지만 둘 다 좋아요.<br>
+  <small>Oui, elles sont très différentes. Mais j'aime les deux.</small></p>
+
+  <p>💚 <strong>Ji-soo</strong><br>
+  그럼 어느 도시가 더 좋아요?<br>
+  <small>Alors, quelle ville préfères-tu ?</small></p>
+
+  <p>🌸 <strong>Ana</strong><br>
+  파리보다 서울이 더 좋아요.<br>
+  <small>Je préfère Séoul à Paris.</small></p>
 </section>
 
 <section class="card">
-  <h2>💙 Grammaire — 기분이 어때요?</h2>
-  <p><strong>기분이 어때요?</strong><br>→ Comment te sens-tu ? / Comment est ton humeur ?</p>
-  <p><strong>기분</strong> désigne surtout l'humeur ou l'état émotionnel du moment.</p>
+  <h2>💙 Grammaire — Comparer avec 보다</h2>
+  <p><strong>보다</strong> indique le point de comparaison. On peut le comprendre comme « par rapport à » ou « que ».</p>
 
-  <p><strong>오늘 기분이 좋아요.</strong><br>→ Aujourd'hui, je suis de bonne humeur.</p>
-  <p><strong>오늘 기분이 안 좋아요.</strong><br>→ Aujourd'hui, je ne me sens pas très bien émotionnellement.</p>
+  <div class="compare-box">
+    <strong>Structure principale</strong><br>
+    <strong>A가 B보다 (더) + adjectif</strong><br>
+    → A est plus adjectif que B.
+  </div>
+
+  <p><strong>서울이 파리보다 더 커요.</strong><br>→ Séoul est plus grande que Paris.</p>
+  <p><strong>기차가 버스보다 더 빨라요.</strong><br>→ Le train est plus rapide que le bus.</p>
 </section>
 
 <section class="card">
-  <h2>🌸 기분이 좋아요 / 기분이 나빠요</h2>
-  <p><strong>기분이 좋아요.</strong><br>→ Je me sens bien / je suis de bonne humeur.</p>
-  <p><strong>기분이 나빠요.</strong><br>→ Je suis de mauvaise humeur / je me sens mal émotionnellement.</p>
+  <h2>🌸 Le rôle de 더</h2>
+  <p><strong>더</strong> signifie « plus / davantage ».</p>
 
-  <div class="warning-box">
-    ⚠️ <strong>기분이 나빠요</strong> ne sert pas normalement à dire que tu es physiquement malade.
-    Ici, on parle surtout de ton <strong>humeur ou état émotionnel</strong>.
+  <p><strong>서울이 파리보다 커요.</strong><br>→ Séoul est plus grande que Paris.</p>
+  <p><strong>서울이 파리보다 더 커요.</strong><br>→ Séoul est plus grande que Paris.</p>
+
+  <div class="nuance-box">
+    Avec <strong>보다</strong>, la comparaison est déjà comprise.
+    <strong>더</strong> rend simplement le sens « plus » plus explicite ou plus appuyé.
   </div>
 </section>
 
 <section class="card">
-  <h2>💙 Dire « Je suis… »</h2>
-  <p>Beaucoup de mots que le français traduit avec « être » fonctionnent directement comme des <strong>verbes descriptifs</strong> en coréen.</p>
-
-  <p><strong>행복하다 → 행복해요.</strong><br>→ Je suis heureuse.</p>
-  <p><strong>슬프다 → 슬퍼요.</strong><br>→ Je suis triste.</p>
-  <p><strong>피곤하다 → 피곤해요.</strong><br>→ Je suis fatiguée.</p>
-  <p><strong>걱정되다 → 걱정돼요.</strong><br>→ Je suis inquiète.</p>
-  <p><strong>긴장되다 → 긴장돼요.</strong><br>→ Je suis nerveuse.</p>
+  <h2>💙 On peut déplacer le groupe en 보다</h2>
+  <p><strong>서울이 파리보다 더 커요.</strong></p>
+  <p>et :</p>
+  <p><strong>파리보다 서울이 더 커요.</strong></p>
+  <p>expriment la même idée :</p>
+  <p>→ Séoul est plus grande que Paris.</p>
+  <p>Pour apprendre sans te mélanger, garde surtout en tête :</p>
+  <p><strong>A가 B보다 (더) + adjectif.</strong></p>
 </section>
 
 <section class="card">
-  <h2>🟨 Pourquoi ?</h2>
-  <p>En français, on dit « Je <strong>suis</strong> heureuse ».</p>
-  <p>En coréen, <strong>행복하다</strong> contient déjà l'idée d'« être heureux ».</p>
-  <p>Il suffit donc de le conjuguer :</p>
-  <p><strong>행복해요.</strong></p>
-  <p>Pas besoin d'ajouter un verbe « être » séparé.</p>
+  <h2>🌿 Dire « moins » avec 덜</h2>
+  <p><strong>덜</strong> signifie « moins ».</p>
+  <p><strong>파리가 서울보다 덜 복잡해요.</strong><br>→ Paris est moins fréquentée / moins encombrée que Séoul.</p>
+  <p><strong>이 카페가 저 카페보다 덜 비싸요.</strong><br>→ Ce café est moins cher que l'autre.</p>
 </section>
 
 <section class="card">
-  <h2>🌿 Les émotions essentielles</h2>
-  <div class="emotion-scale">
-    <div class="emotion-step">😊<strong>행복해요</strong><small>heureuse</small></div>
-    <div class="emotion-step">😄<strong>기뻐요</strong><small>contente</small></div>
-    <div class="emotion-step">🤩<strong>신나요</strong><small>enthousiaste</small></div>
-    <div class="emotion-step">🙂<strong>괜찮아요</strong><small>ça va</small></div>
-    <div class="emotion-step">😴<strong>피곤해요</strong><small>fatiguée</small></div>
-    <div class="emotion-step">😰<strong>걱정돼요</strong><small>inquiète</small></div>
-    <div class="emotion-step">😳<strong>긴장돼요</strong><small>nerveuse</small></div>
-    <div class="emotion-step">😢<strong>슬퍼요</strong><small>triste</small></div>
-    <div class="emotion-step">😨<strong>무서워요</strong><small>j'ai peur</small></div>
-    <div class="emotion-step">🥺<strong>외로워요</strong><small>je me sens seule</small></div>
+  <h2>🌸 Quelques comparaisons utiles</h2>
+  <div class="compare-grid">
+    <div class="compare-item"><strong>이 가방이 저 가방보다 더 비싸요.</strong><br>Ce sac est plus cher que l'autre.</div>
+    <div class="compare-item"><strong>이 카페가 저 카페보다 더 작아요.</strong><br>Ce café est plus petit que l'autre.</div>
+    <div class="compare-item"><strong>기차가 버스보다 더 빨라요.</strong><br>Le train est plus rapide que le bus.</div>
+    <div class="compare-item"><strong>이곳이 서울보다 더 조용해요.</strong><br>Cet endroit est plus calme que Séoul.</div>
   </div>
 </section>
 
 <section class="card">
-  <h2>💗 기쁘다 ou 행복하다 ?</h2>
-  <div class="difference-box">
-    <strong>기뻐요</strong> → être content / éprouver de la joie, souvent à cause d'un événement.<br><br>
-    <strong>행복해요</strong> → être heureux, sentiment de bonheur plus général.
+  <h2>🧠 Les adjectifs continuent à se conjuguer normalement</h2>
+  <p><strong>크다 → 커요</strong> → être grand</p>
+  <p><strong>작다 → 작아요</strong> → être petit</p>
+  <p><strong>비싸다 → 비싸요</strong> → être cher</p>
+  <p><strong>싸다 → 싸요</strong> → être bon marché</p>
+  <p><strong>조용하다 → 조용해요</strong> → être calme</p>
+  <p><strong>복잡하다 → 복잡해요</strong> → être fréquenté / encombré / complexe</p>
+</section>
+
+<section class="card">
+  <h2>💗 Pareil, similaire ou différent ?</h2>
+  <p><strong>같아요.</strong><br>→ C'est pareil / c'est le même selon le contexte.</p>
+  <p><strong>이 두 가방은 같아요.</strong><br>→ Ces deux sacs sont pareils.</p>
+
+  <p><strong>비슷해요.</strong><br>→ C'est similaire / ça se ressemble.</p>
+  <p><strong>이 두 카페는 비슷해요.</strong><br>→ Ces deux cafés sont similaires.</p>
+
+  <p><strong>달라요.</strong><br>→ C'est différent.</p>
+  <p><strong>서울하고 파리는 달라요.</strong><br>→ Séoul et Paris sont différentes.</p>
+  <p><strong>많이 달라요.</strong><br>→ C'est très différent.</p>
+</section>
+
+<section class="card">
+  <h2>💙 Poser une question de comparaison</h2>
+  <p><strong>뭐가 더 커요?</strong><br>→ Qu'est-ce qui est plus grand ?</p>
+  <p><strong>뭐가 더 좋아요?</strong><br>→ Qu'est-ce que tu préfères ?</p>
+  <p><strong>뭐가 더 싸요?</strong><br>→ Qu'est-ce qui est moins cher / meilleur marché ?</p>
+  <p><strong>어느 도시가 더 커요?</strong><br>→ Quelle ville est plus grande ?</p>
+  <p><strong>어떻게 달라요?</strong><br>→ En quoi est-ce différent ?</p>
+</section>
+
+<section class="card">
+  <h2>💗 Dire ce qu'on préfère</h2>
+  <div class="preference-box">
+    <strong>A보다 B가 더 좋아요.</strong><br>
+    → Je préfère B à A.
   </div>
 
-  <p><strong>좋은 소식을 들어서 기뻐요.</strong><br>→ Je suis contente parce que j'ai reçu une bonne nouvelle.</p>
-  <p><strong>요즘 행복해요.</strong><br>→ Ces temps-ci, je suis heureuse.</p>
+  <p><strong>커피보다 차가 더 좋아요.</strong><br>→ Je préfère le thé au café.</p>
+  <p><strong>파리보다 서울이 더 좋아요.</strong><br>→ Je préfère Séoul à Paris.</p>
 </section>
 
 <section class="card">
-  <h2>💗 마음 — le cœur et l'état intérieur</h2>
-  <p><strong>마음</strong> peut parler de ce que l'on ressent intérieurement, de ses sentiments ou de son intention.</p>
-  <p>Pour ce chapitre, retiens surtout :</p>
-  <p><strong>마음이 편해요.</strong><br>→ Je me sens apaisée / j'ai l'esprit tranquille.</p>
-</section>
-
-<section class="card">
-  <h2>🌸 기분 vs 마음</h2>
-  <div class="difference-box">
-    <strong>기분</strong> → humeur / état émotionnel du moment<br>
-    <strong>오늘 기분이 좋아요.</strong> → Aujourd'hui, je suis de bonne humeur.<br><br>
-    <strong>마음</strong> → sentiments / état intérieur / cœur<br>
-    <strong>마음이 편해요.</strong> → Je me sens apaisée.
-  </div>
-  <p>Pour parler simplement de ton humeur quotidienne, commence surtout avec <strong>기분</strong>.</p>
-</section>
-
-<section class="card">
-  <h2>💙 괜찮아요? — Ça va ?</h2>
-  <p><strong>괜찮아요?</strong><br>→ Ça va ?</p>
-  <p>Très utile lorsqu'une personne semble fatiguée, triste, inquiète ou vient d'avoir un problème.</p>
-  <p>💚 <strong>아나 씨, 괜찮아요?</strong><br>
-  🌸 <strong>네, 괜찮아요.</strong><br>
-  → Oui, ça va.</p>
-</section>
-
-<section class="card">
-  <h2>🌿 Réutiliser -아서/어서</h2>
-  <p>Tu peux maintenant expliquer <strong>pourquoi</strong> tu ressens quelque chose.</p>
-
-  <p><strong>서울에 있어서 기분이 좋아요.</strong><br>→ Je me sens bien parce que je suis à Séoul.</p>
-  <p><strong>친구를 만나서 기분이 좋아요.</strong><br>→ Je suis de bonne humeur parce que j'ai retrouvé une amie.</p>
-  <p><strong>좋은 소식을 들어서 기뻐요.</strong><br>→ Je suis contente parce que j'ai reçu une bonne nouvelle.</p>
-
-  <div class="note-box">
-    <strong>왜 기분이 좋아요?</strong><br>
-    → Pourquoi tu te sens bien ?<br><br>
-    <strong>서울에 있어서 기분이 좋아요.</strong><br>
-    → Parce que je suis à Séoul.
-  </div>
+  <h2>🌱 Réutiliser ton opinion</h2>
+  <p>Tu peux aussi combiner ce chapitre avec le chapitre 33 :</p>
+  <p><strong>서울 지하철이 파리 지하철보다 더 깨끗하다고 생각해요.</strong></p>
+  <p>→ Je pense que le métro de Séoul est plus propre que celui de Paris.</p>
+  <p class="nuance-box">Ici, tu combines <strong>보다 + 더</strong> avec <strong>-다고 생각해요</strong>. Pas besoin de produire cette phrase immédiatement : commence par les comparaisons simples.</p>
 </section>
 
 <section class="card">
   <h2>🩵 Prononciation</h2>
-  <p><strong>기분</strong> — <em>gibun</em><br>Prononce naturellement 기-분.</p>
-  <p><strong>행복해요</strong> — <em>haengbokhaeyo</em><br>Découpe tranquillement 행복 + 해요.</p>
-  <p><strong>피곤해요</strong> — <em>pigonhaeyo</em><br>피-곤-해-요.</p>
-  <p><strong>슬퍼요</strong> — <em>seulpeoyo</em><br>Le ㅡ de 슬 n'a pas d'équivalent exact en français.</p>
+  <p><strong>보다</strong> — <em>boda</em><br>Le ㅂ initial est doux, entre « b » et « p ».</p>
+  <p><strong>더</strong> — <em>deo</em><br>Le ㅓ ne correspond pas exactement à un son français.</p>
+  <p><strong>달라요</strong> — <em>dallayo</em><br>Prononce naturellement 달-라요.</p>
 </section>
 
 <section class="card">
   <h2>📖 Compréhension écrite</h2>
-  <p><strong>오늘 아나는 조금 피곤해요.</strong></p>
-  <p><strong>하지만 친구를 만나서 기분이 좋아요.</strong></p>
-  <p><strong>같이 커피도 마셔요.</strong></p>
-  <p><strong>그래서 행복해요.</strong></p>
+  <p><strong>아나와 지수는 서울과 부산에 대해 이야기해요.</strong></p>
+  <p><strong>아나 : 서울이 부산보다 커요.</strong></p>
+  <p><strong>지수 : 맞아요. 하지만 부산은 서울보다 조용해요.</strong></p>
+  <p><strong>아나 : 네. 그리고 부산에는 바다가 있어요.</strong></p>
+  <p><strong>지수 : 서울도 재미있고 부산도 재미있어요.</strong></p>
+  <p><strong>아나 : 맞아요. 두 도시는 정말 달라요.</strong></p>
 </section>
 
 <section class="card">
   <h2>💚 Le conseil de Ji-soo</h2>
-  <p>Tu n'as pas besoin de connaître des dizaines de mots pour parler de tes émotions.</p>
-  <p>Quelques expressions simples suffisent déjà à dire beaucoup de choses sur toi.</p>
+  <p>Comparer ne sert pas seulement à décider ce qui est « meilleur ».</p>
+  <p>Tu peux aussi expliquer ce qui est plus calme, plus pratique, plus propre ou simplement différent.</p>
 </section>
 
 <section class="card">
   <h2>🌟 Phrase du chapitre</h2>
-  <p>« Apprendre une langue, c'est aussi apprendre à mettre des mots sur ce que l'on ressent. » 🌸</p>
+  <p>« Comparer, c'est apprendre à regarder les différences… mais aussi à découvrir ce que deux choses ont en commun. » 🌸</p>
 </section>
 
 <section class="card">
   <h2>🌸 À suivre...</h2>
-  <p>Le lendemain, Ana retrouve Min-su et Ji-soo.</p>
-  <p>💙 <strong>Min-su :</strong><br><strong>아나 씨, 주말에 같이 뭐 할래요?</strong></p>
-  <p>→ Ana, tu veux qu'on fasse quelque chose ensemble ce week-end ?</p>
-  <p>Cette fois, Ana ne doit plus seulement parler de ses projets : elle doit <strong>proposer, accepter ou organiser une activité avec quelqu'un</strong>.</p>
-  <p>➡️ Chapitre 36 — <strong>Inviter quelqu'un</strong>.</p>
+  <p>Ji-soo demande à Ana ce qu'elle préfère entre Paris et Séoul.</p>
+  <p>Puis elle lui pose une question plus personnelle :</p>
+  <p>💚 <strong>Ji-soo :</strong><br><strong>아나 씨, 요즘 기분이 어때요?</strong></p>
+  <p>→ Ana, comment te sens-tu en ce moment ?</p>
+  <p>➡️ Chapitre 36 — <strong>Parler de ses émotions</strong>.</p>
 </section>
 
 <button id="completeButton" type="button" style="width:100%;">✅ J'ai compris</button>

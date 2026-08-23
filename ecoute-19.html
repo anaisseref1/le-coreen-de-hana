@@ -21,6 +21,7 @@
     rel="stylesheet"
     href="style.css"
   >
+
   <link rel="stylesheet" href="chapter-progress.css">
 
 
@@ -139,7 +140,7 @@
     }
 
 
-    .dialogue-line.joonho {
+    .dialogue-line.minsu {
       background: var(--soft-blue);
     }
 
@@ -234,7 +235,7 @@
 
 
     <p class="korean">
-      잘 들어 봐요 📸
+      잘 들어 봐요 ❤️
     </p>
 
 
@@ -244,9 +245,9 @@
 
 
     <p>
-      Écoute les formes passées les plus utiles,
-      puis entraîne-toi à reconnaître ce que quelqu'un a fait,
-      comment s'est passée une expérience et ce qu'il a préféré.
+      Écoute les expressions utiles pour parler de tes goûts,
+      puis entraîne-toi à reconnaître ce que quelqu'un aime,
+      préfère ou n'aime pas.
     </p>
 
   </header>
@@ -267,11 +268,11 @@
     <br><br>
 
     Reconnaître à l'oreille
-    <strong>갔어요</strong>,
-    <strong>먹었어요</strong>,
-    <strong>찍었어요</strong>,
-    <strong>정말 좋았어요</strong>
-    et <strong>어땠어요?</strong>.
+    <strong>뭐가 제일 좋아요?</strong>,
+    <strong>커피를 좋아해요</strong>,
+    <strong>어떤 음악을 제일 좋아해요?</strong>,
+    <strong>안 좋아해요</strong>
+    et <strong>왜요?</strong>.
 
   </section>
 
@@ -283,70 +284,63 @@
 
   <section class="audio-card">
 
-    <h2>📸 1. Écoute les formes essentielles du passé</h2>
+    <h2>
+      ❤️ 1. Écoute les expressions essentielles
+    </h2>
 
     <div class="expression-list">
 
       <div class="expression-item">
-        <div class="expression-korean">갔어요.</div>
-        <div class="expression-french">Je suis allé(e).</div>
+        <div class="expression-korean">뭐가 제일 좋아요?</div>
+        <div class="expression-french">Qu'est-ce que tu préfères ?</div>
         <div class="expression-actions">
-          <button type="button" onclick="speakKorean('갔어요.', 'hana', false)">🔊 Écouter</button>
-          <button class="slow" type="button" onclick="speakKorean('갔어요.', 'hana', true)">🐢 Lentement</button>
+          <button type="button" onclick="speakKorean('뭐가 제일 좋아요?', 'minsu', false)">🔊 Écouter</button>
+          <button class="slow" type="button" onclick="speakKorean('뭐가 제일 좋아요?', 'minsu', true)">🐢 Lentement</button>
         </div>
       </div>
 
       <div class="expression-item">
-        <div class="expression-korean">먹었어요.</div>
-        <div class="expression-french">J'ai mangé.</div>
+        <div class="expression-korean">커피를 좋아해요.</div>
+        <div class="expression-french">J'aime le café.</div>
         <div class="expression-actions">
-          <button type="button" onclick="speakKorean('먹었어요.', 'hana', false)">🔊 Écouter</button>
-          <button class="slow" type="button" onclick="speakKorean('먹었어요.', 'hana', true)">🐢 Lentement</button>
+          <button type="button" onclick="speakKorean('커피를 좋아해요.', 'hana', false)">🔊 Écouter</button>
+          <button class="slow" type="button" onclick="speakKorean('커피를 좋아해요.', 'hana', true)">🐢 Lentement</button>
         </div>
       </div>
 
       <div class="expression-item">
-        <div class="expression-korean">봤어요.</div>
-        <div class="expression-french">J'ai vu / regardé.</div>
+        <div class="expression-korean">저는 음악을 제일 좋아해요.</div>
+        <div class="expression-french">Ce que je préfère, c'est la musique.</div>
         <div class="expression-actions">
-          <button type="button" onclick="speakKorean('봤어요.', 'hana', false)">🔊 Écouter</button>
-          <button class="slow" type="button" onclick="speakKorean('봤어요.', 'hana', true)">🐢 Lentement</button>
+          <button type="button" onclick="speakKorean('저는 음악을 제일 좋아해요.', 'hana', false)">🔊 Écouter</button>
+          <button class="slow" type="button" onclick="speakKorean('저는 음악을 제일 좋아해요.', 'hana', true)">🐢 Lentement</button>
         </div>
       </div>
 
       <div class="expression-item">
-        <div class="expression-korean">찍었어요.</div>
-        <div class="expression-french">J'ai pris une photo.</div>
+        <div class="expression-korean">어떤 음악을 제일 좋아해요?</div>
+        <div class="expression-french">Quelle musique préfères-tu ?</div>
         <div class="expression-actions">
-          <button type="button" onclick="speakKorean('찍었어요.', 'hana', false)">🔊 Écouter</button>
-          <button class="slow" type="button" onclick="speakKorean('찍었어요.', 'hana', true)">🐢 Lentement</button>
+          <button type="button" onclick="speakKorean('어떤 음악을 제일 좋아해요?', 'minsu', false)">🔊 Écouter</button>
+          <button class="slow" type="button" onclick="speakKorean('어떤 음악을 제일 좋아해요?', 'minsu', true)">🐢 Lentement</button>
         </div>
       </div>
 
       <div class="expression-item">
-        <div class="expression-korean">했어요.</div>
-        <div class="expression-french">J'ai fait.</div>
+        <div class="expression-korean">안 좋아해요.</div>
+        <div class="expression-french">Je n'aime pas / je n'aime pas trop.</div>
         <div class="expression-actions">
-          <button type="button" onclick="speakKorean('했어요.', 'hana', false)">🔊 Écouter</button>
-          <button class="slow" type="button" onclick="speakKorean('했어요.', 'hana', true)">🐢 Lentement</button>
+          <button type="button" onclick="speakKorean('안 좋아해요.', 'hana', false)">🔊 Écouter</button>
+          <button class="slow" type="button" onclick="speakKorean('안 좋아해요.', 'hana', true)">🐢 Lentement</button>
         </div>
       </div>
 
       <div class="expression-item">
-        <div class="expression-korean">정말 좋았어요.</div>
-        <div class="expression-french">C'était vraiment bien.</div>
+        <div class="expression-korean">왜요?</div>
+        <div class="expression-french">Pourquoi ?</div>
         <div class="expression-actions">
-          <button type="button" onclick="speakKorean('정말 좋았어요.', 'hana', false)">🔊 Écouter</button>
-          <button class="slow" type="button" onclick="speakKorean('정말 좋았어요.', 'hana', true)">🐢 Lentement</button>
-        </div>
-      </div>
-
-      <div class="expression-item">
-        <div class="expression-korean">어땠어요?</div>
-        <div class="expression-french">Comment c'était ?</div>
-        <div class="expression-actions">
-          <button type="button" onclick="speakKorean('어땠어요?', 'minsu', false)">🔊 Écouter</button>
-          <button class="slow" type="button" onclick="speakKorean('어땠어요?', 'minsu', true)">🐢 Lentement</button>
+          <button type="button" onclick="speakKorean('왜요?', 'minsu', false)">🔊 Écouter</button>
+          <button class="slow" type="button" onclick="speakKorean('왜요?', 'minsu', true)">🐢 Lentement</button>
         </div>
       </div>
 
@@ -361,60 +355,61 @@
 
   <section class="audio-card">
 
-    <h2>👂 2. Petites phrases à reconnaître</h2>
+    <h2>
+      👂 2. Formes à reconnaître
+    </h2>
 
     <div class="recognition-box">
-      Ici, le but est surtout de reconnaître <strong>l'action passée</strong>
-      et quelques repères temporels.
+
+      Ici, le but est surtout de reconnaître
+      <strong>l'idée générale</strong>.
+
       <br><br>
-      Repère <strong>처음</strong>, <strong>어제</strong>, <strong>지난주</strong>
-      ainsi que les fins en <strong>-았어요 / -었어요</strong>.
+
+      Repère les mots
+      <strong>제일</strong>,
+      <strong>좋아해요</strong>,
+      <strong>좋아하는</strong>,
+      <strong>안 좋아해요</strong>
+      et <strong>왜요?</strong>.
+
     </div>
 
     <div class="expression-list">
 
       <div class="expression-item">
-        <div class="expression-korean">한국에 처음 갔어요.</div>
-        <div class="expression-french">Je suis allé(e) en Corée pour la première fois.</div>
+        <div class="expression-korean">좋아하는 음악</div>
+        <div class="expression-french">la musique que l'on aime / sa musique préférée</div>
         <div class="expression-actions">
-          <button type="button" onclick="speakKorean('한국에 처음 갔어요.', 'hana', false)">🔊 Écouter</button>
-          <button class="slow" type="button" onclick="speakKorean('한국에 처음 갔어요.', 'hana', true)">🐢 Lentement</button>
+          <button type="button" onclick="speakKorean('좋아하는 음악', 'minsu', false)">🔊 Écouter</button>
+          <button class="slow" type="button" onclick="speakKorean('좋아하는 음악', 'minsu', true)">🐢 Lentement</button>
         </div>
       </div>
 
       <div class="expression-item">
-        <div class="expression-korean">어제 비빔밥을 먹었어요.</div>
-        <div class="expression-french">Hier, j'ai mangé un bibimbap.</div>
+        <div class="expression-korean">사진 찍는 걸 제일 좋아해요.</div>
+        <div class="expression-french">Ce que je préfère, c'est prendre des photos.</div>
         <div class="expression-actions">
-          <button type="button" onclick="speakKorean('어제 비빔밥을 먹었어요.', 'hana', false)">🔊 Écouter</button>
-          <button class="slow" type="button" onclick="speakKorean('어제 비빔밥을 먹었어요.', 'hana', true)">🐢 Lentement</button>
+          <button type="button" onclick="speakKorean('사진 찍는 걸 제일 좋아해요.', 'hana', false)">🔊 Écouter</button>
+          <button class="slow" type="button" onclick="speakKorean('사진 찍는 걸 제일 좋아해요.', 'hana', true)">🐢 Lentement</button>
         </div>
       </div>
 
       <div class="expression-item">
-        <div class="expression-korean">지난주에 서울에 갔어요.</div>
-        <div class="expression-french">La semaine dernière, je suis allé(e) à Séoul.</div>
+        <div class="expression-korean">싫어해요.</div>
+        <div class="expression-french">Je n'aime vraiment pas / je déteste.</div>
         <div class="expression-actions">
-          <button type="button" onclick="speakKorean('지난주에 서울에 갔어요.', 'hana', false)">🔊 Écouter</button>
-          <button class="slow" type="button" onclick="speakKorean('지난주에 서울에 갔어요.', 'hana', true)">🐢 Lentement</button>
+          <button type="button" onclick="speakKorean('싫어해요.', 'hana', false)">🔊 Écouter</button>
+          <button class="slow" type="button" onclick="speakKorean('싫어해요.', 'hana', true)">🐢 Lentement</button>
         </div>
       </div>
 
       <div class="expression-item">
-        <div class="expression-korean">사진을 많이 찍었어요.</div>
-        <div class="expression-french">J'ai pris beaucoup de photos.</div>
+        <div class="expression-korean">가장 좋아해요.</div>
+        <div class="expression-french">J'aime le plus / je préfère.</div>
         <div class="expression-actions">
-          <button type="button" onclick="speakKorean('사진을 많이 찍었어요.', 'hana', false)">🔊 Écouter</button>
-          <button class="slow" type="button" onclick="speakKorean('사진을 많이 찍었어요.', 'hana', true)">🐢 Lentement</button>
-        </div>
-      </div>
-
-      <div class="expression-item">
-        <div class="expression-korean">제일 좋았던 건 뭐예요?</div>
-        <div class="expression-french">Qu'est-ce que tu as préféré ?</div>
-        <div class="expression-actions">
-          <button type="button" onclick="speakKorean('제일 좋았던 건 뭐예요?', 'minsu', false)">🔊 Écouter Min-su</button>
-          <button class="slow" type="button" onclick="speakKorean('제일 좋았던 건 뭐예요?', 'minsu', true)">🐢 Lentement</button>
+          <button type="button" onclick="speakKorean('가장 좋아해요.', 'minsu', false)">🔊 Écouter</button>
+          <button class="slow" type="button" onclick="speakKorean('가장 좋아해요.', 'minsu', true)">🐢 Lentement</button>
         </div>
       </div>
 
@@ -429,7 +424,9 @@
 
   <section class="audio-card">
 
-    <h2>💬 3. Dialogue — Ana raconte son voyage</h2>
+    <h2>
+      💬 3. Dialogue — Ana et Min-su
+    </h2>
 
     <p>
       Écoute d'abord le dialogue complet,
@@ -438,11 +435,21 @@
 
     <div class="dialogue-controls">
 
-      <button class="dialogue-play-button" id="dialogueButton" type="button" onclick="toggleDialogue(false)">
+      <button
+        class="dialogue-play-button"
+        id="dialogueButton"
+        type="button"
+        onclick="toggleDialogue(false)"
+      >
         🎧 Écouter tout le dialogue
       </button>
 
-      <button class="dialogue-slow-button" id="dialogueSlowButton" type="button" onclick="toggleDialogue(true)">
+      <button
+        class="dialogue-slow-button"
+        id="dialogueSlowButton"
+        type="button"
+        onclick="toggleDialogue(true)"
+      >
         🐢 Écouter tout lentement
       </button>
 
@@ -450,67 +457,97 @@
 
     <div class="dialogue-line minsu">
       <div class="speaker">💙 Min-su</div>
-      <div class="dialogue-korean">첫 한국 여행은 어땠어요?</div>
-      <div class="dialogue-french">Comment était ton premier voyage en Corée ?</div>
+      <div class="dialogue-korean">아나 씨는 한국에서 뭐가 제일 좋아요?</div>
+      <div class="dialogue-french">Ana, qu'est-ce que tu préfères en Corée ?</div>
       <div class="line-actions">
-        <button type="button" onclick="speakKorean('첫 한국 여행은 어땠어요?', 'minsu', false)">🔊 Écouter Min-su</button>
-        <button class="slow" type="button" onclick="speakKorean('첫 한국 여행은 어땠어요?', 'minsu', true)">🐢 Lentement</button>
+        <button type="button" onclick="speakKorean('아나 씨는 한국에서 뭐가 제일 좋아요?', 'minsu', false)">🔊 Écouter Min-su</button>
+        <button class="slow" type="button" onclick="speakKorean('아나 씨는 한국에서 뭐가 제일 좋아요?', 'minsu', true)">🐢 Lentement</button>
       </div>
     </div>
 
     <div class="dialogue-line hana">
       <div class="speaker">🌸 Ana</div>
-      <div class="dialogue-korean">정말 즐거웠어요. 경복궁에 갔어요. 비빔밥도 먹었어요. 사진도 많이 찍었어요.</div>
-      <div class="dialogue-french">C'était vraiment génial. Je suis allée à Gyeongbokgung. J'ai aussi mangé un bibimbap. J'ai pris beaucoup de photos.</div>
+      <div class="dialogue-korean">커피도 좋아하고 사진 찍는 것도 좋아해요. 하지만 한강이 제일 좋아요.</div>
+      <div class="dialogue-french">J'aime le café et j'aime aussi prendre des photos. Mais ce que je préfère, c'est le fleuve Han.</div>
       <div class="line-actions">
-        <button type="button" onclick="speakKorean('정말 즐거웠어요. 경복궁에 갔어요. 비빔밥도 먹었어요. 사진도 많이 찍었어요.', 'hana', false)">🔊 Écouter Ana</button>
-        <button class="slow" type="button" onclick="speakKorean('정말 즐거웠어요. 경복궁에 갔어요. 비빔밥도 먹었어요. 사진도 많이 찍었어요.', 'hana', true)">🐢 Lentement</button>
+        <button type="button" onclick="speakKorean('커피도 좋아하고 사진 찍는 것도 좋아해요. 하지만 한강이 제일 좋아요.', 'hana', false)">🔊 Écouter Ana</button>
+        <button class="slow" type="button" onclick="speakKorean('커피도 좋아하고 사진 찍는 것도 좋아해요. 하지만 한강이 제일 좋아요.', 'hana', true)">🐢 Lentement</button>
       </div>
     </div>
 
     <div class="dialogue-line minsu">
       <div class="speaker">💙 Min-su</div>
-      <div class="dialogue-korean">제일 좋았던 건 뭐예요?</div>
-      <div class="dialogue-french">Qu'est-ce que tu as préféré ?</div>
+      <div class="dialogue-korean">왜요?</div>
+      <div class="dialogue-french">Pourquoi ?</div>
       <div class="line-actions">
-        <button type="button" onclick="speakKorean('제일 좋았던 건 뭐예요?', 'minsu', false)">🔊 Écouter Min-su</button>
-        <button class="slow" type="button" onclick="speakKorean('제일 좋았던 건 뭐예요?', 'minsu', true)">🐢 Lentement</button>
+        <button type="button" onclick="speakKorean('왜요?', 'minsu', false)">🔊 Écouter Min-su</button>
+        <button class="slow" type="button" onclick="speakKorean('왜요?', 'minsu', true)">🐢 Lentement</button>
       </div>
     </div>
 
     <div class="dialogue-line hana">
       <div class="speaker">🌸 Ana</div>
-      <div class="dialogue-korean">한강이 제일 좋았어요.</div>
-      <div class="dialogue-french">Ce que j'ai préféré, c'était le fleuve Han.</div>
+      <div class="dialogue-korean">조용하고 정말 아름다워요.</div>
+      <div class="dialogue-french">C'est calme et vraiment magnifique.</div>
       <div class="line-actions">
-        <button type="button" onclick="speakKorean('한강이 제일 좋았어요.', 'hana', false)">🔊 Écouter Ana</button>
-        <button class="slow" type="button" onclick="speakKorean('한강이 제일 좋았어요.', 'hana', true)">🐢 Lentement</button>
+        <button type="button" onclick="speakKorean('조용하고 정말 아름다워요.', 'hana', false)">🔊 Écouter Ana</button>
+        <button class="slow" type="button" onclick="speakKorean('조용하고 정말 아름다워요.', 'hana', true)">🐢 Lentement</button>
+      </div>
+    </div>
+
+    <div class="dialogue-line minsu">
+      <div class="speaker">💙 Min-su</div>
+      <div class="dialogue-korean">어떤 음악을 제일 좋아해요?</div>
+      <div class="dialogue-french">Quelle musique préfères-tu ?</div>
+      <div class="line-actions">
+        <button type="button" onclick="speakKorean('어떤 음악을 제일 좋아해요?', 'minsu', false)">🔊 Écouter Min-su</button>
+        <button class="slow" type="button" onclick="speakKorean('어떤 음악을 제일 좋아해요?', 'minsu', true)">🐢 Lentement</button>
+      </div>
+    </div>
+
+    <div class="dialogue-line hana">
+      <div class="speaker">🌸 Ana</div>
+      <div class="dialogue-korean">케이팝을 제일 좋아해요.</div>
+      <div class="dialogue-french">Je préfère la K-pop.</div>
+      <div class="line-actions">
+        <button type="button" onclick="speakKorean('케이팝을 제일 좋아해요.', 'hana', false)">🔊 Écouter Ana</button>
+        <button class="slow" type="button" onclick="speakKorean('케이팝을 제일 좋아해요.', 'hana', true)">🐢 Lentement</button>
       </div>
     </div>
 
   </section>
 
 
+
   <section class="tip-card">
 
-    <strong>👂 Astuce d'écoute</strong>
+    <strong>
+      👂 Astuce d'écoute
+    </strong>
 
     <br><br>
 
-    Pour reconnaître le passé, écoute surtout les fins :
+    Pour ce chapitre, repère surtout :
 
     <br><br>
 
-    <strong>갔어요</strong> → est allé(e)<br>
-    <strong>먹었어요</strong> → a mangé<br>
-    <strong>찍었어요</strong> → a pris une photo<br>
-    <strong>좋았어요</strong> → c'était bien / a aimé
+    <strong>제일</strong> → le plus
 
-    <br><br>
+    <br>
 
-    Les formes peuvent sembler longues au début,
-    mais la fin <strong>-았어요 / -었어요</strong>
-    devient vite un repère très utile.
+    <strong>좋아해요</strong> → aimer
+
+    <br>
+
+    <strong>좋아하는</strong> → que l'on aime
+
+    <br>
+
+    <strong>안 좋아해요</strong> → ne pas aimer / ne pas trop aimer
+
+    <br>
+
+    <strong>왜요?</strong> → pourquoi ?
 
   </section>
 
@@ -543,7 +580,7 @@
 
 <script>
 
-  const CHAPTER = 19;
+  const CHAPTER = 18;
 
   const UNDERSTANDING_KEY =
     "hanaKorean_chapter19_understanding";
@@ -588,8 +625,6 @@
 
 
 
-
-
   const AUDIO_SETTINGS = {
     normalRate: 0.82,
     slowRate: 0.25
@@ -600,28 +635,42 @@
 
     {
       text:
-        "첫 한국 여행은 어땠어요?",
+        HanaProfile.replacePerson("아나 씨는 한국에서 뭐가 제일 좋아요?"),
       character:
         "minsu"
     },
 
     {
       text:
-        "정말 즐거웠어요. 경복궁에 갔어요. 비빔밥도 먹었어요. 사진도 많이 찍었어요.",
+        "커피도 좋아하고 사진 찍는 것도 좋아해요. 하지만 한강이 제일 좋아요.",
       character:
         "hana"
     },
 
     {
       text:
-        "제일 좋았던 건 뭐예요?",
+        "왜요?",
       character:
         "minsu"
     },
 
     {
       text:
-        "한강이 제일 좋았어요.",
+        "조용하고 정말 아름다워요.",
+      character:
+        "hana"
+    },
+
+    {
+      text:
+        "어떤 음악을 제일 좋아해요?",
+      character:
+        "minsu"
+    },
+
+    {
+      text:
+        "케이팝을 제일 좋아해요.",
       character:
         "hana"
     }
@@ -1069,9 +1118,8 @@
     }
 
     window.location.href =
-      "exercice-ecoute-19.html";
+      "exercice-ecoute-20.html";
   }
-
 
 
   window
@@ -1094,6 +1142,7 @@
       };
 
   }
+
 
 
   if (guardListeningAccess()) {
