@@ -1,600 +1,647 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
-
   <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
-
-  <meta
-    name="theme-color"
-    content="#F7F4ED"
-  >
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#F7F4ED">
   <title>Chapitre 21 — Je révise</title>
-
-  <link
-    rel="stylesheet"
-    href="style.css"
-  >
+  <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="chapter-progress.css">
 
   <style>
-
     .review-header {
-      text-align:center;
-      margin-bottom:24px;
+      text-align: center;
+      margin-bottom: 28px;
     }
 
-    .review-card,
-    .result-card,
-    .tip-card {
-      padding:20px;
-      margin-bottom:18px;
-      background:var(--white);
-      border-radius:var(--radius-large);
-      box-shadow:var(--shadow);
+    .review-header h1 {
+      margin-bottom: 8px;
     }
 
-    .question-block {
-      padding:16px;
-      margin-top:14px;
-      background:#FBFAF6;
-      border-radius:var(--radius-medium);
+    .review-header p {
+      color: var(--text-light);
+      line-height: 1.7;
+    }
+
+    .review-progress {
+      margin-bottom: 20px;
+    }
+
+    .progress-info {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 8px;
+      color: var(--text-light);
+      font-size: 14px;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 10px;
+      overflow: hidden;
+      background: var(--soft-beige);
+      border-radius: 20px;
+    }
+
+    .progress-fill {
+      width: 20%;
+      height: 100%;
+      background: var(--jade);
+      border-radius: 20px;
+      transition: width 0.3s ease;
+    }
+
+    .personal-review {
+      padding: 18px;
+      margin-bottom: 18px;
+      background: var(--soft-green);
+      border-radius: var(--radius-large);
+      color: var(--navy);
+      line-height: 1.7;
+    }
+
+    .personal-review.hidden {
+      display: none;
+    }
+
+    .review-card {
+      padding: 20px;
+      margin-bottom: 18px;
+      background: var(--white);
+      border-radius: var(--radius-large);
+      box-shadow: var(--shadow);
+    }
+
+    .question-number {
+      margin-bottom: 8px;
+      color: var(--jade-dark);
+      font-size: 13px;
+      font-weight: bold;
     }
 
     .question-title {
-      margin-bottom:12px;
-      color:var(--navy);
-      font-weight:bold;
-      line-height:1.6;
+      margin-top: 0;
+      color: var(--navy);
     }
 
-    .answer-list {
-      display:flex;
-      flex-direction:column;
-      gap:9px;
+    .question-text {
+      line-height: 1.7;
     }
 
-    .answer-button {
-      width:100%;
-      padding:13px 14px;
-      background:var(--soft-beige);
-      color:var(--navy);
-      text-align:left;
+    .answers {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 16px;
     }
 
-    .answer-button.correct {
-      background:var(--success-light);
-      color:var(--success);
-      font-weight:bold;
+    .answer {
+      width: 100%;
+      text-align: left;
+      background: #FBFAF6;
+      color: var(--navy);
+      border: 1px solid var(--border);
     }
 
-    .answer-button.wrong {
-      background:var(--error-light);
-      color:var(--error);
-      font-weight:bold;
+    .answer.correct {
+      background: var(--success-light);
+      color: var(--success);
+      border-color: rgba(95, 146, 112, 0.35);
+    }
+
+    .answer.wrong {
+      background: var(--error-light);
+      color: var(--error);
+      border-color: rgba(200, 107, 105, 0.35);
     }
 
     .feedback {
-      display:none;
-      margin-top:12px;
-      padding:12px 14px;
-      border-radius:var(--radius-medium);
-      line-height:1.6;
+      display: none;
+      padding: 14px;
+      margin-top: 14px;
+      border-radius: var(--radius-medium);
+      line-height: 1.7;
     }
 
-    .feedback.show {
-      display:block;
+    .feedback.correct {
+      display: block;
+      background: var(--success-light);
+      color: var(--navy);
     }
 
-    .feedback.success {
-      background:var(--success-light);
-      color:var(--success);
+    .feedback.wrong {
+      display: block;
+      background: var(--error-light);
+      color: var(--navy);
     }
 
-    .feedback.error {
-      background:var(--error-light);
-      color:var(--error);
+    .next-question {
+      display: none;
+      width: 100%;
+      margin-top: 14px;
+      background: var(--navy);
+      color: white;
+      font-weight: bold;
+    }
+
+    .hidden {
+      display: none;
     }
 
     .result-card {
-      display:none;
-      text-align:center;
+      display: none;
+      padding: 24px;
+      text-align: center;
+      background: var(--white);
+      border-radius: var(--radius-large);
+      box-shadow: var(--shadow);
     }
 
     .result-card.show {
-      display:block;
+      display: block;
+    }
+
+    .result-icon {
+      font-size: 58px;
     }
 
     .result-score {
-      margin:12px 0;
-      color:var(--navy);
-      font-size:22px;
-      font-weight:bold;
+      color: var(--jade-dark);
+      font-size: 21px;
+      font-weight: bold;
     }
 
-    .complete-button,
-    .next-button,
-    .retry-button,
+    .result-summary,
+    .weak-box,
+    .notion-summary {
+      padding: 16px;
+      margin-top: 18px;
+      border-radius: var(--radius-medium);
+      text-align: left;
+      line-height: 1.7;
+    }
+
+    .result-summary {
+      background: #FBFAF6;
+    }
+
+    .weak-box {
+      background: var(--soft-beige);
+      color: var(--navy);
+    }
+
+    .notion-summary {
+      background: var(--soft-green);
+      color: var(--navy);
+    }
+
+    .notion-line {
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .notion-line:last-child {
+      border-bottom: none;
+    }
+
+    .continue-button {
+      width: 100%;
+      margin-top: 18px;
+      background: var(--jade);
+      color: white;
+      font-weight: bold;
+    }
+
     .back-button {
-      width:100%;
-      margin-top:10px;
+      width: 100%;
+      margin-top: 10px;
+      background: var(--soft-beige);
+      color: var(--navy);
     }
-
-    .complete-button {
-      display:none;
-      background:var(--jade);
-      color:white;
-      font-weight:bold;
-    }
-
-    .complete-button.show {
-      display:block;
-    }
-
-    .complete-button.done {
-      background:var(--success);
-    }
-
-    .next-button {
-      display:none;
-      background:var(--navy);
-      color:white;
-      font-weight:bold;
-    }
-
-    .retry-button,
-    .back-button {
-      background:var(--soft-beige);
-      color:var(--navy);
-    }
-
   </style>
-
   <script src="profile.js"></script>
 </head>
 
-
 <body>
 
-
 <main class="app">
-
 
   <a
     class="back-link"
     href="ecriture-21.html"
   >
-    ← Écriture
+    ← J'écris
   </a>
 
-
-
   <header class="review-header">
-
     <span class="chapter-badge">
-      Chapitre 21 · 🧠 Je révise
+      Chapitre 21 · Révision
     </span>
 
     <p class="korean">
-      같이 갈래요? 🌸
+      복습해 봐요 🧠
     </p>
 
     <h1>
-      Réviser le chapitre
+      Je révise
     </h1>
 
     <p>
-      Vérifie que tu sais distinguer une invitation,
-      une suggestion et un rendez-vous.
+      Vérifie que tu sais parler de ton origine,
+      de ton métier, de tes loisirs
+      et utiliser naturellement <strong>도</strong>.
     </p>
-
   </header>
 
-  <section id="hanaChapterPath" data-chapter-path></section>
+  <section
+    id="hanaChapterPath"
+    data-chapter-path
+  ></section>
 
-  <section class="tip-card" id="personalReviewBox" style="display:none;"></section>
+  <section
+    class="personal-review hidden"
+    id="personalReview"
+  >
+    <strong>🌿 Révision personnalisée</strong>
+    <div id="personalReviewContent"></div>
+  </section>
+
+  <div class="review-progress">
+
+    <div class="progress-info">
+      <span>Révision du chapitre</span>
+      <span id="progressLabel">1 / 5</span>
+    </div>
+
+    <div class="progress-bar">
+      <div
+        class="progress-fill"
+        id="progressFill"
+      ></div>
+    </div>
+
+  </div>
 
 
+  <!-- QUESTION 1 -->
 
-  <section class="review-card">
+  <section class="review-card" id="question1">
 
-    <h2>🧠 Mini-révision</h2>
+    <div class="question-number">
+      Question 1 / 5
+    </div>
 
+    <h2 class="question-title">
+      🌍 Dire d'où l'on vient
+    </h2>
 
-    <div
-      class="question-block"
-      data-correct="b"
-    >
+    <p class="question-text">
+      Quelle phrase signifie :
+      <strong>« Je viens de France. »</strong>
+    </p>
 
-      <div class="question-title">
-        1. Que signifie 같이 갈래요?
-      </div>
+    <div class="answers">
 
-      <div class="answer-list">
+      <button class="answer" type="button"
+        onclick="checkAnswer(1, this, true, '프랑스에서 왔어요')">
+        프랑스에서 왔어요.
+      </button>
 
-        <button
-          class="answer-button"
-          type="button"
-          data-answer="a"
-        >
-          A. Où allons-nous ?
-        </button>
+      <button class="answer" type="button"
+        onclick="checkAnswer(1, this, false, '프랑스에서 왔어요')">
+        프랑스에 가요.
+      </button>
 
-        <button
-          class="answer-button"
-          type="button"
-          data-answer="b"
-        >
-          B. Tu veux y aller ensemble ?
-        </button>
-
-        <button
-          class="answer-button"
-          type="button"
-          data-answer="c"
-        >
-          C. On se retrouve à quelle heure ?
-        </button>
-
-      </div>
-
-      <div class="feedback"></div>
+      <button class="answer" type="button"
+        onclick="checkAnswer(1, this, false, '프랑스에서 왔어요')">
+        프랑스 사람이에요?
+      </button>
 
     </div>
 
+    <div class="feedback" id="feedback1"></div>
 
-
-    <div
-      class="question-block"
-      data-correct="c"
-    >
-
-      <div class="question-title">
-        2. Quelle phrase sert surtout à faire une suggestion ensemble ?
-      </div>
-
-      <div class="answer-list">
-
-        <button
-          class="answer-button"
-          type="button"
-          data-answer="a"
-        >
-          A. 같이 갈래요?
-        </button>
-
-        <button
-          class="answer-button"
-          type="button"
-          data-answer="b"
-        >
-          B. 오늘 바빠요.
-        </button>
-
-        <button
-          class="answer-button"
-          type="button"
-          data-answer="c"
-        >
-          C. 어디에 갈까요?
-        </button>
-
-      </div>
-
-      <div class="feedback"></div>
-
-    </div>
-
-
-
-    <div
-      class="question-block"
-      data-correct="a"
-    >
-
-      <div class="question-title">
-        3. Comment demande-t-on « À quelle heure se retrouve-t-on ? »
-      </div>
-
-      <div class="answer-list">
-
-        <button
-          class="answer-button"
-          type="button"
-          data-answer="a"
-        >
-          A. 몇 시에 만날까요?
-        </button>
-
-        <button
-          class="answer-button"
-          type="button"
-          data-answer="b"
-        >
-          B. 어디에 갈까요?
-        </button>
-
-        <button
-          class="answer-button"
-          type="button"
-          data-answer="c"
-        >
-          C. 뭐 먹을까요?
-        </button>
-
-      </div>
-
-      <div class="feedback"></div>
-
-    </div>
-
-
-
-    <div
-      class="question-block"
-      data-correct="b"
-    >
-
-      <div class="question-title">
-        4. Quelle phrase indique un rendez-vous à 14 h ?
-      </div>
-
-      <div class="answer-list">
-
-        <button
-          class="answer-button"
-          type="button"
-          data-answer="a"
-        >
-          A. 오후 두 시에 가요.
-        </button>
-
-        <button
-          class="answer-button"
-          type="button"
-          data-answer="b"
-        >
-          B. 오후 두 시에 만나요.
-        </button>
-
-        <button
-          class="answer-button"
-          type="button"
-          data-answer="c"
-        >
-          C. 오후 두 시에 먹어요.
-        </button>
-
-      </div>
-
-      <div class="feedback"></div>
-
-    </div>
-
-
-
-    <div
-      class="question-block"
-      data-correct="c"
-    >
-
-      <div class="question-title">
-        5. Que peut-on dire pour refuser poliment et proposer plus tard ?
-      </div>
-
-      <div class="answer-list">
-
-        <button
-          class="answer-button"
-          type="button"
-          data-answer="a"
-        >
-          A. 안 돼요.
-        </button>
-
-        <button
-          class="answer-button"
-          type="button"
-          data-answer="b"
-        >
-          B. 싫어요.
-        </button>
-
-        <button
-          class="answer-button"
-          type="button"
-          data-answer="c"
-        >
-          C. 죄송해요. 오늘은 좀 바빠요. 다음에 같이 가요!
-        </button>
-
-      </div>
-
-      <div class="feedback"></div>
-
-    </div>
-
-
-
-    <div
-      class="question-block"
-      data-correct="a"
-    >
-
-      <div class="question-title">
-        6. Quelle différence est correcte ?
-      </div>
-
-      <div class="answer-list">
-
-        <button
-          class="answer-button"
-          type="button"
-          data-answer="a"
-        >
-          A. 갈래요? demande l'envie de l'autre ; 갈까요? propose une idée ensemble.
-        </button>
-
-        <button
-          class="answer-button"
-          type="button"
-          data-answer="b"
-        >
-          B. 갈래요? est uniquement formel ; 갈까요? est uniquement familier.
-        </button>
-
-        <button
-          class="answer-button"
-          type="button"
-          data-answer="c"
-        >
-          C. Les deux veulent toujours exactement la même chose.
-        </button>
-
-      </div>
-
-      <div class="feedback"></div>
-
-    </div>
+    <button class="next-question" id="next1" type="button"
+      onclick="showQuestion(2)">
+      Question suivante →
+    </button>
 
   </section>
 
 
+  <!-- QUESTION 2 -->
+
+  <section class="review-card hidden" id="question2">
+
+    <div class="question-number">
+      Question 2 / 5
+    </div>
+
+    <h2 class="question-title">
+      💼 Parler de son métier
+    </h2>
+
+    <p class="question-text">
+      Que signifie :
+      <strong>무슨 일을 하세요?</strong>
+    </p>
+
+    <div class="answers">
+
+      <button class="answer" type="button"
+        onclick="checkAnswer(2, this, false, '무슨 일을 하세요?')">
+        Où travaillez-vous ?
+      </button>
+
+      <button class="answer" type="button"
+        onclick="checkAnswer(2, this, true, '무슨 일을 하세요?')">
+        Quel est votre métier ?
+      </button>
+
+      <button class="answer" type="button"
+        onclick="checkAnswer(2, this, false, '무슨 일을 하세요?')">
+        Quels sont vos loisirs ?
+      </button>
+
+    </div>
+
+    <div class="feedback" id="feedback2"></div>
+
+    <button class="next-question" id="next2" type="button"
+      onclick="showQuestion(3)">
+      Question suivante →
+    </button>
+
+  </section>
+
+
+  <!-- QUESTION 3 -->
+
+  <section class="review-card hidden" id="question3">
+
+    <div class="question-number">
+      Question 3 / 5
+    </div>
+
+    <h2 class="question-title">
+      🏢 에 ou 에서 ?
+    </h2>
+
+    <p class="question-text">
+      Quelle phrase signifie :
+      <strong>« Je travaille dans une entreprise. »</strong>
+    </p>
+
+    <div class="answers">
+
+      <button class="answer" type="button"
+        onclick="checkAnswer(3, this, false, '회사에서 일해요')">
+        회사에 가요.
+      </button>
+
+      <button class="answer" type="button"
+        onclick="checkAnswer(3, this, true, '회사에서 일해요')">
+        회사에서 일해요.
+      </button>
+
+      <button class="answer" type="button"
+        onclick="checkAnswer(3, this, false, '회사에서 일해요')">
+        회사도 좋아해요.
+      </button>
+
+    </div>
+
+    <div class="feedback" id="feedback3"></div>
+
+    <button class="next-question" id="next3" type="button"
+      onclick="showQuestion(4)">
+      Question suivante →
+    </button>
+
+  </section>
+
+
+  <!-- QUESTION 4 -->
+
+  <section class="review-card hidden" id="question4">
+
+    <div class="question-number">
+      Question 4 / 5
+    </div>
+
+    <h2 class="question-title">
+      🎨 Les loisirs
+    </h2>
+
+    <p class="question-text">
+      Que signifie :
+      <strong>취미가 뭐예요?</strong>
+    </p>
+
+    <div class="answers">
+
+      <button class="answer" type="button"
+        onclick="checkAnswer(4, this, false, '취미가 뭐예요?')">
+        Quel est votre métier ?
+      </button>
+
+      <button class="answer" type="button"
+        onclick="checkAnswer(4, this, true, '취미가 뭐예요?')">
+        Quels sont vos loisirs ?
+      </button>
+
+      <button class="answer" type="button"
+        onclick="checkAnswer(4, this, false, '취미가 뭐예요?')">
+        D'où venez-vous ?
+      </button>
+
+    </div>
+
+    <div class="feedback" id="feedback4"></div>
+
+    <button class="next-question" id="next4" type="button"
+      onclick="showQuestion(5)">
+      Dernière question →
+    </button>
+
+  </section>
+
+
+  <!-- QUESTION 5 -->
+
+  <section class="review-card hidden" id="question5">
+
+    <div class="question-number">
+      Question 5 / 5
+    </div>
+
+    <h2 class="question-title">
+      🤝 « Aussi »
+    </h2>
+
+    <p class="question-text">
+      Quelle phrase signifie :
+      <strong>« Moi aussi, j'aime le café. »</strong>
+    </p>
+
+    <div class="answers">
+
+      <button class="answer" type="button"
+        onclick="checkAnswer(5, this, false, '저도')">
+        커피도 좋아해요.
+      </button>
+
+      <button class="answer" type="button"
+        onclick="checkAnswer(5, this, true, '저도')">
+        저도 커피를 좋아해요.
+      </button>
+
+      <button class="answer" type="button"
+        onclick="checkAnswer(5, this, false, '저도')">
+        커피를 안 좋아해요.
+      </button>
+
+    </div>
+
+    <div class="feedback" id="feedback5"></div>
+
+    <button class="next-question" id="next5" type="button"
+      onclick="finishReview()">
+      Voir mon résultat 🌿
+    </button>
+
+  </section>
+
+
+  <!-- RESULTAT -->
 
   <section
     class="result-card"
     id="resultCard"
   >
 
-    <h2>
-      🌸 Résultat
-    </h2>
-
-    <div
-      class="result-score"
-      id="resultScore"
-    >
-      0 / 6
+    <div class="result-icon">
+      🧠👋
     </div>
 
-    <p
-      id="resultMessage"
-    ></p>
+    <h2>
+      잘했어요!
+    </h2>
+
+    <p>
+      Tu as terminé la révision du chapitre 21.
+    </p>
+
+    <p class="result-score">
+      5 notions révisées ✅
+    </p>
+
+    <div class="result-summary">
+      <strong>📊 Ta séance</strong>
+      <p id="attemptText"></p>
+    </div>
+
+    <div
+      class="weak-box"
+      id="weakBox"
+    ></div>
+
+    <div class="notion-summary">
+
+      <div class="notion-line">
+        🌍 <strong>프랑스에서 왔어요.</strong> → Je viens de France.
+      </div>
+
+      <div class="notion-line">
+        💼 <strong>무슨 일을 하세요?</strong> → Quel est votre métier ?
+      </div>
+
+      <div class="notion-line">
+        🏢 <strong>회사에서 일해요.</strong> → Je travaille dans une entreprise.
+      </div>
+
+      <div class="notion-line">
+        🎨 <strong>취미가 뭐예요?</strong> → Quels sont vos loisirs ?
+      </div>
+
+      <div class="notion-line">
+        🤝 <strong>저도 커피를 좋아해요.</strong> → Moi aussi, j'aime le café.
+      </div>
+
+    </div>
 
     <button
-      class="retry-button"
-      id="retryButton"
+      class="continue-button"
       type="button"
+      onclick="window.location.href='utilise-21.html'"
     >
-      🔄 Refaire la révision
+      🎯 Passer à « Je l'utilise »
+    </button>
+
+    <button
+      class="back-button"
+      type="button"
+      onclick="window.location.href='chapitre-21.html'"
+    >
+      Retour au chapitre
     </button>
 
   </section>
 
-
-
-  <section class="tip-card">
-
-    <h2>🎒 Dans ton sac à dos</h2>
-
-    <strong>같이 갈래요?</strong><br>
-    → Tu veux y aller ensemble ?
-
-    <br><br>
-
-    <strong>어디에 갈까요?</strong><br>
-    → Où allons-nous ? / Et si on y allait ?
-
-    <br><br>
-
-    <strong>몇 시에 만날까요?</strong><br>
-    → À quelle heure se retrouve-t-on ?
-
-    <br><br>
-
-    <strong>그때 봬요!</strong><br>
-    → On se voit à ce moment-là / À tout à l'heure !
-
-  </section>
-
-
-
-  <button
-    class="complete-button"
-    id="completeButton"
-    type="button"
-  >
-    ✅ Valider la révision
-  </button>
-
-
-  <button
-    class="next-button"
-    id="nextButton"
-    type="button"
-  >
-    🎯 Je l'utilise
-  </button>
-
-
-  <button
-    class="back-button"
-    type="button"
-    onclick="window.location.href='ecriture-21.html'"
-  >
-    ← Retour à l'écriture
-  </button>
-
-
 </main>
 
 
-
-<script src="chapter-progress.js">
-  renderChapterProgress();
-
-  window.addEventListener("pageshow", () => {
-    guardReviewAccess();
-    loadPersonalReview();
-    renderChapterProgress();
-  });
-
-</script>
+<script src="chapter-progress.js"></script>
 
 <script>
 
-  const progressKey =
-    "hanaKorean_chapter21_review";
+  const CHAPTER = 20;
 
-  const understandingKey =
+  const UNDERSTANDING_KEY =
     "hanaKorean_chapter21_understanding";
 
-  const listeningExerciseKey =
+  const LISTENING_EXERCISE_KEY =
     "hanaKorean_chapter21_listeningExercise";
 
-  const speakingKey =
+  const SPEAKING_KEY =
     "hanaKorean_chapter21_speaking";
 
-  const writingKey =
+  const WRITING_KEY =
     "hanaKorean_chapter21_writing";
 
-  const revisionNotionsKey =
+  const REVISION_NOTIONS_KEY =
     "hanaKorean_chapter21_revisionNotions";
 
-  const reviewMistakesKey =
+  const REVIEW_KEY =
+    "hanaKorean_chapter21_review";
+
+  const REVIEW_MISTAKES_KEY =
     "hanaKorean_chapter21_reviewMistakes";
 
-  const reviewWeakNotionsKey =
+  const REVIEW_WEAK_NOTIONS_KEY =
     "hanaKorean_chapter21_reviewWeakNotions";
 
-  let incorrectAttempts = 0;
+  function guardReviewAccess() {
+    const required = [
+      [UNDERSTANDING_KEY, "chapitre-21.html"],
+      [LISTENING_EXERCISE_KEY, "ecoute-21.html"],
+      [SPEAKING_KEY, "parle-21.html"],
+      [WRITING_KEY, "ecriture-21.html"]
+    ];
 
+    for (const item of required) {
+      if (
+        localStorage.getItem(item[0]) !==
+        "completed"
+      ) {
+        window.location.replace(item[1]);
+        return false;
+      }
+    }
+
+    return true;
+  }
 
   function renderChapterProgress() {
     if (
@@ -605,420 +652,408 @@
     }
   }
 
-  function guardReviewAccess() {
-    const required = [
-      [understandingKey, "chapitre-21.html"],
-      [listeningExerciseKey, "exercice-ecoute-21.html"],
-      [speakingKey, "parle-21.html"],
-      [writingKey, "ecriture-21.html"]
-    ];
-
-    for (const [key, page] of required) {
-      if (localStorage.getItem(key) !== "completed") {
-        window.location.replace(page);
-        return false;
-      }
-    }
-
-    return true;
-  }
-
   function loadPersonalReview() {
-    const box = document.getElementById("personalReviewBox");
-    if (!box) return;
-
     let notions = [];
+
     try {
-      notions = JSON.parse(localStorage.getItem(revisionNotionsKey) || "[]");
+      notions = JSON.parse(
+        localStorage.getItem(
+          REVISION_NOTIONS_KEY
+        ) || "[]"
+      );
     } catch (error) {
       notions = [];
     }
 
-    if (!Array.isArray(notions) || notions.length === 0) {
-      box.style.display = "none";
+    if (
+      !Array.isArray(notions) ||
+      notions.length === 0
+    ) {
       return;
     }
 
-    box.innerHTML = "🧠 <strong>À revoir depuis J'écris :</strong><br><br>" +
-      notions.join(" · ");
-    box.style.display = "block";
+    const box =
+      document.getElementById(
+        "personalReview"
+      );
+
+    const content =
+      document.getElementById(
+        "personalReviewContent"
+      );
+
+    if (!box || !content) {
+      return;
+    }
+
+    content.innerHTML =
+      "<br>À partir de ton exercice d'écriture, pense particulièrement à revoir : <strong>" +
+      notions.join(", ") +
+      "</strong>.";
+
+    box.classList.remove("hidden");
   }
 
 
+  let incorrectAttempts = 0;
 
-  const questionBlocks =
-    Array.from(
-      document.querySelectorAll(
-        ".question-block"
+  const weakNotions = [];
+
+  const completedQuestions = {
+    1: false,
+    2: false,
+    3: false,
+    4: false,
+    5: false
+  };
+
+
+  function checkAnswer(
+    number,
+    button,
+    isCorrect,
+    notion
+  ) {
+
+    if (
+      completedQuestions[number]
+    ) {
+      return;
+    }
+
+    const question =
+      document.getElementById(
+        "question" + number
+      );
+
+    const answers =
+      question.querySelectorAll(
+        ".answer"
+      );
+
+    const feedback =
+      document.getElementById(
+        "feedback" + number
+      );
+
+
+    if (isCorrect) {
+
+      completedQuestions[number] =
+        true;
+
+      button.classList.add(
+        "correct"
+      );
+
+      feedback.className =
+        "feedback correct";
+
+
+      if (number === 1) {
+
+        feedback.innerHTML =
+          "✅ <strong>Exact !</strong><br><br>" +
+          "<strong>프랑스에서 왔어요.</strong> signifie « Je viens de France. ».";
+
+      }
+
+
+      if (number === 2) {
+
+        feedback.innerHTML =
+          "✅ <strong>Très bien !</strong><br><br>" +
+          "<strong>무슨 일을 하세요?</strong> est une façon naturelle de demander le métier.";
+
+      }
+
+
+      if (number === 3) {
+
+        feedback.innerHTML =
+          "✅ <strong>Exact !</strong><br><br>" +
+          "<strong>에서</strong> indique ici le lieu où se déroule l'action : 회사에서 일해요.";
+
+      }
+
+
+      if (number === 4) {
+
+        feedback.innerHTML =
+          "✅ <strong>Très bien !</strong><br><br>" +
+          "<strong>취미</strong> signifie « loisir » et <strong>뭐예요?</strong> demande ce que c'est.";
+
+      }
+
+
+      if (number === 5) {
+
+        feedback.innerHTML =
+          "✅ <strong>Parfait !</strong><br><br>" +
+          "<strong>저도</strong> signifie ici « moi aussi ».";
+
+      }
+
+
+      answers.forEach(
+        answer => {
+          answer.disabled =
+            true;
+        }
+      );
+
+
+      document.getElementById(
+        "next" + number
+      ).style.display =
+        "block";
+
+      return;
+    }
+
+
+    incorrectAttempts++;
+
+    button.classList.add(
+      "wrong"
+    );
+
+    feedback.className =
+      "feedback wrong";
+
+
+    if (
+      !weakNotions.includes(
+        notion
+      )
+    ) {
+      weakNotions.push(
+        notion
+      );
+    }
+
+
+    if (number === 1) {
+
+      feedback.innerHTML =
+        "❌ <strong>Repère 왔어요.</strong><br><br>" +
+        "💡 <strong>프랑스에서 왔어요.</strong> = Je viens de France.";
+
+    }
+
+
+    if (number === 2) {
+
+      feedback.innerHTML =
+        "❌ <strong>Repère 일.</strong><br><br>" +
+        "💡 <strong>무슨 일을 하세요?</strong> sert à demander le métier.";
+
+    }
+
+
+    if (number === 3) {
+
+      feedback.innerHTML =
+        "❌ <strong>Pense à 에서.</strong><br><br>" +
+        "💡 <strong>회사에서 일해요.</strong> : l'action de travailler se déroule dans l'entreprise.";
+
+    }
+
+
+    if (number === 4) {
+
+      feedback.innerHTML =
+        "❌ <strong>Repère 취미.</strong><br><br>" +
+        "💡 <strong>취미가 뭐예요?</strong> = Quels sont vos loisirs ?";
+
+    }
+
+
+    if (number === 5) {
+
+      feedback.innerHTML =
+        "❌ <strong>Attention à 저도.</strong><br><br>" +
+        "💡 <strong>저도</strong> = moi aussi ; <strong>커피도</strong> = le café aussi.";
+
+    }
+
+  }
+
+
+  function showQuestion(
+    number
+  ) {
+
+    for (
+      let i = 1;
+      i <= 5;
+      i++
+    ) {
+
+      document.getElementById(
+        "question" + i
+      ).classList.add(
+        "hidden"
+      );
+
+    }
+
+
+    document.getElementById(
+      "question" + number
+    ).classList.remove(
+      "hidden"
+    );
+
+
+    document.getElementById(
+      "progressLabel"
+    ).textContent =
+      number +
+      " / 5";
+
+
+    document.getElementById(
+      "progressFill"
+    ).style.width =
+      (
+        number * 20
+      ) +
+      "%";
+
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+
+  }
+
+
+  function finishReview() {
+
+    document.getElementById(
+      "question5"
+    ).classList.add(
+      "hidden"
+    );
+
+
+    const resultCard =
+      document.getElementById(
+        "resultCard"
+      );
+
+    resultCard.classList.add(
+      "show"
+    );
+
+
+    const attemptText =
+      document.getElementById(
+        "attemptText"
+      );
+
+
+    if (
+      incorrectAttempts === 0
+    ) {
+
+      attemptText.innerHTML =
+        "🌟 <strong>Sans erreur !</strong><br>" +
+        "Tu maîtrises très bien les notions principales de ce chapitre.";
+
+    } else {
+
+      attemptText.innerHTML =
+        "Tu as eu <strong>" +
+        incorrectAttempts +
+        "</strong> tentative" +
+        (
+          incorrectAttempts > 1
+            ? "s"
+            : ""
+        ) +
+        " incorrecte" +
+        (
+          incorrectAttempts > 1
+            ? "s"
+            : ""
+        ) +
+        ".<br>Les erreurs servent à cibler ce qu'il faut revoir.";
+
+    }
+
+
+    const weakBox =
+      document.getElementById(
+        "weakBox"
+      );
+
+
+    if (
+      weakNotions.length === 0
+    ) {
+
+      weakBox.innerHTML =
+        "🌿 <strong>Aucune notion fragile détectée.</strong>";
+
+    } else {
+
+      weakBox.innerHTML =
+        "🧠 <strong>À revoir en priorité :</strong><br><br>" +
+        weakNotions.join(
+          " · "
+        );
+
+    }
+
+
+    localStorage.setItem(
+      REVIEW_KEY,
+      "completed"
+    );
+
+
+    localStorage.setItem(
+      REVIEW_MISTAKES_KEY,
+      String(
+        incorrectAttempts
       )
     );
 
 
-  const resultCard =
-    document.getElementById(
-      "resultCard"
+    localStorage.setItem(
+      REVIEW_WEAK_NOTIONS_KEY,
+      JSON.stringify(
+        weakNotions
+      )
     );
 
-
-  const resultScore =
-    document.getElementById(
-      "resultScore"
-    );
+    renderChapterProgress();
 
 
-  const resultMessage =
-    document.getElementById(
-      "resultMessage"
-    );
-
-
-  const retryButton =
-    document.getElementById(
-      "retryButton"
-    );
-
-
-  const completeButton =
-    document.getElementById(
-      "completeButton"
-    );
-
-
-  const nextButton =
-    document.getElementById(
-      "nextButton"
-    );
-
-
-  function answeredCount() {
-
-    return questionBlocks.filter(
-      block =>
-        block.dataset.answered ===
-        "true"
-    ).length;
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
 
   }
 
 
-  function correctCount() {
 
-    return questionBlocks.filter(
-      block =>
-        block.dataset.isCorrect ===
-        "true"
-    ).length;
+  if (guardReviewAccess()) {
+    loadPersonalReview();
+    renderChapterProgress();
 
+    window.addEventListener(
+      "pageshow",
+      function() {
+        loadPersonalReview();
+        renderChapterProgress();
+      }
+    );
   }
-
-
-  function showResultsIfComplete() {
-
-    if (
-      answeredCount() !==
-      questionBlocks.length
-    ) {
-
-      return;
-
-    }
-
-
-    const score =
-      correctCount();
-
-
-    resultScore.textContent =
-      score +
-      " / " +
-      questionBlocks.length;
-
-
-    if (
-      score === questionBlocks.length
-    ) {
-
-      resultMessage.textContent =
-        "Excellent 🌸 Tu maîtrises très bien les invitations et suggestions de ce chapitre.";
-
-    } else if (
-      score >= 5
-    ) {
-
-      resultMessage.textContent =
-        "Très bien 🌿 Il ne reste qu'un petit détail à consolider.";
-
-    } else {
-
-      resultMessage.textContent =
-        "Relis les points clés puis recommence. Tu peux corriger chaque erreur avant de continuer.";
-
-    }
-
-
-    resultCard
-      .classList
-      .add(
-        "show"
-      );
-
-
-    completeButton
-      .classList
-      .add(
-        "show"
-      );
-
-  }
-
-
-  questionBlocks.forEach(
-    block => {
-
-      const correct =
-        block.dataset.correct;
-
-
-      const feedback =
-        block.querySelector(
-          ".feedback"
-        );
-
-
-      const buttons =
-        block.querySelectorAll(
-          ".answer-button"
-        );
-
-
-      buttons.forEach(
-        button => {
-
-          button.addEventListener(
-            "click",
-            () => {
-
-              if (
-                block.dataset.answered ===
-                "true"
-              ) {
-
-                return;
-
-              }
-
-
-              const answer =
-                button.dataset.answer;
-
-
-              if (
-                answer === correct
-              ) {
-
-                block.dataset.answered =
-                  "true";
-
-                block.dataset.isCorrect =
-                  "true";
-
-
-                button
-                  .classList
-                  .add(
-                    "correct"
-                  );
-
-
-                feedback.className =
-                  "feedback show success";
-
-
-                feedback.textContent =
-                  "✅ Exact !";
-
-
-                buttons.forEach(
-                  item =>
-                    item.disabled =
-                      true
-                );
-
-
-                showResultsIfComplete();
-
-              } else {
-
-                button
-                  .classList
-                  .add(
-                    "wrong"
-                  );
-
-
-                feedback.className =
-                  "feedback show error";
-
-
-                incorrectAttempts++;
-
-                feedback.textContent =
-                  "Pas encore. Relis bien la nuance et essaie une autre réponse.";
-
-
-                button.disabled =
-                  true;
-
-              }
-
-            }
-          );
-
-        }
-      );
-
-    }
-  );
-
-
-  retryButton.addEventListener(
-    "click",
-    () => {
-
-      questionBlocks.forEach(
-        block => {
-
-          delete block.dataset.answered;
-          delete block.dataset.isCorrect;
-
-
-          const feedback =
-            block.querySelector(
-              ".feedback"
-            );
-
-
-          feedback.className =
-            "feedback";
-
-
-          feedback.textContent =
-            "";
-
-
-          block
-            .querySelectorAll(
-              ".answer-button"
-            )
-            .forEach(
-              button => {
-
-                button.disabled =
-                  false;
-
-
-                button
-                  .classList
-                  .remove(
-                    "correct",
-                    "wrong"
-                  );
-
-              }
-            );
-
-        }
-      );
-
-
-      resultCard
-        .classList
-        .remove(
-          "show"
-        );
-
-
-      completeButton
-        .classList
-        .remove(
-          "show"
-        );
-
-    }
-  );
-
-
-  function showCompletedState() {
-
-    completeButton.textContent =
-      "✅ Révision terminée";
-
-
-    completeButton
-      .classList
-      .add(
-        "show",
-        "done"
-      );
-
-
-    nextButton.style.display =
-      "block";
-
-  }
-
-
-  guardReviewAccess();
-  loadPersonalReview();
-
-  if (
-    localStorage.getItem(
-      progressKey
-    ) === "completed"
-  ) {
-
-    showCompletedState();
-
-  }
-
-
-  completeButton.addEventListener(
-    "click",
-    () => {
-
-      localStorage.setItem(
-        progressKey,
-        "completed"
-      );
-
-      localStorage.setItem(
-        reviewMistakesKey,
-        String(incorrectAttempts)
-      );
-
-      localStorage.setItem(
-        reviewWeakNotionsKey,
-        "[]"
-      );
-
-      showCompletedState();
-      renderChapterProgress();
-
-    }
-  );
-
-
-  nextButton.addEventListener(
-    "click",
-    () => {
-
-      window.location.href =
-        "utilise-21.html";
-
-    }
-  );
-
 </script>
 </body>
-
 </html>

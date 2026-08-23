@@ -6,9 +6,10 @@
   <meta name="theme-color" content="#F7F4ED">
   <title>Chapitre 18 — Je révise</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="chapter-progress.css">
 
-  <style>
+    <link rel="stylesheet" href="chapter-progress.css">
+
+<style>
     .review-header {
       text-align: center;
       margin-bottom: 28px;
@@ -248,8 +249,8 @@
     </h1>
 
     <p>
-      Vérifie que tu sais parler de tes goûts,
-      exprimer une préférence, poser une question et dire ce que tu n'aimes pas.
+      Vérifie que tu sais demander le Wi-Fi,
+      parler de ta batterie, demander un chargeur et comprendre où recharger ton téléphone.
     </p>
   </header>
 
@@ -292,29 +293,29 @@
     </div>
 
     <h2 class="question-title">
-      ☕ Aimer quelque chose
+      📶 Wi-Fi
     </h2>
 
     <p class="question-text">
       Comment dis-tu :
-      <strong>« J'aime le café. »</strong>
+      <strong>« Il y a du Wi-Fi ? »</strong>
     </p>
 
     <div class="answers">
 
       <button class="answer" type="button"
-        onclick="checkAnswer(1, this, true, '커피를 좋아해요')">
-        커피를 좋아해요.
+        onclick="checkAnswer(1, this, true, '와이파이 있어요?')">
+        와이파이 있어요?
       </button>
 
       <button class="answer" type="button"
-        onclick="checkAnswer(1, this, false, '커피를 좋아해요')">
-        커피가 없어요.
+        onclick="checkAnswer(1, this, false, '와이파이 있어요?')">
+        인터넷이 안 돼요.
       </button>
 
       <button class="answer" type="button"
-        onclick="checkAnswer(1, this, false, '커피를 좋아해요')">
-        커피를 안 마셔요.
+        onclick="checkAnswer(1, this, false, '와이파이 있어요?')">
+        충전기 있어요?
       </button>
 
     </div>
@@ -338,29 +339,29 @@
     </div>
 
     <h2 class="question-title">
-      ❤️ Une préférence
+      🔋 Batterie
     </h2>
 
     <p class="question-text">
       Que signifie :
-      <strong>뭐가 제일 좋아요?</strong>
+      <strong>배터리가 없어요.</strong>
     </p>
 
     <div class="answers">
 
       <button class="answer" type="button"
-        onclick="checkAnswer(2, this, false, '제일')">
-        Qu'est-ce que tu n'aimes pas ?
+        onclick="checkAnswer(2, this, false, '배터리가 없어요')">
+        Ma batterie est pleine.
       </button>
 
       <button class="answer" type="button"
-        onclick="checkAnswer(2, this, true, '제일')">
-        Qu'est-ce que tu préfères ?
+        onclick="checkAnswer(2, this, true, '배터리가 없어요')">
+        Je n'ai plus de batterie.
       </button>
 
       <button class="answer" type="button"
-        onclick="checkAnswer(2, this, false, '제일')">
-        Qu'est-ce que tu veux manger ?
+        onclick="checkAnswer(2, this, false, '배터리가 없어요')">
+        Je n'ai pas de téléphone.
       </button>
 
     </div>
@@ -384,29 +385,29 @@
     </div>
 
     <h2 class="question-title">
-      🎵 Musique préférée
+      🔌 Chargeur
     </h2>
 
     <p class="question-text">
       Quelle phrase signifie :
-      <strong>« Quelle musique préfères-tu ? »</strong>
+      <strong>« Vous avez un chargeur ? »</strong>
     </p>
 
     <div class="answers">
 
       <button class="answer" type="button"
-        onclick="checkAnswer(3, this, false, '어떤 음악을 제일 좋아해요?')">
-        어떤 영화를 제일 좋아해요?
+        onclick="checkAnswer(3, this, false, '충전기 있어요?')">
+        핸드폰 있어요?
       </button>
 
       <button class="answer" type="button"
-        onclick="checkAnswer(3, this, true, '어떤 음악을 제일 좋아해요?')">
-        어떤 음악을 제일 좋아해요?
+        onclick="checkAnswer(3, this, true, '충전기 있어요?')">
+        충전기 있어요?
       </button>
 
       <button class="answer" type="button"
-        onclick="checkAnswer(3, this, false, '어떤 음악을 제일 좋아해요?')">
-        음악을 들어요?
+        onclick="checkAnswer(3, this, false, '충전기 있어요?')">
+        와이파이 있어요?
       </button>
 
     </div>
@@ -430,29 +431,29 @@
     </div>
 
     <h2 class="question-title">
-      🙂 Préférence négative
+      ⚡ Recharge
     </h2>
 
     <p class="question-text">
       Que signifie :
-      <strong>안 좋아해요.</strong>
+      <strong>어디에서 충전할 수 있어요?</strong>
     </p>
 
     <div class="answers">
 
       <button class="answer" type="button"
-        onclick="checkAnswer(4, this, false, '안 좋아해요')">
-        J'adore ça.
+        onclick="checkAnswer(4, this, false, '충전할 수 있어요')">
+        Où est le Wi-Fi ?
       </button>
 
       <button class="answer" type="button"
-        onclick="checkAnswer(4, this, true, '안 좋아해요')">
-        Je n'aime pas / je n'aime pas trop.
+        onclick="checkAnswer(4, this, true, '충전할 수 있어요')">
+        Où est-ce que je peux recharger ?
       </button>
 
       <button class="answer" type="button"
-        onclick="checkAnswer(4, this, false, '안 좋아해요')">
-        C'est mon préféré.
+        onclick="checkAnswer(4, this, false, '충전할 수 있어요')">
+        Quel est le mot de passe ?
       </button>
 
     </div>
@@ -476,29 +477,29 @@
     </div>
 
     <h2 class="question-title">
-      ❓ Relancer la conversation
+      🌐 Internet
     </h2>
 
     <p class="question-text">
       Que signifie :
-      <strong>왜요?</strong>
+      <strong>인터넷이 안 돼요.</strong>
     </p>
 
     <div class="answers">
 
       <button class="answer" type="button"
-        onclick="checkAnswer(5, this, false, '왜요?')">
-        Quand ?
+        onclick="checkAnswer(5, this, false, '안 돼요')">
+        Internet est gratuit.
       </button>
 
       <button class="answer" type="button"
-        onclick="checkAnswer(5, this, true, '왜요?')">
-        Pourquoi ?
+        onclick="checkAnswer(5, this, true, '안 돼요')">
+        Internet ne fonctionne pas.
       </button>
 
       <button class="answer" type="button"
-        onclick="checkAnswer(5, this, false, '왜요?')">
-        Avec qui ?
+        onclick="checkAnswer(5, this, false, '안 돼요')">
+        Internet est très rapide.
       </button>
 
     </div>
@@ -521,7 +522,7 @@
   >
 
     <div class="result-icon">
-      🧠❤️
+      🧠📱
     </div>
 
     <h2>
@@ -549,23 +550,23 @@
     <div class="notion-summary">
 
       <div class="notion-line">
-        ☕ <strong>커피를 좋아해요.</strong> → J'aime le café.
+        📶 <strong>와이파이 있어요?</strong> → Il y a du Wi-Fi ?
       </div>
 
       <div class="notion-line">
-        ❤️ <strong>뭐가 제일 좋아요?</strong> → Qu'est-ce que tu préfères ?
+        🔋 <strong>배터리가 없어요.</strong> → Je n'ai plus de batterie.
       </div>
 
       <div class="notion-line">
-        🎵 <strong>어떤 음악을 제일 좋아해요?</strong> → Quelle musique préfères-tu ?
+        🔌 <strong>충전기 있어요?</strong> → Vous avez un chargeur ?
       </div>
 
       <div class="notion-line">
-        🙂 <strong>안 좋아해요.</strong> → Je n'aime pas / je n'aime pas trop.
+        ⚡ <strong>어디에서 충전할 수 있어요?</strong> → Où est-ce que je peux recharger ?
       </div>
 
       <div class="notion-line">
-        ❓ <strong>왜요?</strong> → Pourquoi ?
+        🌐 <strong>인터넷이 안 돼요.</strong> → Internet ne fonctionne pas.
       </div>
 
     </div>
@@ -594,8 +595,7 @@
 <script src="chapter-progress.js"></script>
 
 <script>
-
-  const CHAPTER = 18;
+  const CHAPTER = 17;
 
   const UNDERSTANDING_KEY =
     "hanaKorean_chapter18_understanding";
@@ -693,9 +693,7 @@
     box.classList.remove("hidden");
   }
 
-
-
-  let incorrectAttempts = 0;
+let incorrectAttempts = 0;
 
   const weakNotions = [];
 
@@ -754,7 +752,7 @@
 
         feedback.innerHTML =
           "✅ <strong>Exact !</strong><br><br>" +
-          "<strong>좋아해요</strong> signifie « aimer » et se construit ici avec <strong>커피를</strong>.";
+          "<strong>와이파이 있어요?</strong> sert à demander si le Wi-Fi est disponible.";
 
       }
 
@@ -763,7 +761,7 @@
 
         feedback.innerHTML =
           "✅ <strong>Très bien !</strong><br><br>" +
-          "<strong>제일</strong> apporte l'idée de « le plus » : on demande donc ce que la personne préfère.";
+          "<strong>없어요</strong> signifie ici que Ana n'a plus de batterie.";
 
       }
 
@@ -772,7 +770,7 @@
 
         feedback.innerHTML =
           "✅ <strong>Exact !</strong><br><br>" +
-          "<strong>어떤 음악을 제일 좋아해요?</strong> permet de demander quelle musique quelqu'un préfère.";
+          "<strong>충전기</strong> signifie « chargeur ».";
 
       }
 
@@ -781,7 +779,7 @@
 
         feedback.innerHTML =
           "✅ <strong>Très bien !</strong><br><br>" +
-          "<strong>안</strong> rend la phrase négative : <strong>안 좋아해요</strong> = ne pas aimer / ne pas trop aimer.";
+          "<strong>충전할 수 있어요?</strong> signifie ici « Est-ce que je peux recharger ? »";
 
       }
 
@@ -790,7 +788,7 @@
 
         feedback.innerHTML =
           "✅ <strong>Parfait !</strong><br><br>" +
-          "<strong>왜요?</strong> signifie « Pourquoi ? » et permet de relancer facilement une conversation.";
+          "<strong>안 돼요</strong> indique que quelque chose ne fonctionne pas.";
 
       }
 
@@ -836,8 +834,8 @@
     if (number === 1) {
 
       feedback.innerHTML =
-        "❌ <strong>Repère 좋아해요.</strong><br><br>" +
-        "💡 <strong>좋아해요</strong> = aimer.";
+        "❌ <strong>Repère 와이파이 et 있어요?</strong><br><br>" +
+        "💡 Ana demande si le Wi-Fi est disponible.";
 
     }
 
@@ -845,8 +843,8 @@
     if (number === 2) {
 
       feedback.innerHTML =
-        "❌ <strong>Repère 제일.</strong><br><br>" +
-        "💡 <strong>제일</strong> = le plus.";
+        "❌ <strong>Repère 없어요.</strong><br><br>" +
+        "💡 Ici, cela signifie que Ana n'a plus de batterie.";
 
     }
 
@@ -854,8 +852,8 @@
     if (number === 3) {
 
       feedback.innerHTML =
-        "❌ <strong>Repère 음악.</strong><br><br>" +
-        "💡 <strong>음악</strong> = musique.";
+        "❌ <strong>Repère 충전기.</strong><br><br>" +
+        "💡 <strong>충전기</strong> = chargeur.";
 
     }
 
@@ -863,8 +861,8 @@
     if (number === 4) {
 
       feedback.innerHTML =
-        "❌ <strong>Repère 안.</strong><br><br>" +
-        "💡 <strong>안 좋아해요</strong> = ne pas aimer / ne pas trop aimer.";
+        "❌ <strong>Repère 어디에서 et 충전.</strong><br><br>" +
+        "💡 <strong>어디에서</strong> = où et <strong>충전</strong> = recharge.";
 
     }
 
@@ -872,8 +870,8 @@
     if (number === 5) {
 
       feedback.innerHTML =
-        "❌ <strong>C'est une question très courte.</strong><br><br>" +
-        "💡 <strong>왜요?</strong> = Pourquoi ?";
+        "❌ <strong>Repère 안 돼요.</strong><br><br>" +
+        "💡 <strong>안 돼요</strong> = ça ne fonctionne pas.";
 
     }
 
@@ -1037,7 +1035,6 @@
     });
 
   }
-
 
 
   if (guardReviewAccess()) {

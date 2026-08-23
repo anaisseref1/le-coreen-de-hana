@@ -51,6 +51,15 @@
       box-shadow:var(--shadow);
     }
 
+    .summary-card h2,
+    .grammar-card h2,
+    .vocab-card h2,
+    .bag-card h2,
+    .tip-card h2 {
+      margin-top:0;
+      color:var(--navy);
+    }
+
     .intro-card {
       padding:18px;
       margin-bottom:18px;
@@ -90,6 +99,13 @@
       border-radius:12px;
       font-size:12px;
       font-weight:600;
+    }
+
+    .expression-group-title {
+      margin:20px 0 10px;
+      color:var(--navy);
+      font-size:17px;
+      font-weight:bold;
     }
 
     .expression-item {
@@ -143,6 +159,29 @@
       font-size:18px;
     }
 
+    .audio-actions {
+      display:flex;
+      gap:8px;
+      margin-top:12px;
+    }
+
+    .audio-actions button {
+      flex:1;
+      min-width:0;
+      padding:10px 12px;
+      font-size:14px;
+    }
+
+    .normal-audio {
+      background:var(--jade);
+      color:white;
+    }
+
+    .slow-audio {
+      background:var(--soft-beige);
+      color:var(--navy);
+    }
+
     .playing {
       background:var(--navy) !important;
       color:white !important;
@@ -163,6 +202,41 @@
       color:var(--jade-dark);
       font-size:18px;
       font-weight:bold;
+    }
+
+    .example {
+      margin-top:7px;
+      color:var(--navy);
+    }
+
+    .mini-note {
+      margin-top:8px;
+      color:var(--text-light);
+      font-size:14px;
+    }
+
+    .vocab-grid {
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0, 1fr));
+      gap:10px;
+      margin-top:12px;
+    }
+
+    .vocab-item {
+      padding:13px;
+      background:#FBFAF6;
+      border-radius:var(--radius-medium);
+    }
+
+    .vocab-korean {
+      color:var(--navy);
+      font-weight:bold;
+    }
+
+    .vocab-french {
+      margin-top:3px;
+      color:var(--text-light);
+      font-size:14px;
     }
 
     .question-list {
@@ -189,30 +263,6 @@
       display:block;
       margin-top:4px;
       color:var(--text-light);
-    }
-
-    .vocab-grid {
-      display:grid;
-      grid-template-columns:repeat(2, minmax(0, 1fr));
-      gap:10px;
-      margin-top:12px;
-    }
-
-    .vocab-item {
-      padding:13px;
-      background:#FBFAF6;
-      border-radius:var(--radius-medium);
-    }
-
-    .vocab-korean {
-      color:var(--navy);
-      font-weight:bold;
-    }
-
-    .vocab-french {
-      margin-top:3px;
-      color:var(--text-light);
-      font-size:14px;
     }
 
     .bag-card {
@@ -270,9 +320,20 @@
     }
 
     @media (max-width:430px) {
+
       .vocab-grid {
         grid-template-columns:1fr;
       }
+
+      .romanization-control {
+        align-items:center;
+        flex-direction:row;
+      }
+
+      .toggle-button {
+        width:auto;
+      }
+
     }
 
   </style>
@@ -295,6 +356,7 @@
   </a>
 
 
+
   <header class="summary-header">
 
     <span class="chapter-badge">
@@ -302,11 +364,11 @@
     </span>
 
     <p class="korean">
-      오늘 날씨가 어때요? 🌦️
+      같이 갈래요? 🌸
     </p>
 
     <h1>
-      Parler de la météo
+      Proposer une sortie
     </h1>
 
     <p>
@@ -319,17 +381,21 @@
   <section id="hanaChapterPath" data-chapter-path></section>
 
 
+
   <section class="intro-card">
 
-    <strong>📖 Ta fiche du chapitre</strong>
+    <strong>
+      📖 Ta fiche du chapitre
+    </strong>
 
     <br><br>
 
     Cette page te permet de revoir rapidement
-    comment demander quel temps il fait,
-    décrire la météo et exprimer une impression ou une prévision.
+    les formulations utiles pour inviter quelqu'un,
+    proposer une idée et fixer un rendez-vous.
 
   </section>
+
 
 
   <section
@@ -339,7 +405,9 @@
 
     <div class="romanization-control-text">
 
-      <strong>가나다 Romanisation</strong>
+      <strong>
+        가나다 Romanisation
+      </strong>
 
       <br>
 
@@ -360,272 +428,643 @@
   </section>
 
 
+
   <section class="summary-card">
 
-    <h2>🎧 Expressions essentielles</h2>
+    <h2>
+      🎧 Expressions essentielles
+    </h2>
 
 
-    <div class="expression-item">
-      <div class="expression-top">
-        <div>
-          <div class="expression-korean">오늘 날씨가 어때요?</div>
-          <div class="romanization">oneul nalssiga eottaeyo?</div>
-          <div class="expression-french">Quel temps fait-il aujourd'hui ?</div>
-        </div>
-        <button class="audio-button" type="button" data-text="오늘 날씨가 어때요?" aria-label="Écouter 오늘 날씨가 어때요">🔊</button>
-      </div>
+    <div class="expression-group-title">
+      🌸 Proposer une sortie
     </div>
 
 
     <div class="expression-item">
+
       <div class="expression-top">
+
         <div>
-          <div class="expression-korean">조금 더워요.</div>
-          <div class="romanization">jogeum deowoyo</div>
-          <div class="expression-french">Il fait un peu chaud.</div>
+
+          <div class="expression-korean">
+            같이 갈래요?
+          </div>
+
+          <div class="romanization">
+            gachi gallaeyo?
+          </div>
+
+          <div class="expression-french">
+            Tu veux y aller ensemble ?
+          </div>
+
         </div>
-        <button class="audio-button" type="button" data-text="조금 더워요." aria-label="Écouter 조금 더워요">🔊</button>
+
+        <button
+          class="audio-button"
+          type="button"
+          data-text="같이 갈래요?"
+          data-rate="0.82"
+          aria-label="Écouter 같이 갈래요"
+        >
+          🔊
+        </button>
+
       </div>
+
+      <div class="audio-actions">
+
+        <button
+          class="normal-audio"
+          type="button"
+          data-text="같이 갈래요?"
+          data-rate="0.82"
+        >
+          🎧 Normal
+        </button>
+
+        <button
+          class="slow-audio"
+          type="button"
+          data-text="같이 갈래요?"
+          data-rate="0.25"
+        >
+          🐢 Lent
+        </button>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="expression-item">
+
+      <div class="expression-top">
+
+        <div>
+
+          <div class="expression-korean">
+            커피 마실래요?
+          </div>
+
+          <div class="romanization">
+            keopi masillaeyo?
+          </div>
+
+          <div class="expression-french">
+            Tu veux boire un café ?
+          </div>
+
+        </div>
+
+        <button
+          class="audio-button"
+          type="button"
+          data-text="커피 마실래요?"
+          data-rate="0.82"
+          aria-label="Écouter 커피 마실래요"
+        >
+          🔊
+        </button>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="expression-group-title">
+      💡 Faire une suggestion
     </div>
 
 
     <div class="expression-item">
+
       <div class="expression-top">
+
         <div>
-          <div class="expression-korean">조금 추워요.</div>
-          <div class="romanization">jogeum chuwoyo</div>
-          <div class="expression-french">Il fait un peu froid.</div>
+
+          <div class="expression-korean">
+            어디에 갈까요?
+          </div>
+
+          <div class="romanization">
+            eodie galkkayo?
+          </div>
+
+          <div class="expression-french">
+            Où allons-nous ? / Et si on allait où ?
+          </div>
+
         </div>
-        <button class="audio-button" type="button" data-text="조금 추워요." aria-label="Écouter 조금 추워요">🔊</button>
+
+        <button
+          class="audio-button"
+          type="button"
+          data-text="어디에 갈까요?"
+          data-rate="0.82"
+          aria-label="Écouter 어디에 갈까요"
+        >
+          🔊
+        </button>
+
       </div>
+
+    </div>
+
+
+
+    <div class="expression-item">
+
+      <div class="expression-top">
+
+        <div>
+
+          <div class="expression-korean">
+            한강 공원에 갈까요?
+          </div>
+
+          <div class="romanization">
+            hangang gongwone galkkayo?
+          </div>
+
+          <div class="expression-french">
+            Et si nous allions au parc de la rivière Han ?
+          </div>
+
+        </div>
+
+        <button
+          class="audio-button"
+          type="button"
+          data-text="한강 공원에 갈까요?"
+          data-rate="0.82"
+          aria-label="Écouter 한강 공원에 갈까요"
+        >
+          🔊
+        </button>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="expression-group-title">
+      🕒 Fixer un rendez-vous
     </div>
 
 
     <div class="expression-item">
+
       <div class="expression-top">
+
         <div>
-          <div class="expression-korean">비가 와요.</div>
-          <div class="romanization">biga wayo</div>
-          <div class="expression-french">Il pleut.</div>
+
+          <div class="expression-korean">
+            몇 시에 만날까요?
+          </div>
+
+          <div class="romanization">
+            myeot sie mannalkkayo?
+          </div>
+
+          <div class="expression-french">
+            À quelle heure se retrouve-t-on ?
+          </div>
+
         </div>
-        <button class="audio-button" type="button" data-text="비가 와요." aria-label="Écouter 비가 와요">🔊</button>
+
+        <button
+          class="audio-button"
+          type="button"
+          data-text="몇 시에 만날까요?"
+          data-rate="0.82"
+          aria-label="Écouter 몇 시에 만날까요"
+        >
+          🔊
+        </button>
+
       </div>
+
+    </div>
+
+
+
+    <div class="expression-item">
+
+      <div class="expression-top">
+
+        <div>
+
+          <div class="expression-korean">
+            오후 두 시에 만나요.
+          </div>
+
+          <div class="romanization">
+            ohu du sie mannayo
+          </div>
+
+          <div class="expression-french">
+            On se retrouve à deux heures de l'après-midi.
+          </div>
+
+        </div>
+
+        <button
+          class="audio-button"
+          type="button"
+          data-text="오후 두 시에 만나요."
+          data-rate="0.82"
+          aria-label="Écouter 오후 두 시에 만나요"
+        >
+          🔊
+        </button>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="expression-item">
+
+      <div class="expression-top">
+
+        <div>
+
+          <div class="expression-korean">
+            네! 그때 봬요!
+          </div>
+
+          <div class="romanization">
+            ne! geuttae bwaeyo!
+          </div>
+
+          <div class="expression-french">
+            D'accord ! À tout à l'heure !
+          </div>
+
+        </div>
+
+        <button
+          class="audio-button"
+          type="button"
+          data-text="네! 그때 봬요!"
+          data-rate="0.82"
+          aria-label="Écouter 네 그때 봬요"
+        >
+          🔊
+        </button>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="expression-group-title">
+      🌿 Refuser poliment
     </div>
 
 
     <div class="expression-item">
+
       <div class="expression-top">
+
         <div>
-          <div class="expression-korean">비가 올 것 같아요.</div>
-          <div class="romanization">biga ol geot gatayo</div>
-          <div class="expression-french">Je pense qu'il va pleuvoir.</div>
+
+          <div class="expression-korean">
+            죄송해요. 오늘은 좀 바빠요. 다음에 같이 가요!
+          </div>
+
+          <div class="romanization">
+            joesonghaeyo. oneureun jom bappayo. daeume gachi gayo!
+          </div>
+
+          <div class="expression-french">
+            Désolé(e), aujourd'hui je suis un peu occupé(e).
+            Allons-y une prochaine fois !
+          </div>
+
         </div>
-        <button class="audio-button" type="button" data-text="비가 올 것 같아요." aria-label="Écouter 비가 올 것 같아요">🔊</button>
+
+        <button
+          class="audio-button"
+          type="button"
+          data-text="죄송해요. 오늘은 좀 바빠요. 다음에 같이 가요!"
+          data-rate="0.82"
+          aria-label="Écouter une manière polie de refuser"
+        >
+          🔊
+        </button>
+
       </div>
-    </div>
 
-
-    <div class="expression-item">
-      <div class="expression-top">
-        <div>
-          <div class="expression-korean">하늘이 흐려요.</div>
-          <div class="romanization">haneuri heuryeoyo</div>
-          <div class="expression-french">Le ciel est couvert.</div>
-        </div>
-        <button class="audio-button" type="button" data-text="하늘이 흐려요." aria-label="Écouter 하늘이 흐려요">🔊</button>
-      </div>
-    </div>
-
-
-    <div class="expression-item">
-      <div class="expression-top">
-        <div>
-          <div class="expression-korean">우산 있어요?</div>
-          <div class="romanization">usan isseoyo?</div>
-          <div class="expression-french">Tu as un parapluie ?</div>
-        </div>
-        <button class="audio-button" type="button" data-text="우산 있어요?" aria-label="Écouter 우산 있어요">🔊</button>
-      </div>
     </div>
 
   </section>
+
 
 
   <section class="grammar-card">
 
-    <h2>🧠 Grammaire essentielle</h2>
+    <h2>
+      🧠 À retenir
+    </h2>
 
 
     <div class="grammar-item">
-      <span class="grammar-pattern">날씨가 어때요?</span>
+
+      <span class="grammar-pattern">
+        -(으)ㄹ래요?
+      </span>
+
       <br>
-      <strong>날씨</strong> = la météo
-      <br>
-      <strong>어때요?</strong> = comment est... ?
-      <br><br>
-      → « Quel temps fait-il ? »
+
+      Sert à demander le souhait ou l'envie
+      de ton interlocuteur.
+
+      <div class="example">
+        같이 갈래요?
+        <br>
+        → Tu veux y aller ensemble ?
+      </div>
+
+      <div class="mini-note">
+        Tournure naturelle entre amis et personnes proches.
+      </div>
+
     </div>
 
 
+
     <div class="grammar-item">
-      <span class="grammar-pattern">조금</span>
+
+      <span class="grammar-pattern">
+        -까요?
+      </span>
+
       <br>
-      Signifie <strong>« un peu »</strong>.
-      <br><br>
-      <strong>조금 더워요.</strong>
-      → Il fait un peu chaud.
-      <br>
-      <strong>조금 추워요.</strong>
-      → Il fait un peu froid.
+
+      Sert à faire une suggestion ou à décider ensemble.
+
+      <div class="example">
+        어디에 갈까요?
+        <br>
+        → Où allons-nous ? / Et si on y allait ?
+      </div>
+
+      <div class="example">
+        뭐 먹을까요?
+        <br>
+        → Qu'est-ce qu'on mange ?
+      </div>
+
     </div>
 
 
+
     <div class="grammar-item">
-      <span class="grammar-pattern">-(으)ㄹ 것 같아요</span>
+
+      <span class="grammar-pattern">
+        갈래요? ≠ 갈까요?
+      </span>
+
       <br>
-      Sert à exprimer une impression ou une prévision :
-      <strong>« Je pense que... / On dirait que... »</strong>
+
+      <strong>갈래요?</strong>
+      → « Tu veux y aller ? »
+
       <br><br>
-      <strong>비가 올 것 같아요.</strong>
-      → Je pense qu'il va pleuvoir.
-      <br><br>
-      <strong>좋을 것 같아요.</strong>
-      → Je pense que ce sera bien.
-      <br><br>
-      <strong>맛있을 것 같아요.</strong>
-      → Ça a l'air bon.
+
+      <strong>갈까요?</strong>
+      → « Et si on y allait ? »
+
     </div>
 
 
-    <div class="grammar-item">
-      <span class="grammar-pattern">비가 와요 ≠ 비가 올 것 같아요</span>
-      <br>
-      <strong>비가 와요.</strong>
-      → on constate qu'il pleut.
-      <br><br>
-      <strong>비가 올 것 같아요.</strong>
-      → on exprime une impression ou une prévision.
-    </div>
-
 
     <div class="grammar-item">
-      <span class="grammar-pattern">날씨</span>
+
+      <span class="grammar-pattern">
+        같이 → 가치
+      </span>
+
       <br>
-      Le double <strong>ㅆ</strong> se prononce comme un
-      <strong>s bien marqué</strong>.
-      <br><br>
-      Prononciation : <strong>nal-ssi</strong>.
+
+      Dans <strong>같이</strong>, la prononciation
+      se rapproche de <strong>가치</strong>.
+
+      <div class="mini-note">
+        Essaie de reconnaître cette prononciation directement à l'écoute.
+      </div>
+
     </div>
 
   </section>
+
 
 
   <section class="summary-card">
 
-    <h2>❓ Questions utiles du chapitre</h2>
+    <h2>
+      ❓ Questions utiles du chapitre
+    </h2>
+
 
     <div class="question-list">
 
       <div class="question-item">
-        <strong>오늘 날씨가 어때요?</strong>
-        <span>Quel temps fait-il aujourd'hui ?</span>
+        <strong>
+          같이 갈래요?
+        </strong>
+        <span>
+          Tu veux y aller ensemble ?
+        </span>
       </div>
 
       <div class="question-item">
-        <strong>우산 있어요?</strong>
-        <span>Tu as un parapluie ?</span>
+        <strong>
+          커피 마실래요?
+        </strong>
+        <span>
+          Tu veux boire un café ?
+        </span>
       </div>
 
       <div class="question-item">
-        <strong>비를 좋아해요?</strong>
-        <span>Tu aimes la pluie ?</span>
+        <strong>
+          어디에 갈까요?
+        </strong>
+        <span>
+          Où allons-nous ?
+        </span>
       </div>
 
       <div class="question-item">
-        <strong>여름을 좋아해요?</strong>
-        <span>Tu aimes l'été ?</span>
+        <strong>
+          뭐 먹을까요?
+        </strong>
+        <span>
+          Qu'est-ce qu'on mange ?
+        </span>
+      </div>
+
+      <div class="question-item">
+        <strong>
+          언제 만날까요?
+        </strong>
+        <span>
+          Quand se retrouve-t-on ?
+        </span>
+      </div>
+
+      <div class="question-item">
+        <strong>
+          몇 시에 만날까요?
+        </strong>
+        <span>
+          À quelle heure se retrouve-t-on ?
+        </span>
       </div>
 
     </div>
 
   </section>
+
 
 
   <section class="vocab-card">
 
-    <h2>🧳 Vocabulaire essentiel</h2>
+    <h2>
+      🧳 Vocabulaire essentiel
+    </h2>
+
 
     <div class="vocab-grid">
 
-      <div class="vocab-item"><div class="vocab-korean">날씨</div><div class="vocab-french">météo</div></div>
-      <div class="vocab-item"><div class="vocab-korean">덥다</div><div class="vocab-french">faire chaud</div></div>
-      <div class="vocab-item"><div class="vocab-korean">춥다</div><div class="vocab-french">faire froid</div></div>
-      <div class="vocab-item"><div class="vocab-korean">비</div><div class="vocab-french">pluie</div></div>
-      <div class="vocab-item"><div class="vocab-korean">눈</div><div class="vocab-french">neige</div></div>
-      <div class="vocab-item"><div class="vocab-korean">바람</div><div class="vocab-french">vent</div></div>
-      <div class="vocab-item"><div class="vocab-korean">맑다</div><div class="vocab-french">être dégagé</div></div>
-      <div class="vocab-item"><div class="vocab-korean">흐리다</div><div class="vocab-french">être nuageux</div></div>
-      <div class="vocab-item"><div class="vocab-korean">우산</div><div class="vocab-french">parapluie</div></div>
-      <div class="vocab-item"><div class="vocab-korean">하늘</div><div class="vocab-french">ciel</div></div>
-      <div class="vocab-item"><div class="vocab-korean">햇빛</div><div class="vocab-french">soleil (rayons)</div></div>
-      <div class="vocab-item"><div class="vocab-korean">구름</div><div class="vocab-french">nuage</div></div>
+      <div class="vocab-item">
+        <div class="vocab-korean">같이</div>
+        <div class="vocab-french">ensemble</div>
+      </div>
+
+      <div class="vocab-item">
+        <div class="vocab-korean">놀러 가다</div>
+        <div class="vocab-french">aller se promener / sortir</div>
+      </div>
+
+      <div class="vocab-item">
+        <div class="vocab-korean">공원</div>
+        <div class="vocab-french">parc</div>
+      </div>
+
+      <div class="vocab-item">
+        <div class="vocab-korean">오늘</div>
+        <div class="vocab-french">aujourd'hui</div>
+      </div>
+
+      <div class="vocab-item">
+        <div class="vocab-korean">내일</div>
+        <div class="vocab-french">demain</div>
+      </div>
+
+      <div class="vocab-item">
+        <div class="vocab-korean">주말</div>
+        <div class="vocab-french">week-end</div>
+      </div>
+
+      <div class="vocab-item">
+        <div class="vocab-korean">만나다</div>
+        <div class="vocab-french">rencontrer / se retrouver</div>
+      </div>
+
+      <div class="vocab-item">
+        <div class="vocab-korean">오후</div>
+        <div class="vocab-french">après-midi</div>
+      </div>
+
+      <div class="vocab-item">
+        <div class="vocab-korean">그때</div>
+        <div class="vocab-french">à ce moment-là</div>
+      </div>
+
+      <div class="vocab-item">
+        <div class="vocab-korean">다음에</div>
+        <div class="vocab-french">la prochaine fois / plus tard</div>
+      </div>
 
     </div>
 
   </section>
+
 
 
   <section class="tip-card">
 
-    <h2>💚 Le conseil de Ji-soo</h2>
+    <h2>
+      💡 Le petit rappel de Min-su
+    </h2>
 
-    Observe les affiches et les applications météo en coréen
-    et essaie de reconnaître directement les symboles et les mots :
+    Pour inviter quelqu'un naturellement,
+    tu n'as pas besoin d'une longue phrase.
 
     <br><br>
 
-    ☀️ <strong>맑아요</strong>
-    &nbsp; ☁️ <strong>흐려요</strong>
-    &nbsp; 🌧️ <strong>비</strong>
-    &nbsp; ❄️ <strong>눈</strong>
+    <strong>커피 마실래요?</strong>,
+    <strong>같이 갈래요?</strong>
+    ou <strong>뭐 먹을까요?</strong>
+    suffisent souvent à lancer une vraie conversation.
+
+    <br><br>
+
+    Et si tu refuses, ajouter une petite explication
+    ou proposer une autre fois rend la réponse plus douce.
 
   </section>
 
 
+
   <section class="bag-card">
 
-    <h2>🎒 À mettre dans mon sac à dos</h2>
+    <h2>
+      🎒 À mettre dans mon sac à dos
+    </h2>
+
 
     <div class="bag-list">
 
       <div class="bag-item">
-        🌦️ <strong>날씨가 어때요?</strong><br>
-        Pour demander quel temps il fait.
+        🌸 <strong>같이 갈래요?</strong><br>
+        Pour inviter quelqu'un.
       </div>
 
       <div class="bag-item">
-        🌡️ <strong>조금 더워요 / 조금 추워요</strong><br>
-        Pour décrire simplement la température.
+        💡 <strong>갈까요?</strong><br>
+        Pour faire une suggestion ensemble.
       </div>
 
       <div class="bag-item">
-        🌧️ <strong>비가 올 것 같아요.</strong><br>
-        Pour exprimer une prévision.
+        🕒 <strong>몇 시에 만날까요?</strong><br>
+        Pour fixer l'heure.
       </div>
 
       <div class="bag-item">
-        ☁️ <strong>하늘이 흐려요.</strong><br>
-        Pour dire que le ciel est couvert.
+        👋 <strong>그때 봬요!</strong><br>
+        Pour terminer naturellement un rendez-vous.
       </div>
 
       <div class="bag-item">
-        ☂️ <strong>우산 있어요?</strong><br>
-        Pour demander si quelqu'un a un parapluie.
+        🌿 <strong>다음에 같이 가요!</strong><br>
+        Pour proposer une prochaine fois.
       </div>
 
     </div>
 
   </section>
+
 
 
   <div class="bottom-actions">
@@ -657,7 +1096,13 @@
 </main>
 
 
-<script src="chapter-progress.js"></script>
+
+<script src="chapter-progress.js">
+  window.addEventListener("pageshow", () => {
+    guardSummaryAccess();
+  });
+
+</script>
 
 <script>
 
@@ -672,6 +1117,7 @@
 
   const summaryKey =
     "hanaKorean_chapter22_resume";
+
 
   function renderChapterProgress() {
     if (
@@ -709,7 +1155,6 @@
   }
 
   guardSummaryAccess();
-
 
   const AUDIO_SETTINGS = {
     normalRate: 0.82,
@@ -768,6 +1213,7 @@
 
   function speakKorean(
     text,
+    rate,
     button
   ) {
 
@@ -795,6 +1241,7 @@
       "ko-KR";
 
     utterance.rate =
+      Number(rate) ||
       AUDIO_SETTINGS.normalRate;
 
     utterance.pitch =
@@ -815,25 +1262,37 @@
     }
 
 
-    currentAudioButton =
-      button;
+    if (
+      button
+    ) {
+
+      currentAudioButton =
+        button;
 
 
-    button
-      .classList
-      .add(
-        "playing"
-      );
+      button
+        .classList
+        .add(
+          "playing"
+        );
+
+    }
 
 
     utterance.onend =
       () => {
 
-        button
-          .classList
-          .remove(
-            "playing"
-          );
+        if (
+          button
+        ) {
+
+          button
+            .classList
+            .remove(
+              "playing"
+            );
+
+        }
 
 
         currentAudioButton =
@@ -845,11 +1304,17 @@
     utterance.onerror =
       () => {
 
-        button
-          .classList
-          .remove(
-            "playing"
-          );
+        if (
+          button
+        ) {
+
+          button
+            .classList
+            .remove(
+              "playing"
+            );
+
+        }
 
 
         currentAudioButton =
@@ -882,7 +1347,8 @@
     }
 
 
-    return stored === "true";
+    return stored ===
+      "true";
 
   }
 
@@ -891,40 +1357,54 @@
     show
   ) {
 
-    document
-      .querySelectorAll(
+    const romanizations =
+      document.querySelectorAll(
         ".romanization"
-      )
-      .forEach(
-        item => {
-
-          item.classList.toggle(
-            "hidden",
-            !show
-          );
-
-        }
       );
 
 
-    document
-      .getElementById(
+    const status =
+      document.getElementById(
         "romanizationStatus"
-      )
-      .textContent =
-        show
-          ? "Affichée"
-          : "Masquée";
+      );
 
 
-    document
-      .getElementById(
+    const toggle =
+      document.getElementById(
         "romanizationToggle"
-      )
-      .textContent =
-        show
-          ? "Masquer"
-          : "Afficher";
+      );
+
+
+    romanizations.forEach(
+      item => {
+
+        item.classList.toggle(
+          "hidden",
+          !show
+        );
+
+      }
+    );
+
+
+    status.textContent =
+      show
+        ? "Affichée"
+        : "Masquée";
+
+
+    toggle.textContent =
+      show
+        ? "Masquer"
+        : "Afficher";
+
+
+    toggle.setAttribute(
+      "aria-pressed",
+      show
+        ? "true"
+        : "false"
+    );
 
   }
 
@@ -937,8 +1417,12 @@
       "click",
       () => {
 
+        const current =
+          getRomanizationPreference();
+
+
         const next =
-          !getRomanizationPreference();
+          !current;
 
 
         localStorage.setItem(
@@ -968,6 +1452,8 @@
 
             speakKorean(
               button.dataset.text,
+              button.dataset.rate ||
+                AUDIO_SETTINGS.normalRate,
               button
             );
 
@@ -987,11 +1473,6 @@
   applyRomanizationPreference(
     getRomanizationPreference()
   );
-
-
-  window.addEventListener("pageshow", () => {
-    guardSummaryAccess();
-  });
 
 </script>
 </body>

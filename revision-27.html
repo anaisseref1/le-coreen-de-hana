@@ -1,88 +1,20 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-<meta charset="UTF-8">
+<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#F7F4ED">
-<title>Chapitre 27 — Je révise</title>
 <link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="chapter-progress.css">
-<style>
-.review-header{text-align:center;margin-bottom:24px}
-.card{padding:20px;margin-bottom:18px;background:var(--white);border-radius:var(--radius-large);box-shadow:var(--shadow)}
-.quiz{padding:15px;margin-top:12px;background:#FBFAF6;border-radius:var(--radius-medium)}
-.quiz button{width:100%;margin-top:8px}
-.feedback{margin-top:8px}
-.personal-review{display:none;padding:18px;margin-bottom:18px;background:var(--soft-green);border-radius:var(--radius-large);color:var(--navy);line-height:1.7}
-.complete-button,.next-button{display:none;width:100%;margin-top:10px}
-.complete-button{background:var(--jade);color:white;font-weight:bold}
-.next-button{background:var(--navy);color:white;font-weight:bold}
-</style>
-  <script src="profile.js"></script>
-</head>
-<body>
-<main class="app">
-<a class="back-link" href="ecriture-27.html">← Écriture</a>
-<section id="hanaChapterPath" data-chapter-path></section>
-
-<header class="review-header">
-<span class="chapter-badge">Chapitre 27 · 🧠 Je révise</span>
-<p class="korean">기차역</p>
-<h1>Révision gare</h1>
-<p>Vérifie tes connaissances avant la mission finale.</p>
-</header>
-
-<section id="personalReviewBox" class="personal-review"></section>
-
-<section class="card">
-<h2>🧠 Quiz</h2>
-
-<div class="quiz" data-answer="b" data-notion="기차">
-<p><strong>1. Que signifie 기차 ?</strong></p>
-<button data-choice="a" type="button">Bus</button><button data-choice="b" type="button">Train</button><button data-choice="c" type="button">Avion</button><div class="feedback"></div>
-</div>
-
-<div class="quiz" data-answer="a" data-notion="승강장이 어디예요?">
-<p><strong>2. 승강장이 어디예요? signifie :</strong></p>
-<button data-choice="a" type="button">Où est le quai ?</button><button data-choice="b" type="button">Où est mon billet ?</button><button data-choice="c" type="button">Quelle heure est-il ?</button><div class="feedback"></div>
-</div>
-
-<div class="quiz" data-answer="c" data-notion="기차를 타요">
-<p><strong>3. Comment dire « Je prends le train » ?</strong></p>
-<button data-choice="a" type="button">기차에서 내려요.</button><button data-choice="b" type="button">기차표 있어요.</button><button data-choice="c" type="button">기차를 타요.</button><div class="feedback"></div>
-</div>
-
-<div class="quiz" data-answer="b" data-notion="몇 시에 출발해요?">
-<p><strong>4. 몇 시에 출발해요? demande :</strong></p>
-<button data-choice="a" type="button">La destination</button><button data-choice="b" type="button">L'heure de départ</button><button data-choice="c" type="button">Le numéro du siège</button><div class="feedback"></div>
-</div>
-
-<div class="quiz" data-answer="a" data-notion="부산에 가요">
-<p><strong>5. Que signifie 부산에 가요 ?</strong></p>
-<button data-choice="a" type="button">Je vais à Busan.</button><button data-choice="b" type="button">Je viens de Busan.</button><button data-choice="c" type="button">Je descends du train.</button><div class="feedback"></div>
-</div>
-
-<div class="quiz" data-answer="c" data-notion="좌석">
-<p><strong>6. Que signifie 좌석 ?</strong></p>
-<button data-choice="a" type="button">Quai</button><button data-choice="b" type="button">Billet</button><button data-choice="c" type="button">Siège / place</button><div class="feedback"></div>
-</div>
-</section>
-
-<section class="card">
-<h2>🎒 À retenir</h2>
-<p><strong>기차표 있어요.</strong> → J'ai mon billet.</p>
-<p><strong>기차를 타요.</strong> → Je prends le train.</p>
-<p><strong>승강장이 어디예요?</strong> → Où est le quai ?</p>
-<p><strong>몇 시에 출발해요?</strong> → À quelle heure part-il ?</p>
-<p><strong>제 좌석은 몇 번이에요?</strong> → Quel est mon siège ?</p>
-</section>
-
-<button id="completeButton" class="complete-button" type="button">✅ Valider la révision</button>
-<button id="next" class="next-button" type="button">🎯 Passer à la mission</button>
-</main>
-
-<script src="chapter-progress.js"></script>
-<script>
+<link rel="stylesheet" href="chapter-progress.css"><title>Chapitre 27 — Je révise</title><style>.review-header{text-align:center;margin-bottom:24px}.card{padding:20px;margin-bottom:18px;background:var(--white);border-radius:var(--radius-large);box-shadow:var(--shadow)}.quiz{padding:15px;margin-top:12px;background:#FBFAF6;border-radius:var(--radius-medium)}.quiz button,.complete-button,.next-button{width:100%;margin-top:8px}.personal-review{display:none;padding:18px;margin-bottom:18px;background:var(--soft-green);border-radius:var(--radius-large);color:var(--navy);line-height:1.7}.complete-button{display:none;background:var(--jade);color:white;font-weight:bold}.next-button{display:none;background:var(--navy);color:white;font-weight:bold}</style>  <script src="profile.js"></script>
+</head><body><main class="app">
+<a class="back-link" href="ecriture-27.html">← Écriture</a><section id="hanaChapterPath" data-chapter-path></section><header class="review-header"><span class="chapter-badge">Chapitre 27 · 🧠 Je révise</span><p class="korean">약국</p><h1>Révision pharmacie</h1><p>Vérifie que tu sais expliquer un problème simple et demander de l'aide.</p></header>
+<section class="personal-review" id="personalReviewBox"></section><section class="card"><h2>🧠 Quiz</h2>
+<div class="quiz" data-answer="b" data-notion="약국"><p><strong>1. Que signifie 약국 ?</strong></p><button data-choice="a">Hôpital</button><button data-choice="b">Pharmacie</button><button data-choice="c">Restaurant</button><div class="feedback"></div></div>
+<div class="quiz" data-answer="a" data-notion="머리가 아파요"><p><strong>2. 머리가 아파요 signifie :</strong></p><button data-choice="a">J'ai mal à la tête.</button><button data-choice="b">J'ai mal aux pieds.</button><button data-choice="c">Je suis fatigué.</button><div class="feedback"></div></div>
+<div class="quiz" data-answer="c" data-notion="어디가 아파요"><p><strong>3. Que demande le pharmacien avec 어디가 아파요?</strong></p><button data-choice="a">Quel âge avez-vous ?</button><button data-choice="b">Quel médicament voulez-vous ?</button><button data-choice="c">Où avez-vous mal ?</button><div class="feedback"></div></div>
+<div class="quiz" data-answer="b" data-notion="약이 필요해요"><p><strong>4. Comment dire « J'ai besoin d'un médicament » ?</strong></p><button data-choice="a">약국에 가요.</button><button data-choice="b">약이 필요해요.</button><button data-choice="c">약을 좋아해요.</button><div class="feedback"></div></div>
+<div class="quiz" data-answer="a" data-notion="열이 있어요"><p><strong>5. 열이 있어요 ? signifie :</strong></p><button data-choice="a">Vous avez de la fièvre ?</button><button data-choice="b">Vous avez faim ?</button><button data-choice="c">Vous allez bien ?</button><div class="feedback"></div></div>
+<div class="quiz" data-answer="c" data-notion="목이 아파요"><p><strong>6. Quelle phrase est correcte pour dire « J'ai mal à la gorge » ?</strong></p><button data-choice="a">목이 좋아요.</button><button data-choice="b">목이 필요해요.</button><button data-choice="c">목이 아파요.</button><div class="feedback"></div></div>
+</section><section class="card"><h2>🎒 À retenir</h2><p><strong>머리가 아파요.</strong> → J'ai mal à la tête.</p><p><strong>배가 아파요.</strong> → J'ai mal au ventre.</p><p><strong>목이 아파요.</strong> → J'ai mal à la gorge.</p><p><strong>열은 없어요.</strong> → Je n'ai pas de fièvre.</p><p><strong>약이 필요해요.</strong> → J'ai besoin d'un médicament.</p></section>
+<button id="completeButton" class="complete-button" type="button">✅ Valider la révision</button><button id="next" class="next-button" type="button">🎯 Passer à la mission</button>
+</main><script src="chapter-progress.js"></script><script>
 const UNDERSTANDING_KEY = "hanaKorean_chapter27_understanding";
 const LISTENING_EXERCISE_KEY = "hanaKorean_chapter27_listeningExercise";
 const SPEAKING_KEY = "hanaKorean_chapter27_speaking";
@@ -128,7 +60,7 @@ quizzes.forEach(quiz => {
       } else {
         mistakes += 1;
         weakNotions.add(quiz.dataset.notion);
-        feedback.textContent = "❌ Réessaie.";
+        feedback.textContent = "❌ Essaie encore.";
       }
 
       if (done === quizzes.length) {
@@ -159,5 +91,4 @@ nextButton.addEventListener("click", () => {
 window.addEventListener("pageshow", refresh);
 refresh();
 </script>
-</body>
-</html>
+</body></html>

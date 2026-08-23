@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#F7F4ED">
 <title>Résumé — Chapitre 16</title>
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="chapter-progress.css">
@@ -16,125 +15,68 @@
 
 <header style="text-align:center">
 <span class="chapter-badge">Module 2 · Chapitre 16</span>
-<p class="korean">🏨 호텔에서 체크인하기</p>
+<p class="korean">🍜 식당에서 주문하기</p>
 <h1>Résumé</h1>
-<p>Arriver à l'hôtel, demander les informations essentielles et demander de l'aide.</p>
+<p>Commander dans un restaurant coréen.</p>
 </header>
 
 <section id="hanaChapterPath" data-chapter-path></section>
 
 <section class="summary-card">
 <h2>🎯 Objectif</h2>
-<p>Savoir annoncer une réservation, répondre quand le personnel demande ton nom, demander où est ta chambre, demander le mot de passe du Wi-Fi, signaler un problème et demander de l'aide.</p>
+<p>Savoir commander, demander une recommandation, préciser une restriction alimentaire, demander si un plat est épicé et demander l'addition.</p>
 </section>
 
 <section class="summary-card">
-<h2>🏨 Vocabulaire essentiel</h2>
-<p><strong>호텔</strong> → hôtel</p>
-<p><strong>방</strong> → chambre</p>
-<p><strong>열쇠</strong> → clé</p>
-<p><strong>예약</strong> → réservation</p>
-<p><strong>성함</strong> → nom — forme respectueuse</p>
-<p><strong>와이파이</strong> → Wi-Fi</p>
-<p><strong>비밀번호</strong> → mot de passe</p>
-<p><strong>도와주세요</strong> → Aidez-moi, s'il vous plaît.</p>
-<p><strong>감사합니다</strong> → merci</p>
+<h2>🍜 Vocabulaire essentiel</h2>
+<p><strong>메뉴</strong> → menu</p>
+<p><strong>추천</strong> → recommandation</p>
+<p><strong>돼지고기</strong> → porc</p>
+<p><strong>비빔밥</strong> → bibimbap</p>
+<p><strong>계산</strong> → addition</p>
+<p><strong>매워요</strong> → être épicé</p>
 </section>
 
 <section class="summary-card">
 <h2>🧩 Structures importantes</h2>
-
-<p>
-<strong>예약했어요.</strong><br>
-→ J'ai une réservation. / J'ai réservé.
-</p>
-
-<p>
-<strong>N이/가 어디예요?</strong><br>
-제 방이 어디예요? → Où est ma chambre ?
-</p>
-
-<p>
-<strong>N이/가 뭐예요?</strong><br>
-와이파이 비밀번호가 뭐예요? → Quel est le mot de passe du Wi-Fi ?
-</p>
-
-<p>
-<strong>안 돼요</strong><br>
-와이파이가 안 돼요. → Le Wi-Fi ne fonctionne pas.
-</p>
-
-<p>
-<strong>도와주세요.</strong><br>
-→ Aidez-moi, s'il vous plaît.
-</p>
+<p><strong>N + 주세요</strong><br>메뉴 주세요. → Le menu, s'il vous plaît.</p>
+<p><strong>추천해 주세요</strong><br>Recommandez-moi quelque chose.</p>
+<p><strong>안 + verbe</strong><br>돼지고기를 안 먹어요. → Je ne mange pas de porc.</p>
+<p><strong>-(으)ㄹ게요</strong><br>카드로 할게요. → Je vais payer par carte.</p>
 </section>
 
 <section class="summary-card">
 <h2>💬 Phrases à retenir</h2>
-<p class="korean">예약했어요.</p>
-<p class="korean">성함이 어떻게 되세요?</p>
-<p class="korean">아나예요.</p>
-<p class="korean">제 방이 어디예요?</p>
-<p class="korean">방 열쇠 주세요.</p>
-<p class="korean">와이파이 비밀번호가 뭐예요?</p>
-<p class="korean">와이파이가 안 돼요.</p>
-<p class="korean">도와주세요.</p>
-<p class="korean">감사합니다.</p>
+<p class="korean">메뉴 주세요.</p>
+<p class="korean">추천해 주세요.</p>
+<p class="korean">돼지고기를 안 먹어요.</p>
+<p class="korean">돼지고기 들어가요?</p>
+<p class="korean">돼지고기 빼 주세요.</p>
+<p class="korean">많이 매워요?</p>
+<p class="korean">비빔밥 하나 주세요.</p>
+<p class="korean">계산해 주세요.</p>
 </section>
 
 <section class="summary-card">
 <h2>🌿 Récapitulatif</h2>
-<p>Tu sais maintenant gérer les échanges essentiels à ton arrivée dans un hôtel coréen : réservation, nom, chambre, Wi-Fi et demande d'aide.</p>
+<p>Tu sais maintenant commander dans un restaurant coréen avec des expressions polies et naturelles.</p>
 </section>
 
 <script src="chapter-progress.js"></script>
 <script>
 const REQUIRED_KEY="hanaKorean_chapter16_use";
-const LEGACY_MISSION_KEY="hanaKorean_chapter16_mission";
-const LEGACY_COMPLETED_KEY="hanaKorean_chapter16_completed";
 const SUMMARY_KEY="hanaKorean_chapter16_resume";
 
-function migrateMissionProgress(){
-  if(localStorage.getItem(REQUIRED_KEY)==="completed"){
-    return;
-  }
-
-  if(
-    localStorage.getItem(LEGACY_MISSION_KEY)==="completed" ||
-    localStorage.getItem(LEGACY_COMPLETED_KEY)==="completed"
-  ){
-    localStorage.setItem(REQUIRED_KEY,"completed");
-  }
-}
-
-migrateMissionProgress();
-
 if(localStorage.getItem(REQUIRED_KEY)!=="completed"){
-  window.location.replace("utilise-16.html");
-}else{
-  localStorage.setItem(SUMMARY_KEY,"completed");
-
-  if(
-    window.HanaChapterProgress &&
-    typeof window.HanaChapterProgress.render==="function"
-  ){
-    window.HanaChapterProgress.render();
-  }
+window.location.replace("utilise-16.html");
 }
 
-window.addEventListener("pageshow",function(){
-  migrateMissionProgress();
+localStorage.setItem(SUMMARY_KEY,"completed");
 
-  if(
-    localStorage.getItem(REQUIRED_KEY)==="completed" &&
-    window.HanaChapterProgress &&
-    typeof window.HanaChapterProgress.render==="function"
-  ){
-    localStorage.setItem(SUMMARY_KEY,"completed");
-    window.HanaChapterProgress.render();
-  }
-});
+if(window.HanaChapterProgress &&
+typeof window.HanaChapterProgress.render==="function"){
+window.HanaChapterProgress.render();
+}
 </script>
 
 </main>

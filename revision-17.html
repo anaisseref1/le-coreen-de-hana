@@ -6,10 +6,9 @@
   <meta name="theme-color" content="#F7F4ED">
   <title>Chapitre 17 — Je révise</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="chapter-progress.css">
 
-    <link rel="stylesheet" href="chapter-progress.css">
-
-<style>
+  <style>
     .review-header {
       text-align: center;
       margin-bottom: 28px;
@@ -220,6 +219,7 @@
       background: var(--soft-beige);
       color: var(--navy);
     }
+  
   </style>
   <script src="profile.js"></script>
 </head>
@@ -228,10 +228,7 @@
 
 <main class="app">
 
-  <a
-    class="back-link"
-    href="ecriture-17.html"
-  >
+  <a class="back-link" href="ecriture-17.html">
     ← J'écris
   </a>
 
@@ -249,8 +246,9 @@
     </h1>
 
     <p>
-      Vérifie que tu sais demander le Wi-Fi,
-      parler de ta batterie, demander un chargeur et comprendre où recharger ton téléphone.
+      Vérifie que tu sais annoncer une réservation,
+      comprendre la question sur ton nom, demander ta chambre,
+      demander le mot de passe du Wi-Fi et demander de l'aide.
     </p>
   </header>
 
@@ -293,37 +291,41 @@
     </div>
 
     <h2 class="question-title">
-      📶 Wi-Fi
+      🛎️ Annoncer une réservation
     </h2>
 
     <p class="question-text">
       Comment dis-tu :
-      <strong>« Il y a du Wi-Fi ? »</strong>
+      <strong>« J'ai une réservation. »</strong>
     </p>
 
     <div class="answers">
 
       <button class="answer" type="button"
-        onclick="checkAnswer(1, this, true, '와이파이 있어요?')">
-        와이파이 있어요?
+        onclick="checkAnswer(1, this, true, '예약했어요')">
+        예약했어요.
       </button>
 
       <button class="answer" type="button"
-        onclick="checkAnswer(1, this, false, '와이파이 있어요?')">
-        인터넷이 안 돼요.
+        onclick="checkAnswer(1, this, false, '예약했어요')">
+        감사합니다.
       </button>
 
       <button class="answer" type="button"
-        onclick="checkAnswer(1, this, false, '와이파이 있어요?')">
-        충전기 있어요?
+        onclick="checkAnswer(1, this, false, '예약했어요')">
+        도와주세요.
       </button>
 
     </div>
 
     <div class="feedback" id="feedback1"></div>
 
-    <button class="next-question" id="next1" type="button"
-      onclick="showQuestion(2)">
+    <button
+      class="next-question"
+      id="next1"
+      type="button"
+      onclick="showQuestion(2)"
+    >
       Question suivante →
     </button>
 
@@ -339,37 +341,41 @@
     </div>
 
     <h2 class="question-title">
-      🔋 Batterie
+      👤 Comprendre le réceptionniste
     </h2>
 
     <p class="question-text">
-      Que signifie :
-      <strong>배터리가 없어요.</strong>
+      Quelle phrase signifie :
+      <strong>« Quel est votre nom ? »</strong>
     </p>
 
     <div class="answers">
 
       <button class="answer" type="button"
-        onclick="checkAnswer(2, this, false, '배터리가 없어요')">
-        Ma batterie est pleine.
+        onclick="checkAnswer(2, this, true, '성함이 어떻게 되세요?')">
+        성함이 어떻게 되세요?
       </button>
 
       <button class="answer" type="button"
-        onclick="checkAnswer(2, this, true, '배터리가 없어요')">
-        Je n'ai plus de batterie.
+        onclick="checkAnswer(2, this, false, '성함이 어떻게 되세요?')">
+        제 방이 어디예요?
       </button>
 
       <button class="answer" type="button"
-        onclick="checkAnswer(2, this, false, '배터리가 없어요')">
-        Je n'ai pas de téléphone.
+        onclick="checkAnswer(2, this, false, '성함이 어떻게 되세요?')">
+        와이파이 비밀번호가 뭐예요?
       </button>
 
     </div>
 
     <div class="feedback" id="feedback2"></div>
 
-    <button class="next-question" id="next2" type="button"
-      onclick="showQuestion(3)">
+    <button
+      class="next-question"
+      id="next2"
+      type="button"
+      onclick="showQuestion(3)"
+    >
       Question suivante →
     </button>
 
@@ -385,37 +391,41 @@
     </div>
 
     <h2 class="question-title">
-      🔌 Chargeur
+      🚪 Demander sa chambre
     </h2>
 
     <p class="question-text">
-      Quelle phrase signifie :
-      <strong>« Vous avez un chargeur ? »</strong>
+      Comment demandes-tu :
+      <strong>« Où est ma chambre ? »</strong>
     </p>
 
     <div class="answers">
 
       <button class="answer" type="button"
-        onclick="checkAnswer(3, this, false, '충전기 있어요?')">
-        핸드폰 있어요?
+        onclick="checkAnswer(3, this, false, '제 방이 어디예요?')">
+        방 열쇠 주세요.
       </button>
 
       <button class="answer" type="button"
-        onclick="checkAnswer(3, this, true, '충전기 있어요?')">
-        충전기 있어요?
+        onclick="checkAnswer(3, this, true, '제 방이 어디예요?')">
+        제 방이 어디예요?
       </button>
 
       <button class="answer" type="button"
-        onclick="checkAnswer(3, this, false, '충전기 있어요?')">
-        와이파이 있어요?
+        onclick="checkAnswer(3, this, false, '제 방이 어디예요?')">
+        엘리베이터가 어디예요?
       </button>
 
     </div>
 
     <div class="feedback" id="feedback3"></div>
 
-    <button class="next-question" id="next3" type="button"
-      onclick="showQuestion(4)">
+    <button
+      class="next-question"
+      id="next3"
+      type="button"
+      onclick="showQuestion(4)"
+    >
       Question suivante →
     </button>
 
@@ -431,38 +441,42 @@
     </div>
 
     <h2 class="question-title">
-      ⚡ Recharge
+      📶 Demander le Wi-Fi
     </h2>
 
     <p class="question-text">
-      Que signifie :
-      <strong>어디에서 충전할 수 있어요?</strong>
+      Comment demandes-tu :
+      <strong>« Quel est le mot de passe du Wi-Fi ? »</strong>
     </p>
 
     <div class="answers">
 
       <button class="answer" type="button"
-        onclick="checkAnswer(4, this, false, '충전할 수 있어요')">
-        Où est le Wi-Fi ?
+        onclick="checkAnswer(4, this, false, '와이파이 비밀번호가 뭐예요?')">
+        와이파이가 안 돼요.
       </button>
 
       <button class="answer" type="button"
-        onclick="checkAnswer(4, this, true, '충전할 수 있어요')">
-        Où est-ce que je peux recharger ?
+        onclick="checkAnswer(4, this, false, '와이파이 비밀번호가 뭐예요?')">
+        비밀번호요?
       </button>
 
       <button class="answer" type="button"
-        onclick="checkAnswer(4, this, false, '충전할 수 있어요')">
-        Quel est le mot de passe ?
+        onclick="checkAnswer(4, this, true, '와이파이 비밀번호가 뭐예요?')">
+        와이파이 비밀번호가 뭐예요?
       </button>
 
     </div>
 
     <div class="feedback" id="feedback4"></div>
 
-    <button class="next-question" id="next4" type="button"
-      onclick="showQuestion(5)">
-      Dernière question →
+    <button
+      class="next-question"
+      id="next4"
+      type="button"
+      onclick="showQuestion(5)"
+    >
+      Question suivante →
     </button>
 
   </section>
@@ -477,44 +491,49 @@
     </div>
 
     <h2 class="question-title">
-      🌐 Internet
+      🆘 Signaler un problème
     </h2>
 
     <p class="question-text">
-      Que signifie :
-      <strong>인터넷이 안 돼요.</strong>
+      Le Wi-Fi ne fonctionne pas.
+      Quelle réponse dit clairement :
+      <strong>« Le Wi-Fi ne fonctionne pas. Aidez-moi, s'il vous plaît. »</strong>
     </p>
 
     <div class="answers">
 
       <button class="answer" type="button"
-        onclick="checkAnswer(5, this, false, '안 돼요')">
-        Internet est gratuit.
+        onclick="checkAnswer(5, this, true, '와이파이가 안 돼요 / 도와주세요')">
+        와이파이가 안 돼요. 도와주세요.
       </button>
 
       <button class="answer" type="button"
-        onclick="checkAnswer(5, this, true, '안 돼요')">
-        Internet ne fonctionne pas.
+        onclick="checkAnswer(5, this, false, '와이파이가 안 돼요 / 도와주세요')">
+        와이파이 비밀번호가 뭐예요?
       </button>
 
       <button class="answer" type="button"
-        onclick="checkAnswer(5, this, false, '안 돼요')">
-        Internet est très rapide.
+        onclick="checkAnswer(5, this, false, '와이파이가 안 돼요 / 도와주세요')">
+        방 열쇠 주세요.
       </button>
 
     </div>
 
     <div class="feedback" id="feedback5"></div>
 
-    <button class="next-question" id="next5" type="button"
-      onclick="finishReview()">
-      Voir mon résultat 🌿
+    <button
+      class="next-question"
+      id="next5"
+      type="button"
+      onclick="finishReview()"
+    >
+      Voir mon résultat →
     </button>
 
   </section>
 
 
-  <!-- RESULTAT -->
+  <!-- RÉSULTAT -->
 
   <section
     class="result-card"
@@ -522,23 +541,19 @@
   >
 
     <div class="result-icon">
-      🧠📱
+      🌸
     </div>
 
     <h2>
-      잘했어요!
+      Révision terminée !
     </h2>
 
-    <p>
-      Tu as terminé la révision du chapitre 17.
-    </p>
-
     <p class="result-score">
-      5 notions révisées ✅
+      Chapitre 17 · Révision validée ✅
     </p>
 
     <div class="result-summary">
-      <strong>📊 Ta séance</strong>
+      <strong>📊 Ta révision</strong>
       <p id="attemptText"></p>
     </div>
 
@@ -549,24 +564,35 @@
 
     <div class="notion-summary">
 
+      <strong>
+        🌿 Les notions essentielles
+      </strong>
+
+      <br><br>
+
       <div class="notion-line">
-        📶 <strong>와이파이 있어요?</strong> → Il y a du Wi-Fi ?
+        🛎️ <strong>예약했어요.</strong>
+        → J'ai une réservation.
       </div>
 
       <div class="notion-line">
-        🔋 <strong>배터리가 없어요.</strong> → Je n'ai plus de batterie.
+        👤 <strong>성함이 어떻게 되세요?</strong>
+        → Quel est votre nom ?
       </div>
 
       <div class="notion-line">
-        🔌 <strong>충전기 있어요?</strong> → Vous avez un chargeur ?
+        🚪 <strong>제 방이 어디예요?</strong>
+        → Où est ma chambre ?
       </div>
 
       <div class="notion-line">
-        ⚡ <strong>어디에서 충전할 수 있어요?</strong> → Où est-ce que je peux recharger ?
+        📶 <strong>와이파이 비밀번호가 뭐예요?</strong>
+        → Quel est le mot de passe du Wi-Fi ?
       </div>
 
       <div class="notion-line">
-        🌐 <strong>인터넷이 안 돼요.</strong> → Internet ne fonctionne pas.
+        🆘 <strong>와이파이가 안 돼요. 도와주세요.</strong>
+        → Le Wi-Fi ne fonctionne pas. Aidez-moi, s'il vous plaît.
       </div>
 
     </div>
@@ -574,7 +600,7 @@
     <button
       class="continue-button"
       type="button"
-      onclick="window.location.href='utilise-17.html'"
+      onclick="goToMission()"
     >
       🎯 Passer à « Je l'utilise »
     </button>
@@ -595,7 +621,7 @@
 <script src="chapter-progress.js"></script>
 
 <script>
-  const CHAPTER = 17;
+  const CHAPTER = 16;
 
   const UNDERSTANDING_KEY =
     "hanaKorean_chapter17_understanding";
@@ -609,11 +635,11 @@
   const WRITING_KEY =
     "hanaKorean_chapter17_writing";
 
-  const REVISION_NOTIONS_KEY =
-    "hanaKorean_chapter17_revisionNotions";
-
   const REVIEW_KEY =
     "hanaKorean_chapter17_review";
+
+  const REVISION_NOTIONS_KEY =
+    "hanaKorean_chapter17_revisionNotions";
 
   const REVIEW_MISTAKES_KEY =
     "hanaKorean_chapter17_reviewMistakes";
@@ -621,7 +647,9 @@
   const REVIEW_WEAK_NOTIONS_KEY =
     "hanaKorean_chapter17_reviewWeakNotions";
 
+
   function guardReviewAccess() {
+
     const required = [
       [UNDERSTANDING_KEY, "chapitre-17.html"],
       [LISTENING_EXERCISE_KEY, "ecoute-17.html"],
@@ -630,9 +658,9 @@
     ];
 
     for (const item of required) {
+
       if (
-        localStorage.getItem(item[0]) !==
-        "completed"
+        localStorage.getItem(item[0]) !== "completed"
       ) {
         window.location.replace(item[1]);
         return false;
@@ -642,7 +670,9 @@
     return true;
   }
 
+
   function renderChapterProgress() {
+
     if (
       window.HanaChapterProgress &&
       typeof window.HanaChapterProgress.render === "function"
@@ -651,16 +681,20 @@
     }
   }
 
+
   function loadPersonalReview() {
+
     let notions = [];
 
     try {
-      notions = JSON.parse(
-        localStorage.getItem(
-          REVISION_NOTIONS_KEY
-        ) || "[]"
-      );
-    } catch (error) {
+      notions =
+        JSON.parse(
+          localStorage.getItem(
+            REVISION_NOTIONS_KEY
+          ) || "[]"
+        );
+    }
+    catch (error) {
       notions = [];
     }
 
@@ -681,7 +715,10 @@
         "personalReviewContent"
       );
 
-    if (!box || !content) {
+    if (
+      !box ||
+      !content
+    ) {
       return;
     }
 
@@ -690,10 +727,13 @@
       notions.join(", ") +
       "</strong>.";
 
-    box.classList.remove("hidden");
+    box.classList.remove(
+      "hidden"
+    );
   }
 
-let incorrectAttempts = 0;
+
+  let incorrectAttempts = 0;
 
   const weakNotions = [];
 
@@ -749,47 +789,37 @@ let incorrectAttempts = 0;
 
 
       if (number === 1) {
-
         feedback.innerHTML =
           "✅ <strong>Exact !</strong><br><br>" +
-          "<strong>와이파이 있어요?</strong> sert à demander si le Wi-Fi est disponible.";
-
+          "<strong>예약했어요.</strong> signifie « J'ai une réservation » ou « J'ai réservé ».";
       }
 
 
       if (number === 2) {
-
         feedback.innerHTML =
           "✅ <strong>Très bien !</strong><br><br>" +
-          "<strong>없어요</strong> signifie ici que Ana n'a plus de batterie.";
-
+          "<strong>성함</strong> est la forme respectueuse de « nom ». Tu dois surtout reconnaître cette question à la réception.";
       }
 
 
       if (number === 3) {
-
         feedback.innerHTML =
           "✅ <strong>Exact !</strong><br><br>" +
-          "<strong>충전기</strong> signifie « chargeur ».";
-
+          "<strong>제 방이 어디예요?</strong> permet de demander où se trouve ta chambre.";
       }
 
 
       if (number === 4) {
-
         feedback.innerHTML =
           "✅ <strong>Très bien !</strong><br><br>" +
-          "<strong>충전할 수 있어요?</strong> signifie ici « Est-ce que je peux recharger ? »";
-
+          "<strong>와이파이 비밀번호가 뭐예요?</strong> permet de demander le mot de passe du Wi-Fi.";
       }
 
 
       if (number === 5) {
-
         feedback.innerHTML =
           "✅ <strong>Parfait !</strong><br><br>" +
-          "<strong>안 돼요</strong> indique que quelque chose ne fonctionne pas.";
-
+          "<strong>안 돼요</strong> indique que quelque chose ne fonctionne pas et <strong>도와주세요</strong> permet de demander de l'aide.";
       }
 
 
@@ -832,47 +862,37 @@ let incorrectAttempts = 0;
 
 
     if (number === 1) {
-
       feedback.innerHTML =
-        "❌ <strong>Repère 와이파이 et 있어요?</strong><br><br>" +
-        "💡 Ana demande si le Wi-Fi est disponible.";
-
+        "❌ <strong>Repère 예약.</strong><br><br>" +
+        "💡 <strong>예약</strong> = réservation. La phrase à retenir est <strong>예약했어요.</strong>";
     }
 
 
     if (number === 2) {
-
       feedback.innerHTML =
-        "❌ <strong>Repère 없어요.</strong><br><br>" +
-        "💡 Ici, cela signifie que Ana n'a plus de batterie.";
-
+        "❌ <strong>Repère 성함.</strong><br><br>" +
+        "💡 <strong>성함</strong> signifie « nom » dans une forme respectueuse.";
     }
 
 
     if (number === 3) {
-
       feedback.innerHTML =
-        "❌ <strong>Repère 충전기.</strong><br><br>" +
-        "💡 <strong>충전기</strong> = chargeur.";
-
+        "❌ <strong>Attention à ce que tu cherches.</strong><br><br>" +
+        "💡 <strong>제 방이 어디예요?</strong> = Où est ma chambre ? <strong>엘리베이터가 어디예요?</strong> parle de l'ascenseur.";
     }
 
 
     if (number === 4) {
-
       feedback.innerHTML =
-        "❌ <strong>Repère 어디에서 et 충전.</strong><br><br>" +
-        "💡 <strong>어디에서</strong> = où et <strong>충전</strong> = recharge.";
-
+        "❌ <strong>Repère 비밀번호.</strong><br><br>" +
+        "💡 <strong>비밀번호</strong> = mot de passe. La phrase complète est <strong>와이파이 비밀번호가 뭐예요?</strong>";
     }
 
 
     if (number === 5) {
-
       feedback.innerHTML =
-        "❌ <strong>Repère 안 돼요.</strong><br><br>" +
-        "💡 <strong>안 돼요</strong> = ça ne fonctionne pas.";
-
+        "❌ <strong>Il faut signaler le problème puis demander de l'aide.</strong><br><br>" +
+        "💡 <strong>와이파이가 안 돼요.</strong> = Le Wi-Fi ne fonctionne pas. <strong>도와주세요.</strong> = Aidez-moi, s'il vous plaît.";
     }
 
   }
@@ -887,13 +907,11 @@ let incorrectAttempts = 0;
       i <= 5;
       i++
     ) {
-
       document.getElementById(
         "question" + i
       ).classList.add(
         "hidden"
       );
-
     }
 
 
@@ -924,7 +942,6 @@ let incorrectAttempts = 0;
       top: 0,
       behavior: "smooth"
     });
-
   }
 
 
@@ -956,13 +973,10 @@ let incorrectAttempts = 0;
     if (
       incorrectAttempts === 0
     ) {
-
       attemptText.innerHTML =
         "🌟 <strong>Sans erreur !</strong><br>" +
         "Tu maîtrises très bien les notions principales de ce chapitre.";
-
     } else {
-
       attemptText.innerHTML =
         "Tu as eu <strong>" +
         incorrectAttempts +
@@ -979,7 +993,6 @@ let incorrectAttempts = 0;
             : ""
         ) +
         ".<br>Les erreurs servent à cibler ce qu'il faut revoir.";
-
     }
 
 
@@ -992,18 +1005,14 @@ let incorrectAttempts = 0;
     if (
       weakNotions.length === 0
     ) {
-
       weakBox.innerHTML =
         "🌿 <strong>Aucune notion fragile détectée.</strong>";
-
     } else {
-
       weakBox.innerHTML =
         "🧠 <strong>À revoir en priorité :</strong><br><br>" +
         weakNotions.join(
           " · "
         );
-
     }
 
 
@@ -1012,12 +1021,10 @@ let incorrectAttempts = 0;
       "completed"
     );
 
-
     localStorage.setItem(
       REVIEW_MISTAKES_KEY,
       String(incorrectAttempts)
     );
-
 
     localStorage.setItem(
       REVIEW_WEAK_NOTIONS_KEY,
@@ -1033,22 +1040,39 @@ let incorrectAttempts = 0;
       top: 0,
       behavior: "smooth"
     });
-
   }
 
 
-  if (guardReviewAccess()) {
+  function goToMission() {
+
+    if (
+      localStorage.getItem(
+        REVIEW_KEY
+      ) !== "completed"
+    ) {
+      return;
+    }
+
+    window.location.href =
+      "utilise-17.html";
+  }
+
+
+  if (
+    guardReviewAccess()
+  ) {
+
     loadPersonalReview();
     renderChapterProgress();
 
     window.addEventListener(
       "pageshow",
       function() {
-        loadPersonalReview();
         renderChapterProgress();
       }
     );
   }
+
 </script>
 </body>
 </html>

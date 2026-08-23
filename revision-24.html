@@ -21,7 +21,7 @@
     rel="stylesheet"
     href="style.css"
   >
-<link rel="stylesheet" href="chapter-progress.css">
+  <link rel="stylesheet" href="chapter-progress.css">
 
   <style>
 
@@ -154,16 +154,6 @@
       color:var(--navy);
     }
 
-  
-    .personal-review {
-      padding:18px;
-      margin-bottom:18px;
-      background:var(--soft-green);
-      border-radius:var(--radius-large);
-      color:var(--navy);
-      line-height:1.7;
-    }
-    .personal-review.hidden { display:none; }
   </style>
 
   <script src="profile.js"></script>
@@ -183,13 +173,6 @@
     ← Écriture
   </a>
 
-<section id="hanaChapterPath" data-chapter-path></section>
-<section class="personal-review hidden" id="personalReview">
-  <strong>🌿 Révision personnalisée</strong>
-  <div id="personalReviewContent"></div>
-</section>
-
-
 
   <header class="review-header">
 
@@ -198,7 +181,7 @@
     </span>
 
     <p class="korean">
-      친구에게 선물을 줘요. 🎁
+      뭐를 사고 싶어요? 🛒
     </p>
 
     <h1>
@@ -206,13 +189,15 @@
     </h1>
 
     <p>
-      Vérifie que tu sais parler d'un cadeau,
-      dire à qui il est destiné
-      et utiliser
-      <strong>주다</strong> et <strong>받다</strong>.
+      Vérifie que tu sais parler de ce que tu veux acheter
+      et comprendre les expressions utiles au supermarché.
     </p>
 
   </header>
+
+  <section id="hanaChapterPath" data-chapter-path></section>
+
+  <section class="tip-card" id="personalReviewBox" style="display:none;"></section>
 
 
   <section class="review-card">
@@ -226,21 +211,21 @@
     >
 
       <div class="question-title">
-        1. Que signifie 선물 ?
+        1. Que signifie 뭐를 사고 싶어요?
       </div>
 
       <div class="answer-list">
 
         <button class="answer-button" type="button" data-answer="a">
-          A. Livre
+          A. Où veux-tu aller ?
         </button>
 
         <button class="answer-button" type="button" data-answer="b">
-          B. Cadeau
+          B. Qu'aimerais-tu acheter ?
         </button>
 
         <button class="answer-button" type="button" data-answer="c">
-          C. Fleur
+          C. Combien ça coûte ?
         </button>
 
       </div>
@@ -256,21 +241,21 @@
     >
 
       <div class="question-title">
-        2. Dans 친구에게 선물을 줘요, que marque 에게 ?
+        2. Quelle structure signifie « je veux / j'aimerais... » ?
       </div>
 
       <div class="answer-list">
 
         <button class="answer-button" type="button" data-answer="a">
-          A. Le lieu où se déroule l'action.
+          A. -고 있어요
         </button>
 
         <button class="answer-button" type="button" data-answer="b">
-          B. Le moment de l'action.
+          B. -았어요 / -었어요
         </button>
 
         <button class="answer-button" type="button" data-answer="c">
-          C. La personne à qui quelque chose est donné.
+          C. -고 싶어요
         </button>
 
       </div>
@@ -286,21 +271,21 @@
     >
 
       <div class="question-title">
-        3. Que signifie 선물을 줘요 ?
+        3. Que signifie 커피도 살까요?
       </div>
 
       <div class="answer-list">
 
         <button class="answer-button" type="button" data-answer="a">
-          A. Je donne un cadeau.
+          A. Et si on achetait aussi du café ?
         </button>
 
         <button class="answer-button" type="button" data-answer="b">
-          B. Je reçois un cadeau.
+          B. J'ai acheté du café.
         </button>
 
         <button class="answer-button" type="button" data-answer="c">
-          C. J'achète un cadeau.
+          C. Où est le café ?
         </button>
 
       </div>
@@ -316,51 +301,21 @@
     >
 
       <div class="question-title">
-        4. Que signifie 선물을 받아요 ?
+        4. Que signifie 저쪽 ?
       </div>
 
       <div class="answer-list">
 
         <button class="answer-button" type="button" data-answer="a">
-          A. J'offre un cadeau.
+          A. Ici
         </button>
 
         <button class="answer-button" type="button" data-answer="b">
-          B. Je reçois un cadeau.
+          B. Là-bas / de ce côté-là
         </button>
 
         <button class="answer-button" type="button" data-answer="c">
-          C. Je choisis un cadeau.
-        </button>
-
-      </div>
-
-      <div class="feedback"></div>
-
-    </div>
-
-
-    <div
-      class="question-block"
-      data-correct="c"
-    >
-
-      <div class="question-title">
-        5. Que veut dire 이걸로 할게요 ?
-      </div>
-
-      <div class="answer-list">
-
-        <button class="answer-button" type="button" data-answer="a">
-          A. Je vais le donner.
-        </button>
-
-        <button class="answer-button" type="button" data-answer="b">
-          B. Je n'aime pas celui-ci.
-        </button>
-
-        <button class="answer-button" type="button" data-answer="c">
-          C. Je vais prendre / choisir celui-ci.
+          C. À l'intérieur
         </button>
 
       </div>
@@ -376,21 +331,21 @@
     >
 
       <div class="question-title">
-        6. Quelle phrase signifie « Merci beaucoup » ?
+        5. Quel mot signifie « panier » ?
       </div>
 
       <div class="answer-list">
 
         <button class="answer-button" type="button" data-answer="a">
-          A. 정말 고마워요.
+          A. 장바구니
         </button>
 
         <button class="answer-button" type="button" data-answer="b">
-          B. 좋은 생각이에요.
+          B. 계산대
         </button>
 
         <button class="answer-button" type="button" data-answer="c">
-          C. 선물이에요.
+          C. 채소
         </button>
 
       </div>
@@ -400,6 +355,35 @@
     </div>
 
 
+    <div
+      class="question-block"
+      data-correct="c"
+    >
+
+      <div class="question-title">
+        6. Quelle remarque sur 를 est correcte ?
+      </div>
+
+      <div class="answer-list">
+
+        <button class="answer-button" type="button" data-answer="a">
+          A. 를 signifie toujours « aussi ».
+        </button>
+
+        <button class="answer-button" type="button" data-answer="b">
+          B. 를 est obligatoire dans absolument toutes les phrases parlées.
+        </button>
+
+        <button class="answer-button" type="button" data-answer="c">
+          C. 를 marque le complément d'objet, mais peut parfois être omis à l'oral.
+        </button>
+
+      </div>
+
+      <div class="feedback"></div>
+
+    </div>
+
   </section>
 
 
@@ -408,7 +392,7 @@
     id="resultCard"
   >
 
-    <h2>🎁 Résultat</h2>
+    <h2>🛒 Résultat</h2>
 
     <div
       class="result-score"
@@ -434,28 +418,28 @@
 
     <h2>🎒 Dans ton sac à dos</h2>
 
-    <strong>친구에게 선물을 줘요.</strong><br>
-    → Je donne un cadeau à un ami.
+    <strong>뭐를 사고 싶어요?</strong><br>
+    → Qu'aimerais-tu acheter ?
 
     <br><br>
 
-    <strong>선물을 받아요.</strong><br>
-    → Je reçois un cadeau.
+    <strong>우유를 사고 싶어요.</strong><br>
+    → Je voudrais acheter du lait.
 
     <br><br>
 
-    <strong>친구에게 선물하고 싶어요.</strong><br>
-    → J'aimerais offrir un cadeau à un ami.
+    <strong>커피도 살까요?</strong><br>
+    → Et si on achetait aussi du café ?
 
     <br><br>
 
-    <strong>이걸로 할게요.</strong><br>
-    → Je vais prendre celui-ci.
+    <strong>저쪽에 있어요.</strong><br>
+    → C'est là-bas / de ce côté-là.
 
     <br><br>
 
-    <strong>정말 고마워요.</strong><br>
-    → Merci beaucoup.
+    <strong>같이 가요!</strong><br>
+    → Allons-y ensemble !
 
   </section>
 
@@ -496,6 +480,77 @@
 
   const progressKey =
     "hanaKorean_chapter24_review";
+
+  const understandingKey =
+    "hanaKorean_chapter24_understanding";
+
+  const listeningExerciseKey =
+    "hanaKorean_chapter24_listeningExercise";
+
+  const speakingKey =
+    "hanaKorean_chapter24_speaking";
+
+  const writingKey =
+    "hanaKorean_chapter24_writing";
+
+  const revisionNotionsKey =
+    "hanaKorean_chapter24_revisionNotions";
+
+  const reviewMistakesKey =
+    "hanaKorean_chapter24_reviewMistakes";
+
+  const reviewWeakNotionsKey =
+    "hanaKorean_chapter24_reviewWeakNotions";
+
+  let incorrectAttempts = 0;
+
+  function renderChapterProgress() {
+    if (
+      window.HanaChapterProgress &&
+      typeof window.HanaChapterProgress.render === "function"
+    ) {
+      window.HanaChapterProgress.render();
+    }
+  }
+
+  function guardReviewAccess() {
+    const required = [
+      [understandingKey, "chapitre-24.html"],
+      [listeningExerciseKey, "exercice-ecoute-25.html"],
+      [speakingKey, "parle-24.html"],
+      [writingKey, "ecriture-24.html"]
+    ];
+
+    for (const [key, page] of required) {
+      if (localStorage.getItem(key) !== "completed") {
+        window.location.replace(page);
+        return false;
+      }
+    }
+
+    return true;
+  }
+
+  function loadPersonalReview() {
+    const box = document.getElementById("personalReviewBox");
+    if (!box) return;
+
+    let notions = [];
+    try {
+      notions = JSON.parse(localStorage.getItem(revisionNotionsKey) || "[]");
+    } catch (error) {
+      notions = [];
+    }
+
+    if (!Array.isArray(notions) || notions.length === 0) {
+      box.style.display = "none";
+      return;
+    }
+
+    box.innerHTML = "🧠 <strong>À revoir depuis J'écris :</strong><br><br>" +
+      notions.join(" · ");
+    box.style.display = "block";
+  }
 
 
   const questionBlocks =
@@ -592,7 +647,7 @@
     ) {
 
       resultMessage.textContent =
-        "Excellent 🎁 Tu maîtrises très bien les expressions essentielles de ce chapitre.";
+        "Excellent 🛒 Tu maîtrises très bien les expressions de ce chapitre.";
 
     } else if (
       score >= 5
@@ -604,7 +659,7 @@
     } else {
 
       resultMessage.textContent =
-        "Relis les points clés puis recommence. Repère surtout 에게, 줘요, 받아요 et 이걸로 할게요.";
+        "Relis les points clés puis recommence. Tu peux corriger chaque erreur avant de continuer.";
 
     }
 
@@ -701,6 +756,8 @@
                 showResultsIfComplete();
 
               } else {
+
+                incorrectAttempts++;
 
                 button
                   .classList
@@ -819,6 +876,10 @@
   }
 
 
+  guardReviewAccess();
+  loadPersonalReview();
+  renderChapterProgress();
+
   if (
     localStorage.getItem(
       progressKey
@@ -839,6 +900,18 @@
         "completed"
       );
 
+      localStorage.setItem(
+        reviewMistakesKey,
+        String(incorrectAttempts)
+      );
+
+      localStorage.setItem(
+        reviewWeakNotionsKey,
+        "[]"
+      );
+
+      renderChapterProgress();
+
 
       showCompletedState();
 
@@ -856,93 +929,13 @@
     }
   );
 
-</script>
-
-
-
-<script>
-(function () {
-  const UNDERSTANDING_KEY = "hanaKorean_chapter24_understanding";
-  const LISTENING_EXERCISE_KEY = "hanaKorean_chapter24_listeningExercise";
-  const SPEAKING_KEY = "hanaKorean_chapter24_speaking";
-  const WRITING_KEY = "hanaKorean_chapter24_writing";
-  const REVIEW_KEY = "hanaKorean_chapter24_review";
-  const REVIEW_MISTAKES_KEY = "hanaKorean_chapter24_reviewMistakes";
-  const REVIEW_WEAK_NOTIONS_KEY = "hanaKorean_chapter24_reviewWeakNotions";
-  const REVISION_NOTIONS_KEY = "hanaKorean_chapter24_revisionNotions";
-
-  function renderChapterProgress() {
-    if (window.HanaChapterProgress && typeof window.HanaChapterProgress.render === "function") {
-      window.HanaChapterProgress.render();
-    }
-  }
-
-  function guardReviewAccess() {
-    if (localStorage.getItem(UNDERSTANDING_KEY) !== "completed") {
-      window.location.href = "chapitre-24.html";
-      return false;
-    }
-    if (localStorage.getItem(LISTENING_EXERCISE_KEY) !== "completed") {
-      window.location.href = "exercice-ecoute-24.html";
-      return false;
-    }
-    if (localStorage.getItem(SPEAKING_KEY) !== "completed") {
-      window.location.href = "parle-24.html";
-      return false;
-    }
-    if (localStorage.getItem(WRITING_KEY) !== "completed") {
-      window.location.href = "ecriture-24.html";
-      return false;
-    }
-    return true;
-  }
-
-  function loadPersonalReview() {
-    const box = document.getElementById("personalReview");
-    const content = document.getElementById("personalReviewContent");
-    if (!box || !content) return;
-
-    let notions = [];
-    try {
-      notions = JSON.parse(localStorage.getItem(REVISION_NOTIONS_KEY) || "[]");
-    } catch (e) {
-      notions = [];
-    }
-
-    if (Array.isArray(notions) && notions.length) {
-      content.textContent = "À revoir en priorité : " + notions.join(" · ");
-      box.classList.remove("hidden");
-    } else {
-      box.classList.add("hidden");
-    }
-  }
-
-  if (guardReviewAccess()) {
-    loadPersonalReview();
-    renderChapterProgress();
-  }
-
-  const button = document.getElementById("completeButton");
-  if (button) {
-    button.addEventListener("click", () => {
-      localStorage.setItem(REVIEW_KEY, "completed");
-      if (localStorage.getItem(REVIEW_MISTAKES_KEY) === null) {
-        localStorage.setItem(REVIEW_MISTAKES_KEY, "0");
-      }
-      if (localStorage.getItem(REVIEW_WEAK_NOTIONS_KEY) === null) {
-        localStorage.setItem(REVIEW_WEAK_NOTIONS_KEY, "[]");
-      }
-      renderChapterProgress();
-    });
-  }
 
   window.addEventListener("pageshow", () => {
-    if (guardReviewAccess()) {
-      loadPersonalReview();
-      renderChapterProgress();
-    }
+    guardReviewAccess();
+    loadPersonalReview();
+    renderChapterProgress();
   });
-})();
+
 </script>
 </body>
 

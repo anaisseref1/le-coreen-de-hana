@@ -1,298 +1,1189 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
+
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#F7F4ED">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="theme-color"
+    content="#F7F4ED"
+  >
+
   <title>Chapitre 24 — Résumé</title>
-  <link rel="stylesheet" href="style.css">
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
   <link rel="stylesheet" href="chapter-progress.css">
 
   <style>
-    .summary-header{text-align:center;margin-bottom:24px}
-    .summary-card,.grammar-card,.vocab-card,.bag-card,.tip-card{padding:20px;margin-bottom:18px;background:var(--white);border-radius:var(--radius-large);box-shadow:var(--shadow)}
-    .intro-card{padding:18px;margin-bottom:18px;background:var(--soft-green);border-radius:var(--radius-large);color:var(--navy);line-height:1.7}
-    .expression-item{padding:16px;margin-top:12px;background:#FBFAF6;border-radius:var(--radius-medium);border-left:4px solid var(--jade)}
-    .expression-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
-    .expression-korean{color:var(--navy);font-size:20px;font-weight:bold;line-height:1.45}
-    .expression-french{margin-top:7px;color:var(--text-light);line-height:1.5}
-    .audio-button{flex-shrink:0;width:44px;min-width:44px;height:44px;padding:0;border-radius:50%;background:var(--soft-blue);color:var(--navy);font-size:18px}
-    .playing{background:var(--navy)!important;color:white!important}
-    .grammar-item{padding:15px;margin-top:12px;background:var(--soft-beige);border-radius:var(--radius-medium);color:var(--navy);line-height:1.7}
-    .grammar-pattern{display:inline-block;margin-bottom:7px;color:var(--jade-dark);font-size:18px;font-weight:bold}
-    .vocab-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:12px}
-    .vocab-item{padding:13px;background:#FBFAF6;border-radius:var(--radius-medium)}
-    .vocab-korean{color:var(--navy);font-weight:bold}
-    .vocab-french{margin-top:3px;color:var(--text-light);font-size:14px}
-    .bag-card{background:var(--soft-green);color:var(--navy)}
-    .bag-list{display:flex;flex-direction:column;gap:10px;margin-top:12px}
-    .bag-item{padding:13px 14px;background:rgba(255,255,255,.72);border-radius:var(--radius-medium);line-height:1.6}
-    .tip-card{background:var(--soft-beige);color:var(--navy);line-height:1.7}
-    .bottom-actions{display:flex;flex-direction:column;gap:10px;margin-top:18px}
-    .primary-link,.secondary-link{display:block;width:100%;padding:14px 16px;box-sizing:border-box;border-radius:var(--radius-medium);text-align:center;text-decoration:none;font-weight:bold}
-    .primary-link{background:var(--jade);color:white}
-    .secondary-link{background:var(--soft-beige);color:var(--navy)}
-    @media(max-width:430px){.vocab-grid{grid-template-columns:1fr}}
+
+    .summary-header {
+      text-align:center;
+      margin-bottom:24px;
+    }
+
+    .summary-header h1 {
+      margin-bottom:8px;
+    }
+
+    .summary-header p {
+      color:var(--text-light);
+      line-height:1.7;
+    }
+
+    .summary-card,
+    .grammar-card,
+    .vocab-card,
+    .bag-card,
+    .tip-card {
+      padding:20px;
+      margin-bottom:18px;
+      background:var(--white);
+      border-radius:var(--radius-large);
+      box-shadow:var(--shadow);
+    }
+
+    .intro-card {
+      padding:18px;
+      margin-bottom:18px;
+      background:var(--soft-green);
+      border-radius:var(--radius-large);
+      color:var(--navy);
+      line-height:1.7;
+    }
+
+    .romanization-control {
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      padding:9px 12px;
+      margin-bottom:16px;
+      background:var(--soft-beige);
+      border-radius:14px;
+    }
+
+    .romanization-control-text {
+      line-height:1.35;
+      font-size:13px;
+    }
+
+    .romanization-control-text strong {
+      color:var(--navy);
+      font-size:13px;
+    }
+
+    .toggle-button {
+      flex-shrink:0;
+      min-width:78px;
+      padding:7px 10px;
+      background:var(--jade);
+      color:white;
+      border-radius:12px;
+      font-size:12px;
+      font-weight:600;
+    }
+
+    .expression-item {
+      padding:16px;
+      margin-top:12px;
+      background:#FBFAF6;
+      border-radius:var(--radius-medium);
+      border-left:4px solid var(--jade);
+    }
+
+    .expression-top {
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:12px;
+    }
+
+    .expression-korean {
+      color:var(--navy);
+      font-size:20px;
+      font-weight:bold;
+      line-height:1.45;
+    }
+
+    .romanization {
+      margin-top:4px;
+      color:var(--jade-dark);
+      font-size:14px;
+      line-height:1.5;
+    }
+
+    .romanization.hidden {
+      display:none;
+    }
+
+    .expression-french {
+      margin-top:7px;
+      color:var(--text-light);
+      line-height:1.5;
+    }
+
+    .audio-button {
+      flex-shrink:0;
+      width:44px;
+      min-width:44px;
+      height:44px;
+      padding:0;
+      border-radius:50%;
+      background:var(--soft-blue);
+      color:var(--navy);
+      font-size:18px;
+    }
+
+    .playing {
+      background:var(--navy) !important;
+      color:white !important;
+    }
+
+    .grammar-item {
+      padding:15px;
+      margin-top:12px;
+      background:var(--soft-beige);
+      border-radius:var(--radius-medium);
+      color:var(--navy);
+      line-height:1.7;
+    }
+
+    .grammar-pattern {
+      display:inline-block;
+      margin-bottom:7px;
+      color:var(--jade-dark);
+      font-size:18px;
+      font-weight:bold;
+    }
+
+    .question-list {
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      margin-top:12px;
+    }
+
+    .question-item {
+      padding:14px;
+      background:var(--soft-blue);
+      border-radius:var(--radius-medium);
+    }
+
+    .question-item strong {
+      display:block;
+      color:var(--navy);
+      font-size:18px;
+      line-height:1.45;
+    }
+
+    .question-item span {
+      display:block;
+      margin-top:4px;
+      color:var(--text-light);
+    }
+
+    .vocab-grid {
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0, 1fr));
+      gap:10px;
+      margin-top:12px;
+    }
+
+    .vocab-item {
+      padding:13px;
+      background:#FBFAF6;
+      border-radius:var(--radius-medium);
+    }
+
+    .vocab-korean {
+      color:var(--navy);
+      font-weight:bold;
+    }
+
+    .vocab-french {
+      margin-top:3px;
+      color:var(--text-light);
+      font-size:14px;
+    }
+
+    .bag-card {
+      background:var(--soft-green);
+      color:var(--navy);
+    }
+
+    .bag-list {
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      margin-top:12px;
+    }
+
+    .bag-item {
+      padding:13px 14px;
+      background:rgba(255,255,255,0.72);
+      border-radius:var(--radius-medium);
+      line-height:1.6;
+    }
+
+    .tip-card {
+      background:var(--soft-beige);
+      color:var(--navy);
+      line-height:1.7;
+    }
+
+    .bottom-actions {
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      margin-top:18px;
+    }
+
+    .primary-link,
+    .secondary-link {
+      display:block;
+      width:100%;
+      padding:14px 16px;
+      box-sizing:border-box;
+      border-radius:var(--radius-medium);
+      text-align:center;
+      text-decoration:none;
+      font-weight:bold;
+    }
+
+    .primary-link {
+      background:var(--jade);
+      color:white;
+    }
+
+    .secondary-link {
+      background:var(--soft-beige);
+      color:var(--navy);
+    }
+
+    @media (max-width:430px) {
+
+      .vocab-grid {
+        grid-template-columns:1fr;
+      }
+
+    }
+
   </style>
+
   <script src="profile.js"></script>
 </head>
 
+
 <body>
+
+
 <main class="app">
 
-  <a class="back-link" href="utilise-24.html">← Mission du chapitre</a>
+
+  <a
+    class="back-link"
+    href="utilise-24.html"
+  >
+    ← Je l'utilise
+  </a>
+
+
+  <header class="summary-header">
+
+    <span class="chapter-badge">
+      Chapitre 24 · Résumé
+    </span>
+
+    <p class="korean">
+      뭐를 사고 싶어요? 🛒
+    </p>
+
+    <h1>
+      Faire les courses
+    </h1>
+
+    <p>
+      Retrouve ici les expressions, questions,
+      structures et mots essentiels du chapitre.
+    </p>
+
+  </header>
 
   <section id="hanaChapterPath" data-chapter-path></section>
 
-  <header class="summary-header">
-    <span class="chapter-badge">Chapitre 24 · Résumé</span>
-    <p class="korean">선물이에요. 🎁</p>
-    <h1>Offrir un cadeau</h1>
-    <p>Retrouve ici les expressions, structures et mots essentiels du chapitre.</p>
-  </header>
 
   <section class="intro-card">
-    <strong>📖 Ta fiche du chapitre</strong><br><br>
-    Tu sais maintenant parler d'un cadeau, dire à qui il est destiné,
-    utiliser <strong>주다</strong> et <strong>받다</strong>,
-    choisir un présent et remercier quelqu'un.
+
+    <strong>📖 Ta fiche du chapitre</strong>
+
+    <br><br>
+
+    Cette page te permet de revoir rapidement
+    comment dire ce que tu veux acheter,
+    proposer un produit et demander où il se trouve.
+
   </section>
+
+
+  <section
+    class="romanization-control"
+    aria-label="Réglage de la romanisation"
+  >
+
+    <div class="romanization-control-text">
+
+      <strong>가나다 Romanisation</strong>
+
+      <br>
+
+      <span id="romanizationStatus">
+        Affichée
+      </span>
+
+    </div>
+
+    <button
+      class="toggle-button"
+      id="romanizationToggle"
+      type="button"
+    >
+      Masquer
+    </button>
+
+  </section>
+
 
   <section class="summary-card">
+
     <h2>🎧 Expressions essentielles</h2>
 
-    <div class="expression-item">
-      <div class="expression-top">
-        <div>
-          <div class="expression-korean">선물이에요.</div>
-          <div class="expression-french">C'est un cadeau.</div>
-        </div>
-        <button class="audio-button" type="button" data-text="선물이에요." aria-label="Écouter 선물이에요">🔊</button>
-      </div>
-    </div>
 
     <div class="expression-item">
+
       <div class="expression-top">
+
         <div>
-          <div class="expression-korean">친구에게 선물하고 싶어요.</div>
-          <div class="expression-french">J'aimerais offrir un cadeau à un ami / une amie.</div>
+
+          <div class="expression-korean">
+            뭐를 사고 싶어요?
+          </div>
+
+          <div class="romanization">
+            mworeul sago sipeoyo?
+          </div>
+
+          <div class="expression-french">
+            Qu'aimerais-tu acheter ?
+          </div>
+
         </div>
-        <button class="audio-button" type="button" data-text="친구에게 선물하고 싶어요." aria-label="Écouter 친구에게 선물하고 싶어요">🔊</button>
+
+        <button
+          class="audio-button"
+          type="button"
+          data-text="뭐를 사고 싶어요?"
+          aria-label="Écouter 뭐를 사고 싶어요"
+        >
+          🔊
+        </button>
+
       </div>
+
     </div>
 
-    <div class="expression-item">
-      <div class="expression-top">
-        <div>
-          <div class="expression-korean">친구에게 선물을 줘요.</div>
-          <div class="expression-french">Je donne un cadeau à un ami.</div>
-        </div>
-        <button class="audio-button" type="button" data-text="친구에게 선물을 줘요." aria-label="Écouter 친구에게 선물을 줘요">🔊</button>
-      </div>
-    </div>
 
     <div class="expression-item">
+
       <div class="expression-top">
+
         <div>
-          <div class="expression-korean">선물을 받아요.</div>
-          <div class="expression-french">Je reçois un cadeau.</div>
+
+          <div class="expression-korean">
+            우유를 사고 싶어요.
+          </div>
+
+          <div class="romanization">
+            uyureul sago sipeoyo
+          </div>
+
+          <div class="expression-french">
+            Je voudrais acheter du lait.
+          </div>
+
         </div>
-        <button class="audio-button" type="button" data-text="선물을 받아요." aria-label="Écouter 선물을 받아요">🔊</button>
+
+        <button
+          class="audio-button"
+          type="button"
+          data-text="우유를 사고 싶어요."
+          aria-label="Écouter 우유를 사고 싶어요"
+        >
+          🔊
+        </button>
+
       </div>
+
     </div>
 
-    <div class="expression-item">
-      <div class="expression-top">
-        <div>
-          <div class="expression-korean">이걸로 할게요.</div>
-          <div class="expression-french">Je vais prendre / choisir celui-ci.</div>
-        </div>
-        <button class="audio-button" type="button" data-text="이걸로 할게요." aria-label="Écouter 이걸로 할게요">🔊</button>
-      </div>
-    </div>
 
     <div class="expression-item">
+
       <div class="expression-top">
+
         <div>
-          <div class="expression-korean">정말 고마워요.</div>
-          <div class="expression-french">Merci beaucoup.</div>
+
+          <div class="expression-korean">
+            커피도 살까요?
+          </div>
+
+          <div class="romanization">
+            keopido salkkayo?
+          </div>
+
+          <div class="expression-french">
+            Et si on achetait aussi du café ?
+          </div>
+
         </div>
-        <button class="audio-button" type="button" data-text="정말 고마워요." aria-label="Écouter 정말 고마워요">🔊</button>
+
+        <button
+          class="audio-button"
+          type="button"
+          data-text="커피도 살까요?"
+          aria-label="Écouter 커피도 살까요"
+        >
+          🔊
+        </button>
+
       </div>
+
     </div>
+
+
+    <div class="expression-item">
+
+      <div class="expression-top">
+
+        <div>
+
+          <div class="expression-korean">
+            과자는 어디에 있어요?
+          </div>
+
+          <div class="romanization">
+            gwajaneun eodie isseoyo?
+          </div>
+
+          <div class="expression-french">
+            Où sont les biscuits ?
+          </div>
+
+        </div>
+
+        <button
+          class="audio-button"
+          type="button"
+          data-text="과자는 어디에 있어요?"
+          aria-label="Écouter 과자는 어디에 있어요"
+        >
+          🔊
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="expression-item">
+
+      <div class="expression-top">
+
+        <div>
+
+          <div class="expression-korean">
+            과자는 저쪽에 있어요.
+          </div>
+
+          <div class="romanization">
+            gwajaneun jeojjoge isseoyo
+          </div>
+
+          <div class="expression-french">
+            Les biscuits sont là-bas / de ce côté-là.
+          </div>
+
+        </div>
+
+        <button
+          class="audio-button"
+          type="button"
+          data-text="과자는 저쪽에 있어요."
+          aria-label="Écouter 과자는 저쪽에 있어요"
+        >
+          🔊
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="expression-item">
+
+      <div class="expression-top">
+
+        <div>
+
+          <div class="expression-korean">
+            같이 가요!
+          </div>
+
+          <div class="romanization">
+            gachi gayo!
+          </div>
+
+          <div class="expression-french">
+            Allons-y ensemble !
+          </div>
+
+        </div>
+
+        <button
+          class="audio-button"
+          type="button"
+          data-text="같이 가요!"
+          aria-label="Écouter 같이 가요"
+        >
+          🔊
+        </button>
+
+      </div>
+
+    </div>
+
   </section>
+
 
   <section class="grammar-card">
-    <h2>💙 Structures importantes</h2>
+
+    <h2>🧠 Grammaire essentielle</h2>
+
 
     <div class="grammar-item">
-      <span class="grammar-pattern">에게 — à quelqu'un</span><br>
-      Marque la personne liée à l'action, notamment la personne à qui quelque chose est donné.<br><br>
-      <strong>친구에게 선물을 줘요.</strong><br>
-      → Je donne un cadeau à un ami.
+
+      <span class="grammar-pattern">
+        -고 싶어요
+      </span>
+
+      <br>
+
+      Sert à dire ce que tu veux ou aimerais faire.
+
+      <br><br>
+
+      <strong>
+        사다 → 사고 싶어요
+      </strong>
+
+      <br>
+
+      → vouloir / aimerait acheter
+
     </div>
 
-    <div class="grammar-item">
-      <span class="grammar-pattern">주다 — donner</span><br>
-      <strong>선물을 줘요.</strong><br>
-      → Je donne un cadeau.
-    </div>
 
     <div class="grammar-item">
-      <span class="grammar-pattern">받다 — recevoir</span><br>
-      <strong>선물을 받아요.</strong><br>
-      → Je reçois un cadeau.<br><br>
-      Le chapitre mentionne aussi <strong>에게서</strong> pour insister sur la personne de qui vient quelque chose :<br>
-      <strong>친구에게서 선물을 받아요.</strong>
+
+      <span class="grammar-pattern">
+        그리고
+      </span>
+
+      <br>
+
+      Signifie
+      <strong>« et »</strong>
+      ou
+      <strong>« ensuite »</strong>.
+
+      <br><br>
+
+      <strong>
+        커피를 샀어요. 그리고 우유도 샀어요.
+      </strong>
+
+      <br>
+
+      → J'ai acheté du café. Puis j'ai aussi acheté du lait.
+
     </div>
+
+
+    <div class="grammar-item">
+
+      <span class="grammar-pattern">
+        저쪽
+      </span>
+
+      <br>
+
+      Signifie
+      <strong>« là-bas / de ce côté-là »</strong>.
+
+      <br><br>
+
+      <strong>
+        계산대는 저쪽에 있어요.
+      </strong>
+
+      <br>
+
+      → La caisse est là-bas.
+
+    </div>
+
+
+    <div class="grammar-item">
+
+      <span class="grammar-pattern">
+        를
+      </span>
+
+      <br>
+
+      Marque le complément d'objet.
+
+      <br><br>
+
+      Lorsque tu apprends, garde de préférence :
+
+      <br>
+
+      <strong>
+        우유를 사고 싶어요.
+      </strong>
+
+      <br><br>
+
+      À l'oral, tu peux parfois entendre :
+
+      <br>
+
+      <strong>
+        우유 사고 싶어요.
+      </strong>
+
+    </div>
+
+
+    <div class="grammar-item">
+
+      <span class="grammar-pattern">
+        딸기
+      </span>
+
+      <br>
+
+      Le
+      <strong>ㄸ</strong>
+      est une consonne tendue.
+
+      <br><br>
+
+      Prononciation :
+      <strong>ttal-gi</strong>.
+
+    </div>
+
   </section>
+
+
+  <section class="summary-card">
+
+    <h2>❓ Questions utiles du chapitre</h2>
+
+    <div class="question-list">
+
+      <div class="question-item">
+        <strong>뭐를 사고 싶어요?</strong>
+        <span>Qu'aimerais-tu acheter ?</span>
+      </div>
+
+      <div class="question-item">
+        <strong>커피도 살까요?</strong>
+        <span>Et si on achetait aussi du café ?</span>
+      </div>
+
+      <div class="question-item">
+        <strong>과자는 어디에 있어요?</strong>
+        <span>Où sont les biscuits ?</span>
+      </div>
+
+      <div class="question-item">
+        <strong>계산대는 어디에 있어요?</strong>
+        <span>Où est la caisse ?</span>
+      </div>
+
+    </div>
+
+  </section>
+
 
   <section class="vocab-card">
-    <h2>🟩 Vocabulaire essentiel</h2>
+
+    <h2>🧳 Vocabulaire essentiel</h2>
+
     <div class="vocab-grid">
-      <div class="vocab-item"><div class="vocab-korean">선물</div><div class="vocab-french">cadeau</div></div>
-      <div class="vocab-item"><div class="vocab-korean">선물하다</div><div class="vocab-french">offrir un cadeau</div></div>
-      <div class="vocab-item"><div class="vocab-korean">주다</div><div class="vocab-french">donner</div></div>
-      <div class="vocab-item"><div class="vocab-korean">받다</div><div class="vocab-french">recevoir</div></div>
+
+      <div class="vocab-item"><div class="vocab-korean">마트</div><div class="vocab-french">supermarché</div></div>
       <div class="vocab-item"><div class="vocab-korean">사다</div><div class="vocab-french">acheter</div></div>
-      <div class="vocab-item"><div class="vocab-korean">고르다</div><div class="vocab-french">choisir</div></div>
-      <div class="vocab-item"><div class="vocab-korean">친구</div><div class="vocab-french">ami(e)</div></div>
-      <div class="vocab-item"><div class="vocab-korean">가족</div><div class="vocab-french">famille</div></div>
-      <div class="vocab-item"><div class="vocab-korean">차</div><div class="vocab-french">thé</div></div>
-      <div class="vocab-item"><div class="vocab-korean">꽃</div><div class="vocab-french">fleur</div></div>
-      <div class="vocab-item"><div class="vocab-korean">초콜릿</div><div class="vocab-french">chocolat</div></div>
-      <div class="vocab-item"><div class="vocab-korean">책</div><div class="vocab-french">livre</div></div>
+      <div class="vocab-item"><div class="vocab-korean">우유</div><div class="vocab-french">lait</div></div>
+      <div class="vocab-item"><div class="vocab-korean">딸기</div><div class="vocab-french">fraises</div></div>
+      <div class="vocab-item"><div class="vocab-korean">커피</div><div class="vocab-french">café</div></div>
+      <div class="vocab-item"><div class="vocab-korean">과자</div><div class="vocab-french">biscuits / snacks</div></div>
+      <div class="vocab-item"><div class="vocab-korean">라면</div><div class="vocab-french">nouilles instantanées</div></div>
+      <div class="vocab-item"><div class="vocab-korean">물</div><div class="vocab-french">eau</div></div>
+      <div class="vocab-item"><div class="vocab-korean">빵</div><div class="vocab-french">pain</div></div>
+      <div class="vocab-item"><div class="vocab-korean">과일</div><div class="vocab-french">fruits</div></div>
+      <div class="vocab-item"><div class="vocab-korean">채소</div><div class="vocab-french">légumes</div></div>
+      <div class="vocab-item"><div class="vocab-korean">계산대</div><div class="vocab-french">caisse</div></div>
+      <div class="vocab-item"><div class="vocab-korean">장바구니</div><div class="vocab-french">panier</div></div>
+
     </div>
+
   </section>
 
-  <section class="bag-card">
-    <h2>🎒 Ce que tu emportes</h2>
-    <div class="bag-list">
-      <div class="bag-item">🎁 <strong>선물이에요.</strong><br>Pour dire que quelque chose est un cadeau.</div>
-      <div class="bag-item">👤 <strong>친구에게 선물을 줘요.</strong><br>Pour dire à qui tu donnes quelque chose.</div>
-      <div class="bag-item">📥 <strong>선물을 받아요.</strong><br>Pour parler du fait de recevoir un cadeau.</div>
-      <div class="bag-item">🛍️ <strong>이걸로 할게요.</strong><br>Pour choisir celui-ci.</div>
-      <div class="bag-item">💚 <strong>정말 고마워요.</strong><br>Pour remercier chaleureusement.</div>
-    </div>
-  </section>
 
   <section class="tip-card">
-    <h2>🌸 Récapitulatif</h2>
-    Un petit cadeau peut servir à remercier quelqu'un, marquer une occasion
-    ou simplement faire plaisir. Le chapitre insiste surtout sur l'intention
-    et sur les expressions utiles pour donner, recevoir, choisir et remercier.
+
+    <h2>💡 Le conseil de Ji-soo</h2>
+
+    Dans une épicerie coréenne, essaie de lire
+    quelques emballages avant de regarder la traduction.
+
+    <br><br>
+
+    Commence par les mots que tu connais déjà :
+    <strong>우유</strong>,
+    <strong>물</strong>,
+    <strong>커피</strong>,
+    <strong>딸기</strong>,
+    <strong>라면</strong>.
+
   </section>
 
+
+  <section class="bag-card">
+
+    <h2>🎒 À mettre dans mon sac à dos</h2>
+
+    <div class="bag-list">
+
+      <div class="bag-item">
+        🛒 <strong>뭐를 사고 싶어요?</strong><br>
+        Pour demander ce que quelqu'un veut acheter.
+      </div>
+
+      <div class="bag-item">
+        🥛 <strong>우유를 사고 싶어요.</strong><br>
+        Pour dire ce que tu veux acheter.
+      </div>
+
+      <div class="bag-item">
+        ☕ <strong>커피도 살까요?</strong><br>
+        Pour proposer d'ajouter un produit.
+      </div>
+
+      <div class="bag-item">
+        📍 <strong>어디에 있어요?</strong><br>
+        Pour demander où se trouve quelque chose.
+      </div>
+
+      <div class="bag-item">
+        👉 <strong>저쪽에 있어요.</strong><br>
+        Pour indiquer « là-bas ».
+      </div>
+
+    </div>
+
+  </section>
+
+
   <div class="bottom-actions">
-    <a class="primary-link" href="utilise-24.html">🎯 Refaire la mission du chapitre</a>
-    <a class="secondary-link" href="chapitre-24.html">← Retour au chapitre 24</a>
+
+    <a
+      class="primary-link"
+      href="utilise-24.html"
+    >
+      🎯 Refaire la mission du chapitre
+    </a>
+
+    <a
+      class="secondary-link"
+      href="sac-a-dos.html"
+    >
+      🎒 Ouvrir mon sac à dos
+    </a>
+
+    <a
+      class="secondary-link"
+      href="chapitre-24.html"
+    >
+      ← Retour au chapitre 24
+    </a>
+
   </div>
+
 
 </main>
 
-<script src="chapter-progress.js"></script>
-<script>
-(function () {
-  const REQUIRED_KEY = "hanaKorean_chapter24_use";
-  const LEGACY_MISSION_KEY = "hanaKorean_chapter24_mission";
-  const LEGACY_COMPLETED_KEY = "hanaKorean_chapter24_completed";
-  const SUMMARY_KEY = "hanaKorean_chapter24_resume";
 
-  function migrateLegacyProgress() {
+<script src="chapter-progress.js"></script>
+
+<script>
+
+  const requiredUseKey =
+    "hanaKorean_chapter24_use";
+
+  const legacyMissionKey =
+    "hanaKorean_chapter24_mission";
+
+  const legacyCompletedKey =
+    "hanaKorean_chapter24_completed";
+
+  const summaryKey =
+    "hanaKorean_chapter24_resume";
+
+  function renderChapterProgress() {
     if (
-      localStorage.getItem(REQUIRED_KEY) !== "completed" &&
-      (
-        localStorage.getItem(LEGACY_MISSION_KEY) === "completed" ||
-        localStorage.getItem(LEGACY_COMPLETED_KEY) === "completed"
-      )
+      window.HanaChapterProgress &&
+      typeof window.HanaChapterProgress.render === "function"
     ) {
-      localStorage.setItem(REQUIRED_KEY, "completed");
+      window.HanaChapterProgress.render();
+    }
+  }
+
+  function migrateMissionProgress() {
+    if (localStorage.getItem(requiredUseKey) === "completed") {
+      return;
+    }
+
+    if (
+      localStorage.getItem(legacyMissionKey) === "completed" ||
+      localStorage.getItem(legacyCompletedKey) === "completed"
+    ) {
+      localStorage.setItem(requiredUseKey, "completed");
     }
   }
 
   function guardSummaryAccess() {
-    migrateLegacyProgress();
+    migrateMissionProgress();
 
-    if (localStorage.getItem(REQUIRED_KEY) !== "completed") {
-      window.location.href = "utilise-24.html";
+    if (localStorage.getItem(requiredUseKey) !== "completed") {
+      window.location.replace("utilise-24.html");
       return false;
     }
 
-    localStorage.setItem(SUMMARY_KEY, "completed");
-
-    if (window.HanaChapterProgress && typeof window.HanaChapterProgress.render === "function") {
-      window.HanaChapterProgress.render();
-    }
-
+    localStorage.setItem(summaryKey, "completed");
+    renderChapterProgress();
     return true;
   }
 
-  let currentAudioButton = null;
+  guardSummaryAccess();
+
+
+  const AUDIO_SETTINGS = {
+    normalRate: 0.82,
+    slowRate: 0.25
+  };
+
+
+  const ROMANIZATION_KEY =
+    "hanaKorean_showRomanization";
+
+
+  let currentAudioButton =
+    null;
+
 
   function getKoreanVoice() {
-    const voices = window.speechSynthesis.getVoices();
+
+    const voices =
+      window.speechSynthesis.getVoices();
+
+
     return voices.find(
-      voice => voice.lang && voice.lang.toLowerCase().startsWith("ko")
+      voice =>
+        voice.lang &&
+        voice.lang
+          .toLowerCase()
+          .startsWith("ko")
     ) || null;
+
   }
+
 
   function stopSpeech() {
+
     window.speechSynthesis.cancel();
 
-    if (currentAudioButton) {
-      currentAudioButton.classList.remove("playing");
-      currentAudioButton = null;
+
+    if (
+      currentAudioButton
+    ) {
+
+      currentAudioButton
+        .classList
+        .remove(
+          "playing"
+        );
+
+
+      currentAudioButton =
+        null;
+
     }
+
   }
 
-  function speakKorean(text, button) {
+
+  function speakKorean(
+    text,
+    button
+  ) {
+
     if (
       currentAudioButton === button &&
       window.speechSynthesis.speaking
     ) {
+
       stopSpeech();
       return;
+
     }
+
 
     stopSpeech();
 
-    const utterance = new SpeechSynthesisUtterance(text);
-    utterance.lang = "ko-KR";
-    utterance.rate = 0.82;
-    utterance.pitch = 1;
 
-    const koreanVoice = getKoreanVoice();
-    if (koreanVoice) utterance.voice = koreanVoice;
+    const utterance =
+      new SpeechSynthesisUtterance(
+        text
+      );
 
-    currentAudioButton = button;
-    button.classList.add("playing");
 
-    utterance.onend = () => {
-      button.classList.remove("playing");
-      if (currentAudioButton === button) currentAudioButton = null;
-    };
+    utterance.lang =
+      "ko-KR";
 
-    utterance.onerror = () => {
-      button.classList.remove("playing");
-      if (currentAudioButton === button) currentAudioButton = null;
-    };
+    utterance.rate =
+      AUDIO_SETTINGS.normalRate;
 
-    window.speechSynthesis.speak(utterance);
+    utterance.pitch =
+      1;
+
+
+    const koreanVoice =
+      getKoreanVoice();
+
+
+    if (
+      koreanVoice
+    ) {
+
+      utterance.voice =
+        koreanVoice;
+
+    }
+
+
+    currentAudioButton =
+      button;
+
+
+    button
+      .classList
+      .add(
+        "playing"
+      );
+
+
+    utterance.onend =
+      () => {
+
+        button
+          .classList
+          .remove(
+            "playing"
+          );
+
+
+        currentAudioButton =
+          null;
+
+      };
+
+
+    utterance.onerror =
+      () => {
+
+        button
+          .classList
+          .remove(
+            "playing"
+          );
+
+
+        currentAudioButton =
+          null;
+
+      };
+
+
+    window.speechSynthesis.speak(
+      utterance
+    );
+
   }
 
-  document.querySelectorAll("[data-text]").forEach(button => {
-    button.addEventListener("click", () => {
-      speakKorean(button.dataset.text, button);
-    });
+
+  function getRomanizationPreference() {
+
+    const stored =
+      localStorage.getItem(
+        ROMANIZATION_KEY
+      );
+
+
+    if (
+      stored === null
+    ) {
+
+      return true;
+
+    }
+
+
+    return stored ===
+      "true";
+
+  }
+
+
+  function applyRomanizationPreference(
+    show
+  ) {
+
+    document
+      .querySelectorAll(
+        ".romanization"
+      )
+      .forEach(
+        item => {
+
+          item.classList.toggle(
+            "hidden",
+            !show
+          );
+
+        }
+      );
+
+
+    document
+      .getElementById(
+        "romanizationStatus"
+      )
+      .textContent =
+        show
+          ? "Affichée"
+          : "Masquée";
+
+
+    document
+      .getElementById(
+        "romanizationToggle"
+      )
+      .textContent =
+        show
+          ? "Masquer"
+          : "Afficher";
+
+  }
+
+
+  document
+    .getElementById(
+      "romanizationToggle"
+    )
+    .addEventListener(
+      "click",
+      () => {
+
+        const next =
+          !getRomanizationPreference();
+
+
+        localStorage.setItem(
+          ROMANIZATION_KEY,
+          String(next)
+        );
+
+
+        applyRomanizationPreference(
+          next
+        );
+
+      }
+    );
+
+
+  document
+    .querySelectorAll(
+      "[data-text]"
+    )
+    .forEach(
+      button => {
+
+        button.addEventListener(
+          "click",
+          () => {
+
+            speakKorean(
+              button.dataset.text,
+              button
+            );
+
+          }
+        );
+
+      }
+    );
+
+
+  window.speechSynthesis.onvoiceschanged =
+    () => {
+      getKoreanVoice();
+    };
+
+
+  applyRomanizationPreference(
+    getRomanizationPreference()
+  );
+
+
+  window.addEventListener("pageshow", () => {
+    guardSummaryAccess();
   });
 
-  window.addEventListener("beforeunload", stopSpeech);
-  window.speechSynthesis.onvoiceschanged = () => getKoreanVoice();
-
-  guardSummaryAccess();
-
-  window.addEventListener("pageshow", guardSummaryAccess);
-})();
 </script>
 </body>
+
 </html>

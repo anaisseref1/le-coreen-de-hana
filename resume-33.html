@@ -20,47 +20,46 @@
 <section id="hanaChapterPath" data-chapter-path></section>
 <header>
   <span class="chapter-badge">Chapitre 33 · 📚 Résumé</span>
-  <p class="korean">왜요? 🌸</p>
-  <h1>Expliquer pourquoi</h1>
+  <p class="korean">내 생각을 말해요 🌸</p>
+  <h1>Dire ce qu'on pense</h1>
 </header>
 
 <section class="summary-card">
-  <h2>❓ Demander une raison</h2>
-  <div class="item"><span class="ko">왜 한국을 좋아해요?</span><br>Pourquoi aimes-tu la Corée ?</div>
+  <h2>💙 Structure essentielle</h2>
+  <div class="item"><span class="ko">재미있다 → 재미있다고 생각해요.</span><br>Je pense que c'est intéressant.</div>
+  <div class="item"><span class="ko">어렵다 → 어렵다고 생각해요.</span><br>Je pense que c'est difficile.</div>
+  <div class="item"><span class="ko">예쁘다 → 예쁘다고 생각해요.</span><br>Je pense que c'est joli.</div>
 </section>
 
 <section class="summary-card">
-  <h2>💬 Parce que…</h2>
-  <div class="item"><span class="ko">풍경이 아름다워서 좋아해요.</span><br>J'aime parce que les paysages sont magnifiques.</div>
-  <div class="item"><span class="ko">풍경이 아름다워서요.</span><br>Parce que les paysages sont magnifiques.</div>
+  <h2>💬 Demander un avis</h2>
+  <div class="item"><span class="ko">이 영화 어때요?</span><br>Que penses-tu de ce film ?</div>
+  <div class="item"><span class="ko">이 영화 어떻게 생각해요?</span><br>Qu'est-ce que tu penses de ce film ?</div>
 </section>
 
 <section class="summary-card">
-  <h2>➡️ Donc / c'est pourquoi</h2>
-  <div class="item"><span class="ko">서울에 있으면 마음이 편해요. 그래서 다시 가고 싶어요.</span><br>Je me sens bien à Séoul. C'est pourquoi je veux y retourner.</div>
+  <h2>🗣️ Réagir</h2>
+  <div class="item"><span class="ko">맞아요.</span> → Exactement.</div>
+  <div class="item"><span class="ko">저도 그렇게 생각해요.</span> → Moi aussi, je pense comme ça.</div>
+  <div class="item"><span class="ko">저는 조금 다르게 생각해요.</span> → Moi, je pense un peu différemment.</div>
 </section>
 
 <section class="summary-card">
-  <h2>💙 Important</h2>
-  <div class="item"><span class="ko">좋다 → 좋아서</span><br>parce que c'est bien / cela plaît</div>
-  <div class="item"><span class="ko">좋아하다 → 좋아해서</span><br>parce que j'aime</div>
-</section>
-
-<section class="summary-card">
-  <h2>🌸 Expression personnelle</h2>
-  <div class="item"><span class="ko">서울이 그리워요.</span><br>Séoul me manque.</div>
+  <h2>🌱 Ne pas confondre</h2>
+  <div class="item"><span class="ko">맛있을 것 같아요.</span><br>Ça a l'air bon / supposition.</div>
+  <div class="item"><span class="ko">맛있다고 생각해요.</span><br>Je pense que c'est bon / opinion.</div>
 </section>
 
 <section class="summary-card">
   <h2>🎒 Dans mon sac à dos</h2>
-  <p><strong>왜</strong>, <strong>-아서/어서(요)</strong>, <strong>그래서</strong> et les expressions personnelles du chapitre 33 ont été ajoutés.</p>
+  <p>Les structures pour demander et donner un avis sont maintenant ajoutées à ton Sac à dos coréen.</p>
   <button type="button" style="width:100%;" onclick="window.location.href='sac-a-dos.html'">🎒 Ouvrir mon sac à dos</button>
 </section>
 
 <section class="summary-card">
   <h2>🌸 Prochaine étape</h2>
-  <p><strong>서울하고 파리는 뭐가 달라요?</strong><br>Qu'est-ce qui est différent entre Séoul et Paris ?</p>
-  <p>➡️ Chapitre 34 — <strong>Comparer</strong>.</p>
+  <p><strong>왜 한국을 좋아해요?</strong><br>Pourquoi est-ce que tu aimes la Corée ?</p>
+  <p>➡️ Chapitre 34 — <strong>Expliquer pourquoi</strong>.</p>
 </section>
 
 <button id="backRoute" type="button" style="width:100%;">🗺️ Retour au Module 4</button>
@@ -69,11 +68,8 @@
 <script>
 const COMPLETED_KEY="hanaKorean_chapter33_completed";
 const RESUME_KEY="hanaKorean_chapter33_resume";
-if(localStorage.getItem(COMPLETED_KEY)!=="completed"){
-  window.location.href="utilise-33.html";
-}else{
-  localStorage.setItem(RESUME_KEY,"completed");
-}
+if(localStorage.getItem(COMPLETED_KEY)!=="completed"){window.location.href="utilise-33.html";}
+else{localStorage.setItem(RESUME_KEY,"completed");}
 document.getElementById("backRoute").addEventListener("click",()=>window.location.href="itineraire.html#module4");
 if(window.HanaChapterProgress)HanaChapterProgress.render();
 </script>

@@ -1,22 +1,163 @@
-<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#F7F4ED"><title>Chapitre 28 — Je révise</title><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="chapter-progress.css"><style>.review-header{text-align:center;margin-bottom:24px}.card{padding:20px;margin-bottom:18px;background:var(--white);border-radius:var(--radius-large);box-shadow:var(--shadow)}.quiz{padding:15px;margin-top:12px;background:#FBFAF6;border-radius:var(--radius-medium)}.quiz button{width:100%;margin-top:8px}.feedback{margin-top:8px}.personal-review{display:none;padding:16px;margin-bottom:18px;background:var(--soft-green);border-radius:var(--radius-large);color:var(--navy);line-height:1.7}.next-button{display:none;width:100%;margin-top:10px;background:var(--navy);color:white;font-weight:bold}</style>  <script src="profile.js"></script>
-</head><body><main class="app"><a class="back-link" href="ecriture-28.html">← Écriture</a><section id="hanaChapterPath" data-chapter-path></section>
-<header class="review-header"><span class="chapter-badge">Chapitre 28 · 🧠 Je révise</span><p class="korean">부산 여행</p><h1>Révision Busan</h1><p>Vérifie tes connaissances avant la mission finale.</p></header>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#F7F4ED">
+<title>Chapitre 28 — Je révise</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="chapter-progress.css">
+<style>
+.review-header{text-align:center;margin-bottom:24px}
+.card{padding:20px;margin-bottom:18px;background:var(--white);border-radius:var(--radius-large);box-shadow:var(--shadow)}
+.quiz{padding:15px;margin-top:12px;background:#FBFAF6;border-radius:var(--radius-medium)}
+.quiz button{width:100%;margin-top:8px}
+.feedback{margin-top:8px}
+.personal-review{display:none;padding:18px;margin-bottom:18px;background:var(--soft-green);border-radius:var(--radius-large);color:var(--navy);line-height:1.7}
+.complete-button,.next-button{display:none;width:100%;margin-top:10px}
+.complete-button{background:var(--jade);color:white;font-weight:bold}
+.next-button{background:var(--navy);color:white;font-weight:bold}
+</style>
+  <script src="profile.js"></script>
+</head>
+<body>
+<main class="app">
+<a class="back-link" href="ecriture-28.html">← Écriture</a>
+<section id="hanaChapterPath" data-chapter-path></section>
+
+<header class="review-header">
+<span class="chapter-badge">Chapitre 28 · 🧠 Je révise</span>
+<p class="korean">기차역</p>
+<h1>Révision gare</h1>
+<p>Vérifie tes connaissances avant la mission finale.</p>
+</header>
+
 <section id="personalReviewBox" class="personal-review"></section>
-<section class="card"><h2>🧠 Quiz</h2>
-<div class="quiz" data-answer="b" data-notion="부산"><p><strong>1. Que signifie 부산 ?</strong></p><button data-choice="a" type="button">Séoul</button><button data-choice="b" type="button">Busan</button><button data-choice="c" type="button">Jeju</button><div class="feedback"></div></div>
-<div class="quiz" data-answer="a" data-notion="바다"><p><strong>2. 바다 signifie :</strong></p><button data-choice="a" type="button">La mer</button><button data-choice="b" type="button">La montagne</button><button data-choice="c" type="button">La gare</button><div class="feedback"></div></div>
-<div class="quiz" data-answer="c" data-notion="-고 싶어요"><p><strong>3. Comment dire « Je veux voir la mer » ?</strong></p><button data-choice="a" type="button">바다를 먹고 싶어요.</button><button data-choice="b" type="button">바다를 가고 싶어요.</button><button data-choice="c" type="button">바다를 보고 싶어요.</button><div class="feedback"></div></div>
-<div class="quiz" data-answer="b" data-notion="사진을 찍다"><p><strong>4. 사진을 찍다 signifie :</strong></p><button data-choice="a" type="button">Regarder un film</button><button data-choice="b" type="button">Prendre une photo</button><button data-choice="c" type="button">Acheter une photo</button><div class="feedback"></div></div>
-<div class="quiz" data-answer="a" data-notion="같이"><p><strong>5. 같이 가요 signifie :</strong></p><button data-choice="a" type="button">Allons-y ensemble.</button><button data-choice="b" type="button">Je rentre à la maison.</button><button data-choice="c" type="button">Je mange ensemble.</button><div class="feedback"></div></div>
-<div class="quiz" data-answer="c" data-notion="뭐 하고 싶어요?"><p><strong>6. 뭐 하고 싶어요? signifie :</strong></p><button data-choice="a" type="button">Où vas-tu ?</button><button data-choice="b" type="button">Quand pars-tu ?</button><button data-choice="c" type="button">Qu'est-ce que tu veux faire ?</button><div class="feedback"></div></div>
+
+<section class="card">
+<h2>🧠 Quiz</h2>
+
+<div class="quiz" data-answer="b" data-notion="기차">
+<p><strong>1. Que signifie 기차 ?</strong></p>
+<button data-choice="a" type="button">Bus</button><button data-choice="b" type="button">Train</button><button data-choice="c" type="button">Avion</button><div class="feedback"></div>
+</div>
+
+<div class="quiz" data-answer="a" data-notion="승강장이 어디예요?">
+<p><strong>2. 승강장이 어디예요? signifie :</strong></p>
+<button data-choice="a" type="button">Où est le quai ?</button><button data-choice="b" type="button">Où est mon billet ?</button><button data-choice="c" type="button">Quelle heure est-il ?</button><div class="feedback"></div>
+</div>
+
+<div class="quiz" data-answer="c" data-notion="기차를 타요">
+<p><strong>3. Comment dire « Je prends le train » ?</strong></p>
+<button data-choice="a" type="button">기차에서 내려요.</button><button data-choice="b" type="button">기차표 있어요.</button><button data-choice="c" type="button">기차를 타요.</button><div class="feedback"></div>
+</div>
+
+<div class="quiz" data-answer="b" data-notion="몇 시에 출발해요?">
+<p><strong>4. 몇 시에 출발해요? demande :</strong></p>
+<button data-choice="a" type="button">La destination</button><button data-choice="b" type="button">L'heure de départ</button><button data-choice="c" type="button">Le numéro du siège</button><div class="feedback"></div>
+</div>
+
+<div class="quiz" data-answer="a" data-notion="부산에 가요">
+<p><strong>5. Que signifie 부산에 가요 ?</strong></p>
+<button data-choice="a" type="button">Je vais à Busan.</button><button data-choice="b" type="button">Je viens de Busan.</button><button data-choice="c" type="button">Je descends du train.</button><div class="feedback"></div>
+</div>
+
+<div class="quiz" data-answer="c" data-notion="좌석">
+<p><strong>6. Que signifie 좌석 ?</strong></p>
+<button data-choice="a" type="button">Quai</button><button data-choice="b" type="button">Billet</button><button data-choice="c" type="button">Siège / place</button><div class="feedback"></div>
+</div>
 </section>
-<section class="card"><h2>🎒 À retenir</h2><p><strong>부산</strong> → Busan</p><p><strong>바다</strong> → mer</p><p><strong>사진을 찍어요.</strong> → Je prends des photos.</p><p><strong>뭐 하고 싶어요?</strong> → Qu'est-ce que tu veux faire ?</p><p><strong>같이 가요.</strong> → Allons-y ensemble.</p></section>
-<button id="next" class="next-button" type="button">🎯 Passer à la mission</button></main>
-<script src="chapter-progress.js"></script><script>
-const UNDERSTANDING_KEY="hanaKorean_chapter28_understanding";const LISTENING_EXERCISE_KEY="hanaKorean_chapter28_listeningExercise";const SPEAKING_KEY="hanaKorean_chapter28_speaking";const WRITING_KEY="hanaKorean_chapter28_writing";const REVIEW_KEY="hanaKorean_chapter28_review";const MISTAKES_KEY="hanaKorean_chapter28_reviewMistakes";const WEAK_KEY="hanaKorean_chapter28_reviewWeakNotions";const REVISION_NOTIONS_KEY="hanaKorean_chapter28_revisionNotions";
-if([UNDERSTANDING_KEY,LISTENING_EXERCISE_KEY,SPEAKING_KEY,WRITING_KEY].some(key=>localStorage.getItem(key)!=="completed"))window.location.href="ecriture-28.html";
-const box=document.getElementById("personalReviewBox");try{const notions=JSON.parse(localStorage.getItem(REVISION_NOTIONS_KEY)||"[]");if(Array.isArray(notions)&&notions.length){box.style.display="block";box.innerHTML="<strong>🌱 À revoir en priorité :</strong><br>"+notions.map(n=>"• "+n).join("<br>");}}catch(e){}
-let done=0;let mistakes=0;const weak=new Set();const quizzes=Array.from(document.querySelectorAll(".quiz"));const nextButton=document.getElementById("next");quizzes.forEach(q=>q.querySelectorAll("button").forEach(btn=>btn.addEventListener("click",()=>{if(q.dataset.done)return;const feedback=q.querySelector(".feedback");if(btn.dataset.choice===q.dataset.answer){q.dataset.done="true";done++;feedback.textContent="✅ Correct !";}else{mistakes++;weak.add(q.dataset.notion);feedback.textContent="❌ Réessaie.";}if(done===quizzes.length){localStorage.setItem(REVIEW_KEY,"completed");localStorage.setItem(MISTAKES_KEY,String(mistakes));localStorage.setItem(WEAK_KEY,JSON.stringify(Array.from(weak)));nextButton.style.display="block";if(window.HanaChapterProgress)HanaChapterProgress.render();}})));
-if(localStorage.getItem(REVIEW_KEY)==="completed")nextButton.style.display="block";nextButton.addEventListener("click",()=>window.location.href="utilise-28.html");window.addEventListener("pageshow",()=>{if(localStorage.getItem(REVIEW_KEY)==="completed")nextButton.style.display="block";if(window.HanaChapterProgress)HanaChapterProgress.render();});if(window.HanaChapterProgress)HanaChapterProgress.render();
+
+<section class="card">
+<h2>🎒 À retenir</h2>
+<p><strong>기차표 있어요.</strong> → J'ai mon billet.</p>
+<p><strong>기차를 타요.</strong> → Je prends le train.</p>
+<p><strong>승강장이 어디예요?</strong> → Où est le quai ?</p>
+<p><strong>몇 시에 출발해요?</strong> → À quelle heure part-il ?</p>
+<p><strong>제 좌석은 몇 번이에요?</strong> → Quel est mon siège ?</p>
+</section>
+
+<button id="completeButton" class="complete-button" type="button">✅ Valider la révision</button>
+<button id="next" class="next-button" type="button">🎯 Passer à la mission</button>
+</main>
+
+<script src="chapter-progress.js"></script>
+<script>
+const UNDERSTANDING_KEY = "hanaKorean_chapter28_understanding";
+const LISTENING_EXERCISE_KEY = "hanaKorean_chapter28_listeningExercise";
+const SPEAKING_KEY = "hanaKorean_chapter28_speaking";
+const WRITING_KEY = "hanaKorean_chapter28_writing";
+const REVIEW_KEY = "hanaKorean_chapter28_review";
+const MISTAKES_KEY = "hanaKorean_chapter28_reviewMistakes";
+const WEAK_KEY = "hanaKorean_chapter28_reviewWeakNotions";
+const REVISION_NOTIONS_KEY = "hanaKorean_chapter28_revisionNotions";
+
+if ([UNDERSTANDING_KEY, LISTENING_EXERCISE_KEY, SPEAKING_KEY, WRITING_KEY]
+  .some(key => localStorage.getItem(key) !== "completed")) {
+  window.location.href = "ecriture-28.html";
+}
+
+const personalReview = document.getElementById("personalReviewBox");
+try {
+  const notions = JSON.parse(localStorage.getItem(REVISION_NOTIONS_KEY) || "[]");
+  if (Array.isArray(notions) && notions.length) {
+    personalReview.style.display = "block";
+    personalReview.innerHTML = "<strong>🌱 À revoir en priorité :</strong><br>" + notions.join(" · ");
+  }
+} catch (error) {
+  personalReview.style.display = "none";
+}
+
+let done = 0;
+let mistakes = 0;
+const weakNotions = new Set();
+const quizzes = Array.from(document.querySelectorAll(".quiz"));
+const completeButton = document.getElementById("completeButton");
+const nextButton = document.getElementById("next");
+
+quizzes.forEach(quiz => {
+  quiz.querySelectorAll("button").forEach(button => {
+    button.addEventListener("click", () => {
+      if (quiz.dataset.done) return;
+      const feedback = quiz.querySelector(".feedback");
+
+      if (button.dataset.choice === quiz.dataset.answer) {
+        quiz.dataset.done = "true";
+        done += 1;
+        feedback.textContent = "✅ Correct !";
+      } else {
+        mistakes += 1;
+        weakNotions.add(quiz.dataset.notion);
+        feedback.textContent = "❌ Réessaie.";
+      }
+
+      if (done === quizzes.length) {
+        completeButton.style.display = "block";
+      }
+    });
+  });
+});
+
+function refresh() {
+  if (localStorage.getItem(REVIEW_KEY) === "completed") {
+    completeButton.style.display = "block";
+    completeButton.textContent = "✅ Révision validée";
+    nextButton.style.display = "block";
+  }
+  if (window.HanaChapterProgress) HanaChapterProgress.render();
+}
+
+completeButton.addEventListener("click", () => {
+  localStorage.setItem(REVIEW_KEY, "completed");
+  localStorage.setItem(MISTAKES_KEY, String(mistakes));
+  localStorage.setItem(WEAK_KEY, JSON.stringify(Array.from(weakNotions)));
+  refresh();
+});
+nextButton.addEventListener("click", () => {
+  window.location.href = "utilise-28.html";
+});
+window.addEventListener("pageshow", refresh);
+refresh();
 </script>
-</body></html>
+</body>
+</html>

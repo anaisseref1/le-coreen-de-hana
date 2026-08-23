@@ -3,198 +3,399 @@
 
 <head>
 
-<meta charset="UTF-8">
+  <meta charset="UTF-8">
 
-<meta
-name="viewport"
-content="width=device-width, initial-scale=1.0"
->
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
-<meta
-name="theme-color"
-content="#F7F4ED"
->
+  <meta
+    name="theme-color"
+    content="#F7F4ED"
+  >
 
-<title>
-Chapitre 12 — Résumé
-</title>
+  <title>
+    Chapitre 12 — Résumé
+  </title>
 
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
 
-<link
-rel="stylesheet"
-href="style.css"
->
+  <link
+    rel="stylesheet"
+    href="chapter-progress.css"
+  >
 
-<link
-rel="stylesheet"
-href="chapter-progress.css"
->
 
+  <script>
 
-<script>
+    /* =====================================================
+       GARDE — CHAPITRE TERMINÉ
+       ===================================================== */
 
-if(
-localStorage.getItem(
-"hanaKorean_chapter12_mission"
-)!=="completed"
-){
+    if (
+      localStorage.getItem(
+        "hanaKorean_chapter12_completed"
+      ) !== "completed"
+    ) {
 
-window.location.replace(
-"utilise-12.html"
-);
+      window.location.replace(
+        "chapitre-12.html"
+      );
 
-}
+    }
 
-</script>
+  </script>
 
 
-<style>
+  <style>
 
+    /* =====================================================
+       EN-TÊTE
+       ===================================================== */
 
-.chapter-header{
+    .summary-header {
+      text-align: center;
+      margin-bottom: 25px;
+    }
 
-text-align:center;
-margin-bottom:25px;
 
-}
+    .chapter-badge {
+      display: inline-block;
+      padding: 7px 14px;
+      margin-bottom: 10px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: bold;
+    }
 
 
-.chapter-badge{
+    .summary-intro {
+      color: var(--text-light);
+      line-height: 1.7;
+    }
 
-display:inline-block;
-padding:7px 14px;
-border-radius:20px;
-font-size:14px;
-font-weight:bold;
-margin-bottom:10px;
 
-}
+    /* =====================================================
+       FÉLICITATION
+       ===================================================== */
 
+    .success-card {
+      padding: 20px;
+      margin-bottom: 20px;
+      background: var(--soft-green);
+      border-radius: var(--radius-large);
+      color: var(--navy);
+      text-align: center;
+      line-height: 1.7;
+    }
 
-.intro{
 
-color:var(--text-light);
-line-height:1.7;
+    .success-icon {
+      margin-bottom: 8px;
+      font-size: 42px;
+    }
 
-}
 
+    .success-card h2 {
+      margin: 0 0 8px;
+    }
 
 
-.summary-card{
+    /* =====================================================
+       CARTES
+       ===================================================== */
+
+    .summary-card {
+      padding: 20px;
+      margin-bottom: 18px;
+    }
 
-padding:20px;
-margin-bottom:18px;
 
-}
+    .summary-card h2 {
+      margin-top: 0;
+    }
 
 
+    /* =====================================================
+       VOCABULAIRE
+       ===================================================== */
 
-.success-card{
+    .vocab-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-top: 14px;
+    }
 
-padding:20px;
-background:var(--soft-green);
-border-radius:var(--radius-large);
-text-align:center;
-line-height:1.7;
 
-}
+    .vocab-item {
+      padding: 14px;
+      background: #FBFAF6;
+      border-radius: var(--radius-medium);
+    }
 
 
+    .vocab-korean {
+      color: var(--navy);
+      font-size: 20px;
+      font-weight: bold;
+    }
 
-.word{
 
-padding:14px;
-margin-top:10px;
-background:#FBFAF6;
-border-radius:var(--radius-medium);
+    .vocab-french {
+      margin-top: 4px;
+      color: var(--text-light);
+      line-height: 1.5;
+    }
 
-}
 
+    /* =====================================================
+       STRUCTURES
+       ===================================================== */
 
+    .structure-box {
+      padding: 17px;
+      margin-top: 14px;
+      background: var(--soft-beige);
+      border-radius: var(--radius-medium);
+      color: var(--navy);
+      text-align: center;
+      font-size: 19px;
+      font-weight: bold;
+      line-height: 1.8;
+    }
 
-.korean{
 
-font-size:22px;
-font-weight:bold;
-color:var(--navy);
+    .tip-box {
+      padding: 16px;
+      margin-top: 14px;
+      background: var(--soft-blue);
+      border-radius: var(--radius-medium);
+      color: var(--navy);
+      line-height: 1.7;
+    }
 
-}
 
+    .note-box {
+      padding: 16px;
+      margin-top: 14px;
+      background: var(--soft-beige);
+      border-radius: var(--radius-medium);
+      color: var(--navy);
+      line-height: 1.7;
+    }
 
 
-.translation{
+    /* =====================================================
+       PHRASES
+       ===================================================== */
 
-margin-top:5px;
-color:var(--text-light);
+    .phrase {
+      padding: 15px;
+      margin-top: 11px;
+      background: #FBFAF6;
+      border-radius: var(--radius-medium);
+      line-height: 1.7;
+    }
 
-}
 
+    .phrase-korean {
+      color: var(--navy);
+      font-size: 20px;
+      font-weight: bold;
+    }
 
 
-.phrase{
+    .phrase-french {
+      display: block;
+      margin-top: 4px;
+      color: var(--text-light);
+    }
 
-padding:16px;
-margin-top:12px;
-background:var(--soft-blue);
-border-radius:var(--radius-medium);
-line-height:1.7;
 
-}
+    /* =====================================================
+       AUDIO
+       ===================================================== */
 
+    .audio-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 9px;
+      margin-top: 11px;
+    }
 
 
-.dialogue{
+    .audio-button,
+    .slow-button {
+      width: 100%;
+      font-weight: bold;
+    }
 
-padding:15px;
-margin-top:10px;
-border-radius:var(--radius-medium);
-line-height:1.7;
 
-}
+    .audio-button {
+      background: var(--soft-blue);
+      color: var(--navy);
+    }
 
 
+    .slow-button {
+      background: var(--soft-beige);
+      color: var(--navy);
+    }
 
-.hana{
 
-background:var(--soft-green);
+    /* =====================================================
+       COMPARAISON
+       ===================================================== */
 
-}
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 14px;
+    }
 
 
+    .comparison-item {
+      padding: 15px;
+      background: #FBFAF6;
+      border-radius: var(--radius-medium);
+      text-align: center;
+    }
 
-.other{
 
-background:var(--soft-blue);
+    .comparison-korean {
+      color: var(--navy);
+      font-size: 19px;
+      font-weight: bold;
+    }
 
-}
 
+    .comparison-french {
+      margin-top: 5px;
+      color: var(--text-light);
+      font-size: 13px;
+      line-height: 1.5;
+    }
 
 
-.speaker{
+    /* =====================================================
+       DIALOGUE
+       ===================================================== */
 
-font-weight:bold;
+    .dialogue-controls {
+      margin: 16px 0;
+    }
 
-}
 
+    .dialogue-play-button {
+      width: 100%;
+      background: var(--jade);
+      color: white;
+      font-weight: bold;
+    }
 
 
-.final-button{
+    .dialogue-play-button.playing {
+      background: var(--error-light);
+      color: var(--error);
+      border: 1px solid var(--error);
+    }
 
-width:100%;
-margin-top:20px;
-background:var(--jade);
-color:white;
-font-weight:bold;
 
-}
+    .dialogue-slow-button {
+      width: 100%;
+      margin-top: 8px;
+      background: var(--soft-beige);
+      color: var(--navy);
+      font-weight: bold;
+    }
 
 
-</style>
+    .dialogue-line {
+      padding: 14px;
+      margin-top: 10px;
+      border-radius: var(--radius-medium);
+      line-height: 1.7;
+    }
 
+
+    .dialogue-line.hana {
+      background: var(--soft-green);
+    }
+
+
+    .dialogue-line.seller {
+      background: var(--soft-blue);
+    }
+
+
+    .dialogue-line.minsu {
+      background: var(--soft-beige);
+    }
+
+
+    .speaker {
+      margin-bottom: 5px;
+      color: var(--navy);
+      font-weight: bold;
+    }
+
+
+    /* =====================================================
+       ACTIONS
+       ===================================================== */
+
+    .summary-actions {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+
+    .primary-button {
+      width: 100%;
+      background: var(--jade);
+      color: white;
+      font-weight: bold;
+    }
+
+
+    .secondary-button {
+      width: 100%;
+      background: var(--soft-beige);
+      color: var(--navy);
+      font-weight: bold;
+    }
+
+
+    @media (min-width: 620px) {
+
+      .vocab-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+    }
+
+
+    @media (max-width: 480px) {
+
+      .comparison-grid,
+      .audio-row {
+        grid-template-columns: 1fr;
+      }
+
+    }
+
+  </style>
 
   <script src="profile.js"></script>
 </head>
-
 
 
 <body>
@@ -203,702 +404,1729 @@ font-weight:bold;
 <main class="app">
 
 
-<a
-class="back-link"
-href="utilise-12.html"
->
-← Je l'utilise
-</a>
+  <!-- =====================================================
+       RETOUR
+       ===================================================== -->
 
+  <a
+    class="back-link"
+    href="itineraire.html#module2"
+  >
+    ← Mon itinéraire
+  </a>
 
 
 
-<header class="chapter-header">
+  <!-- =====================================================
+       EN-TÊTE
+       ===================================================== -->
 
+  <header class="summary-header">
 
-<span class="chapter-badge">
+    <span class="chapter-badge">
+      Module 2 · Chapitre 12
+    </span>
 
-Chapitre 12 · Fin
 
-</span>
+    <p class="korean">
+      얼마예요? 🛍️
+    </p>
 
 
-<p class="korean">
+    <h1>
+      Résumé du chapitre
+    </h1>
 
-복습해요 📚
 
-</p>
+    <p class="summary-intro">
+      Retrouve ici les mots
+      et les expressions essentielles
+      pour demander un prix,
+      comprendre un montant,
+      réagir au prix
+      et choisir un article.
+    </p>
 
+  </header>
 
-<h1>
 
-Résumé du chapitre
 
-</h1>
+  <!-- =====================================================
+       FÉLICITATION
+       ===================================================== -->
 
+  <section class="success-card">
 
-<p class="intro">
+    <div class="success-icon">
+      🛍️
+    </div>
 
-Demander son chemin,
-comprendre une direction
-et se débrouiller dans les rues de Séoul.
 
-</p>
+    <h2>
+      Tu sais gérer un achat simple !
+    </h2>
 
 
-</header>
+    <p>
+      Tu peux maintenant
+      demander combien coûte un objet,
+      comprendre un prix simple en won,
+      dire si quelque chose est cher
+      ou bon marché
+      et indiquer ce que tu veux acheter.
+    </p>
 
+  </section>
 
 
 
+  <!-- =====================================================
+       VOCABULAIRE
+       ===================================================== -->
 
-<section
-id="hanaChapterPath"
-data-chapter-path
->
-</section>
+  <section class="summary-card">
 
+    <h2>
+      🟩 Les mots utiles
+    </h2>
 
 
+    <div class="vocab-grid">
 
 
+      <div class="vocab-item">
 
+        <div class="vocab-korean">
+          얼마
+        </div>
 
-<section class="success-card">
+        <div class="vocab-french">
+          combien
+        </div>
 
+      </div>
 
-<h2>
 
-🎉 Chapitre terminé !
+      <div class="vocab-item">
 
-</h2>
+        <div class="vocab-korean">
+          원
+        </div>
 
+        <div class="vocab-french">
+          won
+        </div>
 
-<p>
+      </div>
 
-Tu sais maintenant demander ton chemin
-en coréen et comprendre
-des indications simples.
 
-</p>
+      <div class="vocab-item">
 
+        <div class="vocab-korean">
+          비싸요
+        </div>
 
-</section>
+        <div class="vocab-french">
+          c'est cher
+        </div>
 
+      </div>
 
 
+      <div class="vocab-item">
 
+        <div class="vocab-korean">
+          싸요
+        </div>
 
+        <div class="vocab-french">
+          c'est bon marché
+        </div>
 
+      </div>
 
 
-<section class="summary-card">
+      <div class="vocab-item">
 
+        <div class="vocab-korean">
+          이것
+        </div>
 
-<h2>
+        <div class="vocab-french">
+          ceci
+        </div>
 
-🟩 Vocabulaire essentiel
+      </div>
 
-</h2>
 
+      <div class="vocab-item">
 
+        <div class="vocab-korean">
+          그것
+        </div>
 
-<div class="word">
+        <div class="vocab-french">
+          cela
+        </div>
 
-<div class="korean">
+      </div>
 
-어디
 
-</div>
+      <div class="vocab-item">
 
-<div class="translation">
+        <div class="vocab-korean">
+          주세요
+        </div>
 
-où
+        <div class="vocab-french">
+          s'il vous plaît /
+          donnez-moi
+        </div>
 
-</div>
+      </div>
 
-</div>
 
+      <div class="vocab-item">
 
+        <div class="vocab-korean">
+          카드
+        </div>
 
-<div class="word">
+        <div class="vocab-french">
+          carte bancaire
+        </div>
 
-<div class="korean">
+      </div>
 
-여기
 
-</div>
+      <div class="vocab-item">
 
-<div class="translation">
+        <div class="vocab-korean">
+          현금
+        </div>
 
-ici
+        <div class="vocab-french">
+          espèces
+        </div>
 
-</div>
+      </div>
 
-</div>
 
+    </div>
 
+  </section>
 
-<div class="word">
 
-<div class="korean">
 
-저기
+  <!-- =====================================================
+       DEMANDER LE PRIX
+       ===================================================== -->
 
-</div>
+  <section class="summary-card">
 
-<div class="translation">
+    <h2>
+      💰 Demander un prix
+    </h2>
 
-là-bas
 
-</div>
+    <div class="structure-box">
 
-</div>
+      얼마예요?
 
+      <br>
 
+      Combien ça coûte ?
 
-<div class="word">
+    </div>
 
-<div class="korean">
 
-왼쪽
+    <div class="phrase">
 
-</div>
+      <div class="phrase-korean">
+        얼마예요?
+      </div>
 
-<div class="translation">
+      <span class="phrase-french">
+        Combien ça coûte ?
+      </span>
 
-gauche
 
-</div>
+      <div class="audio-row">
 
-</div>
+        <button
+          class="audio-button"
+          type="button"
+          onclick="speakKorean('얼마예요?', 'hana')"
+        >
+          🔊 Écouter
+        </button>
 
 
+        <button
+          class="slow-button"
+          type="button"
+          onclick="speakKoreanSlow('얼마예요?', 'hana')"
+        >
+          🐢 Lentement
+        </button>
 
-<div class="word">
+      </div>
 
-<div class="korean">
+    </div>
 
-오른쪽
 
-</div>
+    <div class="phrase">
 
-<div class="translation">
+      <div class="phrase-korean">
+        이거 얼마예요?
+      </div>
 
-droite
+      <span class="phrase-french">
+        Combien coûte celui-ci ?
+      </span>
 
-</div>
 
-</div>
+      <div class="audio-row">
 
+        <button
+          class="audio-button"
+          type="button"
+          onclick="speakKorean('이거 얼마예요?', 'hana')"
+        >
+          🔊 Écouter
+        </button>
 
 
-<div class="word">
+        <button
+          class="slow-button"
+          type="button"
+          onclick="speakKoreanSlow('이거 얼마예요?', 'hana')"
+        >
+          🐢 Lentement
+        </button>
 
-<div class="korean">
+      </div>
 
-직진
+    </div>
 
-</div>
 
-<div class="translation">
+    <div class="tip-box">
 
-tout droit
+      <strong>얼마</strong>
+      signifie
+      « combien ».
 
-</div>
+      <br><br>
 
-</div>
+      <strong>얼마예요?</strong>
+      signifie littéralement
+      quelque chose comme
+      « C'est combien ? »
 
+      <br><br>
 
+      C'est l'expression essentielle
+      du chapitre pour demander un prix.
 
-<div class="word">
+    </div>
 
-<div class="korean">
+  </section>
 
-앞
 
-</div>
 
-<div class="translation">
+  <!-- =====================================================
+       이것 / 이거
+       ===================================================== -->
 
-devant
+  <section class="summary-card">
 
-</div>
+    <h2>
+      👉 이것 et 이거
+    </h2>
 
-</div>
 
+    <div class="comparison-grid">
 
 
-<div class="word">
+      <div class="comparison-item">
 
-<div class="korean">
+        <div class="comparison-korean">
+          이것
+        </div>
 
-뒤
+        <div class="comparison-french">
+          ceci
+          <br><br>
+          forme de base
+        </div>
 
-</div>
+      </div>
 
-<div class="translation">
 
-derrière
+      <div class="comparison-item">
 
-</div>
+        <div class="comparison-korean">
+          이거
+        </div>
 
-</div>
+        <div class="comparison-french">
+          ceci / celui-ci
+          <br><br>
+          forme parlée
+        </div>
 
+      </div>
 
 
-<div class="word">
+    </div>
 
-<div class="korean">
 
-건너편
+    <div class="phrase">
 
-</div>
+      <div class="phrase-korean">
+        이것 주세요.
+      </div>
 
-<div class="translation">
+      <span class="phrase-french">
+        Je voudrais celui-ci.
+      </span>
 
-en face
 
-</div>
+      <div class="audio-row">
 
-</div>
+        <button
+          class="audio-button"
+          type="button"
+          onclick="speakKorean('이것 주세요.', 'hana')"
+        >
+          🔊 Écouter
+        </button>
 
 
+        <button
+          class="slow-button"
+          type="button"
+          onclick="speakKoreanSlow('이것 주세요.', 'hana')"
+        >
+          🐢 Lentement
+        </button>
 
-</section>
+      </div>
 
+    </div>
 
 
+    <div class="phrase">
 
+      <div class="phrase-korean">
+        이거 주세요.
+      </div>
 
+      <span class="phrase-french">
+        Je voudrais celui-ci.
+      </span>
 
 
+      <div class="audio-row">
 
-<section class="summary-card">
+        <button
+          class="audio-button"
+          type="button"
+          onclick="speakKorean('이거 주세요.', 'hana')"
+        >
+          🔊 Écouter
+        </button>
 
 
-<h2>
+        <button
+          class="slow-button"
+          type="button"
+          onclick="speakKoreanSlow('이거 주세요.', 'hana')"
+        >
+          🐢 Lentement
+        </button>
 
-💙 Structures importantes
+      </div>
 
-</h2>
+    </div>
 
 
+    <div class="tip-box">
 
-<div class="phrase">
+      Dans le dialogue,
+      Ana utilise surtout
+      la forme parlée :
 
+      <br><br>
 
-<div class="korean">
+      <strong>
+        이거 얼마예요?
+      </strong>
 
-어디에 있어요?
+      <br>
 
-</div>
+      et
 
+      <br><br>
 
-<div class="translation">
+      <strong>
+        이거 주세요.
+      </strong>
 
-Où se trouve... ?
+    </div>
 
-</div>
+  </section>
 
 
-</div>
 
+  <!-- =====================================================
+       PRIX
+       ===================================================== -->
 
+  <section class="summary-card">
 
+    <h2>
+      🇰🇷 Comprendre un prix
+    </h2>
 
-<div class="phrase">
 
+    <div class="structure-box">
 
-<div class="korean">
+      montant + 원이에요
 
-경복궁이 어디에 있어요?
+    </div>
 
-</div>
 
+    <div class="phrase">
 
-<div class="translation">
+      <div class="phrase-korean">
+        만오천 원이에요.
+      </div>
 
-Où se trouve Gyeongbokgung ?
+      <span class="phrase-french">
+        C'est 15 000 wons.
+      </span>
 
-</div>
 
+      <div class="audio-row">
 
-</div>
+        <button
+          class="audio-button"
+          type="button"
+          onclick="speakKorean('만오천 원이에요.', 'seller')"
+        >
+          🔊 Écouter
+        </button>
 
 
+        <button
+          class="slow-button"
+          type="button"
+          onclick="speakKoreanSlow('만오천 원이에요.', 'seller')"
+        >
+          🐢 Lentement
+        </button>
 
+      </div>
 
-<div class="phrase">
+    </div>
 
 
-<div class="korean">
+    <div class="tip-box">
 
-저기예요.
+      <strong>원</strong>
+      est la monnaie coréenne.
 
-</div>
+      <br><br>
 
+      Dans ce chapitre,
+      retiens surtout que
+      lorsqu'un montant est suivi de
+      <strong>원</strong>,
+      tu entends un prix.
 
-<div class="translation">
+    </div>
 
-C'est là-bas.
+  </section>
 
-</div>
 
 
-</div>
+  <!-- =====================================================
+       CHER / BON MARCHÉ
+       ===================================================== -->
 
+  <section class="summary-card">
 
+    <h2>
+      💸 Réagir au prix
+    </h2>
 
 
-<div class="phrase">
+    <div class="comparison-grid">
 
 
-<div class="korean">
+      <div class="comparison-item">
 
-직진하세요.
+        <div class="comparison-korean">
+          비싸요.
+        </div>
 
-</div>
+        <div class="comparison-french">
+          C'est cher.
+        </div>
 
+      </div>
 
-<div class="translation">
 
-Allez tout droit.
+      <div class="comparison-item">
 
-</div>
+        <div class="comparison-korean">
+          싸요.
+        </div>
 
+        <div class="comparison-french">
+          C'est bon marché.
+        </div>
 
-</div>
+      </div>
 
 
+    </div>
 
 
-<div class="phrase">
+    <div class="phrase">
 
+      <div class="phrase-korean">
+        비싸요.
+      </div>
 
-<div class="korean">
+      <span class="phrase-french">
+        C'est cher.
+      </span>
 
-오른쪽이에요.
 
-</div>
+      <div class="audio-row">
 
+        <button
+          class="audio-button"
+          type="button"
+          onclick="speakKorean('비싸요.', 'hana')"
+        >
+          🔊 Écouter
+        </button>
 
-<div class="translation">
 
-C'est à droite.
+        <button
+          class="slow-button"
+          type="button"
+          onclick="speakKoreanSlow('비싸요.', 'hana')"
+        >
+          🐢 Lentement
+        </button>
 
-</div>
+      </div>
 
+    </div>
 
-</div>
 
+    <div class="phrase">
 
+      <div class="phrase-korean">
+        싸요.
+      </div>
 
-</section>
+      <span class="phrase-french">
+        C'est bon marché.
+      </span>
 
 
+      <div class="audio-row">
 
+        <button
+          class="audio-button"
+          type="button"
+          onclick="speakKorean('싸요.', 'hana')"
+        >
+          🔊 Écouter
+        </button>
 
 
+        <button
+          class="slow-button"
+          type="button"
+          onclick="speakKoreanSlow('싸요.', 'hana')"
+        >
+          🐢 Lentement
+        </button>
 
+      </div>
 
+    </div>
 
 
-<section class="summary-card">
+    <div class="tip-box">
 
+      🧠 À retenir :
 
-<h2>
+      <br><br>
 
-💬 Dialogue final
+      <strong>
+        비싸요
+      </strong>
 
-</h2>
+      → cher
 
+      <br><br>
 
+      <strong>
+        싸요
+      </strong>
 
-<div class="dialogue hana">
+      → bon marché
 
+      <br><br>
 
-<div class="speaker">
+      Attention :
+      <strong>싸요</strong>
+      s'écrit avec la consonne tendue
+      <strong>ㅆ</strong>.
 
-🌸 Ana
+    </div>
 
-</div>
+  </section>
 
 
-<div class="korean">
 
-실례합니다.
-경복궁이 어디에 있어요?
+  <!-- =====================================================
+       PAIEMENT
+       ===================================================== -->
 
-</div>
+  <section class="summary-card">
 
+    <h2>
+      💳 Les moyens de paiement
+    </h2>
 
-<div class="translation">
 
-Excusez-moi.
-Où se trouve Gyeongbokgung ?
+    <div class="vocab-grid">
 
-</div>
 
+      <div class="vocab-item">
 
-</div>
+        <div class="vocab-korean">
+          카드
+        </div>
 
+        <div class="vocab-french">
+          carte bancaire
+        </div>
 
+      </div>
 
 
-<div class="dialogue other">
+      <div class="vocab-item">
 
+        <div class="vocab-korean">
+          현금
+        </div>
 
-<div class="speaker">
+        <div class="vocab-french">
+          espèces
+        </div>
 
-👨 Monsieur Park
+      </div>
 
-</div>
 
+    </div>
 
-<div class="korean">
 
-저기예요.
-직진하세요.
-그리고 오른쪽이에요.
+    <div class="tip-box">
 
-</div>
+      Pour ce chapitre,
+      il suffit surtout
+      de reconnaître
+      ces deux mots.
 
+    </div>
 
-<div class="translation">
+  </section>
 
-C'est par là.
-Allez tout droit.
-Puis c'est à droite.
 
-</div>
 
+  <!-- =====================================================
+       DIALOGUE
+       ===================================================== -->
 
-</div>
+  <section class="summary-card">
 
+    <h2>
+      💬 Dialogue — Dans un magasin
+    </h2>
 
 
+    <div class="dialogue-controls">
 
-<div class="dialogue hana">
+      <button
+        class="dialogue-play-button"
+        id="dialogueButton"
+        type="button"
+        onclick="toggleDialogue(false)"
+      >
+        🎧 Écouter tout le dialogue
+      </button>
 
 
-<div class="speaker">
+      <button
+        class="dialogue-slow-button"
+        type="button"
+        onclick="playDialogueSlow()"
+      >
+        🐢 Écouter tout lentement
+      </button>
 
-🌸 Ana
+    </div>
 
-</div>
 
 
-<div class="korean">
+    <div class="dialogue-line hana">
 
-감사합니다!
+      <div class="speaker">
+        🌸 Ana
+      </div>
 
-</div>
+      <div class="phrase-korean">
+        실례합니다. 이거 얼마예요?
+      </div>
 
+      <span class="phrase-french">
+        Excusez-moi.
+        Combien coûte celui-ci ?
+      </span>
 
-<div class="translation">
+    </div>
 
-Merci !
 
-</div>
+    <div class="dialogue-line seller">
 
+      <div class="speaker">
+        💙 Vendeur
+      </div>
 
-</div>
+      <div class="phrase-korean">
+        만오천 원이에요.
+      </div>
 
+      <span class="phrase-french">
+        15 000 wons.
+      </span>
 
+    </div>
 
 
-</section>
+    <div class="dialogue-line hana">
 
+      <div class="speaker">
+        🌸 Ana
+      </div>
 
+      <div class="phrase-korean">
+        조금 비싸네요.
+      </div>
 
+      <span class="phrase-french">
+        C'est un peu cher.
+      </span>
 
+    </div>
 
 
+    <div class="dialogue-line minsu">
 
+      <div class="speaker">
+        💙 Min-su
+      </div>
 
+      <div class="phrase-korean">
+        하지만 정말 좋아요.
+      </div>
 
-<section class="summary-card">
+      <span class="phrase-french">
+        Mais il est vraiment bien.
+      </span>
 
+    </div>
 
-<h2>
 
-🧠 Mini mémo voyage
+    <div class="dialogue-line hana">
 
-</h2>
+      <div class="speaker">
+        🌸 Ana
+      </div>
 
+      <div class="phrase-korean">
+        그럼 이거 주세요. 감사합니다!
+      </div>
 
+      <span class="phrase-french">
+        Alors je prends celui-ci.
+        Merci !
+      </span>
 
-<div class="phrase">
+    </div>
 
-📍
+  </section>
 
-<strong>
 
-어디에 있어요?
 
-</strong>
+  <!-- =====================================================
+       RECONNAISSANCE
+       ===================================================== -->
 
-<br>
+  <section class="summary-card">
 
-Où se trouve... ?
+    <h2>
+      👂 À reconnaître seulement
+    </h2>
 
-</div>
 
+    <div class="note-box">
 
+      Le dialogue contient
+      quelques éléments
+      que tu n'as pas besoin
+      de savoir construire maintenant.
 
-<div class="phrase">
+      <br><br>
 
-⬅️
+      <strong>
+        조금 비싸네요.
+      </strong>
 
-<strong>
+      <br>
 
-왼쪽
+      C'est un peu cher.
 
-</strong>
+      <br><br>
 
-<br>
+      <strong>
+        하지만
+      </strong>
 
-Gauche
+      <br>
 
-</div>
+      mais
 
+      <br><br>
 
+      Ton objectif principal reste
+      de savoir produire
+      les formes simples du chapitre :
 
-<div class="phrase">
+      <br><br>
 
-➡️
+      <strong>
+        비싸요.
+      </strong>
 
-<strong>
+      <br>
 
-오른쪽
+      et
 
-</strong>
+      <br><br>
 
-<br>
+      <strong>
+        싸요.
+      </strong>
 
-Droite
+    </div>
 
-</div>
+  </section>
 
 
 
-<div class="phrase">
+  <!-- =====================================================
+       MINI MÉMO
+       ===================================================== -->
 
-⬆️
+  <section class="summary-card">
 
-<strong>
+    <h2>
+      📓 Mini mémo
+    </h2>
 
-직진
 
-</strong>
+    <div class="phrase">
 
-<br>
+      💰
 
-Tout droit
+      <div class="phrase-korean">
+        얼마예요?
+      </div>
 
-</div>
+      <span class="phrase-french">
+        Combien ça coûte ?
+      </span>
 
+    </div>
 
 
-<div class="phrase">
+    <div class="phrase">
 
-🙏
+      👉
 
-<strong>
+      <div class="phrase-korean">
+        이거 얼마예요?
+      </div>
 
-감사합니다
+      <span class="phrase-french">
+        Combien coûte celui-ci ?
+      </span>
 
-</strong>
+    </div>
 
-<br>
 
-Merci
+    <div class="phrase">
 
-</div>
+      🇰🇷
 
+      <div class="phrase-korean">
+        만오천 원이에요.
+      </div>
 
+      <span class="phrase-french">
+        C'est 15 000 wons.
+      </span>
 
-</section>
+    </div>
 
 
+    <div class="phrase">
 
+      💸
 
+      <div class="phrase-korean">
+        비싸요.
+      </div>
 
+      <span class="phrase-french">
+        C'est cher.
+      </span>
 
+    </div>
 
 
+    <div class="phrase">
 
-<section class="summary-card">
+      🛍️
 
+      <div class="phrase-korean">
+        싸요.
+      </div>
 
-<h2>
+      <span class="phrase-french">
+        C'est bon marché.
+      </span>
 
-🌸 Mission accomplie
+    </div>
 
-</h2>
 
+    <div class="phrase">
 
-<p>
+      👉
 
-Si tu arrives à demander ton chemin,
-comprendre une direction
-et remercier quelqu'un,
-tu peux déjà gérer une petite situation
-réelle en Corée.
+      <div class="phrase-korean">
+        이거 주세요.
+      </div>
 
-</p>
+      <span class="phrase-french">
+        Je voudrais celui-ci.
+      </span>
 
+    </div>
 
 
-<button
-class="final-button"
-onclick="finishChapter()"
->
+    <div class="phrase">
 
-🗺️ Retour au Module 2
+      🙏
 
-</button>
+      <div class="phrase-korean">
+        감사합니다.
+      </div>
 
+      <span class="phrase-french">
+        Merci.
+      </span>
 
-</section>
+    </div>
 
+  </section>
 
 
 
+  <!-- =====================================================
+       À RETENIR
+       ===================================================== -->
 
+  <section class="summary-card">
+
+    <h2>
+      🌿 À retenir
+    </h2>
+
+
+    <div class="tip-box">
+
+      Les éléments essentiels
+      du chapitre 12 sont :
+
+      <br><br>
+
+      💰 <strong>얼마예요?</strong>
+      → combien ça coûte ?
+
+      <br><br>
+
+      🇰🇷 <strong>원</strong>
+      → won
+
+      <br><br>
+
+      💸 <strong>비싸요</strong>
+      → cher
+
+      <br><br>
+
+      🛍️ <strong>싸요</strong>
+      → bon marché
+
+      <br><br>
+
+      👉 <strong>이것 / 이거</strong>
+      → ceci / celui-ci
+
+      <br><br>
+
+      🙏 <strong>주세요</strong>
+      → demander quelque chose
+
+      <br><br>
+
+      💳 <strong>카드</strong>
+      → carte bancaire
+
+      <br><br>
+
+      💵 <strong>현금</strong>
+      → espèces
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       ACTIONS
+       ===================================================== -->
+
+  <div class="summary-actions">
+
+    <button
+      class="primary-button"
+      type="button"
+      onclick="goToItinerary()"
+    >
+      🗺️ Retour au Module 2
+    </button>
+
+
+    <button
+      class="secondary-button"
+      type="button"
+      onclick="reviewAgain()"
+    >
+      🧠 Refaire la révision
+    </button>
+
+  </div>
 
 
 </main>
 
 
 
-
-
 <script src="chapter-progress.js"></script>
-
 
 
 <script>
 
+  /* =====================================================
+     AUDIO
+     ===================================================== */
 
-function finishChapter(){
+  const AUDIO_SETTINGS = {
 
+    normalRate:
+      0.82,
 
-localStorage.setItem(
-"hanaKorean_chapter12_completed",
-"completed"
-);
+    slowRate:
+      0.25
 
-
-
-window.location.href=
-"itineraire.html#module2";
-
-
-}
+  };
 
 
+  const dialogueLines = [
+
+    {
+      character:
+        "hana",
+
+      text:
+        "실례합니다. 이거 얼마예요?"
+    },
+
+    {
+      character:
+        "seller",
+
+      text:
+        "만오천 원이에요."
+    },
+
+    {
+      character:
+        "hana",
+
+      text:
+        "조금 비싸네요."
+    },
+
+    {
+      character:
+        "minsu",
+
+      text:
+        "하지만 정말 좋아요."
+    },
+
+    {
+      character:
+        "hana",
+
+      text:
+        "그럼 이거 주세요. 감사합니다!"
+    }
+
+  ];
+
+
+  let dialogueSessionId =
+    0;
+
+
+  let dialoguePlaying =
+    false;
+
+
+
+  /* =====================================================
+     VOIX
+     ===================================================== */
+
+  function getKoreanVoice() {
+
+    const voices =
+      window.speechSynthesis
+        .getVoices();
+
+
+    return (
+      voices.find(
+        voice =>
+          voice.lang &&
+          voice.lang
+            .toLowerCase()
+            .startsWith("ko")
+      ) ||
+      null
+    );
+
+  }
+
+
+
+  function characterPitch(
+    character
+  ) {
+
+    const pitches = {
+
+      hana:
+        1.06,
+
+      minsu:
+        0.94,
+
+      seller:
+        0.98
+
+    };
+
+
+    return (
+      pitches[
+        character
+      ] ||
+      1
+    );
+
+  }
+
+
+
+  /* =====================================================
+     AUDIO SIMPLE
+     ===================================================== */
+
+  function speak(
+    text,
+    character,
+    rate
+  ) {
+
+    stopDialogue();
+
+
+    const utterance =
+      new SpeechSynthesisUtterance(
+        text
+      );
+
+
+    utterance.lang =
+      "ko-KR";
+
+
+    utterance.rate =
+      rate;
+
+
+    utterance.pitch =
+      characterPitch(
+        character
+      );
+
+
+    const voice =
+      getKoreanVoice();
+
+
+    if (
+      voice
+    ) {
+
+      utterance.voice =
+        voice;
+
+    }
+
+
+    window.speechSynthesis.speak(
+      utterance
+    );
+
+  }
+
+
+
+  function speakKorean(
+    text,
+    character
+  ) {
+
+    speak(
+      text,
+      character,
+      AUDIO_SETTINGS.normalRate
+    );
+
+  }
+
+
+
+  function speakKoreanSlow(
+    text,
+    character
+  ) {
+
+    speak(
+      text,
+      character,
+      AUDIO_SETTINGS.slowRate
+    );
+
+  }
+
+
+
+  /* =====================================================
+     DIALOGUE COMPLET
+     ===================================================== */
+
+  function toggleDialogue(
+    slow
+  ) {
+
+    if (
+      dialoguePlaying
+    ) {
+
+      stopDialogue();
+
+      return;
+
+    }
+
+
+    playDialogue(
+      slow
+    );
+
+  }
+
+
+
+  function playDialogueSlow() {
+
+    if (
+      dialoguePlaying
+    ) {
+
+      stopDialogue();
+
+    }
+
+
+    playDialogue(
+      true
+    );
+
+  }
+
+
+
+  function playDialogue(
+    slow
+  ) {
+
+    if (
+      !(
+        "speechSynthesis"
+        in window
+      )
+    ) {
+
+      return;
+
+    }
+
+
+    window.speechSynthesis.cancel();
+
+
+    dialogueSessionId++;
+
+
+    const sessionId =
+      dialogueSessionId;
+
+
+    dialoguePlaying =
+      true;
+
+
+    updateDialogueButton();
+
+
+    playDialogueLine(
+      0,
+      slow,
+      sessionId
+    );
+
+  }
+
+
+
+  function playDialogueLine(
+    index,
+    slow,
+    sessionId
+  ) {
+
+    if (
+      sessionId !==
+      dialogueSessionId
+    ) {
+
+      return;
+
+    }
+
+
+    if (
+      !dialoguePlaying
+    ) {
+
+      return;
+
+    }
+
+
+    if (
+      index >=
+      dialogueLines.length
+    ) {
+
+      dialoguePlaying =
+        false;
+
+
+      updateDialogueButton();
+
+
+      return;
+
+    }
+
+
+    const line =
+      dialogueLines[
+        index
+      ];
+
+
+    const utterance =
+      new SpeechSynthesisUtterance(
+        line.text
+      );
+
+
+    utterance.lang =
+      "ko-KR";
+
+
+    utterance.rate =
+      slow
+        ? AUDIO_SETTINGS.slowRate
+        : AUDIO_SETTINGS.normalRate;
+
+
+    utterance.pitch =
+      characterPitch(
+        line.character
+      );
+
+
+    const voice =
+      getKoreanVoice();
+
+
+    if (
+      voice
+    ) {
+
+      utterance.voice =
+        voice;
+
+    }
+
+
+    utterance.onend =
+      function() {
+
+        if (
+          sessionId !==
+          dialogueSessionId
+        ) {
+
+          return;
+
+        }
+
+
+        setTimeout(
+          function() {
+
+            playDialogueLine(
+              index + 1,
+              slow,
+              sessionId
+            );
+
+          },
+          350
+        );
+
+      };
+
+
+    utterance.onerror =
+      function() {
+
+        if (
+          sessionId ===
+          dialogueSessionId
+        ) {
+
+          dialoguePlaying =
+            false;
+
+
+          updateDialogueButton();
+
+        }
+
+      };
+
+
+    window.speechSynthesis.speak(
+      utterance
+    );
+
+  }
+
+
+
+  function stopDialogue() {
+
+    dialogueSessionId++;
+
+
+    dialoguePlaying =
+      false;
+
+
+    if (
+      "speechSynthesis"
+      in window
+    ) {
+
+      window.speechSynthesis.cancel();
+
+    }
+
+
+    updateDialogueButton();
+
+  }
+
+
+
+  function updateDialogueButton() {
+
+    const button =
+      document.getElementById(
+        "dialogueButton"
+      );
+
+
+    if (
+      !button
+    ) {
+
+      return;
+
+    }
+
+
+    if (
+      dialoguePlaying
+    ) {
+
+      button.textContent =
+        "⏹️ Stopper le dialogue";
+
+
+      button.classList.add(
+        "playing"
+      );
+
+    }
+
+    else {
+
+      button.textContent =
+        "🎧 Écouter tout le dialogue";
+
+
+      button.classList.remove(
+        "playing"
+      );
+
+    }
+
+  }
+
+
+
+  /* =====================================================
+     NAVIGATION
+     ===================================================== */
+
+  function goToItinerary() {
+
+    stopDialogue();
+
+
+    window.location.href =
+      "itineraire.html#module2";
+
+  }
+
+
+
+  function reviewAgain() {
+
+    stopDialogue();
+
+
+    window.location.href =
+      "revision-12.html";
+
+  }
+
+
+
+  /* =====================================================
+     SÉCURITÉ AUDIO
+     ===================================================== */
+
+  window.addEventListener(
+    "pagehide",
+    function() {
+
+      stopDialogue();
+
+    }
+  );
+
+
+  window.addEventListener(
+    "pageshow",
+    function() {
+
+      if (
+        window.HanaChapterProgress &&
+        typeof window.HanaChapterProgress.render === "function"
+      ) {
+
+        window.HanaChapterProgress.render();
+
+      }
+
+    }
+  );
 
 </script>
 </body>

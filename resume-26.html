@@ -1,19 +1,1073 @@
-<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#F7F4ED">
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="chapter-progress.css"><title>Chapitre 26 — Résumé</title><style>.summary-header{text-align:center;margin-bottom:24px}.card{padding:20px;margin-bottom:18px;background:var(--white);border-radius:var(--radius-large);box-shadow:var(--shadow)}.primary-link{display:block;width:100%;box-sizing:border-box;padding:14px 16px;margin-top:10px;text-align:center;text-decoration:none;background:var(--jade);color:white;border-radius:var(--radius-medium);font-weight:bold}</style>  <script src="profile.js"></script>
-</head><body><main class="app">
-<a class="back-link" href="utilise-26.html">← Je l'utilise</a><section id="hanaChapterPath" data-chapter-path></section><header class="summary-header"><span class="chapter-badge">Chapitre 26 · 📚 Résumé</span><p class="korean">약국</p><h1>À la pharmacie</h1><p>La fiche de révision avec les phrases indispensables du chapitre.</p></header>
-<section class="card"><h2>💊 Expressions essentielles</h2><p><strong>괜찮아요?</strong><br>Ça va ?</p><p><strong>아파요.</strong><br>J'ai mal / je suis malade.</p><p><strong>머리가 아파요.</strong><br>J'ai mal à la tête.</p><p><strong>배가 아파요.</strong><br>J'ai mal au ventre.</p><p><strong>목이 아파요.</strong><br>J'ai mal à la gorge.</p><p><strong>약이 필요해요.</strong><br>J'ai besoin d'un médicament.</p><p><strong>감사합니다.</strong><br>Merci.</p></section>
-<section class="card"><h2>🧠 Grammaire</h2><p><strong>[partie du corps] + 이/가 아파요</strong></p><p>머리가 아파요.<br>배가 아파요.<br>목이 아파요.</p><p>Le coréen indique la partie qui est douloureuse avec la particule. À l'oral, elle peut parfois être omise : <strong>머리 아파요.</strong></p></section>
-<section class="card"><h2>📍 Questions utiles</h2><p><strong>어디가 아파요?</strong><br>Où avez-vous mal ?</p><p><strong>열이 있어요?</strong><br>Vous avez de la fièvre ?</p><p><strong>약국에 가요.</strong><br>Je vais à la pharmacie.</p><p><strong>이 약을 드세요.</strong><br>Prenez ce médicament.</p></section>
-<section class="card"><h2>🧳 Vocabulaire à retenir</h2><p>약국 → pharmacie</p><p>약 → médicament</p><p>아프다 → avoir mal / être malade</p><p>열 → fièvre</p><p>기침 → toux</p><p>콧물 → nez qui coule</p></section>
-<section class="card"><h2>🎒 À mettre dans mon sac à dos</h2><p>🏥 <strong>약국</strong><br>Le mot à reconnaître sur une enseigne.</p><p>💬 <strong>머리가 아파요.</strong><br>La phrase essentielle pour expliquer un mal de tête.</p><p>💊 <strong>약이 필요해요.</strong><br>Pour demander un médicament.</p><p>🙏 <strong>감사합니다.</strong><br>Toujours utile pour remercier.</p></section>
-<section class="card"><h2>💚 Le conseil de Ji-soo</h2><p>Quand tu voyages, quelques phrases simples peuvent déjà t'aider énormément. Reconnaître <strong>약국</strong> et savoir dire où tu as mal peut rendre une situation stressante beaucoup plus facile.</p></section>
-<a class="primary-link" href="chapitre-27.html">➡️ Chapitre 27</a>
-</main><script src="chapter-progress.js"></script><script>
-const REQUIRED_KEY="hanaKorean_chapter26_use",LEGACY_MISSION_KEY="hanaKorean_chapter26_mission",LEGACY_COMPLETED_KEY="hanaKorean_chapter26_completed",SUMMARY_KEY="hanaKorean_chapter26_resume";
-function migrate(){if(localStorage.getItem(REQUIRED_KEY)!=="completed"&&(localStorage.getItem(LEGACY_MISSION_KEY)==="completed"||localStorage.getItem(LEGACY_COMPLETED_KEY)==="completed"))localStorage.setItem(REQUIRED_KEY,"completed");}function guard(){migrate();if(localStorage.getItem(REQUIRED_KEY)!=="completed"){window.location.href="utilise-26.html";return false;}localStorage.setItem(SUMMARY_KEY,"completed");if(window.HanaChapterProgress)HanaChapterProgress.render();return true;}window.addEventListener("pageshow",guard);guard();
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="theme-color"
+    content="#F7F4ED"
+  >
+
+  <title>Chapitre 26 — Résumé</title>
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+<link rel="stylesheet" href="chapter-progress.css">
+
+  <style>
+
+    .summary-header {
+      text-align:center;
+      margin-bottom:24px;
+    }
+
+    .summary-header h1 {
+      margin-bottom:8px;
+    }
+
+    .summary-header p {
+      color:var(--text-light);
+      line-height:1.7;
+    }
+
+    .summary-card,
+    .grammar-card,
+    .vocab-card,
+    .bag-card,
+    .tip-card {
+      padding:20px;
+      margin-bottom:18px;
+      background:var(--white);
+      border-radius:var(--radius-large);
+      box-shadow:var(--shadow);
+    }
+
+    .intro-card {
+      padding:18px;
+      margin-bottom:18px;
+      background:var(--soft-green);
+      border-radius:var(--radius-large);
+      color:var(--navy);
+      line-height:1.7;
+    }
+
+    .romanization-control {
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      padding:9px 12px;
+      margin-bottom:16px;
+      background:var(--soft-beige);
+      border-radius:14px;
+    }
+
+    .romanization-control-text {
+      line-height:1.35;
+      font-size:13px;
+    }
+
+    .romanization-control-text strong {
+      color:var(--navy);
+      font-size:13px;
+    }
+
+    .toggle-button {
+      flex-shrink:0;
+      min-width:78px;
+      padding:7px 10px;
+      background:var(--jade);
+      color:white;
+      border-radius:12px;
+      font-size:12px;
+      font-weight:600;
+    }
+
+    .expression-item {
+      padding:16px;
+      margin-top:12px;
+      background:#FBFAF6;
+      border-radius:var(--radius-medium);
+      border-left:4px solid var(--jade);
+    }
+
+    .expression-top {
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:12px;
+    }
+
+    .expression-korean {
+      color:var(--navy);
+      font-size:20px;
+      font-weight:bold;
+      line-height:1.45;
+    }
+
+    .romanization {
+      margin-top:4px;
+      color:var(--jade-dark);
+      font-size:14px;
+      line-height:1.5;
+    }
+
+    .romanization.hidden {
+      display:none;
+    }
+
+    .expression-french {
+      margin-top:7px;
+      color:var(--text-light);
+      line-height:1.5;
+    }
+
+    .audio-button {
+      flex-shrink:0;
+      width:44px;
+      min-width:44px;
+      height:44px;
+      padding:0;
+      border-radius:50%;
+      background:var(--soft-blue);
+      color:var(--navy);
+      font-size:18px;
+    }
+
+    .playing {
+      background:var(--navy) !important;
+      color:white !important;
+    }
+
+    .grammar-item {
+      padding:15px;
+      margin-top:12px;
+      background:var(--soft-beige);
+      border-radius:var(--radius-medium);
+      color:var(--navy);
+      line-height:1.7;
+    }
+
+    .grammar-pattern {
+      display:inline-block;
+      margin-bottom:7px;
+      color:var(--jade-dark);
+      font-size:18px;
+      font-weight:bold;
+    }
+
+    .question-list {
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      margin-top:12px;
+    }
+
+    .question-item {
+      padding:14px;
+      background:var(--soft-blue);
+      border-radius:var(--radius-medium);
+    }
+
+    .question-item strong {
+      display:block;
+      color:var(--navy);
+      font-size:18px;
+      line-height:1.45;
+    }
+
+    .question-item span {
+      display:block;
+      margin-top:4px;
+      color:var(--text-light);
+    }
+
+    .vocab-grid {
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0, 1fr));
+      gap:10px;
+      margin-top:12px;
+    }
+
+    .vocab-item {
+      padding:13px;
+      background:#FBFAF6;
+      border-radius:var(--radius-medium);
+    }
+
+    .vocab-korean {
+      color:var(--navy);
+      font-weight:bold;
+    }
+
+    .vocab-french {
+      margin-top:3px;
+      color:var(--text-light);
+      font-size:14px;
+    }
+
+    .bag-card {
+      background:var(--soft-green);
+      color:var(--navy);
+    }
+
+    .bag-list {
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      margin-top:12px;
+    }
+
+    .bag-item {
+      padding:13px 14px;
+      background:rgba(255,255,255,0.72);
+      border-radius:var(--radius-medium);
+      line-height:1.6;
+    }
+
+    .tip-card {
+      background:var(--soft-beige);
+      color:var(--navy);
+      line-height:1.7;
+    }
+
+    .bottom-actions {
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      margin-top:18px;
+    }
+
+    .primary-link,
+    .secondary-link {
+      display:block;
+      width:100%;
+      padding:14px 16px;
+      box-sizing:border-box;
+      border-radius:var(--radius-medium);
+      text-align:center;
+      text-decoration:none;
+      font-weight:bold;
+    }
+
+    .primary-link {
+      background:var(--jade);
+      color:white;
+    }
+
+    .secondary-link {
+      background:var(--soft-beige);
+      color:var(--navy);
+    }
+
+    @media (max-width:430px) {
+
+      .vocab-grid {
+        grid-template-columns:1fr;
+      }
+
+    }
+
+  </style>
+
+  <script src="profile.js"></script>
+</head>
+
+
+<body>
+
+
+<main class="app">
+
+
+  <a
+    class="back-link"
+    href="utilise-26.html"
+  >
+    ← Mission du chapitre
+  </a>
+
+<section id="hanaChapterPath" data-chapter-path></section>
+
+
+  <header class="summary-header">
+
+    <span class="chapter-badge">
+      Chapitre 26 · Résumé
+    </span>
+
+    <p class="korean">
+      소포를 보내고 싶어요. 📮
+    </p>
+
+    <h1>
+      À la poste
+    </h1>
+
+    <p>
+      Retrouve ici les expressions, questions,
+      structures et mots essentiels du chapitre.
+    </p>
+
+  </header>
+
+
+  <section class="intro-card">
+
+    <strong>📖 Ta fiche du chapitre</strong>
+
+    <br><br>
+
+    Cette page te permet de revoir rapidement
+    comment envoyer une lettre ou un colis,
+    indiquer une destination,
+    demander le prix et la durée d'un envoi.
+
+  </section>
+
+
+  <section
+    class="romanization-control"
+    aria-label="Réglage de la romanisation"
+  >
+
+    <div class="romanization-control-text">
+
+      <strong>가나다 Romanisation</strong>
+
+      <br>
+
+      <span id="romanizationStatus">
+        Affichée
+      </span>
+
+    </div>
+
+    <button
+      class="toggle-button"
+      id="romanizationToggle"
+      type="button"
+    >
+      Masquer
+    </button>
+
+  </section>
+
+
+  <section class="summary-card">
+
+    <h2>🎧 Expressions essentielles</h2>
+
+
+    <div class="expression-item">
+      <div class="expression-top">
+        <div>
+          <div class="expression-korean">소포를 보내고 싶어요.</div>
+          <div class="romanization">soporeul bonaego sipeoyo</div>
+          <div class="expression-french">Je voudrais envoyer un colis.</div>
+        </div>
+        <button class="audio-button" type="button" data-text="소포를 보내고 싶어요." aria-label="Écouter 소포를 보내고 싶어요">🔊</button>
+      </div>
+    </div>
+
+
+    <div class="expression-item">
+      <div class="expression-top">
+        <div>
+          <div class="expression-korean">프랑스로 보내요.</div>
+          <div class="romanization">peurangseuro bonaeyo</div>
+          <div class="expression-french">Je l'envoie en France.</div>
+        </div>
+        <button class="audio-button" type="button" data-text="프랑스로 보내요." aria-label="Écouter 프랑스로 보내요">🔊</button>
+      </div>
+    </div>
+
+
+    <div class="expression-item">
+      <div class="expression-top">
+        <div>
+          <div class="expression-korean">주소가 있어요?</div>
+          <div class="romanization">jusoga isseoyo?</div>
+          <div class="expression-french">Vous avez l'adresse ?</div>
+        </div>
+        <button class="audio-button" type="button" data-text="주소가 있어요?" aria-label="Écouter 주소가 있어요">🔊</button>
+      </div>
+    </div>
+
+
+    <div class="expression-item">
+      <div class="expression-top">
+        <div>
+          <div class="expression-korean">얼마예요?</div>
+          <div class="romanization">eolmayeyo?</div>
+          <div class="expression-french">Combien ça coûte ?</div>
+        </div>
+        <button class="audio-button" type="button" data-text="얼마예요?" aria-label="Écouter 얼마예요">🔊</button>
+      </div>
+    </div>
+
+
+    <div class="expression-item">
+      <div class="expression-top">
+        <div>
+          <div class="expression-korean">얼마나 걸려요?</div>
+          <div class="romanization">eolmana geollyeoyo?</div>
+          <div class="expression-french">Combien de temps cela prend-il ?</div>
+        </div>
+        <button class="audio-button" type="button" data-text="얼마나 걸려요?" aria-label="Écouter 얼마나 걸려요">🔊</button>
+      </div>
+    </div>
+
+
+    <div class="expression-item">
+      <div class="expression-top">
+        <div>
+          <div class="expression-korean">일주일 정도 걸려요.</div>
+          <div class="romanization">iljuil jeongdo geollyeoyo</div>
+          <div class="expression-french">Cela prend environ une semaine.</div>
+        </div>
+        <button class="audio-button" type="button" data-text="일주일 정도 걸려요." aria-label="Écouter 일주일 정도 걸려요">🔊</button>
+      </div>
+    </div>
+
+
+    <div class="expression-item">
+      <div class="expression-top">
+        <div>
+          <div class="expression-korean">우표가 필요해요.</div>
+          <div class="romanization">upyoga piryohaeyo</div>
+          <div class="expression-french">J'ai besoin d'un timbre.</div>
+        </div>
+        <button class="audio-button" type="button" data-text="우표가 필요해요." aria-label="Écouter 우표가 필요해요">🔊</button>
+      </div>
+    </div>
+
+  </section>
+
+
+  <section class="grammar-card">
+
+    <h2>🧠 Grammaire essentielle</h2>
+
+
+    <div class="grammar-item">
+
+      <span class="grammar-pattern">
+        -고 싶어요
+      </span>
+
+      <br>
+
+      Sert à dire ce que tu veux ou aimerais faire.
+
+      <br><br>
+
+      <strong>보내다 → 보내고 싶어요</strong>
+
+      <br>
+
+      → vouloir / aimerait envoyer
+
+    </div>
+
+
+    <div class="grammar-item">
+
+      <span class="grammar-pattern">
+        -(으)로
+      </span>
+
+      <br>
+
+      Avec <strong>보내다</strong>,
+      cette particule peut indiquer la destination.
+
+      <br><br>
+
+      <strong>프랑스로 보내요.</strong>
+
+      <br>
+
+      → Je l'envoie en France.
+
+      <br><br>
+
+      <strong>한국으로 보내요.</strong>
+
+      <br>
+
+      → Je l'envoie en Corée.
+
+    </div>
+
+
+    <div class="grammar-item">
+
+      <span class="grammar-pattern">
+        얼마나 걸려요?
+      </span>
+
+      <br>
+
+      <strong>얼마나</strong> demande ici « combien »,
+      et <strong>걸리다</strong> exprime le temps nécessaire.
+
+      <br><br>
+
+      <strong>한 시간 걸려요.</strong>
+
+      <br>
+
+      → Ça prend une heure.
+
+      <br><br>
+
+      <strong>두 시간 걸려요.</strong>
+
+      <br>
+
+      → Ça prend deux heures.
+
+    </div>
+
+
+    <div class="grammar-item">
+
+      <span class="grammar-pattern">
+        얼마예요? ≠ 얼마나 걸려요?
+      </span>
+
+      <br>
+
+      <strong>얼마예요?</strong>
+
+      <br>
+
+      → demande un <strong>prix</strong>.
+
+      <br><br>
+
+      <strong>얼마나 걸려요?</strong>
+
+      <br>
+
+      → demande une <strong>durée</strong>.
+
+    </div>
+
+
+    <div class="grammar-item">
+
+      <span class="grammar-pattern">
+        우체국 / 보내요
+      </span>
+
+      <br>
+
+      <strong>우체국</strong> :
+      découpe <strong>우 — 체 — 국</strong>.
+
+      <br><br>
+
+      <strong>보내요</strong> :
+      écoute bien la syllabe <strong>내</strong>.
+
+    </div>
+
+  </section>
+
+
+  <section class="summary-card">
+
+    <h2>❓ Questions utiles du chapitre</h2>
+
+    <div class="question-list">
+
+      <div class="question-item">
+        <strong>무엇을 도와드릴까요?</strong>
+        <span>Que puis-je faire pour vous ?</span>
+      </div>
+
+      <div class="question-item">
+        <strong>어디로 보내세요?</strong>
+        <span>Où souhaitez-vous l'envoyer ?</span>
+      </div>
+
+      <div class="question-item">
+        <strong>주소가 있어요?</strong>
+        <span>Vous avez l'adresse ?</span>
+      </div>
+
+      <div class="question-item">
+        <strong>얼마예요?</strong>
+        <span>Combien ça coûte ?</span>
+      </div>
+
+      <div class="question-item">
+        <strong>얼마나 걸려요?</strong>
+        <span>Combien de temps cela prend-il ?</span>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="vocab-card">
+
+    <h2>🧳 Vocabulaire essentiel</h2>
+
+    <div class="vocab-grid">
+
+      <div class="vocab-item"><div class="vocab-korean">우체국</div><div class="vocab-french">poste</div></div>
+      <div class="vocab-item"><div class="vocab-korean">우편</div><div class="vocab-french">courrier / postal</div></div>
+      <div class="vocab-item"><div class="vocab-korean">편지</div><div class="vocab-french">lettre</div></div>
+      <div class="vocab-item"><div class="vocab-korean">엽서</div><div class="vocab-french">carte postale</div></div>
+      <div class="vocab-item"><div class="vocab-korean">소포</div><div class="vocab-french">colis</div></div>
+      <div class="vocab-item"><div class="vocab-korean">택배</div><div class="vocab-french">livraison / colis</div></div>
+      <div class="vocab-item"><div class="vocab-korean">보내다</div><div class="vocab-french">envoyer</div></div>
+      <div class="vocab-item"><div class="vocab-korean">받다</div><div class="vocab-french">recevoir</div></div>
+      <div class="vocab-item"><div class="vocab-korean">주소</div><div class="vocab-french">adresse</div></div>
+      <div class="vocab-item"><div class="vocab-korean">우표</div><div class="vocab-french">timbre</div></div>
+      <div class="vocab-item"><div class="vocab-korean">봉투</div><div class="vocab-french">enveloppe</div></div>
+      <div class="vocab-item"><div class="vocab-korean">상자</div><div class="vocab-french">boîte / carton</div></div>
+      <div class="vocab-item"><div class="vocab-korean">가격</div><div class="vocab-french">prix</div></div>
+      <div class="vocab-item"><div class="vocab-korean">얼마</div><div class="vocab-french">combien</div></div>
+      <div class="vocab-item"><div class="vocab-korean">빠르다</div><div class="vocab-french">être rapide</div></div>
+      <div class="vocab-item"><div class="vocab-korean">느리다</div><div class="vocab-french">être lent</div></div>
+      <div class="vocab-item"><div class="vocab-korean">해외</div><div class="vocab-french">étranger / international</div></div>
+      <div class="vocab-item"><div class="vocab-korean">국내</div><div class="vocab-french">national / intérieur du pays</div></div>
+
+    </div>
+
+  </section>
+
+
+  <section class="tip-card">
+
+    <h2>💚 Le conseil de Ji-soo</h2>
+
+    Sur une enveloppe ou une carte postale coréenne,
+    essaie de repérer :
+
+    <br><br>
+
+    <strong>주소</strong> → adresse
+
+    <br>
+
+    <strong>우표</strong> → timbre
+
+    <br>
+
+    <strong>받는 사람</strong> → destinataire
+
+    <br>
+
+    <strong>보내는 사람</strong> → expéditeur
+
+    <br><br>
+
+    Tu n'as pas besoin de tout comprendre :
+    l'objectif est de reconnaître progressivement
+    le vocabulaire réellement utilisé dans la vie quotidienne.
+
+  </section>
+
+
+  <section class="bag-card">
+
+    <h2>🎒 À mettre dans mon sac à dos</h2>
+
+    <div class="bag-list">
+
+      <div class="bag-item">
+        📦 <strong>소포를 보내고 싶어요.</strong><br>
+        Pour dire que tu veux envoyer un colis.
+      </div>
+
+      <div class="bag-item">
+        🌍 <strong>프랑스로 보내요.</strong><br>
+        Pour indiquer la destination.
+      </div>
+
+      <div class="bag-item">
+        💰 <strong>얼마예요?</strong><br>
+        Pour demander le prix.
+      </div>
+
+      <div class="bag-item">
+        ⏱️ <strong>얼마나 걸려요?</strong><br>
+        Pour demander la durée.
+      </div>
+
+      <div class="bag-item">
+        ✉️ <strong>우표가 필요해요.</strong><br>
+        Pour dire que tu as besoin d'un timbre.
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <div class="bottom-actions">
+
+    <a
+      class="primary-link"
+      href="utilise-26.html"
+    >
+      🎯 Refaire la mission du chapitre
+    </a>
+
+    <a
+      class="secondary-link"
+      href="sac-a-dos.html"
+    >
+      🎒 Ouvrir mon sac à dos
+    </a>
+
+    <a
+      class="secondary-link"
+      href="chapitre-26.html"
+    >
+      ← Retour au chapitre 26
+    </a>
+
+  </div>
+
+
+</main>
+
+
+<script>
+
+  const AUDIO_SETTINGS = {
+    normalRate: 0.82,
+    slowRate: 0.25
+  };
+
+
+  const ROMANIZATION_KEY =
+    "hanaKorean_showRomanization";
+
+
+  let currentAudioButton =
+    null;
+
+
+  function getKoreanVoice() {
+
+    const voices =
+      window.speechSynthesis.getVoices();
+
+
+    return voices.find(
+      voice =>
+        voice.lang &&
+        voice.lang
+          .toLowerCase()
+          .startsWith("ko")
+    ) || null;
+
+  }
+
+
+  function stopSpeech() {
+
+    window.speechSynthesis.cancel();
+
+
+    if (
+      currentAudioButton
+    ) {
+
+      currentAudioButton
+        .classList
+        .remove(
+          "playing"
+        );
+
+
+      currentAudioButton =
+        null;
+
+    }
+
+  }
+
+
+  function speakKorean(
+    text,
+    button
+  ) {
+
+    if (
+      currentAudioButton === button &&
+      window.speechSynthesis.speaking
+    ) {
+
+      stopSpeech();
+      return;
+
+    }
+
+
+    stopSpeech();
+
+
+    const utterance =
+      new SpeechSynthesisUtterance(
+        text
+      );
+
+
+    utterance.lang =
+      "ko-KR";
+
+    utterance.rate =
+      AUDIO_SETTINGS.normalRate;
+
+    utterance.pitch =
+      1;
+
+
+    const koreanVoice =
+      getKoreanVoice();
+
+
+    if (
+      koreanVoice
+    ) {
+
+      utterance.voice =
+        koreanVoice;
+
+    }
+
+
+    currentAudioButton =
+      button;
+
+
+    button
+      .classList
+      .add(
+        "playing"
+      );
+
+
+    utterance.onend =
+      () => {
+
+        button
+          .classList
+          .remove(
+            "playing"
+          );
+
+
+        currentAudioButton =
+          null;
+
+      };
+
+
+    utterance.onerror =
+      () => {
+
+        button
+          .classList
+          .remove(
+            "playing"
+          );
+
+
+        currentAudioButton =
+          null;
+
+      };
+
+
+    window.speechSynthesis.speak(
+      utterance
+    );
+
+  }
+
+
+  function getRomanizationPreference() {
+
+    const stored =
+      localStorage.getItem(
+        ROMANIZATION_KEY
+      );
+
+
+    if (
+      stored === null
+    ) {
+
+      return true;
+
+    }
+
+
+    return stored === "true";
+
+  }
+
+
+  function applyRomanizationPreference(
+    show
+  ) {
+
+    document
+      .querySelectorAll(
+        ".romanization"
+      )
+      .forEach(
+        item => {
+
+          item.classList.toggle(
+            "hidden",
+            !show
+          );
+
+        }
+      );
+
+
+    document
+      .getElementById(
+        "romanizationStatus"
+      )
+      .textContent =
+        show
+          ? "Affichée"
+          : "Masquée";
+
+
+    document
+      .getElementById(
+        "romanizationToggle"
+      )
+      .textContent =
+        show
+          ? "Masquer"
+          : "Afficher";
+
+  }
+
+
+  document
+    .getElementById(
+      "romanizationToggle"
+    )
+    .addEventListener(
+      "click",
+      () => {
+
+        const next =
+          !getRomanizationPreference();
+
+
+        localStorage.setItem(
+          ROMANIZATION_KEY,
+          String(next)
+        );
+
+
+        applyRomanizationPreference(
+          next
+        );
+
+      }
+    );
+
+
+  document
+    .querySelectorAll(
+      "[data-text]"
+    )
+    .forEach(
+      button => {
+
+        button.addEventListener(
+          "click",
+          () => {
+
+            speakKorean(
+              button.dataset.text,
+              button
+            );
+
+          }
+        );
+
+      }
+    );
+
+
+  window.speechSynthesis.onvoiceschanged =
+    () => {
+      getKoreanVoice();
+    };
+
+
+  applyRomanizationPreference(
+    getRomanizationPreference()
+  );
+
 </script>
-</body></html>
+
+
+
+<script src="chapter-progress.js"></script>
+<script>
+
+(function () {
+  const REQUIRED_KEY = "hanaKorean_chapter26_use";
+  const LEGACY_MISSION_KEY = "hanaKorean_chapter26_mission";
+  const LEGACY_COMPLETED_KEY = "hanaKorean_chapter26_completed";
+  const SUMMARY_KEY = "hanaKorean_chapter26_resume";
+  function migrateLegacyProgress() {
+    if (
+      localStorage.getItem(REQUIRED_KEY) !== "completed" &&
+      (
+        localStorage.getItem(LEGACY_MISSION_KEY) === "completed" ||
+        localStorage.getItem(LEGACY_COMPLETED_KEY) === "completed"
+      )
+    ) {
+      localStorage.setItem(REQUIRED_KEY, "completed");
+    }
+  }
+  function guardSummaryAccess() {
+    migrateLegacyProgress();
+    if (localStorage.getItem(REQUIRED_KEY) !== "completed") {
+      window.location.href = "utilise-26.html";
+      return false;
+    }
+    localStorage.setItem(SUMMARY_KEY, "completed");
+    if (window.HanaChapterProgress && typeof window.HanaChapterProgress.render === "function") {
+      window.HanaChapterProgress.render();
+    }
+    return true;
+  }
+  guardSummaryAccess();
+  window.addEventListener("pageshow", guardSummaryAccess);
+})();
+
+</script>
+</body>
+
+</html>

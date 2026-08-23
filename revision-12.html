@@ -3,268 +3,358 @@
 
 <head>
 
-<meta charset="UTF-8">
+  <meta charset="UTF-8">
 
-<meta
-name="viewport"
-content="width=device-width, initial-scale=1.0"
->
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
-<meta
-name="theme-color"
-content="#F7F4ED"
->
+  <meta
+    name="theme-color"
+    content="#F7F4ED"
+  >
 
-<title>
-Chapitre 12 — Révision
-</title>
+  <title>
+    Chapitre 12 — Je révise
+  </title>
 
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
 
-<link
-rel="stylesheet"
-href="style.css"
->
+  <link
+    rel="stylesheet"
+    href="chapter-progress.css"
+  >
 
-<link
-rel="stylesheet"
-href="chapter-progress.css"
->
 
+  <script>
 
-<script>
+    /* =====================================================
+       ACCÈS SÉQUENTIEL
+       ===================================================== */
 
-if(
-localStorage.getItem(
-"hanaKorean_chapter12_writing"
-)!=="completed"
-){
+    if (
+      localStorage.getItem(
+        "hanaKorean_chapter12_writing"
+      ) !== "completed"
+    ) {
 
-window.location.replace(
-"ecriture-12.html"
-);
+      window.location.replace(
+        "ecriture-12.html"
+      );
 
-}
+    }
 
-</script>
+  </script>
 
 
+  <style>
 
-<style>
+    /* =====================================================
+       EN-TÊTE
+       ===================================================== */
 
+    .review-header {
+      text-align: center;
+      margin-bottom: 25px;
+    }
 
-.chapter-header{
 
-text-align:center;
-margin-bottom:25px;
+    .chapter-badge {
+      display: inline-block;
+      padding: 7px 14px;
+      margin-bottom: 10px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: bold;
+    }
 
-}
 
+    .review-intro {
+      color: var(--text-light);
+      line-height: 1.7;
+    }
 
 
-.chapter-badge{
+    /* =====================================================
+       RÉVISION PERSONNALISÉE
+       ===================================================== */
 
-display:inline-block;
-padding:7px 14px;
-border-radius:20px;
-font-size:14px;
-font-weight:bold;
-margin-bottom:10px;
+    .personal-review {
+      display: none;
+      padding: 18px;
+      margin-bottom: 20px;
+      background: var(--soft-beige);
+      border-radius: var(--radius-large);
+      color: var(--navy);
+      line-height: 1.7;
+    }
 
-}
 
+    .personal-review.show {
+      display: block;
+    }
 
 
-.intro{
+    .notion-list {
+      margin-top: 10px;
+      line-height: 1.8;
+    }
 
-color:var(--text-light);
-line-height:1.7;
 
-}
+    /* =====================================================
+       PROGRESSION
+       ===================================================== */
 
+    .exercise-progress-card {
+      padding: 17px;
+      margin-bottom: 20px;
+      background: var(--white);
+      border-radius: var(--radius-large);
+      box-shadow: var(--shadow);
+    }
 
 
-.review-card{
+    .exercise-progress-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 9px;
+      color: var(--text-light);
+      font-size: 13px;
+    }
+
+
+    .exercise-progress-bar {
+      height: 9px;
+      overflow: hidden;
+      background: var(--soft-beige);
+      border-radius: 20px;
+    }
+
+
+    .exercise-progress-fill {
+      width: 20%;
+      height: 100%;
+      background: var(--jade);
+      border-radius: 20px;
+      transition: width 0.3s ease;
+    }
 
-padding:20px;
-margin-bottom:18px;
+
+    /* =====================================================
+       CARTES
+       ===================================================== */
+
+    .review-card {
+      padding: 20px;
+      margin-bottom: 18px;
+    }
+
+
+    .review-card.hidden {
+      display: none;
+    }
 
-}
 
+    .question-number {
+      margin-bottom: 8px;
+      color: var(--jade-dark);
+      font-size: 13px;
+      font-weight: bold;
+    }
 
 
-.hidden{
+    .prompt-box {
+      padding: 16px;
+      margin-top: 14px;
+      background: var(--soft-green);
+      border-radius: var(--radius-medium);
+      color: var(--navy);
+      line-height: 1.7;
+    }
+
+
+    /* =====================================================
+       CHOIX
+       ===================================================== */
+
+    .choices {
+      display: grid;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+
+    .choice-button {
+      width: 100%;
+      padding: 14px 15px;
+      background: #FBFAF6;
+      color: var(--navy);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-medium);
+      text-align: left;
+      line-height: 1.5;
+      font-weight: 600;
+    }
+
+
+    .choice-button.correct-choice {
+      background: var(--success-light);
+      border-color: var(--success);
+    }
+
 
-display:none;
+    .choice-button.wrong-choice {
+      background: var(--error-light);
+      border-color: var(--error);
+    }
+
+
+    /* =====================================================
+       INPUT
+       ===================================================== */
+
+    .answer-input {
+      width: 100%;
+      box-sizing: border-box;
+      margin-top: 15px;
+      padding: 14px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-medium);
+      background: white;
+      color: var(--navy);
+      font-size: 18px;
+    }
 
-}
 
+    .answer-input:focus {
+      outline: 2px solid var(--soft-blue);
+      border-color: var(--jade);
+    }
 
 
-.word-card{
-
-padding:14px;
-margin-top:10px;
-background:#FBFAF6;
-border-radius:var(--radius-medium);
-
-}
-
-
-
-.korean{
-
-font-size:22px;
-font-weight:bold;
-color:var(--navy);
-
-}
-
-
-
-.translation{
-
-color:var(--text-light);
-margin-top:5px;
-
-}
-
-
-
-.question{
-
-padding:16px;
-background:var(--soft-green);
-border-radius:var(--radius-medium);
-margin-top:15px;
-line-height:1.7;
-
-}
-
-
-
-.choice-grid{
-
-display:grid;
-gap:10px;
-margin-top:15px;
-
-}
-
-
-
-.choice{
-
-padding:14px;
-border-radius:var(--radius-medium);
-background:#FBFAF6;
-border:1px solid var(--border);
-font-weight:bold;
-
-}
-
-
-
-.choice.correct{
-
-background:var(--success-light);
-
-}
-
-
-
-.choice.wrong{
-
-background:var(--warning-light);
-
-}
-
-
-
-.feedback{
-
-display:none;
-padding:14px;
-margin-top:14px;
-border-radius:var(--radius-medium);
-
-}
-
-
-
-.feedback.success{
-
-display:block;
-background:var(--success-light);
-
-}
-
-
-
-.feedback.error{
-
-display:block;
-background:var(--warning-light);
-
-}
-
-
-
-.next-button{
-
-display:none;
-width:100%;
-margin-top:15px;
-background:var(--jade);
-color:white;
-font-weight:bold;
-
-}
-
-
-
-.next-button.show{
-
-display:block;
-
-}
-
-
-
-.result{
-
-display:none;
-padding:20px;
-text-align:center;
-
-}
-
-
-
-.result.show{
-
-display:block;
-
-}
-
-
-
-.finish-button{
-
-width:100%;
-background:var(--jade);
-color:white;
-font-weight:bold;
-
-}
-
-
-</style>
-
+    /* =====================================================
+       FEEDBACK
+       ===================================================== */
+
+    .feedback {
+      display: none;
+      padding: 15px;
+      margin-top: 14px;
+      border-radius: var(--radius-medium);
+      line-height: 1.7;
+    }
+
+
+    .feedback.success {
+      display: block;
+      background: var(--success-light);
+      border-left: 4px solid var(--success);
+      color: var(--navy);
+    }
+
+
+    .feedback.error {
+      display: block;
+      background: var(--warning-light);
+      border-left: 4px solid var(--warning);
+      color: var(--navy);
+    }
+
+
+    .correction {
+      display: block;
+      margin: 9px 0;
+      color: var(--navy);
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+
+    /* =====================================================
+       BOUTONS
+       ===================================================== */
+
+    .check-button {
+      width: 100%;
+      margin-top: 14px;
+      background: var(--jade);
+      color: white;
+      font-weight: bold;
+    }
+
+
+    .next-button {
+      display: none;
+      width: 100%;
+      margin-top: 14px;
+      background: var(--jade);
+      color: white;
+      font-weight: bold;
+    }
+
+
+    .next-button.show {
+      display: block;
+    }
+
+
+    /* =====================================================
+       RÉSULTAT
+       ===================================================== */
+
+    .result-card {
+      display: none;
+      padding: 22px;
+      text-align: center;
+    }
+
+
+    .result-card.show {
+      display: block;
+    }
+
+
+    .result-icon {
+      margin-bottom: 8px;
+      font-size: 48px;
+    }
+
+
+    .result-score {
+      color: var(--jade-dark);
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+
+    .result-summary {
+      padding: 16px;
+      margin-top: 16px;
+      background: var(--soft-green);
+      border-radius: var(--radius-medium);
+      color: var(--navy);
+      text-align: left;
+      line-height: 1.8;
+    }
+
+
+    .finish-button {
+      width: 100%;
+      margin-top: 18px;
+      background: var(--jade);
+      color: white;
+      font-weight: bold;
+    }
+
+  </style>
 
   <script src="profile.js"></script>
 </head>
-
-
 
 
 <body>
@@ -273,649 +363,1418 @@ font-weight:bold;
 <main class="app">
 
 
-<a
-class="back-link"
-href="ecriture-12.html"
->
-← Écriture
-</a>
+  <!-- =====================================================
+       RETOUR
+       ===================================================== -->
 
+  <a
+    class="back-link"
+    href="ecriture-12.html"
+  >
+    ← J'écris
+  </a>
 
 
-<header class="chapter-header">
 
+  <!-- =====================================================
+       EN-TÊTE
+       ===================================================== -->
 
-<span class="chapter-badge">
+  <header class="review-header">
 
-Chapitre 12 · Étape 5
+    <span class="chapter-badge">
+      Module 2 · Chapitre 12 · Étape 5
+    </span>
 
-</span>
 
+    <p class="korean">
+      복습해 봐요 🧠
+    </p>
 
-<p class="korean">
 
-복습해요 🧠
+    <h1>
+      Je révise
+    </h1>
 
-</p>
 
+    <p class="review-intro">
+      Mélange maintenant les notions
+      essentielles du chapitre 12 :
+      demander un prix,
+      comprendre un montant,
+      réagir au prix
+      et choisir un objet.
+    </p>
 
-<h1>
+  </header>
 
-Révision
 
-</h1>
 
+  <!-- =====================================================
+       PARCOURS
+       ===================================================== -->
 
-<p class="intro">
+  <section
+    id="hanaChapterPath"
+    data-chapter-path
+  ></section>
 
-Vérifie que tu connais
-les expressions essentielles
-pour demander ton chemin.
 
-</p>
 
+  <!-- =====================================================
+       RÉVISION PERSONNALISÉE
+       ===================================================== -->
 
-</header>
+  <section
+    class="personal-review"
+    id="personalReview"
+  >
 
+    <strong>
+      🌿 Petit rappel personnalisé
+    </strong>
 
 
+    <div
+      class="notion-list"
+      id="notionList"
+    ></div>
 
-<section
-id="hanaChapterPath"
-data-chapter-path
->
-</section>
+  </section>
 
 
 
+  <!-- =====================================================
+       PROGRESSION
+       ===================================================== -->
 
+  <section class="exercise-progress-card">
 
+    <div class="exercise-progress-top">
 
+      <span>
+        Révision
+      </span>
 
+      <strong id="progressLabel">
+        1 / 5
+      </strong>
 
-<section
-class="review-card"
-id="step1"
->
+    </div>
 
 
-<h2>
+    <div class="exercise-progress-bar">
 
-📍 Vocabulaire
+      <div
+        class="exercise-progress-fill"
+        id="progressFill"
+      ></div>
 
-</h2>
+    </div>
 
+  </section>
 
-<div class="word-card">
 
-<div class="korean">
-어디
-</div>
 
-<div class="translation">
-où
-</div>
+  <!-- =====================================================
+       QUESTION 1
+       ===================================================== -->
 
-</div>
+  <section
+    class="review-card"
+    id="question1"
+  >
 
+    <div class="question-number">
+      QUESTION 1 / 5
+    </div>
 
-<div class="word-card">
 
-<div class="korean">
-왼쪽
-</div>
+    <h2>
+      💰 Quelle phrase sert à demander un prix ?
+    </h2>
 
-<div class="translation">
-gauche
-</div>
 
-</div>
+    <div class="choices">
 
+      <button
+        class="choice-button"
+        type="button"
+        onclick="checkChoice(1, this, true)"
+      >
+        이거 얼마예요?
+      </button>
 
-<div class="word-card">
 
-<div class="korean">
-오른쪽
-</div>
+      <button
+        class="choice-button"
+        type="button"
+        onclick="checkChoice(1, this, false)"
+      >
+        이거 주세요.
+      </button>
 
-<div class="translation">
-droite
-</div>
 
-</div>
+      <button
+        class="choice-button"
+        type="button"
+        onclick="checkChoice(1, this, false)"
+      >
+        이것은 비싸요.
+      </button>
 
+    </div>
 
-<div class="word-card">
 
-<div class="korean">
-직진
-</div>
+    <div
+      class="feedback"
+      id="feedback1"
+    ></div>
 
-<div class="translation">
-tout droit
-</div>
 
-</div>
+    <button
+      class="next-button"
+      id="next1"
+      type="button"
+      onclick="showQuestion(2)"
+    >
+      Question suivante →
+    </button>
 
+  </section>
 
 
-<button
-class="next-button show"
-onclick="showStep(2)"
->
 
-Continuer →
+  <!-- =====================================================
+       QUESTION 2
+       ===================================================== -->
 
-</button>
+  <section
+    class="review-card hidden"
+    id="question2"
+  >
 
+    <div class="question-number">
+      QUESTION 2 / 5
+    </div>
 
-</section>
 
+    <h2>
+      🇰🇷 Écris « C'est 15 000 wons »
+    </h2>
 
 
+    <div class="prompt-box">
 
+      Reprends le prix
+      du dialogue du chapitre.
+    </div>
 
 
+    <input
+      class="answer-input"
+      id="answer2"
+      type="text"
+      lang="ko"
+      autocomplete="off"
+      autocapitalize="off"
+      spellcheck="false"
+      placeholder="Écris le prix en coréen…"
+    >
 
 
+    <button
+      class="check-button"
+      type="button"
+      onclick="checkQuestion2()"
+    >
+      Vérifier
+    </button>
 
-<section
-class="review-card hidden"
-id="step2"
->
 
+    <div
+      class="feedback"
+      id="feedback2"
+    ></div>
 
-<h2>
 
-🧩 Complète la phrase
+    <button
+      class="next-button"
+      id="next2"
+      type="button"
+      onclick="showQuestion(3)"
+    >
+      Question suivante →
+    </button>
 
-</h2>
+  </section>
 
 
-<div class="question">
 
-Comment demander :
+  <!-- =====================================================
+       QUESTION 3
+       ===================================================== -->
 
-<br><br>
+  <section
+    class="review-card hidden"
+    id="question3"
+  >
 
-« Où se trouve Gyeongbokgung ? »
+    <div class="question-number">
+      QUESTION 3 / 5
+    </div>
 
-</div>
 
+    <h2>
+      💸 Quelle paire est correcte ?
+    </h2>
 
 
-<div class="choice-grid">
+    <div class="choices">
 
+      <button
+        class="choice-button"
+        type="button"
+        onclick="checkChoice(3, this, false)"
+      >
+        비싸요 = bon marché · 싸요 = cher
+      </button>
 
-<button
-class="choice"
-onclick="answer(this,true)"
->
 
-경복궁이 어디에 있어요?
+      <button
+        class="choice-button"
+        type="button"
+        onclick="checkChoice(3, this, true)"
+      >
+        비싸요 = cher · 싸요 = bon marché
+      </button>
 
-</button>
 
+      <button
+        class="choice-button"
+        type="button"
+        onclick="checkChoice(3, this, false)"
+      >
+        비싸요 = combien · 싸요 = merci
+      </button>
 
-<button
-class="choice"
-onclick="answer(this,false)"
->
+    </div>
 
-경복궁이 얼마예요?
 
-</button>
+    <div
+      class="feedback"
+      id="feedback3"
+    ></div>
 
 
-<button
-class="choice"
-onclick="answer(this,false)"
->
+    <button
+      class="next-button"
+      id="next3"
+      type="button"
+      onclick="showQuestion(4)"
+    >
+      Question suivante →
+    </button>
 
-경복궁 주세요.
+  </section>
 
-</button>
 
 
-</div>
+  <!-- =====================================================
+       QUESTION 4
+       ===================================================== -->
 
+  <section
+    class="review-card hidden"
+    id="question4"
+  >
 
+    <div class="question-number">
+      QUESTION 4 / 5
+    </div>
 
-<div
-class="feedback"
-id="feedback2"
-></div>
 
+    <h2>
+      👉 Écris « Je voudrais celui-ci »
+    </h2>
 
-<button
-class="next-button"
-id="next2"
-onclick="showStep(3)"
->
 
-Continuer →
+    <div class="prompt-box">
 
-</button>
+      Utilise la forme parlée
+      utilisée par Ana :
 
+      <strong>이거</strong>.
+    </div>
 
-</section>
 
+    <input
+      class="answer-input"
+      id="answer4"
+      type="text"
+      lang="ko"
+      autocomplete="off"
+      autocapitalize="off"
+      spellcheck="false"
+      placeholder="Écris la phrase en coréen…"
+    >
 
 
+    <button
+      class="check-button"
+      type="button"
+      onclick="checkQuestion4()"
+    >
+      Vérifier
+    </button>
 
 
+    <div
+      class="feedback"
+      id="feedback4"
+    ></div>
 
 
+    <button
+      class="next-button"
+      id="next4"
+      type="button"
+      onclick="showQuestion(5)"
+    >
+      Dernière question →
+    </button>
 
+  </section>
 
-<section
-class="review-card hidden"
-id="step3"
->
 
 
-<h2>
+  <!-- =====================================================
+       QUESTION 5
+       ===================================================== -->
 
-🧭 Les directions
+  <section
+    class="review-card hidden"
+    id="question5"
+  >
 
-</h2>
+    <div class="question-number">
+      QUESTION 5 / 5
+    </div>
 
 
-<div class="question">
+    <h2>
+      💳 Associe le bon moyen de paiement
+    </h2>
 
-Traduis :
 
-<br><br>
+    <div class="prompt-box">
 
-<strong>
-오른쪽
-</strong>
+      Quel mot signifie
+      <strong>« espèces »</strong> ?
+    </div>
 
-</div>
 
+    <div class="choices">
 
+      <button
+        class="choice-button"
+        type="button"
+        onclick="checkChoice(5, this, false)"
+      >
+        카드
+      </button>
 
-<div class="choice-grid">
 
+      <button
+        class="choice-button"
+        type="button"
+        onclick="checkChoice(5, this, true)"
+      >
+        현금
+      </button>
 
-<button
-class="choice"
-onclick="answer(this,true)"
->
 
-Droite
+      <button
+        class="choice-button"
+        type="button"
+        onclick="checkChoice(5, this, false)"
+      >
+        원
+      </button>
 
-</button>
+    </div>
 
 
-<button
-class="choice"
-onclick="answer(this,false)"
->
+    <div
+      class="feedback"
+      id="feedback5"
+    ></div>
 
-Gauche
 
-</button>
+    <button
+      class="next-button"
+      id="next5"
+      type="button"
+      onclick="showResult()"
+    >
+      Voir mon résultat →
+    </button>
 
+  </section>
 
-<button
-class="choice"
-onclick="answer(this,false)"
->
 
-Devant
 
-</button>
+  <!-- =====================================================
+       RÉSULTAT
+       ===================================================== -->
 
+  <section
+    class="result-card"
+    id="resultCard"
+  >
 
-</div>
+    <div class="result-icon">
+      🧠🛍️
+    </div>
 
 
-<div
-class="feedback"
-id="feedback3"
-></div>
+    <h2>
+      잘했어요!
+    </h2>
 
 
-<button
-class="next-button"
-id="next3"
-onclick="showStep(4)"
->
+    <p>
+      Tu as terminé
+      la révision du chapitre 12.
+    </p>
 
-Continuer →
 
-</button>
+    <p class="result-score">
+      5 notions validées ✅
+    </p>
 
 
-</section>
+    <div class="result-summary">
 
+      <strong>
+        🌿 Tu as revu :
+      </strong>
 
+      <br><br>
 
+      💰 <strong>이거 얼마예요?</strong>
 
+      <br>
 
+      Combien coûte celui-ci ?
 
+      <br><br>
 
+      🇰🇷 <strong>만오천 원이에요.</strong>
 
+      <br>
 
+      15 000 wons.
 
-<section
-class="review-card hidden"
-id="step4"
->
+      <br><br>
 
+      💸 <strong>비싸요.</strong>
 
-<h2>
+      <br>
 
-🙏 Petite situation
+      C'est cher.
 
-</h2>
+      <br><br>
 
+      🛍️ <strong>싸요.</strong>
 
-<div class="question">
+      <br>
 
-Une personne t'aide.
+      C'est bon marché.
 
-Que dis-tu ?
+      <br><br>
 
-</div>
+      👉 <strong>이거 주세요.</strong>
 
+      <br>
 
+      Je voudrais celui-ci.
 
-<div class="choice-grid">
+      <br><br>
 
+      💳 <strong>카드</strong>
 
-<button
-class="choice"
-onclick="answer(this,true)"
->
+      <br>
 
-감사합니다
+      carte bancaire
 
-</button>
+      <br><br>
 
+      💵 <strong>현금</strong>
 
-<button
-class="choice"
-onclick="answer(this,false)"
->
+      <br>
 
-비싸요
+      espèces
 
-</button>
+    </div>
 
 
-<button
-class="choice"
-onclick="answer(this,false)"
->
+    <button
+      class="finish-button"
+      type="button"
+      onclick="completeReview()"
+    >
+      🎯 Valider « Je révise » · Passer à « Je l'utilise »
+    </button>
 
-주세요
-
-</button>
-
-
-</div>
-
-
-
-<div
-class="feedback"
-id="feedback4"
-></div>
-
-
-<button
-class="next-button"
-id="next4"
-onclick="showResult()"
->
-
-Terminer →
-
-</button>
-
-
-</section>
-
-
-
-
-
-
-
-
-
-<section
-class="result"
-id="result"
->
-
-
-<h2>
-
-🎉 Chapitre 12 validé !
-
-</h2>
-
-
-<p>
-
-Tu maîtrises maintenant
-les bases pour demander
-ton chemin en coréen.
-
-</p>
-
-
-<p>
-
-📍 어디에 있어요?
-
-<br>
-
-⬅️ 왼쪽
-
-<br>
-
-➡️ 오른쪽
-
-<br>
-
-⬆️ 직진
-
-<br>
-
-🙏 감사합니다
-
-</p>
-
-
-
-<button
-class="finish-button"
-onclick="complete()"
->
-
-🎯 Passer à « Je l'utilise »
-
-</button>
-
-
-</section>
-
-
-
-
-
+  </section>
 
 
 </main>
 
 
 
-
-
 <script src="chapter-progress.js"></script>
-
 
 
 <script>
 
+  /* =====================================================
+     ÉTAT
+     ===================================================== */
 
-let currentStep=1;
+  const completed = {
 
+    1: false,
+    2: false,
+    3: false,
+    4: false,
+    5: false
 
+  };
 
-function showStep(number){
 
+  const reviewMistakes =
+    [];
 
-document
-.querySelectorAll(
-".review-card"
-)
-.forEach(
-card=>card.classList.add("hidden")
-);
 
+  const weakNotions =
+    [];
 
 
-document
-.getElementById(
-"step"+number
-)
-.classList.remove(
-"hidden"
-);
 
+  /* =====================================================
+     NORMALISATION
+     ===================================================== */
 
-currentStep=number;
+  function normalize(
+    text
+  ) {
 
+    return text
+      .trim()
+      .replace(
+        /[.,!?？！。]/g,
+        ""
+      )
+      .replace(
+        /\s+/g,
+        " "
+      );
 
-window.scrollTo({
+  }
 
-top:0,
 
-behavior:"smooth"
 
-});
+  function compact(
+    text
+  ) {
 
+    return normalize(
+      text
+    ).replace(
+      /\s/g,
+      ""
+    );
 
-}
+  }
 
 
 
+  /* =====================================================
+     SÉCURITÉ HTML
+     ===================================================== */
 
-function answer(button,correct){
+  function escapeHtml(
+    text
+  ) {
 
+    const div =
+      document.createElement(
+        "div"
+      );
 
-const section=
-button.closest(
-".review-card"
-);
 
+    div.textContent =
+      String(
+        text
+      );
 
-const feedback=
-section.querySelector(
-".feedback"
-);
 
+    return div.innerHTML;
 
-if(correct){
+  }
 
 
-button.classList.add(
-"correct"
-);
 
+  /* =====================================================
+     RÉVISION PERSONNALISÉE
+     ===================================================== */
 
-feedback.className=
-"feedback success";
+  function loadPersonalReview() {
 
+    let notions =
+      [];
 
-feedback.innerHTML=
-"✅ Très bien !";
 
+    try {
 
-section
-.querySelector(
-".next-button"
-)
-.classList.add(
-"show"
-);
+      notions =
+        JSON.parse(
+          localStorage.getItem(
+            "hanaKorean_chapter12_revisionNotions"
+          ) ||
+          "[]"
+        );
 
+    }
 
-}
+    catch (error) {
 
-else{
+      notions =
+        [];
 
+    }
 
-button.classList.add(
-"wrong"
-);
 
+    if (
+      !Array.isArray(
+        notions
+      ) ||
+      notions.length === 0
+    ) {
 
-feedback.className=
-"feedback error";
+      return;
 
+    }
 
-feedback.innerHTML=
-"❌ Réessaie. Relis la leçon.";
 
-}
+    const card =
+      document.getElementById(
+        "personalReview"
+      );
 
 
-}
+    const list =
+      document.getElementById(
+        "notionList"
+      );
 
 
+    list.innerHTML =
+      "Pendant l'étape d'écriture, certaines notions t'ont demandé un peu plus d'attention :" +
+      "<br><br>" +
+      notions
+        .map(
+          notion =>
+            "• <strong>" +
+            escapeHtml(
+              notion
+            ) +
+            "</strong>"
+        )
+        .join(
+          "<br>"
+        );
 
 
+    card.classList.add(
+      "show"
+    );
 
-function showResult(){
+  }
 
 
-document
-.querySelectorAll(
-".review-card"
-)
-.forEach(
-card=>card.classList.add("hidden")
-);
 
+  /* =====================================================
+     OUTILS FEEDBACK
+     ===================================================== */
 
-document
-.getElementById(
-"result"
-)
-.classList.add(
-"show"
-);
+  function markMistake(
+    number,
+    notion
+  ) {
 
+    if (
+      !reviewMistakes.includes(
+        number
+      )
+    ) {
 
-}
+      reviewMistakes.push(
+        number
+      );
 
+    }
 
 
+    if (
+      notion &&
+      !weakNotions.includes(
+        notion
+      )
+    ) {
 
+      weakNotions.push(
+        notion
+      );
 
-function complete(){
+    }
 
+  }
 
-localStorage.setItem(
-"hanaKorean_chapter12_review",
-"completed"
-);
 
 
+  function success(
+    number,
+    message
+  ) {
 
-window.location.href=
-"utilise-12.html";
+    completed[number] =
+      true;
 
 
-}
+    const feedback =
+      document.getElementById(
+        "feedback" +
+        number
+      );
 
 
+    feedback.className =
+      "feedback success";
+
+
+    feedback.innerHTML =
+      "✅ <strong>Très bien !</strong>" +
+      "<br><br>" +
+      message;
+
+
+    document.getElementById(
+      "next" +
+      number
+    ).classList.add(
+      "show"
+    );
+
+  }
+
+
+
+  function error(
+    number,
+    message,
+    notion
+  ) {
+
+    markMistake(
+      number,
+      notion
+    );
+
+
+    const feedback =
+      document.getElementById(
+        "feedback" +
+        number
+      );
+
+
+    feedback.className =
+      "feedback error";
+
+
+    feedback.innerHTML =
+      message;
+
+  }
+
+
+
+  /* =====================================================
+     QCM
+     ===================================================== */
+
+  function checkChoice(
+    number,
+    button,
+    correct
+  ) {
+
+    if (
+      completed[number]
+    ) {
+
+      return;
+
+    }
+
+
+    if (
+      correct
+    ) {
+
+      button.classList.add(
+        "correct-choice"
+      );
+
+
+      button
+        .closest(
+          ".review-card"
+        )
+        .querySelectorAll(
+          ".choice-button"
+        )
+        .forEach(
+          choice => {
+
+            choice.disabled =
+              true;
+
+          }
+        );
+
+
+      if (
+        number === 1
+      ) {
+
+        success(
+          1,
+          "<span class='correction'>이거 얼마예요?</span>" +
+          "<strong>얼마예요?</strong> sert à demander combien quelque chose coûte."
+        );
+
+      }
+
+
+      if (
+        number === 3
+      ) {
+
+        success(
+          3,
+          "<strong>비싸요</strong> = cher" +
+          "<br>" +
+          "<strong>싸요</strong> = bon marché."
+        );
+
+      }
+
+
+      if (
+        number === 5
+      ) {
+
+        success(
+          5,
+          "<span class='correction'>현금</span>" +
+          "<strong>현금</strong> signifie « espèces »." +
+          "<br><br>" +
+          "<strong>카드</strong> signifie « carte bancaire »."
+        );
+
+      }
+
+
+      return;
+
+    }
+
+
+    button.classList.add(
+      "wrong-choice"
+    );
+
+
+    if (
+      number === 1
+    ) {
+
+      error(
+        1,
+        "Cherche la phrase contenant <strong>얼마예요?</strong>." +
+        "<br><br>" +
+        "💡 <strong>얼마</strong> signifie « combien ».",
+        "얼마예요"
+      );
+
+    }
+
+
+    if (
+      number === 3
+    ) {
+
+      error(
+        3,
+        "Attention à ne pas inverser les deux expressions." +
+        "<br><br>" +
+        "<strong>비싸요</strong> → cher" +
+        "<br>" +
+        "<strong>싸요</strong> → bon marché.",
+        "비싸요 / 싸요"
+      );
+
+    }
+
+
+    if (
+      number === 5
+    ) {
+
+      error(
+        5,
+        "💡 <strong>카드</strong> = carte bancaire." +
+        "<br><br>" +
+        "Le mot recherché pour « espèces » est <strong>현금</strong>.",
+        "카드 / 현금"
+      );
+
+    }
+
+
+    setTimeout(
+      function() {
+
+        button.classList.remove(
+          "wrong-choice"
+        );
+
+      },
+      800
+    );
+
+  }
+
+
+
+  /* =====================================================
+     QUESTION 2
+     ===================================================== */
+
+  function checkQuestion2() {
+
+    if (
+      completed[2]
+    ) {
+
+      return;
+
+    }
+
+
+    const answer =
+      compact(
+        document.getElementById(
+          "answer2"
+        ).value
+      );
+
+
+    if (
+      answer ===
+      "만오천원이에요"
+    ) {
+
+      success(
+        2,
+        "<span class='correction'>만오천 원이에요.</span>" +
+        "<strong>원</strong> indique que le montant est en won."
+      );
+
+
+      return;
+
+    }
+
+
+    if (
+      answer.includes(
+        "만오천"
+      ) &&
+      !answer.includes(
+        "원"
+      )
+    ) {
+
+      error(
+        2,
+        "Le montant est correct : <strong>만오천</strong>." +
+        "<br><br>" +
+        "Ajoute <strong>원이에요</strong>.",
+        "원"
+      );
+
+
+      return;
+
+    }
+
+
+    if (
+      answer.includes(
+        "원이에요"
+      ) &&
+      !answer.includes(
+        "만오천"
+      )
+    ) {
+
+      error(
+        2,
+        "Tu as bien écrit <strong>원이에요</strong>." +
+        "<br><br>" +
+        "Le prix du dialogue est <strong>만오천</strong> = 15 000.",
+        "만오천"
+      );
+
+
+      return;
+
+    }
+
+
+    error(
+      2,
+      "💡 Reprends le prix du dialogue :" +
+      "<br><br>" +
+      "<strong>만오천 원이에요.</strong>",
+      "만오천 원이에요"
+    );
+
+  }
+
+
+
+  /* =====================================================
+     QUESTION 4
+     ===================================================== */
+
+  function checkQuestion4() {
+
+    if (
+      completed[4]
+    ) {
+
+      return;
+
+    }
+
+
+    const answer =
+      compact(
+        document.getElementById(
+          "answer4"
+        ).value
+      );
+
+
+    if (
+      answer ===
+      "이거주세요"
+    ) {
+
+      success(
+        4,
+        "<span class='correction'>이거 주세요.</span>" +
+        "<strong>주세요</strong> permet ici de demander l'objet que tu veux acheter."
+      );
+
+
+      return;
+
+    }
+
+
+    if (
+      answer ===
+      "이것주세요"
+    ) {
+
+      error(
+        4,
+        "<strong>이것 주세요.</strong> est également correct." +
+        "<br><br>" +
+        "Mais cette question te fait pratiquer la forme parlée du dialogue : <strong>이거 주세요.</strong>",
+        "이거 / 이것"
+      );
+
+
+      return;
+
+    }
+
+
+    if (
+      answer ===
+      "이거"
+    ) {
+
+      error(
+        4,
+        "Tu as bien désigné l'objet avec <strong>이거</strong>." +
+        "<br><br>" +
+        "Ajoute <strong>주세요</strong>.",
+        "주세요"
+      );
+
+
+      return;
+
+    }
+
+
+    if (
+      answer.includes(
+        "주세요"
+      ) &&
+      !answer.includes(
+        "이거"
+      )
+    ) {
+
+      error(
+        4,
+        "Tu as bien utilisé <strong>주세요</strong>." +
+        "<br><br>" +
+        "Il manque <strong>이거</strong> = celui-ci.",
+        "이거"
+      );
+
+
+      return;
+
+    }
+
+
+    error(
+      4,
+      "💡 Écris :" +
+      "<br><br>" +
+      "<strong>이거 주세요.</strong>",
+      "이거 주세요"
+    );
+
+  }
+
+
+
+  /* =====================================================
+     NAVIGATION
+     ===================================================== */
+
+  function showQuestion(
+    number
+  ) {
+
+    document
+      .querySelectorAll(
+        ".review-card"
+      )
+      .forEach(
+        card => {
+
+          card.classList.add(
+            "hidden"
+          );
+
+        }
+      );
+
+
+    document.getElementById(
+      "question" +
+      number
+    ).classList.remove(
+      "hidden"
+    );
+
+
+    document.getElementById(
+      "progressLabel"
+    ).textContent =
+      number +
+      " / 5";
+
+
+    document.getElementById(
+      "progressFill"
+    ).style.width =
+      (
+        number /
+        5 *
+        100
+      ) +
+      "%";
+
+
+    window.scrollTo({
+
+      top:
+        0,
+
+      behavior:
+        "smooth"
+
+    });
+
+  }
+
+
+
+  /* =====================================================
+     RÉSULTAT
+     ===================================================== */
+
+  function showResult() {
+
+    if (
+      !completed[5]
+    ) {
+
+      return;
+
+    }
+
+
+    document
+      .querySelectorAll(
+        ".review-card"
+      )
+      .forEach(
+        card => {
+
+          card.classList.add(
+            "hidden"
+          );
+
+        }
+      );
+
+
+    document.getElementById(
+      "progressFill"
+    ).style.width =
+      "100%";
+
+
+    document.getElementById(
+      "progressLabel"
+    ).textContent =
+      "5 / 5";
+
+
+    document.getElementById(
+      "resultCard"
+    ).classList.add(
+      "show"
+    );
+
+
+    localStorage.setItem(
+      "hanaKorean_chapter12_reviewMistakes",
+      JSON.stringify(
+        reviewMistakes
+      )
+    );
+
+
+    localStorage.setItem(
+      "hanaKorean_chapter12_reviewWeakNotions",
+      JSON.stringify(
+        weakNotions
+      )
+    );
+
+
+    window.scrollTo({
+
+      top:
+        0,
+
+      behavior:
+        "smooth"
+
+    });
+
+  }
+
+
+
+  /* =====================================================
+     VALIDATION
+     ===================================================== */
+
+  function completeReview() {
+
+    localStorage.setItem(
+      "hanaKorean_chapter12_review",
+      "completed"
+    );
+
+
+    if (
+      window.HanaChapterProgress &&
+      typeof window.HanaChapterProgress.render === "function"
+    ) {
+
+      window.HanaChapterProgress.render();
+
+    }
+
+
+    window.location.href =
+      "utilise-12.html";
+
+  }
+
+
+
+  /* =====================================================
+     DÉMARRAGE
+     ===================================================== */
+
+  loadPersonalReview();
+
+
+  window.addEventListener(
+    "pageshow",
+    function() {
+
+      if (
+        window.HanaChapterProgress &&
+        typeof window.HanaChapterProgress.render === "function"
+      ) {
+
+        window.HanaChapterProgress.render();
+
+      }
+
+    }
+  );
 
 </script>
 </body>
