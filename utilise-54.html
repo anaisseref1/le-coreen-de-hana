@@ -1,0 +1,29 @@
+<!DOCTYPE html><html lang="fr"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#F7F4ED"><title>Chapitre 54 — Mission</title>
+<link rel="stylesheet" href="style.css"><link rel="stylesheet" href="chapter-progress.css">
+<style>textarea{width:100%;box-sizing:border-box}</style><script src="profile.js"></script></head>
+<body><main class="app">
+<a class="back-link" href="revision-54.html">← Révision</a><section id="hanaChapterPath" data-chapter-path></section>
+<header><span class="chapter-badge">Chapitre 54 · 🎯</span><h1>Je comprends plus que je ne le pense</h1></header>
+<section class="card">
+<p>Choisis un audio que tu n’as pas mémorisé.</p>
+<p>1. Sans texte : de quoi parle la personne ?</p>
+<textarea id="idea" rows="3"></textarea>
+<p>2. Deuxième écoute : mots reconnus</p>
+<textarea id="words" rows="3"></textarea>
+<p>3. Troisième écoute : quand ? qui ? où ? action ?</p>
+<textarea id="details" rows="4"></textarea>
+<p>4. Après la transcription :</p>
+<p>🟢 connu et entendu · 🟡 connu mais non reconnu · 🔴 nouveau</p>
+<textarea id="triage" rows="5"></textarea>
+</section>
+<button id="finish" style="width:100%">✅ Terminer le chapitre 54</button><button id="summary" style="display:none;width:100%">📚 Résumé</button>
+</main>
+<script src="chapter-progress.js"></script><script>
+const USE="hanaKorean_chapter54_use",MIS="hanaKorean_chapter54_mission",COMP="hanaKorean_chapter54_completed",F="hanaKorean_chapter54_missionData",b=document.getElementById("finish"),s=document.getElementById("summary"),ids=["idea","words","details","triage"];
+let saved={};try{saved=JSON.parse(localStorage.getItem(F)||"{}")}catch(e){}
+ids.forEach(id=>{const el=document.getElementById(id);el.value=saved[id]||"";el.oninput=()=>{const x={};ids.forEach(k=>x[k]=document.getElementById(k).value);localStorage.setItem(F,JSON.stringify(x))}});
+function r(){if(localStorage.getItem(COMP)==="completed"){b.disabled=true;b.textContent="✅ Chapitre 54 terminé";s.style.display="block"}if(window.HanaChapterProgress)HanaChapterProgress.render()}
+b.onclick=()=>{localStorage.setItem(USE,"completed");localStorage.setItem(MIS,"completed");localStorage.setItem(COMP,"completed");r()};s.onclick=()=>location.href="resume-54.html";r();
+</script></body></html>

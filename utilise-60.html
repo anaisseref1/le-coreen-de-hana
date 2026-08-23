@@ -1,0 +1,9 @@
+<!DOCTYPE html><html lang="fr"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#F7F4ED"><title>Chapitre 60 — Mission</title>
+<link rel="stylesheet" href="style.css"><link rel="stylesheet" href="chapter-progress.css">
+<style>textarea{width:100%;box-sizing:border-box}</style><script src="profile.js"></script></head>
+<body><main class="app"><a class="back-link" href="revision-60.html">← Révision</a><section id="hanaChapterPath" data-chapter-path></section><header><span class="chapter-badge">Chapitre 60 · 🎯</span><h1>Je décode une conversation 📱</h1></header>
+<section class="card"><p>Décode puis réécris sans abréviations :</p><p>뭐해? ㅋㅋ</p><p>낼 시간 돼?</p><p>카페 ㄱㄱ?</p><p>ㅇㅇ 좋아</p><p>ㅇㅋ 낼 봐~</p><textarea id="free" rows="18"></textarea></section>
+<button id="finish" style="width:100%">✅ Terminer le chapitre 60</button><button id="summary" style="display:none;width:100%">📚 Résumé</button></main>
+<script src="chapter-progress.js"></script><script>const C="hanaKorean_chapter60_completed",U="hanaKorean_chapter60_use",M="hanaKorean_chapter60_mission",F="hanaKorean_chapter60_missionFree",f=document.getElementById("free"),b=document.getElementById("finish"),s=document.getElementById("summary");f.value=localStorage.getItem(F)||"";f.oninput=()=>localStorage.setItem(F,f.value);function r(){if(localStorage.getItem(C)==="completed"){b.disabled=true;b.textContent="✅ Chapitre 60 terminé";s.style.display="block"}if(window.HanaChapterProgress)HanaChapterProgress.render()}b.onclick=()=>{localStorage.setItem(U,"completed");localStorage.setItem(M,"completed");localStorage.setItem(C,"completed");r()};s.onclick=()=>location.href="resume-60.html";r();</script></body></html>

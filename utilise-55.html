@@ -1,0 +1,12 @@
+<!DOCTYPE html><html lang="fr"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#F7F4ED"><title>Chapitre 55 — Mission</title>
+<link rel="stylesheet" href="style.css"><link rel="stylesheet" href="chapter-progress.css">
+<style>textarea{width:100%;box-sizing:border-box}</style><script src="profile.js"></script></head>
+<body><main class="app"><a class="back-link" href="revision-55.html">← Révision</a><section id="hanaChapterPath" data-chapter-path></section>
+<header><span class="chapter-badge">Chapitre 55 · 🎯</span><h1>Je décode le coréen parlé</h1></header>
+<section class="card"><p>Transforme en forme complète :</p><p>이거 뭐예요?</p><p>전 괜찮아요.</p><p>뭘 먹고 싶어요?</p><p>이건 제 거예요.</p><p>그건 아니에요.</p><p>Puis fais l’inverse avec tes propres exemples.</p><textarea id="free" rows="14"></textarea></section>
+<button id="finish" style="width:100%">✅ Terminer le chapitre 55</button><button id="summary" style="display:none;width:100%">📚 Résumé</button></main>
+<script src="chapter-progress.js"></script><script>
+const U="hanaKorean_chapter55_use",M="hanaKorean_chapter55_mission",C="hanaKorean_chapter55_completed",F="hanaKorean_chapter55_missionFree",f=document.getElementById("free"),b=document.getElementById("finish"),s=document.getElementById("summary");f.value=localStorage.getItem(F)||"";f.oninput=()=>localStorage.setItem(F,f.value);function r(){if(localStorage.getItem(C)==="completed"){b.disabled=true;b.textContent="✅ Chapitre 55 terminé";s.style.display="block"}if(window.HanaChapterProgress)HanaChapterProgress.render()}b.onclick=()=>{localStorage.setItem(U,"completed");localStorage.setItem(M,"completed");localStorage.setItem(C,"completed");r()};s.onclick=()=>location.href="resume-55.html";r();
+</script></body></html>
