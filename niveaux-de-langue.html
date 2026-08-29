@@ -1,3 +1,120 @@
-<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><meta name="theme-color" content="#F7F4ED"><title>Niveaux de langue — Le Coréen de Ana</title><link rel="stylesheet" href="style.css"><style>.card{padding:19px;margin-bottom:14px;background:var(--white);border:1px solid var(--border);border-radius:var(--radius-large);box-shadow:var(--shadow)}.badge{display:inline-block;padding:5px 9px;background:var(--soft-beige);border-radius:18px;font-size:11px;font-weight:700;color:var(--text-light)}.ex{padding:12px;margin-top:8px;background:#FBFAF6;border-radius:var(--radius-medium)}</style>  <script src="profile.js"></script>
-</head><body><main class="app"><a class="back-link" href="bibliotheque.html">← Bibliothèque</a><header><span class="chapter-badge">🗣️ Langue & relations</span><p class="korean">말투와 존댓말</p><h1>Niveaux de langue & politesse</h1><p>Une référence évolutive pour comprendre comment la relation change la manière de parler.</p></header><section class="card"><span class="badge">Registre principal du parcours</span><h2>🌿 해요체 — poli courant</h2><p>Le style appris actuellement : naturel et poli dans énormément de situations.</p><div class="ex">먹어요 · 가요 · 좋아해요</div></section><section class="card"><span class="badge">À développer</span><h2>💬 반말 — entre proches</h2><p>Le langage familier avec les amis et proches lorsque la relation le permet.</p><div class="ex">먹어요 → 먹어<br>있어요 → 있어</div></section><section class="card"><span class="badge">À développer</span><h2>🎓 하십시오체 — très poli / formel</h2><p>Repérer le style formel des annonces, présentations, situations professionnelles ou très respectueuses.</p></section><section class="card"><span class="badge">À développer progressivement</span><h2>🙏 높임말 — honorifiques</h2><p>Comprendre des formes comme 드세요, 주무세요, 계세요, sans les apprendre toutes d’un coup.</p></section><section class="card"><span class="badge">Future fiche pratique</span><h2>👥 À qui parler comment ?</h2><p>Amis, inconnus, employés, professeur, personne âgée, collègue ou supérieur : de petits scénarios montreront le registre naturel.</p></section><section class="card"><span class="badge">🔎 Coréen authentique</span><h2>🎬 Observer les registres dans les K-dramas</h2><p>Repérer quand deux personnages passent du 존댓말 au 반말 et ce que cela raconte sur leur relation.</p></section></main>
-</body></html>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta name="theme-color" content="#F7F4ED">
+  <title>Niveaux de langue — Le Coréen de Ana</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="bibliotheque-parcours.css">
+  <script src="profile.js"></script>
+  <style>
+    .rule-box{padding:15px;margin-bottom:15px;background:linear-gradient(145deg,var(--soft-green),var(--white));border:1px solid rgba(111,159,146,.3);border-radius:var(--radius-large)}.rule-box h2{margin:0 0 7px}.rule-box p{margin:0}
+    .register{margin-bottom:10px;background:var(--white);border:1px solid var(--border);border-radius:var(--radius-large);box-shadow:var(--shadow);overflow:hidden}.register[open]{border-color:rgba(111,159,146,.45)}.register>summary{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 17px;cursor:pointer;list-style:none}.register>summary::-webkit-details-marker{display:none}.register h2{margin:4px 0 2px;font-size:18px}.register summary p{margin:0;color:var(--text-light);font-size:12px}.arrow{font-size:20px;color:var(--jade-dark);transition:transform .2s}.register[open] .arrow{transform:rotate(90deg)}.register-body{padding:15px 17px 18px;border-top:1px solid var(--border)}
+    .example{padding:12px 13px;margin:10px 0;background:#FBFAF6;border-radius:14px;line-height:1.75}.example strong{color:var(--navy)}.safe{padding:12px 13px;background:var(--soft-green);border-radius:14px;font-size:13px}.warning{padding:12px 13px;background:var(--warning-light);border-radius:14px;font-size:13px}
+    .compare{width:100%;border-collapse:separate;border-spacing:0 7px;font-size:12px}.compare th{text-align:left;color:var(--text-light)}.compare td{padding:9px;background:#FBFAF6}.compare td:first-child{border-radius:10px 0 0 10px;font-weight:850;color:var(--navy)}.compare td:last-child{border-radius:0 10px 10px 0}.situation-grid{display:grid;grid-template-columns:1fr;gap:8px}.situation{padding:12px;background:#FBFAF6;border-radius:14px}.situation strong{display:block;color:var(--navy)}.source-link{display:block;margin-top:10px;color:var(--jade-dark);font-weight:800}
+    @media(min-width:650px){.situation-grid{grid-template-columns:1fr 1fr}}
+  </style>
+</head>
+<body>
+<main class="app resource-shell">
+  <div class="resource-nav"><a class="back-link" href="culture-langue.html">← Culture & langue</a><span class="resource-pill">🗣️ Guide pratique</span></div>
+  <header class="resource-hero">
+    <span class="chapter-badge">🗣️ Langue & relations</span>
+    <p class="korean">말투와 존댓말</p>
+    <h1>Niveaux de langue & politesse</h1>
+    <p>Comprendre non seulement les terminaisons, mais aussi la relation sociale qu’elles construisent.</p>
+  </header>
+
+  <section class="rule-box">
+    <h2>🌿 Le réflexe le plus sûr</h2>
+    <p>Avec un adulte que tu ne connais pas, commence en <strong>해요체</strong>. Tu pourras ensuite t’adapter au contexte ou passer au 반말 si la relation le permet.</p>
+  </section>
+
+  <section class="resource-panel">
+    <h2>Trois mécanismes différents</h2>
+    <p>Ils apparaissent souvent ensemble, mais ne respectent pas forcément la même personne.</p>
+    <div class="situation-grid">
+      <div class="situation"><strong>1. Registre envers l’interlocuteur</strong><span>Terminaison : 가요 / 갑니다 / 가.</span></div>
+      <div class="situation"><strong>2. Respect du sujet</strong><span>Marque honorifique -(으)시- : 선생님이 가세요.</span></div>
+      <div class="situation"><strong>3. Vocabulaire honorifique</strong><span>먹다 → 드시다, 자다 → 주무시다.</span></div>
+      <div class="situation"><strong>4. Humilité du locuteur</strong><span>주다 → 드리다 quand je donne à une personne respectée.</span></div>
+    </div>
+  </section>
+
+  <details class="register" open>
+    <summary><span><span class="level-pill">Registre principal</span><h2>🌿 해요체 — poli courant</h2><p>Naturel, prudent et extrêmement fréquent</p></span><span class="arrow">›</span></summary>
+    <div class="register-body">
+      <p>Le 해요체 est le meilleur point de départ avec une nouvelle connaissance, un employé, un collègue que l’on connaît peu ou un adulte avec qui la relation n’est pas encore définie. Il est poli sans paraître cérémonieux.</p>
+      <div class="example"><strong>먹어요.</strong> — Je mange / Mangez.<br><strong>어디 가요?</strong> — Vous allez où ?<br><strong>괜찮아요.</strong> — Ça va / Ce n’est pas grave.<br><strong>다시 말씀해 주세요.</strong> — Répétez, s’il vous plaît.</div>
+      <div class="safe">✅ Poli ne signifie pas froid. L’intonation, le sourire, le choix des mots et la relation rendent une phrase chaleureuse ou distante.</div>
+    </div>
+  </details>
+
+  <details class="register">
+    <summary><span><span class="level-pill">Formel</span><h2>🎓 하십시오체 — poli formel</h2><p>Présentations, annonces, service, armée et cadre officiel</p></span><span class="arrow">›</span></summary>
+    <div class="register-body">
+      <p>Ce style emploie notamment <strong>-ㅂ니다/-습니다</strong> pour les déclarations et <strong>-ㅂ니까/-습니까?</strong> pour les questions. Il crée une impression plus formelle, institutionnelle ou disciplinée que le 해요체.</p>
+      <div class="example"><strong>처음 뵙겠습니다.</strong> — Enchanté de vous rencontrer.<br><strong>저는 아나입니다.</strong> — Je suis Ana.<br><strong>어디에서 오셨습니까?</strong> — D’où venez-vous ?<br><strong>잠시만 기다려 주십시오.</strong> — Veuillez patienter un instant.</div>
+      <p>Dans un entretien, on peut entendre ou employer ce registre, mais une conversation professionnelle ne reste pas nécessairement en 하십시오체 à chaque phrase : le 해요체 formel et soigné est également courant.</p>
+    </div>
+  </details>
+
+  <details class="register">
+    <summary><span><span class="level-pill">Proches</span><h2>💬 해체 / 반말 — familier</h2><p>Entre proches lorsque la relation l’autorise</p></span><span class="arrow">›</span></summary>
+    <div class="register-body">
+      <p><strong>반말</strong> désigne couramment la parole non honorifique ; le style conversationnel associé est souvent appelé <strong>해체</strong>. On l’utilise avec des amis proches, dans de nombreux couples, avec des enfants ou entre personnes ayant établi cette proximité.</p>
+      <div class="example"><strong>뭐 해?</strong> — Tu fais quoi ?<br><strong>밥 먹었어?</strong> — Tu as mangé ?<br><strong>괜찮아.</strong> — Ça va.<br><strong>빨리 와.</strong> — Viens vite.</div>
+      <div class="warning">⚠️ Le simple fait d’être plus âgé ne donne pas automatiquement le droit de parler familièrement à n’importe quel adulte. Un 반말 imposé peut paraître condescendant ou agressif.</div>
+      <h3>Proposer le changement</h3>
+      <div class="example"><strong>우리 말 놓을까요?</strong> — On se parle plus familièrement ?<br><strong>편하게 말해도 돼요.</strong> — Vous pouvez me parler plus librement.</div>
+    </div>
+  </details>
+
+  <details class="register">
+    <summary><span><span class="level-pill">Écrit & narration</span><h2>📖 해라체 — style neutre/non poli</h2><p>Livres, articles, journaux intimes et narration</p></span><span class="arrow">›</span></summary>
+    <div class="register-body">
+      <p>Le 해라체 apparaît fréquemment dans l’écrit informatif ou narratif avec des formes comme <strong>-다</strong>, <strong>-는다/-ㄴ다</strong>. Il ne faut pas interpréter automatiquement chaque phrase en -다 comme quelqu’un donnant un ordre brutal.</p>
+      <div class="example"><strong>한국어를 공부한다.</strong> — J’étudie le coréen.<br><strong>날씨가 좋다.</strong> — Il fait beau.<br><strong>그는 집에 갔다.</strong> — Il est rentré chez lui.</div>
+      <p>En conversation, les formes en -다 peuvent aussi exprimer une réaction ou une pensée : <strong>와, 예쁘다!</strong> (« Waouh, c’est joli ! »). La fonction dépend donc du contexte et de l’intonation.</p>
+    </div>
+  </details>
+
+  <details class="register">
+    <summary><span><span class="level-pill">Honorifiques</span><h2>🙏 높임말 — respecter la personne dont on parle</h2><p>-(으)시-, particules et verbes particuliers</p></span><span class="arrow">›</span></summary>
+    <div class="register-body">
+      <p>La marque <strong>-(으)시-</strong> honore généralement le sujet de la phrase. Elle peut apparaître aussi bien avec le 해요체 qu’avec le 하십시오체.</p>
+      <div class="example"><strong>선생님이 오세요.</strong> — Le professeur vient.<br><strong>할머니께서 주무세요.</strong> — Grand-mère dort.<br><strong>사장님이 말씀하셨습니다.</strong> — Le directeur a parlé.</div>
+      <table class="compare"><thead><tr><th>Courant</th><th>Honorifique</th><th>Sens</th></tr></thead><tbody>
+        <tr><td>있다</td><td>계시다</td><td>être / se trouver</td></tr><tr><td>먹다</td><td>드시다</td><td>manger</td></tr><tr><td>자다</td><td>주무시다</td><td>dormir</td></tr><tr><td>말하다</td><td>말씀하시다</td><td>parler</td></tr><tr><td>주다</td><td>드리다</td><td>donner humblement</td></tr>
+      </tbody></table>
+      <div class="warning">🔎 <strong>께서</strong> et <strong>께</strong> ne jouent pas le même rôle : 께서 marque le sujet honoré ; 께 marque le destinataire respecté.</div>
+    </div>
+  </details>
+
+  <section class="resource-panel">
+    <h2>👥 À qui parler comment ?</h2>
+    <div class="situation-grid">
+      <div class="situation"><strong>Nouvelle connaissance adulte</strong><span>해요체 : choix prudent.</span></div>
+      <div class="situation"><strong>Employé ou client</strong><span>해요체 poli ; formules de service souvent honorifiques.</span></div>
+      <div class="situation"><strong>Entretien ou présentation</strong><span>하십시오체 ou 해요체 très soigné selon le contexte.</span></div>
+      <div class="situation"><strong>Ami proche</strong><span>반말 si la relation l’a établi.</span></div>
+      <div class="situation"><strong>Supérieur ou professeur</strong><span>해요체/하십시오체 + honorifiques appropriés.</span></div>
+      <div class="situation"><strong>Personne plus jeune inconnue</strong><span>Ne pas imposer le 반말 : rester poli est parfaitement naturel.</span></div>
+    </div>
+  </section>
+
+  <section class="resource-panel">
+    <h2>🎬 Ce que raconte un changement de registre</h2>
+    <p>Dans un drama, le passage du 존댓말 au 반말 peut signaler un rapprochement, une permission, une dispute ou une volonté de dominer. Le mouvement inverse peut marquer une distance soudaine, de l’ironie ou le retour à un cadre professionnel.</p>
+    <div class="safe"><strong>Bonne méthode :</strong> demande-toi qui parle, à qui, devant qui, dans quel lieu et ce qui vient de changer dans la relation.</div>
+  </section>
+
+  <section class="resource-panel">
+    <h2>🔎 Source linguistique</h2>
+    <p>Pour consulter des ressources et dictionnaires officiels destinés aux apprenants :</p>
+    <a class="source-link" href="https://www.korean.go.kr/front_eng/main.do" target="_blank" rel="noopener">Institut national de la langue coréenne ↗</a>
+  </section>
+</main>
+</body>
+</html>
