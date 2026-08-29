@@ -1,5 +1,5 @@
 /* =========================================================
-   LE CORÉEN DE HANA
+   LE CORÉEN DE ANA
    Progression séquentielle à l'intérieur d'un chapitre
    ---------------------------------------------------------
    Ordre :
@@ -162,7 +162,7 @@
       document.createElement("section");
 
     section.className =
-      "hana-chapter-path";
+      "ana-chapter-path";
 
     section.id =
       "hanaChapterPath";
@@ -171,7 +171,7 @@
       document.createElement("h2");
 
     title.className =
-      "hana-chapter-path__title";
+      "ana-chapter-path__title";
 
     title.textContent =
       "🌿 Ton parcours dans ce chapitre";
@@ -180,7 +180,7 @@
       document.createElement("div");
 
     grid.className =
-      "hana-chapter-path__grid";
+      "ana-chapter-path__grid";
 
     section.appendChild(title);
     section.appendChild(grid);
@@ -235,7 +235,7 @@
     if (section) {
       let grid =
         section.querySelector(
-          ".hana-chapter-path__grid"
+          ".ana-chapter-path__grid"
         );
 
       if (!grid) {
@@ -243,7 +243,7 @@
           document.createElement("div");
 
         grid.className =
-          "hana-chapter-path__grid";
+          "ana-chapter-path__grid";
 
         section.appendChild(grid);
       }
@@ -302,7 +302,7 @@
       "button";
 
     button.className =
-      "hana-chapter-path__step";
+      "ana-chapter-path__step";
 
     button.dataset.step =
       step.id;
@@ -311,7 +311,7 @@
       document.createElement("span");
 
     status.className =
-      "hana-chapter-path__status";
+      "ana-chapter-path__status";
 
     if (completed) {
       button.classList.add(
@@ -361,7 +361,7 @@
       document.createElement("span");
 
     icon.className =
-      "hana-chapter-path__icon";
+      "ana-chapter-path__icon";
 
     icon.textContent =
       step.icon;
@@ -370,7 +370,7 @@
       document.createElement("span");
 
     label.className =
-      "hana-chapter-path__label";
+      "ana-chapter-path__label";
 
     label.textContent =
       step.label;
