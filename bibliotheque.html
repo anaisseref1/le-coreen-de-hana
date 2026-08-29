@@ -1,5 +1,355 @@
-<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><meta name="theme-color" content="#F7F4ED"><title>La bibliothèque de Ana</title><link rel="stylesheet" href="style.css"><style>.hero{text-align:center;margin-bottom:22px}.project,.locked,.intro{padding:19px;margin-bottom:16px;background:var(--white);border:1px solid var(--border);border-radius:var(--radius-large);box-shadow:var(--shadow)}.locked{text-align:center;background:var(--soft-beige)}.hidden{display:none}.toolbar{position:sticky;top:8px;z-index:4;padding:10px;margin:16px 0;background:rgba(247,244,237,.96);backdrop-filter:blur(8px);border-radius:var(--radius-large)}.search{width:100%;box-sizing:border-box;padding:12px;border:1px solid var(--border);border-radius:var(--radius-medium);font:inherit}.chips{display:flex;gap:7px;overflow:auto;padding-top:9px}.chip{flex:0 0 auto;padding:8px 10px;background:var(--soft-beige);color:var(--navy);border-radius:20px;font-size:12px}.chip.active{background:var(--soft-green)}.section-title{margin:28px 0 10px}.grid{display:grid;grid-template-columns:1fr;gap:11px}.item{padding:16px;background:var(--white);border:1px solid var(--border);border-radius:var(--radius-large);box-shadow:var(--shadow);line-height:1.6}.item h3{margin:7px 0}.badge{display:inline-block;padding:4px 8px;background:var(--soft-beige);border-radius:16px;color:var(--text-light);font-size:11px;font-weight:700}.auth{background:var(--soft-green);color:var(--jade-dark)}.open{display:inline-block;margin-top:8px;color:var(--jade-dark);font-weight:700;text-decoration:none}.route{width:100%;margin-top:14px}@media(min-width:650px){.grid{grid-template-columns:1fr 1fr}}</style>  <script src="profile.js"></script>
-</head><body><main class="app"><a class="back-link" href="index.html">← Accueil</a><header class="hero"><span class="chapter-badge">📚 Bibliothèque & immersion</span><p class="korean">읽고 듣고 이해해 봐요 🌿</p><h1>La bibliothèque de <span data-profile-name>Ana</span></h1><p>Lire, écouter, décoder du coréen authentique et découvrir la culture au rythme de ta progression.</p></header><section class="project"><h2>🧭 Structure de la bibliothèque</h2><p>Cette base est déjà prête : les cartes « À venir » seront développées progressivement sans devoir reconstruire l’organisation.</p><p>🌙 Histoires originales · 💬 Mini-dialogues · 🏙️ Scènes de vie · 🎵 Comptines · 🎵 K-pop · 🎬 K-drama · 🇰🇷 Culture & histoire · 🗣️ Politesse · 📖 Domaine public · 📚 Ressources.</p></section><section class="locked" id="lockedState"><div style="font-size:46px">🔒📚</div><h2>La bibliothèque n’est pas encore débloquée</h2><p>Continue ton parcours. Une fois débloquée, elle restera accessible définitivement.</p><button class="route" onclick="location.href='itineraire.html'">🌿 Continuer mon itinéraire</button></section><div id="unlockedState" class="hidden"><section class="intro"><strong>🌿 Bibliothèque évolutive</strong><p>Tu n’es pas censée tout comprendre dans les contenus authentiques. Le but est d’abord de reconnaître ce que tu connais déjà.</p></section><div class="toolbar"><input id="search" class="search" type="search" placeholder="🔎 Comptine, MONSTA X, Joseon, politesse…"><div class="chips"><button class="chip active" data-f="all">Tout</button><button class="chip" data-f="reading">📖 Lecture</button><button class="chip" data-f="kids">🎵 Comptines</button><button class="chip" data-f="auth">🔎 Authentique</button><button class="chip" data-f="culture">🇰🇷 Culture</button><button class="chip" data-f="language">🗣️ Langue</button></div></div><h2 class="section-title">🌙 Histoires originales de Ana</h2><section class="grid" data-cat="reading"><article class="item"><span class="badge ">À venir · A1</span><h3>🌙 Premières histoires</h3><p>Petits récits créés spécialement pour le niveau : lire → comprendre → écouter → prononcer → jouer.</p></article><article class="item"><span class="badge ">À venir · A1+</span><h3>📚 Histoires à épisodes</h3><p>Suivre le personnage sur plusieurs scènes tout en réutilisant le vocabulaire des modules.</p></article></section><h2 class="section-title">💬 Mini-dialogues & petites scènes de vie</h2><section class="grid" data-cat="reading"><article class="item"><span class="badge ">À venir</span><h3>💬 Mini-dialogues</h3><p>Échanges très courts conçus pour réviser une situation ou une structure.</p></article><article class="item"><span class="badge ">À venir</span><h3>🏙️ Petites scènes de vie</h3><p>Café, métro, magasin, rendez-vous… du coréen pédagogique contrôlé, différent des extraits authentiques.</p></article></section><h2 class="section-title">🎵 동요 — Comptines & chansons pour enfants</h2><section class="grid" data-cat="kids"><article class="item"><span class="badge ">À venir · A1</span><h3>🐻 곰 세 마리</h3><p>Famille, descriptions et répétitions. Parcours : écouter → comprendre → vocabulaire → prononcer → chanter.</p></article><article class="item"><span class="badge ">À venir · A1</span><h3>🐇 산토끼</h3><p>Animaux, mouvement et rythme.</p></article><article class="item"><span class="badge ">À venir · A1</span><h3>🦋 나비야</h3><p>Nature et répétitions faciles.</p></article><article class="item"><span class="badge ">À venir · A1</span><h3>⭐ 반짝반짝 작은 별</h3><p>Version coréenne de Twinkle Twinkle Little Star : mélodie familière pour travailler l’écoute.</p></article><article class="item"><span class="badge ">À venir</span><h3>🔔 학교종</h3><p>École, sons simples et rythme.</p></article><article class="item"><span class="badge ">À venir · A1+</span><h3>🌙 섬집 아기</h3><p>Berceuse coréenne plus douce et légèrement plus difficile.</p></article></section><h2 class="section-title">🎵 K-pop — coréen authentique</h2><section class="grid" data-cat="auth"><article class="item"><span class="badge auth">🔎 Coréen authentique · priorité</span><h3>💙 MONSTA X</h3><p>Un des premiers artistes à analyser : vocabulaire reconnu, thème, expressions courtes, écoute et prononciation. Mercy pourra devenir une fiche quand le niveau s’y prêtera.</p></article><article class="item"><span class="badge auth">🔎 Coréen authentique</span><h3>🎧 Analyser une chanson</h3><p>Écoute sans paroles → mots reconnus → sens général → courts extraits → expressions → défi d’écoute. Pas de reproduction intégrale de paroles protégées.</p></article></section><h2 class="section-title">🎬 K-drama — coréen authentique</h2><section class="grid" data-cat="auth"><article class="item"><span class="badge auth">🔎 Coréen authentique</span><h3>🎬 Décoder une micro-scène</h3><p>Écouter sans sous-titres → repérer les mots → comprendre la situation → analyser 1 ou 2 expressions → rejouer la scène.</p></article><article class="item"><span class="badge ">À venir</span><h3>👂 Le coréen vraiment parlé</h3><p>Contractions, mots avalés, réactions naturelles et différences entre poli, familier et honorifique.</p></article></section><h2 class="section-title">🇰🇷 Culture & histoire</h2><section class="grid" data-cat="culture"><article class="item"><span class="badge ">Hub créé</span><h3>🏯 Histoire de la Corée</h3><p>Trois Royaumes, Goryeo, Joseon, Sejong, occupation japonaise, division, guerre de Corée, démocratisation et Corée contemporaine.</p><a class="open" href="culture-coree.html">Ouvrir →</a></article><article class="item"><span class="badge ">Format prévu</span><h3>⏱️ Fiches de 5 à 10 minutes</h3><p>Repères chronologiques + explication accessible + visuels/cartes + « Pourquoi c’est encore important aujourd’hui ? ».</p><a class="open" href="culture-coree.html">Ouvrir →</a></article><article class="item"><span class="badge ">À venir</span><h3>🎎 Traditions & société</h3><p>Hanbok, fêtes, famille, noms, confucianisme, service militaire, éducation, travail, cafés, jjimjilbang et nourriture.</p><a class="open" href="culture-coree.html">Ouvrir →</a></article><article class="item"><span class="badge ">À venir</span><h3>🗺️ Nord-Sud & DMZ</h3><p>Comprendre les grands repères historiques et contemporains sans transformer la fiche en roman d’histoire.</p><a class="open" href="culture-coree.html">Ouvrir →</a></article></section><h2 class="section-title">🗣️ Langue, politesse & relations</h2><section class="grid" data-cat="language"><article class="item"><span class="badge ">Hub créé</span><h3>🌿 반말 · 해요체 · honorifiques</h3><p>Comparer progressivement le langage entre amis, le poli courant et les formes très respectueuses.</p><a class="open" href="niveaux-de-langue.html">Ouvrir →</a></article><article class="item"><span class="badge auth">🔎 Coréen authentique</span><h3>👥 La relation change la langue</h3><p>Observer comment l’âge, la proximité et la hiérarchie modifient la manière de parler.</p><a class="open" href="niveaux-de-langue.html">Ouvrir →</a></article></section><h2 class="section-title">📖 Autres ressources</h2><section class="grid" data-cat="reading"><article class="item"><span class="badge ">À venir</span><h3>📖 Textes du domaine public</h3><p>Petits textes réutilisables légalement, adaptés ou accompagnés selon le niveau.</p></article><article class="item"><span class="badge ">À venir</span><h3>📚 Livres & ressources recommandés</h3><p>Sélection progressive de ressources réellement adaptées au niveau.</p></article></section><button class="route" onclick="location.href='itineraire.html'">← Retour à mon itinéraire</button></div></main>
+<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><meta name="theme-color" content="#F7F4ED"><title>La bibliothèque de Ana</title><link rel="stylesheet" href="style.css"><style>.hero{text-align:center;margin-bottom:22px}.project,.locked,.intro{padding:19px;margin-bottom:16px;background:var(--white);border:1px solid var(--border);border-radius:var(--radius-large);box-shadow:var(--shadow)}.locked{text-align:center;background:var(--soft-beige)}.hidden{display:none}.toolbar{position:sticky;top:8px;z-index:4;padding:10px;margin:16px 0;background:rgba(247,244,237,.96);backdrop-filter:blur(8px);border-radius:var(--radius-large)}.search{width:100%;box-sizing:border-box;padding:12px;border:1px solid var(--border);border-radius:var(--radius-medium);font:inherit}.chips{display:flex;gap:7px;overflow:auto;padding-top:9px}.chip{flex:0 0 auto;padding:8px 10px;background:var(--soft-beige);color:var(--navy);border-radius:20px;font-size:12px}.chip.active{background:var(--soft-green)}.section-title{margin:28px 0 10px}.grid{display:grid;grid-template-columns:1fr;gap:11px}.item{padding:16px;background:var(--white);border:1px solid var(--border);border-radius:var(--radius-large);box-shadow:var(--shadow);line-height:1.6}.item h3{margin:7px 0}.badge{display:inline-block;padding:4px 8px;background:var(--soft-beige);border-radius:16px;color:var(--text-light);font-size:11px;font-weight:700}.auth{background:var(--soft-green);color:var(--jade-dark)}.open{display:inline-block;margin-top:8px;color:var(--jade-dark);font-weight:700;text-decoration:none}.route{width:100%;margin-top:14px}.story-card{position:relative;overflow:hidden}.story-meta{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 10px}.story-tag{display:inline-block;padding:5px 8px;border-radius:999px;background:var(--soft-beige);font-size:11px;font-weight:700;color:var(--text-light)}.story-lock{display:flex;align-items:center;gap:8px;margin-top:12px;padding:10px 12px;border-radius:var(--radius-medium);background:var(--soft-beige);color:var(--text-light);font-size:12px;font-weight:700}.story-lock strong{color:var(--navy)}.story-card[aria-disabled="true"]{cursor:not-allowed}.story-card[aria-disabled="true"]::after{content:"🔒";position:absolute;top:14px;right:14px;font-size:20px}.story-note{margin:4px 0 0;font-size:12px;color:var(--text-light)}@media(min-width:650px){.grid{grid-template-columns:1fr 1fr}}</style>  <script src="profile.js"></script>
+</head><body><main class="app"><a class="back-link" href="index.html">← Accueil</a><header class="hero"><span class="chapter-badge">📚 Bibliothèque & immersion</span><p class="korean">읽고 듣고 이해해 봐요 🌿</p><h1>La bibliothèque de <span data-profile-name>Ana</span></h1><p>Lire, écouter, décoder du coréen authentique et découvrir la culture au rythme de ta progression.</p></header><section class="project"><h2>🧭 Structure de la bibliothèque</h2><p>Cette base est déjà prête : les cartes « À venir » seront développées progressivement sans devoir reconstruire l’organisation.</p><p>🌙 Histoires originales · 💬 Mini-dialogues · 🏙️ Scènes de vie · 🎵 Comptines · 🎵 K-pop · 🎬 K-drama · 🇰🇷 Culture & histoire · 🗣️ Politesse · 📖 Domaine public · 📚 Ressources.</p></section><section class="locked" id="lockedState"><div style="font-size:46px">🔒📚</div><h2>La bibliothèque n’est pas encore débloquée</h2><p>Continue ton parcours. Une fois débloquée, elle restera accessible définitivement.</p><button class="route" onclick="location.href='itineraire.html'">🌿 Continuer mon itinéraire</button></section><div id="unlockedState" class="hidden"><section class="intro"><strong>🌿 Bibliothèque évolutive</strong><p>Tu n’es pas censée tout comprendre dans les contenus authentiques. Le but est d’abord de reconnaître ce que tu connais déjà.</p></section><div class="toolbar"><input id="search" class="search" type="search" placeholder="🔎 Comptine, MONSTA X, Joseon, politesse…"><div class="chips"><button class="chip active" data-f="all">Tout</button><button class="chip" data-f="reading">📖 Lecture</button><button class="chip" data-f="kids">🎵 Comptines</button><button class="chip" data-f="auth">🔎 Authentique</button><button class="chip" data-f="culture">🇰🇷 Culture</button><button class="chip" data-f="language">🗣️ Langue</button></div></div><h2 class="section-title">🌙 Mini-Stories — Saison 1</h2><section class="intro"><strong>🎬 Histoires originales</strong><p>Des scènes courtes avec Ana, Ji-soo, Min-su et Do-yun : humour, amitié, petits malaises, voyage et coréen naturel. Les épisodes seront débloqués lorsqu’ils auront leur version vidéo finalisée.</p><p class="story-note">🔒 Pour l’instant, les cartes restent visibles mais aucun épisode n’est accessible.</p></section><section class="grid" data-cat="reading">
+<article class="item story-card" aria-disabled="true"><span class="badge">🔒 Verrouillé · A2–B1</span><h3>🌙 금요일 밤 — Vendredi soir</h3><div class="story-meta"><span class="story-tag">😂 Humour</span><span class="story-tag">💬 Amitié</span><span class="story-tag">💕 Flirt léger</span><span class="story-tag">🍶 Soju</span></div><p>Après le travail, le groupe sort boire et manger. Un jeu de questions, quelques verres et un compliment de Min-su mettent rapidement l’ambiance.</p><p><strong>À travailler :</strong> réactions naturelles, 반말/존댓말, compliments, gêne, teasing et vocabulaire de soirée.</p><div class="story-lock">🔒 <strong>Épisode en préparation</strong> · vidéo non finalisée</div></article>
+
+<article class="item story-card" aria-disabled="true"><span class="badge">🔒 Verrouillé · B1</span><h3>😏 경쟁자가 있는 것 같은데요 — Il y a de la concurrence</h3><div class="story-meta"><span class="story-tag">😂 Humour</span><span class="story-tag">👀 Implicite</span><span class="story-tag">📱 Instagram</span><span class="story-tag">💚 Jalousie légère</span></div><p>Un inconnu demande l’Instagram d’Ana. Do-yun comprend immédiatement le regard de Min-su et décide de le troller devant tout le monde.</p><p><strong>À travailler :</strong> 연락처, 인스타, 질투, 신경 쓰이다, sous-entendus et lecture du contexte.</p><div class="story-lock">🔒 <strong>Épisode en préparation</strong> · vidéo non finalisée</div></article>
+
+<article class="item story-card" aria-disabled="true"><span class="badge">🔒 Verrouillé · A2–B1</span><h3>🦵 괜찮다니까! — Je te dis que ça va !</h3><div class="story-meta"><span class="story-tag">🏙️ Quotidien</span><span class="story-tag">😂 Humour</span><span class="story-tag">💙 Inquiétude</span></div><p>Ana trébuche et se fait mal au genou. Elle insiste pour marcher normalement tandis que Ji-soo et Min-su voient très bien qu’elle boîte.</p><p><strong>À travailler :</strong> 넘어지다, 무릎, 아프다, 다치다, 걷다, 걱정하다 et proposer de l’aide.</p><div class="story-lock">🔒 <strong>Épisode en préparation</strong> · vidéo non finalisée</div></article>
+
+<article class="item story-card" aria-disabled="true"><span class="badge">🔒 Verrouillé · A2–B1</span><h3>🚕 여기 아니에요?! — Ce n’est pas ici ?!</h3><div class="story-meta"><span class="story-tag">✈️ Voyage</span><span class="story-tag">🗣️ Prononciation</span><span class="story-tag">🚕 Transport</span><span class="story-tag">😂 Chaos</span></div><p>Ana prononce mal le nom d’un quartier et comprend trop tard que son taxi l’emmène complètement ailleurs.</p><p><strong>À travailler :</strong> destinations, directions, 잘못 말하다, 위치, demander de l’aide et corriger sa prononciation.</p><div class="story-lock">🔒 <strong>Épisode en préparation</strong> · destination finale à valider avant tournage</div></article>
+
+
+<article class="item story-card" aria-disabled="true"><span class="badge">🔒 Verrouillé · A2–B1</span><h3>💚 지원자 1번 — Candidat n°1</h3><div class="story-meta"><span class="story-tag">😂 Humour</span><span class="story-tag">💚 Ji-soo & Do-yun</span><span class="story-tag">👀 Premières impressions</span></div><p>Ji-soo présente Do-yun au groupe. Ana et Min-su disent qu’ils veulent simplement faire connaissance… mais leur dîner ressemble rapidement à un entretien d’embauche.</p><p><strong>À travailler :</strong> se présenter, poser des questions, parler de sa personnalité, premières impressions et réactions naturelles.</p><div class="story-lock">🔒 <strong>Épisode en préparation</strong> · vidéo non finalisée</div></article>
+
+
+<article class="item story-card" aria-disabled="true"><span class="badge">🔒 Verrouillé · B1</span><h3>📋 최종 면접 — L’entretien final</h3><div class="story-meta"><span class="story-tag">😂 Jury</span><span class="story-tag">🍗 Restaurant</span><span class="story-tag">👀 눈치</span><span class="story-tag">💚 Green flag</span></div><p>Le jury Ana + Min-su passe aux choses sérieuses : dernier morceau de poulet, mémoire des goûts de Ji-soo, questions beaucoup trop précises… et surtout sa manière de traiter le personnel.</p><p><strong>À travailler :</strong> qualités et défauts, donner son avis, accord/désaccord, comportement social et 눈치.</p><div class="story-lock">🔒 <strong>Épisode en préparation</strong> · vidéo non finalisée</div></article>
+
+
+<article class="item story-card" aria-disabled="true"><span class="badge">🔒 Verrouillé · B1</span><h3>✅ 최종 합격 — Candidature validée</h3><div class="story-meta"><span class="story-tag">😂 Humour</span><span class="story-tag">💚 Couple</span><span class="story-tag">📋 Jury</span><span class="story-tag">🤝 Amitié</span></div><p>Do-yun finit par convaincre le jury grâce à sa façon d’être avec Ji-soo. Ana et Min-su prononcent enfin le verdict… juste avant que Ji-soo découvre leur véritable grille de notation.</p><p><strong>À travailler :</strong> appréciation, compliments, validation, parler des relations et humour de groupe.</p><div class="story-lock">🔒 <strong>Épisode en préparation</strong> · vidéo non finalisée</div></article>
+
+
+<article class="item story-card" aria-disabled="true"><span class="badge">🔒 Verrouillé · B1</span><h3>📱 잘못 보냈어 — Mauvais destinataire</h3><div class="story-meta"><span class="story-tag">💬 KakaoTalk</span><span class="story-tag">😳 Gêne maximale</span><span class="story-tag">💕 Flirt léger</span><span class="story-tag">😂 Humour</span></div><p>Ana veut écrire à Ji-soo que Min-su l’a beaucoup regardée et qu’il était « un peu mignon ». Elle envoie évidemment le message… directement à Min-su.</p><p><strong>À travailler :</strong> messagerie, 잘못 보내다, excuses, réparer une erreur, messages écrits et sous-entendus.</p><div class="story-lock">🔒 <strong>Épisode en préparation</strong> · script validé, vidéo non finalisée</div></article>
+
+
+<article class="item story-card" aria-disabled="true"><span class="badge">🔒 Verrouillé · A2–B1</span><h3>🦀 부산에서 뭐가 잘못됐지? — Qu’est-ce qui a mal tourné à Busan ?</h3><div class="story-meta"><span class="story-tag">✈️ Voyage</span><span class="story-tag">🦀 Test culinaire</span><span class="story-tag">😂 Chaos</span><span class="story-tag">🌊 Busan</span></div><p>Le groupe part passer un week-end à Busan. Entre petits imprévus et dîner de fruits de mer, Ana découvre surtout qu’un crabe ne se mange pas tout seul… et qu’après l’avoir décortiqué, elle ne l’aime même pas.</p><p><strong>À travailler :</strong> voyage, réservation, imprévus, vocabulaire du restaurant, 까다, 껍질, 맛 et exprimer ses goûts.</p><div class="story-lock">🔒 <strong>Épisode en préparation</strong> · vidéo non finalisée</div></article>
+
+
+<article class="item story-card" aria-disabled="true"><span class="badge">🔒 Verrouillé · B1</span><h3>💼 회식 갈 거예요? — Tu viens au dîner d’équipe ?</h3><div class="story-meta"><span class="story-tag">💼 Travail</span><span class="story-tag">🗣️ Registres</span><span class="story-tag">🇰🇷 Culture</span></div><p>Ana doit décider si elle participe à une sortie après le travail. Entre invitation, refus possible, hiérarchie et ambiance plus détendue, elle observe comment la relation change la manière de parler.</p><p><strong>À travailler :</strong> 회식, invitations, accepter/refuser avec tact, langage professionnel et changement de registre.</p><div class="story-lock">🔒 <strong>Épisode en préparation</strong> · note culturelle à finaliser avant publication</div></article>
+
+
+<article class="item story-card" aria-disabled="true"><span class="badge">🔒 Verrouillé · B1</span><h3>💌 썸이에요, 아니에요? — C’est du flirt ou pas ?</h3><div class="story-meta"><span class="story-tag">💕 Relations</span><span class="story-tag">💬 Discussion</span><span class="story-tag">😂 Malaise</span><span class="story-tag">🇰🇷 Culture</span></div><p>Ji-soo raconte comment elle et Do-yun se sont rapprochés. Le groupe parle de 썸, de confession et de couple… jusqu’à ce que la conversation se retourne dangereusement vers Ana et Min-su.</p><p><strong>À travailler :</strong> 썸, 사귀다, 고백, 이상형, 연애, expliquer une relation et exprimer son point de vue.</p><div class="story-lock">🔒 <strong>Épisode en préparation</strong> · vidéo non finalisée</div></article>
+
+
+<article class="item story-card" aria-disabled="true"><span class="badge">🔒 Verrouillé · B1</span><h3>🍫 100일이라고?! — 100 jours ?!</h3><div class="story-meta"><span class="story-tag">💚 Ji-soo & Do-yun</span><span class="story-tag">🎁 Couple</span><span class="story-tag">🇰🇷 Culture</span><span class="story-tag">📅 Dates</span></div><p>Ji-soo et Do-yun approchent de leurs 100 jours. Ana découvre cette manière de marquer certaines étapes du couple et la discussion dérive vers Valentine’s Day, White Day et Pepero Day.</p><p><strong>À travailler :</strong> dates, cadeaux, anniversaire de couple, 100일 et vocabulaire relationnel.</p><div class="story-lock">🔒 <strong>Épisode en préparation</strong> · pratiques culturelles à vérifier avant publication</div></article>
+
+</section><h2 class="section-title">🍽️ Mini-Stories — Saison 2</h2><section class="intro"><strong>🍜 Tests culinaires & chaos du quotidien</strong><p>Ana connaît maintenant assez bien le groupe pour savoir qu’une phrase comme « goûte ça » peut annoncer soit une excellente découverte… soit une trahison complète. Cette saison élargit les histoires vers la nourriture, les sorties et les petits défis du quotidien.</p><p class="story-note">🔒 Les épisodes restent visibles mais verrouillés jusqu’à la finalisation de leurs vidéos.</p></section><section class="grid" data-cat="reading">
+<article class="item story-card" aria-disabled="true"><span class="badge">🔒 Verrouillé · A2–B1</span><h3>🦀 부산의 저녁 — Le dîner à Busan</h3><div class="story-meta"><span class="story-tag">🌊 Busan</span><span class="story-tag">🦀 Fruits de mer</span><span class="story-tag">😂 Humour</span><span class="story-tag">🍽️ Découverte</span></div><p>Au restaurant, Ana découvre qu’avant de manger le crabe, il faut d’abord réussir à le décortiquer. Après beaucoup trop d’efforts, elle finit enfin par goûter… et réalise qu’elle n’aime même pas ça.</p><p><strong>À travailler :</strong> 까다, 껍질, 맛, texture, demander comment manger quelque chose et exprimer poliment ses goûts.</p><div class="story-lock">🔒 <strong>Épisode en préparation</strong> · script validé, vidéo non finalisée</div></article>
+
+<article class="item story-card" aria-disabled="true"><span class="badge">🔒 Verrouillé · A2–B1</span><h3>🍟 이게 마요네즈가 아니야?! — Ce n’est PAS de la mayonnaise ?!</h3><div class="story-meta"><span class="story-tag">🍟 Frites</span><span class="story-tag">🧈 Beurre</span><span class="story-tag">😂 Trahison</span><span class="story-tag">🍬 Sucré-salé</span></div><p>Ana commande tranquillement des frites et prend la grosse noisette posée dessus pour de la mayonnaise. Première découverte : c’est du beurre. Deuxième découverte : les frites sont sucrées. La confiance est brisée.</p><p><strong>À travailler :</strong> 감자튀김, 버터, 마요네즈, 달다, 짜다, exprimer surprise et déception, vérifier un ingrédient avant de goûter.</p><div class="story-lock">🔒 <strong>Épisode en préparation</strong> · script validé, vidéo non finalisée</div></article>
+
+<article class="item story-card" aria-disabled="true"><span class="badge">🔒 Verrouillé · A2–B1</span><h3>🌶️ 안 매워요? 거짓말이잖아 — « Ce n’est pas épicé » ? Menteurs.</h3><div class="story-meta"><span class="story-tag">🌶️ Épicé</span><span class="story-tag">💚 Ji-soo</span><span class="story-tag">😂 Running gag</span><span class="story-tag">🥢 Dégustation</span></div><p>Ji-soo assure qu’un plat n’est « pas vraiment épicé ». Ana goûte et découvre immédiatement que la notion de « pas épicé » dépend énormément de la personne interrogée.</p><p><strong>À travailler :</strong> 맵다, 안 맵다, 너무, 물, 혀, intensité, demander un avis et comparer les seuils de tolérance.</p><div class="story-lock">🔒 <strong>Épisode en préparation</strong> · script validé, vidéo non finalisée</div></article>
+
+<article class="item story-card" aria-disabled="true"><span class="badge">🔒 Verrouillé · A2–B1</span><h3>🏪 편의점 조합 — Le combo de convenience store</h3><div class="story-meta"><span class="story-tag">🏪 편의점</span><span class="story-tag">🍜 Snacks</span><span class="story-tag">🏆 Compétition</span><span class="story-tag">🖤 Do-yun</span></div><p>Le groupe invente ses propres combos de convenience store et doit les noter. Do-yun transforme immédiatement l’expérience en compétition officielle, tandis qu’Ana découvre que son propre mélange convainc beaucoup moins le jury.</p><p><strong>À travailler :</strong> choisir, acheter, recommander, 맛있다, 점수, comparer, classer et donner son avis naturellement.</p><div class="story-lock">🔒 <strong>Épisode en préparation</strong> · script validé, vidéo non finalisée</div></article>
+
+<article class="item story-card" aria-disabled="true"><span class="badge">🔒 Verrouillé · A2–B1</span><h3>☕ 주문이 왜 이렇게 어려워? — Pourquoi commander un café est si compliqué ?</h3><div class="story-meta"><span class="story-tag">☕ Café</span><span class="story-tag">🧾 Commander</span><span class="story-tag">😂 Quotidien</span><span class="story-tag">🗣️ Interaction</span></div><p>Ana veut juste commander un café glacé, mais entre la taille, le lait, le sirop, les shots et les glaçons, la commande devient un mini-examen oral. Heureusement, « la taille du milieu » finit très bien par fonctionner.</p><p><strong>À travailler :</strong> 주문하다, 사이즈, 우유, 시럽, 샷 추가, 얼음, demander de répéter et simplifier une commande.</p><div class="story-lock">🔒 <strong>Épisode en préparation</strong> · script validé, vidéo non finalisée</div></article>
+
+<article class="item story-card" aria-disabled="true"><span class="badge">🔒 Verrouillé · A2–B1</span><h3>🚇 마지막 지하철 — Le dernier métro</h3><div class="story-meta"><span class="story-tag">🚇 Métro</span><span class="story-tag">🕚 Dernier train</span><span class="story-tag">💙 Min-su</span><span class="story-tag">🌙 Retour</span></div><p>Le groupe réalise trop tard qu’il risque de rater le dernier métro. Après une course et une correspondance stressante, Ana peut rentrer seule… mais Min-su décide quand même de la raccompagner, alors que chez lui est dans l’autre direction.</p><p><strong>À travailler :</strong> 마지막 지하철, 환승, 정거장, 빨리, 놓치다, 데려다주다, demander un itinéraire et proposer de raccompagner quelqu’un.</p><div class="story-lock">🔒 <strong>Épisode en préparation</strong> · script validé, vidéo non finalisée</div></article>
+
+<article class="item story-card" aria-disabled="true"><span class="badge">🔒 Verrouillé · A2–B1</span><h3>🌧️ 우산 하나뿐이야 — Il n’y a qu’un parapluie</h3><div class="story-meta"><span class="story-tag">🌧️ Pluie</span><span class="story-tag">👓 Lunettes</span><span class="story-tag">☂️ Parapluie</span><span class="story-tag">😏 Flirt léger</span></div><p>Avant de sortir sous une petite pluie, Ana enlève ses lunettes pour éviter les gouttes sur les verres. La pluie ne la dérange pas du tout… le problème, c’est qu’elle voit très mal sans lunettes. Min-su partage donc son parapluie et la garde près de lui pour qu’elle voie où elle marche. Ji-soo, évidemment, remarque surtout à quel point ils sont proches.</p><p><strong>À travailler :</strong> 비, 우산, 안경, 벗다, 물방울, 잘 안 보이다, 같이 쓰다, se rapprocher et expliquer un petit problème pratique.</p><div class="story-lock">🔒 <strong>Épisode en préparation</strong> · script validé, vidéo non finalisée</div></article>
+
+<article class="item story-card" aria-disabled="true"><span class="badge">🔒 Verrouillé · A2–B1</span><h3>🎤 노래방에서 무슨 일이 있었어? — Qu’est-ce qui s’est passé au noraebang ?</h3><div class="story-meta"><span class="story-tag">🎤 Noraebang</span><span class="story-tag">🎶 Musique</span><span class="story-tag">🏆 Compétition</span><span class="story-tag">😂 Groupe</span></div><p>Ji-soo impose une chanson à chacun, Do-yun transforme encore tout en compétition, Min-su choisit une ballade beaucoup trop dramatique et Ana finit par chanter si fort qu’elle ressort presque sans voix.</p><p><strong>À travailler :</strong> 노래방, 노래를 부르다, 곡, 점수, 목소리, 선택하다, commenter une performance et réagir à un score.</p><div class="story-lock">🔒 <strong>Épisode en préparation</strong> · script validé, vidéo non finalisée</div></article>
+
+<article class="item story-card" aria-disabled="true"><span class="badge">🔒 Verrouillé · A2–B1</span><h3>🛍️ 이거 나한테 어울려? — Ça me va ?</h3><div class="story-meta"><span class="story-tag">🛍️ Shopping</span><span class="story-tag">🎨 Couleurs</span><span class="story-tag">💙 Min-su</span><span class="story-tag">👗 Avis</span></div><p>Ana essaie une veste et demande l’avis du groupe. Min-su a déjà repéré une autre couleur plus chaude qui lui va mieux et lui tend la veste avant même de répondre. Ji-soo remarque évidemment qu’il a beaucoup trop bien observé.</p><p><strong>À travailler :</strong> 옷, 색, 어울리다, 더 잘 어울리다, 고르다, comparer deux vêtements et demander/donner un avis.</p><div class="story-lock">🔒 <strong>Épisode en préparation</strong> · script validé, vidéo non finalisée</div></article>
+
+<article class="item story-card"><span class="badge auth">✅ Disponible · A2–B1</span><h3>📸 사진 다시 찍어! — Reprends la photo !</h3><div class="story-meta"><span class="story-tag">📸 Photo</span><span class="story-tag">👓 Lunettes</span><span class="story-tag">👀 Regards</span><span class="story-tag">😂 Groupe</span></div><p>Avant la photo de groupe, Ana enlève ses lunettes pour éviter les reflets… puis ne voit plus très bien où regarder. Au milieu de plusieurs essais ratés, une photo capture Do-yun regardant Ji-soo et Min-su jetant un regard discret vers Ana.</p><p><strong>À travailler :</strong> 사진을 찍다, 다시, 안경, 빛, 반사되다, 오른쪽/왼쪽, regarder l’objectif et commenter une photo.</p><a class="open" href="story-reprends-la-photo.html">Ouvrir la mini-story →</a><div class="story-lock">🌿 <strong>Vidéo courte</strong> · dialogue · vocabulaire · quiz</div></article>
+
+<article class="item story-card" aria-disabled="true"><span class="badge">🔒 Verrouillé · A2–B1</span><h3>🎲 게임 설명을 들어도 모르겠어 — Même avec les règles, je comprends rien</h3><div class="story-meta"><span class="story-tag">🏠 Chez Min-su</span><span class="story-tag">🎲 Jeu</span><span class="story-tag">🧠 Règles</span><span class="story-tag">😂 Chaos</span></div><p>Soirée tranquille chez Min-su : Ji-soo explique un jeu, puis Min-su réexplique, puis tout le monde fait une démonstration… et Ana ne comprend toujours rien. Elle finit pourtant par gagner sans savoir exactement pourquoi.</p><p><strong>À travailler :</strong> 게임, 규칙, 차례, 카드, 다시 설명하다, 이해하다, 기억 안 나다 et demander une démonstration.</p><div class="story-lock">🔒 <strong>Épisode en préparation</strong> · script validé, vidéo non finalisée</div></article>
+
+<article class="item story-card" aria-disabled="true"><span class="badge">🔒 Verrouillé · A2–B1</span><h3>🍽️ 아나네 집 — Dîner chez Ana</h3><div class="story-meta"><span class="story-tag">🏠 Chez Ana</span><span class="story-tag">🍟 Double cuisson</span><span class="story-tag">🍃 Sarma</span><span class="story-tag">🥘 Blanquette</span></div><p>Cette fois, c’est Ana qui fait découvrir sa cuisine au groupe : frites double cuisson, sarma et blanquette de veau. Les rôles s’inversent, chacun choisit son plat préféré et Ana transforme naturellement le dîner en classement officiel.</p><p><strong>À travailler :</strong> 요리하다, 두 번 튀기다, 바삭하다, 재료, 소스, 순위, 1등 et présenter un plat que l’on connaît bien.</p><div class="story-lock">🔒 <strong>Épisode en préparation</strong> · script validé, vidéo non finalisée</div></article>
+</section><h2 class="section-title">💬 Mini-dialogues & petites scènes de vie</h2><section class="grid" data-cat="reading">
+<article class="item"><span class="badge ">À venir</span><h3>💬 Mini-dialogues</h3><p>Échanges très courts conçus pour réviser une situation ou une structure.</p></article>
+
+<article class="item"><span class="badge ">À venir</span><h3>🏙️ Petites scènes de vie</h3><p>Café, métro, magasin, rendez-vous… du coréen pédagogique contrôlé, différent des extraits authentiques.</p></article>
+</section>
+<h2 class="section-title">🌿 Mini-Stories — Saison 3</h2>
+<section class="intro">
+  <strong>🧭 Autonomie, imprévus & petites attentions</strong>
+  <p>Cette saison pousse Ana vers davantage de situations réelles : téléphone, orientation, voyage, compréhension orale et petits imprévus du quotidien. Les relations continuent d’évoluer en arrière-plan, sans transformer les stories en drama romantique.</p>
+  <p class="story-note">🔒 Les épisodes restent visibles mais verrouillés jusqu’à la finalisation de leurs vidéos.</p>
+</section>
+<section class="grid" data-cat="reading">
+
+  
+<article class="item story-card" aria-disabled="true">
+    <span class="badge">🔒 Verrouillé · A2–B1</span>
+    <h3>📞 전화 너무 빨라요 — Vous parlez trop vite au téléphone</h3>
+    <div class="story-meta">
+      <span class="story-tag">📞 Téléphone</span>
+      <span class="story-tag">🍽️ Réservation</span>
+      <span class="story-tag">🗣️ Compréhension</span>
+      <span class="story-tag">😂 Stress</span>
+    </div>
+    <p>Ji-soo pousse Ana à réserver une table elle-même. Tout va bien… jusqu’au moment où l’employé commence à parler beaucoup trop vite et où le prénom « Ana » devient encore une source de confusion.</p>
+    <p><strong>À travailler :</strong> réserver, demander de répéter, 천천히 말씀해 주세요, nombre de personnes, heure et vérification d’informations.</p>
+    <div class="story-lock">🔒 <strong>Épisode en préparation</strong> · script validé, vidéo non finalisée</div>
+  </article>
+
+
+  
+<article class="item story-card" aria-disabled="true">
+    <span class="badge">🔒 Verrouillé · A2–B1</span>
+    <h3>🧭 내가 길 알아 — Je connais le chemin</h3>
+    <div class="story-meta">
+      <span class="story-tag">🗺️ Naver Map</span>
+      <span class="story-tag">🚶 Marche</span>
+      <span class="story-tag">🦵 Genou</span>
+      <span class="story-tag">😂 Mauvaise direction</span>
+    </div>
+    <p>Min-su assure qu’il connaît le chemin et qu’il n’a pas besoin de Naver Map. Après plusieurs détours et beaucoup de marche, Ana commence à sentir son genou et le groupe découvre qu’ils sont partis dans la mauvaise direction.</p>
+    <p><strong>À travailler :</strong> directions, 길을 알다, 반대 방향, 네이버 지도, se perdre, exprimer une gêne et proposer une pause.</p>
+    <div class="story-lock">🔒 <strong>Épisode en préparation</strong> · script validé, vidéo non finalisée</div>
+  </article>
+
+
+  
+<article class="item story-card" aria-disabled="true">
+    <span class="badge">🔒 Verrouillé · A2–B1</span>
+    <h3>🎁 이거 왜 샀어요? — Pourquoi vous avez acheté ça ?</h3>
+    <div class="story-meta">
+      <span class="story-tag">🎁 Petite attention</span>
+      <span class="story-tag">💙 Porte-clés bleu</span>
+      <span class="story-tag">👀 Souvenir</span>
+      <span class="story-tag">💕 Ambigu léger</span>
+    </div>
+    <p>Min-su offre à Ana un petit porte-clés traditionnel bleu qu’il a repéré en passant. Il n’y a aucune grande déclaration : il s’est simplement souvenu qu’elle aime le bleu, ce que Ji-soo remarque évidemment immédiatement.</p>
+    <p><strong>À travailler :</strong> offrir et recevoir un cadeau, 생각나다, 기억하다, couleurs, remercier et exprimer qu’un objet plaît.</p>
+    <div class="story-lock">🔒 <strong>Épisode en préparation</strong> · script validé, vidéo non finalisée</div>
+  </article>
+
+
+  
+<article class="item story-card" aria-disabled="true">
+    <span class="badge">🔒 Verrouillé · A2–B1</span>
+    <h3>👩‍🍳 레시피대로 했는데? — Pourtant j’ai suivi la recette !</h3>
+    <div class="story-meta">
+      <span class="story-tag">🍳 Cuisine</span>
+      <span class="story-tag">📖 Recette</span>
+      <span class="story-tag">😂 Catastrophe</span>
+      <span class="story-tag">🍽️ Groupe</span>
+    </div>
+    <p>Cette fois, Ana n’est pas la cobaye : quelqu’un du groupe cuisine en suivant une recette « exactement ». Le résultat prouve rapidement que suivre toutes les étapes ne garantit absolument pas le succès.</p>
+    <p><strong>À travailler :</strong> recettes, ingrédients, étapes, quantités, 맛이 이상하다, expliquer ce qui s’est mal passé et proposer une solution.</p>
+    <div class="story-lock">🔒 <strong>Épisode en préparation</strong> · intrigue validée, vidéo non finalisée</div>
+  </article>
+
+
+  
+<article class="item story-card" aria-disabled="true">
+    <span class="badge">🔒 Verrouillé · A2–B1</span>
+    <h3>🧳 가방이 안 보여 — Je ne trouve plus ma valise</h3>
+    <div class="story-meta">
+      <span class="story-tag">✈️ Voyage</span>
+      <span class="story-tag">🧳 Bagage</span>
+      <span class="story-tag">🔎 Description</span>
+      <span class="story-tag">😂 Petite panique</span>
+    </div>
+    <p>Ana ne retrouve plus sa valise et doit la décrire au groupe : noire, avec une lanière bleue… avant que Ji-soo ne découvre qu’elle se trouve presque juste derrière elle.</p>
+    <p><strong>À travailler :</strong> couleur, taille, 특징, 가방, décrire un objet, demander de l’aide et indiquer un emplacement.</p>
+    <div class="story-lock">🔒 <strong>Épisode en préparation</strong> · script validé, vidéo non finalisée</div>
+  </article>
+
+
+  
+<article class="item story-card" aria-disabled="true">
+    <span class="badge">🔒 Verrouillé · A2–B1</span>
+    <h3>🏎️ 오늘은 제가 운전해요 — Aujourd’hui, c’est moi qui conduis</h3>
+    <div class="story-meta">
+      <span class="story-tag">🎢 Parc</span>
+      <span class="story-tag">😱 Peur</span>
+      <span class="story-tag">😂 Réactions</span>
+      <span class="story-tag">💚 Groupe</span>
+    </div>
+    <p>Sortie circuit : première manche, chacun conduit et Ana « Schumi » signe le meilleur temps. Deuxième manche, tout le groupe monte dans la même voiture avec Ana au volant. Ji-soo, Do-yun et même Min-su finissent agrippés aux poignées pendant qu’Ana conduit parfaitement sereine.</p>
+    <p><strong>À travailler :</strong> 운전하다, 속도, 커브, 추월하다, classement, sensations fortes, rassurer un passager et taquiner quelqu’un. Ana rappelle à Min-su qu’il fait de la moto et devrait être habitué aux sensations fortes ; lui répond que quand il conduit, c’est lui qui contrôle.</p>
+    <div class="story-lock">🔒 <strong>Épisode en préparation</strong> · script validé, vidéo non finalisée</div>
+  </article>
+
+
+  
+<article class="item story-card" aria-disabled="true">
+    <span class="badge">🔒 Verrouillé · B1</span>
+    <h3>🗣️ 방금 뭐라고 했어요? — Vous venez de dire quoi ?</h3>
+    <div class="story-meta">
+      <span class="story-tag">👂 Écoute</span>
+      <span class="story-tag">🗣️ Prononciation</span>
+      <span class="story-tag">😂 Malentendu</span>
+      <span class="story-tag">💕 Ambigu léger</span>
+    </div>
+    <p>Min-su demande simplement « 같이 갈래요? » — « Vous voulez qu’on y aille ensemble ? ». Ana entend « 같이 살래요? » — « Vous voulez qu’on vive ensemble ? » — et le groupe profite beaucoup trop du malentendu.</p>
+    <p><strong>À travailler :</strong> 갈래요 / 살래요, demander de répéter, vérifier ce qu’on a entendu et utiliser le contexte pour réparer une mauvaise compréhension.</p>
+    <div class="story-lock">🔒 <strong>Épisode en préparation</strong> · confusion phonétique validée, vidéo non finalisée</div>
+  </article>
+
+
+  
+<article class="item story-card" aria-disabled="true">
+    <span class="badge">🔒 Verrouillé · A2–B1</span>
+    <h3>🧣 춥다면서 — « Tu avais dit que tu avais froid »</h3>
+    <div class="story-meta">
+      <span class="story-tag">❄️ Froid</span>
+      <span class="story-tag">🔥 핫팩</span>
+      <span class="story-tag">💙 Attention</span>
+      <span class="story-tag">👀 Ji-soo observe</span>
+    </div>
+    <p>Ana mentionne simplement qu’elle a froid. Plus tard, Min-su revient avec une chaufferette parce qu’il s’en souvenait. Ana dit merci, rougit un peu et n’analyse pas la scène pendant trois heures — contrairement à Ji-soo.</p>
+    <p><strong>À travailler :</strong> 춥다, 핫팩, se souvenir d’une remarque, offrir quelque chose simplement, remercier et comprendre l’implicite.</p>
+    <div class="story-lock">🔒 <strong>Épisode en préparation</strong> · script validé, vidéo non finalisée</div>
+  </article>
+
+
+</section>
+
+<h2 class="section-title">💼 Mini-Stories — Dernier pack avant la pause visuelle</h2>
+<section class="intro">
+  <strong>🌿 Travail, autonomie & vie du groupe</strong>
+  <p>Ce dernier pack fait passer Ana de l’apprentissage à l’usage réel du coréen : candidature, entretien, travail en équipe, idées produit, bugs, culture de bureau et vie sociale.</p>
+  <p class="story-note">🔒 Tous les épisodes restent verrouillés jusqu’à la finalisation de leurs pages et vidéos.</p>
+</section>
+<section class="grid" data-cat="reading">
+
+  
+<article class="item story-card" aria-disabled="true">
+    <span class="badge">🔒 Verrouillé · A2–B1</span>
+    <h3>💼 일자리 찾는 중 — À la recherche d’un travail</h3>
+    <div class="story-meta">
+      <span class="story-tag">💼 Travail</span><span class="story-tag">🔎 Annonces</span><span class="story-tag">🇫🇷🇰🇷 Franco-coréen</span><span class="story-tag">📱 Candidature</span>
+    </div>
+    <p>Ana cherche un petit travail où elle pourrait utiliser le coréen tout en valorisant ses compétences. Elle tombe sur une entreprise franco-coréenne qui développe une application d’apprentissage des langues et finit par envoyer sa candidature malgré son stress.</p>
+    <p><strong>À travailler :</strong> chercher un emploi, missions, compétences, horaires, 지원하다, hésiter puis postuler.</p>
+    <div class="story-lock">🔒 <strong>Épisode en préparation</strong> · script finalisé, vidéo non finalisée</div>
+  </article>
+
+
+  
+<article class="item story-card" aria-disabled="true">
+    <span class="badge">🔒 Verrouillé · B1</span>
+    <h3>📝 면접 보러 왔어요 — Je suis venue pour l’entretien</h3>
+    <div class="story-meta">
+      <span class="story-tag">📝 Entretien</span><span class="story-tag">🗣️ Présentation</span><span class="story-tag">💡 Idées</span><span class="story-tag">😰 Stress</span>
+    </div>
+    <p>Ana passe son entretien en coréen. Elle demande une reformulation quand nécessaire et explique qu’elle aimerait apprendre avec des histoires et des situations qui donnent envie de connaître la suite.</p>
+    <p><strong>À travailler :</strong> 자기소개, motivation, compétences, demander de répéter, répondre à une question inattendue et donner un exemple.</p>
+    <div class="story-lock">🔒 <strong>Épisode en préparation</strong> · script finalisé, vidéo non finalisée</div>
+  </article>
+
+
+  
+<article class="item story-card" aria-disabled="true">
+    <span class="badge">🔒 Verrouillé · B1</span>
+    <h3>💡 이런 기능 있으면 좋겠어요 — Ce serait bien d’avoir cette fonctionnalité</h3>
+    <div class="story-meta">
+      <span class="story-tag">📱 Application</span><span class="story-tag">💡 Produit</span><span class="story-tag">🌍 Langues</span><span class="story-tag">🍎 Anti-manuel ennuyeux</span>
+    </div>
+    <p>On demande à Ana son avis comme vraie apprenante. Elle propose des situations, plusieurs réponses naturelles, différentes vitesses audio et une approche transposable au français, à l’anglais et au turc — avec une règle : assez de « la pomme est rouge ».</p>
+    <p><strong>À travailler :</strong> proposer une fonctionnalité, expliquer un problème utilisateur, comparer des approches et défendre une idée.</p>
+    <div class="story-lock">🔒 <strong>Épisode en préparation</strong> · script finalisé, vidéo non finalisée</div>
+  </article>
+
+
+  
+<article class="item story-card" aria-disabled="true">
+    <span class="badge">🔒 Verrouillé · B1</span>
+    <h3>👥 첫 회의 — Première réunion</h3>
+    <div class="story-meta">
+      <span class="story-tag">👥 Réunion</span><span class="story-tag">🗣️ Prise de parole</span><span class="story-tag">📈 Progression</span><span class="story-tag">💼 Coréen professionnel</span>
+    </div>
+    <p>Ana écoute une réunion rapide, prend beaucoup de notes puis ose proposer de simplifier l’expérience des débutants et de débloquer progressivement les fonctionnalités. Son idée est bien reçue.</p>
+    <p><strong>À travailler :</strong> donner son avis, nuancer, proposer une solution, réagir à une suggestion et prendre la parole en réunion.</p>
+    <div class="story-lock">🔒 <strong>Épisode en préparation</strong> · script finalisé, vidéo non finalisée</div>
+  </article>
+
+
+  
+<article class="item story-card" aria-disabled="true">
+    <span class="badge">🔒 Verrouillé · B1</span>
+    <h3>📱 업데이트가 왜 이래?! — Pourquoi cette mise à jour est comme ça ?</h3>
+    <div class="story-meta">
+      <span class="story-tag">🐛 Bugs</span><span class="story-tag">📱 Test</span><span class="story-tag">😂 Bureau</span><span class="story-tag">🛠️ Problème</span>
+    </div>
+    <p>Ana teste une nouvelle version de l’application : le français ouvre l’anglais et un bouton ferme carrément l’app. Elle devient la personne que les développeurs aiment et redoutent à la fois.</p>
+    <p><strong>À travailler :</strong> décrire un bug, reproduire une erreur, indiquer où elle apparaît et expliquer ce qui devrait se passer.</p>
+    <div class="story-lock">🔒 <strong>Épisode en préparation</strong> · script finalisé, vidéo non finalisée</div>
+  </article>
+
+
+  
+<article class="item story-card" aria-disabled="true">
+    <span class="badge">🔒 Verrouillé · A2–B1</span>
+    <h3>🥐 프랑스 간식 테스트 — Test de snacks français</h3>
+    <div class="story-meta">
+      <span class="story-tag">🥐 France</span><span class="story-tag">🍪 Snacks</span><span class="story-tag">⭐ Notes</span><span class="story-tag">😂 Revanche</span>
+    </div>
+    <p>Ana apporte des snacks français à ses collègues. Cette fois, c’est elle qui organise la dégustation et note les scores. Un 6/10 sur un produit qu’elle adore devient immédiatement une information qu’elle « n’oubliera pas ».</p>
+    <p><strong>À travailler :</strong> goûts, textures, comparer, donner une note, exprimer un désaccord sans être impoli.</p>
+    <div class="story-lock">🔒 <strong>Épisode en préparation</strong> · script finalisé, vidéo non finalisée</div>
+  </article>
+
+
+  
+<article class="item story-card" aria-disabled="true">
+    <span class="badge">🔒 Verrouillé · A2–B1</span>
+    <h3>🎂 도윤 씨 생일 작전 — Opération anniversaire de Do-yun</h3>
+    <div class="story-meta">
+      <span class="story-tag">🎂 Anniversaire</span><span class="story-tag">🎁 Surprise</span><span class="story-tag">💚 Ji-soo</span><span class="story-tag">✅ Jury</span>
+    </div>
+    <p>Ji-soo connaît évidemment l’anniversaire de Do-yun et recrute Ana et Min-su pour organiser une fête surprise. Le vrai défi : réussir à surprendre quelqu’un d’aussi observateur sans éveiller ses soupçons.</p>
+    <p><strong>À travailler :</strong> préparer une surprise, répartir les tâches, 생일 축하하다, cadeaux, réactions et langage de groupe.</p>
+    <div class="story-lock">🔒 <strong>Épisode en préparation</strong> · script finalisé, vidéo non finalisée</div>
+  </article>
+
+
+  
+<article class="item story-card" aria-disabled="true">
+    <span class="badge">🔒 Verrouillé · B1</span>
+    <h3>🌙 야근 끝 — Enfin sortie du travail</h3>
+    <div class="story-meta">
+      <span class="story-tag">🌙 Fin tardive</span><span class="story-tag">🛵 Scooter</span><span class="story-tag">💙 Min-su</span><span class="story-tag">😳 Première fois</span>
+    </div>
+    <p>Ana sort du travail complètement lessivée et découvre Min-su qui l’attend devant le bâtiment avec son scooter et un deuxième casque.</p>
+    <p><strong>Moment clé :</strong> « 데리러 왔어요. 너무 늦었잖아요. 혼자 가지 마요. » — « Je suis venu vous chercher. Il est très tard. Ne rentrez pas seule. » Ana sourit, le remercie, puis découvre sa première expérience en scooter : casque, petite appréhension, poignée inconfortable et grande hésitation avant de finir par s’accrocher à la taille de Min-su.</p>
+    <p><strong>À travailler :</strong> 야근, 데리러 오다, rentrer tard, rassurer quelqu’un, première expérience en scooter, demander où s’accrocher et remercier simplement.</p>
+    <div class="story-lock">🔒 <strong>Épisode en préparation</strong> · script finalisé, vidéo non finalisée</div>
+  </article>
+
+
+</section>
+<h2 class="section-title">🎵 동요 — Comptines & chansons pour enfants</h2><section class="grid" data-cat="kids">
+<article class="item"><span class="badge ">À venir · A1</span><h3>🐻 곰 세 마리</h3><p>Famille, descriptions et répétitions. Parcours : écouter → comprendre → vocabulaire → prononcer → chanter.</p></article>
+
+<article class="item"><span class="badge ">À venir · A1</span><h3>🐇 산토끼</h3><p>Animaux, mouvement et rythme.</p></article>
+
+<article class="item"><span class="badge ">À venir · A1</span><h3>🦋 나비야</h3><p>Nature et répétitions faciles.</p></article>
+
+<article class="item"><span class="badge ">À venir · A1</span><h3>⭐ 반짝반짝 작은 별</h3><p>Version coréenne de Twinkle Twinkle Little Star : mélodie familière pour travailler l’écoute.</p></article>
+
+<article class="item"><span class="badge ">À venir</span><h3>🔔 학교종</h3><p>École, sons simples et rythme.</p></article>
+
+<article class="item"><span class="badge ">À venir · A1+</span><h3>🌙 섬집 아기</h3><p>Berceuse coréenne plus douce et légèrement plus difficile.</p></article>
+</section><h2 class="section-title">🎵 K-pop — coréen authentique</h2><section class="grid" data-cat="auth">
+<article class="item"><span class="badge auth">🔎 Coréen authentique · priorité</span><h3>💙 MONSTA X</h3><p>Un des premiers artistes à analyser : vocabulaire reconnu, thème, expressions courtes, écoute et prononciation. Mercy pourra devenir une fiche quand le niveau s’y prêtera.</p></article>
+
+<article class="item"><span class="badge auth">🔎 Coréen authentique</span><h3>🎧 Analyser une chanson</h3><p>Écoute sans paroles → mots reconnus → sens général → courts extraits → expressions → défi d’écoute. Pas de reproduction intégrale de paroles protégées.</p></article>
+</section><h2 class="section-title">🎬 K-drama — coréen authentique</h2><section class="grid" data-cat="auth">
+<article class="item"><span class="badge auth">🔎 Coréen authentique</span><h3>🎬 Décoder une micro-scène</h3><p>Écouter sans sous-titres → repérer les mots → comprendre la situation → analyser 1 ou 2 expressions → rejouer la scène.</p></article>
+
+<article class="item"><span class="badge ">À venir</span><h3>👂 Le coréen vraiment parlé</h3><p>Contractions, mots avalés, réactions naturelles et différences entre poli, familier et honorifique.</p></article>
+</section><h2 class="section-title">🇰🇷 Culture & histoire</h2><section class="grid" data-cat="culture">
+<article class="item"><span class="badge ">Hub créé</span><h3>🏯 Histoire de la Corée</h3><p>Trois Royaumes, Goryeo, Joseon, Sejong, occupation japonaise, division, guerre de Corée, démocratisation et Corée contemporaine.</p><a class="open" href="culture-coree.html">Ouvrir →</a></article>
+
+<article class="item"><span class="badge ">Format prévu</span><h3>⏱️ Fiches de 5 à 10 minutes</h3><p>Repères chronologiques + explication accessible + visuels/cartes + « Pourquoi c’est encore important aujourd’hui ? ».</p><a class="open" href="culture-coree.html">Ouvrir →</a></article>
+
+<article class="item"><span class="badge ">À venir</span><h3>🎎 Traditions & société</h3><p>Hanbok, fêtes, famille, noms, confucianisme, service militaire, éducation, travail, cafés, jjimjilbang et nourriture.</p><a class="open" href="culture-coree.html">Ouvrir →</a></article>
+
+<article class="item"><span class="badge ">À venir</span><h3>🗺️ Nord-Sud & DMZ</h3><p>Comprendre les grands repères historiques et contemporains sans transformer la fiche en roman d’histoire.</p><a class="open" href="culture-coree.html">Ouvrir →</a></article>
+</section><h2 class="section-title">🗣️ Langue, politesse & relations</h2><section class="grid" data-cat="language">
+<article class="item"><span class="badge ">Hub créé</span><h3>🌿 반말 · 해요체 · honorifiques</h3><p>Comparer progressivement le langage entre amis, le poli courant et les formes très respectueuses.</p><a class="open" href="niveaux-de-langue.html">Ouvrir →</a></article>
+
+<article class="item"><span class="badge auth">🔎 Coréen authentique</span><h3>👥 La relation change la langue</h3><p>Observer comment l’âge, la proximité et la hiérarchie modifient la manière de parler.</p><a class="open" href="niveaux-de-langue.html">Ouvrir →</a></article>
+</section><h2 class="section-title">📖 Autres ressources</h2><section class="grid" data-cat="reading">
+<article class="item"><span class="badge ">À venir</span><h3>📖 Textes du domaine public</h3><p>Petits textes réutilisables légalement, adaptés ou accompagnés selon le niveau.</p></article>
+
+<article class="item"><span class="badge ">À venir</span><h3>📚 Livres & ressources recommandés</h3><p>Sélection progressive de ressources réellement adaptées au niveau.</p></article>
+</section><button class="route" onclick="location.href='itineraire.html'">← Retour à mon itinéraire</button></div></main>
 <script>
 const KEY='hanaKorean_readingLibrary_unlocked';function isUnlocked(){return localStorage.getItem(KEY)==='true'}function render(){lockedState.classList.toggle('hidden',isUnlocked());unlockedState.classList.toggle('hidden',!isUnlocked())}function unlockReadingLibraryPermanently(){localStorage.setItem(KEY,'true');render()}window.unlockReadingLibraryPermanently=unlockReadingLibraryPermanently;render();addEventListener('pageshow',render);addEventListener('storage',render);
 let filter='all';const s=document.getElementById('search'),chips=[...document.querySelectorAll('.chip')];function f(){const q=(s?.value||'').toLowerCase().trim();document.querySelectorAll('.item').forEach(i=>{const cat=i.closest('[data-cat]')?.dataset.cat||'';i.style.display=(filter==='all'||cat===filter)&&(!q||i.textContent.toLowerCase().includes(q))?'':'none'});document.querySelectorAll('[data-cat]').forEach(sec=>{sec.style.display=[...sec.querySelectorAll('.item')].some(i=>i.style.display!=='none')?'':'none'});document.querySelectorAll('.section-title').forEach(h=>{const n=h.nextElementSibling;if(n?.hasAttribute('data-cat'))h.style.display=n.style.display})}chips.forEach(b=>b.onclick=()=>{chips.forEach(x=>x.classList.remove('active'));b.classList.add('active');filter=b.dataset.f;f()});if(s)s.oninput=f;

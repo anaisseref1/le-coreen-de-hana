@@ -1,20 +1,20 @@
 /* =========================================================
-   LE CORÉEN DE HANA
+   LE CORÉEN DE ANA
    PLANTE — CROISSANCE AUTOMATIQUE
    ========================================================= */
 
 const plant = document.getElementById("plant");
 const waterButton = document.getElementById("waterButton");
 
-const TOTAL_CHAPTERS = 42;
+const TOTAL_CHAPTERS = 198;
 const PLANT_STORAGE_KEY = "hanaKorean_plant_seenChapters";
 
 const plantStages = [
   { min: 0, emoji: "🌱", label: "Une petite pousse apparaît." },
-  { min: 3, emoji: "🌿", label: "Ta pousse devient plus feuillue." },
-  { min: 8, emoji: "🪴", label: "Ta plante commence vraiment à grandir." },
-  { min: 16, emoji: "🌳", label: "Ta plante est devenue un bel arbre." },
-  { min: 30, emoji: "🌸", label: "Ton arbre fleurit grâce à tout ton travail." }
+  { min: 10, emoji: "🌿", label: "Ta pousse devient plus feuillue." },
+  { min: 32, emoji: "🪴", label: "Ta plante commence vraiment à grandir." },
+  { min: 76, emoji: "🌳", label: "Ta plante est devenue un bel arbre." },
+  { min: 155, emoji: "🌸", label: "Ton arbre fleurit grâce à tout ton travail." }
 ];
 
 function getCompletedChapters() {
@@ -292,7 +292,7 @@ function renderPlant() {
     completedCount === TOTAL_CHAPTERS
   ) {
     setPlantMessage(
-      "🌸 Ton arbre est en fleurs : tu as terminé les 42 chapitres !"
+      "🌸 Ton arbre est en fleurs : tu as terminé les 198 chapitres !"
     );
   }
 
