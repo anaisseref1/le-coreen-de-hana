@@ -1839,6 +1839,17 @@
   function updateRoute() {
     const completed = {};
 
+    /*
+      Les identifiants des cartes sont la source fiable du numéro.
+      Cette normalisation corrige aussi les anciens numéros visuels
+      décalés sans modifier les clés de progression déjà enregistrées.
+    */
+    for (let chapterNumber = 1; chapterNumber <= LAST_AVAILABLE_CHAPTER; chapterNumber++) {
+      const card = document.getElementById("chapter" + chapterNumber + "Card");
+      const number = card && card.querySelector(".chapter-number");
+      if (number) number.textContent = chapterNumber;
+    }
+
     for (let chapterNumber = 1; chapterNumber <= LAST_AVAILABLE_CHAPTER; chapterNumber++) {
       completed[chapterNumber] = chapterCompleted(chapterNumber);
     }

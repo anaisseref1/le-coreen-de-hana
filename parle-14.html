@@ -282,7 +282,7 @@
     return voices.find(voice => voice.lang && voice.lang.toLowerCase().startsWith("ko"));
   }
 
-  function speakKorean(text, slow = false, speaker = "hana") {
+  function speakKorean(text, slow = false, speaker = "ana") {
     if (!("speechSynthesis" in window)) return;
 
     window.speechSynthesis.cancel();
@@ -299,7 +299,7 @@
   }
 
   function playTarget(slow) {
-    speakKorean(steps[currentStep].target, slow, "hana");
+    speakKorean(steps[currentStep].target, slow, "ana");
   }
 
   function playSpeakerLine() {
