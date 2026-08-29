@@ -386,6 +386,60 @@
     }
 
     /* =====================================================
+       NAVIGATION RAPIDE ENTRE LES 16 MODULES
+       ===================================================== */
+
+    .module-switcher {
+      margin: 0 0 22px;
+      padding: 14px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-large);
+      box-shadow: var(--shadow);
+    }
+
+    .module-switcher-title {
+      margin: 0 0 10px;
+      color: var(--navy);
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .module-switcher-list {
+      display: flex;
+      gap: 7px;
+      overflow-x: auto;
+      padding: 2px 1px 6px;
+      scrollbar-width: thin;
+    }
+
+    .module-switcher-link {
+      flex: 0 0 auto;
+      min-width: 42px;
+      padding: 9px 10px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: #FBFAF6;
+      color: var(--navy) !important;
+      text-decoration: none;
+      text-align: center;
+      font-size: 12px;
+      font-weight: 800;
+      transition: .18s ease;
+    }
+
+    .module-switcher-link:hover {
+      background: var(--soft-green);
+      border-color: var(--jade);
+    }
+
+    .module-switcher-link.active {
+      background: var(--jade);
+      border-color: var(--jade);
+      color: white !important;
+    }
+
+    /* =====================================================
        MOBILE
        ===================================================== */
 
@@ -492,6 +546,12 @@
 
   </section>
 
+
+
+  <nav class="module-switcher" aria-label="Choisir un module">
+    <div class="module-switcher-title">🗺️ Choisir un module</div>
+    <div class="module-switcher-list"><a class="module-switcher-link" data-module-link="module1" href="#module1">1</a><a class="module-switcher-link" data-module-link="module2" href="#module2">2</a><a class="module-switcher-link" data-module-link="module3" href="#module3">3</a><a class="module-switcher-link" data-module-link="module4" href="#module4">4</a><a class="module-switcher-link" data-module-link="module5" href="#module5">5</a><a class="module-switcher-link" data-module-link="module6" href="#module6">6</a><a class="module-switcher-link" data-module-link="module7" href="#module7">7</a><a class="module-switcher-link" data-module-link="module8" href="#module8">8</a><a class="module-switcher-link" data-module-link="module9" href="#module9">9</a><a class="module-switcher-link" data-module-link="module10" href="#module10">10</a><a class="module-switcher-link" data-module-link="module11" href="#module11">11</a><a class="module-switcher-link" data-module-link="module12" href="#module12">12</a><a class="module-switcher-link" data-module-link="module13" href="#module13">13</a><a class="module-switcher-link" data-module-link="module14" href="#module14">14</a><a class="module-switcher-link" data-module-link="module15" href="#module15">15</a><a class="module-switcher-link" data-module-link="module16" href="#module16">16</a></div>
+  </nav>
 
 
   <!-- =====================================================
@@ -948,7 +1008,7 @@
        MODULE 2
        ===================================================== -->
 
-  <section class="module" id="module2Card" data-module-view="module2">
+  <section class="module module-anchor" id="module2" data-module-view="module2">
 
     <div class="module-header">
 
@@ -1343,7 +1403,7 @@
        MODULE 3
        ===================================================== -->
 
-  <section class="module module-anchor" id="module3Card" data-module-view="module3">
+  <section class="module module-anchor" id="module3" data-module-view="module3">
     <div class="module-header">
       <div class="module-number">MODULE 3</div>
       <h2 class="module-title">Aller plus loin 🌸</h2>
@@ -1620,7 +1680,7 @@
   </section>
 
 
-<section class="module" id="module6">
+<section class="module module-anchor" id="module6" data-module-view="module6">
   <h2>🎧 MODULE 6 — COMPRENDRE LE CORÉEN NATUREL</h2>
   <div class="chapter locked" id="chapter54Card"><div class="chapter-number">53</div><div class="chapter-content"><div class="chapter-title">🎧 Comprendre le coréen parlé</div><div class="chapter-status" id="chapter54Status">Termine le chapitre 53</div><a class="chapter-summary-link hidden" id="chapter54Summary" href="resume-54.html" onclick="event.stopPropagation();">📖 Résumé</a></div><div class="lock-icon" id="chapter54Icon">🔒</div></div>
   <div class="chapter locked" id="chapter55Card"><div class="chapter-number">54</div><div class="chapter-content"><div class="chapter-title">🌸 Les contractions et formes courantes</div><div class="chapter-status" id="chapter55Status">Termine le chapitre 54</div><a class="chapter-summary-link hidden" id="chapter55Summary" href="resume-55.html" onclick="event.stopPropagation();">📖 Résumé</a></div><div class="lock-icon" id="chapter55Icon">🔒</div></div>
@@ -1875,6 +1935,15 @@
 
   function showRequestedModule() {
     const requestedModule = getRequestedModule();
+
+    document.querySelectorAll("[data-module-link]").forEach(link => {
+      link.classList.toggle("active", link.dataset.moduleLink === requestedModule);
+      if (link.dataset.moduleLink === requestedModule) {
+        link.setAttribute("aria-current", "page");
+      } else {
+        link.removeAttribute("aria-current");
+      }
+    });
 
     document.querySelectorAll("[data-module-view]").forEach(section => {
       section.classList.toggle(

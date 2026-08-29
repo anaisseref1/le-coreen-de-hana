@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#F7F4ED">
+  <title>Culture & langue réelle</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .page-header{text-align:center;margin-bottom:24px}
+    .page-header p{color:var(--text-light)}
+    .cards{display:grid;grid-template-columns:1fr;gap:14px}
+    .card{display:block;padding:18px;background:var(--white);border:1px solid var(--border);border-radius:var(--radius-large);box-shadow:var(--shadow);text-decoration:none;color:inherit}
+    .card:hover{border-color:var(--jade);box-shadow:var(--shadow-hover)}
+    .card h2{margin:0 0 7px;font-size:19px}
+    .card p{margin:0;color:var(--text-light);font-size:14px}
+    .open{display:inline-block;margin-top:12px;color:var(--jade-dark);font-weight:800}
+    @media(min-width:650px){.app{max-width:760px}.cards{grid-template-columns:1fr 1fr}}
+  </style>
+  <script src="profile.js"></script>
+</head>
+<body>
+<main class="app">
+  <a class="back-link" href="bibliotheque.html">← Bibliothèque</a>
+  <header class="page-header">
+    <span class="chapter-badge">🇰🇷 Culture & langue réelle</span>
+    <p class="korean">한국어와 문화를 같이 배워요 🌿</p>
+    <h1>Comprendre ce qu’il y a derrière les mots</h1>
+    <p>Culture, hiérarchie, politesse et coréen réellement entendu au quotidien.</p>
+  </header>
+
+  <section class="cards">
+    <a class="card" href="niveaux-de-langue.html">
+      <h2>🗣️ 반말 · 해요체 · honorifiques</h2>
+      <p>Comprendre comment l’âge, la proximité et la hiérarchie changent la façon de parler.</p>
+      <span class="open">Ouvrir →</span>
+    </a>
+
+    <a class="card" href="culture-coree.html">
+      <h2>🏯 Histoire & société</h2>
+      <p>Joseon, Sejong, Corée contemporaine, traditions et grands repères culturels.</p>
+      <span class="open">Ouvrir →</span>
+    </a>
+
+    <a class="card" href="itineraire.html#module6">
+      <h2>👂 Le coréen vraiment parlé</h2>
+      <p>Contractions, débit naturel, phrases incomplètes et compréhension globale.</p>
+      <span class="open">Voir le module 6 →</span>
+    </a>
+
+    <a class="card" href="kdramas.html">
+      <h2>🎬 Lire les relations dans la langue</h2>
+      <p>Observer la politesse, l’implicite et les changements de registre dans des scènes courtes.</p>
+      <span class="open">Voir les exemples →</span>
+    </a>
+  </section>
+</main>
+</body>
+</html>
