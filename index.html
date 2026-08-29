@@ -1,908 +1,117 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
   <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
-
-  <meta
-    name="theme-color"
-    content="#F7F4ED"
-  >
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#F7F4ED">
   <title>Le Coréen de Ana</title>
-
-  <link
-    rel="stylesheet"
-    href="style.css"
-  >
-
-  <style>
-
-    .home-header {
-      text-align: center;
-      margin-bottom: 28px;
-    }
-
-    .home-header .korean {
-      margin-bottom: 8px;
-      font-size: 20px;
-    }
-
-    .home-header h1 {
-      margin-bottom: 10px;
-    }
-
-    .home-header p {
-      max-width: 380px;
-      margin: 0 auto;
-      color: var(--text-light);
-      line-height: 1.6;
-    }
-
-    .modules-title {
-      margin-bottom: 14px;
-      color: var(--navy);
-      font-size: 18px;
-      font-weight: bold;
-    }
-
-    .modules-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 16px;
-    }
-
-    .module-card {
-      display: block;
-      padding: 20px;
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-large);
-      box-shadow: var(--shadow);
-      color: inherit;
-      text-decoration: none;
-      transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease,
-        border-color 0.2s ease;
-    }
-
-    .module-card:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-hover);
-      border-color: var(--jade);
-    }
-
-    .module-card.future {
-      background: #FBFAF6;
-    }
-
-    .module-top {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 15px;
-    }
-
-    .module-number {
-      margin-bottom: 5px;
-      color: var(--jade-dark);
-      font-size: 13px;
-      font-weight: bold;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-    }
-
-    .module-card h2 {
-      margin: 0;
-      color: var(--navy);
-      font-size: 21px;
-    }
-
-    .module-icon {
-      flex-shrink: 0;
-      font-size: 31px;
-      line-height: 1;
-    }
-
-    .module-description {
-      margin: 12px 0 0;
-      color: var(--text-light);
-      font-size: 14px;
-      line-height: 1.6;
-    }
-
-    .module-status {
-      display: inline-block;
-      margin-top: 13px;
-      padding: 6px 10px;
-      background: var(--soft-beige);
-      border-radius: 20px;
-      color: var(--text-light);
-      font-size: 12px;
-      font-weight: 600;
-    }
-
-    .module-progress {
-      margin-top: 16px;
-    }
-
-    .module-progress-top {
-      display: flex;
-      justify-content: space-between;
-      gap: 10px;
-      margin-bottom: 7px;
-      color: var(--text-light);
-      font-size: 12px;
-    }
-
-    .module-progress-bar {
-      width: 100%;
-      height: 8px;
-      overflow: hidden;
-      background: var(--soft-beige);
-      border-radius: 20px;
-    }
-
-    .module-progress-fill {
-      width: 0%;
-      height: 100%;
-      background: var(--jade);
-      border-radius: 20px;
-      transition: width 0.35s ease;
-    }
-
-    .module-action {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      margin-top: 16px;
-      color: var(--jade-dark);
-      font-size: 14px;
-      font-weight: bold;
-    }
-
-    .module-arrow {
-      font-size: 18px;
-    }
-
-    .mini-garden {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 14px;
-      margin-top: 26px;
-      padding: 14px 16px;
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-large);
-      box-shadow: var(--shadow);
-    }
-
-    .mini-garden-copy {
-      flex: 1;
-      min-width: 0;
-    }
-
-    .mini-garden-title {
-      margin: 0 0 4px;
-      color: var(--navy);
-      font-size: 15px;
-      font-weight: 700;
-    }
-
-    .plant-message {
-      margin: 0;
-      color: var(--text-light);
-      font-size: 12px;
-      line-height: 1.45;
-    }
-
-    .mini-garden-plant {
-      flex: 0 0 auto;
-      margin: 0;
-      font-size: 68px;
-      line-height: 1;
-      transform-origin: center bottom;
-    }
-
-    @media (max-width: 480px) {
-
-      .module-card {
-        padding: 18px;
-      }
-
-      .module-card h2 {
-        font-size: 19px;
-      }
-
-      .mini-garden {
-        padding: 13px 14px;
-      }
-
-    }
-
-  </style>
-
+  <link rel="stylesheet" href="style.css">
   <script src="profile.js"></script>
+  <style>
+    .home-header{text-align:center;margin-bottom:24px}.home-header .korean{margin-bottom:8px;font-size:20px}.home-header h1{margin-bottom:9px}.home-header>p:not(.korean){max-width:430px;margin:0 auto;color:var(--text-light)}
+    .welcome{margin-top:9px!important;font-weight:800;color:var(--jade-dark)!important}.section-title{margin:26px 0 11px;color:var(--navy);font-size:18px}
+    .home-card{display:block;padding:18px;background:var(--white);border:1px solid var(--border);border-radius:var(--radius-large);box-shadow:var(--shadow);color:inherit;text-decoration:none}.home-card:hover{border-color:var(--jade);box-shadow:var(--shadow-hover)}
+    .card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:14px}.eyebrow{margin-bottom:4px;color:var(--jade-dark);font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:.04em}.home-card h2{margin:0;font-size:20px}.card-icon{font-size:30px;line-height:1}.card-description{margin:10px 0 0;color:var(--text-light);font-size:13px}.card-action{display:flex;justify-content:space-between;gap:10px;margin-top:13px;color:var(--jade-dark);font-size:13px;font-weight:850}
+    .current-card{background:linear-gradient(145deg,var(--soft-green),var(--white));border-color:rgba(111,159,146,.35)}.current-label{display:inline-flex;margin-bottom:10px;padding:5px 9px;border-radius:999px;background:var(--jade);color:#fff;font-size:11px;font-weight:900}
+    .progress-wrap{margin-top:14px}.progress-line{display:flex;justify-content:space-between;gap:10px;margin-bottom:7px;color:var(--text-light);font-size:12px}.progress-track{height:8px;overflow:hidden;background:var(--soft-beige);border-radius:999px}.progress-fill{height:100%;width:0;background:var(--jade);border-radius:inherit;transition:width .3s ease}
+    .modules-menu{margin-top:12px;background:var(--white);border:1px solid var(--border);border-radius:var(--radius-large);box-shadow:var(--shadow);overflow:hidden}.modules-menu>summary{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 18px;cursor:pointer;list-style:none;color:var(--navy);font-weight:850}.modules-menu>summary::-webkit-details-marker{display:none}.summary-arrow{color:var(--jade-dark);transition:transform .2s}.modules-menu[open] .summary-arrow{transform:rotate(90deg)}
+    .module-list{padding:0 12px 12px}.module-row{display:flex;align-items:center;gap:11px;padding:12px 8px;border-top:1px solid var(--border);color:inherit;text-decoration:none}.module-row:first-child{border-top:0}.module-row-icon{width:33px;text-align:center;font-size:21px}.module-row-copy{flex:1;min-width:0}.module-row-copy strong{display:block;color:var(--navy);font-size:13px}.module-row-copy span{display:block;color:var(--text-light);font-size:11px}.module-row-state{flex:0 0 auto;font-size:15px}.module-row.current{background:var(--soft-green);border-radius:12px}.module-row.locked{opacity:.58;cursor:not-allowed}
+    .space-grid{display:grid;grid-template-columns:1fr;gap:10px}.space-card{display:flex;align-items:center;gap:10px;min-height:83px;padding:13px;background:var(--white);border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow);text-decoration:none;color:inherit}.space-card:hover{border-color:var(--jade)}.space-icon{font-size:25px}.space-card strong{display:block;color:var(--navy);font-size:14px}.space-card span:last-child{display:block;color:var(--text-light);font-size:11px}
+    .mini-garden{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:24px;padding:13px 15px;background:var(--white);border:1px solid var(--border);border-radius:var(--radius-large);box-shadow:var(--shadow)}.mini-garden-title{margin:0 0 3px;color:var(--navy);font-size:14px;font-weight:800}.plant-message{margin:0;color:var(--text-light);font-size:11px}.mini-garden-plant{flex:0 0 auto;font-size:68px;line-height:1;transform-origin:center bottom}
+    @media(min-width:480px){.space-grid{grid-template-columns:repeat(3,1fr)}}@media(min-width:650px){.app{max-width:700px}}
+  </style>
 </head>
-
-
 <body>
-
-
-  <main class="app">
-
-
-    <header class="home-header">
-
-      <p class="korean" data-profile-static>
-        아나의 한국어 여행 🌿
-      </p>
-
-      <h1 data-profile-static>
-        Le Coréen de Ana
-      </h1>
-
-      <p>
-        Apprends le coréen progressivement,
-        module après module,
-        et transforme ce que tu apprends
-        en vraies phrases.
-      </p>
-
-      <p style="margin-top:10px;font-weight:700;color:var(--jade-dark)">안녕하세요, <span data-profile-name>Ana</span> ! 🌸</p>
-
-    </header>
-
-
-
-    <div class="modules-title">
-      🗺️ Mon parcours
-    </div>
-
-
-
-    <section class="modules-grid">
-
-
-      <a
-        class="module-card"
-        href="hangeul.html"
-      >
-
-        <div class="module-top">
-
-          <div>
-
-            <div class="module-number">
-              Fondations
-            </div>
-
-            <h2>
-              Hangeul
-            </h2>
-
-          </div>
-
-          <div class="module-icon">
-            🔤
-          </div>
-
-        </div>
-
-        <p class="module-description">
-          Apprends et révise l'alphabet coréen :
-          consonnes, voyelles, syllabes,
-          batchim et prononciation.
-        </p>
-
-        <div class="module-action">
-
-          <span>
-            Ouvrir le parcours Hangeul
-          </span>
-
-          <span class="module-arrow">
-            →
-          </span>
-
-        </div>
-
-      </a>
-
-
-
-      <a
-        class="module-card"
-        href="sac-a-dos.html"
-      >
-
-        <div class="module-top">
-
-          <div>
-
-            <div class="module-number">
-              Fiche mémo
-            </div>
-
-            <h2>
-              Mon sac à dos coréen
-            </h2>
-
-          </div>
-
-          <div class="module-icon">
-            🎒
-          </div>
-
-        </div>
-
-        <p class="module-description">
-          Retrouve en un coup d'œil les notions déjà apprises :
-          particules, grammaire, verbes, vocabulaire et expressions utiles.
-          Ton sac à dos s'enrichit au fil de ta progression.
-        </p>
-
-        <div class="module-action">
-
-          <span>
-            Ouvrir mon sac à dos
-          </span>
-
-          <span class="module-arrow">
-            →
-          </span>
-
-        </div>
-
-      </a>
-
-
-
-      <a
-        class="module-card"
-        href="itineraire.html#module1"
-      >
-
-        <div class="module-top">
-
-          <div>
-
-            <div class="module-number">
-              Module 1
-            </div>
-
-            <h2>
-              Premiers pas en coréen
-            </h2>
-
-          </div>
-
-          <div class="module-icon">
-            🌱
-          </div>
-
-        </div>
-
-        <p class="module-description">
-          Les bases pour comprendre
-          et utiliser tes premières phrases en coréen.
-        </p>
-
-        <div class="module-progress">
-
-          <div class="module-progress-top">
-
-            <span>
-              Progression
-            </span>
-
-            <span id="module1ProgressText">
-              0 / 10 chapitres
-            </span>
-
-          </div>
-
-          <div class="module-progress-bar">
-
-            <div
-              class="module-progress-fill"
-              id="module1ProgressFill"
-            ></div>
-
-          </div>
-
-        </div>
-
-        <div class="module-action">
-
-          <span id="module1Action">
-            Commencer le module
-          </span>
-
-          <span class="module-arrow">
-            →
-          </span>
-
-        </div>
-
-      </a>
-
-
-
-      <a
-        class="module-card"
-        href="itineraire.html#module2"
-      >
-
-        <div class="module-top">
-
-          <div>
-
-            <div class="module-number">
-              Module 2
-            </div>
-
-            <h2>
-              La vie quotidienne
-            </h2>
-
-          </div>
-
-          <div class="module-icon">
-            ☕
-          </div>
-
-        </div>
-
-        <p class="module-description">
-          Apprends à gérer des situations
-          simples de la vie quotidienne
-          avec davantage d'autonomie.
-        </p>
-
-        <div class="module-progress">
-
-          <div class="module-progress-top">
-
-            <span>
-              Progression
-            </span>
-
-            <span id="module2ProgressText">
-              0 / 10 chapitres
-            </span>
-
-          </div>
-
-          <div class="module-progress-bar">
-
-            <div
-              class="module-progress-fill"
-              id="module2ProgressFill"
-            ></div>
-
-          </div>
-
-        </div>
-
-        <div class="module-action">
-
-          <span id="module2Action">
-            Commencer le module
-          </span>
-
-          <span class="module-arrow">
-            →
-          </span>
-
-        </div>
-
-      </a>
-
-
-
-      <a
-        class="module-card"
-        href="itineraire.html#module3"
-      >
-
-        <div class="module-top">
-
-          <div>
-
-            <div class="module-number">
-              Module 3
-            </div>
-
-            <h2>
-              Chapitres 21 à 31
-            </h2>
-
-          </div>
-
-          <div class="module-icon">
-            🚄
-          </div>
-
-        </div>
-
-        <p class="module-description">
-          Développe des échanges plus naturels
-          et utilise ton coréen dans
-          davantage de situations.
-        </p>
-
-        <div class="module-progress">
-
-          <div class="module-progress-top">
-
-            <span>
-              Progression
-            </span>
-
-            <span id="module3ProgressText">
-              0 / 11 chapitres
-            </span>
-
-          </div>
-
-          <div class="module-progress-bar">
-
-            <div
-              class="module-progress-fill"
-              id="module3ProgressFill"
-            ></div>
-
-          </div>
-
-        </div>
-
-        <div class="module-action">
-
-          <span id="module3Action">
-            Commencer le module
-          </span>
-
-          <span class="module-arrow">
-            →
-          </span>
-
-        </div>
-
-      </a>
-
-
-
-      <a
-        class="module-card future"
-        href="itineraire.html#module4"
-      >
-
-        <div class="module-top">
-
-          <div>
-
-            <div class="module-number">
-              Module 4
-            </div>
-
-            <h2>
-              Parler, raconter et s'exprimer
-            </h2>
-
-          </div>
-
-          <div class="module-icon">
-            💬
-          </div>
-
-        </div>
-
-        <p class="module-description">
-          Habitudes, opinions, émotions,
-          invitations, voyages
-          et conversations plus libres.
-        </p>
-
-        <span class="module-status">
-          Chapitres 32 à 43
-        </span>
-
-        <div class="module-action">
-
-          <span>
-            Voir le module
-          </span>
-
-          <span class="module-arrow">
-            →
-          </span>
-
-        </div>
-
-      </a>
-
-
-      <a class="module-card future" href="itineraire.html#module5"><div class="module-top"><div><div class="module-number">Module 5</div><h2>Devenir autonome en Corée</h2></div><div class="module-icon">🌿</div></div><p class="module-description">Dire « si », parler de ce qu’on peut faire, demander la permission, gérer un problème, la pharmacie, une urgence et communiquer à distance.</p><span class="module-status">Chapitres 44–53 disponibles</span><div class="module-action"><span>Voir le module</span><span class="module-arrow">→</span></div></a>
-<a class="module-card future" href="itineraire.html#module6"><div class="module-top"><div><div class="module-number">Module 6</div><h2>Comprendre le coréen naturel</h2></div><div class="module-icon">🎧</div></div><p class="module-description">Comprendre les contractions, les liaisons, le rythme et les réactions du coréen parlé naturellement.</p><span class="module-status">Chapitres 54–63 disponibles</span><div class="module-action"><span>Voir le module</span><span class="module-arrow">→</span></div></a>
-<a class="module-card future" href="itineraire.html#module7"><div class="module-top"><div><div class="module-number">Module 7</div><h2>Parler plus naturellement en coréen</h2></div><div class="module-icon">💬</div></div><p class="module-description">Prendre la parole, relancer, nuancer, raconter et participer à une vraie conversation.</p><span class="module-status">Chapitres 64–75 disponibles</span><div class="module-action"><span>Voir le module</span><span class="module-arrow">→</span></div></a>
-<a class="module-card future" href="itineraire.html#module8"><div class="module-top"><div><div class="module-number">Module 8</div><h2>Enrichir et nuancer son coréen</h2></div><div class="module-icon">🌸</div></div><p class="module-description">Durée, expériences, chronologie, changements, buts, concession, nuances, implicite et conversation libre.</p><span class="module-status">Chapitres 76–89 disponibles</span><div class="module-action"><span>Voir le module</span><span class="module-arrow">→</span></div></a>
-<a class="module-card future" href="itineraire.html#module9"><div class="module-top"><div><div class="module-number">Module 9</div><h2>Adapter son coréen à la situation</h2></div><div class="module-icon">🗣️</div></div><p class="module-description">Niveaux de politesse, relations sociales, demandes avec tact, refus, excuses, réactions et changements de registre.</p><span class="module-status">Chapitres 90–101 disponibles</span><div class="module-action"><span>Voir le module</span><span class="module-arrow">→</span></div></a>
-<a class="module-card future" href="itineraire.html#module10"><div class="module-top"><div><div class="module-number">Module 10</div><h2>Vivre en coréen au quotidien</h2></div><div class="module-icon">🇰🇷</div></div><p class="module-description">Panneaux, annonces, menus, applications, réservations, services, imprévus et autonomie réelle pendant une journée en Corée.</p><span class="module-status">Chapitres 102–113 disponibles</span><div class="module-action"><span>Voir le module</span><span class="module-arrow">→</span></div></a>
-<a class="module-card future" href="itineraire.html#module11"><div class="module-top"><div><div class="module-number">Module 11</div><h2>Raconter, expliquer et développer ses idées</h2></div><div class="module-icon">💬</div></div><p class="module-description">Récit, causes, contraste, arguments, exemples, autocorrection, discours rapporté et discussions longues.</p><span class="module-status">Chapitres 114–127 disponibles</span><div class="module-action"><span>Voir le module</span><span class="module-arrow">→</span></div></a>
-<a class="module-card future" href="itineraire.html#module12"><div class="module-top"><div><div class="module-number">Module 12</div><h2>Rapporter les paroles, les informations et les points de vue</h2></div><div class="module-icon">🗣️</div></div><p class="module-description">Déclarations, questions, ordres, propositions, formes contractées, sources, rumeurs, comparaison des avis et résumés.</p><span class="module-status">Chapitres 128–140 disponibles</span><div class="module-action"><span>Voir le module</span><span class="module-arrow">→</span></div></a>
-<a class="module-card future" href="itineraire.html#module13"><div class="module-top"><div><div class="module-number">Module 13</div><h2>Comprendre le coréen des médias et du numérique</h2></div><div class="module-icon">📱</div></div><p class="module-description">Vlogs, sous-titres, titres, commentaires, réactions, abréviations, avis, réseaux, notifications, interfaces et stratégies face à l’inconnu.</p><span class="module-status">Chapitres 141–154 disponibles</span><div class="module-action"><span>Voir le module</span><span class="module-arrow">→</span></div></a>
-<a class="module-card future" href="itineraire.html#module14"><div class="module-top"><div><div class="module-number">Module 14</div><h2>Comprendre les nuances culturelles et relationnelles avancées</h2></div><div class="module-icon">👀</div></div><p class="module-description">눈치, implicite, refus, invitations, distance, modestie, désaccord, humour, intonation, prudence culturelle et réparation.</p><span class="module-status">Chapitres 155–168 disponibles</span><div class="module-action"><span>Voir le module</span><span class="module-arrow">→</span></div></a>
-<a class="module-card future" href="itineraire.html#module15"><div class="module-top"><div><div class="module-number">Module 15</div><h2>Penser, paraphraser et improviser directement en coréen</h2></div><div class="module-icon">🧠</div></div><p class="module-description">Contourner un mot, expliquer autrement, reformuler, développer, improviser et réduire la traduction mentale.</p><span class="module-status">Chapitres 169–183 disponibles</span><div class="module-action"><span>Voir le module</span><span class="module-arrow">→</span></div></a>
-<a class="module-card future" href="itineraire.html#module16"><div class="module-top"><div><div class="module-number">Module 16</div><h2>Je n’ai plus besoin du manuel</h2></div><div class="module-icon">🏆</div></div><p class="module-description">Traductions retirées, contenus authentiques, conversations longues, projets, présentations et autonomie totale.</p><span class="module-status">Chapitres 184–198 disponibles · cursus principal terminé</span><div class="module-action"><span>Voir le module</span><span class="module-arrow">→</span></div></a>
-
-    </section>
-
-
-
-    <div class="modules-title" style="margin-top:28px">✨ Mes espaces</div><section class="modules-grid"><a class="module-card" href="profil.html"><div class="module-top"><div><div class="module-number">Personnalisation</div><h2>Mon profil</h2></div><div class="module-icon">👤</div></div><p class="module-description">Prénom réel, version hangeul, prénom coréen et propositions inspirées de tes goûts ou de ta naissance.</p><div class="module-action"><span>Personnaliser</span><span class="module-arrow">→</span></div></a><a class="module-card" href="bibliotheque.html"><div class="module-top"><div><div class="module-number">Immersion</div><h2>Bibliothèque</h2></div><div class="module-icon">📚</div></div><p class="module-description">Histoires, comptines, K-pop, K-drama, culture, histoire et ressources.</p><div class="module-action"><span>Ouvrir</span><span class="module-arrow">→</span></div></a><a class="module-card" href="niveaux-de-langue.html"><div class="module-top"><div><div class="module-number">Référence</div><h2>Niveaux de langue</h2></div><div class="module-icon">🗣️</div></div><p class="module-description">반말, poli courant, très poli et honorifiques.</p><div class="module-action"><span>Voir</span><span class="module-arrow">→</span></div></a><a class="module-card" href="culture-coree.html"><div class="module-top"><div><div class="module-number">Culture</div><h2>Culture & histoire</h2></div><div class="module-icon">🇰🇷</div></div><p class="module-description">Dynasties, guerre de Corée, société, traditions et Corée contemporaine.</p><div class="module-action"><span>Voir</span><span class="module-arrow">→</span></div></a></section>
-
-    <section
-      class="mini-garden"
-      aria-label="Plante de progression"
-    >
-
-      <div class="mini-garden-copy">
-
-        <p class="mini-garden-title">
-          🌱 Ma plante
-        </p>
-
-        <p
-          class="plant-message"
-          id="plantMessage"
-        >
-          Termine un chapitre pour la faire grandir.
-        </p>
-
-      </div>
-
-      <div
-        class="mini-garden-plant"
-        id="plant"
-        aria-label="Plante de progression"
-      >
-        🌱
-      </div>
-
-    </section>
-
-
-  </main>
-
-
-
-  <script>
-
-    const modules = [
-      { number: 1, firstChapter: 1, lastChapter: 10 },
-      { number: 2, firstChapter: 11, lastChapter: 20 },
-      { number: 3, firstChapter: 21, lastChapter: 31 },
-      { number: 4, firstChapter: 32, lastChapter: 43 },
-      { number: 5, firstChapter: 44, lastChapter: 53 },
-      { number: 6, firstChapter: 54, lastChapter: 63 },
-      { number: 7, firstChapter: 64, lastChapter: 75 },
-      { number: 8, firstChapter: 76, lastChapter: 89 },
-      { number: 9, firstChapter: 90, lastChapter: 101 },
-      { number: 10, firstChapter: 102, lastChapter: 113 },
-      { number: 11, firstChapter: 114, lastChapter: 127 },
-      { number: 12, firstChapter: 128, lastChapter: 140 },
-      { number: 13, firstChapter: 141, lastChapter: 154 },
-      { number: 14, firstChapter: 155, lastChapter: 168 },
-      { number: 15, firstChapter: 169, lastChapter: 183 },
-      { number: 16, firstChapter: 184, lastChapter: 198 }
-    ];
-
-
-    function ensureModuleProgress(module) {
-      const card = document.querySelector(
-        'a[href="itineraire.html#module' + module.number + '"]'
-      );
-
-      if (!card) return;
-
-      let progress = card.querySelector(".module-progress");
-
-      if (!progress) {
-        progress = document.createElement("div");
-        progress.className = "module-progress";
-        progress.innerHTML =
-          '<div class="module-progress-top">' +
-            '<span>Progression</span>' +
-            '<span id="module' + module.number + 'ProgressText"></span>' +
-          '</div>' +
-          '<div class="module-progress-bar">' +
-            '<div class="module-progress-fill" id="module' + module.number + 'ProgressFill"></div>' +
-          '</div>';
-
-        const action = card.querySelector(".module-action");
-        card.insertBefore(progress, action);
-      }
-
-      const actionLabel = card.querySelector(".module-action span:first-child");
-      if (actionLabel) {
-        actionLabel.id = "module" + module.number + "Action";
-      }
-    }
-
-
-    function chapterCompleted(
-      chapterNumber
-    ) {
-
-      return (
-        localStorage.getItem(
-          "hanaKorean_chapter" +
-          chapterNumber +
-          "_completed"
-        ) === "completed"
-      );
-
-    }
-
-
-    function updateModuleProgress(
-      module
-    ) {
-
-      const total =
-        module.lastChapter -
-        module.firstChapter +
-        1;
-
-
-      let completed =
-        0;
-
-
-      for (
-        let chapter =
-          module.firstChapter;
-
-        chapter <=
-          module.lastChapter;
-
-        chapter++
-      ) {
-
-        if (
-          chapterCompleted(
-            chapter
-          )
-        ) {
-
-          completed++;
-
-        }
-
-      }
-
-
-      const percentage =
-        Math.round(
-          completed /
-          total *
-          100
-        );
-
-
-      const text =
-        document.getElementById(
-          "module" +
-          module.number +
-          "ProgressText"
-        );
-
-
-      const fill =
-        document.getElementById(
-          "module" +
-          module.number +
-          "ProgressFill"
-        );
-
-
-      const action =
-        document.getElementById(
-          "module" +
-          module.number +
-          "Action"
-        );
-
-
-      if (text) {
-
-        text.textContent =
-          completed +
-          " / " +
-          total +
-          " chapitres";
-
-      }
-
-
-      if (fill) {
-
-        fill.style.width =
-          percentage +
-          "%";
-
-      }
-
-
-      if (action) {
-
-        if (
-          completed === 0
-        ) {
-
-          action.textContent =
-            "Commencer le module";
-
-        }
-
-        else if (
-          completed === total
-        ) {
-
-          action.textContent =
-            "Module terminé ✓";
-
-        }
-
-        else {
-
-          action.textContent =
-            "Continuer le module";
-
-        }
-
-      }
-
-    }
-
-
-    function updateHome() {
-
-      modules.forEach(module => {
-        ensureModuleProgress(module);
-        updateModuleProgress(module);
-      });
-
-    }
-
-
-    updateHome();
-
-
-    window.addEventListener(
-      "pageshow",
-      updateHome
-    );
-
-
-    window.addEventListener(
-      "storage",
-      updateHome
-    );
-
-  </script>
-
-
-  <script src="app.js"></script>
+<main class="app">
+  <header class="home-header">
+    <p class="korean" data-profile-static>아나의 한국어 여행 🌿</p>
+    <h1 data-profile-static>Le Coréen de Ana</h1>
+    <p>Apprends progressivement et transforme ce que tu apprends en vraies phrases.</p>
+    <p class="welcome">안녕하세요, <span data-profile-name>Ana</span> ! 🌸</p>
+  </header>
+
+  <h2 class="section-title">🔤 Les fondations</h2>
+  <a class="home-card" href="hangeul.html">
+    <div class="card-top"><div><div class="eyebrow">Toujours accessible</div><h2>Hangeul</h2></div><span class="card-icon">🔤</span></div>
+    <p class="card-description">Alphabet, syllabes, batchim et prononciation : apprends ou révise les bases à tout moment.</p>
+    <div class="card-action"><span>Ouvrir le parcours Hangeul</span><span>→</span></div>
+  </a>
+
+  <h2 class="section-title">🗺️ Mon parcours</h2>
+  <section id="currentModule" aria-live="polite"></section>
+
+  <details class="modules-menu">
+    <summary><span>Voir tous les modules</span><span class="summary-arrow">›</span></summary>
+    <div class="module-list" id="moduleList"></div>
+  </details>
+
+  <h2 class="section-title">✨ Mon espace</h2>
+  <section class="space-grid">
+    <a class="space-card" href="sac-a-dos.html"><span class="space-icon">🎒</span><span><strong>Fiches mémo</strong><span>Mon sac à dos</span></span></a>
+    <a class="space-card" href="bibliotheque.html"><span class="space-icon">📚</span><span><strong>Bibliothèque</strong><span>Immersion &amp; culture</span></span></a>
+    <a class="space-card" href="profil.html"><span class="space-icon">👤</span><span><strong>Mon profil</strong><span>Personnalisation</span></span></a>
+  </section>
+
+  <section class="mini-garden" aria-label="Plante de progression">
+    <div><p class="mini-garden-title">🌱 Ma plante</p><p class="plant-message" id="plantMessage">Termine un chapitre pour la faire grandir.</p></div>
+    <div class="mini-garden-plant" id="plant" aria-label="Plante de progression">🌱</div>
+  </section>
+</main>
+
+<script>
+const modules=[
+  {number:1,first:1,last:10,title:'Premiers pas en coréen',icon:'🌱'},
+  {number:2,first:11,last:20,title:'La vie quotidienne',icon:'☕'},
+  {number:3,first:21,last:31,title:'Développer ses échanges',icon:'🚄'},
+  {number:4,first:32,last:43,title:'Parler, raconter et s’exprimer',icon:'💬'},
+  {number:5,first:44,last:53,title:'Devenir autonome en Corée',icon:'🌿'},
+  {number:6,first:54,last:63,title:'Comprendre le coréen naturel',icon:'🎧'},
+  {number:7,first:64,last:75,title:'Parler plus naturellement',icon:'💬'},
+  {number:8,first:76,last:89,title:'Enrichir et nuancer son coréen',icon:'🌸'},
+  {number:9,first:90,last:101,title:'Adapter son coréen à la situation',icon:'🗣️'},
+  {number:10,first:102,last:113,title:'Vivre en coréen au quotidien',icon:'🇰🇷'},
+  {number:11,first:114,last:127,title:'Raconter et développer ses idées',icon:'💬'},
+  {number:12,first:128,last:140,title:'Rapporter paroles et points de vue',icon:'🗣️'},
+  {number:13,first:141,last:154,title:'Médias et numérique',icon:'📱'},
+  {number:14,first:155,last:168,title:'Nuances culturelles et relationnelles',icon:'👀'},
+  {number:15,first:169,last:183,title:'Penser et improviser en coréen',icon:'🧠'},
+  {number:16,first:184,last:198,title:'Je n’ai plus besoin du manuel',icon:'🏆'}
+];
+
+function chapterCompleted(number){return localStorage.getItem(`hanaKorean_chapter${number}_completed`)==='completed'}
+function getStats(module){let completed=0;for(let chapter=module.first;chapter<=module.last;chapter++){if(chapterCompleted(chapter))completed++}const total=module.last-module.first+1;return{completed,total,percentage:Math.round(completed/total*100)}}
+function getCurrentIndex(){const firstIncomplete=modules.findIndex(module=>getStats(module).completed<getStats(module).total);return firstIncomplete===-1?modules.length-1:firstIncomplete}
+
+function renderHome(){
+  const currentIndex=getCurrentIndex();
+  const current=modules[currentIndex];
+  const stats=getStats(current);
+  const allFinished=modules.every(module=>getStats(module).completed===getStats(module).total);
+  const action=allFinished?'Revoir le dernier module':stats.completed?'Continuer le module':'Commencer le module';
+  document.getElementById('currentModule').innerHTML=`
+    <a class="home-card current-card" href="itineraire.html#module${current.number}">
+      <span class="current-label">${allFinished?'Cursus terminé ✓':'Module en cours'}</span>
+      <div class="card-top"><div><div class="eyebrow">Module ${current.number} · Chapitres ${current.first}–${current.last}</div><h2>${current.title}</h2></div><span class="card-icon">${current.icon}</span></div>
+      <div class="progress-wrap"><div class="progress-line"><span>Progression</span><span>${stats.completed} / ${stats.total} chapitres</span></div><div class="progress-track"><div class="progress-fill" style="width:${stats.percentage}%"></div></div></div>
+      <div class="card-action"><span>${action}</span><span>→</span></div>
+    </a>`;
+
+  document.getElementById('moduleList').innerHTML=modules.map((module,index)=>{
+    const state=getStats(module);
+    const isCurrent=index===currentIndex;
+    const unlocked=index<=currentIndex||state.completed===state.total;
+    const status=state.completed===state.total?'✅':isCurrent?'▶️':'🔒';
+    const detail=state.completed===state.total?'Terminé':isCurrent?`${state.completed}/${state.total} chapitres`:`Chapitres ${module.first}–${module.last}`;
+    const tag=unlocked?'a':'div';
+    const href=unlocked?` href="itineraire.html#module${module.number}"`:'';
+    return `<${tag} class="module-row${isCurrent?' current':''}${unlocked?'':' locked'}"${href}${unlocked?'':' aria-disabled="true"'}><span class="module-row-icon">${module.icon}</span><span class="module-row-copy"><strong>Module ${module.number} · ${module.title}</strong><span>${detail}</span></span><span class="module-row-state">${status}</span></${tag}>`;
+  }).join('');
+}
+
+renderHome();
+window.addEventListener('pageshow',renderHome);
+window.addEventListener('storage',renderHome);
+</script>
+<script src="app.js"></script>
 </body>
-
 </html>
