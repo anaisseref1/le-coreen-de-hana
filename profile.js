@@ -391,7 +391,7 @@
     document.documentElement.dataset.profileName = getDisplayName();
 
     window.dispatchEvent(
-      new CustomEvent("hana-profile-applied", {
+      new CustomEvent("ana-profile-applied", {
         detail: getProfile()
       })
     );
