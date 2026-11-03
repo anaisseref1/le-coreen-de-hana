@@ -780,9 +780,9 @@
 
   const AUDIO_SETTINGS = {
 
-    normalRate: 0.82,
+    normalRate: 0.85,
 
-    slowRate: 0.25
+    slowRate: 0.65
 
   };
 
@@ -808,129 +808,78 @@
 
 
   /* =====================================================
-     VOIX CORÉENNE
+     VOIX CORÉENNE — COMPATIBILITÉ SAFARI / iPHONE
      ===================================================== */
 
   let koreanVoice = null;
-
+  let currentSpeech = null;
 
   function loadKoreanVoice() {
+    if (!( "speechSynthesis" in window )) return;
 
-    if (
-      !("speechSynthesis" in window)
-    ) {
-      return;
-    }
-
-
-    const voices =
-      window.speechSynthesis.getVoices();
-
-
-    const koreanVoices =
-      voices.filter(
-        voice =>
-          voice.lang &&
-          voice.lang
-            .toLowerCase()
-            .startsWith("ko")
-      );
-
-
-    if (
-      koreanVoices.length > 0
-    ) {
-
-      koreanVoice =
-        koreanVoices[0];
-
-    }
-
+    const voices = window.speechSynthesis.getVoices();
+    koreanVoice = voices.find(voice =>
+      (voice.lang || "").toLowerCase().startsWith("ko")
+    ) || null;
   }
-
 
 
   /* =====================================================
      LECTURE AUDIO
      ===================================================== */
 
-  function speakKoreanWithRate(
-    text,
-    rate
-  ) {
-
-    if (
-      !("speechSynthesis" in window)
-    ) {
-
-      alert(
-        "La lecture audio n'est pas disponible sur ce navigateur."
-      );
-
+  function speakKoreanWithRate(text, rate) {
+    if (!( "speechSynthesis" in window ) ||
+        !( "SpeechSynthesisUtterance" in window )) {
+      alert("La lecture vocale n'est pas disponible sur ce navigateur.");
       return;
-
     }
 
+    const synth = window.speechSynthesis;
 
-    window.speechSynthesis.cancel();
+    // Safari peut charger ses voix après l'ouverture de la page.
+    loadKoreanVoice();
 
+    // Le lancement se fait directement dans le clic utilisateur (iOS).
+    synth.cancel();
 
-    const speech =
-      new SpeechSynthesisUtterance(
-        text
-      );
+    const speech = new SpeechSynthesisUtterance(text);
+    speech.lang = "ko-KR";
+    speech.rate = rate;
+    speech.pitch = 1;
+    speech.volume = 1;
 
+    // Si Safari ne répertorie pas la voix coréenne, laisser iOS
+    // choisir sa voix par défaut plutôt que d'imposer une autre langue.
+    if (koreanVoice) speech.voice = koreanVoice;
 
-    speech.lang =
-      "ko-KR";
+    speech.onerror = function(event) {
+      if (currentSpeech !== speech) return;
+      if (event.error !== "canceled" && event.error !== "interrupted") {
+        alert("La lecture audio a échoué (" + event.error +
+              "). Réessaie dans Safari.");
+      }
+      currentSpeech = null;
+    };
 
+    speech.onend = function() {
+      if (currentSpeech === speech) currentSpeech = null;
+    };
 
-    speech.rate =
-      rate;
+    // Conserver une référence durant toute la lecture sur Safari.
+    currentSpeech = speech;
+    synth.speak(speech);
 
-
-    speech.pitch =
-      1;
-
-
-    if (
-      koreanVoice
-    ) {
-
-      speech.voice =
-        koreanVoice;
-
-    }
-
-
-    window.speechSynthesis.speak(
-      speech
-    );
-
+    if (synth.paused) synth.resume();
   }
-
-
 
   function speakKorean(text) {
-
-    speakKoreanWithRate(
-      text,
-      AUDIO_SETTINGS.normalRate
-    );
-
+    speakKoreanWithRate(text, AUDIO_SETTINGS.normalRate);
   }
-
-
 
   function speakKoreanSlow(text) {
-
-    speakKoreanWithRate(
-      text,
-      AUDIO_SETTINGS.slowRate
-    );
-
+    speakKoreanWithRate(text, AUDIO_SETTINGS.slowRate);
   }
-
 
 
   /* =====================================================
