@@ -808,7 +808,7 @@
 
 
   /* =====================================================
-     VOIX CORÉENNE — COMPATIBILITÉ SAFARI / iPHONE
+     VOIX CORÉENNE — TEST iPHONE / SAFARI
      ===================================================== */
 
   let koreanVoice = null;
@@ -818,14 +818,17 @@
     if (!( "speechSynthesis" in window )) return;
 
     const voices = window.speechSynthesis.getVoices();
+    // Yuna est la voix coréenne repérée sur l'iPhone lors du diagnostic.
     koreanVoice = voices.find(voice =>
+      (voice.lang || "").toLowerCase().startsWith("ko") &&
+      (voice.name || "").toLowerCase().includes("yuna")
+    ) || voices.find(voice =>
       (voice.lang || "").toLowerCase().startsWith("ko")
     ) || null;
   }
 
-
   /* =====================================================
-     LECTURE AUDIO
+     LECTURE AUDIO — SANS CANCEL() AVANT CHAQUE LECTURE
      ===================================================== */
 
   function speakKoreanWithRate(text, rate) {
@@ -836,12 +839,14 @@
     }
 
     const synth = window.speechSynthesis;
-
-    // Safari peut charger ses voix après l'ouverture de la page.
     loadKoreanVoice();
 
-    // Le lancement se fait directement dans le clic utilisateur (iOS).
-    synth.cancel();
+    // Test iOS : ne pas appeler cancel() juste avant speak().
+    // Si une lecture est déjà en cours, on la laisse se terminer.
+    // L'utilisateur pourra alors relancer la phrase.
+    if (synth.speaking || synth.pending) {
+      return;
+    }
 
     const speech = new SpeechSynthesisUtterance(text);
     speech.lang = "ko-KR";
@@ -849,27 +854,28 @@
     speech.pitch = 1;
     speech.volume = 1;
 
-    // Si Safari ne répertorie pas la voix coréenne, laisser iOS
-    // choisir sa voix par défaut plutôt que d'imposer une autre langue.
-    if (koreanVoice) speech.voice = koreanVoice;
+    // Choix explicite de Yuna si elle est exposée par iOS.
+    // Sinon, on laisse le navigateur choisir pour ko-KR.
+    if (koreanVoice) {
+      speech.voice = koreanVoice;
+    }
 
     speech.onerror = function(event) {
       if (currentSpeech !== speech) return;
-      if (event.error !== "canceled" && event.error !== "interrupted") {
-        alert("La lecture audio a échoué (" + event.error +
-              "). Réessaie dans Safari.");
-      }
       currentSpeech = null;
+      if (event.error !== "canceled" && event.error !== "interrupted") {
+        alert("Erreur de lecture vocale : " + event.error);
+      }
     };
 
     speech.onend = function() {
       if (currentSpeech === speech) currentSpeech = null;
     };
 
-    // Conserver une référence durant toute la lecture sur Safari.
+    // Conserver l'objet en mémoire pendant la lecture.
     currentSpeech = speech;
+    // L'appel est fait directement par le bouton (geste utilisateur).
     synth.speak(speech);
-
     if (synth.paused) synth.resume();
   }
 
