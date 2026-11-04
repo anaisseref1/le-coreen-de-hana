@@ -838,6 +838,17 @@
       return;
     }
 
+    // Test expérimental iOS : demander une session audio de lecture.
+    // L'API n'est pas disponible sur tous les navigateurs.
+    // Une erreur ici ne doit jamais bloquer la synthèse vocale.
+    try {
+      if ("audioSession" in navigator && navigator.audioSession) {
+        navigator.audioSession.type = "playback";
+      }
+    } catch (error) {
+      console.info("Session audio non configurable :", error);
+    }
+
     const synth = window.speechSynthesis;
     loadKoreanVoice();
 
