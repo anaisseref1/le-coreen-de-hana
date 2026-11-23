@@ -695,14 +695,18 @@
       « Je parle » n'est accessible qu'après
       la validation complète de « J'écoute ».
     */
-    if (
-      localStorage.getItem(
-        "hanaKorean_chapter2_listeningExercise"
-      ) !== "completed"
-    ) {
-      window.location.replace(
-        "chapitre-2.html"
-      );
+    // Accepter la progression enregistrée par l'ancienne version
+    // du mini-défi et synchroniser les deux clés sans rien effacer.
+    const listeningExerciseCompleted =
+      localStorage.getItem("hanaKorean_chapter2_listeningExercise") === "completed";
+    const listeningCompleted =
+      localStorage.getItem("hanaKorean_chapter2_listening") === "completed";
+
+    if (listeningExerciseCompleted || listeningCompleted) {
+      localStorage.setItem("hanaKorean_chapter2_listening", "completed");
+      localStorage.setItem("hanaKorean_chapter2_listeningExercise", "completed");
+    } else {
+      window.location.replace("chapitre-2.html");
     }
   </script>
 
